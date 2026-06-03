@@ -7,16 +7,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:        #0E1114;
-    --bg2:       #13181D;
-    --bg3:       #1A2028;
+    --bg:        #0D0D0D;
+    --bg2:       #111111;
+    --bg3:       #1A1A1A;
     --gold:      #C9A84C;
     --gold-lt:   #E8C060;
     --gold-dim:  rgba(201,168,76,0.15);
     --teal:      #26505A;
     --teal-br:   #3A7A8A;
     --coral:     #F57F76;
-    --white:     #F0F6FC;
+    --white:     #FFFFFF;
     --gray1:     #8B949E;
     --gray2:     #4A5568;
     --border:    rgba(201,168,76,0.18);
@@ -46,6 +46,42 @@
     opacity: 0.4;
   }
 
+  /* ── BOTÃO VOLTAR ── */
+  .back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: rgba(13,13,13,0.85);
+    border: 0.5px solid var(--border);
+    border-radius: 2px;
+    color: var(--gold);
+    font-family: 'Orbitron', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+
+  .back-btn:hover {
+    background: rgba(201,168,76,0.1);
+    border-color: var(--gold);
+    color: var(--gold-lt);
+  }
+
+  .back-btn svg {
+    width: 12px;
+    height: 12px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+  }
+
   /* ── HERO ── */
   .hero {
     min-height: 100vh;
@@ -61,10 +97,9 @@
     background:
       radial-gradient(ellipse 70% 60% at 80% 20%, rgba(58,122,138,0.12) 0%, transparent 60%),
       radial-gradient(ellipse 50% 40% at 10% 80%, rgba(201,168,76,0.06) 0%, transparent 50%),
-      linear-gradient(160deg, #0E1114 0%, #111820 60%, #0A0E12 100%);
+      linear-gradient(160deg, #0D0D0D 0%, #111111 60%, #0A0A0A 100%);
   }
 
-  /* Animated gradient orb */
   .orb {
     position: absolute;
     width: 600px;
@@ -81,7 +116,6 @@
     50% { transform: translate(-30px, 40px) scale(1.05); }
   }
 
-  /* Top navigation bar */
   .nav {
     position: relative;
     z-index: 10;
@@ -149,7 +183,6 @@
     border-radius: 2px;
   }
 
-  /* Hero content */
   .hero-content {
     position: relative;
     z-index: 10;
@@ -219,7 +252,7 @@
 
   .hero-desc {
     font-size: 15px;
-    color: rgba(240,246,252,0.7);
+    color: rgba(255,255,255,0.7);
     max-width: 560px;
     line-height: 1.8;
     margin-bottom: 48px;
@@ -233,7 +266,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Meta pills */
   .meta-row {
     display: flex;
     gap: 12px;
@@ -258,7 +290,6 @@
     font-weight: 500;
   }
 
-  /* Hero footer */
   .hero-footer {
     position: relative;
     z-index: 10;
@@ -288,13 +319,11 @@
     background: linear-gradient(90deg, var(--gold), transparent);
   }
 
-  /* ── MAIN CONTENT ── */
   main {
     position: relative;
     z-index: 1;
   }
 
-  /* Section wrapper */
   .section {
     padding: 100px 64px;
     border-bottom: 0.5px solid rgba(201,168,76,0.08);
@@ -306,7 +335,6 @@
     margin: 0 auto;
   }
 
-  /* Section label */
   .section-label {
     font-family: 'Orbitron', monospace;
     font-size: 8px;
@@ -340,7 +368,6 @@
     color: var(--gold);
   }
 
-  /* ── PROBLEM SECTION ── */
   .problem-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -406,7 +433,7 @@
 
   .card-list li {
     font-size: 13px;
-    color: rgba(240,246,252,0.7);
+    color: rgba(255,255,255,0.7);
     padding: 8px 0;
     border-bottom: 0.5px solid rgba(201,168,76,0.08);
     display: flex;
@@ -422,7 +449,6 @@
     margin-top: 1px;
   }
 
-  /* ── PROCESS SECTION ── */
   .process-bg {
     background: var(--bg2);
   }
@@ -516,7 +542,6 @@
     letter-spacing: 0.04em;
   }
 
-  /* ── DELIVERABLES ── */
   .deliverables-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -579,9 +604,8 @@
     line-height: 1.7;
   }
 
-  /* ── IMPACT ── */
   .impact-bg {
-    background: linear-gradient(135deg, #0A0E12 0%, #111820 100%);
+    background: linear-gradient(135deg, #0A0A0A 0%, #111111 100%);
   }
 
   .impact-grid {
@@ -674,7 +698,6 @@
     white-space: nowrap;
   }
 
-  /* ── LEARNINGS ── */
   .learnings-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -715,9 +738,8 @@
     line-height: 1.8;
   }
 
-  /* ── FOOTER ── */
   footer {
-    background: #080A0C;
+    background: #080808;
     border-top: 0.5px solid var(--border);
     padding: 48px 64px;
     display: flex;
@@ -753,9 +775,7 @@
     display: block;
   }
 
-  .footer-right {
-    text-align: right;
-  }
+  .footer-right { text-align: right; }
 
   .footer-linkedin {
     font-family: 'DM Sans', sans-serif;
@@ -776,13 +796,11 @@
     letter-spacing: 0.04em;
   }
 
-  /* Gold top accent */
   .gold-accent-top {
     height: 2.5px;
     background: linear-gradient(90deg, var(--gold), var(--gold-lt), var(--gold));
   }
 
-  /* Divider ornament */
   .ornament {
     display: flex;
     align-items: center;
@@ -804,17 +822,16 @@
     opacity: 0.6;
   }
 
-  /* Responsive */
   @media (max-width: 900px) {
     .nav, .section, .hero-content, .hero-footer, footer { padding-left: 28px; padding-right: 28px; }
     .problem-grid, .impact-grid, .deliverables-grid, .learnings-grid { grid-template-columns: 1fr; }
     .hero-title { font-size: 44px; }
+    .back-btn { top: 12px; left: 12px; padding: 8px 14px; }
   }
 
-  /* Print optimizations */
   @media print {
     body { background: white; color: black; }
-    .hero-bg, .orb { display: none; }
+    .hero-bg, .orb, .back-btn { display: none; }
   }
 
   /* ── COVER PAGE ── */
@@ -856,7 +873,7 @@
   .c-content { position: relative; z-index: 10; padding: 0 64px 80px; }
   .c-eyebrow { font-family: 'Orbitron', monospace; font-size: 11px; letter-spacing: 0.25em; color: #C9A84C; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
   .c-dot { width: 6px; height: 6px; border-radius: 50%; background: #C9A84C; }
-  .c-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.05; color: #F0F6FC; margin-bottom: 6px; }
+  .c-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.05; color: #FFFFFF; margin-bottom: 6px; }
   .c-title em { font-style: italic; color: #C9A84C; }
   .c-rule { width: 48px; height: 2px; background: linear-gradient(90deg, #C9A84C, rgba(201,168,76,0.2)); margin-bottom: 16px; border-radius: 1px; }
   .c-sub { font-family: 'DM Sans', sans-serif; font-weight: 300; color: #8B949E; margin-bottom: 32px; line-height: 1.5; }
@@ -870,19 +887,27 @@
   .c-hcircle { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid #C9A84C; display: flex; align-items: center; justify-content: center; font-family: 'Orbitron', monospace; font-size: 16px; font-weight: 700; color: #C9A84C; flex-shrink: 0; position: relative; }
   .c-hcircle::after { content: ''; position: absolute; inset: 6px; border-radius: 50%; border: 0.5px solid rgba(201,168,76,0.2); }
   .c-ssep { width: 0.5px; height: 32px; background: rgba(201,168,76,0.25); }
-  .c-sname { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: #F0F6FC; letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 3px; }
+  .c-sname { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: #FFFFFF; letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 3px; }
   .c-srole { font-family: 'Orbitron', monospace; font-size: 8px; color: #C9A84C; letter-spacing: 0.14em; display: block; }
   .c-bignumber { position: absolute; font-family: 'Cormorant Garamond', serif; font-size: 280px; font-weight: 300; line-height: 1; color: rgba(201,168,76,0.06); right: -20px; bottom: -40px; z-index: 1; letter-spacing: -0.05em; }
-
-  </style>
+</style>
 </head>
 <body>
+
+<!-- ── BOTÃO VOLTAR ── -->
+<a class="back-btn" href="index.html" title="Voltar para a página inicial">
+  <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+    <polyline points="7,2 3,6 7,10"/>
+    <line x1="3" y1="6" x2="11" y2="6"/>
+  </svg>
+  VOLTAR
+</a>
 
 <div class="cover-hint">CAPTURAR COMO IMAGEM PARA LINKEDIN</div>
 <div class="gold-accent-top"></div>
 
-<section class="cover-page" style="background: #0E1114;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 85% 40%, rgba(58,122,138,0.14) 0%, transparent 60%), radial-gradient(ellipse 40% 60% at 15% 70%, rgba(201,168,76,0.05) 0%, transparent 50%), linear-gradient(150deg, #0E1114 0%, #111820 100%);"></div>
+<section class="cover-page" style="background: #0D0D0D;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 85% 40%, rgba(58,122,138,0.14) 0%, transparent 60%), radial-gradient(ellipse 40% 60% at 15% 70%, rgba(201,168,76,0.05) 0%, transparent 50%), linear-gradient(150deg, #0D0D0D 0%, #111111 100%);"></div>
   <div class="c-grid"></div>
   <div class="c-gold-top"></div>
   <div class="c-gold-left"></div>
@@ -898,7 +923,6 @@
     <h1 class="c-title" style="font-size:72px;">Persona Digital<br><em>Institucional</em></h1>
     <div class="c-rule"></div>
     <p class="c-sub">Concepção, briefing executivo e produção de avatar institucional<br>para comunicação interna no setor público.</p>
-    
     <div class="c-tags"><span class="c-tag">BRIEFING EXECUTIVO</span><span class="c-tag">UX OPERACIONAL</span><span class="c-tag">JORNADA DO USUÁRIO</span><span class="c-tag">PRODUTO DIGITAL</span></div>
   </div>
   <div class="c-sig">
@@ -911,7 +935,6 @@
   </div>
 </section>
 <div class="cover-divider"></div>
-
 
 <!-- ══ HERO ══ -->
 <section class="hero">
@@ -934,14 +957,11 @@
       <div class="case-label-dot"></div>
       <span class="case-label-text">CASE STUDY 01 · PERSONA DIGITAL · SETOR PÚBLICO</span>
     </div>
-
     <h1 class="hero-title">Persona Digital <em>Institucional</em></h1>
     <p class="hero-subtitle">Concepção, Briefing e Jornada do Usuário no Setor Público</p>
-
     <p class="hero-desc">
       Como atuei na concepção, documentação estratégica e estruturação da jornada de uso de uma persona digital institucional para comunicação interna no setor público, reduzindo fricções na jornada do servidor e modernizando a identidade digital da secretaria.
     </p>
-
     <div class="meta-row">
       <div class="meta-pill"><strong>Contexto</strong> · Secretaria Municipal · Gestão Tributária e Fiscal · Maricá, RJ</div>
       <div class="meta-pill"><strong>Papel</strong> · Product Operations · Concepção, Briefing e Jornada do Usuário</div>
@@ -964,12 +984,9 @@
   <div class="section-inner">
     <div class="section-label">01 · CONTEXTO E PROBLEMA</div>
     <h2 class="section-title">Servidores tinham dúvidas recorrentes<br><em>sobre como acessar os sistemas internos.</em></h2>
-
     <div class="problem-grid">
       <div class="problem-card friction">
-        <div class="card-eyebrow friction">
-          <span>●</span> ANTES · JORNADA COM FRICÇÃO
-        </div>
+        <div class="card-eyebrow friction"><span>●</span> ANTES · JORNADA COM FRICÇÃO</div>
         <h3 class="card-title">Comunicação interna sem humanização</h3>
         <p class="card-body">A secretaria possuía sistemas e ferramentas digitais internas, mas a ausência de um facilitador humanizado gerava dúvidas recorrentes entre os servidores sobre como preencher formulários e acessar os sistemas internos.</p>
         <ul class="card-list">
@@ -980,11 +997,8 @@
           <li>Servidor sem referência clara de onde buscar orientação nos processos internos</li>
         </ul>
       </div>
-
       <div class="problem-card solution">
-        <div class="card-eyebrow solution">
-          <span>●</span> OPORTUNIDADE IDENTIFICADA
-        </div>
+        <div class="card-eyebrow solution"><span>●</span> OPORTUNIDADE IDENTIFICADA</div>
         <h3 class="card-title">Uma persona que facilita, não que apenas informa</h3>
         <p class="card-body">A solução não era apenas criar um avatar decorativo. Era criar uma presença institucional com personalidade, voz e UX definidos, capaz de humanizar a comunicação interna e reduzir as dúvidas dos servidores sobre os processos e sistemas internos. Este case é apresentado para fins de portfólio profissional, sem reprodução de ativos visuais ou audiovisuais institucionais.</p>
         <ul class="card-list">
@@ -1004,9 +1018,7 @@
   <div class="section-inner">
     <div class="section-label">02 · PROCESSO DE CRIAÇÃO</div>
     <h2 class="section-title">Do briefing à<br><em>implementação em produção.</em></h2>
-
     <div class="process-timeline">
-
       <div class="process-step">
         <div class="step-node"><div class="step-node-dot"></div></div>
         <div class="step-number">ETAPA 01</div>
@@ -1018,7 +1030,6 @@
           <span class="step-tag">Identificação de Fricções</span>
         </div>
       </div>
-
       <div class="process-step">
         <div class="step-node"><div class="step-node-dot"></div></div>
         <div class="step-number">ETAPA 02</div>
@@ -1031,7 +1042,6 @@
           <span class="step-tag">Diretrizes Visuais</span>
         </div>
       </div>
-
       <div class="process-step">
         <div class="step-node"><div class="step-node-dot"></div></div>
         <div class="step-number">ETAPA 03</div>
@@ -1044,7 +1054,6 @@
           <span class="step-tag">Inclusão e Representatividade</span>
         </div>
       </div>
-
       <div class="process-step">
         <div class="step-node"><div class="step-node-dot"></div></div>
         <div class="step-number">ETAPA 04</div>
@@ -1057,12 +1066,11 @@
           <span class="step-tag">Acessibilidade</span>
         </div>
       </div>
-
       <div class="process-step">
         <div class="step-node"><div class="step-node-dot"></div></div>
         <div class="step-number">ETAPA 05</div>
         <h3 class="step-title">Implementação e Aprovação em Produção</h3>
-        <p class="step-desc">A persona foi aprovada pela gestão da Subsecretaria de Planejamento e Modernização e pela gestão direta da secretaria. Foi adotada imediatamente nos canais internos da secretaria, utilizada nas apresentações mensais da Gestão à Vista e exibida nos telões durante as reuniões. Após minha saída, a secretaria continuou expandindo o uso da persona para novos contextos internos. </p>
+        <p class="step-desc">A persona foi aprovada pela gestão da Subsecretaria de Planejamento e Modernização e pela gestão direta da secretaria. Foi adotada imediatamente nos canais internos da secretaria, utilizada nas apresentações mensais da Gestão à Vista e exibida nos telões durante as reuniões. Após minha saída, a secretaria continuou expandindo o uso da persona para novos contextos internos.</p>
         <div class="step-tags">
           <span class="step-tag">Implementação</span>
           <span class="step-tag">Go Live</span>
@@ -1070,7 +1078,6 @@
           <span class="step-tag">Comunicação Pública Digital</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1080,9 +1087,7 @@
   <div class="section-inner">
     <div class="section-label">03 · ENTREGAS DO PROJETO</div>
     <h2 class="section-title">O que foi <em>construído e entregue.</em></h2>
-
     <div class="deliverables-grid">
-
       <div class="deliverable-card">
         <div class="deliverable-number">01</div>
         <div class="deliverable-icon">
@@ -1096,7 +1101,6 @@
         <h3 class="deliverable-title">Briefing Executivo Completo</h3>
         <p class="deliverable-desc">Documento estratégico completo com 7 seções: finalidade, diretrizes visuais, aparência física, personalidade e linguagem, contexto de atuação, requisitos técnicos e referências estéticas. A demanda recebida era aberta: apenas referências iniciais de identidade. Todo o restante, personalidade, linguagem, diretrizes visuais, requisitos técnicos e visão estratégica, foi estruturado e documentado pelo autor. Processo integralmente concebido e documentado pelo autor.</p>
       </div>
-
       <div class="deliverable-card">
         <div class="deliverable-number">02</div>
         <div class="deliverable-icon">
@@ -1108,7 +1112,6 @@
         <h3 class="deliverable-title">Avatar Institucional a persona</h3>
         <p class="deliverable-desc">Persona visual criada e aprovada: mulher negra, jovem adulta, expressão acolhedora. Representatividade e inclusão como pilares do design. Implementada nos canais digitais e presenciais da Prefeitura.</p>
       </div>
-
       <div class="deliverable-card">
         <div class="deliverable-number">03</div>
         <div class="deliverable-icon">
@@ -1119,7 +1122,6 @@
         <h3 class="deliverable-title">Vídeo Institucional</h3>
         <p class="deliverable-desc">Vídeo tutorial com a persona como facilitadora: orientando servidores sobre o preenchimento correto do formulário interno de acesso aos sistemas. Aplicação direta de UX: clareza, ausência de ambiguidade, linguagem simples e acessível.</p>
       </div>
-
       <div class="deliverable-card">
         <div class="deliverable-number">04</div>
         <div class="deliverable-icon">
@@ -1132,7 +1134,6 @@
         <h3 class="deliverable-title">Gestão à Vista: Aplicação Mensal</h3>
         <p class="deliverable-desc">A persona foi integrada à revista mensal Gestão à Vista imediatamente após aprovação, exibida nos telões da secretaria em todas as apresentações internas. Consistência visual e presença institucional recorrente desde o primeiro ciclo de uso.</p>
       </div>
-
       <div class="deliverable-card">
         <div class="deliverable-number">05</div>
         <div class="deliverable-icon">
@@ -1143,7 +1144,6 @@
         <h3 class="deliverable-title">Aprovação e Implementação</h3>
         <p class="deliverable-desc">Projeto aprovado pela gestão da Subsecretaria de Planejamento e Modernização e pela gestão direta da secretaria. A solução foi incorporada a novos contextos internos após a entrega, demonstrando aderência ao uso real. Uma solução que segue sendo utilizada institucionalmente após a entrega é evidência de que o processo foi bem estruturado.</p>
       </div>
-
       <div class="deliverable-card">
         <div class="deliverable-number">06</div>
         <div class="deliverable-icon">
@@ -1155,7 +1155,6 @@
         <h3 class="deliverable-title">Acessibilidade Digital</h3>
         <p class="deliverable-desc">Projeto desenvolvido com princípios de acessibilidade: contraste adequado, legibilidade, audiodescrição e compatibilidade com leitores de tela: promovendo inclusão independente de limitações físicas ou cognitivas.</p>
       </div>
-
     </div>
   </div>
 </section>
@@ -1165,17 +1164,13 @@
   <div class="section-inner">
     <div class="section-label">04 · IMPACTO E APRENDIZADOS</div>
     <h2 class="section-title">O que esse projeto<br><em>demonstra na prática.</em></h2>
-
     <div class="impact-grid">
-
       <div class="impact-quote">
         <div class="quote-mark">"</div>
         <p class="quote-text">Quando a experiência é fluida, o servidor não precisa pensar duas vezes. Só precisa agir. Essa persona não era um elemento decorativo. Era a eliminação de uma barreira real entre o servidor público e os processos internos da secretaria.</p>
         <div class="quote-source">CLEYTON HESPANHOL · REFLEXÃO SOBRE O PROJETO</div>
       </div>
-
       <div class="impact-metrics">
-
         <div class="metric-row">
           <div class="metric-indicator" style="background:#C9A84C;"></div>
           <div class="metric-content">
@@ -1184,7 +1179,6 @@
           </div>
           <div class="metric-badge" style="background:rgba(201,168,76,0.1);color:#C9A84C;">END-TO-END</div>
         </div>
-
         <div class="metric-row">
           <div class="metric-indicator" style="background:#3A7A8A;"></div>
           <div class="metric-content">
@@ -1193,7 +1187,6 @@
           </div>
           <div class="metric-badge" style="background:rgba(58,122,138,0.1);color:#3A7A8A;">UX REAL</div>
         </div>
-
         <div class="metric-row">
           <div class="metric-indicator" style="background:#F57F76;"></div>
           <div class="metric-content">
@@ -1202,7 +1195,6 @@
           </div>
           <div class="metric-badge" style="background:rgba(245,127,118,0.1);color:#F57F76;">INCLUSÃO</div>
         </div>
-
         <div class="metric-row">
           <div class="metric-indicator" style="background:#C9A84C;"></div>
           <div class="metric-content">
@@ -1211,7 +1203,6 @@
           </div>
           <div class="metric-badge" style="background:rgba(201,168,76,0.1);color:#C9A84C;">APROVADO</div>
         </div>
-
         <div class="metric-row">
           <div class="metric-indicator" style="background:#3A7A8A;"></div>
           <div class="metric-content">
@@ -1220,7 +1211,6 @@
           </div>
           <div class="metric-badge" style="background:rgba(58,122,138,0.1);color:#3A7A8A;">AUTORIA</div>
         </div>
-
       </div>
     </div>
   </div>
@@ -1231,33 +1221,27 @@
   <div class="section-inner">
     <div class="section-label">05 · APRENDIZADOS DO PROJETO</div>
     <h2 class="section-title">O que esse case<br><em>reforçou como profissional.</em></h2>
-
     <div class="learnings-grid">
-
       <div class="learning-card">
         <div class="learning-icon">01</div>
         <h3 class="learning-title">UX não é sobre interfaces. É sobre barreiras humanas.</h3>
         <p class="learning-body">a persona não resolveu um problema técnico. Resolveu uma barreira cognitiva. O servidor precisava de clareza e de uma referência humana para navegar nos formulários e sistemas internos da secretaria. Criar essa presença foi um ato de UX antes de ser um ato de design.</p>
       </div>
-
       <div class="learning-card">
         <div class="learning-icon">02</div>
         <h3 class="learning-title">Persona bem documentada é produto bem executado.</h3>
         <p class="learning-body">O briefing executivo foi o que garantiu a consistência da entrega. Sem documentação clara de personalidade, linguagem, contexto e requisitos técnicos, o avatar teria sido apenas uma imagem: não uma presença institucional.</p>
       </div>
-
       <div class="learning-card">
         <div class="learning-icon">03</div>
         <h3 class="learning-title">Transformação digital começa pela experiência humana.</h3>
         <p class="learning-body">A Prefeitura não precisava de mais tecnologia: precisava de mais clareza. A persona foi a ponte entre os sistemas internos da secretaria e o servidor público. Isso é Product Operations aplicado ao setor público: identificar onde está a fricção e eliminá-la com uma solução simples, clara e humanizada.</p>
       </div>
-
       <div class="learning-card">
         <div class="learning-icon">04</div>
         <h3 class="learning-title">Inclusão é requisito de produto, não diferencial.</h3>
         <p class="learning-body">A escolha de uma persona negra, jovem adulta e representativa da diversidade de Maricá não foi estética. Foi estratégica. Um produto institucional que não representa seu usuário falha antes de ser lançado. E uma solução que continua sendo utilizada institucionalmente após a entrega é a prova de que a concepção foi sólida.</p>
       </div>
-
     </div>
   </div>
 </section>
