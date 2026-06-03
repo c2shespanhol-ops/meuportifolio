@@ -1,756 +1,396 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ═══════════════════════════════════════════════
-     SEO & ATS META TAGS
-     Keywords extraídas de vagas reais: RD Station,
-     Gupy, Glassdoor, Indeed — Product Operations,
-     UX Operations, Gestão de Produto, Melhoria Contínua
-═══════════════════════════════════════════════ -->
-<title>Cleyton Hespanhol | Product Operations Manager · UX Operations · Rio de Janeiro</title>
-<meta name="description" content="Product Operations Manager com foco em UX operacional, redução de fricção, gestão de backlog, melhoria contínua e eficiência operacional em produtos digitais. Rio de Janeiro, Brasil. Disponível para oportunidades remotas e híbridas.">
-<meta name="keywords" content="Product Operations Manager, UX Operations, Product Manager, Gestão de Produto, Melhoria de Processos, Process Improvement, Gestão de Backlog, Discovery Operacional, Redução de Fricção, Mapeamento de Jornada, Jira, Kanban, Scrum, OKR, SLA, UAT, UX Research, Eficiência Operacional, Transformação Digital, Gestão de Stakeholders, Melhoria Contínua, Data-Driven, KPIs, SaaS, Rio de Janeiro">
-<meta name="author" content="Cleyton Hespanhol">
-<meta name="robots" content="index, follow">
-
-<!-- Open Graph para LinkedIn -->
-<meta property="og:title" content="Cleyton Hespanhol | Product Operations Manager">
-<meta property="og:description" content="Product Operations Manager com foco em UX operacional, redução de fricção e melhoria contínua. Resultados reais: 71% redução no lead time, 27% menos recorrência de demandas, 31% menos tempo de resolução.">
-<meta property="og:type" content="profile">
-<meta property="og:locale" content="pt_BR">
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
-
-<style>
-  :root {
-    --bg:      #0D0F10; /* Preto fosco premium extraído do banner */
-    --bg2:     #131618; /* Fundo secundário para os blocos */
-    --bg3:     #1A1D20; /* Fundo para efeitos de seleção e hover */
-    --gold:    #C5A25D; /* Dourado corporativo polido do arquivo de referência */
-    --gold-lt: #DEC082; /* Dourado claro para realces táteis */
-    --teal:    #407F8F; /* Azul operacional discreto */
-    --coral:   #E06B62;
-    --white:   #FFFFFF; /* Branco puro de alta clareza */
-    --gray1:   #9CA3AF; /* Cinza claro suave para leitura */
-    --gray2:   #4B5563; /* Cinza escuro para detalhes secundários */
-    --border:  rgba(197, 162, 93, 0.2);
-  }
-
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none; z-index: 0; opacity: 0.35;
-  }
-
-  /* ── GOLD BARS ── */
-  .gold-top { height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-lt), var(--gold)); position: relative; z-index: 10; }
-  .gold-left { position: fixed; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--gold), rgba(197,162,93,0.15)); z-index: 10; }
-
-  /* ── LAYOUT ── */
-  .page { max-width: 1100px; margin: 0 auto; padding: 0 64px; position: relative; z-index: 1; }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    justify-content: center;
-    padding: 80px 64px;
-    position: relative; overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 70% at 90% 30%, rgba(197,162,93,0.06) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 50% at 5% 70%, rgba(64,127,143,0.05) 0%, transparent 50%),
-      #0D0F10;
-  }
-
-  .hero-inner { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; width: 100%; }
-
-  .status-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 6px 16px;
-    border: 0.5px solid rgba(64,127,143,0.5);
-    border-radius: 2px;
-    background: rgba(64,127,143,0.06);
-    margin-bottom: 32px;
-    animation: fadeUp 0.6s ease forwards;
-  }
-
-  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); animation: blink 2s ease-in-out infinite; }
-
-  @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
-  @keyframes fadeUp { from{opacity:0;transform:translateY(16px);} to{opacity:1;transform:translateY(0);} }
-
-  .status-text { font-family: 'Orbitron', monospace; font-size: 9px; color: var(--teal); letter-spacing: 0.2em; }
-
-  .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
-
-  .hero-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(56px, 8vw, 96px);
-    font-weight: 300; 
-    line-height: 1.15; /* Correção para o erro visual de sobreposição nas quebras */
-    color: var(--white);
-    letter-spacing: -0.02em;
-    margin-bottom: 28px; /* Espaçamento ampliado para dar respiro ao cargo inferior */
-    animation: fadeUp 0.7s ease forwards; animation-delay: 0.1s; opacity: 0;
-  }
-
-  .hero-title {
-    font-family: 'Orbitron', monospace;
-    font-size: 11px; font-weight: 600;
-    color: var(--gold); letter-spacing: 0.2em;
-    margin-bottom: 24px;
-    animation: fadeUp 0.7s ease forwards; animation-delay: 0.2s; opacity: 0;
-  }
-
-  .hero-tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 300;
-    color: var(--gray1); line-height: 1.5;
-    max-width: 560px; margin-bottom: 36px;
-    animation: fadeUp 0.7s ease forwards; animation-delay: 0.3s; opacity: 0;
-  }
-
-  .hero-tagline em { color: var(--gold); font-style: italic; }
-
-  .contact-row {
-    display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;
-    animation: fadeUp 0.7s ease forwards; animation-delay: 0.4s; opacity: 0;
-  }
-
-  .contact-item {
-    display: flex; align-items: center; gap: 8px;
-    font-size: 12px; color: var(--gray1); text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .contact-item:hover { color: var(--gold); }
-
-  .contact-item svg { width: 14px; height: 14px; flex-shrink: 0; }
-
-  /* CTA Button */
-  .cta-btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 14px 28px;
-    background: var(--gold); border-radius: 2px;
-    font-family: 'Orbitron', monospace;
-    font-size: 9px; font-weight: 600;
-    color: #0D0F10; letter-spacing: 0.15em;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
-    animation: fadeUp 0.7s ease forwards; animation-delay: 0.5s; opacity: 0;
-  }
-
-  .cta-btn:hover { background: var(--gold-lt); transform: translateY(-2px); }
-
-  /* Big metric right */
-  .hero-metric {
-    text-align: center;
-    animation: fadeUp 0.7s ease forwards; animation-delay: 0.4s; opacity: 0;
-  }
-
-  .hero-metric-val {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 100px; font-weight: 300;
-    color: rgba(197,162,93,0.2); line-height: 1;
-    display: block; position: relative;
-  }
-
-  .hero-metric-val::after {
-    content: attr(data-v);
-    position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--gold); opacity: 0.9; font-size: 72px;
-  }
-
-  .hero-metric-lbl {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gray2);
-    letter-spacing: 0.15em; margin-top: 8px;
-  }
-
-  /* ── DIVIDER ── */
-  .divider {
-    height: 0.5px;
-    background: linear-gradient(90deg, var(--gold), rgba(197,162,93,0.1), transparent);
-    margin: 0;
-  }
-
-  /* ── SECTIONS ── */
-  .section { padding: 80px 64px; }
-  .section-inner { max-width: 1100px; margin: 0 auto; }
-
-  .sec-label {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gold);
-    letter-spacing: 0.25em; margin-bottom: 40px;
-    display: flex; align-items: center; gap: 12px;
-  }
-
-  .sec-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); max-width: 60px; }
-
-  /* ── SOBRE ── */
-  .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-
-  .sobre-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px; font-weight: 300;
-    color: rgba(255,255,255,0.85); line-height: 1.75;
-  }
-
-  .sobre-text em { font-style: italic; color: var(--gold); }
-
-  .sobre-text p { margin-bottom: 20px; }
-  .sobre-text p:last-child { margin-bottom: 0; }
-
-  .sobre-pillars { display: flex; flex-direction: column; gap: 2px; }
-
-  .pillar {
-    background: var(--bg2); padding: 20px 24px;
-    border-left: 2px solid transparent;
-    transition: border-color 0.3s, background 0.3s;
-  }
-
-  .pillar:hover { border-left-color: var(--gold); background: var(--bg3); }
-
-  .pillar-name {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gold);
-    letter-spacing: 0.15em; margin-bottom: 6px;
-  }
-
-  .pillar-desc { font-size: 13px; color: var(--gray1); line-height: 1.6; }
-
-  /* ── RESULTADOS ── */
-  .results-bg { background: var(--bg2); }
-
-  .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
-
-  .result-card {
-    background: var(--bg); padding: 40px 28px;
-    text-align: center; position: relative; overflow: hidden;
-    transition: background 0.3s, transform 0.2s;
-    text-decoration: none; display: block; color: inherit;
-  }
-
-  .result-card:hover { background: var(--bg3); transform: translateY(-3px); }
-
-  .result-card::before {
-    content: ''; position: absolute;
-    top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    opacity: 0; transition: opacity 0.3s;
-  }
-
-  .result-card:hover::before { opacity: 1; }
-
-  .r-val {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 56px; font-weight: 300;
-    color: var(--gold); line-height: 1;
-    display: block; margin-bottom: 10px;
-  }
-
-  .r-label {
-    font-family: 'Orbitron', monospace;
-    font-size: 7.5px; color: var(--gray1);
-    letter-spacing: 0.12em; line-height: 1.6;
-    text-transform: uppercase;
-  }
-
-  .r-context { font-size: 11px; color: var(--gray2); margin-top: 8px; line-height: 1.4; }
-  
-  .r-action { font-family: 'Orbitron', monospace; font-size: 8px; color: var(--gold); letter-spacing: 0.1em; display: block; margin-top: 16px; opacity: 0.7; transition: opacity 0.2s; }
-  .result-card:hover .r-action { opacity: 1; }
-
-  /* ── COMPETÊNCIAS ── */
-  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-
-  .skill-group { background: var(--bg2); padding: 32px 28px; }
-
-  .sg-title {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gold);
-    letter-spacing: 0.15em; margin-bottom: 16px;
-    padding-bottom: 10px;
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .sg-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-
-  .sg-tag {
-    font-size: 11px; padding: 4px 10px;
-    border: 0.5px solid var(--border); border-radius: 2px;
-    color: rgba(255,255,255,0.7);
-    background: rgba(197,162,93,0.03);
-    transition: border-color 0.2s, color 0.2s;
-  }
-
-  .sg-tag:hover { border-color: var(--gold); color: var(--gold); }
-
-  /* ── TRAJETÓRIA ── */
-  .timeline { position: relative; padding-left: 32px; }
-
-  .timeline::before {
-    content: ''; position: absolute;
-    left: 0; top: 8px; bottom: 8px; width: 1px;
-    background: linear-gradient(180deg, var(--gold), rgba(197,162,93,0.1));
-  }
-
-  .tl-item { position: relative; margin-bottom: 40px; }
-  .tl-item:last-child { margin-bottom: 0; }
-
-  .tl-dot {
-    position: absolute; left: -38px; top: 5px;
-    width: 12px; height: 12px; border-radius: 50%;
-    border: 1.5px solid var(--gold); background: var(--bg);
-    display: flex; align-items: center; justify-content: center;
-  }
-
-  .tl-dot-inner { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
-
-  .tl-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; flex-wrap: wrap; gap: 8px; }
-
-  .tl-company { font-size: 15px; font-weight: 500; color: var(--white); }
-  .tl-role { font-size: 12px; color: var(--gold); margin-top: 2px; }
-  .tl-period { font-family: 'Orbitron', monospace; font-size: 8px; color: var(--gray2); letter-spacing: 0.1em; white-space: nowrap; }
-
-  .tl-metrics { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
-
-  .tl-metric {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; padding: 3px 10px;
-    border: 0.5px solid rgba(197,162,93,0.3); border-radius: 2px;
-    color: var(--gold); background: rgba(197,162,93,0.05);
-  }
-
-  /* ── FORMAÇÃO & CERTS ── */
-  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-
-  .edu-list, .cert-list { list-style: none; }
-
-  .edu-item, .cert-item {
-    padding: 14px 0;
-    border-bottom: 0.5px solid rgba(197,162,93,0.08);
-  }
-
-  .edu-name { font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 3px; }
-  .edu-inst { font-size: 12px; color: var(--gray1); }
-
-  .cert-name { font-size: 13px; font-weight: 500; color: var(--white); margin-bottom: 2px; }
-  .cert-inst { font-size: 11px; color: var(--gold); }
-
-  /* Group label */
-  .cert-group { font-family: 'Orbitron', monospace; font-size: 8px; color: var(--gold); letter-spacing: 0.15em; margin: 20px 0 10px; }
-  .cert-group:first-child { margin-top: 0; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: #070809;
-    border-top: 0.5px solid var(--border);
-    padding: 40px 64px;
-    display: flex; align-items: center;
-    justify-content: space-between; gap: 24px;
-  }
-
-  .footer-brand { display: flex; align-items: center; gap: 14px; }
-
-  .h-circle {
-    width: 42px; height: 42px; border-radius: 50%;
-    border: 1.5px solid var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Orbitron', monospace; font-size: 16px; font-weight: 700; color: var(--gold);
-    position: relative;
-  }
-
-  .h-circle::after { content: ''; position: absolute; inset: 5px; border-radius: 50%; border: 0.5px solid rgba(197,162,93,0.2); }
-
-  .footer-name { font-size: 14px; font-weight: 500; color: var(--white); letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 3px; }
-  .footer-role { font-family: 'Orbitron', monospace; font-size: 8px; color: var(--gold); letter-spacing: 0.14em; display: block; }
-
-  .footer-cta {
-    display: flex; flex-direction: column; align-items: flex-end; gap: 6px;
-  }
-
-  .footer-cta a { font-size: 12px; color: var(--teal); text-decoration: none; transition: color 0.2s; }
-  .footer-cta a:hover { color: var(--gold); }
-  .footer-note { font-family: 'Orbitron', monospace; font-size: 7px; color: var(--gray2); letter-spacing: 0.1em; }
-
-  /* Corner ornament */
-  .corner-orn { position: absolute; top: 20px; right: 64px; opacity: 0.3; z-index: 5; }
-
-  @media (max-width: 900px) {
-    .hero, .section, footer { padding-left: 28px; padding-right: 28px; }
-    .hero-grid, .sobre-grid, .results-grid, .skills-grid, .edu-grid { grid-template-columns: 1fr; }
-    .results-grid { grid-template-columns: 1fr 1fr; }
-    .hero-name { font-size: 48px; }
-    .hero-metric { display: none; }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ==============================================
+         SEO & ATS META TAGS
+         Keywords extraídas de vagas reais: RD Station,
+         Gupy, Glassdoor, Indeed - Product Operations,
+         UX Operations, Gestão de Produto, Melhoria Contínua
+         ============================================== -->
+    <title>Cleyton Hespanhol | Product Operations Manager • UX Operations • Rio de Janeiro</title>
+    <meta name="description" content="Product Operations Manager com foco em UX operacional, redução de fricção, gestão de backlog, melhoria contínua e eficiência operacional em produtos digitais. Rio de Janeiro.">
+    <meta name="keywords" content="Product Operations Manager, UX Operations, Product Manager, Gestão de Produto, Melhoria de Processos, Process Improvement, Gestão de Backlog, Discovery Operacional, Redução de Fricção">
+    <meta name="author" content="Cleyton Hespanhol">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph para LinkedIn -->
+    <meta property="og:title" content="Cleyton Hespanhol | Product Operations Manager">
+    <meta property="og:description" content="Product Operations Manager com foco em UX operacional, redução de fricção e melhoria contínua. Resultados reais: 71% redução no lead time, 27% menos recorrência de demandas.">
+    <meta property="og:type" content="profile">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Fontes Premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0D0F10; /* Preto fosco premium extraído do banner */
+            --bg2: #131618; /* Fundo secundário para os blocos */
+            --bg3: #1A1D20; /* Fundo para efeitos de seleção e hover */
+            --gold: #C5A25D; /* Dourado corporativo polido */
+            --gold-lt: #DEC082; /* Dourado claro para realces */
+            --text: #FFFFFF;
+            --text-muted: #A0A5A8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-h {
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 60px auto 80px auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-tags {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .hero-main-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--text);
+            margin-bottom: 20px;
+            max-width: 900px;
+        }
+
+        .hero-main-text em {
+            font-style: italic;
+            color: var(--gold-lt);
+        }
+
+        .hero-sub-text {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 800px;
+        }
+
+        /* Corporate Banner */
+        .corporate-banner {
+            background: linear-gradient(135deg, var(--bg2) 0%, var(--bg) 100%);
+            border-top: 1px solid var(--bg3);
+            border-bottom: 1px solid var(--bg3);
+            padding: 60px 20px;
+            margin: 80px 0;
+        }
+
+        .banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .banner-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--text);
+            letter-spacing: 1px;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .banner-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            flex: 1.5;
+            min-width: 300px;
+            border-left: 2px solid var(--gold);
+            padding-left: 20px;
+        }
+
+        .banner-desc em {
+            color: var(--gold);
+            font-style: normal;
+        }
+
+        /* Cases Grid */
+        .cases-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--bg3);
+            padding-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .grid-cases {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-cases {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .case-card {
+            background-color: var(--bg2);
+            border: 1px solid var(--bg3);
+            padding: 35px;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .case-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            background-color: var(--bg3);
+        }
+
+        .case-meta {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .case-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .case-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: rgba(197, 162, 93, 0.1);
+            padding: 5px 12px;
+            border-radius: 2px;
+            font-size: 0.8rem;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--gold-lt);
+            border: 1px solid rgba(197, 162, 93, 0.2);
+        }
+
+        .btn-case {
+            align-self: flex-start;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 10px 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .case-card:hover .btn-case {
+            background-color: var(--gold);
+            color: var(--bg);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--bg3);
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 100px;
+        }
+    </style>
 </head>
 <body>
 
-<!-- ATS Hidden Keywords — indexado por robôs, invisível para humanos -->
-<div style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;" aria-hidden="true">
-Product Operations Manager, UX Operations, Product Operations, UX Operacional, Process Improvement, Melhoria de Processos, Gestão de Backlog, Discovery Operacional, Redução de Fricção, Mapeamento de Jornada do Usuário, Jira, Kanban, Scrum, OKR, SLA, UAT, OAT, UX Research, UX Writing, Design Thinking, Lean Inception, Eficiência Operacional, Transformação Digital, Gestão de Stakeholders, Melhoria Contínua, Data-Driven, KPIs, SaaS, Product Manager, Analista de Produto, Gerente de Produto, Product Owner, Operações de Produto, Gestão de Produto, Análise de Dados, Google Workspace, Figma, Metodologias Ágeis, WIP Limit, Governança, Backlog Refinement, Product Discovery, Upstream Kanban, Downstream Kanban, Onboarding Operacional, Central de Conhecimento, Customer Experience, CX, Rio de Janeiro, Remoto, Híbrido
-</div>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <div class="logo-h">H</div>
+            <div class="logo-text">Cleyton Hespanhol</div>
+        </div>
+    </header>
 
-<div class="gold-top"></div>
-<div class="gold-left"></div>
-
-<!-- ══ HERO ══ -->
-<section class="hero">
-  <div class="hero-bg"></div>
-
-  <svg class="corner-orn" width="36" height="36" viewBox="0 0 36 36" fill="none">
-    <circle cx="18" cy="18" r="17" stroke="#C5A25D" stroke-width="0.8"/>
-    <circle cx="18" cy="18" r="10" stroke="#C5A25D" stroke-width="0.5"/>
-    <circle cx="18" cy="18" r="3" fill="#C5A25D"/>
-  </svg>
-
-  <div class="hero-inner">
-
-    <div class="status-badge">
-      <div class="status-dot"></div>
-      <span class="status-text">DISPONÍVEL IMEDIATAMENTE · REMOTO E HÍBRIDO</span>
-    </div>
-
-    <div class="hero-grid">
-      <div>
-        <h1 class="hero-name">Cleyton<br>Hespanhol</h1>
-        <div class="hero-title">PRODUCT OPERATIONS MANAGER · UX OPERATIONS · RIO DE JANEIRO, BRASIL</div>
-
-        <p class="hero-tagline">
-          Transformo operações complexas em fluxos <em>eficientes, previsíveis e orientados a dados.</em><br>
-          Meu diferencial é a visão end-to-end da jornada do usuário, construída na prática.
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Cleyton Hespanhol</h1>
+        <div class="hero-tags">
+            Product Operations Manager &bull; UX Operations &bull; Rio de Janeiro, Brasil
+        </div>
+        <p class="hero-main-text">
+            Transformo operações complexas em fluxos <em>eficientes, previsíveis e orientados a dados.</em>
         </p>
-
-        <div class="contact-row">
-          <a href="tel:+5521986314378" class="contact-item">
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 2h3l1.5 3.5-2 1.2c.9 1.8 2.3 3.1 4 4l1.2-2L13 10v3c0 1-6 2-11-8S1 1 2 2z"/></svg>
-            (21) 98631-4378
-          </a>
-          <a href="mailto:c2shespanhol@gmail.com" class="contact-item">
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="3" width="12" height="9" rx="1"/><path d="M1 4l6 5 6-5"/></svg>
-            c2shespanhol@gmail.com
-          </a>
-          <a href="https://linkedin.com/in/cleytonhespanhol" target="_blank" class="contact-item">
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1" width="12" height="12" rx="2"/><path d="M4 6v5M4 4v.5M7 11V8c0-1 .5-2 2-2s2 1 2 2v3M7 6v5"/></svg>
-            linkedin.com/in/cleytonhespanhol
-          </a>
-        </div>
-
-        <a href="mailto:c2shespanhol@gmail.com" class="cta-btn">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M7 2l4 4-4 4"/></svg>
-          VAMOS CONVERSAR
-        </a>
-      </div>
-
-      <div class="hero-metric">
-        <span class="hero-metric-val" data-v="71%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <div class="hero-metric-lbl">REDUÇÃO NO<br>LEAD TIME</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ══ SOBRE ══ -->
-<section class="section">
-  <div class="section-inner">
-    <div class="sec-label">01 · POSICIONAMENTO</div>
-    <div class="sobre-grid">
-
-      <div class="sobre-text">
-        <p>
-          Product Operations Manager com trajetória construída na operação real. Do atendimento ao cliente à gestão de fluxos, processos e experiência do usuário em produtos digitais.
+        <p class="hero-sub-text">
+            Meu diferencial é a visão end-to-end da jornada do usuário, construída na prática através da liderança de processos de melhoria contínua e governança ágil.
         </p>
-        <p>
-          Atuo onde <em>negócio, tecnologia e pessoas se encontram</em>: eliminando frictions, aumentando previsibilidade e transformando operações complexas em fluxos eficientes orientados a dados.
-        </p>
-        <p>
-          Meu diferencial não é apenas produto. É a <em>visão end-to-end da jornada do usuário</em>, desenvolvida na prática antes de qualquer metodologia formal. De quem viu o problema acontecer e depois aprendeu o nome do que já fazia.
-        </p>
-      </div>
+    </section>
 
-      <div class="sobre-pillars">
-        <div class="pillar">
-          <div class="pillar-name">PRODUCT OPERATIONS</div>
-          <div class="pillar-desc">Gestão de backlog, priorização de demandas, discovery operacional, governança de processos e eficiência de times de produto.</div>
+    <!-- Corporate Value Banner -->
+    <section class="corporate-banner">
+        <div class="banner-content">
+            <div class="banner-title">CLAREZA PARA FLUXOS COMPLEXOS.</div>
+            <div class="banner-desc">
+                Dados, processes e pessoas conectados para gerar <em>eficiência</em> e <em>impacto real</em> na entrega de valor de produtos digitais.
+            </div>
         </div>
-        <div class="pillar">
-          <div class="pillar-name">UX OPERACIONAL</div>
-          <div class="pillar-desc">Mapeamento de jornada, redução de fricção, onboarding estruturado, central de conhecimento e autosserviço.</div>
+    </section>
+
+    <!-- Cases Section -->
+    <section class="cases-section">
+        <h2 class="section-title">Estudos de Caso</h2>
+        <div class="grid-cases">
+
+            <!-- Card 1 -->
+            <a href="case_study_01_persona_final.html" class="case-card">
+                <div>
+                    <div class="case-meta">Caso 01 &bull; UX Operations</div>
+                    <h3>Alinhamento e Persona Operacional</h3>
+                    <p>Estruturação e mapeamento detalhado da jornada de usuários finais e personas para otimizar os fluxos de atendimento e reduzir atritos operacionais.</p>
+                </div>
+                <div class="stats-container">
+                    <div class="stat-box">UX Ops</div>
+                    <div class="stat-box">Mapeamento</div>
+                </div>
+                <button class="btn-case">Ver Estudo de Caso</button>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="case_study_02_leadtime_final.html" class="case-card">
+                <div>
+                    <div class="case-meta">Caso 02 &bull; Process Improvement</div>
+                    <h3>Eficiência e Redução de Lead Time</h3>
+                    <p>Otimização de fluxos de demandas através de metodologias ágeis e limites de WIP, resultando em expressiva redução no tempo de entrega de ponta a ponta.</p>
+                </div>
+                <div class="stats-container">
+                    <div class="stat-box">-71% Lead Time</div>
+                    <div class="stat-box">Kanban</div>
+                </div>
+                <button class="btn-case">Ver Estudo de Caso</button>
+            </a>
+
+            <!-- Card 3 -->
+            <a href="case_study_03_habitat_final.html" class="case-card">
+                <div>
+                    <div class="case-meta">Caso 03 &bull; Product Ops</div>
+                    <h3>Gestão de Demandas &amp; Habitat</h3>
+                    <p>Desenvolvimento e centralização de ecossistema operacional para triagem, priorização e refinamento técnico de backlogs complexos.</p>
+                </div>
+                <div class="stats-container">
+                    <div class="stat-box">Backlog</div>
+                    <div class="stat-box">Governança</div>
+                </div>
+                <button class="btn-case">Ver Estudo de Caso</button>
+            </a>
+
+            <!-- Card 4 -->
+            <a href="case_study_04_shv_final.html" class="case-card">
+                <div>
+                    <div class="case-meta">Caso 04 &bull; Knowledge Management</div>
+                    <h3>Autoatendimento e Redução de Suporte</h3>
+                    <p>Implementação de base de conhecimento auto-atendível integrada a ferramentas de CRM, mitigando drasticamente gargalos de solicitações repetitivas.</p>
+                </div>
+                <div class="stats-container">
+                    <div class="stat-box">-27% Suporte</div>
+                    <div class="stat-box">CRM / Self-Service</div>
+                </div>
+                <button class="btn-case">Ver Estudo de Caso</button>
+            </a>
+
         </div>
-        <div class="pillar">
-          <div class="pillar-name">MELHORIA CONTÍNUA</div>
-          <div class="pillar-desc">Gestão de SLA, análise de dados operacionais, identificação de gargalos e melhoria de processos orientada a KPIs.</div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-name">GESTÃO DE STAKEHOLDERS</div>
-          <div class="pillar-desc">Alinhamento entre negócio, tecnologia e usuários. Comunicação entre times, gestão de expectativas e UAT/OAT.</div>
-        </div>
-      </div>
+    </section>
 
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ══ RESULTADOS ══ -->
-<section class="section results-bg">
-  <div class="section-inner">
-    <div class="sec-label">02 · RESULTADOS MENSURÁVEIS (CLIQUE PARA VER O PROJETO)</div>
-    <div class="results-grid">
-      <a href="case_study_02_leadtime_final.html" class="result-card">
-        <span class="r-val">71%</span>
-        <div class="r-label">Redução no<br>Lead Time</div>
-        <p class="r-context">Reestruturação de fluxo, padronização e controle de SLA</p>
-        <span class="r-action">VER CASO →</span>
-      </a>
-      <a href="case_study_03_habitat_final.html" class="result-card">
-        <span class="r-val">27%</span>
-        <div class="r-label">Menos Recorrência<br>de Demandas</div>
-        <p class="r-context">Central de conhecimento e onboarding por perfil de usuário</p>
-        <span class="r-action">VER CASO →</span>
-      </a>
-      <a href="case_study_04_shv_final.html" class="result-card">
-        <span class="r-val">40%</span>
-        <div class="r-label">Menos Tempo<br>de Resposta</div>
-        <p class="r-context">Otimização de fluxos de atendimento em operação nacional</p>
-        <span class="r-action">VER CASO →</span>
-      </a>
-      <a href="case_study_01_persona_final.html" class="result-card">
-        <span class="r-val">31%</span>
-        <div class="r-label">Menos Tempo<br>de Resolução</div>
-        <p class="r-context">Reestruturação de fluxos operacionais e organização das informações</p>
-        <span class="r-action">VER CASO →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ══ COMPETÊNCIAS ══ -->
-<section class="section">
-  <div class="section-inner">
-    <div class="sec-label">03 · COMPETÊNCIAS E FERRAMENTAS</div>
-    <div class="skills-grid">
-
-      <div class="skill-group">
-        <div class="sg-title">PRODUCT OPERATIONS & UX</div>
-        <div class="sg-tags">
-          <span class="sg-tag">Product Operations</span>
-          <span class="sg-tag">UX Research</span>
-          <span class="sg-tag">UX Operacional</span>
-          <span class="sg-tag">Redução de Fricção</span>
-          <span class="sg-tag">Mapeamento de Jornada</span>
-          <span class="sg-tag">Discovery Operacional</span>
-          <span class="sg-tag">UAT / OAT</span>
-          <span class="sg-tag">Onboarding</span>
-          <span class="sg-tag">UX Writing</span>
-          <span class="sg-tag">Design Thinking</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="sg-title">PROCESSOS & GESTÃO</div>
-        <div class="sg-tags">
-          <span class="sg-tag">Process Improvement</span>
-          <span class="sg-tag">Melhoria Contínua</span>
-          <span class="sg-tag">Gestão de Backlog</span>
-          <span class="sg-tag">Priorização de Demandas</span>
-          <span class="sg-tag">Eficiência Operacional</span>
-          <span class="sg-tag">Transformação Digital</span>
-          <span class="sg-tag">Gestão de Stakeholders</span>
-          <span class="sg-tag">OKR</span>
-          <span class="sg-tag">SLA</span>
-          <span class="sg-tag">Lean Inception</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="sg-title">FERRAMENTAS & FRAMEWORKS</div>
-        <div class="sg-tags">
-          <span class="sg-tag">Jira</span>
-          <span class="sg-tag">Figma</span>
-          <span class="sg-tag">Kanban</span>
-          <span class="sg-tag">Scrum</span>
-          <span class="sg-tag">WIP Limit</span>
-          <span class="sg-tag">Upstream Kanban</span>
-          <span class="sg-tag">Google Workspace</span>
-          <span class="sg-tag">Metodologias Ágeis</span>
-          <span class="sg-tag">KPIs & Métricas</span>
-          <span class="sg-tag">SaaS</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ══ TRAJETÓRIA ══ -->
-<section class="section">
-  <div class="section-inner">
-    <div class="sec-label">04 · TRAJETÓRIA PROFISSIONAL</div>
-    <div class="timeline">
-
-      <div class="tl-item">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-header">
-          <div>
-            <div class="tl-company">Prefeitura Municipal de Maricá</div>
-            <div class="tl-role">Product Operations Manager | Process Improvement · UX Operations</div>
-          </div>
-          <div class="tl-period">JAN 2025 – MAR 2026</div>
-        </div>
-        <div class="tl-metrics">
-          <span class="tl-metric">71% REDUÇÃO LEAD TIME</span>
-          <span class="tl-metric">SLA 24H CRIADO</span>
-          <span class="tl-metric">SERVIDOR DESTAQUE 2025</span>
-          <span class="tl-metric">JIRA · KANBAN</span>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-header">
-          <div>
-            <div class="tl-company">Habitat Consultórios</div>
-            <div class="tl-role">Product Operations Manager | UX Operations · Redução de Fricção</div>
-          </div>
-          <div class="tl-period">MAR 2024 – JAN 2025</div>
-        </div>
-        <div class="tl-metrics">
-          <span class="tl-metric">27% MENOS RECORRÊNCIA</span>
-          <span class="tl-metric">31% MENOS RESOLUÇÃO</span>
-          <span class="tl-metric">CENTRAL DE CONHECIMENTO</span>
-          <span class="tl-metric">3 PERFIS DE USUÁRIO</span>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-header">
-          <div>
-            <div class="tl-company">SHV Energy</div>
-            <div class="tl-role">Analista de Operações | Melhoria Contínua | Data-Driven</div>
-          </div>
-          <div class="tl-period">JAN 2018 – JUN 2023</div>
-        </div>
-        <div class="tl-metrics">
-          <span class="tl-metric">40% MENOS TEMPO RESPOSTA</span>
-          <span class="tl-metric">20% MAIS PRODUTIVIDADE</span>
-          <span class="tl-metric">5 ANOS OPERAÇÃO NACIONAL</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ══ FORMAÇÃO & CERTS ══ -->
-<section class="section">
-  <div class="section-inner">
-    <div class="sec-label">05 · FORMAÇÃO & CERTIFICAÇÕES</div>
-    <div class="edu-grid">
-
-      <div>
-        <div style="font-family:'Orbitron',monospace;font-size:8px;color:var(--gold);letter-spacing:0.15em;margin-bottom:16px;">FORMAÇÃO ACADÊMICA</div>
-        <ul class="edu-list">
-          <li class="edu-item">
-            <div class="edu-name">Bacharel em Direito</div>
-            <div class="edu-inst">Universidade Estácio de Sá · 2011–2016</div>
-          </li>
-          <li class="edu-item">
-            <div class="edu-name">Especialização em Direito Administrativo</div>
-            <div class="edu-inst">Faculdade Famart · 2021–2023</div>
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <div style="font-family:'Orbitron',monospace;font-size:8px;color:var(--gold);letter-spacing:0.15em;margin-bottom:16px;">CERTIFICAÇÕES</div>
-
-        <div class="cert-group">AGILIDADE & KANBAN</div>
-        <ul class="cert-list">
-          <li class="cert-item">
-            <div class="cert-name">Kanban Management Professional (KMP)</div>
-            <div class="cert-inst">Kanban University · KSD · KSI · TKP</div>
-          </li>
-          <li class="cert-item">
-            <div class="cert-name">LACP — Lean Agile Coach Profissional</div>
-          </li>
-          <li class="cert-item">
-            <div class="cert-name">UNIAGIL — Universidade Ágil</div>
-          </li>
-        </ul>
-
-        <div class="cert-group">PRODUCT & UX</div>
-        <ul class="cert-list">
-          <li class="cert-item">
-            <div class="cert-name">Google Professional Certificate: Project Management & UX Design</div>
-            <div class="cert-inst">Google</div>
-          </li>
-          <li class="cert-item">
-            <div class="cert-name">Lean Inception</div>
-            <div class="cert-inst">ENAP</div>
-          </li>
-          <li class="cert-item">
-            <div class="cert-name">Design Thinking · UX Writing · UX Research</div>
-            <div class="cert-inst">Tera</div>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ══ FOOTER ══ -->
-<footer>
-  <div class="footer-brand">
-    <div class="h-circle">H</div>
-    <div>
-      <span class="footer-name">Cleyton Hespanhol</span>
-      <span class="footer-role">PRODUCT OPERATIONS · UX · RIO DE JANEIRO</span>
-    </div>
-  </div>
-  <div class="footer-cta">
-    <a href="https://linkedin.com/in/cleytonhespanhol" target="_blank">linkedin.com/in/cleytonhespanhol</a>
-    <a href="mailto:c2shespanhol@gmail.com">c2shespanhol@gmail.com</a>
-    <a href="tel:+5521986314378">(21) 98631-4378</a>
-    <div class="footer-note">DISPONÍVEL · REMOTO E HÍBRIDO</div>
-  </div>
-</footer>
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 Cleyton Hespanhol. Todos os direitos reservados.
+    </footer>
 
 </body>
 </html>
