@@ -26,17 +26,17 @@
 
 <style>
   :root {
-    --bg:      #0E1114;
-    --bg2:     #13181D;
-    --bg3:     #1A2028;
-    --gold:    #C9A84C;
-    --gold-lt: #E8C060;
-    --teal:    #3A7A8A;
-    --coral:   #F57F76;
-    --white:   #F0F6FC;
-    --gray1:   #8B949E;
-    --gray2:   #4A5568;
-    --border:  rgba(201,168,76,0.18);
+    --bg:      #0D0F10; /* Preto fosco premium extraído do banner */
+    --bg2:     #131618; /* Fundo secundário para os blocos */
+    --bg3:     #1A1D20; /* Fundo para efeitos de seleção e hover */
+    --gold:    #C5A25D; /* Dourado corporativo polido do arquivo de referência */
+    --gold-lt: #DEC082; /* Dourado claro para realces táteis */
+    --teal:    #407F8F; /* Azul operacional discreto */
+    --coral:   #E06B62;
+    --white:   #FFFFFF; /* Branco puro de alta clareza */
+    --gray1:   #9CA3AF; /* Cinza claro suave para leitura */
+    --gray2:   #4B5563; /* Cinza escuro para detalhes secundários */
+    --border:  rgba(197, 162, 93, 0.2);
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -60,7 +60,7 @@
 
   /* ── GOLD BARS ── */
   .gold-top { height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-lt), var(--gold)); position: relative; z-index: 10; }
-  .gold-left { position: fixed; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--gold), rgba(201,168,76,0.15)); z-index: 10; }
+  .gold-left { position: fixed; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--gold), rgba(197,162,93,0.15)); z-index: 10; }
 
   /* ── LAYOUT ── */
   .page { max-width: 1100px; margin: 0 auto; padding: 0 64px; position: relative; z-index: 1; }
@@ -77,9 +77,9 @@
   .hero-bg {
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 60% 70% at 90% 30%, rgba(201,168,76,0.06) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 50% at 5% 70%, rgba(58,122,138,0.05) 0%, transparent 50%),
-      #0E1114;
+      radial-gradient(ellipse 60% 70% at 90% 30%, rgba(197,162,93,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 5% 70%, rgba(64,127,143,0.05) 0%, transparent 50%),
+      #0D0F10;
   }
 
   .hero-inner { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; width: 100%; }
@@ -87,9 +87,9 @@
   .status-badge {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 6px 16px;
-    border: 0.5px solid rgba(58,122,138,0.5);
+    border: 0.5px solid rgba(64,127,143,0.5);
     border-radius: 2px;
-    background: rgba(58,122,138,0.06);
+    background: rgba(64,127,143,0.06);
     margin-bottom: 32px;
     animation: fadeUp 0.6s ease forwards;
   }
@@ -106,10 +106,11 @@
   .hero-name {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(56px, 8vw, 96px);
-    font-weight: 300; line-height: 1;
+    font-weight: 300; 
+    line-height: 1.15; /* Correção para o erro visual de sobreposição nas quebras */
     color: var(--white);
     letter-spacing: -0.02em;
-    margin-bottom: 4px;
+    margin-bottom: 28px; /* Espaçamento ampliado para dar respiro ao cargo inferior */
     animation: fadeUp 0.7s ease forwards; animation-delay: 0.1s; opacity: 0;
   }
 
@@ -153,7 +154,7 @@
     background: var(--gold); border-radius: 2px;
     font-family: 'Orbitron', monospace;
     font-size: 9px; font-weight: 600;
-    color: #0E1114; letter-spacing: 0.15em;
+    color: #0D0F10; letter-spacing: 0.15em;
     text-decoration: none;
     transition: background 0.2s, transform 0.2s;
     animation: fadeUp 0.7s ease forwards; animation-delay: 0.5s; opacity: 0;
@@ -170,7 +171,7 @@
   .hero-metric-val {
     font-family: 'Cormorant Garamond', serif;
     font-size: 100px; font-weight: 300;
-    color: rgba(201,168,76,0.2); line-height: 1;
+    color: rgba(197,162,93,0.2); line-height: 1;
     display: block; position: relative;
   }
 
@@ -190,7 +191,7 @@
   /* ── DIVIDER ── */
   .divider {
     height: 0.5px;
-    background: linear-gradient(90deg, var(--gold), rgba(201,168,76,0.1), transparent);
+    background: linear-gradient(90deg, var(--gold), rgba(197,162,93,0.1), transparent);
     margin: 0;
   }
 
@@ -213,7 +214,7 @@
   .sobre-text {
     font-family: 'Cormorant Garamond', serif;
     font-size: 20px; font-weight: 300;
-    color: rgba(240,246,252,0.85); line-height: 1.75;
+    color: rgba(255,255,255,0.85); line-height: 1.75;
   }
 
   .sobre-text em { font-style: italic; color: var(--gold); }
@@ -247,10 +248,11 @@
   .result-card {
     background: var(--bg); padding: 40px 28px;
     text-align: center; position: relative; overflow: hidden;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
+    text-decoration: none; display: block; color: inherit;
   }
 
-  .result-card:hover { background: var(--bg3); }
+  .result-card:hover { background: var(--bg3); transform: translateY(-3px); }
 
   .result-card::before {
     content: ''; position: absolute;
@@ -276,6 +278,9 @@
   }
 
   .r-context { font-size: 11px; color: var(--gray2); margin-top: 8px; line-height: 1.4; }
+  
+  .r-action { font-family: 'Orbitron', monospace; font-size: 8px; color: var(--gold); letter-spacing: 0.1em; display: block; margin-top: 16px; opacity: 0.7; transition: opacity 0.2s; }
+  .result-card:hover .r-action { opacity: 1; }
 
   /* ── COMPETÊNCIAS ── */
   .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
@@ -295,8 +300,8 @@
   .sg-tag {
     font-size: 11px; padding: 4px 10px;
     border: 0.5px solid var(--border); border-radius: 2px;
-    color: rgba(240,246,252,0.7);
-    background: rgba(201,168,76,0.03);
+    color: rgba(255,255,255,0.7);
+    background: rgba(197,162,93,0.03);
     transition: border-color 0.2s, color 0.2s;
   }
 
@@ -308,7 +313,7 @@
   .timeline::before {
     content: ''; position: absolute;
     left: 0; top: 8px; bottom: 8px; width: 1px;
-    background: linear-gradient(180deg, var(--gold), rgba(201,168,76,0.1));
+    background: linear-gradient(180deg, var(--gold), rgba(197,162,93,0.1));
   }
 
   .tl-item { position: relative; margin-bottom: 40px; }
@@ -334,8 +339,8 @@
   .tl-metric {
     font-family: 'Orbitron', monospace;
     font-size: 8px; padding: 3px 10px;
-    border: 0.5px solid rgba(201,168,76,0.3); border-radius: 2px;
-    color: var(--gold); background: rgba(201,168,76,0.05);
+    border: 0.5px solid rgba(197,162,93,0.3); border-radius: 2px;
+    color: var(--gold); background: rgba(197,162,93,0.05);
   }
 
   /* ── FORMAÇÃO & CERTS ── */
@@ -345,7 +350,7 @@
 
   .edu-item, .cert-item {
     padding: 14px 0;
-    border-bottom: 0.5px solid rgba(201,168,76,0.08);
+    border-bottom: 0.5px solid rgba(197,162,93,0.08);
   }
 
   .edu-name { font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 3px; }
@@ -360,7 +365,7 @@
 
   /* ── FOOTER ── */
   footer {
-    background: #080A0C;
+    background: #070809;
     border-top: 0.5px solid var(--border);
     padding: 40px 64px;
     display: flex; align-items: center;
@@ -377,7 +382,7 @@
     position: relative;
   }
 
-  .h-circle::after { content: ''; position: absolute; inset: 5px; border-radius: 50%; border: 0.5px solid rgba(201,168,76,0.2); }
+  .h-circle::after { content: ''; position: absolute; inset: 5px; border-radius: 50%; border: 0.5px solid rgba(197,162,93,0.2); }
 
   .footer-name { font-size: 14px; font-weight: 500; color: var(--white); letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 3px; }
   .footer-role { font-family: 'Orbitron', monospace; font-size: 8px; color: var(--gold); letter-spacing: 0.14em; display: block; }
@@ -417,16 +422,16 @@ Product Operations Manager, UX Operations, Product Operations, UX Operacional, P
   <div class="hero-bg"></div>
 
   <svg class="corner-orn" width="36" height="36" viewBox="0 0 36 36" fill="none">
-    <circle cx="18" cy="18" r="17" stroke="#C9A84C" stroke-width="0.8"/>
-    <circle cx="18" cy="18" r="10" stroke="#C9A84C" stroke-width="0.5"/>
-    <circle cx="18" cy="18" r="3" fill="#C9A84C"/>
+    <circle cx="18" cy="18" r="17" stroke="#C5A25D" stroke-width="0.8"/>
+    <circle cx="18" cy="18" r="10" stroke="#C5A25D" stroke-width="0.5"/>
+    <circle cx="18" cy="18" r="3" fill="#C5A25D"/>
   </svg>
 
   <div class="hero-inner">
 
     <div class="status-badge">
       <div class="status-dot"></div>
-      <span class="status-text">OPEN TO WORK · DISPONÍVEL IMEDIATAMENTE · REMOTO E HÍBRIDO</span>
+      <span class="status-text">DISPONÍVEL IMEDIATAMENTE · REMOTO E HÍBRIDO</span>
     </div>
 
     <div class="hero-grid">
@@ -481,7 +486,7 @@ Product Operations Manager, UX Operations, Product Operations, UX Operacional, P
           Product Operations Manager com trajetória construída na operação real. Do atendimento ao cliente à gestão de fluxos, processos e experiência do usuário em produtos digitais.
         </p>
         <p>
-          Atuo onde <em>negócio, tecnologia e pessoas se encontram</em>: eliminando fricções, aumentando previsibilidade e transformando operações complexas em fluxos eficientes orientados a dados.
+          Atuo onde <em>negócio, tecnologia e pessoas se encontram</em>: eliminando frictions, aumentando previsibilidade e transformando operações complexas em fluxos eficientes orientados a dados.
         </p>
         <p>
           Meu diferencial não é apenas produto. É a <em>visão end-to-end da jornada do usuário</em>, desenvolvida na prática antes de qualquer metodologia formal. De quem viu o problema acontecer e depois aprendeu o nome do que já fazia.
@@ -516,28 +521,32 @@ Product Operations Manager, UX Operations, Product Operations, UX Operacional, P
 <!-- ══ RESULTADOS ══ -->
 <section class="section results-bg">
   <div class="section-inner">
-    <div class="sec-label">02 · RESULTADOS MENSURÁVEIS</div>
+    <div class="sec-label">02 · RESULTADOS MENSURÁVEIS (CLIQUE PARA VER O PROJETO)</div>
     <div class="results-grid">
-      <div class="result-card">
+      <a href="case_study_02_leadtime_final.html" class="result-card">
         <span class="r-val">71%</span>
         <div class="r-label">Redução no<br>Lead Time</div>
         <p class="r-context">Reestruturação de fluxo, padronização e controle de SLA</p>
-      </div>
-      <div class="result-card">
+        <span class="r-action">VER CASO →</span>
+      </a>
+      <a href="case_study_03_habitat_final.html" class="result-card">
         <span class="r-val">27%</span>
         <div class="r-label">Menos Recorrência<br>de Demandas</div>
         <p class="r-context">Central de conhecimento e onboarding por perfil de usuário</p>
-      </div>
-      <div class="result-card">
+        <span class="r-action">VER CASO →</span>
+      </a>
+      <a href="case_study_04_shv_final.html" class="result-card">
         <span class="r-val">40%</span>
         <div class="r-label">Menos Tempo<br>de Resposta</div>
         <p class="r-context">Otimização de fluxos de atendimento em operação nacional</p>
-      </div>
-      <div class="result-card">
+        <span class="r-action">VER CASO →</span>
+      </a>
+      <a href="case_study_01_persona_final.html" class="result-card">
         <span class="r-val">31%</span>
         <div class="r-label">Menos Tempo<br>de Resolução</div>
         <p class="r-context">Reestruturação de fluxos operacionais e organização das informações</p>
-      </div>
+        <span class="r-action">VER CASO →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -739,7 +748,7 @@ Product Operations Manager, UX Operations, Product Operations, UX Operacional, P
     <a href="https://linkedin.com/in/cleytonhespanhol" target="_blank">linkedin.com/in/cleytonhespanhol</a>
     <a href="mailto:c2shespanhol@gmail.com">c2shespanhol@gmail.com</a>
     <a href="tel:+5521986314378">(21) 98631-4378</a>
-    <div class="footer-note">DISPONÍVEL · REMOTO E HÍBRIDO · OPEN TO WORK</div>
+    <div class="footer-note">DISPONÍVEL · REMOTO E HÍBRIDO</div>
   </div>
 </footer>
 
