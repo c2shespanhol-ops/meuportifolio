@@ -7,10 +7,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:#0E1114;--bg2:#13181D;--bg3:#1A2028;
+    --bg:#0D0D0D;--bg2:#111111;--bg3:#1A1A1A;
     --gold:#C9A84C;--gold-lt:#E8C060;
     --teal:#26505A;--teal-br:#3A7A8A;
-    --coral:#F57F76;--white:#F0F6FC;
+    --coral:#F57F76;--white:#FFFFFF;
     --gray1:#8B949E;--gray2:#4A5568;
     --border:rgba(201,168,76,0.18);
   }
@@ -18,8 +18,14 @@
   html{scroll-behavior:smooth;}
   body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
   body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+
+  /* ── BOTÃO VOLTAR ── */
+  .back-btn{position:fixed;top:20px;left:20px;z-index:9999;display:flex;align-items:center;gap:8px;padding:10px 18px;background:rgba(13,13,13,0.85);border:0.5px solid var(--border);border-radius:2px;color:var(--gold);font-family:'Orbitron',monospace;font-size:9px;letter-spacing:0.15em;text-decoration:none;backdrop-filter:blur(8px);transition:background 0.25s ease,border-color 0.25s ease,color 0.25s ease;}
+  .back-btn:hover{background:rgba(201,168,76,0.1);border-color:var(--gold);color:var(--gold-lt);}
+  .back-btn svg{width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none;}
+
   .hero{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;position:relative;overflow:hidden;}
-  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 20%,rgba(58,122,138,0.08) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 10% 80%,rgba(201,168,76,0.05) 0%,transparent 50%),linear-gradient(160deg,#0E1114 0%,#111820 60%,#0A0E12 100%);}
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 20%,rgba(58,122,138,0.08) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 10% 80%,rgba(201,168,76,0.05) 0%,transparent 50%),linear-gradient(160deg,#0D0D0D 0%,#111111 60%,#0A0A0A 100%);}
   .orb{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.04) 0%,transparent 70%);top:-100px;right:-100px;animation:orbFloat 8s ease-in-out infinite;}
   @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-30px,40px) scale(1.05);}}
   .nav{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:28px 64px;border-bottom:0.5px solid var(--border);}
@@ -37,7 +43,7 @@
   .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,7vw,88px);font-weight:300;line-height:1.05;color:var(--white);margin-bottom:8px;animation:fadeUp 0.9s ease forwards;animation-delay:0.1s;opacity:0;}
   .hero-title em{font-style:italic;color:var(--gold);}
   .hero-subtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);font-weight:300;color:var(--gray1);margin-bottom:40px;animation:fadeUp 1s ease forwards;animation-delay:0.2s;opacity:0;}
-  .hero-desc{font-size:15px;color:rgba(240,246,252,0.7);max-width:560px;line-height:1.8;margin-bottom:48px;animation:fadeUp 1s ease forwards;animation-delay:0.3s;opacity:0;}
+  .hero-desc{font-size:15px;color:rgba(255,255,255,0.7);max-width:560px;line-height:1.8;margin-bottom:48px;animation:fadeUp 1s ease forwards;animation-delay:0.3s;opacity:0;}
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
   .meta-row{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp 1s ease forwards;animation-delay:0.4s;opacity:0;}
   .meta-pill{padding:8px 18px;border:0.5px solid var(--border);border-radius:2px;font-size:11px;color:var(--gray1);background:rgba(201,168,76,0.04);letter-spacing:0.04em;}
@@ -64,7 +70,7 @@
   .card-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--white);margin-bottom:16px;line-height:1.2;}
   .card-body{font-size:14px;color:var(--gray1);line-height:1.8;}
   .card-list{list-style:none;margin-top:20px;}
-  .card-list li{font-size:13px;color:rgba(240,246,252,0.7);padding:8px 0;border-bottom:0.5px solid rgba(201,168,76,0.08);display:flex;align-items:flex-start;gap:10px;line-height:1.5;}
+  .card-list li{font-size:13px;color:rgba(255,255,255,0.7);padding:8px 0;border-bottom:0.5px solid rgba(201,168,76,0.08);display:flex;align-items:flex-start;gap:10px;line-height:1.5;}
   .card-list li::before{content:'·';color:var(--gold);flex-shrink:0;margin-top:1px;}
   .process-bg{background:var(--bg2);}
   .process-timeline{position:relative;padding-left:40px;}
@@ -88,7 +94,7 @@
   .result-number{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:var(--gold);line-height:1;margin-bottom:12px;display:block;}
   .result-label{font-family:'Orbitron',monospace;font-size:8px;color:var(--gray1);letter-spacing:0.15em;line-height:1.6;text-transform:uppercase;}
   .result-context{font-size:12px;color:var(--gray2);margin-top:10px;line-height:1.5;}
-  .impact-bg{background:linear-gradient(135deg,#0A0E12 0%,#111820 100%);}
+  .impact-bg{background:linear-gradient(135deg,#0A0A0A 0%,#111111 100%);}
   .impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
   .impact-quote{border-left:2px solid var(--gold);padding:32px 40px;background:rgba(201,168,76,0.03);position:relative;}
   .quote-mark{font-family:'Cormorant Garamond',serif;font-size:80px;color:rgba(201,168,76,0.15);position:absolute;top:-10px;left:24px;line-height:1;}
@@ -108,7 +114,7 @@
   .learning-icon{margin-bottom:20px;font-family:'Orbitron',monospace;font-size:20px;color:var(--gold);opacity:0.6;}
   .learning-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--white);margin-bottom:12px;}
   .learning-body{font-size:13px;color:var(--gray1);line-height:1.8;}
-  footer{background:#080A0C;border-top:0.5px solid var(--border);padding:48px 64px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+  footer{background:#080808;border-top:0.5px solid var(--border);padding:48px 64px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
   .footer-brand{display:flex;align-items:center;gap:16px;}
   .footer-info{flex:1;}
   .footer-name{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:var(--white);letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:4px;}
@@ -118,74 +124,56 @@
   .footer-linkedin:hover{color:var(--gold);}
   .footer-copy{font-size:11px;color:var(--gray2);letter-spacing:0.04em;}
   .gold-accent-top{height:2.5px;background:linear-gradient(90deg,var(--gold),var(--gold-lt),var(--gold));}
-  @media(max-width:900px){.nav,.section,.hero-content,.hero-footer,footer{padding-left:28px;padding-right:28px;}.problem-grid,.impact-grid,.results-strip,.learnings-grid{grid-template-columns:1fr;}.hero-title{font-size:44px;}}
+  @media(max-width:900px){.nav,.section,.hero-content,.hero-footer,footer{padding-left:28px;padding-right:28px;}.problem-grid,.impact-grid,.results-strip,.learnings-grid{grid-template-columns:1fr;}.hero-title{font-size:44px;}.back-btn{top:12px;left:12px;padding:8px 14px;}}
+  @media print{body{background:white;color:black;}.hero-bg,.orb,.back-btn{display:none;}}
 
   /* ── COVER PAGE ── */
-  .cover-page {
-    width: 100%;
-    height: 100vh;
-    min-height: 628px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .cover-hint {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(201,168,76,0.15);
-    border: 0.5px solid rgba(201,168,76,0.4);
-    border-radius: 4px;
-    padding: 10px 16px;
-    font-family: 'Orbitron', monospace;
-    font-size: 9px;
-    color: #C9A84C;
-    letter-spacing: 0.1em;
-    z-index: 1000;
-    pointer-events: none;
-  }
-  .cover-divider {
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, #C9A84C, rgba(201,168,76,0.1));
-  }
-  .c-gold-top { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #C9A84C, #E8C060, #C9A84C); z-index: 20; }
-  .c-gold-left { position: absolute; top: 0; left: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, #C9A84C, rgba(201,168,76,0.2)); z-index: 20; }
-  .c-grid { position: absolute; right: 0; top: 0; bottom: 0; width: 500px; opacity: 0.03; background-image: linear-gradient(rgba(201,168,76,1) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,1) 1px, transparent 1px); background-size: 40px 40px; }
-  .c-corner { position: absolute; top: 20px; right: 20px; z-index: 10; opacity: 0.35; }
-  .c-label { position: absolute; top: 24px; right: 64px; font-family: 'Orbitron', monospace; font-size: 8px; color: #4A5568; letter-spacing: 0.15em; z-index: 10; }
-  .c-content { position: relative; z-index: 10; padding: 0 64px 80px; }
-  .c-eyebrow { font-family: 'Orbitron', monospace; font-size: 11px; letter-spacing: 0.25em; color: #C9A84C; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-  .c-dot { width: 6px; height: 6px; border-radius: 50%; background: #C9A84C; }
-  .c-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.05; color: #F0F6FC; margin-bottom: 6px; }
-  .c-title em { font-style: italic; color: #C9A84C; }
-  .c-rule { width: 48px; height: 2px; background: linear-gradient(90deg, #C9A84C, rgba(201,168,76,0.2)); margin-bottom: 16px; border-radius: 1px; }
-  .c-sub { font-family: 'DM Sans', sans-serif; font-weight: 300; color: #8B949E; margin-bottom: 32px; line-height: 1.5; }
-  .c-metrics { display: flex; gap: 24px; margin-bottom: 36px; align-items: center; }
-  .c-mval { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: #C9A84C; line-height: 1; display: block; }
-  .c-mlbl { font-family: 'Orbitron', monospace; font-size: 8px; color: #8B949E; letter-spacing: 0.1em; display: block; margin-top: 4px; }
-  .c-mdiv { width: 0.5px; height: 40px; background: rgba(201,168,76,0.2); }
-  .c-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-  .c-tag { font-family: 'Orbitron', monospace; font-size: 8px; padding: 5px 12px; border: 0.5px solid rgba(201,168,76,0.25); border-radius: 2px; color: #8B949E; letter-spacing: 0.08em; background: rgba(201,168,76,0.04); }
-  .c-sig { position: absolute; bottom: 32px; left: 64px; display: flex; align-items: center; gap: 14px; z-index: 10; }
-  .c-hcircle { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid #C9A84C; display: flex; align-items: center; justify-content: center; font-family: 'Orbitron', monospace; font-size: 16px; font-weight: 700; color: #C9A84C; flex-shrink: 0; position: relative; }
-  .c-hcircle::after { content: ''; position: absolute; inset: 6px; border-radius: 50%; border: 0.5px solid rgba(201,168,76,0.2); }
-  .c-ssep { width: 0.5px; height: 32px; background: rgba(201,168,76,0.25); }
-  .c-sname { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: #F0F6FC; letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 3px; }
-  .c-srole { font-family: 'Orbitron', monospace; font-size: 8px; color: #C9A84C; letter-spacing: 0.14em; display: block; }
-  .c-bignumber { position: absolute; font-family: 'Cormorant Garamond', serif; font-size: 280px; font-weight: 300; line-height: 1; color: rgba(201,168,76,0.06); right: -20px; bottom: -40px; z-index: 1; letter-spacing: -0.05em; }
-
-  </style>
+  .cover-page{width:100%;height:100vh;min-height:628px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;}
+  .cover-hint{position:fixed;bottom:20px;right:20px;background:rgba(201,168,76,0.15);border:0.5px solid rgba(201,168,76,0.4);border-radius:4px;padding:10px 16px;font-family:'Orbitron',monospace;font-size:9px;color:#C9A84C;letter-spacing:0.1em;z-index:1000;pointer-events:none;}
+  .cover-divider{width:100%;height:2px;background:linear-gradient(90deg,#C9A84C,rgba(201,168,76,0.1));}
+  .c-gold-top{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#C9A84C,#E8C060,#C9A84C);z-index:20;}
+  .c-gold-left{position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,#C9A84C,rgba(201,168,76,0.2));z-index:20;}
+  .c-grid{position:absolute;right:0;top:0;bottom:0;width:500px;opacity:0.03;background-image:linear-gradient(rgba(201,168,76,1) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,1) 1px,transparent 1px);background-size:40px 40px;}
+  .c-corner{position:absolute;top:20px;right:20px;z-index:10;opacity:0.35;}
+  .c-label{position:absolute;top:24px;right:64px;font-family:'Orbitron',monospace;font-size:8px;color:#4A5568;letter-spacing:0.15em;z-index:10;}
+  .c-content{position:relative;z-index:10;padding:0 64px 80px;}
+  .c-eyebrow{font-family:'Orbitron',monospace;font-size:11px;letter-spacing:0.25em;color:#C9A84C;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+  .c-dot{width:6px;height:6px;border-radius:50%;background:#C9A84C;}
+  .c-title{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.05;color:#FFFFFF;margin-bottom:6px;}
+  .c-title em{font-style:italic;color:#C9A84C;}
+  .c-rule{width:48px;height:2px;background:linear-gradient(90deg,#C9A84C,rgba(201,168,76,0.2));margin-bottom:16px;border-radius:1px;}
+  .c-sub{font-family:'DM Sans',sans-serif;font-weight:300;color:#8B949E;margin-bottom:32px;line-height:1.5;}
+  .c-metrics{display:flex;gap:24px;margin-bottom:36px;align-items:center;}
+  .c-mval{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#C9A84C;line-height:1;display:block;}
+  .c-mlbl{font-family:'Orbitron',monospace;font-size:8px;color:#8B949E;letter-spacing:0.1em;display:block;margin-top:4px;}
+  .c-mdiv{width:0.5px;height:40px;background:rgba(201,168,76,0.2);}
+  .c-tags{display:flex;gap:8px;flex-wrap:wrap;}
+  .c-tag{font-family:'Orbitron',monospace;font-size:8px;padding:5px 12px;border:0.5px solid rgba(201,168,76,0.25);border-radius:2px;color:#8B949E;letter-spacing:0.08em;background:rgba(201,168,76,0.04);}
+  .c-sig{position:absolute;bottom:32px;left:64px;display:flex;align-items:center;gap:14px;z-index:10;}
+  .c-hcircle{width:44px;height:44px;border-radius:50%;border:1.5px solid #C9A84C;display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:16px;font-weight:700;color:#C9A84C;flex-shrink:0;position:relative;}
+  .c-hcircle::after{content:'';position:absolute;inset:6px;border-radius:50%;border:0.5px solid rgba(201,168,76,0.2);}
+  .c-ssep{width:0.5px;height:32px;background:rgba(201,168,76,0.25);}
+  .c-sname{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:#FFFFFF;letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:3px;}
+  .c-srole{font-family:'Orbitron',monospace;font-size:8px;color:#C9A84C;letter-spacing:0.14em;display:block;}
+  .c-bignumber{position:absolute;font-family:'Cormorant Garamond',serif;font-size:280px;font-weight:300;line-height:1;color:rgba(201,168,76,0.06);right:-20px;bottom:-40px;z-index:1;letter-spacing:-0.05em;}
+</style>
 </head>
 <body>
+
+<!-- ── BOTÃO VOLTAR ── -->
+<a class="back-btn" href="index.html" title="Voltar para a página inicial">
+  <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+    <polyline points="7,2 3,6 7,10"/>
+    <line x1="3" y1="6" x2="11" y2="6"/>
+  </svg>
+  VOLTAR
+</a>
 
 <div class="cover-hint">CAPTURAR COMO IMAGEM PARA LINKEDIN</div>
 <div class="gold-accent-top"></div>
 
-<section class="cover-page" style="background: #0E1114;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 85% 60%, rgba(58,122,138,0.1) 0%, transparent 55%), radial-gradient(ellipse 40% 40% at 10% 30%, rgba(201,168,76,0.04) 0%, transparent 50%), linear-gradient(150deg, #0E1114 0%, #0A0E12 100%);"></div>
+<section class="cover-page" style="background:#0D0D0D;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 85% 60%,rgba(58,122,138,0.1) 0%,transparent 55%),radial-gradient(ellipse 40% 40% at 10% 30%,rgba(201,168,76,0.04) 0%,transparent 50%),linear-gradient(150deg,#0D0D0D 0%,#0A0A0A 100%);"></div>
   <div class="c-grid"></div>
   <div class="c-gold-top"></div>
   <div class="c-gold-left"></div>
@@ -201,7 +189,7 @@
     <h1 class="c-title" style="font-size:64px;">Eficiência que nasce<br>da <em>ponta da operação.</em></h1>
     <div class="c-rule"></div>
     <p class="c-sub">Melhoria contínua de fluxos, onboarding estruturado e visão<br>de UX desenvolvida em 5 anos de operação nacional.</p>
-    <div class="c-metrics"><div class="c-item"><div <div class="c-mval">40%</div><span class="c-mlbl">TEMPO RESPOSTA</span></div><div class="c-mdiv"></div><div class="c-item"><div class="c-mval">20%</div><span class="c-mlbl">PRODUTIVIDADE</span></div><div class="c-mdiv"></div><div class="c-item"><div class="c-mval">5+</div><span class="c-mlbl">ANOS</span></div></div>
+    <div class="c-metrics"><div class="c-item"><div class="c-mval">40%</div><span class="c-mlbl">TEMPO RESPOSTA</span></div><div class="c-mdiv"></div><div class="c-item"><div class="c-mval">20%</div><span class="c-mlbl">PRODUTIVIDADE</span></div><div class="c-mdiv"></div><div class="c-item"><div class="c-mval">5+</div><span class="c-mlbl">ANOS</span></div></div>
     <div class="c-tags"><span class="c-tag">MELHORIA CONTÍNUA</span><span class="c-tag">ONBOARDING</span><span class="c-tag">UX OPERACIONAL</span><span class="c-tag">UAT</span></div>
   </div>
   <div class="c-sig">
@@ -215,11 +203,9 @@
 </section>
 <div class="cover-divider"></div>
 
-
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="orb"></div>
-
   <nav class="nav">
     <div class="nav-brand">
       <div class="h-mark">H</div>
@@ -230,20 +216,16 @@
     </div>
     <div class="nav-tag">PORTFÓLIO · CASE STUDY</div>
   </nav>
-
   <div class="hero-content">
     <div class="case-label">
       <div class="case-label-dot"></div>
       <span class="case-label-text">CASE STUDY 04 · OPERAÇÕES · MELHORIA CONTÍNUA · DATA-DRIVEN</span>
     </div>
-
     <h1 class="hero-title">Eficiência que nasce<br>da <em>ponta da operação.</em></h1>
     <p class="hero-subtitle">Melhoria contínua em operações de atendimento</p>
-
     <p class="hero-desc">
       Como a visão direta sobre o comportamento do usuário, a identificação sistemática de fricções e a melhoria contínua dos fluxos de atendimento geraram reduções concretas no tempo de resposta e no aumento de produtividade operacional ao longo de cinco anos numa operação de escala nacional.
     </p>
-
     <div class="meta-row">
       <div class="meta-pill"><strong>Contexto</strong> · SHV Energy · Operação Nacional de Atendimento</div>
       <div class="meta-pill"><strong>Papel</strong> · Operações · Melhoria Contínua · Experiência do Usuário</div>
@@ -251,7 +233,6 @@
       <div class="meta-pill"><strong>Resultado</strong> · 40% menos tempo de resposta · 20% mais produtividade</div>
     </div>
   </div>
-
   <div class="hero-footer">
     <div class="scroll-hint">
       <div class="scroll-line"></div>
@@ -266,12 +247,9 @@
   <div class="section-inner">
     <div class="section-label">01 · CONTEXTO E PROBLEMA</div>
     <h2 class="section-title">Operação de escala com<br><em>fricções que custavam tempo e experiência.</em></h2>
-
     <div class="problem-grid">
       <div class="problem-card friction">
-        <div class="card-eyebrow friction">
-          <span>●</span> ANTES · FRICÇÕES IDENTIFICADAS
-        </div>
+        <div class="card-eyebrow friction"><span>●</span> ANTES · FRICÇÕES IDENTIFICADAS</div>
         <h3 class="card-title">Atendimento lento e jornada do cliente sem clareza</h3>
         <p class="card-body">A SHV Energy operava em escala nacional com alto volume de demandas. O tempo de resposta em situações críticas era elevado, a jornada do cliente no onboarding não tinha estrutura clara e os fluxos de atendimento apresentavam gargalos que impactavam diretamente a experiência do usuário e a produtividade da operação.</p>
         <ul class="card-list">
@@ -282,11 +260,8 @@
           <li>Impacto direto na experiência do cliente e na previsibilidade da operação</li>
         </ul>
       </div>
-
       <div class="problem-card solution">
-        <div class="card-eyebrow solution">
-          <span>●</span> VISÃO IDENTIFICADA
-        </div>
+        <div class="card-eyebrow solution"><span>●</span> VISÃO IDENTIFICADA</div>
         <h3 class="card-title">Quem atende o cliente tem os dados que a operação precisa</h3>
         <p class="card-body">Atuar na ponta do atendimento durante cinco anos significava acesso direto ao comportamento real do usuário: onde ele travava, o que o confundia, quais fricções se repetiam. Essa visão foi transformada em melhoria contínua sistemática dos fluxos, processos e da jornada do cliente.</p>
         <ul class="card-list">
@@ -306,9 +281,7 @@
   <div class="section-inner">
     <div class="section-label">02 · PROCESSO DE MELHORIA</div>
     <h2 class="section-title">Cinco anos de operação<br><em>transformados em aprendizado contínuo.</em></h2>
-
     <div class="process-timeline">
-
       <div class="process-step">
         <div class="step-node"><div class="step-node-dot"></div></div>
         <div class="step-number">ETAPA 01</div>
@@ -320,7 +293,6 @@
           <span class="step-tag">Comportamento do Usuário</span>
         </div>
       </div>
-
       <div class="process-step">
         <div class="step-node"><div class="step-node-dot"></div></div>
         <div class="step-number">ETAPA 02</div>
@@ -332,7 +304,6 @@
           <span class="step-tag">Experiência Operacional</span>
         </div>
       </div>
-
       <div class="process-step">
         <div class="step-node"><div class="step-node-dot"></div></div>
         <div class="step-number">ETAPA 03</div>
@@ -344,7 +315,6 @@
           <span class="step-tag">Eficiência Operacional</span>
         </div>
       </div>
-
       <div class="process-step">
         <div class="step-node"><div class="step-node-dot"></div></div>
         <div class="step-number">ETAPA 04</div>
@@ -356,7 +326,6 @@
           <span class="step-tag">Testes Funcionais</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -366,20 +335,17 @@
   <div class="section-inner">
     <div class="section-label">03 · RESULTADOS MENSURÁVEIS</div>
     <h2 class="section-title">Melhorias construídas<br><em>na operação real, não no papel.</em></h2>
-
     <div class="results-strip">
       <div class="result-card">
         <span class="result-number">40%</span>
         <div class="result-label">Redução no Tempo de Resposta<br>em Demandas Críticas</div>
         <p class="result-context">Resultado da otimização da comunicação, organização dos fluxos de atendimento e melhoria da eficiência operacional.</p>
       </div>
-
       <div class="result-card">
         <span class="result-number">20%</span>
         <div class="result-label">Aumento na<br>Produtividade Operacional</div>
         <p class="result-context">Alcançado via melhoria contínua da rotina de atendimento, organização de processos e maior eficiência na gestão das demandas.</p>
       </div>
-
       <div class="result-card">
         <span class="result-number">5+</span>
         <div class="result-label">Anos de Operação<br>em Escala Nacional</div>
@@ -394,17 +360,13 @@
   <div class="section-inner">
     <div class="section-label">04 · IMPACTO ESTRATÉGICO</div>
     <h2 class="section-title">A operação como<br><em>fonte de visão de produto.</em></h2>
-
     <div class="impact-grid">
-
       <div class="impact-quote">
         <div class="quote-mark">"</div>
         <p class="quote-text">Cinco anos atendendo na ponta me deram algo que nenhum dashboard consegue entregar: a visão de onde o processo realmente falha para o usuário. Essa foi minha primeira formação em UX antes de saber que UX existia como disciplina.</p>
         <div class="quote-source">CLEYTON HESPANHOL · REFLEXÃO SOBRE A TRAJETÓRIA NA SHV</div>
       </div>
-
       <div class="impact-metrics">
-
         <div class="metric-row">
           <div class="metric-indicator" style="background:#C9A84C;"></div>
           <div class="metric-content">
@@ -413,7 +375,6 @@
           </div>
           <div class="metric-badge" style="background:rgba(201,168,76,0.1);color:#C9A84C;">UX REAL</div>
         </div>
-
         <div class="metric-row">
           <div class="metric-indicator" style="background:#3A7A8A;"></div>
           <div class="metric-content">
@@ -422,7 +383,6 @@
           </div>
           <div class="metric-badge" style="background:rgba(58,122,138,0.1);color:#3A7A8A;">ONBOARDING</div>
         </div>
-
         <div class="metric-row">
           <div class="metric-indicator" style="background:#F57F76;"></div>
           <div class="metric-content">
@@ -431,7 +391,6 @@
           </div>
           <div class="metric-badge" style="background:rgba(245,127,118,0.1);color:#F57F76;">INTEGRAÇÃO</div>
         </div>
-
         <div class="metric-row">
           <div class="metric-indicator" style="background:#C9A84C;"></div>
           <div class="metric-content">
@@ -440,7 +399,6 @@
           </div>
           <div class="metric-badge" style="background:rgba(201,168,76,0.1);color:#C9A84C;">UAT</div>
         </div>
-
       </div>
     </div>
   </div>
@@ -451,33 +409,27 @@
   <div class="section-inner">
     <div class="section-label">05 · APRENDIZADOS DO PROJETO</div>
     <h2 class="section-title">O que esse case<br><em>reforçou como profissional.</em></h2>
-
     <div class="learnings-grid">
-
       <div class="learning-card">
         <div class="learning-icon">01</div>
         <h3 class="learning-title">UX começa na ponta da operação.</h3>
         <p class="learning-body">Antes de conhecer o termo, já praticava UX operacional: identificando onde o usuário travava, o que o confundia e quais processos geravam fricção. A experiência acumulada no atendimento foi a primeira e mais sólida formação em experiência do usuário.</p>
       </div>
-
       <div class="learning-card">
         <div class="learning-icon">02</div>
         <h3 class="learning-title">Melhoria contínua não precisa de projeto formal para começar.</h3>
         <p class="learning-body">Cada ajuste nos fluxos de comunicação, cada reorganização do processo de atendimento e cada melhoria na organização das informações foi um ciclo de melhoria contínua na prática. O resultado acumulado foi mensurável: menos tempo de resposta, mais produtividade.</p>
       </div>
-
       <div class="learning-card">
         <div class="learning-icon">03</div>
         <h3 class="learning-title">Onboarding é o momento de maior impacto na jornada do cliente.</h3>
         <p class="learning-body">A jornada inicial define a percepção que o cliente terá do produto por muito tempo. Estruturar o onboarding com acompanhamento real dos primeiros passos reduzia significativamente as dúvidas posteriores e aumentava a confiança na operação.</p>
       </div>
-
       <div class="learning-card">
         <div class="learning-icon">04</div>
         <h3 class="learning-title">Validação operacional é parte do ciclo de produto.</h3>
         <p class="learning-body">Participar dos testes funcionais antes do lançamento com o olhar de quem atende o cliente diariamente era trazer o usuário real para dentro do processo de desenvolvimento. Essa perspectiva identificava problemas que testes técnicos raramente capturavam.</p>
       </div>
-
     </div>
   </div>
 </section>
