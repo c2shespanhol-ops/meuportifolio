@@ -3,25 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Case Study 02 — Redução de 71% no Lead Time · Cleyton Hespanhol</title>
+<title>Case Study: a persona · Cleyton Hespanhol</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:        #0E1114;
-    --bg2:       #13181D;
-    --bg3:       #1A2028;
+    --bg:        #0D0D0D;
+    --bg2:       #111111;
+    --bg3:       #1A1A1A;
     --gold:      #C9A84C;
     --gold-lt:   #E8C060;
+    --gold-dim:  rgba(201,168,76,0.15);
     --teal:      #26505A;
     --teal-br:   #3A7A8A;
     --coral:     #F57F76;
-    --white:     #F0F6FC;
+    --white:     #FFFFFF;
     --gray1:     #8B949E;
     --gray2:     #4A5568;
     --border:    rgba(201,168,76,0.18);
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
   html { scroll-behavior: smooth; }
 
   body {
@@ -33,6 +35,7 @@
     overflow-x: hidden;
   }
 
+  /* ── NOISE TEXTURE OVERLAY ── */
   body::before {
     content: '';
     position: fixed;
@@ -43,6 +46,43 @@
     opacity: 0.4;
   }
 
+  /* ── BOTÃO VOLTAR ── */
+  .back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: rgba(13,13,13,0.85);
+    border: 0.5px solid var(--border);
+    border-radius: 2px;
+    color: var(--gold);
+    font-family: 'Orbitron', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+
+  .back-btn:hover {
+    background: rgba(201,168,76,0.1);
+    border-color: var(--gold);
+    color: var(--gold-lt);
+  }
+
+  .back-btn svg {
+    width: 12px;
+    height: 12px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+  }
+
+  /* ── HERO ── */
   .hero {
     min-height: 100vh;
     display: grid;
@@ -55,9 +95,9 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 70% 60% at 80% 20%, rgba(201,168,76,0.08) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 40% at 10% 80%, rgba(58,122,138,0.06) 0%, transparent 50%),
-      linear-gradient(160deg, #0E1114 0%, #111820 60%, #0A0E12 100%);
+      radial-gradient(ellipse 70% 60% at 80% 20%, rgba(58,122,138,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 10% 80%, rgba(201,168,76,0.06) 0%, transparent 50%),
+      linear-gradient(160deg, #0D0D0D 0%, #111111 60%, #0A0A0A 100%);
   }
 
   .orb {
@@ -65,14 +105,14 @@
     width: 600px;
     height: 600px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%);
     top: -100px;
     right: -100px;
     animation: orbFloat 8s ease-in-out infinite;
   }
 
   @keyframes orbFloat {
-    0%, 100% { transform: translate(0,0) scale(1); }
+    0%, 100% { transform: translate(0, 0) scale(1); }
     50% { transform: translate(-30px, 40px) scale(1.05); }
   }
 
@@ -86,15 +126,23 @@
     border-bottom: 0.5px solid var(--border);
   }
 
-  .nav-brand { display: flex; align-items: center; gap: 14px; }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
 
   .h-mark {
-    width: 36px; height: 36px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     border: 1.5px solid var(--gold);
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: 'Orbitron', monospace;
-    font-size: 14px; font-weight: 700;
+    font-size: 14px;
+    font-weight: 700;
     color: var(--gold);
     position: relative;
   }
@@ -109,7 +157,8 @@
 
   .nav-name {
     font-family: 'DM Sans', sans-serif;
-    font-size: 13px; font-weight: 500;
+    font-size: 13px;
+    font-weight: 500;
     color: var(--white);
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -117,14 +166,17 @@
 
   .nav-role {
     font-family: 'Orbitron', monospace;
-    font-size: 7px; color: var(--gold);
+    font-size: 7px;
+    color: var(--gold);
     letter-spacing: 0.15em;
-    display: block; margin-top: 2px;
+    display: block;
+    margin-top: 2px;
   }
 
   .nav-tag {
     font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gray1);
+    font-size: 8px;
+    color: var(--gray1);
     letter-spacing: 0.12em;
     padding: 6px 14px;
     border: 0.5px solid var(--border);
@@ -132,21 +184,26 @@
   }
 
   .hero-content {
-    position: relative; z-index: 10;
-    display: flex; flex-direction: column;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     padding: 80px 64px;
     max-width: 900px;
   }
 
   .case-label {
-    display: inline-flex; align-items: center;
-    gap: 8px; margin-bottom: 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 32px;
     animation: fadeUp 0.8s ease forwards;
   }
 
   .case-label-dot {
-    width: 6px; height: 6px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: var(--gold);
     animation: pulse 2s ease-in-out infinite;
@@ -159,37 +216,49 @@
 
   .case-label-text {
     font-family: 'Orbitron', monospace;
-    font-size: 9px; color: var(--gold);
-    letter-spacing: 0.2em; font-weight: 600;
+    font-size: 9px;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    font-weight: 600;
   }
 
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(52px, 7vw, 88px);
-    font-weight: 300; line-height: 1.05;
-    color: var(--white); margin-bottom: 8px;
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 8px;
     animation: fadeUp 0.9s ease forwards;
-    animation-delay: 0.1s; opacity: 0;
+    animation-delay: 0.1s;
+    opacity: 0;
   }
 
-  .hero-title em { font-style: italic; color: var(--gold); }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
 
   .hero-subtitle {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(28px, 4vw, 44px);
-    font-weight: 300; color: var(--gray1);
+    font-weight: 300;
+    color: var(--gray1);
     margin-bottom: 40px;
     animation: fadeUp 1s ease forwards;
-    animation-delay: 0.2s; opacity: 0;
+    animation-delay: 0.2s;
+    opacity: 0;
   }
 
   .hero-desc {
     font-size: 15px;
-    color: rgba(240,246,252,0.7);
-    max-width: 560px; line-height: 1.8;
+    color: rgba(255,255,255,0.7);
+    max-width: 560px;
+    line-height: 1.8;
     margin-bottom: 48px;
     animation: fadeUp 1s ease forwards;
-    animation-delay: 0.3s; opacity: 0;
+    animation-delay: 0.3s;
+    opacity: 0;
   }
 
   @keyframes fadeUp {
@@ -198,81 +267,62 @@
   }
 
   .meta-row {
-    display: flex; gap: 12px; flex-wrap: wrap;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
     animation: fadeUp 1s ease forwards;
-    animation-delay: 0.4s; opacity: 0;
+    animation-delay: 0.4s;
+    opacity: 0;
   }
 
   .meta-pill {
     padding: 8px 18px;
     border: 0.5px solid var(--border);
     border-radius: 2px;
-    font-size: 11px; color: var(--gray1);
+    font-size: 11px;
+    color: var(--gray1);
     background: rgba(201,168,76,0.04);
     letter-spacing: 0.04em;
   }
 
-  .meta-pill strong { color: var(--gold); font-weight: 500; }
+  .meta-pill strong {
+    color: var(--gold);
+    font-weight: 500;
+  }
 
   .hero-footer {
-    position: relative; z-index: 10;
+    position: relative;
+    z-index: 10;
     padding: 24px 64px;
     border-top: 0.5px solid var(--border);
-    display: flex; align-items: center; gap: 40px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
   }
 
   .scroll-hint {
-    display: flex; align-items: center; gap: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gray2);
+    font-size: 8px;
+    color: var(--gray2);
     letter-spacing: 0.15em;
     animation: fadeUp 1s ease forwards;
-    animation-delay: 0.6s; opacity: 0;
+    animation-delay: 0.6s;
+    opacity: 0;
   }
 
   .scroll-line {
-    width: 40px; height: 0.5px;
+    width: 40px;
+    height: 0.5px;
     background: linear-gradient(90deg, var(--gold), transparent);
   }
 
-  /* Big metric display */
-  .metric-hero {
-    position: absolute;
-    right: 64px; top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
-    z-index: 10;
-    animation: fadeUp 1s ease forwards;
-    animation-delay: 0.5s; opacity: 0;
-  }
-
-  .metric-hero-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 140px; font-weight: 300;
-    line-height: 1;
-    color: rgba(201,168,76,0.15);
-    display: block;
+  main {
     position: relative;
+    z-index: 1;
   }
-
-  .metric-hero-number::after {
-    content: '71%';
-    position: absolute;
-    inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 100px;
-    color: var(--gold);
-    opacity: 0.9;
-  }
-
-  .metric-hero-label {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gray1);
-    letter-spacing: 0.2em;
-    margin-top: 8px;
-  }
-
-  main { position: relative; z-index: 1; }
 
   .section {
     padding: 100px 64px;
@@ -280,19 +330,26 @@
     position: relative;
   }
 
-  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
 
   .section-label {
     font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gold);
+    font-size: 8px;
+    color: var(--gold);
     letter-spacing: 0.25em;
     margin-bottom: 16px;
-    display: flex; align-items: center; gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
 
   .section-label::after {
     content: '';
-    flex: 1; height: 0.5px;
+    flex: 1;
+    height: 0.5px;
     background: var(--border);
     max-width: 60px;
   }
@@ -300,13 +357,17 @@
   .section-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(32px, 4vw, 52px);
-    font-weight: 300; line-height: 1.15;
-    color: var(--white); margin-bottom: 48px;
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 48px;
   }
 
-  .section-title em { font-style: italic; color: var(--gold); }
+  .section-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
 
-  /* Problem grid */
   .problem-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -316,16 +377,21 @@
   .problem-card {
     background: var(--bg2);
     padding: 48px 40px;
-    position: relative; overflow: hidden;
+    position: relative;
+    overflow: hidden;
     transition: background 0.3s ease;
   }
 
-  .problem-card:hover { background: var(--bg3); }
+  .problem-card:hover {
+    background: var(--bg3);
+  }
 
   .problem-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 2px;
   }
 
@@ -334,9 +400,12 @@
 
   .card-eyebrow {
     font-family: 'Orbitron', monospace;
-    font-size: 8px; letter-spacing: 0.2em;
+    font-size: 8px;
+    letter-spacing: 0.2em;
     margin-bottom: 20px;
-    display: flex; align-items: center; gap: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   .card-eyebrow.friction { color: var(--coral); }
@@ -344,32 +413,45 @@
 
   .card-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 28px; font-weight: 400;
-    color: var(--white); margin-bottom: 16px;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 16px;
     line-height: 1.2;
   }
 
-  .card-body { font-size: 14px; color: var(--gray1); line-height: 1.8; }
+  .card-body {
+    font-size: 14px;
+    color: var(--gray1);
+    line-height: 1.8;
+  }
 
-  .card-list { list-style: none; margin-top: 20px; }
+  .card-list {
+    list-style: none;
+    margin-top: 20px;
+  }
 
   .card-list li {
     font-size: 13px;
-    color: rgba(240,246,252,0.7);
+    color: rgba(255,255,255,0.7);
     padding: 8px 0;
     border-bottom: 0.5px solid rgba(201,168,76,0.08);
-    display: flex; align-items: flex-start;
-    gap: 10px; line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
   }
 
   .card-list li::before {
     content: '·';
     color: var(--gold);
-    flex-shrink: 0; margin-top: 1px;
+    flex-shrink: 0;
+    margin-top: 1px;
   }
 
-  /* Process */
-  .process-bg { background: var(--bg2); }
+  .process-bg {
+    background: var(--bg2);
+  }
 
   .process-timeline {
     position: relative;
@@ -379,7 +461,9 @@
   .process-timeline::before {
     content: '';
     position: absolute;
-    left: 0; top: 8px; bottom: 8px;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
     width: 1px;
     background: linear-gradient(180deg, var(--gold), rgba(201,168,76,0.1));
   }
@@ -387,8 +471,8 @@
   .process-step {
     position: relative;
     margin-bottom: 56px;
-    animation: fadeUp 0.6s ease forwards;
     opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
   }
 
   .process-step:nth-child(1) { animation-delay: 0.1s; }
@@ -399,103 +483,136 @@
 
   .step-node {
     position: absolute;
-    left: -46px; top: 4px;
-    width: 12px; height: 12px;
+    left: -46px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     border: 1.5px solid var(--gold);
     background: var(--bg2);
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .step-node-dot {
-    width: 4px; height: 4px;
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
     background: var(--gold);
   }
 
   .step-number {
     font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gold);
-    letter-spacing: 0.15em; margin-bottom: 8px;
+    font-size: 8px;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
   }
 
   .step-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 24px; font-weight: 400;
-    color: var(--white); margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 10px;
   }
 
   .step-desc {
-    font-size: 14px; color: var(--gray1);
-    line-height: 1.8; max-width: 680px;
+    font-size: 14px;
+    color: var(--gray1);
+    line-height: 1.8;
+    max-width: 680px;
   }
 
   .step-tags {
-    display: flex; gap: 8px;
-    flex-wrap: wrap; margin-top: 14px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 14px;
   }
 
   .step-tag {
-    font-size: 10px; padding: 3px 10px;
+    font-size: 10px;
+    padding: 3px 10px;
     border: 0.5px solid rgba(58,122,138,0.4);
-    border-radius: 2px; color: var(--teal-br);
+    border-radius: 2px;
+    color: var(--teal-br);
     background: rgba(58,122,138,0.05);
     letter-spacing: 0.04em;
   }
 
-  /* Results strip */
-  .results-strip {
+  .deliverables-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2px;
+    margin-top: 8px;
   }
 
-  .result-card {
+  .deliverable-card {
     background: var(--bg2);
-    padding: 48px 36px;
-    text-align: center;
-    position: relative; overflow: hidden;
-    transition: background 0.3s ease;
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, background 0.3s ease;
   }
 
-  .result-card:hover { background: var(--bg3); }
-
-  .result-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  .deliverable-card:hover {
+    background: var(--bg3);
+    transform: translateY(-4px);
   }
 
-  .result-number {
+  .deliverable-number {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 72px; font-weight: 300;
-    color: var(--gold); line-height: 1;
-    margin-bottom: 12px; display: block;
+    font-size: 64px;
+    font-weight: 300;
+    color: rgba(201,168,76,0.12);
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    line-height: 1;
   }
 
-  .result-label {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gray1);
-    letter-spacing: 0.15em; line-height: 1.6;
-    text-transform: uppercase;
+  .deliverable-icon {
+    width: 40px;
+    height: 40px;
+    border: 0.5px solid var(--border);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
   }
 
-  .result-context {
-    font-size: 12px; color: var(--gray2);
-    margin-top: 10px; line-height: 1.5;
+  .deliverable-icon svg {
+    width: 18px;
+    height: 18px;
   }
 
-  /* Impact section */
+  .deliverable-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .deliverable-desc {
+    font-size: 13px;
+    color: var(--gray1);
+    line-height: 1.7;
+  }
+
   .impact-bg {
-    background: linear-gradient(135deg, #0A0E12 0%, #111820 100%);
+    background: linear-gradient(135deg, #0A0A0A 0%, #111111 100%);
   }
 
   .impact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 48px; align-items: start;
+    gap: 48px;
+    align-items: start;
   }
 
   .impact-quote {
@@ -510,61 +627,77 @@
     font-size: 80px;
     color: rgba(201,168,76,0.15);
     position: absolute;
-    top: -10px; left: 24px;
+    top: -10px;
+    left: 24px;
     line-height: 1;
   }
 
   .quote-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-style: italic;
+    font-size: 22px;
+    font-style: italic;
     font-weight: 300;
     color: rgba(232,192,96,0.9);
-    line-height: 1.6; margin-bottom: 20px;
-    position: relative; z-index: 1;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
   }
 
   .quote-source {
     font-family: 'Orbitron', monospace;
-    font-size: 7px; color: var(--gray2);
+    font-size: 7px;
+    color: var(--gray2);
     letter-spacing: 0.15em;
   }
 
   .impact-metrics {
-    display: flex; flex-direction: column; gap: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
 
   .metric-row {
     background: var(--bg2);
     padding: 24px 28px;
-    display: flex; align-items: center; gap: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
     transition: background 0.2s ease;
   }
 
   .metric-row:hover { background: var(--bg3); }
 
   .metric-indicator {
-    width: 8px; height: 8px;
-    border-radius: 50%; flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
   }
 
   .metric-content { flex: 1; }
 
   .metric-title {
-    font-size: 13px; font-weight: 500;
-    color: var(--white); margin-bottom: 2px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 2px;
   }
 
   .metric-detail {
-    font-size: 11px; color: var(--gray1); line-height: 1.5;
+    font-size: 11px;
+    color: var(--gray1);
+    line-height: 1.5;
   }
 
   .metric-badge {
     font-family: 'Orbitron', monospace;
-    font-size: 8px; padding: 3px 8px;
-    border-radius: 2px; white-space: nowrap;
+    font-size: 8px;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
   }
 
-  /* Learnings */
   .learnings-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -586,61 +719,80 @@
   .learning-icon {
     margin-bottom: 20px;
     font-family: 'Orbitron', monospace;
-    font-size: 20px; color: var(--gold);
+    font-size: 20px;
+    color: var(--gold);
     opacity: 0.6;
   }
 
   .learning-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 600;
-    color: var(--white); margin-bottom: 12px;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 12px;
   }
 
   .learning-body {
-    font-size: 13px; color: var(--gray1); line-height: 1.8;
+    font-size: 13px;
+    color: var(--gray1);
+    line-height: 1.8;
   }
 
-  /* Footer */
   footer {
-    background: #080A0C;
+    background: #080808;
     border-top: 0.5px solid var(--border);
     padding: 48px 64px;
-    display: flex; align-items: center;
-    justify-content: space-between; gap: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
   }
 
-  .footer-brand { display: flex; align-items: center; gap: 16px; }
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
   .footer-info { flex: 1; }
 
   .footer-name {
     font-family: 'DM Sans', sans-serif;
-    font-size: 14px; font-weight: 500;
+    font-size: 14px;
+    font-weight: 500;
     color: var(--white);
-    letter-spacing: 0.08em; text-transform: uppercase;
-    display: block; margin-bottom: 4px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
   }
 
   .footer-role {
     font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gold);
-    letter-spacing: 0.15em; display: block;
+    font-size: 8px;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    display: block;
   }
 
   .footer-right { text-align: right; }
 
   .footer-linkedin {
     font-family: 'DM Sans', sans-serif;
-    font-size: 12px; color: var(--teal-br);
+    font-size: 12px;
+    color: var(--teal-br);
     text-decoration: none;
     letter-spacing: 0.02em;
-    display: block; margin-bottom: 4px;
+    display: block;
+    margin-bottom: 4px;
     transition: color 0.2s;
   }
 
   .footer-linkedin:hover { color: var(--gold); }
 
   .footer-copy {
-    font-size: 11px; color: var(--gray2);
+    font-size: 11px;
+    color: var(--gray2);
     letter-spacing: 0.04em;
   }
 
@@ -649,11 +801,37 @@
     background: linear-gradient(90deg, var(--gold), var(--gold-lt), var(--gold));
   }
 
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0;
+  }
+
+  .ornament-line {
+    flex: 1;
+    height: 0.5px;
+    background: var(--border);
+  }
+
+  .ornament-diamond {
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--gold);
+    transform: rotate(45deg);
+    opacity: 0.6;
+  }
+
   @media (max-width: 900px) {
     .nav, .section, .hero-content, .hero-footer, footer { padding-left: 28px; padding-right: 28px; }
-    .problem-grid, .impact-grid, .results-strip, .learnings-grid { grid-template-columns: 1fr; }
+    .problem-grid, .impact-grid, .deliverables-grid, .learnings-grid { grid-template-columns: 1fr; }
     .hero-title { font-size: 44px; }
-    .metric-hero { display: none; }
+    .back-btn { top: 12px; left: 12px; padding: 8px 14px; }
+  }
+
+  @media print {
+    body { background: white; color: black; }
+    .hero-bg, .orb, .back-btn { display: none; }
   }
 
   /* ── COVER PAGE ── */
@@ -695,7 +873,7 @@
   .c-content { position: relative; z-index: 10; padding: 0 64px 80px; }
   .c-eyebrow { font-family: 'Orbitron', monospace; font-size: 11px; letter-spacing: 0.25em; color: #C9A84C; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
   .c-dot { width: 6px; height: 6px; border-radius: 50%; background: #C9A84C; }
-  .c-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.05; color: #F0F6FC; margin-bottom: 6px; }
+  .c-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.05; color: #FFFFFF; margin-bottom: 6px; }
   .c-title em { font-style: italic; color: #C9A84C; }
   .c-rule { width: 48px; height: 2px; background: linear-gradient(90deg, #C9A84C, rgba(201,168,76,0.2)); margin-bottom: 16px; border-radius: 1px; }
   .c-sub { font-family: 'DM Sans', sans-serif; font-weight: 300; color: #8B949E; margin-bottom: 32px; line-height: 1.5; }
@@ -709,19 +887,27 @@
   .c-hcircle { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid #C9A84C; display: flex; align-items: center; justify-content: center; font-family: 'Orbitron', monospace; font-size: 16px; font-weight: 700; color: #C9A84C; flex-shrink: 0; position: relative; }
   .c-hcircle::after { content: ''; position: absolute; inset: 6px; border-radius: 50%; border: 0.5px solid rgba(201,168,76,0.2); }
   .c-ssep { width: 0.5px; height: 32px; background: rgba(201,168,76,0.25); }
-  .c-sname { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: #F0F6FC; letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 3px; }
+  .c-sname { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: #FFFFFF; letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 3px; }
   .c-srole { font-family: 'Orbitron', monospace; font-size: 8px; color: #C9A84C; letter-spacing: 0.14em; display: block; }
   .c-bignumber { position: absolute; font-family: 'Cormorant Garamond', serif; font-size: 280px; font-weight: 300; line-height: 1; color: rgba(201,168,76,0.06); right: -20px; bottom: -40px; z-index: 1; letter-spacing: -0.05em; }
-
-  </style>
+</style>
 </head>
 <body>
+
+<!-- ── BOTÃO VOLTAR ── -->
+<a class="back-btn" href="index.html" title="Voltar para a página inicial">
+  <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+    <polyline points="7,2 3,6 7,10"/>
+    <line x1="3" y1="6" x2="11" y2="6"/>
+  </svg>
+  VOLTAR
+</a>
 
 <div class="cover-hint">CAPTURAR COMO IMAGEM PARA LINKEDIN</div>
 <div class="gold-accent-top"></div>
 
-<section class="cover-page" style="background: #0E1114;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%, rgba(201,168,76,0.08) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 10% 20%, rgba(58,122,138,0.06) 0%, transparent 50%), linear-gradient(150deg, #0E1114 0%, #0A0E12 100%);"></div>
+<section class="cover-page" style="background: #0D0D0D;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 85% 40%, rgba(58,122,138,0.14) 0%, transparent 60%), radial-gradient(ellipse 40% 60% at 15% 70%, rgba(201,168,76,0.05) 0%, transparent 50%), linear-gradient(150deg, #0D0D0D 0%, #111111 100%);"></div>
   <div class="c-grid"></div>
   <div class="c-gold-top"></div>
   <div class="c-gold-left"></div>
@@ -730,15 +916,14 @@
     <circle cx="16" cy="16" r="9" stroke="#C9A84C" stroke-width="0.5"/>
     <circle cx="16" cy="16" r="3" fill="#C9A84C"/>
   </svg>
-  <div class="c-label">PORTFÓLIO · CASE STUDY 02</div>
-  <div class="c-bignumber">02</div>
+  <div class="c-label">PORTFÓLIO · CASE STUDY 01</div>
+  <div class="c-bignumber">01</div>
   <div class="c-content">
-    <div class="c-eyebrow"><div class="c-dot"></div>PRODUCT OPERATIONS · GESTÃO DE FLUXO · SLA</div>
-    <h1 class="c-title" style="font-size:68px;">Redução de <em>71%</em><br>no Lead Time</h1>
+    <div class="c-eyebrow"><div class="c-dot"></div>PRODUTO DIGITAL · SETOR PÚBLICO · UX</div>
+    <h1 class="c-title" style="font-size:72px;">Persona Digital<br><em>Institucional</em></h1>
     <div class="c-rule"></div>
-    <p class="c-sub">Estruturação de fluxo, padronização de formulários<br>e controle de SLA em operação pública.</p>
-    <div class="c-metrics"><div class="c-item"><div <div class="c-mval">71%</div><span class="c-mlbl">LEAD TIME</span></div><div class="c-mdiv"></div><div class="c-item"><div class="c-mval">24h</div><span class="c-mlbl">SLA CRIADO</span></div><div class="c-mdiv"></div><div class="c-item"><div class="c-mval">0</div><span class="c-mlbl">RETRABALHO</span></div></div>
-    <div class="c-tags"><span class="c-tag">JIRA</span><span class="c-tag">KANBAN</span><span class="c-tag">GESTÃO DE SLA</span><span class="c-tag">MELHORIA DE PROCESSOS</span></div>
+    <p class="c-sub">Concepção, briefing executivo e produção de avatar institucional<br>para comunicação interna no setor público.</p>
+    <div class="c-tags"><span class="c-tag">BRIEFING EXECUTIVO</span><span class="c-tag">UX OPERACIONAL</span><span class="c-tag">JORNADA DO USUÁRIO</span><span class="c-tag">PRODUTO DIGITAL</span></div>
   </div>
   <div class="c-sig">
     <div class="c-hcircle">H</div>
@@ -751,7 +936,7 @@
 </section>
 <div class="cover-divider"></div>
 
-
+<!-- ══ HERO ══ -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="orb"></div>
@@ -770,21 +955,18 @@
   <div class="hero-content">
     <div class="case-label">
       <div class="case-label-dot"></div>
-      <span class="case-label-text">CASE STUDY 02 · PRODUCT OPERATIONS · GESTÃO DE FLUXO</span>
+      <span class="case-label-text">CASE STUDY 01 · PERSONA DIGITAL · SETOR PÚBLICO</span>
     </div>
-
-    <h1 class="hero-title">Redução de <em>71%</em></h1>
-    <p class="hero-subtitle">no Lead Time Operacional</p>
-
+    <h1 class="hero-title">Persona Digital <em>Institucional</em></h1>
+    <p class="hero-subtitle">Concepção, Briefing e Jornada do Usuário no Setor Público</p>
     <p class="hero-desc">
-      Como a estruturação de um fluxo de demandas desorganizado, a padronização de formulários e a criação de controle de SLA transformaram uma operação caótica em um processo previsível, rastreável e eficiente.
+      Como atuei na concepção, documentação estratégica e estruturação da jornada de uso de uma persona digital institucional para comunicação interna no setor público, reduzindo fricções na jornada do servidor e modernizando a identidade digital da secretaria.
     </p>
-
     <div class="meta-row">
-      <div class="meta-pill"><strong>Contexto</strong> · Prefeitura Municipal de Maricá, RJ</div>
-      <div class="meta-pill"><strong>Papel</strong> · Product Operations · Gestão de Fluxo e SLA</div>
-      <div class="meta-pill"><strong>Período</strong> · Janeiro 2025 – Março 2026</div>
-      <div class="meta-pill"><strong>Resultado</strong> · 71% de redução no lead time</div>
+      <div class="meta-pill"><strong>Contexto</strong> · Secretaria Municipal · Gestão Tributária e Fiscal · Maricá, RJ</div>
+      <div class="meta-pill"><strong>Papel</strong> · Product Operations · Concepção, Briefing e Jornada do Usuário</div>
+      <div class="meta-pill"><strong>Entrega</strong> · Abril 2025</div>
+      <div class="meta-pill"><strong>Status</strong> · Entregue e adotado institucionalmente</div>
     </div>
   </div>
 
@@ -793,262 +975,278 @@
       <div class="scroll-line"></div>
       SCROLL PARA EXPLORAR
     </div>
-    <div class="meta-pill" style="margin-left:auto;">Product Operations · Jira · Kanban · SLA · Melhoria Contínua</div>
-  </div>
-
-  <!-- Big metric display -->
-  <div class="metric-hero">
-    <span class="metric-hero-number">&nbsp;</span>
-    <div class="metric-hero-label">REDUÇÃO NO<br>LEAD TIME</div>
+    <div class="meta-pill" style="margin-left:auto;">UX Design · Product Operations · Setor Público</div>
   </div>
 </section>
 
-<!-- PROBLEMA -->
+<!-- ══ PROBLEMA ══ -->
 <section class="section">
   <div class="section-inner">
     <div class="section-label">01 · CONTEXTO E PROBLEMA</div>
-    <h2 class="section-title">Demandas chegavam<br><em>sem estrutura, sem critério, sem controle.</em></h2>
-
+    <h2 class="section-title">Servidores tinham dúvidas recorrentes<br><em>sobre como acessar os sistemas internos.</em></h2>
     <div class="problem-grid">
       <div class="problem-card friction">
-        <div class="card-eyebrow friction">
-          <span>●</span> ANTES · OPERAÇÃO SEM ESTRUTURA
-        </div>
-        <h3 class="card-title">WhatsApp como canal oficial de solicitação</h3>
-        <p class="card-body">Os servidores solicitavam acesso aos sistemas diretamente via WhatsApp, de forma informal e sem padronização. Os formulários existiam, mas eram preenchidos de forma genérica, pedindo acesso "espelhado" a outro login, sem especificar quais sistemas eram necessários.</p>
+        <div class="card-eyebrow friction"><span>●</span> ANTES · JORNADA COM FRICÇÃO</div>
+        <h3 class="card-title">Comunicação interna sem humanização</h3>
+        <p class="card-body">A secretaria possuía sistemas e ferramentas digitais internas, mas a ausência de um facilitador humanizado gerava dúvidas recorrentes entre os servidores sobre como preencher formulários e acessar os sistemas internos.</p>
         <ul class="card-list">
-          <li>Solicitações via WhatsApp, sem rastreabilidade ou controle</li>
-          <li>Formulários preenchidos de forma genérica, sem especificação dos acessos</li>
-          <li>Ausência de SLA definido para resposta e resolução</li>
-          <li>Demandas podiam levar até uma semana sem resposta</li>
-          <li>Retrabalho constante por perda de documentos e pedidos incompletos</li>
-          <li>Servidores novos sem orientação clara sobre o processo</li>
+          <li>Dúvidas recorrentes sobre como preencher formulários de requisição de acesso a sistemas</li>
+          <li>Ausência de um facilitador visual e humanizado nos canais internos da secretaria</li>
+          <li>Baixo engajamento com tutoriais e comunicados internos da secretaria</li>
+          <li>Identidade digital da secretaria sem elemento humanizador e de referência para o servidor</li>
+          <li>Servidor sem referência clara de onde buscar orientação nos processos internos</li>
         </ul>
       </div>
-
       <div class="problem-card solution">
-        <div class="card-eyebrow solution">
-          <span>●</span> OPORTUNIDADE IDENTIFICADA
-        </div>
-        <h3 class="card-title">Estrutura, padronização e controle como alavancas</h3>
-        <p class="card-body">O problema não era de capacidade nem de volume. Era de estrutura. Sem um fluxo claro, sem critérios de preenchimento e sem controle de SLA, qualquer demanda se tornava imprevisível. A oportunidade era criar o processo que ainda não existia.</p>
+        <div class="card-eyebrow solution"><span>●</span> OPORTUNIDADE IDENTIFICADA</div>
+        <h3 class="card-title">Uma persona que facilita, não que apenas informa</h3>
+        <p class="card-body">A solução não era apenas criar um avatar decorativo. Era criar uma presença institucional com personalidade, voz e UX definidos, capaz de humanizar a comunicação interna e reduzir as dúvidas dos servidores sobre os processos e sistemas internos. Este case é apresentado para fins de portfólio profissional, sem reprodução de ativos visuais ou audiovisuais institucionais.</p>
         <ul class="card-list">
-          <li>Padronizar o formulário com campos obrigatórios e específicos</li>
-          <li>Criar controle centralizado das demandas via Jira</li>
-          <li>Definir SLA com acompanhamento ativo de 24 horas</li>
-          <li>Alinhar com TI a diferença entre incidente e requisição</li>
-          <li>Estender o padrão para todos os servidores, incluindo novos contratados</li>
+          <li>Persona acessível, empática e representativa da diversidade do servidor público local</li>
+          <li>Facilitadora na jornada do servidor no acesso aos sistemas e processos internos</li>
+          <li>Elemento visual consistente nos canais internos e apresentações da secretaria</li>
+          <li>Linguagem simplificada com entonação educativa, acolhedora e institucional</li>
+          <li>Aplicável em vídeos internos, sistemas, banners e apresentações institucionais</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROCESSO -->
+<!-- ══ PROCESSO ══ -->
 <section class="section process-bg">
   <div class="section-inner">
-    <div class="section-label">02 · PROCESSO DE SOLUÇÃO</div>
-    <h2 class="section-title">Do caos ao fluxo<br><em>previsível e rastreável.</em></h2>
-
+    <div class="section-label">02 · PROCESSO DE CRIAÇÃO</div>
+    <h2 class="section-title">Do briefing à<br><em>implementação em produção.</em></h2>
     <div class="process-timeline">
-
       <div class="process-step">
         <div class="step-node"><div class="step-node-dot"></div></div>
         <div class="step-number">ETAPA 01</div>
-        <h3 class="step-title">Diagnóstico do Fluxo Existente</h3>
-        <p class="step-desc">Mapeamento completo do fluxo de entrada de demandas: como chegavam, por qual canal, quem recebia, o que acontecia depois. Identificação dos pontos de quebra: formulários incompletos, ausência de critério técnico e falta de rastreabilidade.</p>
+        <h3 class="step-title">Discovery e Identificação do Problema</h3>
+        <p class="step-desc">Análise dos sistemas e canais internos da secretaria. Identificação das dúvidas recorrentes dos servidores ao preencher o formulário de requisição de acesso aos sistemas internos. Mapeamento das oportunidades de melhoria por meio de uma persona institucional humanizada.</p>
         <div class="step-tags">
-          <span class="step-tag">Mapeamento de Fluxo</span>
-          <span class="step-tag">Identificação de Gargalos</span>
-          <span class="step-tag">Discovery Operacional</span>
+          <span class="step-tag">User Research</span>
+          <span class="step-tag">Análise de Jornada</span>
+          <span class="step-tag">Identificação de Fricções</span>
         </div>
       </div>
-
       <div class="process-step">
         <div class="step-node"><div class="step-node-dot"></div></div>
         <div class="step-number">ETAPA 02</div>
-        <h3 class="step-title">Padronização do Formulário de Requisição</h3>
-        <p class="step-desc">Reestruturação do formulário de solicitação de acesso aos sistemas. O novo padrão exigia que o servidor especificasse por escrito quais acessos precisava, eliminando as solicitações genéricas de "espelhamento". Cada campo foi pensado para reduzir a ambiguidade e o retrabalho.</p>
+        <h3 class="step-title">Definição da Persona e Briefing Executivo</h3>
+        <p class="step-desc">Criação e documentação do briefing executivo completo: perfil comportamental, diretrizes visuais, paleta cromática, características físicas, personalidade, linguagem, contextos de atuação e requisitos técnicos. Documento autoral datado e aprovado pela instituição.</p>
         <div class="step-tags">
-          <span class="step-tag">UX Writing</span>
-          <span class="step-tag">Padronização de Processo</span>
-          <span class="step-tag">Redução de Retrabalho</span>
+          <span class="step-tag">Persona Design</span>
+          <span class="step-tag">Briefing Executivo</span>
+          <span class="step-tag">Documentação Estratégica</span>
+          <span class="step-tag">Diretrizes Visuais</span>
         </div>
       </div>
-
       <div class="process-step">
         <div class="step-node"><div class="step-node-dot"></div></div>
         <div class="step-number">ETAPA 03</div>
-        <h3 class="step-title">Controle Centralizado via Jira</h3>
-        <p class="step-desc">Implementação do Jira como central de controle de todas as demandas. Cada solicitação passou a ser lançada, categorizada e acompanhada. Isso criou rastreabilidade total e permitiu identificar gargalos em tempo real, eliminando a perda de documentos e pedidos.</p>
+        <h3 class="step-title">Criação Visual e Identidade da Persona</h3>
+        <p class="step-desc">Desenvolvimento da identidade visual de a persona: mulher negra, jovem adulta, com expressão acolhedora e visual profissional com traços de informalidade. Paleta definida com branco, bege, laranja queimado e preto: remetendo à identidade da instituição sem perder a humanidade da figura.</p>
         <div class="step-tags">
-          <span class="step-tag">Jira</span>
-          <span class="step-tag">Gestão de Backlog</span>
-          <span class="step-tag">Rastreabilidade</span>
-          <span class="step-tag">Controle de SLA</span>
+          <span class="step-tag">Visual Design</span>
+          <span class="step-tag">Identidade da Persona</span>
+          <span class="step-tag">Acessibilidade Digital</span>
+          <span class="step-tag">Inclusão e Representatividade</span>
         </div>
       </div>
-
       <div class="process-step">
         <div class="step-node"><div class="step-node-dot"></div></div>
         <div class="step-number">ETAPA 04</div>
-        <h3 class="step-title">SLA de 24 Horas com Acompanhamento Ativo</h3>
-        <p class="step-desc">Criação de rotina de acompanhamento: 24 horas após o envio do formulário, o contato com TI era feito para cobrar resposta. O servidor que havia solicitado já recebia a devolutiva no mesmo momento. Antes disso, os acessos podiam levar até uma semana sem qualquer retorno.</p>
+        <h3 class="step-title">Produção do Vídeo Institucional</h3>
+        <p class="step-desc">Criação do primeiro vídeo institucional com a persona como facilitadora, orientando servidores sobre como preencher corretamente o formulário interno de requisição de acesso aos sistemas. Aplicação prática dos princípios de UX: clareza, simplicidade, ausência de ambiguidade e linguagem acessível.</p>
         <div class="step-tags">
-          <span class="step-tag">SLA</span>
-          <span class="step-tag">Gestão de Stakeholders</span>
-          <span class="step-tag">Comunicação Operacional</span>
+          <span class="step-tag">UX Writing</span>
+          <span class="step-tag">Produção de Conteúdo</span>
+          <span class="step-tag">Tutorial Institucional</span>
+          <span class="step-tag">Acessibilidade</span>
         </div>
       </div>
-
       <div class="process-step">
         <div class="step-node"><div class="step-node-dot"></div></div>
         <div class="step-number">ETAPA 05</div>
-        <h3 class="step-title">Alinhamento com TI e Carta de Serviços</h3>
-        <p class="step-desc">Alinhamento formal com a equipe de TI para definir o que seria tratado como incidente e o que seria uma requisição. Foi solicitada a carta de serviços da área para embasar essa categorização. O padrão foi estendido para todos os servidores, incluindo novos contratados, garantindo consistência desde o primeiro dia.</p>
+        <h3 class="step-title">Implementação e Aprovação em Produção</h3>
+        <p class="step-desc">A persona foi aprovada pela gestão da Subsecretaria de Planejamento e Modernização e pela gestão direta da secretaria. Foi adotada imediatamente nos canais internos da secretaria, utilizada nas apresentações mensais da Gestão à Vista e exibida nos telões durante as reuniões. Após minha saída, a secretaria continuou expandindo o uso da persona para novos contextos internos.</p>
         <div class="step-tags">
-          <span class="step-tag">Alinhamento Multidisciplinar</span>
-          <span class="step-tag">Gestão de Stakeholders</span>
-          <span class="step-tag">Documentação de Processo</span>
-          <span class="step-tag">Onboarding Operacional</span>
+          <span class="step-tag">Implementação</span>
+          <span class="step-tag">Go Live</span>
+          <span class="step-tag">Gestão à Vista</span>
+          <span class="step-tag">Comunicação Pública Digital</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- RESULTADOS -->
+<!-- ══ ENTREGAS ══ -->
 <section class="section">
   <div class="section-inner">
-    <div class="section-label">03 · RESULTADOS MENSURÁVEIS</div>
-    <h2 class="section-title">Números que provam<br><em>o impacto da estruturação.</em></h2>
-
-    <div class="results-strip">
-      <div class="result-card">
-        <span class="result-number">71%</span>
-        <div class="result-label">Redução no<br>Lead Time Operacional</div>
-        <p class="result-context">De até uma semana sem resposta para um fluxo previsível e rastreável com SLA definido.</p>
+    <div class="section-label">03 · ENTREGAS DO PROJETO</div>
+    <h2 class="section-title">O que foi <em>construído e entregue.</em></h2>
+    <div class="deliverables-grid">
+      <div class="deliverable-card">
+        <div class="deliverable-number">01</div>
+        <div class="deliverable-icon">
+          <svg viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.2">
+            <rect x="2" y="2" width="14" height="14" rx="2"/>
+            <line x1="5" y1="6" x2="13" y2="6"/>
+            <line x1="5" y1="9" x2="11" y2="9"/>
+            <line x1="5" y1="12" x2="9" y2="12"/>
+          </svg>
+        </div>
+        <h3 class="deliverable-title">Briefing Executivo Completo</h3>
+        <p class="deliverable-desc">Documento estratégico completo com 7 seções: finalidade, diretrizes visuais, aparência física, personalidade e linguagem, contexto de atuação, requisitos técnicos e referências estéticas. A demanda recebida era aberta: apenas referências iniciais de identidade. Todo o restante, personalidade, linguagem, diretrizes visuais, requisitos técnicos e visão estratégica, foi estruturado e documentado pelo autor. Processo integralmente concebido e documentado pelo autor.</p>
       </div>
-
-      <div class="result-card">
-        <span class="result-number">24h</span>
-        <div class="result-label">SLA de Resposta<br>Implementado</div>
-        <p class="result-context">Rotina de acompanhamento ativo criada do zero. Devolutiva ao servidor no mesmo contato com TI.</p>
+      <div class="deliverable-card">
+        <div class="deliverable-number">02</div>
+        <div class="deliverable-icon">
+          <svg viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.2">
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M3 16c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
+          </svg>
+        </div>
+        <h3 class="deliverable-title">Avatar Institucional a persona</h3>
+        <p class="deliverable-desc">Persona visual criada e aprovada: mulher negra, jovem adulta, expressão acolhedora. Representatividade e inclusão como pilares do design. Implementada nos canais digitais e presenciais da Prefeitura.</p>
       </div>
-
-      <div class="result-card">
-        <span class="result-number">0</span>
-        <div class="result-label">Perda de Documentos<br>Após Estruturação</div>
-        <p class="result-context">Centralização no Jira eliminou a perda de pedidos e retrabalho por solicitações incompletas.</p>
+      <div class="deliverable-card">
+        <div class="deliverable-number">03</div>
+        <div class="deliverable-icon">
+          <svg viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.2">
+            <polygon points="3,2 15,9 3,16"/>
+          </svg>
+        </div>
+        <h3 class="deliverable-title">Vídeo Institucional</h3>
+        <p class="deliverable-desc">Vídeo tutorial com a persona como facilitadora: orientando servidores sobre o preenchimento correto do formulário interno de acesso aos sistemas. Aplicação direta de UX: clareza, ausência de ambiguidade, linguagem simples e acessível.</p>
+      </div>
+      <div class="deliverable-card">
+        <div class="deliverable-number">04</div>
+        <div class="deliverable-icon">
+          <svg viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.2">
+            <rect x="2" y="4" width="14" height="10" rx="2"/>
+            <line x1="6" y1="2" x2="6" y2="4"/>
+            <line x1="12" y1="2" x2="12" y2="4"/>
+          </svg>
+        </div>
+        <h3 class="deliverable-title">Gestão à Vista: Aplicação Mensal</h3>
+        <p class="deliverable-desc">A persona foi integrada à revista mensal Gestão à Vista imediatamente após aprovação, exibida nos telões da secretaria em todas as apresentações internas. Consistência visual e presença institucional recorrente desde o primeiro ciclo de uso.</p>
+      </div>
+      <div class="deliverable-card">
+        <div class="deliverable-number">05</div>
+        <div class="deliverable-icon">
+          <svg viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.2">
+            <path d="M9 2L11 7H16L12 10.5L13.5 16L9 13L4.5 16L6 10.5L2 7H7Z"/>
+          </svg>
+        </div>
+        <h3 class="deliverable-title">Aprovação e Implementação</h3>
+        <p class="deliverable-desc">Projeto aprovado pela gestão da Subsecretaria de Planejamento e Modernização e pela gestão direta da secretaria. A solução foi incorporada a novos contextos internos após a entrega, demonstrando aderência ao uso real. Uma solução que segue sendo utilizada institucionalmente após a entrega é evidência de que o processo foi bem estruturado.</p>
+      </div>
+      <div class="deliverable-card">
+        <div class="deliverable-number">06</div>
+        <div class="deliverable-icon">
+          <svg viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.2">
+            <circle cx="9" cy="9" r="7"/>
+            <path d="M6 9l2 2 4-4"/>
+          </svg>
+        </div>
+        <h3 class="deliverable-title">Acessibilidade Digital</h3>
+        <p class="deliverable-desc">Projeto desenvolvido com princípios de acessibilidade: contraste adequado, legibilidade, audiodescrição e compatibilidade com leitores de tela: promovendo inclusão independente de limitações físicas ou cognitivas.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- IMPACTO -->
+<!-- ══ IMPACTO ══ -->
 <section class="section impact-bg">
   <div class="section-inner">
-    <div class="section-label">04 · IMPACTO ORGANIZACIONAL</div>
-    <h2 class="section-title">O que mudou na<br><em>operação de verdade.</em></h2>
-
+    <div class="section-label">04 · IMPACTO E APRENDIZADOS</div>
+    <h2 class="section-title">O que esse projeto<br><em>demonstra na prática.</em></h2>
     <div class="impact-grid">
-
       <div class="impact-quote">
         <div class="quote-mark">"</div>
-        <p class="quote-text">O problema não era de capacidade. Era de clareza. Quando cada demanda passou a entrar com as informações certas, no canal certo, com acompanhamento definido, a operação inteira ganhou previsibilidade.</p>
+        <p class="quote-text">Quando a experiência é fluida, o servidor não precisa pensar duas vezes. Só precisa agir. Essa persona não era um elemento decorativo. Era a eliminação de uma barreira real entre o servidor público e os processos internos da secretaria.</p>
         <div class="quote-source">CLEYTON HESPANHOL · REFLEXÃO SOBRE O PROJETO</div>
       </div>
-
       <div class="impact-metrics">
-
         <div class="metric-row">
           <div class="metric-indicator" style="background:#C9A84C;"></div>
           <div class="metric-content">
-            <div class="metric-title">Previsibilidade operacional</div>
-            <div class="metric-detail">Demandas rastreadas, categorizadas e com prazo definido desde o lançamento</div>
+            <div class="metric-title">Produto digital criado do zero</div>
+            <div class="metric-detail">Briefing, aprovação institucional, vídeo interno e Gestão à Vista</div>
           </div>
-          <div class="metric-badge" style="background:rgba(201,168,76,0.1);color:#C9A84C;">JIRA</div>
+          <div class="metric-badge" style="background:rgba(201,168,76,0.1);color:#C9A84C;">END-TO-END</div>
         </div>
-
         <div class="metric-row">
           <div class="metric-indicator" style="background:#3A7A8A;"></div>
           <div class="metric-content">
-            <div class="metric-title">Eliminação do retrabalho</div>
-            <div class="metric-detail">Formulários padronizados eliminaram pedidos incompletos e repetidos</div>
+            <div class="metric-title">UX aplicado à comunicação pública</div>
+            <div class="metric-detail">Clareza e ausência de ambiguidade na jornada do servidor dentro dos sistemas internos da secretaria</div>
           </div>
-          <div class="metric-badge" style="background:rgba(58,122,138,0.1);color:#3A7A8A;">PROCESSO</div>
+          <div class="metric-badge" style="background:rgba(58,122,138,0.1);color:#3A7A8A;">UX REAL</div>
         </div>
-
         <div class="metric-row">
           <div class="metric-indicator" style="background:#F57F76;"></div>
           <div class="metric-content">
-            <div class="metric-title">Alinhamento com TI</div>
-            <div class="metric-detail">Carta de serviços e critérios definidos para incidente e requisição</div>
+            <div class="metric-title">Representatividade e inclusão</div>
+            <div class="metric-detail">Persona negra, acessível e representativa da comunidade e do servidor público de Maricá</div>
           </div>
-          <div class="metric-badge" style="background:rgba(245,127,118,0.1);color:#F57F76;">STAKEHOLDERS</div>
+          <div class="metric-badge" style="background:rgba(245,127,118,0.1);color:#F57F76;">INCLUSÃO</div>
         </div>
-
         <div class="metric-row">
           <div class="metric-indicator" style="background:#C9A84C;"></div>
           <div class="metric-content">
-            <div class="metric-title">Onboarding padronizado</div>
-            <div class="metric-detail">Novos servidores integrados ao fluxo desde o primeiro dia com o mesmo padrão</div>
+            <div class="metric-title">Implementado e em produção</div>
+            <div class="metric-detail">Entregue, adotado pela gestão e incorporado à rotina institucional da secretaria</div>
           </div>
-          <div class="metric-badge" style="background:rgba(201,168,76,0.1);color:#C9A84C;">ESCALA</div>
+          <div class="metric-badge" style="background:rgba(201,168,76,0.1);color:#C9A84C;">APROVADO</div>
         </div>
-
         <div class="metric-row">
           <div class="metric-indicator" style="background:#3A7A8A;"></div>
           <div class="metric-content">
-            <div class="metric-title">Reconhecimento institucional</div>
-            <div class="metric-detail">Servidor Destaque 2025 pela atuação em melhoria de processos e eficiência operacional</div>
+            <div class="metric-title">Documentação executiva autoral</div>
+            <div class="metric-detail">Briefing com autoria reconhecida, estrutura profissional e visão estratégica</div>
           </div>
-          <div class="metric-badge" style="background:rgba(58,122,138,0.1);color:#3A7A8A;">DESTAQUE</div>
+          <div class="metric-badge" style="background:rgba(58,122,138,0.1);color:#3A7A8A;">AUTORIA</div>
         </div>
-
       </div>
     </div>
   </div>
 </section>
 
-<!-- APRENDIZADOS -->
+<!-- ══ APRENDIZADOS ══ -->
 <section class="section">
   <div class="section-inner">
     <div class="section-label">05 · APRENDIZADOS DO PROJETO</div>
     <h2 class="section-title">O que esse case<br><em>reforçou como profissional.</em></h2>
-
     <div class="learnings-grid">
-
       <div class="learning-card">
         <div class="learning-icon">01</div>
-        <h3 class="learning-title">Caos operacional raramente é falta de capacidade.</h3>
-        <p class="learning-body">A equipe de TI tinha capacidade de resolver. Os servidores queriam resolver. O que faltava era estrutura de entrada. Quando o fluxo foi organizado, a operação respondeu imediatamente. O problema nunca foi quem executava, mas como as demandas chegavam.</p>
+        <h3 class="learning-title">UX não é sobre interfaces. É sobre barreiras humanas.</h3>
+        <p class="learning-body">a persona não resolveu um problema técnico. Resolveu uma barreira cognitiva. O servidor precisava de clareza e de uma referência humana para navegar nos formulários e sistemas internos da secretaria. Criar essa presença foi um ato de UX antes de ser um ato de design.</p>
       </div>
-
       <div class="learning-card">
         <div class="learning-icon">02</div>
-        <h3 class="learning-title">Formulário mal desenhado é fricção disfarçada de processo.</h3>
-        <p class="learning-body">Um formulário que aceita qualquer resposta não é um formulário. É uma fonte de retrabalho. Quando o campo passou a exigir especificação real dos acessos necessários, o retrabalho desapareceu. UX de formulário é Product Operations aplicado à operação interna.</p>
+        <h3 class="learning-title">Persona bem documentada é produto bem executado.</h3>
+        <p class="learning-body">O briefing executivo foi o que garantiu a consistência da entrega. Sem documentação clara de personalidade, linguagem, contexto e requisitos técnicos, o avatar teria sido apenas uma imagem: não uma presença institucional.</p>
       </div>
-
       <div class="learning-card">
         <div class="learning-icon">03</div>
-        <h3 class="learning-title">SLA sem acompanhamento ativo não existe na prática.</h3>
-        <p class="learning-body">Definir um prazo sem criar a rotina de cobrança é apenas uma intenção. O diferencial foi o acompanhamento de 24 horas: entrar em contato com TI e já dar devolutiva ao servidor no mesmo momento. Isso transformou o SLA de uma regra em um comportamento operacional real.</p>
+        <h3 class="learning-title">Transformação digital começa pela experiência humana.</h3>
+        <p class="learning-body">A Prefeitura não precisava de mais tecnologia: precisava de mais clareza. A persona foi a ponte entre os sistemas internos da secretaria e o servidor público. Isso é Product Operations aplicado ao setor público: identificar onde está a fricção e eliminá-la com uma solução simples, clara e humanizada.</p>
       </div>
-
       <div class="learning-card">
         <div class="learning-icon">04</div>
-        <h3 class="learning-title">Alinhamento com stakeholders é parte do produto, não pré-requisito.</h3>
-        <p class="learning-body">O alinhamento com TI para diferenciar incidente de requisição não foi uma reunião de alinhamento. Foi parte da solução. Sem esse entendimento compartilhado, qualquer padronização do formulário teria perdido eficiência no momento da execução pela equipe técnica.</p>
+        <h3 class="learning-title">Inclusão é requisito de produto, não diferencial.</h3>
+        <p class="learning-body">A escolha de uma persona negra, jovem adulta e representativa da diversidade de Maricá não foi estética. Foi estratégica. Um produto institucional que não representa seu usuário falha antes de ser lançado. E uma solução que continua sendo utilizada institucionalmente após a entrega é a prova de que a concepção foi sólida.</p>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-brand">
     <div class="h-mark">H</div>
@@ -1059,7 +1257,7 @@
   </div>
   <div class="footer-right">
     <a href="https://linkedin.com/in/cleytonhespanhol" class="footer-linkedin">linkedin.com/in/cleytonhespanhol</a>
-    <span class="footer-copy">© 2025 · Portfólio Profissional · Case Study 02</span>
+    <span class="footer-copy">© 2025 · Portfólio Profissional · Alguns elementos foram generalizados por respeito ao contexto institucional e dever de confidencialidade</span>
   </div>
 </footer>
 
