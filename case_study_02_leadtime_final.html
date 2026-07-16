@@ -43,6 +43,46 @@
     opacity: 0.4;
   }
 
+  /* BOTÃO VOLTAR FIXADO NO TOPO */
+  .back-btn {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gold);
+    background: rgba(14, 17, 20, 0.85);
+    backdrop-filter: blur(8px);
+    border: 0.5px solid var(--border);
+    padding: 10px 16px;
+    border-radius: 4px;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .back-btn:hover {
+    background: var(--gold);
+    color: var(--bg);
+    border-color: var(--gold);
+    box-shadow: 0 4px 20px rgba(201, 168, 76, 0.15);
+  }
+
+  .back-btn svg {
+    stroke: currentColor;
+    transition: transform 0.3s ease;
+  }
+
+  .back-btn:hover svg {
+    transform: translateX(-3px);
+  }
+
   .hero {
     min-height: 100vh;
     display: grid;
@@ -82,7 +122,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 28px 64px;
+    padding: 28px 64px 28px 140px; /* Ajuste no padding esquerdo para acomodar o botão de voltar */
     border-bottom: 0.5px solid var(--border);
   }
 
@@ -122,13 +162,6 @@
     display: block; margin-top: 2px;
   }
 
-  /* Estilização dos Botões de Ação na Nav */
-  .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
   .nav-tag {
     font-family: 'Orbitron', monospace;
     font-size: 8px; color: var(--gray1);
@@ -136,41 +169,6 @@
     padding: 6px 14px;
     border: 0.5px solid var(--border);
     border-radius: 2px;
-  }
-
-  .btn-back {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Orbitron', monospace;
-    font-size: 8px;
-    color: var(--gold);
-    text-decoration: none;
-    letter-spacing: 0.15em;
-    padding: 6px 14px;
-    border: 0.5px solid var(--gold);
-    border-radius: 2px;
-    background: transparent;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
-  .btn-back:hover {
-    background: var(--gold);
-    color: var(--bg);
-    box-shadow: 0 0 10px rgba(201,168,76,0.2);
-  }
-
-  .btn-back svg {
-    fill: currentColor;
-    width: 8px;
-    height: 8px;
-    transition: transform 0.2s ease;
-  }
-
-  .btn-back:hover svg {
-    transform: translateX(-2px);
   }
 
   .hero-content {
@@ -693,6 +691,7 @@
 
   @media (max-width: 900px) {
     .nav, .section, .hero-content, .hero-footer, footer { padding-left: 28px; padding-right: 28px; }
+    .nav { padding-left: 28px; padding-top: 80px; } /* Dá espaço para o botão em telas de celular */
     .problem-grid, .impact-grid, .results-strip, .learnings-grid { grid-template-columns: 1fr; }
     .hero-title { font-size: 44px; }
     .metric-hero { display: none; }
@@ -755,9 +754,18 @@
   .c-srole { font-family: 'Orbitron', monospace; font-size: 8px; color: #C9A84C; letter-spacing: 0.14em; display: block; }
   .c-bignumber { position: absolute; font-family: 'Cormorant Garamond', serif; font-size: 280px; font-weight: 300; line-height: 1; color: rgba(201,168,76,0.06); right: -20px; bottom: -40px; z-index: 1; letter-spacing: -0.05em; }
 
-</style>
+  </style>
 </head>
 <body>
+
+<!-- BOTÃO VOLTAR FIXADO -->
+<a href="javascript:history.back()" class="back-btn" aria-label="Voltar para a página anterior">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="19" y1="12" x2="5" y2="12"></line>
+    <polyline points="12 19 5 12 12 5"></polyline>
+  </svg>
+  VOLTAR
+</a>
 
 <div class="cover-hint">CAPTURAR COMO IMAGEM PARA LINKEDIN</div>
 <div class="gold-accent-top"></div>
@@ -779,22 +787,7 @@
     <h1 class="c-title" style="font-size:68px;">Redução de <em>71%</em><br>no Lead Time</h1>
     <div class="c-rule"></div>
     <p class="c-sub">Estruturação de fluxo, padronização de formulários<br>e controle de SLA em operação de alta complexidade.</p>
-    <div class="c-metrics">
-      <div class="c-item">
-        <div class="c-mval">71%</div>
-        <span class="c-mlbl">LEAD TIME</span>
-      </div>
-      <div class="c-mdiv"></div>
-      <div class="c-item">
-        <div class="c-mval">24h</div>
-        <span class="c-mlbl">SLA CRIADO</span>
-      </div>
-      <div class="c-mdiv"></div>
-      <div class="c-item">
-        <div class="c-mval">0</div>
-        <span class="c-mlbl">RETRABALHO</span>
-      </div>
-    </div>
+    <div class="c-metrics"><div class="c-item"><div class="c-mval">71%</div><span class="c-mlbl">LEAD TIME</span></div><div class="c-mdiv"></div><div class="c-item"><div class="c-mval">24h</div><span class="c-mlbl">SLA CRIADO</span></div><div class="c-mdiv"></div><div class="c-item"><div class="c-mval">0</div><span class="c-mlbl">RETRABALHO</span></div></div>
     <div class="c-tags"><span class="c-tag">JIRA</span><span class="c-tag">KANBAN</span><span class="c-tag">GESTÃO DE SLA</span><span class="c-tag">MELHORIA DE PROCESSOS</span></div>
   </div>
   <div class="c-sig">
@@ -802,7 +795,7 @@
     <div class="c-ssep"></div>
     <div>
       <span class="c-sname">Cleyton Hespanhol</span>
-      <span class="c-srole">PRODUCT OPERATIONS · UX</span>
+      <span class="c-srole">PRODUCT OWNER</span>
     </div>
   </div>
 </section>
@@ -818,18 +811,10 @@
       <div class="h-mark">H</div>
       <div>
         <span class="nav-name">Cleyton Hespanhol</span>
-        <span class="nav-role">PRODUCT OPERATIONS · UX</span>
+        <span class="nav-role">PRODUCT OWNER</span>
       </div>
     </div>
-    <div class="nav-actions">
-      <div class="nav-tag">PORTFÓLIO · CASE STUDY</div>
-      <a href="index.html" class="btn-back">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
-        </svg>
-        Voltar
-      </a>
-    </div>
+    <div class="nav-tag">PORTFÓLIO · CASE STUDY</div>
   </nav>
 
   <div class="hero-content">
@@ -847,7 +832,7 @@
 
     <div class="meta-row">
       <div class="meta-pill"><strong>Contexto</strong> · Operação Multissetorial · Maricá, RJ</div>
-      <div class="meta-pill"><strong>Papel</strong> · Product Operations · Gestão de Fluxo e SLA</div>
+      <div class="meta-pill"><strong>Papel</strong> · Product Owner · Gestão de Fluxo e SLA</div>
       <div class="meta-pill"><strong>Período</strong> · Janeiro 2025 – Abril 2026</div>
       <div class="meta-pill"><strong>Resultado</strong> · 71% de redução no lead time</div>
     </div>
@@ -993,19 +978,19 @@
       <div class="result-card">
         <span class="result-number">71%</span>
         <div class="result-label">Redução no<br>Lead Time Operacional</div>
-        <p class="result-context">De até uma semana sem resposta para um fluxo previsível e rastreável no Jira.</p>
+        <p class="result-context">De até uma semana sem resposta para um fluxo previsível e rastreável com SLA definido.</p>
       </div>
 
       <div class="result-card">
         <span class="result-number">24h</span>
-        <div class="result-label">SLA de Atendimento<br>Estabelecido</div>
-        <p class="result-context">Garantia de resposta e devolutiva estruturada para o servidor de forma sistemática.</p>
+        <div class="result-label">SLA de Resposta<br>Implementado</div>
+        <p class="result-context">Rotina de acompanhamento active criada do zero. Devolutiva ao servidor no mesmo contato com TI.</p>
       </div>
 
       <div class="result-card">
         <span class="result-number">0</span>
-        <div class="result-label">Retrabalho ou<br>Documentos Perdidos</div>
-        <p class="result-context">Rastreabilidade ponta a ponta e eliminação das solicitações informais via WhatsApp.</p>
+        <div class="result-label">Perda de Documentos<br>Após Estruturação</div>
+        <p class="result-context">Centralização no Jira eliminou a perda de pedidos e retrabalho por solicitações incompletas.</p>
       </div>
     </div>
   </div>
@@ -1014,36 +999,64 @@
 <!-- IMPACTO -->
 <section class="section impact-bg">
   <div class="section-inner">
-    <div class="section-label">04 · IMPACTO REAL</div>
-    <h2 class="section-title">A mudança percebida<br><em>pela operação e pelo negócio.</em></h2>
+    <div class="section-label">04 · IMPACTO ORGANIZACIONAL</div>
+    <h2 class="section-title">O que mudou na<br><em>operação de verdade.</em></h2>
 
     <div class="impact-grid">
+
       <div class="impact-quote">
-        <div class="quote-mark">“</div>
-        <p class="quote-text">
-          A organização do fluxo e a clareza no preenchimento das requisições mudaram drasticamente o nosso dia a dia. Paramos de perder tempo com solicitações incompletas e o tempo de resposta caiu significativamente.
-        </p>
-        <div class="quote-source">DEPOIMENTO COLETADO · EQUIPE DE TI E SUPORTE</div>
+        <div class="quote-mark">"</div>
+        <p class="quote-text">O problema não era de capacidade. Era de clareza. Quando cada demanda passou a entrar com as informações certas, no canal certo, com acompanhamento definido, a operação inteira ganhou previsibilidade.</p>
+        <div class="quote-source">CLEYTON HESPANHOL · REFLEXÃO SOBRE O PROJETO</div>
       </div>
 
       <div class="impact-metrics">
+
         <div class="metric-row">
-          <div class="metric-indicator" style="background: var(--gold);"></div>
+          <div class="metric-indicator" style="background:#C9A84C;"></div>
           <div class="metric-content">
-            <h4 class="metric-title">Cultura de Agilidade</h4>
-            <p class="metric-detail">O time passou a enxergar as demandas no Jira de forma priorizada, sabendo exatamente o que precisava ser feito.</p>
+            <div class="metric-title">Previsibilidade operacional</div>
+            <div class="metric-detail">Demandas rastreadas, categorizadas e com prazo definido desde o lançamento</div>
           </div>
-          <div class="metric-badge" style="border: 0.5px solid rgba(201,168,76,0.25); color: var(--gold); background: rgba(201,168,76,0.05);">KANBAN</div>
+          <div class="metric-badge" style="background:rgba(201,168,76,0.1);color:#C9A84C;">JIRA</div>
         </div>
 
         <div class="metric-row">
-          <div class="metric-indicator" style="background: var(--teal-br);"></div>
+          <div class="metric-indicator" style="background:#3A7A8A;"></div>
           <div class="metric-content">
-            <h4 class="metric-title">Comunicação Sem Ruído</h4>
-            <p class="metric-detail">A diferenciação clara entre incidente e requisição de serviço reduziu os conflitos de comunicação com a equipe técnica.</p>
+            <div class="metric-title">Eliminação do retrabalho</div>
+            <div class="metric-detail">Formulários padronizados eliminaram pedidos incompletos e repetidos</div>
           </div>
-          <div class="metric-badge" style="border: 0.5px solid rgba(58,122,138,0.25); color: var(--teal-br); background: rgba(58,122,138,0.05);">ITIL V4</div>
+          <div class="metric-badge" style="background:rgba(58,122,138,0.1);color:#3A7A8A;">PROCESSO</div>
         </div>
+
+        <div class="metric-row">
+          <div class="metric-indicator" style="background:#F57F76;"></div>
+          <div class="metric-content">
+            <div class="metric-title">Alinhamento com TI</div>
+            <div class="metric-detail">Carta de serviços e critérios definidos para incidente e requisição</div>
+          </div>
+          <div class="metric-badge" style="background:rgba(245,127,118,0.1);color:#F57F76;">STAKEHOLDERS</div>
+        </div>
+
+        <div class="metric-row">
+          <div class="metric-indicator" style="background:#C9A84C;"></div>
+          <div class="metric-content">
+            <div class="metric-title">Onboarding padronizado</div>
+            <div class="metric-detail">Novos colaboradores integrados ao fluxo desde o primeiro dia com o mesmo padrão</div>
+          </div>
+          <div class="metric-badge" style="background:rgba(201,168,76,0.1);color:#C9A84C;">ESCALA</div>
+        </div>
+
+        <div class="metric-row">
+          <div class="metric-indicator" style="background:#3A7A8A;"></div>
+          <div class="metric-content">
+            <div class="metric-title">Reconhecimento institucional</div>
+            <div class="metric-detail">Servidor Destaque 2025 pela atuação em melhoria de processos e eficiência operacional</div>
+          </div>
+          <div class="metric-badge" style="background:rgba(58,122,138,0.1);color:#3A7A8A;">DESTAQUE</div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -1052,21 +1065,35 @@
 <!-- APRENDIZADOS -->
 <section class="section">
   <div class="section-inner">
-    <div class="section-label">05 · PRINCIPAIS APRENDIZADOS</div>
-    <h2 class="section-title">O que tiramos de lição<br><em>deste projeto.</em></h2>
+    <div class="section-label">05 · APRENDIZADOS DO PROJETO</div>
+    <h2 class="section-title">O que esse case<br><em>reforçou como profissional.</em></h2>
 
     <div class="learnings-grid">
+
       <div class="learning-card">
         <div class="learning-icon">01</div>
-        <h3 class="learning-title">A fricção está nos canais</h3>
-        <p class="learning-body">Processos informais geram desperdício de tempo e de inteligência operacional. Concentrar as frentes de atendimento em canais oficiais e rastreáveis não é burocratização, é garantir previsibilidade.</p>
+        <h3 class="learning-title">Caos operacional raramente é falta de capacidade.</h3>
+        <p class="learning-body">A equipe de TI tinha capacidade de resolver. Os colaboradores queriam resolver. O que faltava era estrutura de entrada. Quando o fluxo foi organizado, a operação respondeu imediatamente. O problema nunca foi quem executava, mas como as demandas chegavam.</p>
       </div>
 
       <div class="learning-card">
         <div class="learning-icon">02</div>
-        <h3 class="learning-title">Padronização gera escala</h3>
-        <p class="learning-body">Desenhar um formulário com campos obrigatórios e bem definidos diminui o retrabalho em quase 100%. Quando o solicitante sabe exatamente o que precisa preencher, o suporte atende de primeira.</p>
+        <h3 class="learning-title">Formulário mal desenhado é fricção disfarçada de processo.</h3>
+        <p class="learning-body">Um formulário que aceita qualquer resposta não é um formulário. É uma fonte de retrabalho. Quando o campo passou a exigir especificação real dos acessos necessários, o retrabalho desapareceu. UX de formulário é Product Operations aplicado à operação interna — independente do setor.</p>
       </div>
+
+      <div class="learning-card">
+        <div class="learning-icon">03</div>
+        <h3 class="learning-title">SLA sem acompanhamento ativo não existe na prática.</h3>
+        <p class="learning-body">Definir um prazo sem criar a rotina de cobrança é apenas uma intenção. O diferencial foi o acompanhamento de 24 horas: entrar em contato com TI e já dar devolutiva ao servidor no mesmo momento. Isso transformou o SLA de uma regra em um comportamento operacional real.</p>
+      </div>
+
+      <div class="learning-card">
+        <div class="learning-icon">04</div>
+        <h3 class="learning-title">Alinhamento com stakeholders é parte do produto, não pré-requisito.</h3>
+        <p class="learning-body">O alinhamento com TI para diferenciar incidente de requisição não foi uma reunião de alinhamento. Foi parte da solução. Sem esse entendimento compartilhado, qualquer padronização do formulário teria perdido eficiência no momento da execução pela equipe técnica.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1077,13 +1104,12 @@
     <div class="h-mark">H</div>
     <div class="footer-info">
       <span class="footer-name">Cleyton Hespanhol</span>
-      <span class="footer-role">PRODUCT OPERATIONS · UX</span>
+      <span class="footer-role">PRODUCT OWNER</span>
     </div>
   </div>
-
   <div class="footer-right">
-    <a href="https://linkedin.com/in/cleyton-hespanhol" target="_blank" class="footer-linkedin">Conectar no LinkedIn</a>
-    <span class="footer-copy">&copy; 2026 Cleyton Hespanhol. Todos os direitos reservados.</span>
+    <a href="https://linkedin.com/in/cleyton-hespanhol" class="footer-linkedin">linkedin.com/in/cleyton-hespanhol</a>
+    <span class="footer-copy">© 2025 · Portfólio Profissional · Case Study 02</span>
   </div>
 </footer>
 
