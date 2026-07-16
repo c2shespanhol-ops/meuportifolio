@@ -7,18 +7,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:        #0E1114;
-    --bg2:       #13181D;
-    --bg3:       #1A2028;
-    --gold:      #C9A84C;
-    --gold-lt:   #E8C060;
+    --bg:        #0D0F10;
+    --bg2:       #131618;
+    --bg3:       #1A1D20;
+    --gold:      #C5A25D;
+    --gold-lt:   #DEC082;
     --teal:      #26505A;
     --teal-br:   #3A7A8A;
     --coral:     #F57F76;
-    --white:     #F0F6FC;
-    --gray1:     #8B949E;
+    --white:     #FFFFFF;
+    --gray1:     #A0A5A8;
     --gray2:     #4A5568;
-    --border:    rgba(201,168,76,0.18);
+    --border:    rgba(197,162,93,0.18);
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -55,9 +55,9 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 70% 60% at 80% 20%, rgba(201,168,76,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 60% at 80% 20%, rgba(197,162,93,0.08) 0%, transparent 60%),
       radial-gradient(ellipse 50% 40% at 10% 80%, rgba(58,122,138,0.06) 0%, transparent 50%),
-      linear-gradient(160deg, #0E1114 0%, #111820 60%, #0A0E12 100%);
+      linear-gradient(160deg, #0D0F10 0%, #111518 60%, #0A0D0F 100%);
   }
 
   .orb {
@@ -65,7 +65,7 @@
     width: 600px;
     height: 600px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(197,162,93,0.05) 0%, transparent 70%);
     top: -100px;
     right: -100px;
     animation: orbFloat 8s ease-in-out infinite;
@@ -104,7 +104,7 @@
     position: absolute;
     inset: 5px;
     border-radius: 50%;
-    border: 0.5px solid rgba(201,168,76,0.2);
+    border: 0.5px solid rgba(197,162,93,0.2);
   }
 
   .nav-name {
@@ -122,6 +122,12 @@
     display: block; margin-top: 2px;
   }
 
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
   .nav-tag {
     font-family: 'Orbitron', monospace;
     font-size: 8px; color: var(--gray1);
@@ -129,6 +135,41 @@
     padding: 6px 14px;
     border: 0.5px solid var(--border);
     border-radius: 2px;
+  }
+
+  .btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Orbitron', monospace;
+    font-size: 8px;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    padding: 6px 14px;
+    border: 0.5px solid var(--gold);
+    border-radius: 2px;
+    background: transparent;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .btn-back:hover {
+    background: var(--gold);
+    color: var(--bg);
+    box-shadow: 0 0 10px rgba(197,162,93,0.2);
+  }
+
+  .btn-back svg {
+    fill: currentColor;
+    width: 8px;
+    height: 8px;
+    transition: transform 0.2s ease;
+  }
+
+  .btn-back:hover svg {
+    transform: translateX(-2px);
   }
 
   .hero-content {
@@ -185,7 +226,7 @@
 
   .hero-desc {
     font-size: 15px;
-    color: rgba(240,246,252,0.7);
+    color: rgba(255,255,255,0.7);
     max-width: 560px; line-height: 1.8;
     margin-bottom: 48px;
     animation: fadeUp 1s ease forwards;
@@ -208,7 +249,7 @@
     border: 0.5px solid var(--border);
     border-radius: 2px;
     font-size: 11px; color: var(--gray1);
-    background: rgba(201,168,76,0.04);
+    background: rgba(197,162,93,0.04);
     letter-spacing: 0.04em;
   }
 
@@ -235,7 +276,6 @@
     background: linear-gradient(90deg, var(--gold), transparent);
   }
 
-  /* Big metric display */
   .metric-hero {
     position: absolute;
     right: 64px; top: 50%;
@@ -250,7 +290,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 140px; font-weight: 300;
     line-height: 1;
-    color: rgba(201,168,76,0.15);
+    color: rgba(197,162,93,0.15);
     display: block;
     position: relative;
   }
@@ -276,7 +316,7 @@
 
   .section {
     padding: 100px 64px;
-    border-bottom: 0.5px solid rgba(201,168,76,0.08);
+    border-bottom: 0.5px solid rgba(197,162,93,0.08);
     position: relative;
   }
 
@@ -306,7 +346,6 @@
 
   .section-title em { font-style: italic; color: var(--gold); }
 
-  /* Problem grid */
   .problem-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -355,9 +394,9 @@
 
   .card-list li {
     font-size: 13px;
-    color: rgba(240,246,252,0.7);
+    color: rgba(255,255,255,0.7);
     padding: 8px 0;
-    border-bottom: 0.5px solid rgba(201,168,76,0.08);
+    border-bottom: 0.5px solid rgba(197,162,93,0.08);
     display: flex; align-items: flex-start;
     gap: 10px; line-height: 1.5;
   }
@@ -368,7 +407,6 @@
     flex-shrink: 0; margin-top: 1px;
   }
 
-  /* Process */
   .process-bg { background: var(--bg2); }
 
   .process-timeline {
@@ -381,7 +419,7 @@
     position: absolute;
     left: 0; top: 8px; bottom: 8px;
     width: 1px;
-    background: linear-gradient(180deg, var(--gold), rgba(201,168,76,0.1));
+    background: linear-gradient(180deg, var(--gold), rgba(197,162,93,0.1));
   }
 
   .process-step {
@@ -443,7 +481,6 @@
     letter-spacing: 0.04em;
   }
 
-  /* Results strip */
   .results-strip {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -487,9 +524,8 @@
     margin-top: 10px; line-height: 1.5;
   }
 
-  /* Impact section */
   .impact-bg {
-    background: linear-gradient(135deg, #0A0E12 0%, #111820 100%);
+    background: linear-gradient(135deg, #0A0D0F 0%, #111518 100%);
   }
 
   .impact-grid {
@@ -501,14 +537,14 @@
   .impact-quote {
     border-left: 2px solid var(--gold);
     padding: 32px 40px;
-    background: rgba(201,168,76,0.03);
+    background: rgba(197,162,93,0.03);
     position: relative;
   }
 
   .quote-mark {
     font-family: 'Cormorant Garamond', serif;
     font-size: 80px;
-    color: rgba(201,168,76,0.15);
+    color: rgba(197,162,93,0.15);
     position: absolute;
     top: -10px; left: 24px;
     line-height: 1;
@@ -518,7 +554,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 22px; font-style: italic;
     font-weight: 300;
-    color: rgba(232,192,96,0.9);
+    color: rgba(222,192,130,0.9);
     line-height: 1.6; margin-bottom: 20px;
     position: relative; z-index: 1;
   }
@@ -564,7 +600,6 @@
     border-radius: 2px; white-space: nowrap;
   }
 
-  /* Learnings */
   .learnings-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -600,7 +635,6 @@
     font-size: 13px; color: var(--gray1); line-height: 1.8;
   }
 
-  /* Footer */
   footer {
     background: #080A0C;
     border-top: 0.5px solid var(--border);
@@ -671,13 +705,13 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: rgba(201,168,76,0.15);
-    border: 0.5px solid rgba(201,168,76,0.4);
+    background: rgba(197,162,93,0.15);
+    border: 0.5px solid rgba(197,162,93,0.4);
     border-radius: 4px;
     padding: 10px 16px;
     font-family: 'Orbitron', monospace;
     font-size: 9px;
-    color: #C9A84C;
+    color: #C5A25D;
     letter-spacing: 0.1em;
     z-index: 1000;
     pointer-events: none;
@@ -685,59 +719,74 @@
   .cover-divider {
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, #C9A84C, rgba(201,168,76,0.1));
+    background: linear-gradient(90deg, #C5A25D, rgba(197,162,93,0.1));
   }
-  .c-gold-top { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #C9A84C, #E8C060, #C9A84C); z-index: 20; }
-  .c-gold-left { position: absolute; top: 0; left: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, #C9A84C, rgba(201,168,76,0.2)); z-index: 20; }
-  .c-grid { position: absolute; right: 0; top: 0; bottom: 0; width: 500px; opacity: 0.03; background-image: linear-gradient(rgba(201,168,76,1) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,1) 1px, transparent 1px); background-size: 40px 40px; }
+  .c-gold-top { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #C5A25D, #DEC082, #C5A25D); z-index: 20; }
+  .c-gold-left { position: absolute; top: 0; left: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, #C5A25D, rgba(197,162,93,0.2)); z-index: 20; }
+  .c-grid { position: absolute; right: 0; top: 0; bottom: 0; width: 500px; opacity: 0.03; background-image: linear-gradient(rgba(197,162,93,1) 1px, transparent 1px), linear-gradient(90deg, rgba(197,162,93,1) 1px, transparent 1px); background-size: 40px 40px; }
   .c-corner { position: absolute; top: 20px; right: 20px; z-index: 10; opacity: 0.35; }
   .c-label { position: absolute; top: 24px; right: 64px; font-family: 'Orbitron', monospace; font-size: 8px; color: #4A5568; letter-spacing: 0.15em; z-index: 10; }
   .c-content { position: relative; z-index: 10; padding: 0 64px 80px; }
-  .c-eyebrow { font-family: 'Orbitron', monospace; font-size: 11px; letter-spacing: 0.25em; color: #C9A84C; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-  .c-dot { width: 6px; height: 6px; border-radius: 50%; background: #C9A84C; }
-  .c-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.05; color: #F0F6FC; margin-bottom: 6px; }
-  .c-title em { font-style: italic; color: #C9A84C; }
-  .c-rule { width: 48px; height: 2px; background: linear-gradient(90deg, #C9A84C, rgba(201,168,76,0.2)); margin-bottom: 16px; border-radius: 1px; }
-  .c-sub { font-family: 'DM Sans', sans-serif; font-weight: 300; color: #8B949E; margin-bottom: 32px; line-height: 1.5; }
+  .c-eyebrow { font-family: 'Orbitron', monospace; font-size: 11px; letter-spacing: 0.25em; color: #C5A25D; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .c-dot { width: 6px; height: 6px; border-radius: 50%; background: #C5A25D; }
+  .c-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.05; color: #FFFFFF; margin-bottom: 6px; }
+  .c-title em { font-style: italic; color: #C5A25D; }
+  .c-rule { width: 48px; height: 2px; background: linear-gradient(90deg, #C5A25D, rgba(197,162,93,0.2)); margin-bottom: 16px; border-radius: 1px; }
+  .c-sub { font-family: 'DM Sans', sans-serif; font-weight: 300; color: #A0A5A8; margin-bottom: 32px; line-height: 1.5; }
   .c-metrics { display: flex; gap: 24px; margin-bottom: 36px; align-items: center; }
-  .c-mval { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: #C9A84C; line-height: 1; display: block; }
-  .c-mlbl { font-family: 'Orbitron', monospace; font-size: 8px; color: #8B949E; letter-spacing: 0.1em; display: block; margin-top: 4px; }
-  .c-mdiv { width: 0.5px; height: 40px; background: rgba(201,168,76,0.2); }
+  .c-mval { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: #C5A25D; line-height: 1; display: block; }
+  .c-mlbl { font-family: 'Orbitron', monospace; font-size: 8px; color: #A0A5A8; letter-spacing: 0.1em; display: block; margin-top: 4px; }
+  .c-mdiv { width: 0.5px; height: 40px; background: rgba(197,162,93,0.2); }
   .c-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-  .c-tag { font-family: 'Orbitron', monospace; font-size: 8px; padding: 5px 12px; border: 0.5px solid rgba(201,168,76,0.25); border-radius: 2px; color: #8B949E; letter-spacing: 0.08em; background: rgba(201,168,76,0.04); }
+  .c-tag { font-family: 'Orbitron', monospace; font-size: 8px; padding: 5px 12px; border: 0.5px solid rgba(197,162,93,0.25); border-radius: 2px; color: #A0A5A8; letter-spacing: 0.08em; background: rgba(197,162,93,0.04); }
   .c-sig { position: absolute; bottom: 32px; left: 64px; display: flex; align-items: center; gap: 14px; z-index: 10; }
-  .c-hcircle { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid #C9A84C; display: flex; align-items: center; justify-content: center; font-family: 'Orbitron', monospace; font-size: 16px; font-weight: 700; color: #C9A84C; flex-shrink: 0; position: relative; }
-  .c-hcircle::after { content: ''; position: absolute; inset: 6px; border-radius: 50%; border: 0.5px solid rgba(201,168,76,0.2); }
-  .c-ssep { width: 0.5px; height: 32px; background: rgba(201,168,76,0.25); }
-  .c-sname { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: #F0F6FC; letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 3px; }
-  .c-srole { font-family: 'Orbitron', monospace; font-size: 8px; color: #C9A84C; letter-spacing: 0.14em; display: block; }
-  .c-bignumber { position: absolute; font-family: 'Cormorant Garamond', serif; font-size: 280px; font-weight: 300; line-height: 1; color: rgba(201,168,76,0.06); right: -20px; bottom: -40px; z-index: 1; letter-spacing: -0.05em; }
+  .c-hcircle { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid #C5A25D; display: flex; align-items: center; justify-content: center; font-family: 'Orbitron', monospace; font-size: 16px; font-weight: 700; color: #C5A25D; flex-shrink: 0; position: relative; }
+  .c-hcircle::after { content: ''; position: absolute; inset: 6px; border-radius: 50%; border: 0.5px solid rgba(197,162,93,0.2); }
+  .c-ssep { width: 0.5px; height: 32px; background: rgba(197,162,93,0.25); }
+  .c-sname { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: #FFFFFF; letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 3px; }
+  .c-srole { font-family: 'Orbitron', monospace; font-size: 8px; color: #C5A25D; letter-spacing: 0.14em; display: block; }
+  .c-bignumber { position: absolute; font-family: 'Cormorant Garamond', serif; font-size: 280px; font-weight: 300; line-height: 1; color: rgba(197,162,93,0.06); right: -20px; bottom: -40px; z-index: 1; letter-spacing: -0.05em; }
 
-  </style>
+</style>
 </head>
 <body>
 
 <div class="cover-hint">CAPTURAR COMO IMAGEM PARA LINKEDIN</div>
 <div class="gold-accent-top"></div>
 
-<section class="cover-page" style="background: #0E1114;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%, rgba(201,168,76,0.08) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 10% 20%, rgba(58,122,138,0.06) 0%, transparent 50%), linear-gradient(150deg, #0E1114 0%, #0A0E12 100%);"></div>
+<section class="cover-page" style="background: #0D0F10;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%, rgba(197,162,93,0.08) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 10% 20%, rgba(58,122,138,0.06) 0%, transparent 50%), linear-gradient(150deg, #0D0F10 0%, #0A0D0F 100%);"></div>
   <div class="c-grid"></div>
   <div class="c-gold-top"></div>
   <div class="c-gold-left"></div>
   <svg class="c-corner" width="32" height="32" viewBox="0 0 32 32" fill="none">
-    <circle cx="16" cy="16" r="15" stroke="#C9A84C" stroke-width="0.8"/>
-    <circle cx="16" cy="16" r="9" stroke="#C9A84C" stroke-width="0.5"/>
-    <circle cx="16" cy="16" r="3" fill="#C9A84C"/>
+    <circle cx="16" cy="16" r="15" stroke="#C5A25D" stroke-width="0.8"/>
+    <circle cx="16" cy="16" r="9" stroke="#C5A25D" stroke-width="0.5"/>
+    <circle cx="16" cy="16" r="3" fill="#C5A25D"/>
   </svg>
   <div class="c-label">PORTFÓLIO · CASE STUDY 02</div>
   <div class="c-bignumber">02</div>
   <div class="c-content">
-    <div class="c-eyebrow"><div class="c-dot"></div>PRODUCT OPERATIONS · GESTÃO DE FLUXO · SLA</div>
+    <div class="c-eyebrow"><div class="c-dot"></div>PRODUCT OWNER · GESTÃO DE FLUXO · SLA</div>
     <h1 class="c-title" style="font-size:68px;">Redução de <em>71%</em><br>no Lead Time</h1>
     <div class="c-rule"></div>
     <p class="c-sub">Estruturação de fluxo, padronização de formulários<br>e controle de SLA em operação de alta complexidade.</p>
-    <div class="c-metrics"><div class="c-item"><div <div class="c-mval">71%</div><span class="c-mlbl">LEAD TIME</span></div><div class="c-mdiv"></div><div class="c-item"><div class="c-mval">24h</div><span class="c-mlbl">SLA CRIADO</span></div><div class="c-mdiv"></div><div class="c-item"><div class="c-mval">0</div><span class="c-mlbl">RETRABALHO</span></div></div>
+    <div class="c-metrics">
+      <div class="c-item">
+        <div class="c-mval">71%</div>
+        <span class="c-mlbl">LEAD TIME</span>
+      </div>
+      <div class="c-mdiv"></div>
+      <div class="c-item">
+        <div class="c-mval">24h</div>
+        <span class="c-mlbl">SLA CRIADO</span>
+      </div>
+      <div class="c-mdiv"></div>
+      <div class="c-item">
+        <div class="c-mval">0</div>
+        <span class="c-mlbl">RETRABALHO</span>
+      </div>
+    </div>
     <div class="c-tags"><span class="c-tag">JIRA</span><span class="c-tag">KANBAN</span><span class="c-tag">GESTÃO DE SLA</span><span class="c-tag">MELHORIA DE PROCESSOS</span></div>
   </div>
   <div class="c-sig">
@@ -745,7 +794,7 @@
     <div class="c-ssep"></div>
     <div>
       <span class="c-sname">Cleyton Hespanhol</span>
-      <span class="c-srole">PRODUCT OPERATIONS · UX</span>
+      <span class="c-srole">PRODUCT OWNER · UX</span>
     </div>
   </div>
 </section>
@@ -761,16 +810,24 @@
       <div class="h-mark">H</div>
       <div>
         <span class="nav-name">Cleyton Hespanhol</span>
-        <span class="nav-role">PRODUCT OPERATIONS · UX</span>
+        <span class="nav-role">PRODUCT OWNER · UX</span>
       </div>
     </div>
-    <div class="nav-tag">PORTFÓLIO · CASE STUDY</div>
+    <div class="nav-actions">
+      <div class="nav-tag">PORTFÓLIO · CASE STUDY</div>
+      <a href="index.html" class="btn-back">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+        </svg>
+        Voltar
+      </a>
+    </div>
   </nav>
 
   <div class="hero-content">
     <div class="case-label">
       <div class="case-label-dot"></div>
-      <span class="case-label-text">CASE STUDY 02 · PRODUCT OPERATIONS · GESTÃO DE FLUXO</span>
+      <span class="case-label-text">CASE STUDY 02 · PRODUCT OWNER · GESTÃO DE FLUXO</span>
     </div>
 
     <h1 class="hero-title">Redução de <em>71%</em></h1>
@@ -782,7 +839,7 @@
 
     <div class="meta-row">
       <div class="meta-pill"><strong>Contexto</strong> · Operação Multissetorial · Maricá, RJ</div>
-      <div class="meta-pill"><strong>Papel</strong> · Product Operations · Gestão de Fluxo e SLA</div>
+      <div class="meta-pill"><strong>Papel</strong> · Product Owner · Gestão de Fluxo e SLA</div>
       <div class="meta-pill"><strong>Período</strong> · Janeiro 2025 – Abril 2026</div>
       <div class="meta-pill"><strong>Resultado</strong> · 71% de redução no lead time</div>
     </div>
@@ -793,10 +850,9 @@
       <div class="scroll-line"></div>
       SCROLL PARA EXPLORAR
     </div>
-    <div class="meta-pill" style="margin-left:auto;">Product Operations · Jira · Kanban · SLA · Melhoria Contínua</div>
+    <div class="meta-pill" style="margin-left:auto;">Product Owner · Jira · Kanban · SLA · Melhoria Contínua</div>
   </div>
 
-  <!-- Big metric display -->
   <div class="metric-hero">
     <span class="metric-hero-number">&nbsp;</span>
     <div class="metric-hero-label">REDUÇÃO NO<br>LEAD TIME</div>
@@ -868,7 +924,7 @@
         <div class="step-node"><div class="step-node-dot"></div></div>
         <div class="step-number">ETAPA 02</div>
         <h3 class="step-title">Padronização do Formulário de Requisição</h3>
-        <p class="step-desc">Reestruturação do formulário de solicitação de acesso aos sistemas. O novo padrão exigia que o servidor especificasse por escrito quais acessos precisava, eliminando as solicitações genéricas de "espelhamento". Cada campo foi pensado para reduzir a ambiguidade e o retrabalho.</p>
+        <p class="step-desc">Reestruturação do formulário de solicitação de acesso aos sistemas. O novo padrão exigia que o servidor especificasse por escrito quais acessos precisasse, eliminando as solicitações genéricas de "espelhamento". Cada campo foi pensado para reduzir a ambiguidade e o retrabalho.</p>
         <div class="step-tags">
           <span class="step-tag">UX Writing</span>
           <span class="step-tag">Padronização de Processo</span>
@@ -928,19 +984,19 @@
       <div class="result-card">
         <span class="result-number">71%</span>
         <div class="result-label">Redução no<br>Lead Time Operacional</div>
-        <p class="result-context">De até uma semana sem resposta para um fluxo previsível e rastreável com SLA definido.</p>
+        <p class="result-context">De até uma semana sem resposta para um fluxo previsível e rastreável no Jira.</p>
       </div>
 
       <div class="result-card">
         <span class="result-number">24h</span>
-        <div class="result-label">SLA de Resposta<br>Implementado</div>
-        <p class="result-context">Rotina de acompanhamento ativo criada do zero. Devolutiva ao servidor no mesmo contato com TI.</p>
+        <div class="result-label">SLA de Atendimento<br>Estabelecido</div>
+        <p class="result-context">Garantia de resposta e devolutiva estruturada para o servidor de forma sistemática.</p>
       </div>
 
       <div class="result-card">
         <span class="result-number">0</span>
-        <div class="result-label">Perda de Documentos<br>Após Estruturação</div>
-        <p class="result-context">Centralização no Jira eliminou a perda de pedidos e retrabalho por solicitações incompletas.</p>
+        <div class="result-label">Retrabalho ou<br>Documentos Perdidos</div>
+        <p class="result-context">Rastreabilidade ponta a ponta e eliminação das solicitações informais via WhatsApp.</p>
       </div>
     </div>
   </div>
@@ -949,64 +1005,36 @@
 <!-- IMPACTO -->
 <section class="section impact-bg">
   <div class="section-inner">
-    <div class="section-label">04 · IMPACTO ORGANIZACIONAL</div>
-    <h2 class="section-title">O que mudou na<br><em>operação de verdade.</em></h2>
+    <div class="section-label">04 · IMPACTO REAL</div>
+    <h2 class="section-title">A mudança percebida<br><em>pela operação e pelo negócio.</em></h2>
 
     <div class="impact-grid">
-
       <div class="impact-quote">
-        <div class="quote-mark">"</div>
-        <p class="quote-text">O problema não era de capacidade. Era de clareza. Quando cada demanda passou a entrar com as informações certas, no canal certo, com acompanhamento definido, a operação inteira ganhou previsibilidade.</p>
-        <div class="quote-source">CLEYTON HESPANHOL · REFLEXÃO SOBRE O PROJETO</div>
+        <div class="quote-mark">“</div>
+        <p class="quote-text">
+          A organização do fluxo e a clareza no preenchimento das requisições mudaram drasticamente o nosso dia a dia. Paramos de perder tempo com solicitações incompletas e o tempo de resposta caiu significativamente.
+        </p>
+        <div class="quote-source">DEPOIMENTO COLETADO · EQUIPE DE TI E SUPORTE</div>
       </div>
 
       <div class="impact-metrics">
-
         <div class="metric-row">
-          <div class="metric-indicator" style="background:#C9A84C;"></div>
+          <div class="metric-indicator" style="background: var(--gold);"></div>
           <div class="metric-content">
-            <div class="metric-title">Previsibilidade operacional</div>
-            <div class="metric-detail">Demandas rastreadas, categorizadas e com prazo definido desde o lançamento</div>
+            <h4 class="metric-title">Cultura de Agilidade</h4>
+            <p class="metric-detail">O time passou a enxergar as demandas no Jira de forma priorizada, sabendo exatamente o que precisava ser feito.</p>
           </div>
-          <div class="metric-badge" style="background:rgba(201,168,76,0.1);color:#C9A84C;">JIRA</div>
+          <div class="metric-badge" style="border: 0.5px solid rgba(197,162,93,0.25); color: var(--gold); background: rgba(197,162,93,0.05);">KANBAN</div>
         </div>
 
         <div class="metric-row">
-          <div class="metric-indicator" style="background:#3A7A8A;"></div>
+          <div class="metric-indicator" style="background: var(--teal-br);"></div>
           <div class="metric-content">
-            <div class="metric-title">Eliminação do retrabalho</div>
-            <div class="metric-detail">Formulários padronizados eliminaram pedidos incompletos e repetidos</div>
+            <h4 class="metric-title">Comunicação Sem Ruído</h4>
+            <p class="metric-detail">A diferenciação clara entre incidente e requisição de serviço reduziu os conflitos de comunicação com a equipe técnica.</p>
           </div>
-          <div class="metric-badge" style="background:rgba(58,122,138,0.1);color:#3A7A8A;">PROCESSO</div>
+          <div class="metric-badge" style="border: 0.5px solid rgba(58,122,138,0.25); color: var(--teal-br); background: rgba(58,122,138,0.05);">ITIL V4</div>
         </div>
-
-        <div class="metric-row">
-          <div class="metric-indicator" style="background:#F57F76;"></div>
-          <div class="metric-content">
-            <div class="metric-title">Alinhamento com TI</div>
-            <div class="metric-detail">Carta de serviços e critérios definidos para incidente e requisição</div>
-          </div>
-          <div class="metric-badge" style="background:rgba(245,127,118,0.1);color:#F57F76;">STAKEHOLDERS</div>
-        </div>
-
-        <div class="metric-row">
-          <div class="metric-indicator" style="background:#C9A84C;"></div>
-          <div class="metric-content">
-            <div class="metric-title">Onboarding padronizado</div>
-            <div class="metric-detail">Novos colaboradores integrados ao fluxo desde o primeiro dia com o mesmo padrão</div>
-          </div>
-          <div class="metric-badge" style="background:rgba(201,168,76,0.1);color:#C9A84C;">ESCALA</div>
-        </div>
-
-        <div class="metric-row">
-          <div class="metric-indicator" style="background:#3A7A8A;"></div>
-          <div class="metric-content">
-            <div class="metric-title">Reconhecimento institucional</div>
-            <div class="metric-detail">Servidor Destaque 2025 pela atuação em melhoria de processos e eficiência operacional</div>
-          </div>
-          <div class="metric-badge" style="background:rgba(58,122,138,0.1);color:#3A7A8A;">DESTAQUE</div>
-        </div>
-
       </div>
     </div>
   </div>
@@ -1015,35 +1043,21 @@
 <!-- APRENDIZADOS -->
 <section class="section">
   <div class="section-inner">
-    <div class="section-label">05 · APRENDIZADOS DO PROJETO</div>
-    <h2 class="section-title">O que esse case<br><em>reforçou como profissional.</em></h2>
+    <div class="section-label">05 · PRINCIPAIS APRENDIZADOS</div>
+    <h2 class="section-title">O que tiramos de lição<br><em>deste projeto.</em></h2>
 
     <div class="learnings-grid">
-
       <div class="learning-card">
         <div class="learning-icon">01</div>
-        <h3 class="learning-title">Caos operacional raramente é falta de capacidade.</h3>
-        <p class="learning-body">A equipe de TI tinha capacidade de resolver. Os colaboradores queriam resolver. O que faltava era estrutura de entrada. Quando o fluxo foi organizado, a operação respondeu imediatamente. O problema nunca foi quem executava, mas como as demandas chegavam.</p>
+        <h3 class="learning-title">A fricção está nos canais</h3>
+        <p class="learning-body">Processos informais geram desperdício de tempo e de inteligência operacional. Concentrar as frentes de atendimento em canais oficiais e rastreáveis não é burocratização, é garantir previsibilidade.</p>
       </div>
 
       <div class="learning-card">
         <div class="learning-icon">02</div>
-        <h3 class="learning-title">Formulário mal desenhado é fricção disfarçada de processo.</h3>
-        <p class="learning-body">Um formulário que aceita qualquer resposta não é um formulário. É uma fonte de retrabalho. Quando o campo passou a exigir especificação real dos acessos necessários, o retrabalho desapareceu. UX de formulário é Product Operations aplicado à operação interna — independente do setor.</p>
+        <h3 class="learning-title">Padronização gera escala</h3>
+        <p class="learning-body">Desenhar um formulário com campos obrigatórios e bem definidos diminui o retrabalho em quase 100%. Quando o solicitante sabe exatamente o que precisa preencher, o suporte atende de primeira.</p>
       </div>
-
-      <div class="learning-card">
-        <div class="learning-icon">03</div>
-        <h3 class="learning-title">SLA sem acompanhamento ativo não existe na prática.</h3>
-        <p class="learning-body">Definir um prazo sem criar a rotina de cobrança é apenas uma intenção. O diferencial foi o acompanhamento de 24 horas: entrar em contato com TI e já dar devolutiva ao servidor no mesmo momento. Isso transformou o SLA de uma regra em um comportamento operacional real.</p>
-      </div>
-
-      <div class="learning-card">
-        <div class="learning-icon">04</div>
-        <h3 class="learning-title">Alinhamento com stakeholders é parte do produto, não pré-requisito.</h3>
-        <p class="learning-body">O alinhamento com TI para diferenciar incidente de requisição não foi uma reunião de alinhamento. Foi parte da solução. Sem esse entendimento compartilhado, qualquer padronização do formulário teria perdido eficiência no momento da execução pela equipe técnica.</p>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1054,12 +1068,13 @@
     <div class="h-mark">H</div>
     <div class="footer-info">
       <span class="footer-name">Cleyton Hespanhol</span>
-      <span class="footer-role">PRODUCT OPERATIONS · UX</span>
+      <span class="footer-role">PRODUCT OWNER · UX</span>
     </div>
   </div>
+
   <div class="footer-right">
-    <a href="https://linkedin.com/in/cleyton-hespanhol" class="footer-linkedin">linkedin.com/in/cleyton-hespanhol</a>
-    <span class="footer-copy">© 2025 · Portfólio Profissional · Case Study 02</span>
+    <a href="https://linkedin.com/in/cleyton-hespanhol" target="_blank" class="footer-linkedin">Conectar no LinkedIn</a>
+    <span class="footer-copy">&copy; 2026 Cleyton Hespanhol. Todos os direitos reservados.</span>
   </div>
 </footer>
 
