@@ -16,7 +16,7 @@
         p.desc { color: var(--text-muted); font-size: 0.95rem; }
         .disc-step { background: var(--bg3); border-left: 3px solid var(--gold); padding: 20px; margin-bottom: 15px; border-radius: 0 4px 4px 0; }
         .disc-title { font-family: 'Orbitron', sans-serif; font-size: 0.95rem; color: var(--gold-lt); margin-bottom: 5px; }
-        .btn-back { display: inline-block; margin-top: 20px; color: var(--gold); text-decoration: none; font-family: 'Orbitron', sans-serif; font-size: 0.85rem; border: 1px solid var(--gold); padding: 10px 20px; border-radius: 3px; transition: all 0.3s ease; }
+        .btn-back { display: inline-block; margin-top: 20px; color: var(--gold); text-decoration: none; font-family: 'Orbitron', sans-serif; font-size: 0.85rem; border: 1px solid var(--gold); padding: 10px 20px; border-radius: 3px; cursor: pointer; background: transparent; transition: all 0.3s ease; }
         .btn-back:hover { background: var(--gold); color: var(--bg); }
     </style>
 </head>
@@ -41,7 +41,7 @@
             <p style="font-size: 0.9rem; color: var(--text-muted);">Transformação de dores operacionais em requisitos e critérios claros de aceite para desenvolvimento.</p>
         </div>
 
-        <a href="protocolo_habitat.html" class="btn-back">&larr; Voltar ao Estudo de Caso</a>
+        <button onclick="history.back()" class="btn-back">&larr; Voltar ao Estudo de Caso</button>
     </div>
 </body>
 </html>
