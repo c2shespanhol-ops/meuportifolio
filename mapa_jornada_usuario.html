@@ -17,7 +17,7 @@
         .journey-table { width: 100%; border-collapse: collapse; margin: 30px 0; font-size: 0.88rem; }
         .journey-table th, .journey-table td { border: 1px solid var(--bg3); padding: 12px; text-align: left; }
         .journey-table th { background-color: var(--bg3); color: var(--gold-lt); font-family: 'Orbitron', sans-serif; font-size: 0.8rem; }
-        .btn-back { display: inline-block; margin-top: 20px; color: var(--gold); text-decoration: none; font-family: 'Orbitron', sans-serif; font-size: 0.85rem; border: 1px solid var(--gold); padding: 10px 20px; border-radius: 3px; transition: all 0.3s ease; }
+        .btn-back { display: inline-block; margin-top: 20px; color: var(--gold); text-decoration: none; font-family: 'Orbitron', sans-serif; font-size: 0.85rem; border: 1px solid var(--gold); padding: 10px 20px; border-radius: 3px; cursor: pointer; background: transparent; transition: all 0.3s ease; }
         .btn-back:hover { background: var(--gold); color: var(--bg); }
     </style>
 </head>
@@ -60,7 +60,7 @@
             </tbody>
         </table>
 
-        <a href="protocolo_habitat.html" class="btn-back">&larr; Voltar ao Estudo de Caso</a>
+        <button onclick="history.back()" class="btn-back">&larr; Voltar ao Estudo de Caso</button>
     </div>
 </body>
 </html>
