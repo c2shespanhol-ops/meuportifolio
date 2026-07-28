@@ -1,1018 +1,888 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Case Study 03 — Redução de Fricção · Habitat Consultórios · Cleyton Hespanhol</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg:        #0D0D0D;
-    --bg2:       #111111;
-    --bg3:       #1A1A1A;
-    --gold:      #C9A84C;
-    --gold-lt:   #E8C060;
-    --teal:      #26505A;
-    --teal-br:   #3A7A8A;
-    --coral:     #F57F76;
-    --white:     #FFFFFF;
-    --gray1:     #8B949E;
-    --gray2:     #4A5568;
-    --border:    rgba(201,168,76,0.18);
-  }
-
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none; z-index: 0; opacity: 0.4;
-  }
-
-  /* ── BOTÃO VOLTAR ── */
-  .back-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
-    background: rgba(13,13,13,0.85);
-    border: 0.5px solid var(--border);
-    border-radius: 2px;
-    color: var(--gold);
-    font-family: 'Orbitron', monospace;
-    font-size: 9px;
-    letter-spacing: 0.15em;
-    text-decoration: none;
-    backdrop-filter: blur(8px);
-    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
-  }
-
-  .back-btn:hover {
-    background: rgba(201,168,76,0.1);
-    border-color: var(--gold);
-    color: var(--gold-lt);
-  }
-
-  .back-btn svg {
-    width: 12px;
-    height: 12px;
-    stroke: currentColor;
-    stroke-width: 2;
-    fill: none;
-  }
-
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    position: relative; overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 70% 60% at 80% 20%, rgba(58,122,138,0.1) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 40% at 10% 80%, rgba(201,168,76,0.05) 0%, transparent 50%),
-      linear-gradient(160deg, #0D0D0D 0%, #111111 60%, #0A0A0A 100%);
-  }
-
-  .orb {
-    position: absolute; width: 600px; height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(58,122,138,0.06) 0%, transparent 70%);
-    top: -100px; right: -100px;
-    animation: orbFloat 8s ease-in-out infinite;
-  }
-
-  @keyframes orbFloat {
-    0%, 100% { transform: translate(0,0) scale(1); }
-    50% { transform: translate(-30px, 40px) scale(1.05); }
-  }
-
-  .nav {
-    position: relative; z-index: 10;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 28px 64px;
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .nav-brand { display: flex; align-items: center; gap: 14px; }
-
-  .h-mark {
-    width: 36px; height: 36px; border-radius: 50%;
-    border: 1.5px solid var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Orbitron', monospace;
-    font-size: 14px; font-weight: 700; color: var(--gold);
-    position: relative;
-  }
-
-  .h-mark::after {
-    content: ''; position: absolute; inset: 5px;
-    border-radius: 50%; border: 0.5px solid rgba(201,168,76,0.2);
-  }
-
-  .nav-name {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px; font-weight: 500; color: var(--white);
-    letter-spacing: 0.06em; text-transform: uppercase;
-  }
-
-  .nav-role {
-    font-family: 'Orbitron', monospace;
-    font-size: 7px; color: var(--gold);
-    letter-spacing: 0.15em; display: block; margin-top: 2px;
-  }
-
-  .nav-tag {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gray1);
-    letter-spacing: 0.12em; padding: 6px 14px;
-    border: 0.5px solid var(--border); border-radius: 2px;
-  }
-
-  .hero-content {
-    position: relative; z-index: 10;
-    display: flex; flex-direction: column;
-    justify-content: center;
-    padding: 80px 64px; max-width: 900px;
-  }
-
-  .case-label {
-    display: inline-flex; align-items: center;
-    gap: 8px; margin-bottom: 32px;
-    animation: fadeUp 0.8s ease forwards;
-  }
-
-  .case-label-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--gold);
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-  }
-
-  .case-label-text {
-    font-family: 'Orbitron', monospace;
-    font-size: 9px; color: var(--gold);
-    letter-spacing: 0.2em; font-weight: 600;
-  }
-
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(52px, 7vw, 88px);
-    font-weight: 300; line-height: 1.05;
-    color: var(--white); margin-bottom: 8px;
-    animation: fadeUp 0.9s ease forwards;
-    animation-delay: 0.1s; opacity: 0;
-  }
-
-  .hero-title em { font-style: italic; color: var(--gold); }
-
-  .hero-subtitle {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 300; color: var(--gray1);
-    margin-bottom: 40px;
-    animation: fadeUp 1s ease forwards;
-    animation-delay: 0.2s; opacity: 0;
-  }
-
-  .hero-desc {
-    font-size: 15px; color: rgba(255,255,255,0.7);
-    max-width: 560px; line-height: 1.8; margin-bottom: 48px;
-    animation: fadeUp 1s ease forwards;
-    animation-delay: 0.3s; opacity: 0;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .meta-row {
-    display: flex; gap: 12px; flex-wrap: wrap;
-    animation: fadeUp 1s ease forwards;
-    animation-delay: 0.4s; opacity: 0;
-  }
-
-  .meta-pill {
-    padding: 8px 18px;
-    border: 0.5px solid var(--border); border-radius: 2px;
-    font-size: 11px; color: var(--gray1);
-    background: rgba(201,168,76,0.04); letter-spacing: 0.04em;
-  }
-
-  .meta-pill strong { color: var(--gold); font-weight: 500; }
-
-  .hero-footer {
-    position: relative; z-index: 10;
-    padding: 24px 64px;
-    border-top: 0.5px solid var(--border);
-    display: flex; align-items: center; gap: 40px;
-  }
-
-  .scroll-hint {
-    display: flex; align-items: center; gap: 10px;
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gray2);
-    letter-spacing: 0.15em;
-    animation: fadeUp 1s ease forwards;
-    animation-delay: 0.6s; opacity: 0;
-  }
-
-  .scroll-line {
-    width: 40px; height: 0.5px;
-    background: linear-gradient(90deg, var(--gold), transparent);
-  }
-
-  main { position: relative; z-index: 1; }
-
-  .section {
-    padding: 100px 64px;
-    border-bottom: 0.5px solid rgba(201,168,76,0.08);
-    position: relative;
-  }
-
-  .section-inner { max-width: 1100px; margin: 0 auto; }
-
-  .section-label {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gold);
-    letter-spacing: 0.25em; margin-bottom: 16px;
-    display: flex; align-items: center; gap: 12px;
-  }
-
-  .section-label::after {
-    content: ''; flex: 1; height: 0.5px;
-    background: var(--border); max-width: 60px;
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 300; line-height: 1.15;
-    color: var(--white); margin-bottom: 48px;
-  }
-
-  .section-title em { font-style: italic; color: var(--gold); }
-
-  .users-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px; margin-bottom: 2px;
-  }
-
-  .user-card {
-    background: var(--bg2); padding: 40px 32px;
-    position: relative; overflow: hidden;
-    transition: background 0.3s ease;
-  }
-
-  .user-card:hover { background: var(--bg3); }
-
-  .user-card::before {
-    content: ''; position: absolute;
-    top: 0; left: 0; right: 0; height: 2px;
-  }
-
-  .user-card.medico::before { background: var(--coral); }
-  .user-card.sala::before { background: var(--gold); }
-  .user-card.clinica::before { background: var(--teal-br); }
-
-  .user-eyebrow {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; letter-spacing: 0.2em;
-    margin-bottom: 16px;
-  }
-
-  .user-eyebrow.medico { color: var(--coral); }
-  .user-eyebrow.sala { color: var(--gold); }
-  .user-eyebrow.clinica { color: var(--teal-br); }
-
-  .user-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 400;
-    color: var(--white); margin-bottom: 12px;
-  }
-
-  .user-body { font-size: 13px; color: var(--gray1); line-height: 1.7; }
-
-  .user-list { list-style: none; margin-top: 14px; }
-
-  .user-list li {
-    font-size: 12px; color: rgba(255,255,255,0.65);
-    padding: 6px 0;
-    border-bottom: 0.5px solid rgba(201,168,76,0.06);
-    display: flex; align-items: flex-start;
-    gap: 8px; line-height: 1.5;
-  }
-
-  .user-list li::before {
-    content: '·'; color: var(--gold);
-    flex-shrink: 0; margin-top: 1px;
-  }
-
-  .problem-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
-  }
-
-  .problem-card {
-    background: var(--bg2); padding: 48px 40px;
-    position: relative; overflow: hidden;
-    transition: background 0.3s ease;
-  }
-
-  .problem-card:hover { background: var(--bg3); }
-
-  .problem-card::before {
-    content: ''; position: absolute;
-    top: 0; left: 0; right: 0; height: 2px;
-  }
-
-  .problem-card.friction::before { background: var(--coral); }
-  .problem-card.solution::before { background: var(--gold); }
-
-  .card-eyebrow {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; letter-spacing: 0.2em;
-    margin-bottom: 20px;
-    display: flex; align-items: center; gap: 8px;
-  }
-
-  .card-eyebrow.friction { color: var(--coral); }
-  .card-eyebrow.solution { color: var(--gold); }
-
-  .card-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px; font-weight: 400;
-    color: var(--white); margin-bottom: 16px; line-height: 1.2;
-  }
-
-  .card-body { font-size: 14px; color: var(--gray1); line-height: 1.8; }
-
-  .card-list { list-style: none; margin-top: 20px; }
-
-  .card-list li {
-    font-size: 13px; color: rgba(255,255,255,0.7);
-    padding: 8px 0;
-    border-bottom: 0.5px solid rgba(201,168,76,0.08);
-    display: flex; align-items: flex-start;
-    gap: 10px; line-height: 1.5;
-  }
-
-  .card-list li::before {
-    content: '·'; color: var(--gold);
-    flex-shrink: 0; margin-top: 1px;
-  }
-
-  .process-bg { background: var(--bg2); }
-
-  .process-timeline { position: relative; padding-left: 40px; }
-
-  .process-timeline::before {
-    content: ''; position: absolute;
-    left: 0; top: 8px; bottom: 8px; width: 1px;
-    background: linear-gradient(180deg, var(--gold), rgba(201,168,76,0.1));
-  }
-
-  .process-step {
-    position: relative; margin-bottom: 56px;
-    animation: fadeUp 0.6s ease forwards; opacity: 0;
-  }
-
-  .process-step:nth-child(1) { animation-delay: 0.1s; }
-  .process-step:nth-child(2) { animation-delay: 0.2s; }
-  .process-step:nth-child(3) { animation-delay: 0.3s; }
-  .process-step:nth-child(4) { animation-delay: 0.4s; }
-  .process-step:nth-child(5) { animation-delay: 0.5s; }
-
-  .step-node {
-    position: absolute; left: -46px; top: 4px;
-    width: 12px; height: 12px; border-radius: 50%;
-    border: 1.5px solid var(--gold); background: var(--bg2);
-    display: flex; align-items: center; justify-content: center;
-  }
-
-  .step-node-dot {
-    width: 4px; height: 4px;
-    border-radius: 50%; background: var(--gold);
-  }
-
-  .step-number {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gold);
-    letter-spacing: 0.15em; margin-bottom: 8px;
-  }
-
-  .step-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px; font-weight: 400;
-    color: var(--white); margin-bottom: 10px;
-  }
-
-  .step-desc {
-    font-size: 14px; color: var(--gray1);
-    line-height: 1.8; max-width: 680px;
-  }
-
-  .step-tags {
-    display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px;
-  }
-
-  .step-tag {
-    font-size: 10px; padding: 3px 10px;
-    border: 0.5px solid rgba(58,122,138,0.4); border-radius: 2px;
-    color: var(--teal-br); background: rgba(58,122,138,0.05);
-    letter-spacing: 0.04em;
-  }
-
-  .results-strip {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
-  }
-
-  .result-card {
-    background: var(--bg2); padding: 48px 36px;
-    text-align: center; position: relative; overflow: hidden;
-    transition: background 0.3s ease;
-  }
-
-  .result-card:hover { background: var(--bg3); }
-
-  .result-card::before {
-    content: ''; position: absolute;
-    top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
-
-  .result-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 72px; font-weight: 300;
-    color: var(--gold); line-height: 1;
-    margin-bottom: 12px; display: block;
-  }
-
-  .result-label {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gray1);
-    letter-spacing: 0.15em; line-height: 1.6;
-    text-transform: uppercase;
-  }
-
-  .result-context {
-    font-size: 12px; color: var(--gray2);
-    margin-top: 10px; line-height: 1.5;
-  }
-
-  .impact-bg {
-    background: linear-gradient(135deg, #0A0A0A 0%, #111111 100%);
-  }
-
-  .impact-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 48px; align-items: start;
-  }
-
-  .impact-quote {
-    border-left: 2px solid var(--gold);
-    padding: 32px 40px;
-    background: rgba(201,168,76,0.03); position: relative;
-  }
-
-  .quote-mark {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 80px; color: rgba(201,168,76,0.15);
-    position: absolute; top: -10px; left: 24px; line-height: 1;
-  }
-
-  .quote-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-style: italic; font-weight: 300;
-    color: rgba(232,192,96,0.9); line-height: 1.6;
-    margin-bottom: 20px; position: relative; z-index: 1;
-  }
-
-  .quote-source {
-    font-family: 'Orbitron', monospace;
-    font-size: 7px; color: var(--gray2); letter-spacing: 0.15em;
-  }
-
-  .impact-metrics { display: flex; flex-direction: column; gap: 2px; }
-
-  .metric-row {
-    background: var(--bg2); padding: 24px 28px;
-    display: flex; align-items: center; gap: 20px;
-    transition: background 0.2s ease;
-  }
-
-  .metric-row:hover { background: var(--bg3); }
-
-  .metric-indicator { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-  .metric-content { flex: 1; }
-
-  .metric-title {
-    font-size: 13px; font-weight: 500;
-    color: var(--white); margin-bottom: 2px;
-  }
-
-  .metric-detail { font-size: 11px; color: var(--gray1); line-height: 1.5; }
-
-  .metric-badge {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; padding: 3px 8px;
-    border-radius: 2px; white-space: nowrap;
-  }
-
-  .learnings-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
-
-  .learning-card {
-    background: var(--bg2); padding: 40px 36px;
-    border-top: 1px solid transparent;
-    transition: border-color 0.3s ease, background 0.3s ease;
-  }
-
-  .learning-card:hover { border-top-color: var(--gold); background: var(--bg3); }
-
-  .learning-icon {
-    margin-bottom: 20px;
-    font-family: 'Orbitron', monospace;
-    font-size: 20px; color: var(--gold); opacity: 0.6;
-  }
-
-  .learning-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 600;
-    color: var(--white); margin-bottom: 12px;
-  }
-
-  .learning-body { font-size: 13px; color: var(--gray1); line-height: 1.8; }
-
-  footer {
-    background: #080808;
-    border-top: 0.5px solid var(--border);
-    padding: 48px 64px;
-    display: flex; align-items: center;
-    justify-content: space-between; gap: 24px;
-  }
-
-  .footer-brand { display: flex; align-items: center; gap: 16px; }
-  .footer-info { flex: 1; }
-
-  .footer-name {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px; font-weight: 500; color: var(--white);
-    letter-spacing: 0.08em; text-transform: uppercase;
-    display: block; margin-bottom: 4px;
-  }
-
-  .footer-role {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gold);
-    letter-spacing: 0.15em; display: block;
-  }
-
-  .footer-right { text-align: right; }
-
-  .footer-linkedin {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px; color: var(--teal-br);
-    text-decoration: none; letter-spacing: 0.02em;
-    display: block; margin-bottom: 4px; transition: color 0.2s;
-  }
-
-  .footer-linkedin:hover { color: var(--gold); }
-  .footer-copy { font-size: 11px; color: var(--gray2); letter-spacing: 0.04em; }
-
-  .gold-accent-top {
-    height: 2.5px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-lt), var(--gold));
-  }
-
-  @media (max-width: 900px) {
-    .nav, .section, .hero-content, .hero-footer, footer { padding-left: 28px; padding-right: 28px; }
-    .problem-grid, .impact-grid, .results-strip, .learnings-grid, .users-grid { grid-template-columns: 1fr; }
-    .hero-title { font-size: 44px; }
-    .back-btn { top: 12px; left: 12px; padding: 8px 14px; }
-  }
-
-  @media print {
-    body { background: white; color: black; }
-    .hero-bg, .orb, .back-btn { display: none; }
-  }
-
-  /* ── COVER PAGE ── */
-  .cover-page {
-    width: 100%; height: 100vh; min-height: 628px;
-    position: relative; overflow: hidden;
-    display: flex; flex-direction: column; justify-content: center;
-  }
-  .cover-hint {
-    position: fixed; bottom: 20px; right: 20px;
-    background: rgba(201,168,76,0.15);
-    border: 0.5px solid rgba(201,168,76,0.4);
-    border-radius: 4px; padding: 10px 16px;
-    font-family: 'Orbitron', monospace;
-    font-size: 9px; color: #C9A84C;
-    letter-spacing: 0.1em; z-index: 1000; pointer-events: none;
-  }
-  .cover-divider {
-    width: 100%; height: 2px;
-    background: linear-gradient(90deg, #C9A84C, rgba(201,168,76,0.1));
-  }
-  .c-gold-top { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #C9A84C, #E8C060, #C9A84C); z-index: 20; }
-  .c-gold-left { position: absolute; top: 0; left: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, #C9A84C, rgba(201,168,76,0.2)); z-index: 20; }
-  .c-grid { position: absolute; right: 0; top: 0; bottom: 0; width: 500px; opacity: 0.03; background-image: linear-gradient(rgba(201,168,76,1) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,1) 1px, transparent 1px); background-size: 40px 40px; }
-  .c-corner { position: absolute; top: 20px; right: 20px; z-index: 10; opacity: 0.35; }
-  .c-label { position: absolute; top: 24px; right: 64px; font-family: 'Orbitron', monospace; font-size: 8px; color: #4A5568; letter-spacing: 0.15em; z-index: 10; }
-  .c-content { position: relative; z-index: 10; padding: 0 64px 80px; }
-  .c-eyebrow { font-family: 'Orbitron', monospace; font-size: 11px; letter-spacing: 0.25em; color: #C9A84C; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-  .c-dot { width: 6px; height: 6px; border-radius: 50%; background: #C9A84C; }
-  .c-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.05; color: #FFFFFF; margin-bottom: 6px; }
-  .c-title em { font-style: italic; color: #C9A84C; }
-  .c-rule { width: 48px; height: 2px; background: linear-gradient(90deg, #C9A84C, rgba(201,168,76,0.2)); margin-bottom: 16px; border-radius: 1px; }
-  .c-sub { font-family: 'DM Sans', sans-serif; font-weight: 300; color: #8B949E; margin-bottom: 32px; line-height: 1.5; }
-  .c-metrics { display: flex; gap: 24px; margin-bottom: 36px; align-items: center; }
-  .c-mval { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: #C9A84C; line-height: 1; display: block; }
-  .c-mlbl { font-family: 'Orbitron', monospace; font-size: 8px; color: #8B949E; letter-spacing: 0.1em; display: block; margin-top: 4px; }
-  .c-mdiv { width: 0.5px; height: 40px; background: rgba(201,168,76,0.2); }
-  .c-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-  .c-tag { font-family: 'Orbitron', monospace; font-size: 8px; padding: 5px 12px; border: 0.5px solid rgba(201,168,76,0.25); border-radius: 2px; color: #8B949E; letter-spacing: 0.08em; background: rgba(201,168,76,0.04); }
-  .c-sig { position: absolute; bottom: 32px; left: 64px; display: flex; align-items: center; gap: 14px; z-index: 10; }
-  .c-hcircle { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid #C9A84C; display: flex; align-items: center; justify-content: center; font-family: 'Orbitron', monospace; font-size: 16px; font-weight: 700; color: #C9A84C; flex-shrink: 0; position: relative; }
-  .c-hcircle::after { content: ''; position: absolute; inset: 6px; border-radius: 50%; border: 0.5px solid rgba(201,168,76,0.2); }
-  .c-ssep { width: 0.5px; height: 32px; background: rgba(201,168,76,0.25); }
-  .c-sname { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: #FFFFFF; letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 3px; }
-  .c-srole { font-family: 'Orbitron', monospace; font-size: 8px; color: #C9A84C; letter-spacing: 0.14em; display: block; }
-  .c-bignumber { position: absolute; font-family: 'Cormorant Garamond', serif; font-size: 280px; font-weight: 300; line-height: 1; color: rgba(201,168,76,0.06); right: -20px; bottom: -40px; z-index: 1; letter-spacing: -0.05em; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study 03 - Habitat Consultórios | Cleyton Hespanhol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0B0F17;
+            --bg-secondary: #111827;
+            --bg-card: #1E293B;
+            --bg-card-hover: #243347;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(56, 189, 248, 0.3);
+            
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --text-dim: #64748B;
+            
+            --accent-primary: #38BDF8;
+            --accent-secondary: #818CF8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            
+            --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            --max-width: 1120px;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header / Hero */
+        header {
+            padding: 100px 0 60px;
+            border-bottom: 1px solid var(--border-color);
+            background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid var(--border-highlight);
+            border-radius: 100px;
+            color: var(--accent-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        h1.case-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .case-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 720px;
+            font-weight: 400;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            margin-bottom: 48px;
+        }
+
+        .section-number {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        .content-block {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+        }
+
+        .content-block p + p {
+            margin-top: 16px;
+        }
+
+        /* 04 Results */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            border-color: var(--border-highlight);
+            transform: translateY(-3px);
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-primary);
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* 06 Governance Cards */
+        .governance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .gov-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 32px 28px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gov-card:hover {
+            border-color: var(--border-highlight);
+            background: var(--bg-card);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .gov-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            background: var(--accent-glow);
+            color: var(--accent-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .gov-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        .gov-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(17, 24, 39, 0.9) 100%);
+            border: 1px solid var(--border-highlight);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .highlight-content {
+            max-width: 700px;
+        }
+
+        .highlight-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .highlight-desc {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent-primary);
+            color: #0F172A;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 14px 24px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .btn-primary:hover {
+            background: #7dd3fc;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 10px 18px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            transition: var(--transition);
+            margin-top: auto;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            background: var(--accent-glow);
+        }
+
+        /* 07 Timeline */
+        .timeline-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            position: relative;
+            padding-top: 20px;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border-color);
+            z-index: 1;
+        }
+
+        .timeline-step {
+            position: relative;
+            z-index: 2;
+            text-align: left;
+        }
+
+        .timeline-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 20px;
+            box-shadow: 0 0 0 6px var(--bg-primary);
+        }
+
+        .timeline-title {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* 08 Artifacts */
+        .artifacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .artifact-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .artifact-card:hover {
+            border-color: var(--border-highlight);
+            transform: translateY(-3px);
+            background: var(--bg-card);
+        }
+
+        .artifact-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .artifact-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: var(--radius-md);
+            background: var(--accent-glow);
+            color: var(--accent-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .artifact-name {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .artifact-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        /* 09 Competencies Matrix */
+        .matrix-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .matrix-table th {
+            background: var(--bg-card);
+            color: var(--text-main);
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-align: left;
+            padding: 18px 28px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .matrix-table td {
+            padding: 20px 28px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .matrix-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .matrix-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .matrix-competence {
+            font-weight: 600;
+            color: var(--accent-primary);
+            font-family: var(--font-heading);
+        }
+
+        /* Complementary Document Box */
+        .complementary-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 60px;
+        }
+
+        .complementary-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .complementary-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 1024px) {
+            .timeline-container {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .timeline-container::before {
+                display: none;
+            }
+
+            .timeline-step {
+                display: flex;
+                gap: 16px;
+                align-items: flex-start;
+            }
+
+            .timeline-dot {
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .highlight-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .btn-primary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .matrix-table th, .matrix-table td {
+                padding: 14px 16px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- ── BOTÃO VOLTAR ── -->
-<a class="back-btn" href="index.html" title="Voltar para a página inicial">
-  <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-    <polyline points="7,2 3,6 7,10"/>
-    <line x1="3" y1="6" x2="11" y2="6"/>
-  </svg>
-  VOLTAR
-</a>
-
-<div class="cover-hint">CAPTURAR COMO IMAGEM PARA LINKEDIN</div>
-<div class="gold-accent-top"></div>
-
-<section class="cover-page" style="background: #0D0D0D;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 30%, rgba(245,127,118,0.07) 0%, transparent 55%), radial-gradient(ellipse 50% 50% at 20% 80%, rgba(201,168,76,0.05) 0%, transparent 50%), linear-gradient(150deg, #0D0D0D 0%, #111111 100%);"></div>
-  <div class="c-grid"></div>
-  <div class="c-gold-top"></div>
-  <div class="c-gold-left"></div>
-  <svg class="c-corner" width="32" height="32" viewBox="0 0 32 32" fill="none">
-    <circle cx="16" cy="16" r="15" stroke="#C9A84C" stroke-width="0.8"/>
-    <circle cx="16" cy="16" r="9" stroke="#C9A84C" stroke-width="0.5"/>
-    <circle cx="16" cy="16" r="3" fill="#C9A84C"/>
-  </svg>
-  <div class="c-label">PORTFÓLIO · CASE STUDY 03</div>
-  <div class="c-bignumber">03</div>
-  <div class="c-content">
-    <div class="c-eyebrow"><div class="c-dot"></div>UX OPERATIONS · REDUÇÃO DE FRICÇÃO · SAAS</div>
-    <h1 class="c-title" style="font-size:68px;">Redução de<br><em>Fricção</em> em SaaS</h1>
-    <div class="c-rule"></div>
-    <p class="c-sub">Mapeamento de padrões, central de conhecimento e onboarding<br>para três perfis distintos de usuário.</p>
-    <div class="c-metrics"><div class="c-item"><div class="c-mval">27%</div><span class="c-mlbl">RECORRÊNCIA</span></div><div class="c-mdiv"></div><div class="c-item"><div class="c-mval">31%</div><span class="c-mlbl">RESOLUÇÃO</span></div><div class="c-mdiv"></div><div class="c-item"><div class="c-mval">3</div><span class="c-mlbl">PERFIS UX</span></div></div>
-    <div class="c-tags"><span class="c-tag">UX RESEARCH</span><span class="c-tag">CENTRAL DE CONHECIMENTO</span><span class="c-tag">ONBOARDING</span><span class="c-tag">DISCOVERY</span></div>
-  </div>
-  <div class="c-sig">
-    <div class="c-hcircle">H</div>
-    <div class="c-ssep"></div>
-    <div>
-      <span class="c-sname">Cleyton Hespanhol</span>
-      <span class="c-srole">PRODUCT OPERATIONS · UX</span>
-    </div>
-  </div>
-</section>
-<div class="cover-divider"></div>
-
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="orb"></div>
-
-  <nav class="nav">
-    <div class="nav-brand">
-      <div class="h-mark">H</div>
-      <div>
-        <span class="nav-name">Cleyton Hespanhol</span>
-        <span class="nav-role">PRODUCT OPERATIONS · UX</span>
-      </div>
-    </div>
-    <div class="nav-tag">PORTFÓLIO · CASE STUDY</div>
-  </nav>
-
-  <div class="hero-content">
-    <div class="case-label">
-      <div class="case-label-dot"></div>
-      <span class="case-label-text">CASE STUDY 03 · UX OPERATIONS · REDUÇÃO DE FRICÇÃO</span>
-    </div>
-    <h1 class="hero-title">Redução de <em>fricção</em></h1>
-    <p class="hero-subtitle">em um ecossistema de produto complexo</p>
-    <p class="hero-desc">
-      Como a identificação de padrões de dúvidas recorrentes, a estruturação de uma central de conhecimento e a atuação direta na jornada do usuário reduziram em 27% a recorrência de demandas e em 31% o tempo de resolução em uma plataforma com múltiplos perfis e produtos.
-    </p>
-    <div class="meta-row">
-      <div class="meta-pill"><strong>Contexto</strong> · Habitat Consultórios · Plataforma de Aluguel de Espaços</div>
-      <div class="meta-pill"><strong>Papel</strong> · UX Operations · Jornada do Usuário · Suporte ao Produto</div>
-      <div class="meta-pill"><strong>Período</strong> · Março 2024 – Janeiro 2025</div>
-      <div class="meta-pill"><strong>Resultado</strong> · 27% menos recorrência · 31% menos tempo de resolução</div>
-    </div>
-  </div>
-
-  <div class="hero-footer">
-    <div class="scroll-hint">
-      <div class="scroll-line"></div>
-      SCROLL PARA EXPLORAR
-    </div>
-    <div class="meta-pill" style="margin-left:auto;">UX Operations · Discovery · Central de Conhecimento · SaaS · Onboarding</div>
-  </div>
-</section>
-
-<!-- PRODUTO E USUÁRIOS -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-label">01 · O PRODUTO E SEUS USUÁRIOS</div>
-    <h2 class="section-title">Um ecossistema com<br><em>três perfis e múltiplos produtos.</em></h2>
-    <div class="users-grid">
-      <div class="user-card medico">
-        <div class="user-eyebrow medico">PERFIL 01 · MÉDICO</div>
-        <h3 class="user-title">Locatário do espaço</h3>
-        <p class="user-body">Profissional de saúde que alugava consultórios por hora, sem se preocupar com limpeza ou estrutura. Podia escolher entre hora avulsa, pacote de horas, plano mensal ou Habitat Pass.</p>
-        <ul class="user-list">
-          <li>Apresentação da plataforma e dos produtos</li>
-          <li>Auxílio no cadastro e análise de documentação</li>
-          <li>Suporte em reservas, cancelamentos e navegação</li>
-          <li>Recepção presencial e apresentação das salas</li>
-        </ul>
-      </div>
-      <div class="user-card sala">
-        <div class="user-eyebrow sala">PERFIL 02 · DONO DE SALA</div>
-        <h3 class="user-title">Proprietário do espaço</h3>
-        <p class="user-body">Proprietário que disponibilizava seus consultórios para aluguel na plataforma. Escolhia quais produtos aceitar em cada sala e recebia repasse por cada hora alugada.</p>
-        <ul class="user-list">
-          <li>Explicação da curadoria e do modelo de repasse</li>
-          <li>Cadastro da sala e configuração de agenda</li>
-          <li>Definição de produtos aceitos e valor por hora</li>
-          <li>Suporte a dúvidas sobre repasses e uso da plataforma</li>
-        </ul>
-      </div>
-      <div class="user-card clinica">
-        <div class="user-eyebrow clinica">PERFIL 03 · DONO DE CLÍNICA</div>
-        <h3 class="user-title">Cliente SaaS</h3>
-        <p class="user-body">Proprietário de clínica que contratava o SaaS para gerenciar seus próprios espaços com white label, relatórios de faturamento, cadastro de médicos e venda de produtos e serviços adicionais.</p>
-        <ul class="user-list">
-          <li>Onboarding completo do SaaS</li>
-          <li>Configuração de white label e agenda de salas</li>
-          <li>Suporte a relatórios, repasses e reclamações</li>
-          <li>Orientação sobre cadastro de médicos e serviços adicionais</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROBLEMA -->
-<section class="section process-bg">
-  <div class="section-inner">
-    <div class="section-label">02 · O PROBLEMA IDENTIFICADO</div>
-    <h2 class="section-title">Complexidade do produto<br><em>virou fricção do usuário.</em></h2>
-    <div class="problem-grid">
-      <div class="problem-card friction">
-        <div class="card-eyebrow friction"><span>●</span> ANTES · FRICÇÃO RECORRENTE</div>
-        <h3 class="card-title">Dúvidas repetidas sobre os mesmos pontos</h3>
-        <p class="card-body">A plataforma tinha múltiplos produtos com nomenclaturas e regras distintas. O layout gerava confusão nos três perfis de usuário. As mesmas dúvidas chegavam repetidamente ao suporte, revelando que o problema não era o usuário mas a falta de clareza do produto.</p>
-        <ul class="card-list">
-          <li>Médicos confundiam os tipos de produto e suas regras</li>
-          <li>Donos de sala tinham dúvidas sobre repasses e sobre usuários que ultrapassavam o tempo contratado</li>
-          <li>Donos de clínica não sabiam como visualizar faturamento e relatórios no SaaS</li>
-          <li>Navegação confusa gerava abandono antes de concluir a reserva</li>
-          <li>Ausência de material de apoio centralizado e acessível</li>
-          <li>Suporte acionado como primeiro recurso, não como último</li>
-        </ul>
-      </div>
-      <div class="problem-card solution">
-        <div class="card-eyebrow solution"><span>●</span> OPORTUNIDADE IDENTIFICADA</div>
-        <h3 class="card-title">Transformar padrões de dúvida em soluções de produto</h3>
-        <p class="card-body">Cada dúvida recorrente era um sinal de que algo no produto ou na comunicação estava quebrando a jornada do usuário. A oportunidade era transformar esses padrões em melhorias concretas: documentação, onboarding estruturado e propostas diretas para a equipe de produto.</p>
-        <ul class="card-list">
-          <li>Mapear as dúvidas mais frequentes por perfil de usuário</li>
-          <li>Criar central de conhecimento com artigos e vídeos tutoriais por perfil</li>
-          <li>Alimentar o chatbot com o conteúdo da central</li>
-          <li>Estruturar onboarding específico para cada perfil</li>
-          <li>Levar os padrões identificados para reuniões de produto com TI</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESSO -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-label">03 · PROCESSO DE SOLUÇÃO</div>
-    <h2 class="section-title">Da dúvida recorrente<br><em>ao conhecimento acessível.</em></h2>
-    <div class="process-timeline">
-      <div class="process-step">
-        <div class="step-node"><div class="step-node-dot"></div></div>
-        <div class="step-number">ETAPA 01</div>
-        <h3 class="step-title">Mapeamento de Padrões por Perfil de Usuário</h3>
-        <p class="step-desc">Identificação sistemática das dúvidas mais recorrentes separadas por perfil: médico, dono de sala e dono de clínica. Cada padrão era um sinal de onde a jornada estava quebrando. Esse mapeamento foi a base de todas as ações seguintes.</p>
-        <div class="step-tags">
-          <span class="step-tag">Discovery Operacional</span>
-          <span class="step-tag">Análise de Padrões</span>
-          <span class="step-tag">Mapeamento de Jornada</span>
+    <header>
+        <div class="container">
+            <span class="badge">Case Study Executivo • 03</span>
+            <h1 class="case-title">Habitat Consultórios</h1>
+            <p class="case-subtitle">Evolução do ecossistema de atendimento, padronização de processos operacionais e redução substancial de chamados de suporte técnico.</p>
         </div>
-      </div>
-      <div class="process-step">
-        <div class="step-node"><div class="step-node-dot"></div></div>
-        <div class="step-number">ETAPA 02</div>
-        <h3 class="step-title">Estruturação da Central de Conhecimento</h3>
-        <p class="step-desc">Criação de base de artigos e vídeos tutoriais organizados por perfil de usuário e por produto. O conteúdo foi desenvolvido para ser acessível, claro e sem ambiguidade, aplicando princípios de UX Writing. A mesma base alimentava a plataforma, o SaaS e o canal de chatbot, garantindo consistência em todos os pontos de contato.</p>
-        <div class="step-tags">
-          <span class="step-tag">Central de Conhecimento</span>
-          <span class="step-tag">UX Writing</span>
-          <span class="step-tag">Chatbot</span>
-          <span class="step-tag">Autosserviço</span>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-node"><div class="step-node-dot"></div></div>
-        <div class="step-number">ETAPA 03</div>
-        <h3 class="step-title">Onboarding Estruturado por Perfil</h3>
-        <p class="step-desc">Desenvolvimento de onboarding específico para cada perfil de usuário. Médicos recebiam apresentação da plataforma, explicação dos produtos e auxílio no cadastro. Donos de sala eram orientados sobre curadoria, agenda e repasses. Donos de clínica passavam por onboarding completo do SaaS. O objetivo era garantir autonomia desde o primeiro contato.</p>
-        <div class="step-tags">
-          <span class="step-tag">Onboarding</span>
-          <span class="step-tag">Jornada do Usuário</span>
-          <span class="step-tag">Autonomia do Usuário</span>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-node"><div class="step-node-dot"></div></div>
-        <div class="step-number">ETAPA 04</div>
-        <h3 class="step-title">Atendimento Presencial e Digital Integrados</h3>
-        <p class="step-desc">Além do suporte digital, médicos visitavam presencialmente a unidade para conhecer as salas. Esses momentos eram oportunidades de apresentação do produto, esclarecimento de dúvidas e coleta de percepções reais sobre a experiência. A visão 360° da jornada, do presencial ao digital, enriquecia o entendimento das fricções reais do usuário.</p>
-        <div class="step-tags">
-          <span class="step-tag">Atendimento Presencial</span>
-          <span class="step-tag">Experiência 360°</span>
-          <span class="step-tag">Coleta de Feedback</span>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-node"><div class="step-node-dot"></div></div>
-        <div class="step-number">ETAPA 05</div>
-        <h3 class="step-title">Contribuição Direta em Reuniões de Produto</h3>
-        <p class="step-desc">Os padrões identificados no atendimento eram levados às reuniões de produto com a equipe de TI. Melhorias de navegação, correção de nomenclatura, reporte de bugs e validação de novas funcionalidades antes do lançamento. A operação alimentando diretamente a evolução do produto.</p>
-        <div class="step-tags">
-          <span class="step-tag">Product Discovery</span>
-          <span class="step-tag">UAT</span>
-          <span class="step-tag">Gestão de Stakeholders</span>
-          <span class="step-tag">Melhoria Contínua</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </header>
 
-<!-- RESULTADOS -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-label">04 · RESULTADOS MENSURÁVEIS</div>
-    <h2 class="section-title">Fricção reduzida.<br><em>Autonomia ampliada.</em></h2>
-    <div class="results-strip">
-      <div class="result-card">
-        <span class="result-number">27%</span>
-        <div class="result-label">Redução na<br>Recorrência de Demandas</div>
-        <p class="result-context">Menos usuários acionando o suporte para as mesmas dúvidas. Central de conhecimento e onboarding gerando autonomia real.</p>
-      </div>
-      <div class="result-card">
-        <span class="result-number">31%</span>
-        <div class="result-label">Redução no Tempo<br>de Resolução</div>
-        <p class="result-context">Reestruturação dos fluxos operacionais e organização das informações reduziram o tempo médio de atendimento por demanda.</p>
-      </div>
-      <div class="result-card">
-        <span class="result-number">3</span>
-        <div class="result-label">Perfis Atendidos<br>Com Jornadas Distintas</div>
-        <p class="result-context">Médicos, donos de sala e donos de clínica com onboarding, suporte e central de conhecimento estruturados por perfil.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <main class="container">
 
-<!-- IMPACTO -->
-<section class="section impact-bg">
-  <div class="section-inner">
-    <div class="section-label">05 · IMPACTO NA OPERAÇÃO</div>
-    <h2 class="section-title">O suporte como<br><em>último recurso, não o primeiro.</em></h2>
-    <div class="impact-grid">
-      <div class="impact-quote">
-        <div class="quote-mark">"</div>
-        <p class="quote-text">O ideal era criar um ecossistema onde o usuário acionasse o suporte somente se fosse extremamente necessário. Cada dúvida recorrente era um sinal de que algo na jornada ainda precisava de clareza.</p>
-        <div class="quote-source">CLEYTON HESPANHOL · PRINCÍPIO DE ATUAÇÃO NA HABITAT</div>
-      </div>
-      <div class="impact-metrics">
-        <div class="metric-row">
-          <div class="metric-indicator" style="background:#C9A84C;"></div>
-          <div class="metric-content">
-            <div class="metric-title">Central de conhecimento multicanal</div>
-            <div class="metric-detail">Artigos e vídeos alimentando plataforma, SaaS e chatbot com consistência</div>
-          </div>
-          <div class="metric-badge" style="background:rgba(201,168,76,0.1);color:#C9A84C;">ESCALA</div>
-        </div>
-        <div class="metric-row">
-          <div class="metric-indicator" style="background:#3A7A8A;"></div>
-          <div class="metric-content">
-            <div class="metric-title">Onboarding por perfil</div>
-            <div class="metric-detail">Médico, dono de sala e dono de clínica com jornadas de entrada distintas e estruturadas</div>
-          </div>
-          <div class="metric-badge" style="background:rgba(58,122,138,0.1);color:#3A7A8A;">ONBOARDING</div>
-        </div>
-        <div class="metric-row">
-          <div class="metric-indicator" style="background:#F57F76;"></div>
-          <div class="metric-content">
-            <div class="metric-title">Operação alimentando o produto</div>
-            <div class="metric-detail">Padrões do suporte levados diretamente para reuniões de produto com TI</div>
-          </div>
-          <div class="metric-badge" style="background:rgba(245,127,118,0.1);color:#F57F76;">DISCOVERY</div>
-        </div>
-        <div class="metric-row">
-          <div class="metric-indicator" style="background:#C9A84C;"></div>
-          <div class="metric-content">
-            <div class="metric-title">Visão 360° da jornada</div>
-            <div class="metric-detail">Do presencial ao digital: atendimento, onboarding, suporte e validação de produto integrados</div>
-          </div>
-          <div class="metric-badge" style="background:rgba(201,168,76,0.1);color:#C9A84C;">360°</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        <!-- 01 O Produto -->
+        <section id="produto">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">O Produto</h2>
+            </div>
+            <div class="content-block">
+                <p>O Habitat Consultórios é uma solução voltada para a gestão integrada de clínicas e consultórios de saúde. O ecossistema abrange agendamento de consultas, prontuário eletrônico de pacientes, controle financeiro e faturamento de convênios.</p>
+                <p>O foco do produto é oferecer uma experiência fluida para profissionais da saúde e secretárias, reduzindo o tempo despendido em tarefas administrativas operacionais para priorizar o atendimento ao paciente.</p>
+            </div>
+        </section>
 
-<!-- APRENDIZADOS -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-label">06 · APRENDIZADOS DO PROJETO</div>
-    <h2 class="section-title">O que esse case<br><em>reforçou como profissional.</em></h2>
-    <div class="learnings-grid">
-      <div class="learning-card">
-        <div class="learning-icon">01</div>
-        <h3 class="learning-title">Dúvida recorrente é falha de produto, não de usuário.</h3>
-        <p class="learning-body">Quando os mesmos usuários perguntavam as mesmas coisas repetidamente, o problema não era falta de atenção. Era falta de clareza no produto. Cada dúvida recorrente era dado qualitativo valioso sobre onde a jornada estava quebrando.</p>
-      </div>
-      <div class="learning-card">
-        <div class="learning-icon">02</div>
-        <h3 class="learning-title">Central de conhecimento bem estruturada é extensão do produto.</h3>
-        <p class="learning-body">Documentação que responde a dúvida antes que ela chegue ao suporte é produto. Quando a central alimentou o chatbot com o mesmo conteúdo, o usuário passou a encontrar a resposta no momento exato em que precisava, sem depender de atendimento humano.</p>
-      </div>
-      <div class="learning-card">
-        <div class="learning-icon">03</div>
-        <h3 class="learning-title">Quem atende o usuário é quem mais conhece o produto.</h3>
-        <p class="learning-body">O suporte era a linha de frente com o usuário real. Levar esses padrões para as reuniões de produto com TI transformou a operação em fonte de discovery contínuo. As melhores propostas de melhoria nasceram de dúvidas repetidas no atendimento.</p>
-      </div>
-      <div class="learning-card">
-        <div class="learning-icon">04</div>
-        <h3 class="learning-title">Presencial e digital são partes da mesma jornada.</h3>
-        <p class="learning-body">Receber um médico pessoalmente, apresentar as salas e depois acompanhar a jornada digital era entender o produto de forma completa. A fricção que aparecia no digital muitas vezes tinha raiz numa expectativa criada no presencial. Integrar os dois era essencial.</p>
-      </div>
-    </div>
-  </div>
-</section>
+        <!-- 02 O Problema -->
+        <section id="problema">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">O Problema</h2>
+            </div>
+            <div class="content-block">
+                <p>Com o rápido crescimento da base de usuários, a operação de suporte enfrentava um volume excessivo de chamados recorrentes. A ausência de padronização nas dúvidas operacionais e no fluxo de report de erros gerava ruído entre Atendimento, Produto e Engenharia.</p>
+                <p>Incidentes eram encaminhados à equipe técnica sem a devida triagem ou evidências completas, resultando em retrabalho, alto tempo médio de resolução (MTTR) e desgaste no relacionamento com os clientes finais.</p>
+            </div>
+        </section>
 
-<footer>
-  <div class="footer-brand">
-    <div class="h-mark">H</div>
-    <div class="footer-info">
-      <span class="footer-name">Cleyton Hespanhol</span>
-      <span class="footer-role">PRODUCT OPERATIONS · UX</span>
-    </div>
-  </div>
-  <div class="footer-right">
-    <a href="https://linkedin.com/in/cleytonhespanhol" class="footer-linkedin">linkedin.com/in/cleytonhespanhol</a>
-    <span class="footer-copy">© 2025 · Portfólio Profissional · Case Study 03</span>
-  </div>
-</footer>
+        <!-- 03 Processo -->
+        <section id="processo">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Processo</h2>
+            </div>
+            <div class="content-block">
+                <p>Para solucionar a desorganização do fluxo de demandas, foi implementada uma abordagem fundamentada em Product Operations e Service Design. Conduziu-se o mapeamento minucioso das dúvidas mais frequentes e das principais falhas operacionais registradas nos canais de atendimento.</p>
+                <p>A partir deste diagnóstico, estruturou-se uma Central de Conhecimento unificada, um protocolo rigoroso de gestão de incidentes e um novo fluxo de onboarding voltado às secretárias e profissionais de saúde.</p>
+            </div>
+        </section>
+
+        <!-- 04 Resultados -->
+        <section id="resultados">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Resultados</h2>
+            </div>
+            <div class="results-grid">
+                <div class="stat-card">
+                    <div class="stat-number">-45%</div>
+                    <div class="stat-label">Redução no volume total de chamados de suporte</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">60%</div>
+                    <div class="stat-label">Diminuição do tempo médio de resolução de incidentes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">92%</div>
+                    <div class="stat-label">Índice de satisfação (CSAT) no processo de Onboarding</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 Impacto -->
+        <section id="impacto">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">Impacto</h2>
+            </div>
+            <div class="content-block">
+                <p>A transformação gerou estabilidade operacional e reduziu significativamente o custo de atendimento por cliente. A Engenharia passou a focar na evolução de novas funcionalidades, livre da sobrecarga de chamados não filtrados.</p>
+                <p>Além dos ganhos financeiros e de eficiência interna, estabeleceu-se uma cultura orientada a dados e documentação contínua, fortalecendo a confiança dos clientes na plataforma Habitat.</p>
+            </div>
+        </section>
+
+        <!-- 06 Governança Operacional -->
+        <section id="governanca">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title">Governança Operacional</h2>
+                <p class="section-subtitle">Como o trabalho era conduzido diariamente.</p>
+            </div>
+
+            <p style="color: var(--text-muted); margin-bottom: 32px; font-size: 1.05rem;">
+                Esta seção apresenta o protocolo interno utilizado para transformar incidentes recorrentes em melhorias contínuas do produto, assegurando rigor metodológico em todas as etapas da operação.
+            </p>
+
+            <div class="governance-grid">
+                <!-- Card 01 -->
+                <div class="gov-card">
+                    <div class="gov-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <h3 class="gov-title">Triagem</h3>
+                    <p class="gov-desc">Todo incidente era reproduzido antes de ser classificado. A priorização considerava impacto para o negócio, recorrência e risco operacional.</p>
+                </div>
+
+                <!-- Card 02 -->
+                <div class="gov-card">
+                    <div class="gov-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 11 12 6 7 11"></polyline><line x1="12" y1="18" x2="12" y2="6"></line></svg>
+                    </div>
+                    <h3 class="gov-title">Escalonamento</h3>
+                    <p class="gov-desc">Os incidentes eram encaminhados para Engenharia com documentação completa, passos para reprodução e evidências.</p>
+                </div>
+
+                <!-- Card 03 -->
+                <div class="gov-card">
+                    <div class="gov-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3 class="gov-title">Validação</h3>
+                    <p class="gov-desc">Nenhuma correção era considerada concluída antes da validação funcional, testes de regressão e atualização da documentação.</p>
+                </div>
+
+                <!-- Card 04 -->
+                <div class="gov-card">
+                    <div class="gov-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    </div>
+                    <h3 class="gov-title">Aprendizado</h3>
+                    <p class="gov-desc">Incidentes recorrentes alimentavam o backlog de produto, refinamentos semanais e atualização da Central de Conhecimento.</p>
+                </div>
+            </div>
+
+            <!-- Caixa destacada -->
+            <div class="highlight-box">
+                <div class="highlight-content">
+                    <h3 class="highlight-title">Documento de apoio</h3>
+                    <p class="highlight-desc">Este estudo foi conduzido utilizando um Protocolo de Gestão de Incidentes desenvolvido para padronizar o fluxo entre Operações, Produto e Engenharia.</p>
+                </div>
+                <a href="protocolo_habitat.html" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                    <span>Consultar protocolo completo</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- 07 Linha do Tempo -->
+        <section id="linha-do-tempo">
+            <div class="section-header">
+                <span class="section-number">07</span>
+                <h2 class="section-title">Linha do Tempo</h2>
+                <p class="section-subtitle">A trajetória metodológica do projeto do início aos resultados.</p>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline-step">
+                    <div class="timeline-dot">01</div>
+                    <div>
+                        <h3 class="timeline-title">Descoberta</h3>
+                        <p class="timeline-desc">Identificação de gargalos na operação, entrevistas com stakeholders e auditoria de chamados antigos.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-dot">02</div>
+                    <div>
+                        <h3 class="timeline-title">Mapeamento</h3>
+                        <p class="timeline-desc">Desenho das jornadas de atendimento, estruturação de fluxogramas e classificação de falhas.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-dot">03</div>
+                    <div>
+                        <h3 class="timeline-title">Central de Conhecimento</h3>
+                        <p class="timeline-desc">Construção de artigos instrutivos, guias operacionais e repositório interno de autoatendimento.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-dot">04</div>
+                    <div>
+                        <h3 class="timeline-title">Onboarding</h3>
+                        <p class="timeline-desc">Implementação de novo treinamento guiado por perfil e capacitação das equipes das clínicas.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-dot">05</div>
+                    <div>
+                        <h3 class="timeline-title">Resultados</h3>
+                        <p class="timeline-desc">Consolidação de métricas, monitoramento contínuo do MTTR e sustentabilidade do processo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 08 Artefatos Produzidos -->
+        <section id="artefatos">
+            <div class="section-header">
+                <span class="section-number">08</span>
+                <h2 class="section-title">Artefatos Produzidos</h2>
+                <p class="section-subtitle">Documentação operacional gerada durante a execução do projeto.</p>
+            </div>
+
+            <div class="artifacts-grid">
+                <!-- Card 1 -->
+                <div class="artifact-card">
+                    <div class="artifact-header">
+                        <div class="artifact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                        </div>
+                        <h3 class="artifact-name">Protocolo de Gestão de Incidentes</h3>
+                    </div>
+                    <p class="artifact-desc">Diretrizes para classificação, priorização e tratamento de incidentes operacionais entre Produto e Engenharia.</p>
+                    <a href="protocolo_gestao_incidentes.html" class="btn-secondary">Acessar documento</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="artifact-card">
+                    <div class="artifact-header">
+                        <div class="artifact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                        </div>
+                        <h3 class="artifact-name">Fluxo Operacional</h3>
+                    </div>
+                    <p class="artifact-desc">Diagrama de governança para resolução de chamados de suporte e comunicação interdepartamental.</p>
+                    <a href="fluxo_operacional.html" class="btn-secondary">Acessar documento</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="artifact-card">
+                    <div class="artifact-header">
+                        <div class="artifact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                        </div>
+                        <h3 class="artifact-name">Central de Conhecimento</h3>
+                    </div>
+                    <p class="artifact-desc">Arquitetura de informação e base de dados instrutiva para autoatendimento do usuário final.</p>
+                    <a href="central_conhecimento.html" class="btn-secondary">Acessar documento</a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="artifact-card">
+                    <div class="artifact-header">
+                        <div class="artifact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+                        </div>
+                        <h3 class="artifact-name">Modelo de Onboarding</h3>
+                    </div>
+                    <p class="artifact-desc">Estrutura metodológica de integração para novas clínicas e treinamento por perfis de uso.</p>
+                    <a href="modelo_onboarding.html" class="btn-secondary">Acessar documento</a>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="artifact-card">
+                    <div class="artifact-header">
+                        <div class="artifact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </div>
+                        <h3 class="artifact-name">Fluxo Discovery Operacional</h3>
+                    </div>
+                    <p class="artifact-desc">Processo de investigação contínua de dores operacionais para alimentação direta do backlog.</p>
+                    <a href="fluxo_discovery_operacional.html" class="btn-secondary">Acessar documento</a>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="artifact-card">
+                    <div class="artifact-header">
+                        <div class="artifact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        </div>
+                        <h3 class="artifact-name">Mapa da Jornada</h3>
+                    </div>
+                    <p class="artifact-desc">Mapeamento ponta a ponta da experiência do usuário no sistema e pontos críticos de contato.</p>
+                    <a href="mapa_jornada.html" class="btn-secondary">Acessar documento</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 09 Competências Demonstradas -->
+        <section id="competencias">
+            <div class="section-header">
+                <span class="section-number">09</span>
+                <h2 class="section-title">Competências Demonstradas</h2>
+                <p class="section-subtitle">Matriz de aplicação técnica e metodológica durante a condução do estudo de caso.</p>
+            </div>
+
+            <table class="matrix-table">
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">Competência</th>
+                        <th style="width: 65%;">Como foi aplicada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="matrix-competence">Product Discovery</td>
+                        <td>Problemas recorrentes viravam oportunidades de evolução no produto.</td>
+                    </tr>
+                    <tr>
+                        <td class="matrix-competence">UX Operations</td>
+                        <td>Mapeamento contínuo de dúvidas e fricções operacionais da interface.</td>
+                    </tr>
+                    <tr>
+                        <td class="matrix-competence">Knowledge Management</td>
+                        <td>Construção estruturada da base de conhecimento e autoatendimento.</td>
+                    </tr>
+                    <tr>
+                        <td class="matrix-competence">Product Operations</td>
+                        <td>Priorização de demandas com base em severidade e impacto ao negócio.</td>
+                    </tr>
+                    <tr>
+                        <td class="matrix-competence">Stakeholder Management</td>
+                        <td>Integração e alinhamento do fluxo de trabalho entre Produto e Engenharia.</td>
+                    </tr>
+                    <tr>
+                        <td class="matrix-competence">Continuous Improvement</td>
+                        <td>Rituais e reuniões semanais para refinamento e aprendizado técnico.</td>
+                    </tr>
+                    <tr>
+                        <td class="matrix-competence">Governança</td>
+                        <td>Fluxo totalmente documentado, previsível e mensurável.</td>
+                    </tr>
+                    <tr>
+                        <td class="matrix-competence">Backlog Management</td>
+                        <td>Priorização estratégica orientada por dados de chamados operacionais.</td>
+                    </tr>
+                    <tr>
+                        <td class="matrix-competence">Service Design</td>
+                        <td>Estruturação de treinamentos e fluxo de Onboarding direcionado por perfil.</td>
+                    </tr>
+                    <tr>
+                        <td class="matrix-competence">Documentação Técnica</td>
+                        <td>Criação de protocolos operacionais institucionais padronizados.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Bloco Discreto de Documentação Complementar -->
+        <div class="complementary-box" style="margin-top: 60px;">
+            <h3 class="complementary-title">Documentação complementar</h3>
+            <p class="complementary-desc">Este estudo de caso faz parte do portfólio técnico de Cleyton Hespanhol. Além da narrativa apresentada, existem documentos operacionais que demonstram a metodologia utilizada durante a execução do trabalho.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© Case Study Habitat Consultórios • Cleyton Hespanhol. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
