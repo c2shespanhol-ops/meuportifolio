@@ -159,6 +159,7 @@
     font-size: 7px; color: var(--gold);
     letter-spacing: 0.15em;
     display: block; margin-top: 2px;
+    white-space: nowrap;
   }
 
   .nav-tag {
@@ -522,82 +523,6 @@
     margin-top: 10px; line-height: 1.5;
   }
 
-  .impact-bg {
-    background: linear-gradient(135deg, #0A0E12 0%, #111820 100%);
-  }
-
-  .impact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px; align-items: start;
-  }
-
-  .impact-quote {
-    border-left: 2px solid var(--gold);
-    padding: 32px 40px;
-    background: rgba(201,168,76,0.03);
-    position: relative;
-  }
-
-  .quote-mark {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 80px;
-    color: rgba(201,168,76,0.15);
-    position: absolute;
-    top: -10px; left: 24px;
-    line-height: 1;
-  }
-
-  .quote-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-style: italic;
-    font-weight: 300;
-    color: rgba(232,192,96,0.9);
-    line-height: 1.6; margin-bottom: 20px;
-    position: relative; z-index: 1;
-  }
-
-  .quote-source {
-    font-family: 'Orbitron', monospace;
-    font-size: 7px; color: var(--gray2);
-    letter-spacing: 0.15em;
-  }
-
-  .impact-metrics {
-    display: flex; flex-direction: column; gap: 2px;
-  }
-
-  .metric-row-item {
-    background: var(--bg2);
-    padding: 24px 28px;
-    display: flex; align-items: center; gap: 20px;
-    transition: background 0.2s ease;
-  }
-
-  .metric-row-item:hover { background: var(--bg3); }
-
-  .metric-indicator {
-    width: 8px; height: 8px;
-    border-radius: 50%; flex-shrink: 0;
-  }
-
-  .metric-content { flex: 1; }
-
-  .metric-title {
-    font-size: 13px; font-weight: 500;
-    color: var(--white); margin-bottom: 2px;
-  }
-
-  .metric-detail {
-    font-size: 11px; color: var(--gray1); line-height: 1.5;
-  }
-
-  .metric-badge {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; padding: 3px 8px;
-    border-radius: 2px; white-space: nowrap;
-  }
-
   .learnings-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -656,6 +581,7 @@
     font-family: 'Orbitron', monospace;
     font-size: 8px; color: var(--gold);
     letter-spacing: 0.15em; display: block;
+    white-space: nowrap;
   }
 
   .footer-right { text-align: right; }
@@ -743,7 +669,7 @@
   .c-hcircle::after { content: ''; position: absolute; inset: 6px; border-radius: 50%; border: 0.5px solid rgba(201,168,76,0.2); }
   .c-ssep { width: 0.5px; height: 32px; background: rgba(201,168,76,0.25); }
   .c-sname { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: #F0F6FC; letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 3px; }
-  .c-srole { font-family: 'Orbitron', monospace; font-size: 8px; color: #C9A84C; letter-spacing: 0.14em; display: block; }
+  .c-srole { font-family: 'Orbitron', monospace; font-size: 8px; color: #C9A84C; letter-spacing: 0.14em; display: block; white-space: nowrap; }
   .c-bignumber { position: absolute; font-family: 'Cormorant Garamond', serif; font-size: 280px; font-weight: 300; line-height: 1; color: rgba(201,168,76,0.06); right: -20px; bottom: -40px; z-index: 1; letter-spacing: -0.05em; }
 </style>
 </head>
@@ -991,29 +917,29 @@
 <!-- APRENDIZADOS -->
 <section class="section process-bg">
   <div class="section-inner">
-    <div class="section-label">04 · LIÇÕES E APRENDIZADOS</div>
-    <h2 class="section-title">O que esta jornada<br><em>nos ensinou sobre produtos e processos.</em></h2>
+    <div class="section-label">04 · LIÇÕES APRENDIDAS</div>
+    <h2 class="section-title">O que este case<br><em>deixa como legado.</em></h2>
 
     <div class="learnings-grid">
       <div class="learning-card">
         <div class="learning-icon">01</div>
-        <h3 class="learning-title">Processo confuso gera atrito invisível.</h3>
-        <p class="learning-body">Quando o canal de entrada é informal, o desgaste não é apenas operacional, mas relacional. Estruturar a porta de entrada é o primeiro passo para qualquer ganho de eficiência.</p>
+        <h3 class="learning-title">Processo precede a ferramenta</h3>
+        <p class="learning-body">Implementar o Jira só gerou valor porque antes definimos as regras, os critérios e o comportamento esperado de cada etapa da solicitação.</p>
       </div>
       <div class="learning-card">
         <div class="learning-icon">02</div>
-        <h3 class="learning-title">Formulário bom é formulário que não precisa de explicação.</h3>
-        <p class="learning-body">Campos claros e obrigatórios eliminam o vai-e-vem de mensagens e garantem que o solicitante forneça exatamente o que a equipe técnica precisa para executar.</p>
+        <h3 class="learning-title">Acompanhamento ativo garante o SLA</h3>
+        <p class="learning-body">Definir um prazo no papel não basta. A rotina diária de checagem e cobrança ativa junto à TI foi o gatilho real para a queda drástica do lead time.</p>
       </div>
       <div class="learning-card">
         <div class="learning-icon">03</div>
-        <h3 class="learning-title">SLA sem acompanhamento ativo é só uma promessa.</h3>
-        <p class="learning-body">Definir o prazo de 24 horas só funcionou porque criamos a rotina ativa de cobrança e checagem junto à TI, garantindo que o fluxo não travasse nas dependências.</p>
+        <h3 class="learning-title">Simplicidade reduz fricção</h3>
+        <p class="learning-body">Substituir formulários ambíguos por perguntas diretas e específicas eliminou o vai-e-vem de mensagens e o retrabalho operacional.</p>
       </div>
       <div class="learning-card">
         <div class="learning-icon">04</div>
-        <h3 class="learning-title">Padronizar é escalar confiança.</h3>
-        <p class="learning-body">Quando novos colaboradores entram e encontram um processo documentado, rastreável e previsível, a curva de aprendizado desaba e a operação ganha maturidade imediata.</p>
+        <h3 class="learning-title">Cultura de melhoria contínua</h3>
+        <p class="learning-body">Operações públicas ou privadas ganham eficiência quando a gestão de fluxo é tratada como um produto vivo que precisa de manutenção constante.</p>
       </div>
     </div>
   </div>
