@@ -33,6 +33,16 @@
     overflow-x: hidden;
   }
 
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
   .back-btn {
     position: fixed;
     top: 24px;
@@ -76,6 +86,8 @@
     max-width: 900px;
     margin: 0 auto;
     padding: 120px 24px 80px 24px;
+    position: relative;
+    z-index: 1;
   }
 
   .gold-accent-top {
@@ -136,11 +148,15 @@
 
   .section-block {
     margin-bottom: 48px;
+    background: var(--bg2);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: 32px;
   }
 
   .section-block h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 400;
     color: var(--white);
     margin-bottom: 16px;
@@ -255,7 +271,7 @@
   <div class="protocol-header">
     <div class="protocol-eyebrow">BASELINE 1.0 · HABITAT CONSULTÓRIOS INTELIGENTES</div>
     <h1 class="protocol-title">Protocolo Operacional de Gestão de Incidentes</h1>
-    <p class="protocol-subtitle">Diretrizes estruturadas para triagem, rastreabilidade e resolução otimizada de chamados operacionais.</p>
+    <p class="protocol-subtitle">Diretrizes estruturadas para triagem, rastreabilidade, atendimento e resolução otimizada de chamados operacionais.</p>
   </div>
 
   <div class="meta-note">
@@ -263,16 +279,37 @@
   </div>
 
   <div class="section-block">
-    <h2>1. Objetivo e Escopo</h2>
-    <p>Estabelecer o fluxo padrão para o registro, qualificação e direcionamento de incidentes operacionais, mitigando gargalos e assegurando níveis adequados de resposta.</p>
+    <h2>1. Visão Geral e Contexto</h2>
+    <p>Este protocolo consolida o padrão de atendimento e gestão de incidentes implementado na Habitat Consultórios Inteligentes. O objetivo principal é estruturar o fluxo de ponta a ponta, garantindo visibilidade, padronização e redução drástica do tempo de resposta (SLA).</p>
   </div>
 
   <div class="section-block">
-    <h2>2. Diretrizes de Execução</h2>
+    <h2>2. Canal de Entrada e Triagem</h2>
+    <p>A porta de entrada das solicitações foi centralizada para evitar dispersão de informações e perda de chamados:</p>
     <ul>
-      <li>Centralização de todas as solicitações em canais oficiais e rastreáveis.</li>
-      <li>Validação prévia de escopo antes do encaminhamento técnico.</li>
-      <li>Monitoramento contínuo de prazos e alinhamento de expectativas com as partes interessadas.</li>
+      <li>Eliminação de canais informais desorganizados para solicitações críticas.</li>
+      <li>Uso de formulários padronizados com campos obrigatórios e direcionados.</li>
+      <li>Triagem inicial baseada na criticidade e no impacto operacional imediato.</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h2>3. Fluxo de Execução e Acompanhamento</h2>
+    <p>O ciclo de vida do incidente segue etapas estritas de controle:</p>
+    <ul>
+      <li>Registro formal no sistema de controle de chamados.</li>
+      <li>Atribuição clara de responsabilidades por frente de atendimento.</li>
+      <li>Monitoramento ativo de prazos e acompanhamento sistemático de pendências junto às equipes técnicas.</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h2>4. Indicadores e Métricas de Qualidade</h2>
+    <p>O acompanhamento de desempenho da operação baseia-se em pilares fundamentais:</p>
+    <ul>
+      <li>Cumprimento rigoroso do SLA estabelecido para cada tipo de chamado.</li>
+      <li>Redução contínua do lead time operacional.</li>
+      <li>Minimização absoluta do retrabalho decorrente de falhas de preenchimento ou escopo ambíguo.</li>
     </ul>
   </div>
 
