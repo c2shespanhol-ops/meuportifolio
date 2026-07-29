@@ -5,24 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Caso 03 • Gestão de Demandas & Habitat</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background-color: #0d0d0d;
       color: #e0e0e0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.6;
     }
-    a {
-      color: #b8975e;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: #b8975e; text-decoration: none; }
+    a:hover { text-decoration: underline; }
     .btn {
       display: inline-block;
       padding: 10px 18px;
@@ -32,32 +23,17 @@
       font-size: 0.9rem;
       transition: background 0.2s, color 0.2s;
     }
-    .btn:hover {
-      background-color: #b8975e;
-      color: #0d0d0d;
-      text-decoration: none;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    header {
-      padding: 20px 40px;
-      border-bottom: 1px solid #222;
-    }
-    hr {
-      border: 0;
-      border-top: 1px solid #222;
-      margin: 40px 0;
-    }
-    .grid-artefatos {
+    .btn:hover { background-color: #b8975e; color: #0d0d0d; text-decoration: none; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+    header { padding: 20px 40px; border-bottom: 1px solid #222; }
+    hr { border: 0; border-top: 1px solid #222; margin: 40px 0; }
+    .grid-cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
       margin-top: 20px;
     }
-    .card-artefato {
+    .card {
       border: 1px solid #222;
       padding: 24px;
       border-radius: 8px;
@@ -66,31 +42,21 @@
       flex-direction: column;
       justify-content: space-between;
     }
-    .card-artefato h3 {
-      color: #ffffff;
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-    .card-artefato p {
-      color: #aaa;
-      font-size: 0.95rem;
-      margin-bottom: 20px;
-      flex-grow: 1;
-    }
+    .card h3 { color: #ffffff; font-size: 1.2rem; margin-bottom: 10px; }
+    .card p { color: #aaa; font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
   </style>
 </head>
 <body>
 
-  <!-- NAVEGAÇÃO -->
   <header>
     <a href="index.html" class="btn">&larr; Voltar para o Portfólio</a>
   </header>
 
   <main class="container">
     
-    <!-- CABEÇALHO DO CASE -->
+    <!-- HERO -->
     <section class="hero-case">
-      <span style="color: #b8975e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Caso 03 · Product Backlog</span>
+      <span style="color: #b8975e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Caso 03 · Product Backlog & Operations</span>
       <h1 style="font-size: 2.4rem; color: #fff; margin-top: 10px; margin-bottom: 15px;">Gestão de Demandas & Habitat</h1>
       <p style="font-size: 1.15rem; color: #aaa; max-width: 800px;">
         Desenvolvimento e centralização de fluxo de trabalho para triagem sistemática, priorização refinada e especificação técnica de backlogs de alta complexidade.
@@ -99,121 +65,162 @@
 
     <hr>
 
-    <!-- IMPACTO NA OPERAÇÃO -->
-    <section id="impacto">
-      <h2 style="color: #fff; margin-bottom: 15px;">05 • Impacto na Operação</h2>
+    <!-- CONTEXTO DO PROJETO -->
+    <section id="contexto-projeto">
+      <h2 style="color: #fff; margin-bottom: 15px;">Contexto do Projeto</h2>
+      <p style="color: #ccc; font-size: 1.05rem; margin-bottom: 12px;">
+        A Habitat Consultórios Inteligentes enfrentava um cenário de crescimento operacional com elevado volume de demandas repetitivas, ausência de padronização entre atendimentos e dependência do conhecimento individual dos colaboradores.
+      </p>
       <p style="color: #ccc; font-size: 1.05rem;">
-        Padronização dos processos operacionais, redução de ruídos de comunicação entre suporte e desenvolvimento e estruturação de uma base de conhecimento para autonomia das equipes.
+        O projeto teve como objetivo estruturar processos operacionais, organizar a base de conhecimento, reduzir retrabalho e criar mecanismos que aumentassem a eficiência do suporte ao cliente.
       </p>
     </section>
 
     <hr>
 
-    <!-- ARTEFATOS PRODUZIDOS -->
+    <!-- OBJETIVOS -->
+    <section id="objetivos">
+      <h2 style="color: #fff; margin-bottom: 15px;">Objetivos</h2>
+      <div class="grid-cards">
+        <div class="card">
+          <h3>Padronizar processos</h3>
+          <p>Estabelecer rituais e fluxos únicos para o tratamento de chamados e solicitações.</p>
+        </div>
+        <div class="card">
+          <h3>Reduzir retrabalho</h3>
+          <p>Eliminar falhas de comunicação e retrabalho técnico entre suporte e produto.</p>
+        </div>
+        <div class="card">
+          <h3>Melhorar experiência</h3>
+          <p>Elevar o nível de satisfação dos usuários com respostas céleres e assertivas.</p>
+        </div>
+        <div class="card">
+          <h3>Criar documentação</h3>
+          <p>Formalizar diretrizes e protocolos de operação em ambiente centralizado.</p>
+        </div>
+        <div class="card">
+          <h3>Base de conhecimento</h3>
+          <p>Estruturar conteúdos de apoio para assegurar autonomia no autoatendimento.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- RESULTADOS OBTIDOS -->
+    <section id="resultados">
+      <h2 style="color: #fff; margin-bottom: 15px;">Resultados Obtidos</h2>
+      <div class="grid-cards">
+        <div class="card" style="border-left: 4px solid #50fa7b;">
+          <span style="font-size: 2rem; font-weight: bold; color: #50fa7b;">+100</span>
+          <h3 style="margin-top: 10px;">Artigos Publicados</h3>
+          <p>Base de conhecimento robusta cobrindo todas as frentes de atendimento.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #50fa7b;">
+          <span style="font-size: 2rem; font-weight: bold; color: #50fa7b;">-31%</span>
+          <h3 style="margin-top: 10px;">Tempo de Resolução</h3>
+          <p>Aceleração expressiva no fechamento de chamados críticos.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #50fa7b;">
+          <span style="font-size: 2rem; font-weight: bold; color: #50fa7b;">-27%</span>
+          <h3 style="margin-top: 10px;">Demandas Repetitivas</h3>
+          <p>Queda acentuada em dúvidas recorrentes graças aos manuais de autoatendimento.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #b8975e;">
+          <h3 style="color: #fff; margin-bottom: 10px;">Padronização Operacional</h3>
+          <p>Processos transparentes e auditáveis aplicados em toda a malha de atendimento.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #b8975e;">
+          <h3 style="color: #fff; margin-bottom: 10px;">Autonomia da Equipe</h3>
+          <p>Capacitação e rampagem otimizadas para independência técnica dos operadores.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- ARTEFATOS PRODUZIDOS (HUB) -->
     <section id="artefatos">
-      <h2 style="color: #fff;">Artefatos produzidos</h2>
+      <h2 style="color: #fff;">Artefatos Produzidos</h2>
       <p style="color: #aaa; margin-top: 5px; margin-bottom: 25px;">
         Os resultados apresentados neste estudo foram sustentados por documentos operacionais utilizados durante a atuação na Habitat.
       </p>
 
-      <div class="grid-artefatos">
+      <div class="grid-cards">
         
-        <!-- Card 1 -->
-        <div class="card-artefato">
+        <div class="card">
           <div>
             <h3>Protocolo Operacional Habitat</h3>
             <p>Documento responsável por padronizar todo o fluxo operacional da operação.</p>
           </div>
-          <div>
-            <a href="protocolo_habitat.html" class="btn">Abrir documento &rarr;</a>
-          </div>
+          <div><a href="protocolo_habitat.html" class="btn">Abrir documento &rarr;</a></div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="card-artefato">
+        <div class="card">
           <div>
-            <h3>Artefato Técnico</h3>
-            <p>Documento utilizado para detalhar o protocolo operacional e servir como referência para treinamento.</p>
+            <h3>Especificação Técnica do Protocolo</h3>
+            <p>Documento de arquitetura de processos, papéis, governança e alinhamento do ecossistema.</p>
           </div>
-          <div>
-            <a href="artefato_protocolo_habitat.html" class="btn">Abrir documento &rarr;</a>
-          </div>
+          <div><a href="artefato_protocolo_habitat.html" class="btn">Abrir documento &rarr;</a></div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="card-artefato">
+        <div class="card">
           <div>
             <h3>Modelo de Onboarding</h3>
             <p>Fluxo utilizado para conduzir novos clientes durante o processo inicial de utilização da plataforma.</p>
           </div>
-          <div>
-            <a href="modelo_onboarding.html" class="btn">Abrir documento &rarr;</a>
-          </div>
+          <div><a href="modelo_onboarding.html" class="btn">Abrir documento &rarr;</a></div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="card-artefato">
+        <div class="card">
           <div>
             <h3>Central de Conhecimento</h3>
             <p>Base de conhecimento estruturada para reduzir dúvidas recorrentes e ampliar autonomia dos usuários.</p>
           </div>
-          <div>
-            <a href="Central_Conhecimento.html" class="btn">Abrir documento &rarr;</a>
-          </div>
+          <div><a href="Central_Conhecimento.html" class="btn">Abrir documento &rarr;</a></div>
         </div>
 
-        <!-- Card 5 -->
-        <div class="card-artefato">
+        <div class="card">
           <div>
             <h3>Fluxo Operacional</h3>
             <p>Representação visual do funcionamento operacional entre usuários, suporte e plataforma.</p>
           </div>
-          <div>
-            <a href="fluxo_operacional.html" class="btn">Abrir documento &rarr;</a>
-          </div>
+          <div><a href="fluxo_operacional.html" class="btn">Abrir documento &rarr;</a></div>
         </div>
 
-        <!-- Card 6 -->
-        <div class="card-artefato">
+        <div class="card">
           <div>
             <h3>Fluxo de Discovery</h3>
             <p>Fluxo utilizado para transformar padrões observados na operação em melhorias para o produto.</p>
           </div>
-          <div>
-            <a href="fluxo_discovery.html" class="btn">Abrir documento &rarr;</a>
-          </div>
+          <div><a href="fluxo_discovery.html" class="btn">Abrir documento &rarr;</a></div>
         </div>
 
-        <!-- Card 7 -->
-        <div class="card-artefato">
+        <div class="card">
           <div>
             <h3>Mapa da Jornada do Usuário</h3>
             <p>Visão completa da jornada dos três perfis atendidos durante o projeto.</p>
           </div>
+          <div><a href="mapa_jornada_usuario.html" class="btn">Abrir documento &rarr;</a></div>
+        </div>
+
+        <div class="card">
           <div>
-            <a href="mapa_jornada_usuario.html" class="btn">Abrir documento &rarr;</a>
+            <h3>Protocolo de Gestão de Incidentes</h3>
+            <p>Diretrizes para triagem, priorização e tratamento de falhas sistêmicas com SLAs rigorosos.</p>
           </div>
+          <div><a href="protocolo_gestao_incidentes.html" class="btn">Abrir documento &rarr;</a></div>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>Relatório Executivo de Lead Time</h3>
+            <p>Análise consolidada de vazão, tempo de entrega e ganhos de eficiência operacional.</p>
+          </div>
+          <div><a href="relatorio_leadtime.html" class="btn">Abrir documento &rarr;</a></div>
         </div>
 
       </div>
-
-      <!-- Caixa explicativa no rodapé -->
-      <div style="margin-top: 35px; padding: 20px; background: #141414; border-radius: 6px; border-left: 4px solid #b8975e;">
-        <h4 style="margin: 0 0 8px 0; color: #fff;">Evidências do Projeto</h4>
-        <p style="margin: 0; color: #aaa; font-size: 0.95rem;">
-          Todos os documentos apresentados nesta seção foram produzidos durante a atuação na Habitat e representam exemplos reais de organização operacional, documentação de processos, onboarding e gestão do conhecimento.
-        </p>
-      </div>
-    </section>
-
-    <hr>
-
-    <!-- APRENDIZADOS -->
-    <section id="aprendizados">
-      <h2 style="color: #fff; margin-bottom: 15px;">06 • Aprendizados</h2>
-      <p style="color: #ccc; font-size: 1.05rem;">
-        A consolidação de processos operacionais claros e acessíveis reduz drasticamente a sobrecarga do time e melhora a experiência final do cliente.
-      </p>
     </section>
 
   </main>
