@@ -4,62 +4,83 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fluxo Operacional (BPM)</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #0d0d0d;
+      color: #e0e0e0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: #b8975e; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border: 1px solid #b8975e;
+      color: #b8975e;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn:hover { background-color: #b8975e; color: #0d0d0d; text-decoration: none; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+    header { padding: 20px 40px; border-bottom: 1px solid #222; }
+    hr { border: 0; border-top: 1px solid #222; margin: 40px 0; }
+  </style>
 </head>
 <body>
 
-  <header style="padding: 20px 40px;">
+  <header>
     <a href="case_study_03_habitat_final.html" class="btn">&larr; Voltar para o Case Study</a>
   </header>
 
-  <main class="container" style="padding: 40px 20px; max-width: 1000px; margin: 0 auto;">
+  <main class="container">
     
     <section class="hero-case">
-      <span style="color: #b8975e; font-weight: bold;">Documento Operacional</span>
-      <h1 style="font-size: 2.5rem; margin-top: 10px;">Fluxo Operacional</h1>
-      <p style="font-size: 1.1rem; line-height: 1.6; color: #ccc; margin-top: 15px;">
+      <span style="color: #b8975e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional</span>
+      <h1 style="font-size: 2.4rem; color: #fff; margin-top: 10px; margin-bottom: 15px;">Fluxo Operacional</h1>
+      <p style="font-size: 1.15rem; color: #aaa; max-width: 800px; line-height: 1.6;">
         Mapeamento de processos operacionais em formato BPM simplificado, detalhando a passagem de bastão entre triagem, execução e encerramento.
       </p>
     </section>
 
-    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+    <hr>
 
-    <!-- MAQUETA DO FLUXO -->
     <section id="estrutura-fluxo" style="margin-bottom: 30px;">
-      <h2>Fluxo BPM Simplificado</h2>
-      <div style="background: #111; padding: 25px; border-radius: 8px; border: 1px solid #333; margin-top: 20px; text-align: center; font-family: monospace; font-size: 1rem; color: #b8975e;">
+      <h2 style="color: #fff; margin-bottom: 15px;">Fluxo BPM Simplificado</h2>
+      <div style="background: #141414; padding: 25px; border-radius: 8px; border: 1px solid #222; text-align: center; font-family: monospace; font-size: 1rem; color: #b8975e;">
         Entrada &rarr; Triagem &rarr; Classificação &rarr; Responsável &rarr; Execução &rarr; Validação &rarr; Cliente &rarr; Encerramento
       </div>
     </section>
 
-    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+    <hr>
 
-    <!-- MÉTRICAS MONITORADAS -->
     <section id="metricas-monitoradas">
-      <h2>Métricas Monitoradas no Fluxo</h2>
+      <h2 style="color: #fff; margin-bottom: 15px;">Métricas Monitoradas no Fluxo</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 20px;">
         
-        <div style="background: #111; padding: 15px; border-radius: 8px; border: 1px solid #333;">
+        <div style="background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
           <h4 style="color: #b8975e; margin: 0 0 5px 0;">Lead Time</h4>
           <p style="color: #aaa; margin: 0; font-size: 0.85rem;">Tempo total desde a abertura até a entrega final.</p>
         </div>
 
-        <div style="background: #111; padding: 15px; border-radius: 8px; border: 1px solid #333;">
+        <div style="background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
           <h4 style="color: #b8975e; margin: 0 0 5px 0;">Throughput</h4>
           <p style="color: #aaa; margin: 0; font-size: 0.85rem;">Volume de demandas concluídas por período.</p>
         </div>
 
-        <div style="background: #111; padding: 15px; border-radius: 8px; border: 1px solid #333;">
+        <div style="background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
           <h4 style="color: #b8975e; margin: 0 0 5px 0;">Backlog</h4>
           <p style="color: #aaa; margin: 0; font-size: 0.85rem;">Volume de demandas pendentes e priorizadas.</p>
         </div>
 
-        <div style="background: #111; padding: 15px; border-radius: 8px; border: 1px solid #333;">
+        <div style="background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
           <h4 style="color: #b8975e; margin: 0 0 5px 0;">SLA</h4>
           <p style="color: #aaa; margin: 0; font-size: 0.85rem;">Acordo de tempo limite para primeira resposta e solução.</p>
         </div>
 
-        <div style="background: #111; padding: 15px; border-radius: 8px; border: 1px solid #333;">
+        <div style="background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
           <h4 style="color: #b8975e; margin: 0 0 5px 0;">Retrabalho</h4>
           <p style="color: #aaa; margin: 0; font-size: 0.85rem;">Percentual de demandas reabertas após encerramento.</p>
         </div>
