@@ -4,31 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mapa da Jornada do Usuário</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #0d0d0d;
+      color: #e0e0e0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: #b8975e; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border: 1px solid #b8975e;
+      color: #b8975e;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn:hover { background-color: #b8975e; color: #0d0d0d; text-decoration: none; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+    header { padding: 20px 40px; border-bottom: 1px solid #222; }
+    hr { border: 0; border-top: 1px solid #222; margin: 40px 0; }
+  </style>
 </head>
 <body>
 
-  <header style="padding: 20px 40px;">
+  <header>
     <a href="case_study_03_habitat_final.html" class="btn">&larr; Voltar para o Case Study</a>
   </header>
 
-  <main class="container" style="padding: 40px 20px; max-width: 1000px; margin: 0 auto;">
+  <main class="container">
     
     <section class="hero-case">
-      <span style="color: #b8975e; font-weight: bold;">Documento Operacional</span>
-      <h1 style="font-size: 2.5rem; margin-top: 10px;">Mapa da Jornada do Usuário</h1>
-      <p style="font-size: 1.1rem; line-height: 1.6; color: #ccc; margin-top: 15px;">
+      <span style="color: #b8975e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional</span>
+      <h1 style="font-size: 2.4rem; color: #fff; margin-top: 10px; margin-bottom: 15px;">Mapa da Jornada do Usuário</h1>
+      <p style="font-size: 1.15rem; color: #aaa; max-width: 800px; line-height: 1.6;">
         Mapeamento da experiência do cliente ao longo do fluxo de uso da plataforma, identificando atritos operacionais e oportunidades de produto.
       </p>
     </section>
 
-    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+    <hr>
 
-    <!-- JOURNEY MAP TABLE -->
     <section id="journey-map">
-      <h2>User Journey Map</h2>
+      <h2 style="color: #fff; margin-bottom: 15px;">User Journey Map</h2>
       <div style="overflow-x: auto; margin-top: 20px;">
-        <table style="width: 100%; border-collapse: collapse; text-align: left; background: #111; border: 1px solid #333;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; background: #141414; border: 1px solid #222;">
           <thead>
             <tr style="border-bottom: 2px solid #b8975e; background: #181818;">
               <th style="padding: 12px; color: #fff;">Etapa</th>
@@ -67,12 +89,11 @@
       </div>
     </section>
 
-    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+    <hr>
 
-    <!-- PRINCIPAIS INSIGHTS -->
     <section id="insights">
-      <h2>Principais Insights</h2>
-      <div style="background: #181818; padding: 20px; border-radius: 8px; border-left: 4px solid #b8975e; margin-top: 20px;">
+      <h2 style="color: #fff; margin-bottom: 15px;">Principais Insights</h2>
+      <div style="background: #141414; padding: 20px; border-radius: 8px; border-left: 4px solid #b8975e; margin-top: 20px;">
         <ul style="margin: 0; padding-left: 20px; color: #ccc; line-height: 1.8;">
           <li>A redução de atrito na fase de onboarding impacta diretamente a retenção dos usuários nos primeiros 30 dias.</li>
           <li>A maioria dos chamados de suporte do primeiro mês estava ligada à falta de clareza nas configurações iniciais do perfil.</li>
