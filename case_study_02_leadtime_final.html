@@ -43,7 +43,6 @@
     opacity: 0.4;
   }
 
-  /* BOTÃO VOLTAR FIXADO NO TOPO */
   .back-btn {
     position: fixed;
     top: 24px;
@@ -122,7 +121,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 28px 64px 28px 140px; /* Ajuste no padding esquerdo para acomodar o botão de voltar */
+    padding: 28px 64px 28px 140px;
     border-bottom: 0.5px solid var(--border);
   }
 
@@ -275,7 +274,6 @@
     background: linear-gradient(90deg, var(--gold), transparent);
   }
 
-  /* Big metric display */
   .metric-hero {
     position: absolute;
     right: 64px; top: 50%;
@@ -346,7 +344,6 @@
 
   .section-title em { font-style: italic; color: var(--gold); }
 
-  /* Problem grid */
   .problem-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -408,7 +405,6 @@
     flex-shrink: 0; margin-top: 1px;
   }
 
-  /* Process */
   .process-bg { background: var(--bg2); }
 
   .process-timeline {
@@ -483,7 +479,6 @@
     letter-spacing: 0.04em;
   }
 
-  /* Results strip */
   .results-strip {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -527,7 +522,6 @@
     margin-top: 10px; line-height: 1.5;
   }
 
-  /* Impact section */
   .impact-bg {
     background: linear-gradient(135deg, #0A0E12 0%, #111820 100%);
   }
@@ -573,14 +567,14 @@
     display: flex; flex-direction: column; gap: 2px;
   }
 
-  .metric-row {
+  .metric-row-item {
     background: var(--bg2);
     padding: 24px 28px;
     display: flex; align-items: center; gap: 20px;
     transition: background 0.2s ease;
   }
 
-  .metric-row:hover { background: var(--bg3); }
+  .metric-row-item:hover { background: var(--bg3); }
 
   .metric-indicator {
     width: 8px; height: 8px;
@@ -604,7 +598,6 @@
     border-radius: 2px; white-space: nowrap;
   }
 
-  /* Learnings */
   .learnings-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -640,7 +633,6 @@
     font-size: 13px; color: var(--gray1); line-height: 1.8;
   }
 
-  /* Footer */
   footer {
     background: #080A0C;
     border-top: 0.5px solid var(--border);
@@ -691,13 +683,12 @@
 
   @media (max-width: 900px) {
     .nav, .section, .hero-content, .hero-footer, footer { padding-left: 28px; padding-right: 28px; }
-    .nav { padding-left: 28px; padding-top: 80px; } /* Dá espaço para o botão em telas de celular */
+    .nav { padding-left: 28px; padding-top: 80px; }
     .problem-grid, .impact-grid, .results-strip, .learnings-grid { grid-template-columns: 1fr; }
     .hero-title { font-size: 44px; }
     .metric-hero { display: none; }
   }
 
-  /* ── COVER PAGE ── */
   .cover-page {
     width: 100%;
     height: 100vh;
@@ -753,12 +744,10 @@
   .c-sname { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: #F0F6FC; letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 3px; }
   .c-srole { font-family: 'Orbitron', monospace; font-size: 8px; color: #C9A84C; letter-spacing: 0.14em; display: block; }
   .c-bignumber { position: absolute; font-family: 'Cormorant Garamond', serif; font-size: 280px; font-weight: 300; line-height: 1; color: rgba(201,168,76,0.06); right: -20px; bottom: -40px; z-index: 1; letter-spacing: -0.05em; }
-
-  </style>
+</style>
 </head>
 <body>
 
-<!-- BOTÃO VOLTAR FIXADO -->
 <a href="javascript:history.back()" class="back-btn" aria-label="Voltar para a página anterior">
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
     <line x1="19" y1="12" x2="5" y2="12"></line>
@@ -787,7 +776,13 @@
     <h1 class="c-title" style="font-size:68px;">Redução de <em>71%</em><br>no Lead Time</h1>
     <div class="c-rule"></div>
     <p class="c-sub">Estruturação de fluxo, padronização de formulários<br>e controle de SLA em operação de alta complexidade.</p>
-    <div class="c-metrics"><div class="c-item"><div class="c-mval">71%</div><span class="c-mlbl">LEAD TIME</span></div><div class="c-mdiv"></div><div class="c-item"><div class="c-mval">24h</div><span class="c-mlbl">SLA CRIADO</span></div><div class="c-mdiv"></div><div class="c-item"><div class="c-mval">0</div><span class="c-mlbl">RETRABALHO</span></div></div>
+    <div class="c-metrics">
+      <div class="c-item"><div class="c-mval">71%</div><span class="c-mlbl">LEAD TIME</span></div>
+      <div class="c-mdiv"></div>
+      <div class="c-item"><div class="c-mval">24h</div><span class="c-mlbl">SLA CRIADO</span></div>
+      <div class="c-mdiv"></div>
+      <div class="c-item"><div class="c-mval">0</div><span class="c-mlbl">RETRABALHO</span></div>
+    </div>
     <div class="c-tags"><span class="c-tag">JIRA</span><span class="c-tag">KANBAN</span><span class="c-tag">GESTÃO DE SLA</span><span class="c-tag">MELHORIA DE PROCESSOS</span></div>
   </div>
   <div class="c-sig">
@@ -800,7 +795,6 @@
   </div>
 </section>
 <div class="cover-divider"></div>
-
 
 <section class="hero">
   <div class="hero-bg"></div>
@@ -846,13 +840,14 @@
     <div class="meta-pill" style="margin-left:auto;">Product Operations · Jira · Kanban · SLA · Melhoria Contínua</div>
   </div>
 
-  <!-- Big metric display -->
   <div class="metric-hero">
     <span class="metric-hero-number">&nbsp;</span>
     <div class="metric-hero-label">REDUÇÃO NO<br>LEAD TIME</div>
   </div>
+</main>
 </section>
 
+<main>
 <!-- PROBLEMA -->
 <section class="section">
   <div class="section-inner">
@@ -955,12 +950,11 @@
         <div class="step-node"><div class="step-node-dot"></div></div>
         <div class="step-number">ETAPA 05</div>
         <h3 class="step-title">Alinhamento com TI e Carta de Serviços</h3>
-        <p class="step-desc">Alinhamento formal com a equipe de TI para definir o que seria tratado como incidente e o que seria uma requisição. Foi solicitada a carta de serviços da área para embasar essa categorização. O padrão foi estendido para todos os colaboradores, incluindo novos contratados, garantindo consistência desde o primeiro dia.</p>
+        <p class="step-desc">Formalização de acordos de nível de serviço com a equipe de TI, diferenciando incidentes de requisições de acesso e estruturando a entrega contínua para novos colaboradores com onboardings estruturados.</p>
         <div class="step-tags">
-          <span class="step-tag">Alinhamento Multidisciplinar</span>
-          <span class="step-tag">Gestão de Stakeholders</span>
-          <span class="step-tag">Documentação de Processo</span>
-          <span class="step-tag">Onboarding Operacional</span>
+          <span class="step-tag">Acordo de Nível de Serviço</span>
+          <span class="step-tag">Governança</span>
+          <span class="step-tag">Onboarding</span>
         </div>
       </div>
 
@@ -971,26 +965,26 @@
 <!-- RESULTADOS -->
 <section class="section">
   <div class="section-inner">
-    <div class="section-label">03 · RESULTADOS MENSURÁVEIS</div>
-    <h2 class="section-title">Números que provam<br><em>o impacto da estruturação.</em></h2>
+    <div class="section-label">03 · RESULTADOS ALCANÇADOS</div>
+    <h2 class="section-title">Impacto mensurável<br><em>na eficiência da operação.</em></h2>
 
     <div class="results-strip">
       <div class="result-card">
         <span class="result-number">71%</span>
-        <div class="result-label">Redução no<br>Lead Time Operacional</div>
-        <p class="result-context">De até uma semana sem resposta para um fluxo previsível e rastreável com SLA definido.</p>
+        <span class="result-label">Redução no Lead Time</span>
+        <p class="result-context">De dias de espera para respostas e liberações ágeis em até 24 horas.</p>
       </div>
 
       <div class="result-card">
         <span class="result-number">24h</span>
-        <div class="result-label">SLA de Resposta<br>Implementado</div>
-        <p class="result-context">Rotina de acompanhamento active criada do zero. Devolutiva ao servidor no mesmo contato com TI.</p>
+        <span class="result-label">SLA Efetivo</span>
+        <p class="result-context">Acompanhamento ativo e cobrança de prazos diretamente com a equipe técnica.</p>
       </div>
 
       <div class="result-card">
-        <span class="result-number">0</span>
-        <div class="result-label">Perda de Documentos<br>Após Estruturação</div>
-        <p class="result-context">Centralização no Jira eliminou a perda de pedidos e retrabalho por solicitações incompletas.</p>
+        <span class="result-number">Zero</span>
+        <span class="result-label">Retrabalho por Falta de Dados</span>
+        <p class="result-context">Formulários padronizados eliminaram solicitações genéricas e perdidas.</p>
       </div>
     </div>
   </div>
@@ -999,64 +993,43 @@
 <!-- IMPACTO -->
 <section class="section impact-bg">
   <div class="section-inner">
-    <div class="section-label">04 · IMPACTO ORGANIZACIONAL</div>
-    <h2 class="section-title">O que mudou na<br><em>operação de verdade.</em></h2>
+    <div class="section-label">04 · IMPACTO ESTRATÉGICO</div>
+    <h2 class="section-title">Transformação cultural<br><em>e maturidade operacional.</em></h2>
 
     <div class="impact-grid">
-
       <div class="impact-quote">
-        <div class="quote-mark">"</div>
-        <p class="quote-text">O problema não era de capacidade. Era de clareza. Quando cada demanda passou a entrar com as informações certas, no canal certo, com acompanhamento definido, a operação inteira ganhou previsibilidade.</p>
-        <div class="quote-source">CLEYTON HESPANHOL · REFLEXÃO SOBRE O PROJETO</div>
+        <div class="quote-mark">“</div>
+        <p class="quote-text">Organizar o fluxo e impor critérios claros não acelera apenas os processos: devolve previsibilidade e confiança para toda a equipe.</p>
+        <div class="quote-source">CLEYTON HESPANHOL · PRODUCT OWNER</div>
       </div>
 
       <div class="impact-metrics">
-
-        <div class="metric-row">
-          <div class="metric-indicator" style="background:#C9A84C;"></div>
+        <div class="metric-row-item">
+          <div class="metric-indicator" style="background: var(--gold);"></div>
           <div class="metric-content">
-            <div class="metric-title">Previsibilidade operacional</div>
-            <div class="metric-detail">Demandas rastreadas, categorizadas e com prazo definido desde o lançamento</div>
+            <h4 class="metric-title">Visibilidade Ponta a Ponta</h4>
+            <p class="metric-detail">Centralização no Jira permitiu rastrear cada chamado em tempo real.</p>
           </div>
-          <div class="metric-badge" style="background:rgba(201,168,76,0.1);color:#C9A84C;">JIRA</div>
+          <span class="metric-badge" style="color: var(--gold); background: rgba(201,168,76,0.1);">JIRA</span>
         </div>
 
-        <div class="metric-row">
-          <div class="metric-indicator" style="background:#3A7A8A;"></div>
+        <div class="metric-row-item">
+          <div class="metric-indicator" style="background: var(--teal-br);"></div>
           <div class="metric-content">
-            <div class="metric-title">Eliminação do retrabalho</div>
-            <div class="metric-detail">Formulários padronizados eliminaram pedidos incompletos e repetidos</div>
+            <h4 class="metric-title">Padronização de Entradas</h4>
+            <p class="metric-detail">Fim dos pedidos informais via WhatsApp e formulários vagos.</p>
           </div>
-          <div class="metric-badge" style="background:rgba(58,122,138,0.1);color:#3A7A8A;">PROCESSO</div>
+          <span class="metric-badge" style="color: var(--teal-br); background: rgba(58,122,138,0.1);">PROCESSO</span>
         </div>
 
-        <div class="metric-row">
-          <div class="metric-indicator" style="background:#F57F76;"></div>
+        <div class="metric-row-item">
+          <div class="metric-indicator" style="background: var(--coral);"></div>
           <div class="metric-content">
-            <div class="metric-title">Alinhamento com TI</div>
-            <div class="metric-detail">Carta de serviços e critérios definidos para incidente e requisição</div>
+            <h4 class="metric-title">Previsibilidade para Novos Servidores</h4>
+            <p class="metric-detail">Onboarding estruturado reduziu atritos na chegada de novos integrantes.</p>
           </div>
-          <div class="metric-badge" style="background:rgba(245,127,118,0.1);color:#F57F76;">STAKEHOLDERS</div>
+          <span class="metric-badge" style="color: var(--coral); background: rgba(245,127,118,0.1);">OPERAÇÃO</span>
         </div>
-
-        <div class="metric-row">
-          <div class="metric-indicator" style="background:#C9A84C;"></div>
-          <div class="metric-content">
-            <div class="metric-title">Onboarding padronizado</div>
-            <div class="metric-detail">Novos colaboradores integrados ao fluxo desde o primeiro dia com o mesmo padrão</div>
-          </div>
-          <div class="metric-badge" style="background:rgba(201,168,76,0.1);color:#C9A84C;">ESCALA</div>
-        </div>
-
-        <div class="metric-row">
-          <div class="metric-indicator" style="background:#3A7A8A;"></div>
-          <div class="metric-content">
-            <div class="metric-title">Reconhecimento institucional</div>
-            <div class="metric-detail">Servidor Destaque 2025 pela atuação em melhoria de processos e eficiência operacional</div>
-          </div>
-          <div class="metric-badge" style="background:rgba(58,122,138,0.1);color:#3A7A8A;">DESTAQUE</div>
-        </div>
-
       </div>
     </div>
   </div>
@@ -1065,51 +1038,48 @@
 <!-- APRENDIZADOS -->
 <section class="section">
   <div class="section-inner">
-    <div class="section-label">05 · APRENDIZADOS DO PROJETO</div>
-    <h2 class="section-title">O que esse case<br><em>reforçou como profissional.</em></h2>
+    <div class="section-label">05 · LIÇÕES APRENDIDAS</div>
+    <h2 class="section-title">O que este case<br><em>deixa como legado.</em></h2>
 
     <div class="learnings-grid">
-
       <div class="learning-card">
         <div class="learning-icon">01</div>
-        <h3 class="learning-title">Caos operacional raramente é falta de capacidade.</h3>
-        <p class="learning-body">A equipe de TI tinha capacidade de resolver. Os colaboradores queriam resolver. O que faltava era estrutura de entrada. Quando o fluxo foi organizado, a operação respondeu imediatamente. O problema nunca foi quem executava, mas como as demandas chegavam.</p>
+        <h3 class="learning-title">Processo precede a ferramenta</h3>
+        <p class="learning-body">Implementar o Jira só gerou valor porque antes definimos as regras, os critérios e o comportamento esperado de cada etapa da solicitação.</p>
       </div>
 
       <div class="learning-card">
         <div class="learning-icon">02</div>
-        <h3 class="learning-title">Formulário mal desenhado é fricção disfarçada de processo.</h3>
-        <p class="learning-body">Um formulário que aceita qualquer resposta não é um formulário. É uma fonte de retrabalho. Quando o campo passou a exigir especificação real dos acessos necessários, o retrabalho desapareceu. UX de formulário é Product Operations aplicado à operação interna — independente do setor.</p>
+        <h3 class="learning-title">Acompanhamento ativo garante o SLA</h3>
+        <p class="learning-body">Definir um prazo no papel não basta. A rotina diária de checagem e cobrança ativa junto à TI foi o gatilho real para a queda drástica do lead time.</p>
       </div>
 
       <div class="learning-card">
         <div class="learning-icon">03</div>
-        <h3 class="learning-title">SLA sem acompanhamento ativo não existe na prática.</h3>
-        <p class="learning-body">Definir um prazo sem criar a rotina de cobrança é apenas uma intenção. O diferencial foi o acompanhamento de 24 horas: entrar em contato com TI e já dar devolutiva ao servidor no mesmo momento. Isso transformou o SLA de uma regra em um comportamento operacional real.</p>
+        <h3 class="learning-title">Simplicidade reduz fricção</h3>
+        <p class="learning-body">Substituir formulários ambíguos por perguntas diretas e específicas eliminou o vai-e-vem de mensagens e o retrabalho operacional.</p>
       </div>
 
       <div class="learning-card">
         <div class="learning-icon">04</div>
-        <h3 class="learning-title">Alinhamento com stakeholders é parte do produto, não pré-requisito.</h3>
-        <p class="learning-body">O alinhamento com TI para diferenciar incidente de requisição não foi uma reunião de alinhamento. Foi parte da solução. Sem esse entendimento compartilhado, qualquer padronização do formulário teria perdido eficiência no momento da execução pela equipe técnica.</p>
+        <h3 class="learning-title">Cultura de melhoria contínua</h3>
+        <p class="learning-body">Operações públicas ou privadas ganham eficiência quando a gestão de fluxo é tratada como um produto vivo que precisa de manutenção constante.</p>
       </div>
-
     </div>
   </div>
-</section>
+</main>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-brand">
     <div class="h-mark">H</div>
     <div class="footer-info">
       <span class="footer-name">Cleyton Hespanhol</span>
-      <span class="footer-role">PRODUCT OWNER</span>
+      <span class="footer-role">PRODUCT OWNER · PRODUCT OPERATIONS</span>
     </div>
   </div>
   <div class="footer-right">
-    <a href="https://linkedin.com/in/cleyton-hespanhol" class="footer-linkedin">linkedin.com/in/cleyton-hespanhol</a>
-    <span class="footer-copy">© 2025 · Portfólio Profissional · Case Study 02</span>
+    <a href="https://linkedin.com/in/cleyton-hespanhol" class="linkedin" target="_blank" rel="noopener noreferrer">linkedin.com/in/cleyton-hespanhol</a>
+    <span class="footer-copy">© 2026 · Todos os direitos reservados</span>
   </div>
 </footer>
 
