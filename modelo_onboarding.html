@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modelo de Onboarding Operacional</title>
+  <title>Modelo de Onboarding - Habitat</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -27,6 +27,25 @@
     .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
     header { padding: 20px 40px; border-bottom: 1px solid #222; }
     hr { border: 0; border-top: 1px solid #222; margin: 40px 0; }
+    .grid-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      background: #141414;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #222;
+      margin-top: 20px;
+    }
+    .card-proximo {
+      border: 1px solid #222;
+      padding: 20px;
+      border-radius: 8px;
+      background: #141414;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
   </style>
 </head>
 <body>
@@ -37,68 +56,162 @@
 
   <main class="container">
     
-    <section class="hero-case">
-      <span style="color: #b8975e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional</span>
-      <h1 style="font-size: 2.4rem; color: #fff; margin-top: 10px; margin-bottom: 15px;">Modelo de Onboarding Operacional</h1>
+    <!-- CABEÇALHO CORPORATIVO -->
+    <section>
+      <span style="color: #b8975e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional · HBT-ONB-007</span>
+      <h1 style="font-size: 2.4rem; color: #fff; margin-top: 10px; margin-bottom: 15px;">Modelo de Onboarding</h1>
       <p style="font-size: 1.15rem; color: #aaa; max-width: 800px; line-height: 1.6;">
-        Checklist estruturado para capacitação, acompanhamento e rampa de autonomia de novos integrantes da equipe ou clientes da plataforma.
+        Diretrizes estruturadas para a integração, capacitação e ativação de novos consultórios parceiros na plataforma Habitat.
+      </p>
+
+      <div class="grid-meta">
+        <div><strong style="color: #b8975e;">Código:</strong> <span style="color: #fff;">HBT-ONB-007</span></div>
+        <div><strong style="color: #b8975e;">Versão:</strong> <span style="color: #fff;">2.0</span></div>
+        <div><strong style="color: #b8975e;">Status:</strong> <span style="color: #50fa7b;">Aprovado</span></div>
+        <div><strong style="color: #b8975e;">Responsável:</strong> <span style="color: #fff;">Product Operations</span></div>
+        <div><strong style="color: #b8975e;">Atualização:</strong> <span style="color: #fff;">Março/2024</span></div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- OBJETIVO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 10px;">Objetivo</h2>
+      <p style="color: #ccc; font-size: 1.05rem;">
+        Garantir que novos consultórios atinjam o primeiro valor entregue (time-to-value) com rapidez, segurança e total domínio das funcionalidades essenciais do sistema.
       </p>
     </section>
 
     <hr>
 
-    <section id="progresso-onboarding" style="margin-bottom: 40px;">
-      <h2 style="color: #fff; margin-bottom: 15px;">Progresso Geral do Programa (4 Semanas)</h2>
-      <div style="background: #222; border-radius: 20px; height: 24px; width: 100%; overflow: hidden; margin-top: 15px; border: 1px solid #333;">
-        <div style="background: #b8975e; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; font-size: 0.85rem;">
-          100% Concluído
+    <!-- CONTEXTO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 10px;">Contexto</h2>
+      <p style="color: #ccc; font-size: 1.05rem;">
+        Desenvolvido para mitigar a curva de aprendizado inicial e assegurar que a adoção da plataforma ocorresse sem atritos operacionais desde o primeiro dia.
+      </p>
+    </section>
+
+    <hr>
+
+    <!-- ESCOPO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Escopo</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
+          <h3 style="color: #50fa7b; margin-bottom: 10px;">O que cobre</h3>
+          <ul style="color: #ccc; padding-left: 20px; line-height: 1.6;">
+            <li>Configuração inicial de perfis e acessos</li>
+            <li>Treinamento guiado nas ferramentas core</li>
+            <li>Acompanhamento assistido nos primeiros atendimentos</li>
+          </ul>
+        </div>
+        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
+          <h3 style="color: #ff5555; margin-bottom: 10px;">O que não cobre</h3>
+          <ul style="color: #ccc; padding-left: 20px; line-height: 1.6;">
+            <li>Suporte a softwares legados externos de terceiros</li>
+            <li>Customizações de código sob medida para um único cliente</li>
+            <li>Consultoria fiscal ou jurídica contábil</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <hr>
 
-    <section id="checklist-semanas">
-      <h2 style="color: #fff; margin-bottom: 15px;">Checklist de Rampagem</h2>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 20px;">
-        
-        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
-          <h3 style="color: #b8975e; margin: 0 0 15px 0;">Semana 1: Acesso & Base</h3>
-          <ul style="list-style: none; padding: 0; margin: 0; color: #ccc; line-height: 1.8;">
-            <li>✓ Liberação de acessos</li>
-            <li>✓ Treinamento inicial</li>
-            <li>✓ Imersão em Produtos</li>
-          </ul>
-        </div>
+    <!-- ETAPAS DO ONBOARDING -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Etapas da Jornada de Integração</h2>
+      <div style="background: #141414; padding: 25px; border-radius: 8px; border: 1px solid #222; text-align: center; font-family: monospace; font-size: 1rem; color: #b8975e;">
+        Boas-vindas &rarr; Configuração de Perfil &rarr; Treinamento Guiado &rarr; Primeiro Atendimento &rarr; Validação de Sucesso
+      </div>
+    </section>
 
-        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
-          <h3 style="color: #b8975e; margin: 0 0 15px 0;">Semana 2: Prática Guiada</h3>
-          <ul style="list-style: none; padding: 0; margin: 0; color: #ccc; line-height: 1.8;">
-            <li>✓ Shadowing com pares</li>
-            <li>✓ Primeiros chamados</li>
-            <li>✓ Validação técnica</li>
-          </ul>
-        </div>
+    <hr>
 
-        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
-          <h3 style="color: #b8975e; margin: 0 0 15px 0;">Semana 3: Supervisão</h3>
-          <ul style="list-style: none; padding: 0; margin: 0; color: #ccc; line-height: 1.8;">
-            <li>✓ Atendimento supervisionado</li>
-            <li>✓ Calibração de SLAs</li>
-            <li>✓ Feedback contínuo</li>
-          </ul>
-        </div>
+    <!-- INDICADORES MONITORADOS -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Indicadores de Desempenho</h2>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; background: #141414; border: 1px solid #222;">
+          <thead>
+            <tr style="border-bottom: 2px solid #b8975e; background: #181818;">
+              <th style="padding: 12px; color: #fff;">Indicador</th>
+              <th style="padding: 12px; color: #fff;">Objetivo</th>
+              <th style="padding: 12px; color: #fff;">Resultado</th>
+            </tr>
+          </thead>
+          <tbody style="color: #ccc;">
+            <tr style="border-bottom: 1px solid #222;">
+              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Time-to-Value (Tempo até o 1º Valor)</td>
+              <td style="padding: 12px;">Acelerar a ativação de novos parceiros</td>
+              <td style="padding: 12px; color: #50fa7b;">-50%</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Taxa de Conclusão do Onboarding</td>
+              <td style="padding: 12px;">Garantir engajamento completo no ciclo inicial</td>
+              <td style="padding: 12px; color: #50fa7b;">96%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
-          <h3 style="color: #50fa7b; margin: 0 0 15px 0;">Semana 4: Autonomia</h3>
-          <ul style="list-style: none; padding: 0; margin: 0; color: #ccc; line-height: 1.8;">
-            <li>✓ Operação 100% autônoma</li>
-            <li>✓ Gestão individual de fila</li>
-            <li>✓ Encerramento da rampa</li>
-          </ul>
-        </div>
+    <hr>
 
+    <!-- IMPACTO NO PROJETO -->
+    <section>
+      <div style="background: #141414; padding: 25px; border-radius: 8px; border-left: 4px solid #b8975e; border: 1px solid #222;">
+        <h3 style="color: #fff; margin-bottom: 12px;">Impacto no Projeto</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; color: #ccc; line-height: 1.8;">
+          <li>✓ Redução expressiva na evasão durante os primeiros dias de uso</li>
+          <li>✓ Aumento da confiança e autonomia dos novos consultórios</li>
+          <li>✓ Padronização corporativa no processo de recepção</li>
+          <li>✓ Retorno sobre o investimento percebido mais rapidamente</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- RASTREABILIDADE / ARTEFATOS RELACIONADOS -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Artefatos Relacionados</h2>
+      <p style="color: #aaa; margin-bottom: 20px;">
+        Este modelo integra-se diretamente aos demais instrumentos do ecossistema Habitat:
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <a href="protocolo_habitat.html" class="btn">Protocolo Operacional</a>
+        <a href="protocolo_gestao_incidentes.html" class="btn">Gestão de Incidentes</a>
+        <a href="Central_Conhecimento.html" class="btn">Central de Conhecimento</a>
+        <a href="fluxo_discovery.html" class="btn">Fluxo de Discovery</a>
+        <a href="fluxo_operacional.html" class="btn">Fluxo Operacional</a>
+        <a href="mapa_jornada_usuario.html" class="btn">Jornada do Usuário</a>
+        <a href="relatorio_leadtime.html" class="btn">Relatório de Lead Time</a>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- PRÓXIMOS ARTEFATOS (RODAPÉ) -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Próximos Artefatos</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div class="card-proximo">
+          <div>
+            <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">Relatório de Lead Time</h3>
+            <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">Análise consolidada de vazão e tempo de entrega.</p>
+          </div>
+          <div><a href="relatorio_leadtime.html" class="btn" style="font-size: 0.85rem; padding: 8px 14px;">Acessar documento &rarr;</a></div>
+        </div>
+        <div class="card-proximo">
+          <div>
+            <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">Protocolo Operacional</h3>
+            <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">Diretrizes fundamentais para a governança na Habitat.</p>
+          </div>
+          <div><a href="protocolo_habitat.html" class="btn" style="font-size: 0.85rem; padding: 8px 14px;">Acessar documento &rarr;</a></div>
+        </div>
       </div>
     </section>
 
