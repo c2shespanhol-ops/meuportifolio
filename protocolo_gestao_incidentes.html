@@ -4,42 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Protocolo de Gestão de Incidentes</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #0d0d0d;
+      color: #e0e0e0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: #b8975e; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border: 1px solid #b8975e;
+      color: #b8975e;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn:hover { background-color: #b8975e; color: #0d0d0d; text-decoration: none; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+    header { padding: 20px 40px; border-bottom: 1px solid #222; }
+    hr { border: 0; border-top: 1px solid #222; margin: 40px 0; }
+  </style>
 </head>
 <body>
 
-  <header style="padding: 20px 40px;">
+  <header>
     <a href="case_study_03_habitat_final.html" class="btn">&larr; Voltar para o Case Study</a>
   </header>
 
-  <main class="container" style="padding: 40px 20px; max-width: 1000px; margin: 0 auto;">
+  <main class="container">
     
     <section class="hero-case">
-      <span style="color: #b8975e; font-weight: bold;">Documento Operacional</span>
-      <h1 style="font-size: 2.5rem; margin-top: 10px;">Protocolo de Gestão de Incidentes</h1>
-      <p style="font-size: 1.1rem; line-height: 1.6; color: #ccc; margin-top: 15px;">
+      <span style="color: #b8975e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional</span>
+      <h1 style="font-size: 2.4rem; color: #fff; margin-top: 10px; margin-bottom: 15px;">Protocolo de Gestão de Incidentes</h1>
+      <p style="font-size: 1.15rem; color: #aaa; max-width: 800px; line-height: 1.6;">
         Diretrizes operacionais para triagem, priorização, escalonamento e resolução de incidentes no ecossistema da Habitat Consultórios.
       </p>
     </section>
 
-    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+    <hr>
 
-    <!-- OBJETIVO E ESCOPO -->
     <section id="objetivo-escopo" style="margin-bottom: 30px;">
-      <h2>Objetivo</h2>
-      <p style="line-height: 1.6; color: #ddd;">Padronizar a resposta da equipe de operações diante de instabilidades e falhas técnicas, assegurando previsibilidade de atendimento e mitigação de impactos no cliente final.</p>
+      <h2 style="color: #fff; margin-bottom: 10px;">Objetivo</h2>
+      <p style="color: #ccc; font-size: 1.05rem;">Padronizar a resposta da equipe de operações diante de instabilidades e falhas técnicas, assegurando previsibilidade de atendimento e mitigação de impactos no cliente final.</p>
 
-      <h2 style="margin-top: 25px;">Escopo</h2>
-      <p style="line-height: 1.6; color: #ddd;">Aplica-se a todos os incidentes reportados via suporte interno, atendimento a clientes, falhas de sistema ou alertas de monitoramento da plataforma Habitat.</p>
+      <h2 style="color: #fff; margin-top: 25px; margin-bottom: 10px;">Escopo</h2>
+      <p style="color: #ccc; font-size: 1.05rem;">Aplica-se a todos os incidentes reportados via suporte interno, atendimento a clientes, falhas de sistema ou alertas de monitoramento da plataforma Habitat.</p>
     </section>
 
-    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+    <hr>
 
-    <!-- CRITÉRIOS DE SEVERIDADE -->
     <section id="severidade" style="margin-bottom: 30px;">
-      <h2>Critérios de Severidade</h2>
+      <h2 style="color: #fff; margin-bottom: 15px;">Critérios de Severidade</h2>
       <div style="overflow-x: auto; margin-top: 20px;">
-        <table style="width: 100%; border-collapse: collapse; text-align: left; background: #111; border: 1px solid #333;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; background: #141414; border: 1px solid #222;">
           <thead>
             <tr style="border-bottom: 2px solid #b8975e; background: #181818;">
               <th style="padding: 12px; color: #fff;">Severidade</th>
@@ -83,18 +104,17 @@
       </div>
     </section>
 
-    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+    <hr>
 
-    <!-- FLUXO DE ATENDIMENTO -->
     <section id="fluxo-atendimento">
-      <h2>Fluxo de Atendimento</h2>
-      <div style="background: #111; padding: 25px; border-radius: 8px; border: 1px solid #333; margin-top: 20px; text-align: center; font-family: monospace; font-size: 1.1rem; color: #b8975e;">
+      <h2 style="color: #fff; margin-bottom: 15px;">Fluxo de Atendimento</h2>
+      <div style="background: #141414; padding: 25px; border-radius: 8px; border: 1px solid #222; text-align: center; font-family: monospace; font-size: 1.1rem; color: #b8975e;">
         Recebimento &rarr; Triagem &rarr; Classificação &rarr; Execução &rarr; Validação &rarr; Encerramento
       </div>
       
-      <div style="margin-top: 30px; padding: 20px; background: #181818; border-left: 4px solid #b8975e;">
+      <div style="margin-top: 30px; padding: 20px; background: #141414; border-left: 4px solid #b8975e; border-radius: 4px;">
         <h4 style="margin: 0 0 10px 0; color: #fff;">Observações Finais</h4>
-        <p style="margin: 0; color: #ccc; font-size: 0.95rem; line-height: 1.5;">
+        <p style="margin: 0; color: #aaa; font-size: 0.95rem; line-height: 1.5;">
           Todo incidente S1 ou S2 exige a criação imediata de post-mortem operacional e acompanhamento de causa raiz no ciclo de refinamento do backlog.
         </p>
       </div>
