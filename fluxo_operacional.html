@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fluxo Operacional (BPM)</title>
+  <title>Fluxo Operacional - Habitat</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -27,6 +27,25 @@
     .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
     header { padding: 20px 40px; border-bottom: 1px solid #222; }
     hr { border: 0; border-top: 1px solid #222; margin: 40px 0; }
+    .grid-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      background: #141414;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #222;
+      margin-top: 20px;
+    }
+    .card-proximo {
+      border: 1px solid #222;
+      padding: 20px;
+      border-radius: 8px;
+      background: #141414;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
   </style>
 </head>
 <body>
@@ -37,54 +56,162 @@
 
   <main class="container">
     
-    <section class="hero-case">
-      <span style="color: #b8975e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional</span>
+    <!-- CABEÇALHO CORPORATIVO -->
+    <section>
+      <span style="color: #b8975e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional · HBT-FLOW-005</span>
       <h1 style="font-size: 2.4rem; color: #fff; margin-top: 10px; margin-bottom: 15px;">Fluxo Operacional</h1>
       <p style="font-size: 1.15rem; color: #aaa; max-width: 800px; line-height: 1.6;">
-        Mapeamento de processos operacionais em formato BPM simplificado, detalhando a passagem de bastão entre triagem, execução e encerramento.
+        Representação visual e normativa do trânsito de demandas entre suporte, operações e desenvolvimento na Habitat.
       </p>
-    </section>
 
-    <hr>
-
-    <section id="estrutura-fluxo" style="margin-bottom: 30px;">
-      <h2 style="color: #fff; margin-bottom: 15px;">Fluxo BPM Simplificado</h2>
-      <div style="background: #141414; padding: 25px; border-radius: 8px; border: 1px solid #222; text-align: center; font-family: monospace; font-size: 1rem; color: #b8975e;">
-        Entrada &rarr; Triagem &rarr; Classificação &rarr; Responsável &rarr; Execução &rarr; Validação &rarr; Cliente &rarr; Encerramento
+      <div class="grid-meta">
+        <div><strong style="color: #b8975e;">Código:</strong> <span style="color: #fff;">HBT-FLOW-005</span></div>
+        <div><strong style="color: #b8975e;">Versão:</strong> <span style="color: #fff;">2.0</span></div>
+        <div><strong style="color: #b8975e;">Status:</strong> <span style="color: #50fa7b;">Aprovado</span></div>
+        <div><strong style="color: #b8975e;">Responsável:</strong> <span style="color: #fff;">Product Operations</span></div>
+        <div><strong style="color: #b8975e;">Atualização:</strong> <span style="color: #fff;">Março/2024</span></div>
       </div>
     </section>
 
     <hr>
 
-    <section id="metricas-monitoradas">
-      <h2 style="color: #fff; margin-bottom: 15px;">Métricas Monitoradas no Fluxo</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 20px;">
-        
-        <div style="background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
-          <h4 style="color: #b8975e; margin: 0 0 5px 0;">Lead Time</h4>
-          <p style="color: #aaa; margin: 0; font-size: 0.85rem;">Tempo total desde a abertura até a entrega final.</p>
-        </div>
+    <!-- OBJETIVO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 10px;">Objetivo</h2>
+      <p style="color: #ccc; font-size: 1.05rem;">
+        Mapear detalhadamente o caminho percorrido por cada solicitação dentro do ecossistema, garantindo clareza nas transições de responsabilidade (handoffs).
+      </p>
+    </section>
 
-        <div style="background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
-          <h4 style="color: #b8975e; margin: 0 0 5px 0;">Throughput</h4>
-          <p style="color: #aaa; margin: 0; font-size: 0.85rem;">Volume de demandas concluídas por período.</p>
-        </div>
+    <hr>
 
-        <div style="background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
-          <h4 style="color: #b8975e; margin: 0 0 5px 0;">Backlog</h4>
-          <p style="color: #aaa; margin: 0; font-size: 0.85rem;">Volume de demandas pendentes e priorizadas.</p>
-        </div>
+    <!-- CONTEXTO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 10px;">Contexto</h2>
+      <p style="color: #ccc; font-size: 1.05rem;">
+        Desenvolvido para eliminar pontos de retenção onde chamados ficavam estagnados por indefinição de alçada de atendimento.
+      </p>
+    </section>
 
-        <div style="background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
-          <h4 style="color: #b8975e; margin: 0 0 5px 0;">SLA</h4>
-          <p style="color: #aaa; margin: 0; font-size: 0.85rem;">Acordo de tempo limite para primeira resposta e solução.</p>
-        </div>
+    <hr>
 
-        <div style="background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
-          <h4 style="color: #b8975e; margin: 0 0 5px 0;">Retrabalho</h4>
-          <p style="color: #aaa; margin: 0; font-size: 0.85rem;">Percentual de demandas reabertas após encerramento.</p>
+    <!-- ESCOPO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Escopo</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
+          <h3 style="color: #50fa7b; margin-bottom: 10px;">O que cobre</h3>
+          <ul style="color: #ccc; padding-left: 20px; line-height: 1.6;">
+            <li>Jornada do chamado desde a abertura no N1</li>
+            <li>Escalonamento para equipes especializadas (N2/N3)</li>
+            <li>Encerramento e verificação de satisfação</li>
+          </ul>
         </div>
+        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
+          <h3 style="color: #ff5555; margin-bottom: 10px;">O que não cobre</h3>
+          <ul style="color: #ccc; padding-left: 20px; line-height: 1.6;">
+            <li>Fluxos financeiros de faturamento externo</li>
+            <li>Gestão interna de recursos humanos</li>
+            <li>Planejamento estratégico de longo prazo</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
+    <hr>
+
+    <!-- MAPA VISUAL DO FLUXO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Etapas do Fluxo</h2>
+      <div style="background: #141414; padding: 25px; border-radius: 8px; border: 1px solid #222; text-align: center; font-family: monospace; font-size: 1rem; color: #b8975e;">
+        Recepção &rarr; Triagem Inicial &rarr; Classificação Técnica &rarr; Resolução / Correção &rarr; Validação &rarr; Fechamento
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- INDICADORES MONITORADOS -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Indicadores de Eficiência</h2>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; background: #141414; border: 1px solid #222;">
+          <thead>
+            <tr style="border-bottom: 2px solid #b8975e; background: #181818;">
+              <th style="padding: 12px; color: #fff;">Indicador</th>
+              <th style="padding: 12px; color: #fff;">Objetivo</th>
+              <th style="padding: 12px; color: #fff;">Resultado</th>
+            </tr>
+          </thead>
+          <tbody style="color: #ccc;">
+            <tr style="border-bottom: 1px solid #222;">
+              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Tempo de Transição (Handoff)</td>
+              <td style="padding: 12px;">Minimizar tempo de espera entre setores</td>
+              <td style="padding: 12px; color: #50fa7b;">-35%</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Fluidez do Processo</td>
+              <td style="padding: 12px;">Evitar gargalos operacionais recorrentes</td>
+              <td style="padding: 12px; color: #50fa7b;">Alto rendimento</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- IMPACTO NO PROJETO -->
+    <section>
+      <div style="background: #141414; padding: 25px; border-radius: 8px; border-left: 4px solid #b8975e; border: 1px solid #222;">
+        <h3 style="color: #fff; margin-bottom: 12px;">Impacto no Projeto</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; color: #ccc; line-height: 1.8;">
+          <li>✓ Eliminação de ambiguidades nas passagens de bastão</li>
+          <li>✓ Aumento da agilidade geral no tratamento de chamados</li>
+          <li>✓ Maior satisfação das equipes envolvidas</li>
+          <li>✓ Padronização operacional auditável</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- RASTREABILIDADE / ARTEFATOS RELACIONADOS -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Artefatos Relacionados</h2>
+      <p style="color: #aaa; margin-bottom: 20px;">
+        Este fluxo cruza informações diretamente com os demais instrumentos do ecossistema Habitat:
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <a href="protocolo_habitat.html" class="btn">Protocolo Operacional</a>
+        <a href="protocolo_gestao_incidentes.html" class="btn">Gestão de Incidentes</a>
+        <a href="Central_Conhecimento.html" class="btn">Central de Conhecimento</a>
+        <a href="fluxo_discovery.html" class="btn">Fluxo de Discovery</a>
+        <a href="mapa_jornada_usuario.html" class="btn">Jornada do Usuário</a>
+        <a href="modelo_onboarding.html" class="btn">Modelo de Onboarding</a>
+        <a href="relatorio_leadtime.html" class="btn">Relatório de Lead Time</a>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- PRÓXIMOS ARTEFATOS (RODAPÉ) -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Próximos Artefatos</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div class="card-proximo">
+          <div>
+            <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">Mapa da Jornada do Usuário</h3>
+            <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">Visão completa da experiência dos perfis atendidos.</p>
+          </div>
+          <div><a href="mapa_jornada_usuario.html" class="btn" style="font-size: 0.85rem; padding: 8px 14px;">Acessar documento &rarr;</a></div>
+        </div>
+        <div class="card-proximo">
+          <div>
+            <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">Modelo de Onboarding</h3>
+            <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">Diretrizes para integração eficiente de novos parceiros.</p>
+          </div>
+          <div><a href="modelo_onboarding.html" class="btn" style="font-size: 0.85rem; padding: 8px 14px;">Acessar documento &rarr;</a></div>
+        </div>
       </div>
     </section>
 
