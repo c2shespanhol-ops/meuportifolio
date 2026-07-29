@@ -27,6 +27,25 @@
     .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
     header { padding: 20px 40px; border-bottom: 1px solid #222; }
     hr { border: 0; border-top: 1px solid #222; margin: 40px 0; }
+    .grid-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      background: #141414;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #222;
+      margin-top: 20px;
+    }
+    .card-proximo {
+      border: 1px solid #222;
+      padding: 20px;
+      border-radius: 8px;
+      background: #141414;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
   </style>
 </head>
 <body>
@@ -37,27 +56,180 @@
 
   <main class="container">
     
-    <section class="hero-case">
-      <span style="color: #b8975e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional</span>
+    <!-- CABEÇALHO CORPORATIVO -->
+    <section>
+      <span style="color: #b8975e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional · HBT-OPS-001</span>
       <h1 style="font-size: 2.4rem; color: #fff; margin-top: 10px; margin-bottom: 15px;">Protocolo Operacional Habitat</h1>
       <p style="font-size: 1.15rem; color: #aaa; max-width: 800px; line-height: 1.6;">
-        Durante a estruturação da operação da Habitat Consultórios Inteligentes foram criados diversos artefatos para padronizar processos, reduzir retrabalho, acelerar o atendimento e apoiar decisões operacionais.
+        Diretrizes normativas para estruturação e padronização do fluxo de trabalho na Habitat Consultórios Inteligentes.
+      </p>
+
+      <div class="grid-meta">
+        <div><strong style="color: #b8975e;">Código:</strong> <span style="color: #fff;">HBT-OPS-001</span></div>
+        <div><strong style="color: #b8975e;">Versão:</strong> <span style="color: #fff;">2.3</span></div>
+        <div><strong style="color: #b8975e;">Status:</strong> <span style="color: #50fa7b;">Aprovado</span></div>
+        <div><strong style="color: #b8975e;">Responsável:</strong> <span style="color: #fff;">Operações / PO</span></div>
+        <div><strong style="color: #b8975e;">Atualização:</strong> <span style="color: #fff;">Março/2024</span></div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- OBJETIVO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 10px;">Objetivo</h2>
+      <p style="color: #ccc; font-size: 1.05rem;">
+        Padronizar o tratamento de solicitações operacionais e alinhar as expectativas de entrega entre os times de atendimento, suporte técnico e desenvolvimento de produto.
       </p>
     </section>
 
     <hr>
 
-    <section id="contexto">
-      <h2 style="color: #fff; margin-bottom: 15px;">Contexto</h2>
-      <p style="color: #ccc; font-size: 1.05rem; margin-bottom: 10px;">
-        A operação possuía crescimento acelerado, aumento do volume de chamados e ausência de documentação padronizada.
-      </p>
-      <p style="color: #ccc; font-size: 1.05rem; margin-bottom: 10px;">
-        Foi iniciado um trabalho de organização operacional utilizando princípios de Product Operations, Gestão do Conhecimento e Melhoria Contínua.
-      </p>
+    <!-- CONTEXTO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 10px;">Contexto</h2>
       <p style="color: #ccc; font-size: 1.05rem;">
-        Como resultado foram produzidos os artefatos abaixo.
+        Este documento foi estruturado a partir da necessidade de mitigar gargalos operacionais gerados pelo crescimento acelerado da base de clientes e pela dispersão de canais de comunicação interna.
       </p>
+    </section>
+
+    <hr>
+
+    <!-- ESCOPO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Escopo</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
+          <h3 style="color: #50fa7b; margin-bottom: 10px;">O que cobre</h3>
+          <ul style="color: #ccc; padding-left: 20px; line-height: 1.6;">
+            <li>Triagem de chamados N1 e N2</li>
+            <li>Classificação de criticidade</li>
+            <li>Direcionamento para Product Backlog</li>
+          </ul>
+        </div>
+        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
+          <h3 style="color: #ff5555; margin-bottom: 10px;">O que não cobre</h3>
+          <ul style="color: #ccc; padding-left: 20px; line-height: 1.6;">
+            <li>Decisões de arquitetura de software</li>
+            <li>Contratos comerciais de clientes</li>
+            <li>Suporte a infraestrutura de rede externa</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- FLUXO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Fluxo Operacional</h2>
+      <div style="background: #141414; padding: 25px; border-radius: 8px; border: 1px solid #222; text-align: center; font-family: monospace; font-size: 1rem; color: #b8975e;">
+        Entrada de Demanda &rarr; Triagem Operacional &rarr; Classificação &rarr; Execução / Escalonamento &rarr; Validação &rarr; Encerramento
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- INDICADORES MONITORADOS -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Indicadores Monitorados</h2>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; background: #141414; border: 1px solid #222;">
+          <thead>
+            <tr style="border-bottom: 2px solid #b8975e; background: #181818;">
+              <th style="padding: 12px; color: #fff;">Indicador</th>
+              <th style="padding: 12px; color: #fff;">Objetivo</th>
+              <th style="padding: 12px; color: #fff;">Resultado Alcançado</th>
+            </tr>
+          </thead>
+          <tbody style="color: #ccc;">
+            <tr style="border-bottom: 1px solid #222;">
+              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Tempo Médio de Resposta</td>
+              <td style="padding: 12px;">Reduzir o primeiro contato com o cliente</td>
+              <td style="padding: 12px; color: #50fa7b;">-31%</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #222;">
+              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Taxa de Resolução no N1</td>
+              <td style="padding: 12px;">Minimizar escalonamentos desnecessários</td>
+              <td style="padding: 12px; color: #50fa7b;">61%</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Índice de Retrabalho</td>
+              <td style="padding: 12px;">Evitar reabertura de chamados</td>
+              <td style="padding: 12px; color: #50fa7b;">Baixo (&lt; 5%)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- RESULTADOS ESPERADOS -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Resultados Esperados</h2>
+      <ul style="color: #ccc; padding-left: 20px; line-height: 1.8; font-size: 1.05rem;">
+        <li>Padronização integral dos processos de atendimento e suporte.</li>
+        <li>Eliminação de gargalos na passagem de bastão entre operações e desenvolvimento.</li>
+        <li>Aumento da previsibilidade nas entregas de melhorias de produto.</li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <!-- IMPACTO NO PROJETO -->
+    <section>
+      <div style="background: #141414; padding: 25px; border-radius: 8px; border-left: 4px solid #b8975e; border: 1px solid #222;">
+        <h3 style="color: #fff; margin-bottom: 12px;">Impacto no Projeto</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; color: #ccc; line-height: 1.8;">
+          <li>✓ Redução expressiva do retrabalho operacional</li>
+          <li>✓ Maior previsibilidade no planejamento de sprints</li>
+          <li>✓ Menor tempo médio de atendimento (TMA)</li>
+          <li>✓ Padronização corporativa auditável</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- RASTREABILIDADE / ARTEFATOS RELACIONADOS -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Artefatos Relacionados</h2>
+      <p style="color: #aaa; margin-bottom: 20px;">
+        Este protocolo possui dependências cruzadas e integração direta com os demais instrumentos de governança da Habitat:
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <a href="fluxo_discovery.html" class="btn">Discovery Operacional</a>
+        <a href="Central_Conhecimento.html" class="btn">Central de Conhecimento</a>
+        <a href="fluxo_operacional.html" class="btn">Fluxo Operacional</a>
+        <a href="mapa_jornada_usuario.html" class="btn">Jornada do Usuário</a>
+        <a href="protocolo_gestao_incidentes.html" class="btn">Gestão de Incidentes</a>
+        <a href="modelo_onboarding.html" class="btn">Modelo de Onboarding</a>
+        <a href="relatorio_leadtime.html" class="btn">Relatório de Lead Time</a>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- PRÓXIMOS ARTEFATOS (RODAPÉ) -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Próximos Artefatos</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div class="card-proximo">
+          <div>
+            <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">Protocolo de Gestão de Incidentes</h3>
+            <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">Diretrizes para triagem e SLAs de falhas sistêmicas.</p>
+          </div>
+          <div><a href="protocolo_gestao_incidentes.html" class="btn" style="font-size: 0.85rem; padding: 8px 14px;">Acessar documento &rarr;</a></div>
+        </div>
+        <div class="card-proximo">
+          <div>
+            <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">Relatório de Lead Time</h3>
+            <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">Análise consolidada de vazão e tempo de entrega.</p>
+          </div>
+          <div><a href="relatorio_leadtime.html" class="btn" style="font-size: 0.85rem; padding: 8px 14px;">Acessar documento &rarr;</a></div>
+        </div>
+      </div>
     </section>
 
   </main>
