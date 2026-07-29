@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mapa da Jornada do Usuário</title>
+  <title>Mapa da Jornada do Usuário - Habitat</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -27,6 +27,25 @@
     .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
     header { padding: 20px 40px; border-bottom: 1px solid #222; }
     hr { border: 0; border-top: 1px solid #222; margin: 40px 0; }
+    .grid-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      background: #141414;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #222;
+      margin-top: 20px;
+    }
+    .card-proximo {
+      border: 1px solid #222;
+      padding: 20px;
+      border-radius: 8px;
+      background: #141414;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
   </style>
 </head>
 <body>
@@ -37,52 +56,102 @@
 
   <main class="container">
     
-    <section class="hero-case">
-      <span style="color: #b8975e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional</span>
+    <!-- CABEÇALHO CORPORATIVO -->
+    <section>
+      <span style="color: #b8975e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional · HBT-MAP-006</span>
       <h1 style="font-size: 2.4rem; color: #fff; margin-top: 10px; margin-bottom: 15px;">Mapa da Jornada do Usuário</h1>
       <p style="font-size: 1.15rem; color: #aaa; max-width: 800px; line-height: 1.6;">
-        Mapeamento da experiência do cliente ao longo do fluxo de uso da plataforma, identificando atritos operacionais e oportunidades de produto.
+        Visão consolidada das etapas, pontos de contato, fricções e oportunidades na experiência dos consultórios parceiros.
+      </p>
+
+      <div class="grid-meta">
+        <div><strong style="color: #b8975e;">Código:</strong> <span style="color: #fff;">HBT-MAP-006</span></div>
+        <div><strong style="color: #b8975e;">Versão:</strong> <span style="color: #fff;">2.0</span></div>
+        <div><strong style="color: #b8975e;">Status:</strong> <span style="color: #50fa7b;">Aprovado</span></div>
+        <div><strong style="color: #b8975e;">Responsável:</strong> <span style="color: #fff;">Product Operations</span></div>
+        <div><strong style="color: #b8975e;">Atualização:</strong> <span style="color: #fff;">Março/2024</span></div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- OBJETIVO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 10px;">Objetivo</h2>
+      <p style="color: #ccc; font-size: 1.05rem;">
+        Compreender profundamente a vivência dos profissionais e gestores de consultórios ao utilizarem a plataforma, identificando dores críticas e momentos de encantamento.
       </p>
     </section>
 
     <hr>
 
-    <section id="journey-map">
-      <h2 style="color: #fff; margin-bottom: 15px;">User Journey Map</h2>
-      <div style="overflow-x: auto; margin-top: 20px;">
+    <!-- CONTEXTO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 10px;">Contexto</h2>
+      <p style="color: #ccc; font-size: 1.05rem;">
+        Estruturado a partir de entrevistas de profundidade e análise comportamental dos usuários para guiar as melhorias de experiência implementadas no ecossistema.
+      </p>
+    </section>
+
+    <hr>
+
+    <!-- ESCOPO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Escopo</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
+          <h3 style="color: #50fa7b; margin-bottom: 10px;">O que cobre</h3>
+          <ul style="color: #ccc; padding-left: 20px; line-height: 1.6;">
+            <li>Descoberta inicial da solução pelo consultório</li>
+            <li>Processo de integração e uso cotidiano</li>
+            <li>Interações com canais de suporte e atendimento</li>
+          </ul>
+        </div>
+        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
+          <h3 style="color: #ff5555; margin-bottom: 10px;">O que não cobre</h3>
+          <ul style="color: #ccc; padding-left: 20px; line-height: 1.6;">
+            <li>Processos internos de desenvolvimento de software</li>
+            <li>Gestão administrativa societária da Habitat</li>
+            <li>Relações com fornecedores de infraestrutura de rede</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- ETAPAS DA JORNADA -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Etapas Principais da Jornada</h2>
+      <div style="background: #141414; padding: 25px; border-radius: 8px; border: 1px solid #222; text-align: center; font-family: monospace; font-size: 1rem; color: #b8975e;">
+        Descoberta &rarr; Onboarding &rarr; Uso Diário &rarr; Suporte / Atendimento &rarr; Retenção &rarr; Recomendação
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- INDICADORES MONITORADOS -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Indicadores de Experiência</h2>
+      <div style="overflow-x: auto;">
         <table style="width: 100%; border-collapse: collapse; text-align: left; background: #141414; border: 1px solid #222;">
           <thead>
             <tr style="border-bottom: 2px solid #b8975e; background: #181818;">
-              <th style="padding: 12px; color: #fff;">Etapa</th>
+              <th style="padding: 12px; color: #fff;">Indicador</th>
               <th style="padding: 12px; color: #fff;">Objetivo</th>
-              <th style="padding: 12px; color: #fff;">Dor Encontrada</th>
-              <th style="padding: 12px; color: #fff;">Oportunidade</th>
+              <th style="padding: 12px; color: #fff;">Resultado</th>
             </tr>
           </thead>
           <tbody style="color: #ccc;">
             <tr style="border-bottom: 1px solid #222;">
-              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Descoberta</td>
-              <td style="padding: 12px;">Conhecer a plataforma</td>
-              <td style="padding: 12px;">Pouca informação clara no primeiro contato</td>
-              <td style="padding: 12px;">Estruturar um onboarding guiado</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #222;">
-              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Cadastro</td>
-              <td style="padding: 12px;">Criar a conta</td>
-              <td style="padding: 12px;">Excesso de campos obrigatórios</td>
-              <td style="padding: 12px;">Simplificar formulários e validações</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #222;">
-              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Primeiro Acesso</td>
-              <td style="padding: 12px;">Agendar consulta</td>
-              <td style="padding: 12px;">Dificuldade na localização das salas</td>
-              <td style="padding: 12px;">Redesenhar o fluxo de navegação da agenda</td>
+              <td style="padding: 12px; font-weight: bold; color: #b8975e;">CSAT (Satisfação do Cliente)</td>
+              <td style="padding: 12px;">Elevar o contentamento com a plataforma</td>
+              <td style="padding: 12px; color: #50fa7b;">92%</td>
             </tr>
             <tr>
-              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Pós-Uso</td>
-              <td style="padding: 12px;">Retornar e re-agendar</td>
-              <td style="padding: 12px;">Falta de acompanhamento e confirmação automática</td>
-              <td style="padding: 12px;">Implementar automação de lembretes e suporte self-service</td>
+              <td style="padding: 12px; font-weight: bold; color: #b8975e;">NPS (Net Promoter Score)</td>
+              <td style="padding: 12px;">Garantir recomendação orgânica de parceiros</td>
+              <td style="padding: 12px; color: #50fa7b;">+68 pts</td>
             </tr>
           </tbody>
         </table>
@@ -91,14 +160,58 @@
 
     <hr>
 
-    <section id="insights">
-      <h2 style="color: #fff; margin-bottom: 15px;">Principais Insights</h2>
-      <div style="background: #141414; padding: 20px; border-radius: 8px; border-left: 4px solid #b8975e; margin-top: 20px;">
-        <ul style="margin: 0; padding-left: 20px; color: #ccc; line-height: 1.8;">
-          <li>A redução de atrito na fase de onboarding impacta diretamente a retenção dos usuários nos primeiros 30 dias.</li>
-          <li>A maioria dos chamados de suporte do primeiro mês estava ligada à falta de clareza nas configurações iniciais do perfil.</li>
-          <li>A automação de lembretes reduz em até 40% o volume de dúvidas frequentes enviadas ao atendimento.</li>
+    <!-- IMPACTO NO PROJETO -->
+    <section>
+      <div style="background: #141414; padding: 25px; border-radius: 8px; border-left: 4px solid #b8975e; border: 1px solid #222;">
+        <h3 style="color: #fff; margin-bottom: 12px;">Impacto no Projeto</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; color: #ccc; line-height: 1.8;">
+          <li>✓ Identificação precisa de pontos críticos de atrito</li>
+          <li>✓ Alinhamento das entregas de produto com o valor percebido</li>
+          <li>✓ Crescimento expressivo na retenção de consultórios</li>
+          <li>✓ Visão unificada da experiência do usuário</li>
         </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- RASTREABILIDADE / ARTEFATOS RELACIONADOS -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Artefatos Relacionados</h2>
+      <p style="color: #aaa; margin-bottom: 20px;">
+        Este mapa integra-se diretamente aos demais instrumentos do ecossistema Habitat:
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <a href="protocolo_habitat.html" class="btn">Protocolo Operacional</a>
+        <a href="protocolo_gestao_incidentes.html" class="btn">Gestão de Incidentes</a>
+        <a href="Central_Conhecimento.html" class="btn">Central de Conhecimento</a>
+        <a href="fluxo_discovery.html" class="btn">Fluxo de Discovery</a>
+        <a href="fluxo_operacional.html" class="btn">Fluxo Operacional</a>
+        <a href="modelo_onboarding.html" class="btn">Modelo de Onboarding</a>
+        <a href="relatorio_leadtime.html" class="btn">Relatório de Lead Time</a>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- PRÓXIMOS ARTEFATOS (RODAPÉ) -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Próximos Artefatos</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div class="card-proximo">
+          <div>
+            <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">Modelo de Onboarding</h3>
+            <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">Diretrizes para integração eficiente de novos parceiros.</p>
+          </div>
+          <div><a href="modelo_onboarding.html" class="btn" style="font-size: 0.85rem; padding: 8px 14px;">Acessar documento &rarr;</a></div>
+        </div>
+        <div class="card-proximo">
+          <div>
+            <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">Relatório de Lead Time</h3>
+            <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">Análise consolidada de vazão e tempo de entrega.</p>
+          </div>
+          <div><a href="relatorio_leadtime.html" class="btn" style="font-size: 0.85rem; padding: 8px 14px;">Acessar documento &rarr;</a></div>
+        </div>
       </div>
     </section>
 
