@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Case Study 02 · SHV Energy</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Caso 04 · Knowledge Management</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:        #0E1114;
-    --bg2:       #13181D;
-    --bg3:       #1A2028;
+    --bg:        #0B0C0E;
+    --bg2:       #121418;
+    --bg3:       #181B20;
     --gold:      #C9A84C;
     --gold-lt:   #E8C060;
     --teal:      #26505A;
@@ -18,7 +18,7 @@
     --white:     #F0F6FC;
     --gray1:     #8B949E;
     --gray2:     #4A5568;
-    --border:    rgba(201,168,76,0.18);
+    --border:    rgba(201,168,76,0.15);
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,16 +31,6 @@
     font-weight: 300;
     line-height: 1.7;
     overflow-x: hidden;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.4;
   }
 
   .back-btn {
@@ -56,7 +46,7 @@
     font-size: 10px;
     font-weight: 600;
     color: var(--gold);
-    background: rgba(14, 17, 20, 0.85);
+    background: rgba(11, 12, 14, 0.9);
     backdrop-filter: blur(8px);
     border: 0.5px solid var(--border);
     padding: 10px 16px;
@@ -70,7 +60,6 @@
     background: var(--gold);
     color: var(--bg);
     border-color: var(--gold);
-    box-shadow: 0 4px 20px rgba(201, 168, 76, 0.15);
   }
 
   .back-btn svg {
@@ -83,32 +72,30 @@
   }
 
   .container {
-    max-width: 1100px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 120px 24px 80px 24px;
-    position: relative;
-    z-index: 1;
   }
 
   .gold-accent-top {
-    height: 2.5px;
+    height: 2px;
     background: linear-gradient(90deg, var(--gold), var(--gold-lt), var(--gold));
   }
 
-  /* HERO SECTION */
+  /* HERO */
   .hero {
     border-bottom: 0.5px solid var(--border);
-    padding-bottom: 64px;
-    margin-bottom: 64px;
+    padding-bottom: 40px;
+    margin-bottom: 48px;
   }
 
   .hero-eyebrow {
     font-family: 'Orbitron', monospace;
     font-size: 10px;
     color: var(--gold);
-    letter-spacing: 0.25em;
+    letter-spacing: 0.2em;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -123,28 +110,25 @@
   }
 
   .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(42px, 5.5vw, 76px);
-    font-weight: 300;
-    line-height: 1.1;
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(36px, 4.5vw, 56px);
+    font-weight: 700;
+    line-height: 1.15;
     color: var(--white);
-    margin-bottom: 24px;
+    margin-bottom: 16px;
   }
 
   .hero-subtitle {
-    font-size: 18px;
-    color: var(--gold-lt);
-    font-weight: 400;
-    line-height: 1.6;
+    font-size: 15px;
+    color: var(--gray1);
+    line-height: 1.7;
     margin-bottom: 20px;
-    max-width: 800px;
   }
 
   .hero-desc {
-    font-size: 15px;
-    color: var(--gray1);
-    line-height: 1.8;
-    max-width: 850px;
+    font-size: 14px;
+    color: rgba(240, 246, 252, 0.8);
+    line-height: 1.7;
   }
 
   /* META CARDS */
@@ -152,14 +136,17 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 16px;
-    margin-bottom: 80px;
-  }
-
-  .meta-card {
+    margin-bottom: 64px;
     background: var(--bg2);
     border: 0.5px solid var(--border);
-    padding: 20px;
+    padding: 24px;
     border-radius: 4px;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 
   .meta-label {
@@ -167,84 +154,74 @@
     font-size: 9px;
     color: var(--gold);
     letter-spacing: 0.15em;
-    margin-bottom: 8px;
     text-transform: uppercase;
   }
 
   .meta-value {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--white);
     font-weight: 500;
   }
 
   /* SECTIONS */
   .section {
-    margin-bottom: 80px;
+    margin-bottom: 64px;
   }
 
   .section-header {
-    margin-bottom: 40px;
-  }
-
-  .section-num {
-    font-family: 'Orbitron', monospace;
-    font-size: 10px;
-    color: var(--gold);
-    letter-spacing: 0.2em;
-    margin-bottom: 8px;
-    display: block;
+    margin-bottom: 24px;
+    border-bottom: 0.5px solid var(--border);
+    padding-bottom: 12px;
   }
 
   .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 4vw, 48px);
-    font-weight: 300;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
     color: var(--white);
-    line-height: 1.2;
   }
 
   /* PILLARS / CARDS 3 COLUMNS */
   .pillars-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
   }
 
   .pillar-card {
     background: var(--bg2);
     border: 0.5px solid var(--border);
     border-radius: 4px;
-    padding: 32px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
 
   .pillar-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
+    font-size: 18px;
     color: var(--white);
-    margin-bottom: 12px;
-    font-weight: 400;
+    margin-bottom: 8px;
+    font-weight: 600;
   }
 
   .pillar-card p {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--gray1);
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     line-height: 1.6;
   }
 
   .pillar-list {
     list-style: none;
     border-top: 0.5px solid rgba(201,168,76,0.1);
-    padding-top: 16px;
+    padding-top: 12px;
   }
 
   .pillar-list li {
-    font-size: 13px;
+    font-size: 12px;
     color: rgba(240, 246, 252, 0.8);
-    padding: 6px 0;
+    padding: 4px 0;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -254,21 +231,21 @@
     content: '·';
     color: var(--gold);
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
   }
 
-  /* COMPARISON GRID (RED / GOLD) */
+  /* COMPARISON GRID */
   .comparison-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
   }
 
   .comp-card {
     background: var(--bg2);
     border: 0.5px solid var(--border);
     border-radius: 4px;
-    padding: 36px;
+    padding: 28px;
   }
 
   .comp-card.red-border {
@@ -283,9 +260,9 @@
     font-family: 'Orbitron', monospace;
     font-size: 9px;
     letter-spacing: 0.15em;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     display: inline-block;
-    padding: 4px 8px;
+    padding: 3px 6px;
     border-radius: 2px;
   }
 
@@ -300,17 +277,16 @@
   }
 
   .comp-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
+    font-size: 20px;
     color: var(--white);
-    margin-bottom: 16px;
-    font-weight: 400;
+    margin-bottom: 12px;
+    font-weight: 600;
   }
 
   .comp-card p {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--gray1);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     line-height: 1.6;
   }
 
@@ -319,9 +295,9 @@
   }
 
   .comp-list li {
-    font-size: 13px;
+    font-size: 12px;
     color: rgba(240, 246, 252, 0.85);
-    padding: 8px 0;
+    padding: 6px 0;
     border-bottom: 0.5px solid rgba(255,255,255,0.04);
     display: flex;
     align-items: center;
@@ -342,19 +318,19 @@
     content: '✓';
     color: var(--gold);
     font-weight: bold;
-    font-size: 12px;
+    font-size: 11px;
   }
 
   /* TIMELINE */
   .timeline {
     position: relative;
-    padding-left: 24px;
+    padding-left: 20px;
     border-left: 1px solid var(--border);
   }
 
   .timeline-item {
     position: relative;
-    margin-bottom: 48px;
+    margin-bottom: 36px;
   }
 
   .timeline-item:last-child {
@@ -364,10 +340,10 @@
   .timeline-item::before {
     content: '';
     position: absolute;
-    left: -29.5px;
-    top: 6px;
-    width: 10px;
-    height: 10px;
+    left: -25.5px;
+    top: 4px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     background: var(--bg);
     border: 2px solid var(--gold);
@@ -378,27 +354,26 @@
     font-size: 9px;
     color: var(--gold);
     letter-spacing: 0.15em;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   .timeline-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
+    font-size: 18px;
     color: var(--white);
-    margin-bottom: 10px;
-    font-weight: 400;
+    margin-bottom: 8px;
+    font-weight: 600;
   }
 
   .timeline-desc {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--gray1);
-    line-height: 1.7;
-    margin-bottom: 12px;
+    line-height: 1.6;
+    margin-bottom: 10px;
   }
 
   .timeline-tags {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     flex-wrap: wrap;
   }
 
@@ -407,7 +382,7 @@
     font-size: 8px;
     color: var(--teal-br);
     background: rgba(38, 80, 90, 0.2);
-    padding: 3px 8px;
+    padding: 2px 6px;
     border-radius: 2px;
     letter-spacing: 0.05em;
     border: 0.5px solid rgba(58, 122, 138, 0.3);
@@ -416,40 +391,38 @@
   /* RESULTS METRICS */
   .results-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
   }
 
   .result-card {
     background: var(--bg2);
     border: 0.5px solid var(--border);
     border-radius: 4px;
-    padding: 32px;
-    text-align: left;
+    padding: 24px;
   }
 
   .result-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 56px;
+    font-size: 40px;
     color: var(--gold);
     line-height: 1;
-    margin-bottom: 12px;
-    font-weight: 300;
+    margin-bottom: 8px;
+    font-weight: 700;
   }
 
   .result-title {
     font-family: 'Orbitron', monospace;
-    font-size: 11px;
+    font-size: 10px;
     color: var(--white);
     letter-spacing: 0.1em;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     text-transform: uppercase;
   }
 
   .result-desc {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--gray1);
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
   /* IMPACT SECTION */
@@ -457,19 +430,17 @@
     background: var(--bg2);
     border: 0.5px solid var(--border);
     border-radius: 4px;
-    padding: 40px;
-    margin-bottom: 40px;
+    padding: 32px;
   }
 
   .impact-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(20px, 2.5vw, 28px);
+    font-size: 16px;
     font-style: italic;
     color: var(--white);
-    line-height: 1.5;
-    margin-bottom: 24px;
+    line-height: 1.6;
+    margin-bottom: 20px;
     border-left: 2px solid var(--gold);
-    padding-left: 20px;
+    padding-left: 16px;
   }
 
   .impact-title {
@@ -477,20 +448,20 @@
     font-size: 10px;
     color: var(--gold);
     letter-spacing: 0.15em;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     text-transform: uppercase;
   }
 
   .indicators-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
   }
 
   .indicator-card {
     background: var(--bg3);
     border: 0.5px solid rgba(201,168,76,0.1);
-    padding: 20px;
+    padding: 16px;
     border-radius: 4px;
   }
 
@@ -503,54 +474,54 @@
     border-radius: 2px;
     letter-spacing: 0.05em;
     display: inline-block;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .indicator-text {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--white);
-    font-weight: 400;
+    font-weight: 500;
   }
 
   /* LEARNINGS */
   .learnings-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
   }
 
   .learning-card {
     background: var(--bg2);
     border: 0.5px solid var(--border);
     border-radius: 4px;
-    padding: 24px;
+    padding: 20px;
   }
 
   .learning-num {
     font-family: 'Orbitron', monospace;
-    font-size: 12px;
+    font-size: 11px;
     color: var(--gold);
     letter-spacing: 0.1em;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     display: block;
   }
 
   .learning-text {
-    font-size: 13px;
+    font-size: 12px;
     color: rgba(240, 246, 252, 0.85);
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
   /* FOOTER */
   footer {
     background: var(--bg);
     border-top: 0.5px solid var(--border);
-    padding: 40px 24px;
+    padding: 32px 24px;
     text-align: center;
   }
 
   .footer-links {
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     display: flex;
     justify-content: center;
     gap: 24px;
@@ -576,10 +547,6 @@
     letter-spacing: 0.04em;
     display: block;
   }
-
-  @media(max-width: 768px) {
-    .container { padding: 90px 16px 60px 16px; }
-  }
 </style>
 </head>
 <body>
@@ -598,73 +565,72 @@
 
   <!-- HERO -->
   <header class="hero">
-    <div class="hero-eyebrow">CASE STUDY 02 · SHV ENERGY</div>
-    <h1 class="hero-title">Integração Operacional em Escala Nacional</h1>
-    <p class="hero-subtitle">Como processos, dados e validações reduziram o tempo de resposta em uma operação crítica.</p>
-    <p class="hero-desc">Em uma operação nacional de distribuição de GLP, pequenos atrasos entre atendimento, logística e áreas comerciais impactavam diretamente a experiência do cliente. Minha atuação consistiu em organizar fluxos operacionais, estruturar jornadas de onboarding, identificar padrões recorrentes e apoiar a evolução contínua da operação através da análise de dados e validações funcionais antes da implantação de novas funcionalidades.</p>
+    <div class="hero-eyebrow">CASO 04 · KNOWLEDGE MANAGEMENT</div>
+    <h1 class="hero-title">Autoatendimento e Redução de Suporte</h1>
+    <p class="hero-subtitle">Implementação de base de conhecimento auto-atendível integrada a ferramentas de CRM, mitigando drasticamente gargalos de solicitações repetitivas.</p>
+    <p class="hero-desc">Em operações marcadas pelo alto volume de chamados recorrentes, a ausência de um repositório centralizado de conhecimento sobrecarrega as equipes de atendimento. O projeto consistiu em estruturar e implementar uma base de conhecimento integrada aos canais de CRM, capacitando os usuários a resolverem dúvidas comuns de forma autônoma e otimizando o tempo dos analistas para demandas de maior complexidade.</p>
   </header>
 
   <!-- META CARDS -->
   <div class="meta-grid">
-    <div class="meta-card">
+    <div class="meta-item">
       <div class="meta-label">Contexto</div>
-      <div class="meta-value">SHV Energy • Distribuição Nacional de GLP</div>
+      <div class="meta-value">Knowledge Management • Autoatendimento e CRM</div>
     </div>
-    <div class="meta-card">
+    <div class="meta-item">
       <div class="meta-label">Papel</div>
-      <div class="meta-value">Operação • Onboarding • Processos • OAT/UAT</div>
+      <div class="meta-value">Product Operations • Processos • Base de Conhecimento</div>
     </div>
-    <div class="meta-card">
+    <div class="meta-item">
       <div class="meta-label">Período</div>
-      <div class="meta-value">2018 • 2023</div>
+      <div class="meta-value">2024 • 2025</div>
     </div>
-    <div class="meta-card">
+    <div class="meta-item">
       <div class="meta-label">Resultado</div>
-      <div class="meta-value">40% menos tempo de resposta • 20% mais produtividade</div>
+      <div class="meta-value">27% menos chamados de suporte • Maior autonomia operacional</div>
     </div>
   </div>
 
   <!-- SEÇÃO 01 -->
   <section class="section">
     <div class="section-header">
-      <span class="section-num">01</span>
       <h2 class="section-title">O contexto operacional</h2>
     </div>
     <div class="pillars-grid">
       <div class="pillar-card">
         <div>
-          <h3>Atendimento</h3>
-          <p>Responsável pela abertura das solicitações, relacionamento com clientes e acompanhamento das demandas.</p>
+          <h3>Demanda Recorrente</h3>
+          <p>Alto volume de chamados repetitivos sobre dúvidas operacionais básicas e processos internos.</p>
         </div>
         <ul class="pillar-list">
-          <li>Atendimento nacional</li>
-          <li>Registro das demandas</li>
-          <li>Comunicação com clientes</li>
-          <li>Acompanhamento operacional</li>
+          <li>Dúvidas frequentes</li>
+          <li>Processos manuais</li>
+          <li>Sobrecarga da equipe</li>
+          <li>Tempo de resposta elevado</li>
         </ul>
       </div>
       <div class="pillar-card">
         <div>
-          <h3>Operação</h3>
-          <p>Coordenação das atividades entre atendimento, logística e processos internos.</p>
+          <h3>Base de Conhecimento</h3>
+          <p>Estruturação de artigos, guias e fluxos de autoatendimento integrados diretamente ao CRM.</p>
         </div>
         <ul class="pillar-list">
-          <li>Fluxos operacionais</li>
-          <li>Padronização</li>
-          <li>Priorização</li>
-          <li>Comunicação entre áreas</li>
+          <li>Centralização de tutoriais</li>
+          <li>Guias passo a passo</li>
+          <li>Integração com CRM</li>
+          <li>Busca inteligente</li>
         </ul>
       </div>
       <div class="pillar-card">
         <div>
-          <h3>Logística</h3>
-          <p>Execução operacional responsável pelo atendimento final das demandas.</p>
+          <h3>Autonomia</h3>
+          <p>Capacitação dos usuários finais para resolução independente de incidentes corriqueiros.</p>
         </div>
         <ul class="pillar-list">
-          <li>Distribuição</li>
-          <li>Agendamento</li>
-          <li>Execução</li>
-          <li>Entrega</li>
+          <li>Resolução imediata</li>
+          <li>Redução de fricção</li>
+          <li>Foco em melhoria</li>
+          <li>Satisfação ampliada</li>
         </ul>
       </div>
     </div>
@@ -673,31 +639,29 @@
   <!-- SEÇÃO 02 -->
   <section class="section">
     <div class="section-header">
-      <span class="section-num">02</span>
-      <h2 class="section-title">Quando processos diferentes começam a produzir o mesmo problema.</h2>
+      <h2 class="section-title">Quando a falta de padronização gera volume desnecessário.</h2>
     </div>
     <div class="comparison-grid">
       <div class="comp-card red-border">
         <span class="comp-badge">Antes</span>
-        <h3>Gargalos de comunicação</h3>
-        <p>A operação enfrentava desafios estruturais decorrentes da falta de alinhamento e visibilidade entre as áreas.</p>
+        <h3>Gargalos e Sobrecarga</h3>
+        <p>A operação lidava com ineficiências decorrentes da ausência de um canal estruturado de autoatendimento.</p>
         <ul class="comp-list">
-          <li>tempo elevado de resposta</li>
-          <li>comunicação fragmentada</li>
-          <li>onboarding pouco estruturado</li>
-          <li>indicadores pouco explorados</li>
+          <li>chamados repetitivos constantes</li>
+          <li>falta de repositório central</li>
+          <li>tempo perdido em orientações básicas</li>
+          <li>baixo aproveitamento de ferramentas de CRM</li>
         </ul>
       </div>
       <div class="comp-card gold-border">
         <span class="comp-badge">Oportunidade</span>
-        <h3>Transformação operacional</h3>
-        <p>Mostrar que havia possibilidade de transformar a operação através da organização dos processos.</p>
+        <h3>Transformação e Eficiência</h3>
+        <p>Implementar uma cultura de gestão do conhecimento integrada ao fluxo diário de atendimento.</p>
         <ul class="comp-list">
-          <li>padronizar fluxos</li>
-          <li>integrar áreas</li>
-          <li>estruturar onboarding</li>
-          <li>usar indicadores</li>
-          <li>apoiar evolução dos sistemas</li>
+          <li>centralizar documentação</li>
+          <li>integrar artigos ao CRM</li>
+          <li>promover o autoatendimento</li>
+          <li>otimizar o tempo das equipes</li>
         </ul>
       </div>
     </div>
@@ -706,59 +670,55 @@
   <!-- TIMELINE -->
   <section class="section">
     <div class="section-header">
-      <span class="section-num">03</span>
       <h2 class="section-title">Evolução e Jornada Metodológica</h2>
     </div>
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-step">ETAPA 01</div>
-        <h3 class="timeline-title">Mapeamento dos Fluxos Operacionais</h3>
-        <p class="timeline-desc">Compreensão completa da jornada entre atendimento, operação e logística para identificar pontos de espera, retrabalho e perda de informação.</p>
+        <h3 class="timeline-title">Mapeamento de Chamados Recorrentes</h3>
+        <p class="timeline-desc">Análise do histórico de atendimento para identificar as dúvidas mais frequentes e os principais focos de sobrecarga operacional.</p>
         <div class="timeline-tags">
-          <span class="tag">Operações</span>
+          <span class="tag">Analytics</span>
+          <span class="tag">Diagnóstico</span>
           <span class="tag">Processos</span>
-          <span class="tag">Fluxo</span>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-step">ETAPA 02</div>
-        <h3 class="timeline-title">Padronização Operacional</h3>
-        <p class="timeline-desc">Reorganização dos processos e melhoria da comunicação entre áreas para reduzir o tempo de resposta e aumentar a previsibilidade operacional.</p>
+        <h3 class="timeline-title">Estruturação da Base de Conhecimento</h3>
+        <p class="timeline-desc">Criação de artigos técnicos, guias e documentações claras direcionadas tanto aos operadores quanto aos usuários finais.</p>
         <div class="timeline-tags">
-          <span class="tag">Melhoria Contínua</span>
-          <span class="tag">Processos</span>
-          <span class="tag">Eficiência</span>
+          <span class="tag">Knowledge Management</span>
+          <span class="tag">Documentação</span>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-step">ETAPA 03</div>
-        <h3 class="timeline-title">Onboarding de Clientes</h3>
-        <p class="timeline-desc">Estruturação da jornada inicial de novos clientes, conectando atendimento, operação e logística em um fluxo rastreável.</p>
+        <h3 class="timeline-title">Integração com Ferramentas de CRM</h3>
+        <p class="timeline-desc">Conexão direta entre os artigos de autoatendimento e os chamados no CRM, facilitando o acesso rápido às soluções durante o atendimento.</p>
         <div class="timeline-tags">
-          <span class="tag">Customer Journey</span>
-          <span class="tag">Onboarding</span>
-          <span class="tag">Experiência</span>
+          <span class="tag">CRM</span>
+          <span class="tag">Integração</span>
+          <span class="tag">Self-Service</span>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-step">ETAPA 04</div>
-        <h3 class="timeline-title">Análise de Indicadores</h3>
-        <p class="timeline-desc">Monitoramento dos padrões recorrentes de atendimento para identificar oportunidades de melhoria operacional.</p>
+        <h3 class="timeline-title">Divulgação e Adoção</h3>
+        <p class="timeline-desc">Treinamento das equipes e incentivo ao uso do portal de autoatendimento para consolidar a nova cultura de resolução autônoma.</p>
         <div class="timeline-tags">
-          <span class="tag">Analytics</span>
-          <span class="tag">Indicadores</span>
-          <span class="tag">Discovery Operacional</span>
+          <span class="tag">Adoção</span>
+          <span class="tag">Treinamento</span>
+          <span class="tag">Cultura</span>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-step">ETAPA 05</div>
-        <h3 class="timeline-title">Validação de Novas Funcionalidades</h3>
-        <p class="timeline-desc">Participação em testes OAT e UAT antes da implantação de novas funcionalidades, validando regras de negócio com base na experiência operacional.</p>
+        <h3 class="timeline-title">Monitoramento de Impacto e Melhoria Contínua</h3>
+        <p class="timeline-desc">Acompanhamento contínuo dos indicadores de redução de chamados e atualização periódica dos artigos conforme novas demandas surgiam.</p>
         <div class="timeline-tags">
-          <span class="tag">OAT</span>
-          <span class="tag">UAT</span>
-          <span class="tag">Produto</span>
-          <span class="tag">Qualidade</span>
+          <span class="tag">Métricas</span>
+          <span class="tag">Melhoria Contínua</span>
         </div>
       </div>
     </div>
@@ -767,24 +727,23 @@
   <!-- RESULTADOS -->
   <section class="section">
     <div class="section-header">
-      <span class="section-num">04</span>
       <h2 class="section-title">Resultados Alcançados</h2>
     </div>
     <div class="results-grid">
       <div class="result-card">
-        <div class="result-number">40%</div>
-        <div class="result-title">Redução no Tempo de Resposta</div>
-        <div class="result-desc">Reorganização dos fluxos entre atendimento, operação e logística.</div>
-      </div>
-      <div class="result-card">
-        <div class="result-number">20%</div>
-        <div class="result-title">Aumento da Produtividade</div>
-        <div class="result-desc">Padronização operacional e melhoria contínua das rotinas.</div>
+        <div class="result-number">27%</div>
+        <div class="result-title">Redução de Chamados de Suporte</div>
+        <div class="result-desc">Diminuição drástica de solicitações repetitivas através do autoatendimento.</div>
       </div>
       <div class="result-card">
         <div class="result-number">100%</div>
-        <div class="result-title">Fluxo de Onboarding Estruturado</div>
-        <div class="result-desc">Integração entre atendimento, operação e logística durante a entrada de novos clientes.</div>
+        <div class="result-title">Base Integrada ao CRM</div>
+        <div class="result-desc">Acesso rápido a soluções padronizadas diretamente nos fluxos de atendimento.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-number">Alto</div>
+        <div class="result-title">Índice de Autonomia</div>
+        <div class="result-desc">Capacitação eficiente dos usuários para resolução de dúvidas comuns.</div>
       </div>
     </div>
   </section>
@@ -792,28 +751,27 @@
   <!-- IMPACTO -->
   <section class="section">
     <div class="section-header">
-      <span class="section-num">05</span>
       <h2 class="section-title">Impacto Estratégico</h2>
     </div>
     <div class="impact-box">
-      <blockquote class="impact-quote">"A operação deixou de ser apenas execução e passou a gerar informações capazes de orientar melhorias contínuas para toda a organização."</blockquote>
+      <blockquote class="impact-quote">"Organizar e disponibilizar o conhecimento reduziu a fricção operacional e permitiu que a equipe focasse em resoluções estratégicas."</blockquote>
       <div class="impact-title">Indicadores de Governança</div>
       <div class="indicators-grid">
         <div class="indicator-card">
-          <span class="indicator-badge">PROCESSOS</span>
-          <div class="indicator-text">Integração entre áreas</div>
+          <span class="indicator-badge">KNOWLEDGE</span>
+          <div class="indicator-text">Centralização de conteúdo</div>
         </div>
         <div class="indicator-card">
-          <span class="indicator-badge">CUSTOMER EXPERIENCE</span>
-          <div class="indicator-text">Onboarding estruturado</div>
+          <span class="indicator-badge">CRM / SELF-SERVICE</span>
+          <div class="indicator-text">Autoatendimento integrado</div>
         </div>
         <div class="indicator-card">
-          <span class="indicator-badge">DISCOVERY</span>
-          <div class="indicator-text">Análise de indicadores</div>
+          <span class="indicator-badge">EFICIÊNCIA</span>
+          <div class="indicator-text">Redução de retrabalho</div>
         </div>
         <div class="indicator-card">
-          <span class="indicator-badge">PRODUTO</span>
-          <div class="indicator-text">Participação em OAT e UAT</div>
+          <span class="indicator-badge">OPERAÇÃO</span>
+          <div class="indicator-text">Foco em alta complexidade</div>
         </div>
       </div>
     </div>
@@ -822,25 +780,24 @@
   <!-- APRENDIZADOS -->
   <section class="section">
     <div class="section-header">
-      <span class="section-num">06</span>
       <h2 class="section-title">Aprendizados Principais</h2>
     </div>
     <div class="learnings-grid">
       <div class="learning-card">
         <span class="learning-num">01</span>
-        <div class="learning-text">Processos bem definidos reduzem mais problemas do que esforço adicional.</div>
+        <div class="learning-text">Informação acessível e estruturada transforma a dinâmica de atendimento em qualquer organização.</div>
       </div>
       <div class="learning-card">
         <span class="learning-num">02</span>
-        <div class="learning-text">Indicadores operacionais revelam oportunidades que dificilmente aparecem apenas observando o dia a dia.</div>
+        <div class="learning-text">Integrar o conhecimento diretamente no CRM reduz drasticamente o tempo de busca por soluções.</div>
       </div>
       <div class="learning-card">
         <span class="learning-num">03</span>
-        <div class="learning-text">Onboarding eficiente melhora toda a experiência do cliente e reduz demandas futuras.</div>
+        <div class="learning-text">O autoatendimento bem-sucedido depende de manter os artigos claros, objetivos e atualizados.</div>
       </div>
       <div class="learning-card">
         <span class="learning-num">04</span>
-        <div class="learning-text">Participar das validações antes da implantação aproxima operação e produto, reduz riscos e melhora a qualidade das entregas.</div>
+        <div class="learning-text">Mitigar chamados repetitivos libera a equipe para atuar em melhorias de processos de maior valor.</div>
       </div>
     </div>
   </section>
@@ -850,7 +807,7 @@
 <footer>
   <div class="footer-links">
     <a href="javascript:history.back()">Voltar ao Portfólio</a>
-    <a href="#case-shv">Case Study 02</a>
+    <a href="#case-04">Caso 04</a>
   </div>
   <span class="footer-copy">© 2026 Cleyton Hespanhol. Todos os direitos reservados.</span>
 </footer>
