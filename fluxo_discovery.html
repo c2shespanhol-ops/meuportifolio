@@ -1,47 +1,77 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artefato Técnico | Discovery Operacional - Habitat</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
-    <style>
-        :root { --bg: #0D0F10; --bg2: #131618; --bg3: #1A1D20; --gold: #C5A25D; --gold-lt: #DEC082; --text: #FFFFFF; --text-muted: #A0A5A8; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; padding: 40px 20px; line-height: 1.6; }
-        .container { max-width: 900px; margin: 0 auto; background: var(--bg2); border: 1px solid var(--bg3); padding: 40px; border-radius: 6px; }
-        .header { border-bottom: 1px solid var(--bg3); padding-bottom: 20px; margin-bottom: 30px; }
-        .badge { font-family: 'Orbitron', sans-serif; font-size: 0.75rem; color: var(--gold); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
-        h1 { font-size: 1.8rem; color: var(--text); margin-bottom: 10px; }
-        p.desc { color: var(--text-muted); font-size: 0.95rem; }
-        .disc-step { background: var(--bg3); border-left: 3px solid var(--gold); padding: 20px; margin-bottom: 15px; border-radius: 0 4px 4px 0; }
-        .disc-title { font-family: 'Orbitron', sans-serif; font-size: 0.95rem; color: var(--gold-lt); margin-bottom: 5px; }
-        .btn-back { display: inline-block; margin-top: 20px; color: var(--gold); text-decoration: none; font-family: 'Orbitron', sans-serif; font-size: 0.85rem; border: 1px solid var(--gold); padding: 10px 20px; border-radius: 3px; cursor: pointer; background: transparent; transition: all 0.3s ease; }
-        .btn-back:hover { background: var(--gold); color: var(--bg); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fluxo de Discovery Operacional</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="badge">Artefato Técnico &bull; Caso 03 (Habitat)</div>
-            <h1>Fluxo de Discovery Operacional</h1>
-            <p class="desc">Processo contínuo de investigação das dores operacionais e pontos de travamento na jornada do Habitat.</p>
-        </div>
 
-        <div class="disc-step">
-            <div class="disc-title">1. Mapeamento de Sinais Operacionais</div>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Levantamento contínuo das falhas de fluxo relatadas na rotina de suporte e triagem.</p>
-        </div>
-        <div class="disc-step">
-            <div class="disc-title">2. Análise de Causa Raiz e Severidade</div>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Avaliação do impacto operacional para priorização das pendências críticas na fila do produto.</p>
-        </div>
-        <div class="disc-step">
-            <div class="disc-title">3. Conversão em Backlog Refinado</div>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Transformação de dores operacionais em requisitos e critérios claros de aceite para desenvolvimento.</p>
-        </div>
+  <header style="padding: 20px 40px;">
+    <a href="case_study_03_habitat_final.html" class="btn">&larr; Voltar para o Case Study</a>
+  </header>
 
-        <button onclick="history.back()" class="btn-back">&larr; Voltar ao Estudo de Caso</button>
-    </div>
+  <main class="container" style="padding: 40px 20px; max-width: 1000px; margin: 0 auto;">
+    
+    <section class="hero-case">
+      <span style="color: #b8975e; font-weight: bold;">Documento Operacional</span>
+      <h1 style="font-size: 2.5rem; margin-top: 10px;">Fluxo de Discovery Operacional</h1>
+      <p style="font-size: 1.1rem; line-height: 1.6; color: #ccc; margin-top: 15px;">
+        Estrutura contínua de identificação de dores, análise de evidências operacionais e validação de melhorias de produto.
+      </p>
+    </section>
+
+    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+
+    <!-- ETAPAS DO DISCOVERY -->
+    <section id="etapas-discovery" style="margin-bottom: 30px;">
+      <h2>Etapas do Discovery</h2>
+      <div style="background: #111; padding: 25px; border-radius: 8px; border: 1px solid #333; margin-top: 20px; text-align: center; font-family: monospace; font-size: 1rem; color: #b8975e;">
+        Problema Observado &rarr; Evidências &rarr; Hipóteses &rarr; Priorização &rarr; Experimentos &rarr; Resultados
+      </div>
+    </section>
+
+    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+
+    <!-- MATRIZ DE DORES E PRIORIZAÇÃO -->
+    <section id="priorizacao">
+      <h2>Matriz de Oportunidades Mapeadas</h2>
+      <div style="overflow-x: auto; margin-top: 20px;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; background: #111; border: 1px solid #333;">
+          <thead>
+            <tr style="border-bottom: 2px solid #b8975e; background: #181818;">
+              <th style="padding: 12px; color: #fff;">Dor Observada</th>
+              <th style="padding: 12px; color: #fff;">Impacto na Operação</th>
+              <th style="padding: 12px; color: #fff;">Prioridade</th>
+              <th style="padding: 12px; color: #fff;">Status</th>
+            </tr>
+          </thead>
+          <tbody style="color: #ccc;">
+            <tr style="border-bottom: 1px solid #222;">
+              <td style="padding: 12px; font-weight: bold; color: #fff;">Usuários esquecem senha com frequência</td>
+              <td style="padding: 12px; color: #ff5555;">Alta</td>
+              <td style="padding: 12px; color: #ff5555;">Alta</td>
+              <td style="padding: 12px;"><span style="background: #1b5e20; color: #50fa7b; padding: 4px 10px; border-radius: 12px; font-size: 0.85rem;">Resolvido</span></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #222;">
+              <td style="padding: 12px; font-weight: bold; color: #fff;">Navegação da Agenda confusa</td>
+              <td style="padding: 12px; color: #ffb86c;">Média</td>
+              <td style="padding: 12px; color: #ff5555;">Alta</td>
+              <td style="padding: 12px;"><span style="background: #4a3b00; color: #f1fa8c; padding: 4px 10px; border-radius: 12px; font-size: 0.85rem;">Em validação</span></td>
+            </tr>
+            <tr>
+              <td style="padding: 12px; font-weight: bold; color: #fff;">Processo de Cadastro lento e burocrático</td>
+              <td style="padding: 12px; color: #ff5555;">Alta</td>
+              <td style="padding: 12px; color: #ffb86c;">Média</td>
+              <td style="padding: 12px;"><span style="background: #1b5e20; color: #50fa7b; padding: 4px 10px; border-radius: 12px; font-size: 0.85rem;">Implementado</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
 </body>
 </html>
