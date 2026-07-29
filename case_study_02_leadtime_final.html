@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Case Study 02 — Redução de 71% no Lead Time · Cleyton Hespanhol</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Caso 02 · SHV Energy</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:        #0E1114;
-    --bg2:       #13181D;
-    --bg3:       #1A2028;
+    --bg:        #0B0C0E;
+    --bg2:       #121418;
+    --bg3:       #181B20;
     --gold:      #C9A84C;
     --gold-lt:   #E8C060;
     --teal:      #26505A;
@@ -18,7 +18,7 @@
     --white:     #F0F6FC;
     --gray1:     #8B949E;
     --gray2:     #4A5568;
-    --border:    rgba(201,168,76,0.18);
+    --border:    rgba(201,168,76,0.15);
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,16 +31,6 @@
     font-weight: 300;
     line-height: 1.7;
     overflow-x: hidden;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.4;
   }
 
   .back-btn {
@@ -56,7 +46,7 @@
     font-size: 10px;
     font-weight: 600;
     color: var(--gold);
-    background: rgba(14, 17, 20, 0.85);
+    background: rgba(11, 12, 14, 0.9);
     backdrop-filter: blur(8px);
     border: 0.5px solid var(--border);
     padding: 10px 16px;
@@ -70,7 +60,6 @@
     background: var(--gold);
     color: var(--bg);
     border-color: var(--gold);
-    box-shadow: 0 4px 20px rgba(201, 168, 76, 0.15);
   }
 
   .back-btn svg {
@@ -82,595 +71,536 @@
     transform: translateX(-3px);
   }
 
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 120px 24px 80px 24px;
+  }
+
+  .gold-accent-top {
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-lt), var(--gold));
+  }
+
+  /* HERO */
   .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    position: relative;
-    overflow: hidden;
+    border-bottom: 0.5px solid var(--border);
+    padding-bottom: 40px;
+    margin-bottom: 48px;
   }
 
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 70% 60% at 80% 20%, rgba(201,168,76,0.08) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 40% at 10% 80%, rgba(58,122,138,0.06) 0%, transparent 50%),
-      linear-gradient(160deg, #0E1114 0%, #111820 60%, #0A0E12 100%);
-  }
-
-  .orb {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%);
-    top: -100px;
-    right: -100px;
-    animation: orbFloat 8s ease-in-out infinite;
-  }
-
-  @keyframes orbFloat {
-    0%, 100% { transform: translate(0,0) scale(1); }
-    50% { transform: translate(-30px, 40px) scale(1.05); }
-  }
-
-  .nav {
-    position: relative;
-    z-index: 10;
+  .hero-eyebrow {
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    margin-bottom: 16px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 28px 64px 28px 140px;
-    border-bottom: 0.5px solid var(--border);
+    gap: 8px;
   }
 
-  .nav-brand { display: flex; align-items: center; gap: 14px; }
-
-  .h-mark {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    border: 1.5px solid var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Orbitron', monospace;
-    font-size: 14px; font-weight: 700;
-    color: var(--gold);
-    position: relative;
-  }
-
-  .h-mark::after {
+  .hero-eyebrow::before {
     content: '';
-    position: absolute;
-    inset: 5px;
-    border-radius: 50%;
-    border: 0.5px solid rgba(201,168,76,0.2);
-  }
-
-  .nav-name {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px; font-weight: 500;
-    color: var(--white);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .nav-role {
-    font-family: 'Orbitron', monospace;
-    font-size: 7px; color: var(--gold);
-    letter-spacing: 0.15em;
-    display: block; margin-top: 2px;
-    white-space: nowrap;
-  }
-
-  .nav-tag {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gray1);
-    letter-spacing: 0.12em;
-    padding: 6px 14px;
-    border: 0.5px solid var(--border);
-    border-radius: 2px;
-  }
-
-  .hero-content {
-    position: relative; z-index: 10;
-    display: flex; flex-direction: column;
-    justify-content: center;
-    padding: 80px 64px;
-    max-width: 900px;
-  }
-
-  .case-label {
-    display: inline-flex; align-items: center;
-    gap: 8px; margin-bottom: 32px;
-    animation: fadeUp 0.8s ease forwards;
-  }
-
-  .case-label-dot {
-    width: 6px; height: 6px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: var(--gold);
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-  }
-
-  .case-label-text {
-    font-family: 'Orbitron', monospace;
-    font-size: 9px; color: var(--gold);
-    letter-spacing: 0.2em; font-weight: 600;
   }
 
   .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(52px, 7vw, 88px);
-    font-weight: 300; line-height: 1.05;
-    color: var(--white); margin-bottom: 8px;
-    animation: fadeUp 0.9s ease forwards;
-    animation-delay: 0.1s; opacity: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(36px, 4.5vw, 56px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 16px;
   }
 
-  .hero-title em { font-style: italic; color: var(--gold); }
-
   .hero-subtitle {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 300; color: var(--gray1);
-    margin-bottom: 40px;
-    animation: fadeUp 1s ease forwards;
-    animation-delay: 0.2s; opacity: 0;
+    font-size: 15px;
+    color: var(--gray1);
+    line-height: 1.7;
+    margin-bottom: 20px;
   }
 
   .hero-desc {
-    font-size: 15px;
-    color: rgba(240,246,252,0.7);
-    max-width: 560px; line-height: 1.8;
-    margin-bottom: 48px;
-    animation: fadeUp 1s ease forwards;
-    animation-delay: 0.3s; opacity: 0;
+    font-size: 14px;
+    color: rgba(240, 246, 252, 0.8);
+    line-height: 1.7;
   }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .meta-row {
-    display: flex; gap: 12px; flex-wrap: wrap;
-    animation: fadeUp 1s ease forwards;
-    animation-delay: 0.4s; opacity: 0;
-  }
-
-  .meta-pill {
-    padding: 8px 18px;
+  /* META CARDS */
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 64px;
+    background: var(--bg2);
     border: 0.5px solid var(--border);
-    border-radius: 2px;
-    font-size: 11px; color: var(--gray1);
-    background: rgba(201,168,76,0.04);
-    letter-spacing: 0.04em;
+    padding: 24px;
+    border-radius: 4px;
   }
 
-  .meta-pill strong { color: var(--gold); font-weight: 500; }
-
-  .hero-footer {
-    position: relative; z-index: 10;
-    padding: 24px 64px;
-    border-top: 0.5px solid var(--border);
-    display: flex; align-items: center; gap: 40px;
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 
-  .scroll-hint {
-    display: flex; align-items: center; gap: 10px;
+  .meta-label {
     font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gray2);
-    letter-spacing: 0.15em;
-    animation: fadeUp 1s ease forwards;
-    animation-delay: 0.6s; opacity: 0;
-  }
-
-  .scroll-line {
-    width: 40px; height: 0.5px;
-    background: linear-gradient(90deg, var(--gold), transparent);
-  }
-
-  .metric-hero {
-    position: absolute;
-    right: 64px; top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
-    z-index: 10;
-    animation: fadeUp 1s ease forwards;
-    animation-delay: 0.5s; opacity: 0;
-  }
-
-  .metric-hero-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 140px; font-weight: 300;
-    line-height: 1;
-    color: rgba(201,168,76,0.15);
-    display: block;
-    position: relative;
-  }
-
-  .metric-hero-number::after {
-    content: '71%';
-    position: absolute;
-    inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 100px;
+    font-size: 9px;
     color: var(--gold);
-    opacity: 0.9;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
   }
 
-  .metric-hero-label {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gray1);
-    letter-spacing: 0.2em;
-    margin-top: 8px;
+  .meta-value {
+    font-size: 13px;
+    color: var(--white);
+    font-weight: 500;
   }
 
-  main { position: relative; z-index: 1; }
-
+  /* SECTIONS */
   .section {
-    padding: 100px 64px;
-    border-bottom: 0.5px solid rgba(201,168,76,0.08);
-    position: relative;
+    margin-bottom: 64px;
   }
 
-  .section-inner { max-width: 1100px; margin: 0 auto; }
-
-  .section-label {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gold);
-    letter-spacing: 0.25em;
-    margin-bottom: 16px;
-    display: flex; align-items: center; gap: 12px;
-  }
-
-  .section-label::after {
-    content: '';
-    flex: 1; height: 0.5px;
-    background: var(--border);
-    max-width: 60px;
+  .section-header {
+    margin-bottom: 24px;
+    border-bottom: 0.5px solid var(--border);
+    padding-bottom: 12px;
   }
 
   .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 300; line-height: 1.15;
-    color: var(--white); margin-bottom: 48px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--white);
   }
 
-  .section-title em { font-style: italic; color: var(--gold); }
-
-  .problem-grid {
+  /* PILLARS / CARDS 3 COLUMNS */
+  .pillars-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
   }
 
-  .problem-card {
+  .pillar-card {
     background: var(--bg2);
-    padding: 48px 40px;
-    position: relative; overflow: hidden;
-    transition: background 0.3s ease;
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
-  .problem-card:hover { background: var(--bg3); }
-
-  .problem-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
+  .pillar-card h3 {
+    font-size: 18px;
+    color: var(--white);
+    margin-bottom: 8px;
+    font-weight: 600;
   }
 
-  .problem-card.friction::before { background: var(--coral); }
-  .problem-card.solution::before { background: var(--gold); }
-
-  .card-eyebrow {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; letter-spacing: 0.2em;
-    margin-bottom: 20px;
-    display: flex; align-items: center; gap: 8px;
-  }
-
-  .card-eyebrow.friction { color: var(--coral); }
-  .card-eyebrow.solution { color: var(--gold); }
-
-  .card-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px; font-weight: 400;
-    color: var(--white); margin-bottom: 16px;
-    line-height: 1.2;
-  }
-
-  .card-body { font-size: 14px; color: var(--gray1); line-height: 1.8; }
-
-  .card-list { list-style: none; margin-top: 20px; }
-
-  .card-list li {
+  .pillar-card p {
     font-size: 13px;
-    color: rgba(240,246,252,0.7);
-    padding: 8px 0;
-    border-bottom: 0.5px solid rgba(201,168,76,0.08);
-    display: flex; align-items: flex-start;
-    gap: 10px; line-height: 1.5;
+    color: var(--gray1);
+    margin-bottom: 16px;
+    line-height: 1.6;
   }
 
-  .card-list li::before {
+  .pillar-list {
+    list-style: none;
+    border-top: 0.5px solid rgba(201,168,76,0.1);
+    padding-top: 12px;
+  }
+
+  .pillar-list li {
+    font-size: 12px;
+    color: rgba(240, 246, 252, 0.8);
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .pillar-list li::before {
     content: '·';
     color: var(--gold);
-    flex-shrink: 0; margin-top: 1px;
+    font-weight: bold;
+    font-size: 14px;
   }
 
-  .process-bg { background: var(--bg2); }
+  /* COMPARISON GRID */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
 
-  .process-timeline {
+  .comp-card {
+    background: var(--bg2);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: 28px;
+  }
+
+  .comp-card.red-border {
+    border-top: 2px solid var(--coral);
+  }
+
+  .comp-card.gold-border {
+    border-top: 2px solid var(--gold);
+  }
+
+  .comp-badge {
+    font-family: 'Orbitron', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    margin-bottom: 12px;
+    display: inline-block;
+    padding: 3px 6px;
+    border-radius: 2px;
+  }
+
+  .red-border .comp-badge {
+    background: rgba(245, 127, 118, 0.1);
+    color: var(--coral);
+  }
+
+  .gold-border .comp-badge {
+    background: rgba(201, 168, 76, 0.1);
+    color: var(--gold);
+  }
+
+  .comp-card h3 {
+    font-size: 20px;
+    color: var(--white);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .comp-card p {
+    font-size: 13px;
+    color: var(--gray1);
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .comp-list {
+    list-style: none;
+  }
+
+  .comp-list li {
+    font-size: 12px;
+    color: rgba(240, 246, 252, 0.85);
+    padding: 6px 0;
+    border-bottom: 0.5px solid rgba(255,255,255,0.04);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .comp-list li:last-child {
+    border-bottom: none;
+  }
+
+  .red-border .comp-list li::before {
+    content: '×';
+    color: var(--coral);
+    font-weight: bold;
+  }
+
+  .gold-border .comp-list li::before {
+    content: '✓';
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 11px;
+  }
+
+  /* TIMELINE */
+  .timeline {
     position: relative;
-    padding-left: 40px;
+    padding-left: 20px;
+    border-left: 1px solid var(--border);
   }
 
-  .process-timeline::before {
+  .timeline-item {
+    position: relative;
+    margin-bottom: 36px;
+  }
+
+  .timeline-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .timeline-item::before {
     content: '';
     position: absolute;
-    left: 0; top: 8px; bottom: 8px;
-    width: 1px;
-    background: linear-gradient(180deg, var(--gold), rgba(201,168,76,0.1));
-  }
-
-  .process-step {
-    position: relative;
-    margin-bottom: 56px;
-    animation: fadeUp 0.6s ease forwards;
-    opacity: 0;
-  }
-
-  .process-step:nth-child(1) { animation-delay: 0.1s; }
-  .process-step:nth-child(2) { animation-delay: 0.2s; }
-  .process-step:nth-child(3) { animation-delay: 0.3s; }
-  .process-step:nth-child(4) { animation-delay: 0.4s; }
-  .process-step:nth-child(5) { animation-delay: 0.5s; }
-
-  .step-node {
-    position: absolute;
-    left: -46px; top: 4px;
-    width: 12px; height: 12px;
+    left: -25.5px;
+    top: 4px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
-    border: 1.5px solid var(--gold);
-    background: var(--bg2);
-    display: flex; align-items: center; justify-content: center;
+    background: var(--bg);
+    border: 2px solid var(--gold);
   }
 
-  .step-node-dot {
-    width: 4px; height: 4px;
-    border-radius: 50%;
-    background: var(--gold);
-  }
-
-  .step-number {
+  .timeline-step {
     font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gold);
-    letter-spacing: 0.15em; margin-bottom: 8px;
+    font-size: 9px;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    margin-bottom: 4px;
   }
 
-  .step-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px; font-weight: 400;
-    color: var(--white); margin-bottom: 10px;
+  .timeline-title {
+    font-size: 18px;
+    color: var(--white);
+    margin-bottom: 8px;
+    font-weight: 600;
   }
 
-  .step-desc {
-    font-size: 14px; color: var(--gray1);
-    line-height: 1.8; max-width: 680px;
+  .timeline-desc {
+    font-size: 13px;
+    color: var(--gray1);
+    line-height: 1.6;
+    margin-bottom: 10px;
   }
 
-  .step-tags {
-    display: flex; gap: 8px;
-    flex-wrap: wrap; margin-top: 14px;
+  .timeline-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
   }
 
-  .step-tag {
-    font-size: 10px; padding: 3px 10px;
-    border: 0.5px solid rgba(58,122,138,0.4);
-    border-radius: 2px; color: var(--teal-br);
-    background: rgba(58,122,138,0.05);
-    letter-spacing: 0.04em;
+  .tag {
+    font-family: 'Orbitron', monospace;
+    font-size: 8px;
+    color: var(--teal-br);
+    background: rgba(38, 80, 90, 0.2);
+    padding: 2px 6px;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+    border: 0.5px solid rgba(58, 122, 138, 0.3);
   }
 
-  .results-strip {
+  /* RESULTS METRICS */
+  .results-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
   }
 
   .result-card {
     background: var(--bg2);
-    padding: 48px 36px;
-    text-align: center;
-    position: relative; overflow: hidden;
-    transition: background 0.3s ease;
-  }
-
-  .result-card:hover { background: var(--bg3); }
-
-  .result-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
   }
 
   .result-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 72px; font-weight: 300;
-    color: var(--gold); line-height: 1;
-    margin-bottom: 12px; display: block;
+    font-size: 40px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+    font-weight: 700;
   }
 
-  .result-label {
+  .result-title {
     font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gray1);
-    letter-spacing: 0.15em; line-height: 1.6;
+    font-size: 10px;
+    color: var(--white);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
     text-transform: uppercase;
   }
 
-  .result-context {
-    font-size: 12px; color: var(--gray2);
-    margin-top: 10px; line-height: 1.5;
+  .result-desc {
+    font-size: 12px;
+    color: var(--gray1);
+    line-height: 1.5;
   }
 
+  /* IMPACT SECTION */
+  .impact-box {
+    background: var(--bg2);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: 32px;
+  }
+
+  .impact-quote {
+    font-size: 16px;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    border-left: 2px solid var(--gold);
+    padding-left: 16px;
+  }
+
+  .impact-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .indicators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+
+  .indicator-card {
+    background: var(--bg3);
+    border: 0.5px solid rgba(201,168,76,0.1);
+    padding: 16px;
+    border-radius: 4px;
+  }
+
+  .indicator-badge {
+    font-family: 'Orbitron', monospace;
+    font-size: 8px;
+    color: var(--teal-br);
+    background: rgba(38, 80, 90, 0.2);
+    padding: 2px 6px;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+
+  .indicator-text {
+    font-size: 12px;
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  /* LEARNINGS */
   .learnings-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
   }
 
   .learning-card {
     background: var(--bg2);
-    padding: 40px 36px;
-    border-top: 1px solid transparent;
-    transition: border-color 0.3s ease, background 0.3s ease;
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
   }
 
-  .learning-card:hover {
-    border-top-color: var(--gold);
-    background: var(--bg3);
-  }
-
-  .learning-icon {
-    margin-bottom: 20px;
+  .learning-num {
     font-family: 'Orbitron', monospace;
-    font-size: 20px; color: var(--gold);
-    opacity: 0.6;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+    display: block;
   }
 
-  .learning-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 600;
-    color: var(--white); margin-bottom: 12px;
+  .learning-text {
+    font-size: 12px;
+    color: rgba(240, 246, 252, 0.85);
+    line-height: 1.5;
   }
 
-  .learning-body {
-    font-size: 13px; color: var(--gray1); line-height: 1.8;
+  /* ARTIFACTS / PROTOCOL CARDS */
+  .artifacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
   }
 
-  footer {
-    background: #080A0C;
-    border-top: 0.5px solid var(--border);
-    padding: 48px 64px;
-    display: flex; align-items: center;
-    justify-content: space-between; gap: 24px;
+  .artifact-card {
+    background: var(--bg2);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
-  .footer-brand { display: flex; align-items: center; gap: 16px; }
-  .footer-info { flex: 1; }
-
-  .footer-name {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px; font-weight: 500;
+  .artifact-card h3 {
+    font-size: 18px;
     color: var(--white);
-    letter-spacing: 0.08em; text-transform: uppercase;
-    display: block; margin-bottom: 4px;
+    margin-bottom: 8px;
+    font-weight: 600;
   }
 
-  .footer-role {
-    font-family: 'Orbitron', monospace;
-    font-size: 8px; color: var(--gold);
-    letter-spacing: 0.15em; display: block;
-    white-space: nowrap;
+  .artifact-card p {
+    font-size: 13px;
+    color: var(--gray1);
+    margin-bottom: 20px;
+    line-height: 1.6;
   }
 
-  .footer-right { text-align: right; }
-
-  .footer-linkedin {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px; color: var(--teal-br);
+  .artifact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    letter-spacing: 0.02em;
-    display: block; margin-bottom: 4px;
+    font-family: 'Orbitron', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--gold);
+    background: rgba(201, 168, 76, 0.05);
+    border: 0.5px solid var(--border);
+    padding: 10px 16px;
+    border-radius: 4px;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+  }
+
+  .artifact-btn:hover {
+    background: var(--gold);
+    color: var(--bg);
+    border-color: var(--gold);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg);
+    border-top: 0.5px solid var(--border);
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .footer-links {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-family: 'Orbitron', monospace;
+    font-size: 9px;
+    color: var(--teal-br);
+    text-decoration: none;
+    letter-spacing: 0.1em;
     transition: color 0.2s;
   }
 
-  .footer-linkedin:hover { color: var(--gold); }
+  .footer-links a:hover {
+    color: var(--gold);
+  }
 
   .footer-copy {
-    font-size: 11px; color: var(--gray2);
+    font-size: 11px;
+    color: var(--gray2);
     letter-spacing: 0.04em;
+    display: block;
   }
-
-  .gold-accent-top {
-    height: 2.5px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-lt), var(--gold));
-  }
-
-  @media (max-width: 900px) {
-    .nav, .section, .hero-content, .hero-footer, footer { padding-left: 28px; padding-right: 28px; }
-    .nav { padding-left: 28px; padding-top: 80px; }
-    .problem-grid, .impact-grid, .results-strip, .learnings-grid { grid-template-columns: 1fr; }
-    .hero-title { font-size: 44px; }
-    .metric-hero { display: none; }
-  }
-
-  .cover-page {
-    width: 100%;
-    height: 100vh;
-    min-height: 628px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: var(--bg);
-  }
-  .cover-hint {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(201,168,76,0.15);
-    border: 0.5px solid rgba(201,168,76,0.4);
-    border-radius: 4px;
-    padding: 10px 16px;
-    font-family: 'Orbitron', monospace;
-    font-size: 9px;
-    color: #C9A84C;
-    letter-spacing: 0.1em;
-    z-index: 1000;
-    pointer-events: none;
-  }
-  .cover-divider {
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, #C9A84C, rgba(201,168,76,0.1));
-  }
-  .c-gold-top { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #C9A84C, #E8C060, #C9A84C); z-index: 20; }
-  .c-gold-left { position: absolute; top: 0; left: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, #C9A84C, rgba(201,168,76,0.2)); z-index: 20; }
-  .c-grid { position: absolute; right: 0; top: 0; bottom: 0; width: 500px; opacity: 0.03; background-image: linear-gradient(rgba(201,168,76,1) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,1) 1px, transparent 1px); background-size: 40px 40px; }
-  .c-corner { position: absolute; top: 20px; right: 20px; z-index: 10; opacity: 0.35; }
-  .c-label { position: absolute; top: 24px; right: 64px; font-family: 'Orbitron', monospace; font-size: 8px; color: #4A5568; letter-spacing: 0.15em; z-index: 10; }
-  .c-content { position: relative; z-index: 10; padding: 0 64px 80px; }
-  .c-eyebrow { font-family: 'Orbitron', monospace; font-size: 11px; letter-spacing: 0.25em; color: #C9A84C; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-  .c-dot { width: 6px; height: 6px; border-radius: 50%; background: #C9A84C; }
-  .c-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.05; color: #F0F6FC; margin-bottom: 6px; }
-  .c-title em { font-style: italic; color: #C9A84C; }
-  .c-rule { width: 48px; height: 2px; background: linear-gradient(90deg, #C9A84C, rgba(201,168,76,0.2)); margin-bottom: 16px; border-radius: 1px; }
-  .c-sub { font-family: 'DM Sans', sans-serif; font-weight: 300; color: #8B949E; margin-bottom: 32px; line-height: 1.5; }
-  .c-metrics { display: flex; gap: 24px; margin-bottom: 36px; align-items: center; }
-  .c-mval { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: #C9A84C; line-height: 1; display: block; }
-  .c-mlbl { font-family: 'Orbitron', monospace; font-size: 8px; color: #8B949E; letter-spacing: 0.1em; display: block; margin-top: 4px; }
-  .c-mdiv { width: 0.5px; height: 40px; background: rgba(201,168,76,0.2); }
-  .c-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-  .c-tag { font-family: 'Orbitron', monospace; font-size: 8px; padding: 5px 12px; border: 0.5px solid rgba(201,168,76,0.25); border-radius: 2px; color: #8B949E; letter-spacing: 0.08em; background: rgba(201,168,76,0.04); }
-  .c-sig { position: absolute; bottom: 32px; left: 64px; display: flex; align-items: center; gap: 14px; z-index: 10; }
-  .c-hcircle { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid #C9A84C; display: flex; align-items: center; justify-content: center; font-family: 'Orbitron', monospace; font-size: 16px; font-weight: 700; color: #C9A84C; flex-shrink: 0; position: relative; }
-  .c-hcircle::after { content: ''; position: absolute; inset: 6px; border-radius: 50%; border: 0.5px solid rgba(201,168,76,0.2); }
-  .c-ssep { width: 0.5px; height: 32px; background: rgba(201,168,76,0.25); }
-  .c-sname { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: #F0F6FC; letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 3px; }
-  .c-srole { font-family: 'Orbitron', monospace; font-size: 8px; color: #C9A84C; letter-spacing: 0.14em; display: block; white-space: nowrap; }
-  .c-bignumber { position: absolute; font-family: 'Cormorant Garamond', serif; font-size: 280px; font-weight: 300; line-height: 1; color: rgba(201,168,76,0.06); right: -20px; bottom: -40px; z-index: 1; letter-spacing: -0.05em; }
 </style>
 </head>
 <body>
@@ -683,283 +613,351 @@
   VOLTAR
 </a>
 
-<div class="cover-hint">CAPTURAR COMO IMAGEM PARA LINKEDIN</div>
 <div class="gold-accent-top"></div>
 
-<section class="cover-page">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%, rgba(201,168,76,0.08) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 10% 20%, rgba(58,122,138,0.06) 0%, transparent 50%), linear-gradient(150deg, #0E1114 0%, #0A0E12 100%);"></div>
-  <div class="c-grid"></div>
-  <div class="c-gold-top"></div>
-  <div class="c-gold-left"></div>
-  <svg class="c-corner" width="32" height="32" viewBox="0 0 32 32" fill="none">
-    <circle cx="16" cy="16" r="15" stroke="#C9A84C" stroke-width="0.8"/>
-    <circle cx="16" cy="16" r="9" stroke="#C9A84C" stroke-width="0.5"/>
-    <circle cx="16" cy="16" r="3" fill="#C9A84C"/>
-  </svg>
-  <div class="c-label">PORTFÓLIO · CASE STUDY 02</div>
-  <div class="c-bignumber">02</div>
-  <div class="c-content">
-    <div class="c-eyebrow"><div class="c-dot"></div>PRODUCT OWNER | UX · GESTÃO DE FLUXO · SLA</div>
-    <h1 class="c-title" style="font-size:68px;">Redução de <em>71%</em><br>no Lead Time</h1>
-    <div class="c-rule"></div>
-    <p class="c-sub">Estruturação de fluxo, padronização de formulários<br>e controle de SLA em operação de alta complexidade.</p>
-    <div class="c-metrics">
-      <div class="c-item"><div class="c-mval">71%</div><span class="c-mlbl">LEAD TIME</span></div>
-      <div class="c-mdiv"></div>
-      <div class="c-item"><div class="c-mval">24h</div><span class="c-mlbl">SLA CRIADO</span></div>
-      <div class="c-mdiv"></div>
-      <div class="c-item"><div class="c-mval">0</div><span class="c-mlbl">RETRABALHO</span></div>
+<main class="container">
+
+  <!-- 1. HERO -->
+  <header class="hero">
+    <div class="hero-eyebrow">CASO 02 · SHV ENERGY</div>
+    <h1 class="hero-title">Integração Operacional em Escala Nacional</h1>
+    <p class="hero-subtitle">Como processos, dados e validações reduziram o tempo de resposta em uma operação crítica.</p>
+    <p class="hero-desc">Em uma operação nacional de distribuição de GLP, pequenos atrasos entre atendimento, logística e áreas comerciais impactavam diretamente a experiência do cliente. A atuação consistiu em organizar fluxos operacionais, estruturar jornadas de onboarding, identificar padrões recorrentes e apoiar a evolução contínua da operação através da análise de dados e validações funcionais antes da implantação de novas funcionalidades.</p>
+  </header>
+
+  <!-- META CARDS -->
+  <div class="meta-grid">
+    <div class="meta-item">
+      <div class="meta-label">Contexto</div>
+      <div class="meta-value">SHV Energy • Distribuição Nacional de GLP</div>
     </div>
-    <div class="c-tags"><span class="c-tag">JIRA</span><span class="c-tag">KANBAN</span><span class="c-tag">GESTÃO DE SLA</span><span class="c-tag">MELHORIA DE PROCESSOS</span></div>
-  </div>
-  <div class="c-sig">
-    <div class="c-hcircle">H</div>
-    <div class="c-ssep"></div>
-    <div>
-      <span class="c-sname">Cleyton Hespanhol</span>
-      <span class="c-srole">PRODUCT OWNER | UX</span>
+    <div class="meta-item">
+      <div class="meta-label">Papel</div>
+      <div class="meta-value">Operação • Onboarding • Processos • OAT/UAT</div>
     </div>
-  </div>
-</section>
-<div class="cover-divider"></div>
-
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="orb"></div>
-
-  <nav class="nav">
-    <div class="nav-brand">
-      <div class="h-mark">H</div>
-      <div>
-        <span class="nav-name">Cleyton Hespanhol</span>
-        <span class="nav-role">PRODUCT OWNER | UX</span>
-      </div>
+    <div class="meta-item">
+      <div class="meta-label">Período</div>
+      <div class="meta-value">2018 • 2023</div>
     </div>
-    <div class="nav-tag">PORTFÓLIO · CASE STUDY</div>
-  </nav>
-
-  <div class="hero-content">
-    <div class="case-label">
-      <div class="case-label-dot"></div>
-      <span class="case-label-text">CASE STUDY 02 · PRODUCT OWNER | UX · GESTÃO DE FLUXO</span>
-    </div>
-
-    <h1 class="hero-title">Redução de <em>71%</em></h1>
-    <p class="hero-subtitle">no Lead Time Operacional</p>
-
-    <p class="hero-desc">
-      Como a estruturação de um fluxo de demandas desorganizado, a padronização de formulários e a criação de controle de SLA transformaram uma operação caótica em um processo previsível, rastreável e eficiente.
-    </p>
-
-    <div class="meta-row">
-      <div class="meta-pill"><strong>Contexto</strong> · Operação Multissetorial · Maricá, RJ</div>
-      <div class="meta-pill"><strong>Papel</strong> · Product Owner | UX · Gestão de Fluxo e SLA</div>
-      <div class="meta-pill"><strong>Período</strong> · Janeiro 2025 – Abril 2026</div>
-      <div class="meta-pill"><strong>Resultado</strong> · 71% de redução no lead time</div>
+    <div class="meta-item">
+      <div class="meta-label">Resultado</div>
+      <div class="meta-value">40% menos tempo de resposta • 20% mais produtividade</div>
     </div>
   </div>
 
-  <div class="hero-footer">
-    <div class="scroll-hint">
-      <div class="scroll-line"></div>
-      SCROLL PARA EXPLORAR
+  <!-- 2. CONTEXTO -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Contexto Operacional</h2>
     </div>
-    <div class="meta-pill" style="margin-left:auto;">Product Owner | UX · Jira · Kanban · SLA · Melhoria Contínua</div>
-  </div>
-
-  <div class="metric-hero">
-    <span class="metric-hero-number">&nbsp;</span>
-    <div class="metric-hero-label">REDUÇÃO NO<br>LEAD TIME</div>
-  </div>
-</section>
-
-<main>
-<!-- PROBLEMA -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-label">01 · CONTEXTO E PROBLEMA</div>
-    <h2 class="section-title">Demandas chegavam<br><em>sem estrutura, sem critério, sem controle.</em></h2>
-
-    <div class="problem-grid">
-      <div class="problem-card friction">
-        <div class="card-eyebrow friction">
-          <span>●</span> ANTES · OPERAÇÃO SEM ESTRUTURA
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div>
+          <h3>Atendimento e Escala</h3>
+          <p>Operação nacional estruturada para distribuição de GLP, exigindo alta confiabilidade e agilidade no tratamento de solicitações.</p>
         </div>
-        <h3 class="card-title">Canal informal como único meio de solicitação</h3>
-        <p class="card-body">As demandas chegavam diretamente via WhatsApp, de forma informal e sem padronização. Os formulários existiam, mas eram preenchidos de forma genérica, pedindo acesso "espelhado" a outro login, sem especificar quais sistemas eram necessários.</p>
-        <ul class="card-list">
-          <li>Solicitações via WhatsApp, sem rastreabilidade ou controle</li>
-          <li>Formulários preenchidos de forma genérica, sem especificação dos acessos</li>
-          <li>Ausência de SLA definido para resposta e resolução</li>
-          <li>Demandas podiam levar até uma semana sem resposta</li>
-          <li>Retrabalho constante por perda de documentos e pedidos incompletos</li>
-          <li>Novos colaboradores sem orientação clara sobre o processo</li>
+        <ul class="pillar-list">
+          <li>Atendimento nacional</li>
+          <li>Registro de demandas</li>
+          <li>Interface multissetorial</li>
         </ul>
       </div>
-
-      <div class="problem-card solution">
-        <div class="card-eyebrow solution">
-          <span>●</span> OPORTUNIDADE IDENTIFICADA
+      <div class="pillar-card">
+        <div>
+          <h3>Complexidade de Processos</h3>
+          <p>Coordenação de atividades entre equipes de atendimento, suporte técnico, logística e áreas comerciais.</p>
         </div>
-        <h3 class="card-title">Estrutura, padronização e controle como alavancas</h3>
-        <p class="card-body">O problema não era de capacidade nem de volume. Era de estrutura. Sem um fluxo claro, sem critérios de preenchimento e sem controle de SLA, qualquer demanda se tornava imprevisível. A oportunidade era criar o processo que ainda não existia.</p>
-        <ul class="card-list">
-          <li>Padronizar o formulário com campos obrigatórios e específicos</li>
-          <li>Criar controle centralizado das demandas via Jira</li>
-          <li>Definir SLA com acompanhamento ativo de 24 horas</li>
-          <li>Alinhar com TI a diferença entre incidente e requisição</li>
-          <li>Estender o padrão para todos os servidores, incluindo novos contratados</li>
+        <ul class="pillar-list">
+          <li>Fluxos cruzados</li>
+          <li>Alinhamento entre áreas</li>
+          <li>Padronização de rotinas</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <div>
+          <h3>Stakeholders e Alinhamento</h3>
+          <p>Articulação constante com lideranças e equipes operacionais para garantir visibilidade e eficiência nos processos.</p>
+        </div>
+        <ul class="pillar-list">
+          <li>Gestão de expectativas</li>
+          <li>Alinhamento estratégico</li>
+          <li>Governança operacional</li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PROCESSO -->
-<section class="section process-bg">
-  <div class="section-inner">
-    <div class="section-label">02 · PROCESSO DE SOLUÇÃO</div>
-    <h2 class="section-title">Do caos ao fluxo<br><em>previsível e rastreável.</em></h2>
-
-    <div class="process-timeline">
-
-      <div class="process-step">
-        <div class="step-node"><div class="step-node-dot"></div></div>
-        <div class="step-number">ETAPA 01</div>
-        <h3 class="step-title">Diagnóstico do Fluxo Existente</h3>
-        <p class="step-desc">Mapeamento completo do fluxo de entrada de demandas: como chegavam, por qual canal, quem recebia, o que acontecia depois. Identificação dos pontos de quebra: formulários incompletos, ausência de critério técnico e falta de rastreabilidade.</p>
-        <div class="step-tags">
-          <span class="step-tag">Mapeamento de Fluxo</span>
-          <span class="step-tag">Identificação de Gargalos</span>
-          <span class="step-tag">Discovery Operacional</span>
-        </div>
-      </div>
-
-      <div class="process-step">
-        <div class="step-node"><div class="step-node-dot"></div></div>
-        <div class="step-number">ETAPA 02</div>
-        <h3 class="step-title">Padronização do Formulário de Requisição</h3>
-        <p class="step-desc">Reestruturação do formulário de solicitação de acesso aos sistemas. O novo padrão exigia que o servidor especificasse por escrito quais acessos precisava, eliminando as solicitações genéricas de "espelhamento". Cada campo foi pensado para reduzir a ambiguidade e o retrabalho.</p>
-        <div class="step-tags">
-          <span class="step-tag">UX Writing</span>
-          <span class="step-tag">Padronização de Processo</span>
-          <span class="step-tag">Redução de Retrabalho</span>
-        </div>
-      </div>
-
-      <div class="process-step">
-        <div class="step-node"><div class="step-node-dot"></div></div>
-        <div class="step-number">ETAPA 03</div>
-        <h3 class="step-title">Controle Centralizado via Jira</h3>
-        <p class="step-desc">Implementação do Jira como central de controle de todas as demandas. Cada solicitação passou a ser lançada, categorizada e acompanhada. Isso criou rastreabilidade total e permitiu identificar gargalos em tempo real, eliminando a perda de documentos e pedidos.</p>
-        <div class="step-tags">
-          <span class="step-tag">Jira</span>
-          <span class="step-tag">Gestão de Backlog</span>
-          <span class="step-tag">Rastreabilidade</span>
-          <span class="step-tag">Controle de SLA</span>
-        </div>
-      </div>
-
-      <div class="process-step">
-        <div class="step-node"><div class="step-node-dot"></div></div>
-        <div class="step-number">ETAPA 04</div>
-        <h3 class="step-title">SLA de 24 Horas com Acompanhamento Ativo</h3>
-        <p class="step-desc">Criação de rotina de acompanhamento: 24 horas após o envio do formulário, o contato com TI era feito para cobrar resposta. O colaborador que havia solicitado já recebia a devolutiva no mesmo momento. Antes disso, os acessos podiam levar até uma semana sem qualquer retorno.</p>
-        <div class="step-tags">
-          <span class="step-tag">SLA</span>
-          <span class="step-tag">Gestão de Stakeholders</span>
-          <span class="step-tag">Comunicação Operacional</span>
-        </div>
-      </div>
-
-      <div class="process-step">
-        <div class="step-node"><div class="step-node-dot"></div></div>
-        <div class="step-number">ETAPA 05</div>
-        <h3 class="step-title">Capacitação e Escala do Processo</h3>
-        <p class="step-desc">Treinamento dos times internos e novos colaboradores sobre o novo fluxo padronizado, garantindo adoção contínua e eliminando o retorno aos canais informais de solicitação.</p>
-        <div class="step-tags">
-          <span class="step-tag">Change Management</span>
-          <span class="step-tag">Capacitação</span>
-          <span class="step-tag">Escala</span>
-        </div>
-      </div>
-
+  <!-- 3. DESAFIO -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">O Desafio</h2>
     </div>
-  </div>
-</section>
-
-<!-- RESULTADOS -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-label">03 · RESULTADOS ALCANÇADOS</div>
-    <h2 class="section-title">Impacto mensurável<br><em>na eficiência da operação.</em></h2>
-
-    <div class="results-strip">
-      <div class="result-card">
-        <span class="result-number">71%</span>
-        <div class="result-label">Redução no Lead Time</div>
-        <div class="result-context">De até uma semana de espera para resolução ágil.</div>
+    <div class="comparison-grid">
+      <div class="comp-card red-border">
+        <span class="comp-badge">Cenário Inicial</span>
+        <h3>Gargalos e Fricção</h3>
+        <p>A operação enfrentava desafios estruturais decorrentes da falta de alinhamento e visibilidade entre as áreas.</p>
+        <ul class="comp-list">
+          <li>tempo elevado de resposta</li>
+          <li>comunicação fragmentada entre setores</li>
+          <li>onboarding pouco estruturado</li>
+          <li>indicadores operacionais subutilizados</li>
+        </ul>
       </div>
-      <div class="result-card">
-        <span class="result-number">24h</span>
-        <div class="result-label">SLA Estabelecido</div>
-        <div class="result-context">Controle ativo e cobrança sistemática de prazos.</div>
-      </div>
-      <div class="result-card">
-        <span class="result-number">0</span>
-        <div class="result-label">Retrabalho por Erro de Escopo</div>
-        <div class="result-context">Formulários padronizados eliminaram ambiguidades.</div>
+      <div class="comp-card gold-border">
+        <span class="comp-badge">Importância</span>
+        <h3>Riscos e Criticidade</h3>
+        <p>Atrasos operacionais impactavam diretamente a experiência do cliente final e geravam sobrecarga nas equipes.</p>
+        <ul class="comp-list">
+          <li>mitigar atrito no atendimento</li>
+          <li>garantir rastreabilidade ponta a ponta</li>
+          <li>reduzir riscos em novas implantações</li>
+          <li>padronizar a entrega de valor</li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- APRENDIZADOS -->
-<section class="section process-bg">
-  <div class="section-inner">
-    <div class="section-label">04 · LIÇÕES APRENDIDAS</div>
-    <h2 class="section-title">O que este case<br><em>deixa como legado.</em></h2>
+  <!-- 4. MINHA ATUAÇÃO -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Minha Atuação</h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div>
+          <h3>Papel e Responsabilidades</h3>
+          <p>Atuação direta na organização de fluxos operacionais, estruturação de onboarding e validação de requisitos.</p>
+        </div>
+        <ul class="pillar-list">
+          <li>Mapeamento de rotinas</li>
+          <li>Condução de onboarding</li>
+          <li>Análise de indicadores</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <div>
+          <h3>Interfaces e Colaboração</h3>
+          <p>Trabalho integrado com atendimento, logística, operações e equipes de produto/tecnologia.</p>
+        </div>
+        <ul class="pillar-list">
+          <li>Interface multissetorial</li>
+          <li>Facilitação de alinhamentos</li>
+          <li>Mediação de melhorias</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <div>
+          <h3>Decisões e Contribuições</h3>
+          <p>Apoio à tomada de decisão baseada em dados e validação funcional de novas ferramentas antes do deploy.</p>
+        </div>
+        <ul class="pillar-list">
+          <li>Testes OAT e UAT</li>
+          <li>Insights operacionais</li>
+          <li>Padronização de processos</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
+  <!-- 5. PROCESSO -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Processo</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-step">ETAPA 01</div>
+        <h3 class="timeline-title">Mapeamento dos Fluxos Operacionais</h3>
+        <p class="timeline-desc">Compreensão completa da jornada entre atendimento, operação e logística para identificar pontos de espera, retrabalho e perda de informação.</p>
+        <div class="timeline-tags">
+          <span class="tag">Operações</span>
+          <span class="tag">Processos</span>
+          <span class="tag">Fluxo</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">ETAPA 02</div>
+        <h3 class="timeline-title">Padronização Operacional</h3>
+        <p class="timeline-desc">Reorganização dos processos e melhoria da comunicação entre áreas para reduzir o tempo de resposta e aumentar a previsibilidade operacional.</p>
+        <div class="timeline-tags">
+          <span class="tag">Melhoria Contínua</span>
+          <span class="tag">Processos</span>
+          <span class="tag">Eficiência</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">ETAPA 03</div>
+        <h3 class="timeline-title">Onboarding de Clientes</h3>
+        <p class="timeline-desc">Estruturação da jornada inicial de novos clientes, conectando atendimento, operação e logística em um fluxo rastreável.</p>
+        <div class="timeline-tags">
+          <span class="tag">Customer Journey</span>
+          <span class="tag">Onboarding</span>
+          <span class="tag">Experiência</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">ETAPA 04</div>
+        <h3 class="timeline-title">Análise de Indicadores</h3>
+        <p class="timeline-desc">Monitoramento dos padrões recorrentes de atendimento para identificar oportunidades de melhoria operacional.</p>
+        <div class="timeline-tags">
+          <span class="tag">Analytics</span>
+          <span class="tag">Indicadores</span>
+          <span class="tag">Discovery Operacional</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">ETAPA 05</div>
+        <h3 class="timeline-title">Validação de Novas Funcionalidades</h3>
+        <p class="timeline-desc">Participação em testes OAT e UAT antes da implantação de novas funcionalidades, validando regras de negócio com base na experiência operacional.</p>
+        <div class="timeline-tags">
+          <span class="tag">OAT</span>
+          <span class="tag">UAT</span>
+          <span class="tag">Produto</span>
+          <span class="tag">Qualidade</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. RESULTADOS -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Resultados</h2>
+    </div>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-number">40%</div>
+        <div class="result-title">Redução no Tempo de Resposta</div>
+        <div class="result-desc">Reorganização dos fluxos entre atendimento, operação e logística.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-number">20%</div>
+        <div class="result-title">Aumento da Produtividade</div>
+        <div class="result-desc">Padronização operacional e melhoria contínua das rotinas.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-number">100%</div>
+        <div class="result-title">Fluxo de Onboarding Estruturado</div>
+        <div class="result-desc">Integração entre atendimento, operação e logística durante a entrada de novos clientes.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. IMPACTO PARA O NEGÓCIO -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Impacto para o Negócio</h2>
+    </div>
+    <div class="impact-box">
+      <blockquote class="impact-quote">"A operação deixou de ser apenas execução e passou a gerar informações capazes de orientar melhorias contínuas para toda a organização."</blockquote>
+      <div class="impact-title">Indicadores de Governança</div>
+      <div class="indicators-grid">
+        <div class="indicator-card">
+          <span class="indicator-badge">PROCESSOS</span>
+          <div class="indicator-text">Integração entre áreas</div>
+        </div>
+        <div class="indicator-card">
+          <span class="indicator-badge">CUSTOMER EXPERIENCE</span>
+          <div class="indicator-text">Onboarding estruturado</div>
+        </div>
+        <div class="indicator-card">
+          <span class="indicator-badge">DISCOVERY</span>
+          <div class="indicator-text">Análise de indicadores</div>
+        </div>
+        <div class="indicator-card">
+          <span class="indicator-badge">PRODUTO</span>
+          <div class="indicator-text">Participação em OAT e UAT</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. APRENDIZADOS -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Aprendizados</h2>
+    </div>
     <div class="learnings-grid">
       <div class="learning-card">
-        <div class="learning-icon">01</div>
-        <h3 class="learning-title">Processo precede a ferramenta</h3>
-        <p class="learning-body">Implementar o Jira só gerou valor porque antes definimos as regras, os critérios e o comportamento esperado de cada etapa da solicitação.</p>
+        <span class="learning-num">01</span>
+        <div class="learning-text">Processos bem definidos reduzem mais problemas do que esforço adicional.</div>
       </div>
       <div class="learning-card">
-        <div class="learning-icon">02</div>
-        <h3 class="learning-title">Acompanhamento ativo garante o SLA</h3>
-        <p class="learning-body">Definir um prazo no papel não basta. A rotina diária de checagem e cobrança ativa junto à TI foi o gatilho real para a queda drástica do lead time.</p>
+        <span class="learning-num">02</span>
+        <div class="learning-text">Indicadores operacionais revelam oportunidades que dificilmente aparecem apenas observando o dia a dia.</div>
       </div>
       <div class="learning-card">
-        <div class="learning-icon">03</div>
-        <h3 class="learning-title">Simplicidade reduz fricção</h3>
-        <p class="learning-body">Substituir formulários ambíguos por perguntas diretas e específicas eliminou o vai-e-vem de mensagens e o retrabalho operacional.</p>
+        <span class="learning-num">03</span>
+        <div class="learning-text">Onboarding eficiente melhora toda a experiência do cliente e reduz demandas futuras.</div>
       </div>
       <div class="learning-card">
-        <div class="learning-icon">04</div>
-        <h3 class="learning-title">Cultura de melhoria contínua</h3>
-        <p class="learning-body">Operações públicas ou privadas ganham eficiência quando a gestão de fluxo é tratada como um produto vivo que precisa de manutenção constante.</p>
+        <span class="learning-num">04</span>
+        <div class="learning-text">Participar das validações antes da implantação aproxima operação e produto, reduz riscos e melhora a qualidade das entregas.</div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- NOVA SEÇÃO: ARTEFATOS E EVIDÊNCIAS -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Artefatos e Evidências</h2>
+      <p style="font-size: 13px; color: var(--gray1); margin-top: 6px;">Documentação produzida durante a operação.</p>
+    </div>
+    <div class="artifacts-grid">
+      <div class="artifact-card">
+        <div>
+          <h3>Onboarding</h3>
+          <p>Fluxo utilizado para integração de novos clientes.</p>
+        </div>
+        <a href="onboarding.html" class="artifact-btn">Acessar documento</a>
+      </div>
+      <div class="artifact-card">
+        <div>
+          <h3>Fluxo Operacional</h3>
+          <p>Fluxo da operação executada.</p>
+        </div>
+        <a href="fluxo_operacional.html" class="artifact-btn">Acessar</a>
+      </div>
+      <div class="artifact-card">
+        <div>
+          <h3>Processo</h3>
+          <p>Etapas executadas.</p>
+        </div>
+        <a href="processo.html" class="artifact-btn">Acessar</a>
+      </div>
+      <div class="artifact-card">
+        <div>
+          <h3>Checklist</h3>
+          <p>Checklist operacional.</p>
+        </div>
+        <a href="checklist.html" class="artifact-btn">Acessar</a>
+      </div>
+      <div class="artifact-card">
+        <div>
+          <h3>Validação</h3>
+          <p>Fluxo de testes.</p>
+        </div>
+        <a href="validacao.html" class="artifact-btn">Acessar</a>
+      </div>
+      <div class="artifact-card">
+        <div>
+          <h3>Evidências</h3>
+          <p>Registros da atuação.</p>
+        </div>
+        <a href="evidencias.html" class="artifact-btn">Acessar</a>
+      </div>
+    </div>
+  </section>
 
 </main>
 
-<!-- RODAPÉ -->
 <footer>
-  <div class="footer-brand">
-    <div class="h-mark">H</div>
-    <div class="footer-info">
-      <span class="footer-name">Cleyton Hespanhol</span>
-      <span class="footer-role">PRODUCT OWNER | UX</span>
-    </div>
+  <div class="footer-links">
+    <a href="javascript:history.back()">Voltar ao Portfólio</a>
+    <a href="#case-shv">Case Study 02</a>
   </div>
-  <div class="footer-right">
-    <a class="footer-linkedin" href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank">linkedin.com/in/cleyton-hespanhol</a>
-    <span class="footer-copy">© 2026 Cleyton Hespanhol. Todos os direitos reservados.</span>
-  </div>
+  <span class="footer-copy">© 2026 Cleyton Hespanhol. Todos os direitos reservados.</span>
 </footer>
 
 </body>
