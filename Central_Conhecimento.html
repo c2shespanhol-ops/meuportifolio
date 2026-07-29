@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Central de Conhecimento</title>
+  <title>Central de Conhecimento - Habitat</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -27,6 +27,25 @@
     .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
     header { padding: 20px 40px; border-bottom: 1px solid #222; }
     hr { border: 0; border-top: 1px solid #222; margin: 40px 0; }
+    .grid-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      background: #141414;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #222;
+      margin-top: 20px;
+    }
+    .card-proximo {
+      border: 1px solid #222;
+      padding: 20px;
+      border-radius: 8px;
+      background: #141414;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
   </style>
 </head>
 <body>
@@ -37,92 +56,173 @@
 
   <main class="container">
     
-    <section class="hero-case">
-      <span style="color: #b8975e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional</span>
+    <!-- CABEÇALHO CORPORATIVO -->
+    <section>
+      <span style="color: #b8975e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional · HBT-KB-003</span>
       <h1 style="font-size: 2.4rem; color: #fff; margin-top: 10px; margin-bottom: 15px;">Central de Conhecimento</h1>
       <p style="font-size: 1.15rem; color: #aaa; max-width: 800px; line-height: 1.6;">
-        Base de conhecimento estruturada para reduzir dúvidas recorrentes, acelerar o onboarding de clientes e ampliar a autonomia dos usuários.
+        Base de dados estruturada para autoatendimento, guias de suporte e padronização documental na Habitat.
+      </p>
+
+      <div class="grid-meta">
+        <div><strong style="color: #b8975e;">Código:</strong> <span style="color: #fff;">HBT-KB-003</span></div>
+        <div><strong style="color: #b8975e;">Versão:</strong> <span style="color: #fff;">2.1</span></div>
+        <div><strong style="color: #b8975e;">Status:</strong> <span style="color: #50fa7b;">Ativo & Publicado</span></div>
+        <div><strong style="color: #b8975e;">Responsável:</strong> <span style="color: #fff;">Product Operations</span></div>
+        <div><strong style="color: #b8975e;">Atualização:</strong> <span style="color: #fff;">Março/2024</span></div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- OBJETIVO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 10px;">Objetivo</h2>
+      <p style="color: #ccc; font-size: 1.05rem;">
+        Centralizar o conhecimento técnico e operacional em um repositório único, reduzindo a dependência de atendimentos manuais e acelerando a autonomia de clientes e colaboradores.
       </p>
     </section>
 
     <hr>
 
-    <section id="indicadores" style="margin-bottom: 40px;">
-      <h2 style="color: #fff; margin-bottom: 15px;">Indicadores de Desempenho</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
-        
-        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222; text-align: center;">
-          <span style="font-size: 2.2rem; font-weight: bold; color: #b8975e;">112</span>
-          <p style="color: #aaa; margin-top: 5px; font-size: 0.9rem;">Artigos Publicados</p>
-        </div>
+    <!-- CONTEXTO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 10px;">Contexto</h2>
+      <p style="color: #ccc; font-size: 1.05rem;">
+        Criada para suprir a lacuna de documentação descentralizada, permitindo que dúvidas recorrentes fossem solucionadas instantaneamente por meio de artigos estruturados.
+      </p>
+    </section>
 
-        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222; text-align: center;">
-          <span style="font-size: 2.2rem; font-weight: bold; color: #b8975e;">4.387</span>
-          <p style="color: #aaa; margin-top: 5px; font-size: 0.9rem;">Visualizações</p>
-        </div>
+    <hr>
 
-        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222; text-align: center;">
-          <span style="font-size: 2.2rem; font-weight: bold; color: #50fa7b;">61%</span>
-          <p style="color: #aaa; margin-top: 5px; font-size: 0.9rem;">Resolução sem Suporte</p>
+    <!-- ESCOPO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Escopo</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
+          <h3 style="color: #50fa7b; margin-bottom: 10px;">O que cobre</h3>
+          <ul style="color: #ccc; padding-left: 20px; line-height: 1.6;">
+            <li>Manuais de configuração inicial de consultórios</li>
+            <li>Guias de resolução de erros comuns de sistema</li>
+            <li>FAQ operacional para suporte e clientes</li>
+          </ul>
         </div>
-
+        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
+          <h3 style="color: #ff5555; margin-bottom: 10px;">O que não cobre</h3>
+          <ul style="color: #ccc; padding-left: 20px; line-height: 1.6;">
+            <li>Repositório de código-fonte de engenharia</li>
+            <li>Documentos confidenciais de diretoria</li>
+            <li>Registros individuais de folha de pagamento</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <hr>
 
-    <section id="categorias" style="margin-bottom: 40px;">
-      <h2 style="color: #fff; margin-bottom: 15px;">Categorias Cobertas</h2>
-      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
-        <span style="background: #181818; border: 1px solid #b8975e; color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Atendimento</span>
-        <span style="background: #181818; border: 1px solid #b8975e; color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Financeiro</span>
-        <span style="background: #181818; border: 1px solid #b8975e; color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Agenda</span>
-        <span style="background: #181818; border: 1px solid #b8975e; color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Cadastro</span>
-        <span style="background: #181818; border: 1px solid #b8975e; color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Médicos</span>
-        <span style="background: #181818; border: 1px solid #b8975e; color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Consultórios</span>
-        <span style="background: #181818; border: 1px solid #b8975e; color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Sistema</span>
+    <!-- ARQUITETURA DA INFORMAÇÃO & GOVERNANÇA -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Governança e Critérios de Publicação</h2>
+      <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222; color: #ccc; line-height: 1.8;">
+        <p><strong>Arquitetura da Informação:</strong> Organizada em três pilares principais: Tutoriais de Onboarding, Resolução de Erros e Manuais de Processo.</p>
+        <p style="margin-top: 10px;"><strong>Critérios para Publicação:</strong> Todo novo artigo passa por revisão técnica de Product Operations, validação de clareza textual e aprovação de layout antes de ser disponibilizado na base.</p>
       </div>
     </section>
 
     <hr>
 
-    <section id="artigos">
-      <h2 style="color: #fff; margin-bottom: 15px;">Artigos de Alta Relevância</h2>
-      <div style="overflow-x: auto; margin-top: 20px;">
+    <!-- FLUXO DE APROVAÇÃO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Fluxo de Aprovação de Conteúdo</h2>
+      <div style="background: #141414; padding: 25px; border-radius: 8px; border: 1px solid #222; text-align: center; font-family: monospace; font-size: 1rem; color: #b8975e;">
+        Redação de Artigo &rarr; Revisão Técnica &rarr; Validação de Ops &rarr; Homologação &rarr; Publicação Oficial
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- INDICADORES MONITORADOS -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Indicadores e Resultados</h2>
+      <div style="overflow-x: auto;">
         <table style="width: 100%; border-collapse: collapse; text-align: left; background: #141414; border: 1px solid #222;">
           <thead>
             <tr style="border-bottom: 2px solid #b8975e; background: #181818;">
-              <th style="padding: 12px; color: #fff;">ID</th>
-              <th style="padding: 12px; color: #fff;">Título</th>
-              <th style="padding: 12px; color: #fff;">Categoria</th>
-              <th style="padding: 12px; color: #fff;">Atualização</th>
-              <th style="padding: 12px; color: #fff;">Responsável</th>
+              <th style="padding: 12px; color: #fff;">Indicador</th>
+              <th style="padding: 12px; color: #fff;">Objetivo</th>
+              <th style="padding: 12px; color: #fff;">Resultado</th>
             </tr>
           </thead>
           <tbody style="color: #ccc;">
             <tr style="border-bottom: 1px solid #222;">
-              <td style="padding: 12px; font-weight: bold; color: #b8975e;">KB-001</td>
-              <td style="padding: 12px;">Como cadastrar paciente</td>
-              <td style="padding: 12px;">Cadastro</td>
-              <td style="padding: 12px;">12/05/2024</td>
-              <td style="padding: 12px;">Operações</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #222;">
-              <td style="padding: 12px; font-weight: bold; color: #b8975e;">KB-014</td>
-              <td style="padding: 12px;">Cancelar agendamento</td>
-              <td style="padding: 12px;">Agenda</td>
-              <td style="padding: 12px;">18/05/2024</td>
-              <td style="padding: 12px;">Suporte</td>
+              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Artigos Publicados</td>
+              <td style="padding: 12px;">Cobrir 100% das dúvidas frequentes</td>
+              <td style="padding: 12px; color: #50fa7b;">+100 artigos</td>
             </tr>
             <tr>
-              <td style="padding: 12px; font-weight: bold; color: #b8975e;">KB-021</td>
-              <td style="padding: 12px;">Pagamento recorrente</td>
-              <td style="padding: 12px;">Financeiro</td>
-              <td style="padding: 12px;">25/05/2024</td>
-              <td style="padding: 12px;">Financeiro</td>
+              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Redução de Demandas Repetitivas</td>
+              <td style="padding: 12px;">Desafogar o suporte de chamados básicos</td>
+              <td style="padding: 12px; color: #50fa7b;">-27%</td>
             </tr>
           </tbody>
         </table>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- IMPACTO NO PROJETO -->
+    <section>
+      <div style="background: #141414; padding: 25px; border-radius: 8px; border-left: 4px solid #b8975e; border: 1px solid #222;">
+        <h3 style="color: #fff; margin-bottom: 12px;">Impacto no Projeto</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; color: #ccc; line-height: 1.8;">
+          <li>✓ Ampliação expressiva da autonomia dos usuários</li>
+          <li>✓ Padronização corporativa na comunicação de suporte</li>
+          <li>✓ Redução expressiva no volume de tickets repetitivos</li>
+          <li>✓ Centralização documental auditável</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- RASTREABILIDADE / ARTEFATOS RELACIONADOS -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Artefatos Relacionados</h2>
+      <p style="color: #aaa; margin-bottom: 20px;">
+        Esta base de conhecimento conecta-se diretamente com os demais instrumentos da Habitat:
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <a href="protocolo_habitat.html" class="btn">Protocolo Operacional</a>
+        <a href="protocolo_gestao_incidentes.html" class="btn">Gestão de Incidentes</a>
+        <a href="fluxo_discovery.html" class="btn">Discovery Operacional</a>
+        <a href="fluxo_operacional.html" class="btn">Fluxo Operacional</a>
+        <a href="mapa_jornada_usuario.html" class="btn">Jornada do Usuário</a>
+        <a href="modelo_onboarding.html" class="btn">Modelo de Onboarding</a>
+        <a href="relatorio_leadtime.html" class="btn">Relatório de Lead Time</a>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- PRÓXIMOS ARTEFATOS (RODAPÉ) -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Próximos Artefatos</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div class="card-proximo">
+          <div>
+            <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">Fluxo Operacional</h3>
+            <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">Representação visual do fluxo entre suporte e plataforma.</p>
+          </div>
+          <div><a href="fluxo_operacional.html" class="btn" style="font-size: 0.85rem; padding: 8px 14px;">Acessar documento &rarr;</a></div>
+        </div>
+        <div class="card-proximo">
+          <div>
+            <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">Fluxo de Discovery</h3>
+            <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">Transformação de padrões operacionais em melhorias.</p>
+          </div>
+          <div><a href="fluxo_discovery.html" class="btn" style="font-size: 0.85rem; padding: 8px 14px;">Acessar documento &rarr;</a></div>
+        </div>
       </div>
     </section>
 
