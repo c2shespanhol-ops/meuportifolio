@@ -1,66 +1,87 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artefato Técnico | Mapa da Jornada - Habitat</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
-    <style>
-        :root { --bg: #0D0F10; --bg2: #131618; --bg3: #1A1D20; --gold: #C5A25D; --gold-lt: #DEC082; --text: #FFFFFF; --text-muted: #A0A5A8; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; padding: 40px 20px; line-height: 1.6; }
-        .container { max-width: 900px; margin: 0 auto; background: var(--bg2); border: 1px solid var(--bg3); padding: 40px; border-radius: 6px; }
-        .header { border-bottom: 1px solid var(--bg3); padding-bottom: 20px; margin-bottom: 30px; }
-        .badge { font-family: 'Orbitron', sans-serif; font-size: 0.75rem; color: var(--gold); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
-        h1 { font-size: 1.8rem; color: var(--text); margin-bottom: 10px; }
-        p.desc { color: var(--text-muted); font-size: 0.95rem; }
-        .journey-table { width: 100%; border-collapse: collapse; margin: 30px 0; font-size: 0.88rem; }
-        .journey-table th, .journey-table td { border: 1px solid var(--bg3); padding: 12px; text-align: left; }
-        .journey-table th { background-color: var(--bg3); color: var(--gold-lt); font-family: 'Orbitron', sans-serif; font-size: 0.8rem; }
-        .btn-back { display: inline-block; margin-top: 20px; color: var(--gold); text-decoration: none; font-family: 'Orbitron', sans-serif; font-size: 0.85rem; border: 1px solid var(--gold); padding: 10px 20px; border-radius: 3px; cursor: pointer; background: transparent; transition: all 0.3s ease; }
-        .btn-back:hover { background: var(--gold); color: var(--bg); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa da Jornada do Usuário</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="badge">Artefato Técnico &bull; Caso 03 (Habitat)</div>
-            <h1>Mapa da Jornada do Usuário</h1>
-            <p class="desc">Mapeamento dos pontos de contato e gargalos operacionais ao longo da experiência do usuário no sistema Habitat.</p>
-        </div>
 
-        <table class="journey-table">
-            <thead>
-                <tr>
-                    <th>Etapa da Jornada</th>
-                    <th>Ação Executada</th>
-                    <th>Ponto de Atrito Detectado</th>
-                    <th>Plano de Ação / Solução</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>1. Abertura do Chamado</strong></td>
-                    <td>Registro de pendência ou solicitação no sistema.</td>
-                    <td>Falta de campos padronizados gerando retrabalho na triagem.</td>
-                    <td>Adoção de formulários estruturados por tipo de evento.</td>
-                </tr>
-                <tr>
-                    <td><strong>2. Triagem e Priorização</strong></td>
-                    <td>Avaliação da gravidade do problema pela equipe.</td>
-                    <td>Atraso no tempo de resposta por falta de SLA claro.</td>
-                    <td>Implementação da matriz de severidade e SLA automático.</td>
-                </tr>
-                <tr>
-                    <td><strong>3. Resolução e Retorno</strong></td>
-                    <td>Entrega da solução ao usuário final.</td>
-                    <td>Incerteza do usuário sobre o andamento da solução.</td>
-                    <td>Status visível em tempo real no painel de acompanhamento.</td>
-                </tr>
-            </tbody>
+  <header style="padding: 20px 40px;">
+    <a href="case_study_03_habitat_final.html" class="btn">&larr; Voltar para o Case Study</a>
+  </header>
+
+  <main class="container" style="padding: 40px 20px; max-width: 1000px; margin: 0 auto;">
+    
+    <section class="hero-case">
+      <span style="color: #b8975e; font-weight: bold;">Documento Operacional</span>
+      <h1 style="font-size: 2.5rem; margin-top: 10px;">Mapa da Jornada do Usuário</h1>
+      <p style="font-size: 1.1rem; line-height: 1.6; color: #ccc; margin-top: 15px;">
+        Mapeamento da experiência do cliente ao longo do fluxo de uso da plataforma, identificando atritos operacionais e oportunidades de produto.
+      </p>
+    </section>
+
+    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+
+    <!-- JOURNEY MAP TABLE -->
+    <section id="journey-map">
+      <h2>User Journey Map</h2>
+      <div style="overflow-x: auto; margin-top: 20px;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; background: #111; border: 1px solid #333;">
+          <thead>
+            <tr style="border-bottom: 2px solid #b8975e; background: #181818;">
+              <th style="padding: 12px; color: #fff;">Etapa</th>
+              <th style="padding: 12px; color: #fff;">Objetivo</th>
+              <th style="padding: 12px; color: #fff;">Dor Encontrada</th>
+              <th style="padding: 12px; color: #fff;">Oportunidade</th>
+            </tr>
+          </thead>
+          <tbody style="color: #ccc;">
+            <tr style="border-bottom: 1px solid #222;">
+              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Descoberta</td>
+              <td style="padding: 12px;">Conhecer a plataforma</td>
+              <td style="padding: 12px;">Pouca informação clara no primeiro contato</td>
+              <td style="padding: 12px;">Estruturar um onboarding guiado</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #222;">
+              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Cadastro</td>
+              <td style="padding: 12px;">Criar a conta</td>
+              <td style="padding: 12px;">Excesso de campos obrigatórios</td>
+              <td style="padding: 12px;">Simplificar formulários e validações</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #222;">
+              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Primeiro Acesso</td>
+              <td style="padding: 12px;">Agendar consulta</td>
+              <td style="padding: 12px;">Dificuldade na localização das salas</td>
+              <td style="padding: 12px;">Redesenhar o fluxo de navegação da agenda</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Pós-Uso</td>
+              <td style="padding: 12px;">Retornar e re-agendar</td>
+              <td style="padding: 12px;">Falta de acompanhamento e confirmação automática</td>
+              <td style="padding: 12px;">Implementar automação de lembretes e suporte self-service</td>
+            </tr>
+          </tbody>
         </table>
+      </div>
+    </section>
 
-        <button onclick="history.back()" class="btn-back">&larr; Voltar ao Estudo de Caso</button>
-    </div>
+    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+
+    <!-- PRINCIPAIS INSIGHTS -->
+    <section id="insights">
+      <h2>Principais Insights</h2>
+      <div style="background: #181818; padding: 20px; border-radius: 8px; border-left: 4px solid #b8975e; margin-top: 20px;">
+        <ul style="margin: 0; padding-left: 20px; color: #ccc; line-height: 1.8;">
+          <li>A redução de atrito na fase de onboarding impacta diretamente a retenção dos usuários nos primeiros 30 dias.</li>
+          <li>A maioria dos chamados de suporte do primeiro mês estava ligada à falta de clareza nas configurações iniciais do perfil.</li>
+          <li>A automação de lembretes reduz em até 40% o volume de dúvidas frequentes enviadas ao atendimento.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
 </body>
 </html>
