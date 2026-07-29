@@ -1,156 +1,106 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artefato Técnico | Protocolo de Gestão de Incidentes</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0D0F10;
-            --bg2: #131618;
-            --bg3: #1A1D20;
-            --gold: #C5A25D;
-            --gold-lt: #DEC082;
-            --text: #FFFFFF;
-            --text-muted: #A0A5A8;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'DM Sans', sans-serif;
-            padding: 40px 20px;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--bg2);
-            border: 1px solid var(--bg3);
-            padding: 40px;
-            border-radius: 6px;
-        }
-
-        .header {
-            border-bottom: 1px solid var(--bg3);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-
-        .badge {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
-            color: var(--gold);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        h1 {
-            font-size: 1.8rem;
-            color: var(--text);
-            margin-bottom: 10px;
-        }
-
-        p.desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .matrix-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-            font-size: 0.9rem;
-        }
-
-        .matrix-table th, .matrix-table td {
-            border: 1px solid var(--bg3);
-            padding: 12px 16px;
-            text-align: left;
-        }
-
-        .matrix-table th {
-            background-color: var(--bg3);
-            color: var(--gold-lt);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.8rem;
-        }
-
-        .matrix-table tr:nth-child(even) {
-            background-color: rgba(255, 255, 255, 0.02);
-        }
-
-        .tag-high { color: #ff6b6b; font-weight: bold; }
-        .tag-med { color: #fca311; font-weight: bold; }
-        .tag-low { color: #4cc9f0; font-weight: bold; }
-
-        .btn-back {
-            display: inline-block;
-            margin-top: 20px;
-            color: var(--gold);
-            text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
-            border: 1px solid var(--gold);
-            padding: 10px 20px;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-back:hover {
-            background: var(--gold);
-            color: var(--bg);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protocolo de Gestão de Incidentes</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <div class="header">
-            <div class="badge">Artefato Técnico &bull; Caso 03 (Habitat)</div>
-            <h1>Protocolo Operacional de Gestão de Incidentes</h1>
-            <p class="desc">Matriz de priorização, triagem técnica e SLA para tratamento de chamados e atrito no atendimento.</p>
-        </div>
+  <header style="padding: 20px 40px;">
+    <a href="case_study_03_habitat_final.html" class="btn">&larr; Voltar para o Case Study</a>
+  </header>
 
-        <h2 style="font-size: 1.2rem; color: var(--gold-lt); margin-bottom: 15px;">Matriz de Severidade e Escalação</h2>
-        <table class="matrix-table">
-            <thead>
-                <tr>
-                    <th>Severidade</th>
-                    <th>Descrição do Impacto</th>
-                    <th>SLA Resposta</th>
-                    <th>Encaminhamento</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><span class="tag-high">Crítico (P1)</span></td>
-                    <td>Parada total de funcionalidade sem contorno.</td>
-                    <td>Até 2 horas</td>
-                    <td>Swarming imediato da equipe dev / PO.</td>
-                </tr>
-                <tr>
-                    <td><span class="tag-med">Alto (P2)</span></td>
-                    <td>Impacto relevante com alternativa paliativa.</td>
-                    <td>Até 24 horas</td>
-                    <td>Entra na prioridade da sprint corrente.</td>
-                </tr>
-                <tr>
-                    <td><span class="tag-low">Médio / Baixo</span></td>
-                    <td>Ajustes visuais, dúvidas operacionais e melhorias.</td>
-                    <td>Fluxo contínuo</td>
-                    <td>Refinamento de backlog regular.</td>
-                </tr>
-            </tbody>
+  <main class="container" style="padding: 40px 20px; max-width: 1000px; margin: 0 auto;">
+    
+    <section class="hero-case">
+      <span style="color: #b8975e; font-weight: bold;">Documento Operacional</span>
+      <h1 style="font-size: 2.5rem; margin-top: 10px;">Protocolo de Gestão de Incidentes</h1>
+      <p style="font-size: 1.1rem; line-height: 1.6; color: #ccc; margin-top: 15px;">
+        Diretrizes operacionais para triagem, priorização, escalonamento e resolução de incidentes no ecossistema da Habitat Consultórios.
+      </p>
+    </section>
+
+    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+
+    <!-- OBJETIVO E ESCOPO -->
+    <section id="objetivo-escopo" style="margin-bottom: 30px;">
+      <h2>Objetivo</h2>
+      <p style="line-height: 1.6; color: #ddd;">Padronizar a resposta da equipe de operações diante de instabilidades e falhas técnicas, assegurando previsibilidade de atendimento e mitigação de impactos no cliente final.</p>
+
+      <h2 style="margin-top: 25px;">Escopo</h2>
+      <p style="line-height: 1.6; color: #ddd;">Aplica-se a todos os incidentes reportados via suporte interno, atendimento a clientes, falhas de sistema ou alertas de monitoramento da plataforma Habitat.</p>
+    </section>
+
+    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+
+    <!-- CRITÉRIOS DE SEVERIDADE -->
+    <section id="severidade" style="margin-bottom: 30px;">
+      <h2>Critérios de Severidade</h2>
+      <div style="overflow-x: auto; margin-top: 20px;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; background: #111; border: 1px solid #333;">
+          <thead>
+            <tr style="border-bottom: 2px solid #b8975e; background: #181818;">
+              <th style="padding: 12px; color: #fff;">Severidade</th>
+              <th style="padding: 12px; color: #fff;">Descrição</th>
+              <th style="padding: 12px; color: #fff;">Tempo Resposta</th>
+              <th style="padding: 12px; color: #fff;">Tempo Solução</th>
+              <th style="padding: 12px; color: #fff;">Exemplos</th>
+            </tr>
+          </thead>
+          <tbody style="color: #ccc;">
+            <tr style="border-bottom: 1px solid #222;">
+              <td style="padding: 12px; font-weight: bold; color: #ff5555;">S1</td>
+              <td style="padding: 12px;">Sistema indisponível</td>
+              <td style="padding: 12px;">30 min</td>
+              <td style="padding: 12px;">4h</td>
+              <td style="padding: 12px;">Falha Login / Inoperância total</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #222;">
+              <td style="padding: 12px; font-weight: bold; color: #ffb86c;">S2</td>
+              <td style="padding: 12px;">Funcionalidade crítica</td>
+              <td style="padding: 12px;">2h</td>
+              <td style="padding: 12px;">8h</td>
+              <td style="padding: 12px;">Erro Agenda / Bloqueio de agendamento</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #222;">
+              <td style="padding: 12px; font-weight: bold; color: #f1fa8c;">S3</td>
+              <td style="padding: 12px;">Problema parcial</td>
+              <td style="padding: 12px;">8h</td>
+              <td style="padding: 12px;">2 dias</td>
+              <td style="padding: 12px;">Erro Cadastro / Lentidão pontual</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px; font-weight: bold; color: #8be9fd;">S4</td>
+              <td style="padding: 12px;">Melhoria</td>
+              <td style="padding: 12px;">Backlog</td>
+              <td style="padding: 12px;">Sprint futura</td>
+              <td style="padding: 12px;">Sugestão Cliente / Ajuste de interface</td>
+            </tr>
+          </tbody>
         </table>
+      </div>
+    </section>
 
-        <a href="protocolo_habitat.html" class="btn-back">&larr; Voltar ao Estudo de Caso</a>
-    </div>
+    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+
+    <!-- FLUXO DE ATENDIMENTO -->
+    <section id="fluxo-atendimento">
+      <h2>Fluxo de Atendimento</h2>
+      <div style="background: #111; padding: 25px; border-radius: 8px; border: 1px solid #333; margin-top: 20px; text-align: center; font-family: monospace; font-size: 1.1rem; color: #b8975e;">
+        Recebimento &rarr; Triagem &rarr; Classificação &rarr; Execução &rarr; Validação &rarr; Encerramento
+      </div>
+      
+      <div style="margin-top: 30px; padding: 20px; background: #181818; border-left: 4px solid #b8975e;">
+        <h4 style="margin: 0 0 10px 0; color: #fff;">Observações Finais</h4>
+        <p style="margin: 0; color: #ccc; font-size: 0.95rem; line-height: 1.5;">
+          Todo incidente S1 ou S2 exige a criação imediata de post-mortem operacional e acompanhamento de causa raiz no ciclo de refinamento do backlog.
+        </p>
+      </div>
+    </section>
+
+  </main>
 
 </body>
 </html>
