@@ -1,332 +1,229 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Protocolo Operacional de Gestão de Incidentes · Habitat Consultórios Inteligentes</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg:        #0E1114;
-    --bg2:       #13181D;
-    --bg3:       #1A2028;
-    --gold:      #C9A84C;
-    --gold-lt:   #E8C060;
-    --teal:      #26505A;
-    --teal-br:   #3A7A8A;
-    --coral:     #F57F76;
-    --white:     #F0F6FC;
-    --gray1:     #8B949E;
-    --gray2:     #4A5568;
-    --border:    rgba(201,168,76,0.18);
-  }
-
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.4;
-  }
-
-  .back-btn {
-    position: fixed;
-    top: 24px;
-    left: 24px;
-    z-index: 1001;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    font-family: 'Orbitron', monospace;
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--gold);
-    background: rgba(14, 17, 20, 0.85);
-    backdrop-filter: blur(8px);
-    border: 0.5px solid var(--border);
-    padding: 10px 16px;
-    border-radius: 4px;
-    letter-spacing: 0.1em;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-
-  .back-btn:hover {
-    background: var(--gold);
-    color: var(--bg);
-    border-color: var(--gold);
-    box-shadow: 0 4px 20px rgba(201, 168, 76, 0.15);
-  }
-
-  .back-btn svg {
-    stroke: currentColor;
-    transition: transform 0.3s ease;
-  }
-
-  .back-btn:hover svg {
-    transform: translateX(-3px);
-  }
-
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 120px 24px 80px 24px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .gold-accent-top {
-    height: 2.5px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-lt), var(--gold));
-  }
-
-  .protocol-header {
-    border-bottom: 0.5px solid var(--border);
-    padding-bottom: 40px;
-    margin-bottom: 48px;
-  }
-
-  .protocol-eyebrow {
-    font-family: 'Orbitron', monospace;
-    font-size: 9px;
-    color: var(--gold);
-    letter-spacing: 0.2em;
-    font-weight: 600;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .protocol-eyebrow::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--gold);
-  }
-
-  .protocol-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(40px, 5vw, 64px);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--white);
-    margin-bottom: 20px;
-  }
-
-  .protocol-subtitle {
-    font-size: 15px;
-    color: var(--gray1);
-    line-height: 1.8;
-  }
-
-  .meta-note {
-    font-size: 13px;
-    color: var(--gray1);
-    background: rgba(201, 168, 76, 0.04);
-    border-left: 2px solid var(--gold);
-    padding: 16px 20px;
-    margin-bottom: 48px;
-    border-radius: 0 4px 4px 0;
-  }
-
-  .section-block {
-    margin-bottom: 48px;
-    background: var(--bg2);
-    border: 0.5px solid var(--border);
-    border-radius: 4px;
-    padding: 32px;
-  }
-
-  .section-block h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--white);
-    margin-bottom: 16px;
-    border-bottom: 0.5px solid rgba(201,168,76,0.1);
-    padding-bottom: 8px;
-  }
-
-  .section-block p, .section-block li {
-    font-size: 14px;
-    color: rgba(240, 246, 252, 0.8);
-    line-height: 1.8;
-  }
-
-  .section-block ul {
-    list-style: none;
-    margin-top: 12px;
-  }
-
-  .section-block li {
-    padding: 6px 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .section-block li::before {
-    content: '·';
-    color: var(--gold);
-    font-weight: bold;
-  }
-
-  .confidentiality-box {
-    background: var(--bg2);
-    border: 0.5px solid var(--border);
-    border-radius: 4px;
-    padding: 24px;
-    margin-top: 64px;
-    margin-bottom: 32px;
-  }
-
-  .confidentiality-box h3 {
-    font-family: 'Orbitron', monospace;
-    font-size: 10px;
-    color: var(--gold);
-    letter-spacing: 0.15em;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-  }
-
-  .confidentiality-box p {
-    font-size: 12px;
-    color: var(--gray1);
-    line-height: 1.6;
-  }
-
-  footer {
-    background: var(--bg);
-    border-top: 0.5px solid var(--border);
-    padding: 32px 24px;
-    text-align: center;
-  }
-
-  .footer-links {
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-
-  .footer-links a {
-    font-family: 'Orbitron', monospace;
-    font-size: 9px;
-    color: var(--teal-br);
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover {
-    color: var(--gold);
-  }
-
-  .footer-copy {
-    font-size: 11px;
-    color: var(--gray2);
-    letter-spacing: 0.04em;
-    display: block;
-    margin-bottom: 4px;
-  }
-
-  .footer-complement {
-    font-size: 11px;
-    color: var(--gray1);
-    letter-spacing: 0.04em;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protocolo Operacional de Gestão de Incidentes - Habitat</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #0d0d0d;
+      color: #e0e0e0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: #b8975e; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border: 1px solid #b8975e;
+      color: #b8975e;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn:hover { background-color: #b8975e; color: #0d0d0d; text-decoration: none; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+    header { padding: 20px 40px; border-bottom: 1px solid #222; display: flex; gap: 15px; flex-wrap: wrap; }
+    hr { border: 0; border-top: 1px solid #222; margin: 40px 0; }
+    .grid-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      background: #141414;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #222;
+      margin-top: 20px;
+    }
+    .card-proximo {
+      border: 1px solid #222;
+      padding: 20px;
+      border-radius: 8px;
+      background: #141414;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  </style>
 </head>
 <body>
 
-<a href="javascript:history.back()" class="back-btn" aria-label="Voltar para a página anterior">
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="19" y1="12" x2="5" y2="12"></line>
-    <polyline points="12 19 5 12 12 5"></polyline>
-  </svg>
-  VOLTAR
-</a>
+  <header>
+    <a href="case_study_03_habitat_final.html" class="btn">&larr; Abrir Case Study Habitat</a>
+    <a href="index.html" class="btn">&larr; Voltar ao Portfólio</a>
+  </header>
 
-<div class="gold-accent-top"></div>
+  <main class="container">
+    
+    <!-- CABEÇALHO CORPORATIVO -->
+    <section>
+      <span style="color: #b8975e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional · HBT-PROT-001</span>
+      <h1 style="font-size: 2.4rem; color: #fff; margin-top: 10px; margin-bottom: 15px;">Protocolo Operacional de Gestão de Incidentes</h1>
+      
+      <!-- AVISO DE CONTEXTUALIZAÇÃO -->
+      <div style="background: #141414; border: 1px solid #222; border-left: 4px solid #b8975e; padding: 18px; border-radius: 6px; margin-bottom: 20px; color: #ccc; font-size: 0.95rem; line-height: 1.6;">
+        <p>Este documento representa uma reconstrução metodológica baseada na atuação profissional realizada durante o período em que atuei na Habitat Consultórios Inteligentes.</p>
+        <p style="margin-top: 8px;">O objetivo é demonstrar a estrutura de trabalho utilizada para alcançar os resultados apresentados no estudo de caso, preservando informações confidenciais da empresa.</p>
+      </div>
 
-<main class="container">
-  <div class="protocol-header">
-    <div class="protocol-eyebrow">BASELINE 1.0 · HABITAT CONSULTÓRIOS INTELIGENTES</div>
-    <h1 class="protocol-title">Protocolo Operacional de Gestão de Incidentes</h1>
-    <p class="protocol-subtitle">Diretrizes estruturadas para triagem, rastreabilidade, atendimento e resolução otimizada de chamados operacionais.</p>
-  </div>
+      <p style="font-size: 1.15rem; color: #aaa; max-width: 800px; line-height: 1.6;">
+        Diretrizes, alçadas e fluxos normativos para o tratamento, escalonamento e resolução de incidentes operacionais e sistêmicos na Habitat.
+      </p>
 
-  <div class="meta-note">
-    Documento reconstruído a partir da metodologia operacional utilizada durante a atuação na Habitat Consultórios Inteligentes.
-  </div>
+      <div class="grid-meta">
+        <div><strong style="color: #b8975e;">Código:</strong> <span style="color: #fff;">HBT-PROT-001</span></div>
+        <div><strong style="color: #b8975e;">Versão:</strong> <span style="color: #fff;">2.0</span></div>
+        <div><strong style="color: #b8975e;">Status:</strong> <span style="color: #50fa7b;">Aprovado & Ativo</span></div>
+        <div><strong style="color: #b8975e;">Responsável:</strong> <span style="color: #fff;">Product Operations</span></div>
+        <div><strong style="color: #b8975e;">Atualização:</strong> <span style="color: #fff;">Março/2024</span></div>
+      </div>
+    </section>
 
-  <div class="section-block">
-    <h2>1. Visão Geral e Contexto</h2>
-    <p>Este protocolo consolida o padrão de atendimento e gestão de incidentes implementado na Habitat Consultórios Inteligentes. O objetivo principal é estruturar o fluxo de ponta a ponta, garantindo visibilidade, padronização e redução drástica do tempo de resposta (SLA).</p>
-  </div>
+    <hr>
 
-  <div class="section-block">
-    <h2>2. Canal de Entrada e Triagem</h2>
-    <p>A porta de entrada das solicitações foi centralizada para evitar dispersão de informações e perda de chamados:</p>
-    <ul>
-      <li>Eliminação de canais informais desorganizados para solicitações críticas.</li>
-      <li>Uso de formulários padronizados com campos obrigatórios e direcionados.</li>
-      <li>Triagem inicial baseada na criticidade e no impacto operacional imediato.</li>
-    </ul>
-  </div>
+    <!-- CONTEXTO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 10px;">Contexto</h2>
+      <p style="color: #ccc; font-size: 1.05rem; line-height: 1.7;">
+        Durante minha atuação em Product Operations identifiquei um padrão recorrente de incidentes operacionais, dúvidas de utilização da plataforma e gargalos entre Atendimento, Produto e Engenharia.<br>
+        Para reduzir recorrências, melhorar o fluxo operacional e estruturar a comunicação entre as áreas, foi organizada uma metodologia de tratamento de incidentes baseada em classificação, priorização, validação e aprendizado contínuo.
+      </p>
+    </section>
 
-  <div class="section-block">
-    <h2>3. Fluxo de Execução e Acompanhamento</h2>
-    <p>O ciclo de vida do incidente segue etapas estritas de controle:</p>
-    <ul>
-      <li>Registro formal no sistema de controle de chamados.</li>
-      <li>Atribuição clara de responsabilidades por frente de atendimento.</li>
-      <li>Monitoramento ativo de prazos e acompanhamento sistemático de pendências junto às equipes técnicas.</li>
-    </ul>
-  </div>
+    <hr>
 
-  <div class="section-block">
-    <h2>4. Indicadores e Métricas de Qualidade</h2>
-    <p>O acompanhamento de desempenho da operação baseia-se em pilares fundamentais:</p>
-    <ul>
-      <li>Cumprimento rigoroso do SLA estabelecido para cada tipo de chamado.</li>
-      <li>Redução contínua do lead time operacional.</li>
-      <li>Minimização absoluta do retrabalho decorrente de falhas de preenchimento ou escopo ambíguo.</li>
-    </ul>
-  </div>
+    <!-- VISÃO GERAL -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 10px;">Visão Geral</h2>
+      <p style="color: #ccc; font-size: 1.05rem;">
+        Estabelecer um padrão único e auditável para a gestão de ocorrências, garantindo que nenhum chamado fique sem tratativa adequada e que os gargalos sejam convertidos em insumos para o produto.
+      </p>
+    </section>
 
-  <div class="confidentiality-box">
-    <h3>Observação</h3>
-    <p>Este documento representa uma reconstrução metodológica baseada na experiência profissional desenvolvida durante a atuação na Habitat Consultórios Inteligentes.<br>Informações estratégicas, dados internos, clientes, regras proprietárias e documentos confidenciais foram adaptados ou anonimizados exclusivamente para fins de demonstração profissional.</p>
-  </div>
-</main>
+    <hr>
 
-<footer>
-  <div class="footer-links">
-    <a href="javascript:history.back()">Voltar ao Portfólio</a>
-    <a href="#case-habitat">Abrir o Estudo de Caso Habitat</a>
-  </div>
-  <span class="footer-copy">© 2026 Cleyton Hespanhol. Todos os direitos reservados.</span>
-  <span class="footer-complement">Documento complementar ao Case Study Habitat Consultórios Inteligentes.</span>
-</footer>
+    <!-- OBJETIVO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 10px;">Objetivo</h2>
+      <p style="color: #ccc; font-size: 1.05rem;">
+        Reduzir o tempo de resolução de chamados (Resolution Time), mitigar o impacto de falhas na rotina dos consultórios parceiros e estruturar o aprendizado através de melhorias contínuas.
+      </p>
+    </section>
+
+    <hr>
+
+    <!-- ESCOPO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Escopo</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
+          <h3 style="color: #50fa7b; margin-bottom: 10px;">O que cobre</h3>
+          <ul style="color: #ccc; padding-left: 20px; line-height: 1.6;">
+            <li>Triagem e classificação de chamados de suporte (N1 a N3)</li>
+            <li>Escalonamento para equipes de engenharia e produto</li>
+            <li>Fechamento de incidentes com comunicação ao cliente</li>
+          </ul>
+        </div>
+        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
+          <h3 style="color: #ff5555; margin-bottom: 10px;">O que não cobre</h3>
+          <ul style="color: #ccc; padding-left: 20px; line-height: 1.6;">
+            <li>Demandas comerciais sem relação com falhas de sistema</li>
+            <li>Modificações estruturais de arquitetura sem validação prévia</li>
+            <li>Processos internos administrativos de RH</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- INDICADORES MONITORADOS -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Indicadores de Desempenho</h2>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; background: #141414; border: 1px solid #222;">
+          <thead>
+            <tr style="border-bottom: 2px solid #b8975e; background: #181818;">
+              <th style="padding: 12px; color: #fff;">Indicador</th>
+              <th style="padding: 12px; color: #fff;">Meta Operacional</th>
+              <th style="padding: 12px; color: #fff;">Resultado Alcançado</th>
+            </tr>
+          </thead>
+          <tbody style="color: #ccc;">
+            <tr style="border-bottom: 1px solid #222;">
+              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Tempo Médio de Resolução (MTTR)</td>
+              <td style="padding: 12px;">Reduzir o tempo de indisponibilidade ou falha</td>
+              <td style="padding: 12px; color: #50fa7b;">-32%</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px; font-weight: bold; color: #b8975e;">Acurácia na Classificação de Severidade</td>
+              <td style="padding: 12px;">Garantir direcionamento correto para o time técnico</td>
+              <td style="padding: 12px; color: #50fa7b;">95%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- IMPACTO NO PROJETO -->
+    <section>
+      <div style="background: #141414; padding: 25px; border-radius: 8px; border-left: 4px solid #b8975e; border: 1px solid #222;">
+        <h3 style="color: #fff; margin-bottom: 12px;">Impacto no Projeto</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; color: #ccc; line-height: 1.8;">
+          <li>✓ Redução significativa no volume de chamados repetitivos</li>
+          <li>✓ Maior clareza nas responsabilidades de cada nível de atendimento</li>
+          <li>✓ Alinhamento estreito entre a operação diária e as melhorias do produto</li>
+          <li>✓ Processo auditável e totalmente rastreável</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- COMO ESTE PROTOCOLO SE CONECTA AO ESTUDO DE CASO -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 12px;">Como este protocolo se conecta ao estudo de caso</h2>
+      <p style="color: #ccc; font-size: 1.05rem; line-height: 1.7;">
+        Os resultados apresentados no Case Study Habitat não foram obtidos por uma única ação isolada.<br>
+        Eles foram consequência da combinação entre padronização operacional, documentação, gestão do conhecimento, melhoria contínua e aproximação entre Operações, Produto e Engenharia.<br>
+        Este protocolo representa uma reconstrução dessa forma de trabalho.
+      </p>
+    </section>
+
+    <hr>
+
+    <!-- RASTREABILIDADE / ARTEFATOS RELACIONADOS -->
+    <section>
+      <h2 style="color: #fff; margin-bottom: 15px;">Artefatos Relacionados</h2>
+      <p style="color: #aaa; margin-bottom: 20px;">
+        Este protocolo integra-se diretamente aos demais instrumentos do ecossistema Habitat:
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <a href="protocolo_gestao_incidentes.html" class="btn">Gestão de Incidentes</a>
+        <a href="Central_Conhecimento.html" class="btn">Central de Conhecimento</a>
+        <a href="fluxo_discovery.html" class="btn">Fluxo de Discovery</a>
+        <a href="fluxo_operacional.html" class="btn">Fluxo Operacional</a>
+        <a href="mapa_jornada_usuario.html" class="btn">Jornada do Usuário</a>
+        <a href="modelo_onboarding.html" class="btn">Modelo de Onboarding</a>
+        <a href="relatorio_leadtime.html" class="btn">Relatório de Lead Time</a>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- RODAPÉ -->
+    <footer>
+      <p style="color: #888; font-size: 0.9rem; text-align: center; line-height: 1.6;">
+        Documento complementar ao Case Study Habitat Consultórios Inteligentes.<br>
+        &copy; 2026 Cleyton S. Hespanhol. Todos os direitos reservados.
+      </p>
+    </footer>
+
+  </main>
 
 </body>
 </html>
