@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Case Study 01 · MarIA · Cleyton Hespanhol</title>
+<title>Case Study 01 · Assistente Virtual Institucional · Cleyton Hespanhol</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;700&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -432,9 +432,9 @@
 
   .result-number {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 42px;
+    font-size: 32px;
     color: var(--gold);
-    line-height: 1.1;
+    line-height: 1.2;
     margin-bottom: 8px;
     font-weight: 700;
   }
@@ -511,6 +511,55 @@
     font-size: 12px;
     color: var(--white);
     font-weight: 500;
+  }
+
+  /* DOCUMENTOS DE APOIO / ARTIFACTS */
+  .artifacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .artifact-card {
+    background: var(--bg2);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+  }
+
+  .artifact-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .artifact-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--white);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .artifact-card p {
+    font-size: 13px;
+    color: var(--gray1);
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .artifact-action {
+    font-family: 'Orbitron', monospace;
+    font-size: 9px;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 
   /* LEARNINGS */
@@ -619,17 +668,17 @@
 
   <!-- HERO -->
   <header class="hero">
-    <div class="hero-eyebrow">CASE STUDY 01 · PREFEITURA DE MARICÁ</div>
-    <h1 class="hero-title">Avatar Institucional MarIA</h1>
-    <p class="hero-subtitle">Transformando atendimento público através de IA</p>
-    <p class="hero-desc">Atuando como Product Owner na Subsecretaria de Planejamento e Modernização (vinculada à Secretaria de Gestão Tributária e Fiscal da Prefeitura de Maricá), liderei a concepção de uma assistente virtual institucional criada para representar digitalmente a prefeitura, humanizar a comunicação e simplificar o acesso a serviços públicos complexos.</p>
+    <div class="hero-eyebrow">CASE STUDY 01 · SECRETARIA DE GESTÃO TRIBUTÁRIA E FISCAL</div>
+    <h1 class="hero-title">Construindo um Assistente Virtual Institucional</h1>
+    <p class="hero-subtitle">Product Discovery aplicado à transformação do atendimento interno</p>
+    <p class="hero-desc">Desenvolvimento completo da concepção de um assistente virtual institucional destinado inicialmente ao suporte dos servidores da Secretaria de Gestão Tributária e Fiscal, estruturando pesquisa, personas, arquitetura conversacional, requisitos do produto e estratégia de evolução para automação do atendimento.</p>
   </header>
 
   <!-- META CARDS -->
   <div class="meta-grid">
     <div class="meta-item">
       <div class="meta-label">Contexto</div>
-      <div class="meta-value">Subsecretaria de Modernização</div>
+      <div class="meta-value">Setor Público · SEGET</div>
     </div>
     <div class="meta-item">
       <div class="meta-label">Período</div>
@@ -637,82 +686,85 @@
     </div>
     <div class="meta-item">
       <div class="meta-label">Meu Papel</div>
-      <div class="meta-value">Discovery, Mapeamento, UX, Validação, Governança</div>
+      <div class="meta-value">Product Discovery, UX Research, Design de Produto</div>
     </div>
   </div>
 
-  <!-- SEÇÃO 01: CONTEXTO -->
-  <section class="section" id="contexto">
+  <!-- SEÇÃO 01: O PRODUTO -->
+  <section class="section" id="produto">
     <div class="section-header">
-      <div class="section-title">01 Contexto</div>
-      <h2 class="section-heading">Um novo marco para o relacionamento digital municipal.</h2>
+      <div class="section-title">01 O Produto</div>
+      <h2 class="section-heading">Um produto pensado antes da tecnologia.</h2>
     </div>
-    <p style="font-size: 14px; color: rgba(240, 246, 252, 0.8); line-height: 1.7; margin-bottom: 24px;">A prefeitura precisava unificar o tom de voz e aproximar os canais digitais do cidadão. O projeto nasceu com o desafio de estruturar uma persona que representasse os valores institucionais com empatia e clareza absoluta.</p>
+    <p style="font-size: 14px; color: rgba(240, 246, 252, 0.8); line-height: 1.7; margin-bottom: 24px;">O projeto nasceu da necessidade de melhorar a comunicação entre a Secretaria e seus servidores. Antes de qualquer decisão tecnológica foi necessário compreender profundamente quem utilizaria o produto, quais eram suas necessidades e quais processos deveriam ser priorizados. O foco inicial era criar uma experiência simples, confiável e escalável para comunicação institucional.</p>
     <div class="pillars-grid">
       <div class="pillar-card">
         <div>
-          <h3>Desafio</h3>
-          <p>Superar barreiras de comunicação no setor público.</p>
+          <h3>Usuário Primário</h3>
+          <p>Servidores da Secretaria</p>
         </div>
         <ul class="pillar-list">
-          <li>Linguagem excessivamente técnica</li>
-          <li>Canais fragmentados</li>
-          <li>Distância entre gestão e cidadão</li>
+          <li>Recebimento de comunicados oficiais</li>
+          <li>Consultas rápidas</li>
+          <li>Orientações</li>
+          <li>Treinamentos</li>
+          <li>Procedimentos internos</li>
         </ul>
       </div>
       <div class="pillar-card">
         <div>
-          <h3>Estratégia</h3>
-          <p>Concepção de um produto digital centrado no usuário.</p>
+          <h3>Usuário Futuro</h3>
+          <p>Contribuintes (Não implementado)</p>
         </div>
         <ul class="pillar-list">
-          <li>Identidade visual e verbal unificada</li>
-          <li>Acessibilidade facilitada</li>
-          <li>Padronização multissetorial</li>
+          <li>Visão futura para atendimento automatizado</li>
+          <li>Consulta de informações</li>
+          <li>Solicitações</li>
+          <li>Orientações tributárias</li>
         </ul>
       </div>
       <div class="pillar-card">
         <div>
-          <h3>Impacto Esperado</h3>
-          <p>Escala e acolhimento no atendimento institucional.</p>
+          <h3>Produto</h3>
+          <p>Assistente Virtual Institucional</p>
         </div>
         <ul class="pillar-list">
-          <li>Redução de fricção</li>
-          <li>Aumento da confiança pública</li>
-          <li>Eficiência operacional</li>
+          <li>Centralizar conhecimento</li>
+          <li>Facilitar acesso às informações</li>
+          <li>Reduzir dependência do atendimento humano em processos repetitivos</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- SEÇÃO 02: PROBLEMA -->
+  <!-- SEÇÃO 02: O PROBLEMA -->
   <section class="section" id="problema">
     <div class="section-header">
-      <div class="section-title">02 Problema</div>
-      <h2 class="section-heading">A fragmentação na comunicação pública.</h2>
+      <div class="section-title">02 O Problema</div>
+      <h2 class="section-heading">A informação existia, mas era difícil encontrá-la.</h2>
     </div>
-    <p style="font-size: 14px; color: rgba(240, 246, 252, 0.8); line-height: 1.7; margin-bottom: 24px;">Os diferentes canais de atendimento operavam de forma isolada, gerando dúvidas e retrabalho na jornada do cidadão.</p>
+    <p style="font-size: 14px; color: rgba(240, 246, 252, 0.8); line-height: 1.7; margin-bottom: 24px;">Os servidores dependiam frequentemente de atendimento humano para localizar documentos, comunicados e procedimentos internos. Grande parte das informações estava distribuída entre diferentes canais, dificultando o acesso rápido e consistente. A oportunidade era estruturar uma experiência capaz de organizar esse conhecimento em um único ponto de interação.</p>
     <div class="comparison-grid">
       <div class="comp-card red-border">
-        <span class="comp-badge">Cenário Anterior</span>
-        <h3>Fricção e Ruptura</h3>
-        <p>Inconsistências críticas identificadas na experiência do usuário.</p>
+        <span class="comp-badge">Antes</span>
+        <h3>Comunicação Descentralizada</h3>
+        <p>Inconsistências críticas identificadas na experiência de suporte interno.</p>
         <ul class="comp-list">
-          <li>Comunicação descentralizada</li>
-          <li>Falta de uma identidade acolhedora</li>
-          <li>Excesso de burocracia textual</li>
-          <li>Experiência dispersa</li>
+          <li>Dependência do atendimento humano</li>
+          <li>Informações espalhadas</li>
+          <li>Ausência de fluxo único</li>
+          <li>Baixa padronização</li>
         </ul>
       </div>
       <div class="comp-card gold-border">
-        <span class="comp-badge">Visão Desejada</span>
-        <h3>Ecossistema Integrado</h3>
-        <p>Diretrizes estruturadas para o novo canal digital.</p>
+        <span class="comp-badge">Depois</span>
+        <h3>Produto Estruturado</h3>
+        <p>Diretrizes estruturadas para o novo canal digital unificado.</p>
         <ul class="comp-list">
-          <li>Assistente institucional única</li>
-          <li>Linguagem humanizada e acessível</li>
-          <li>Governança unificada</li>
-          <li>Jornada simplificada</li>
+          <li>Fluxo conversacional</li>
+          <li>Arquitetura de informação</li>
+          <li>Experiência guiada</li>
+          <li>Base preparada para evolução</li>
         </ul>
       </div>
     </div>
@@ -722,52 +774,57 @@
   <section class="section" id="processo">
     <div class="section-header">
       <div class="section-title">03 Processo</div>
-      <h2 class="section-heading">Da investigação à especificação estratégica.</h2>
+      <h2 class="section-heading">Investigação, descoberta e desenho estratégico.</h2>
     </div>
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-step">ETAPA 01</div>
-        <h3 class="timeline-title">Entendimento do problema</h3>
-        <p class="timeline-desc">Mapeamento de dores junto aos stakeholders e análise de pontos de contato anteriores.</p>
+        <h3 class="timeline-title">Product Discovery</h3>
+        <p class="timeline-desc">Levantamento das necessidades da Secretaria. Entrevistas. Análise documental. Identificação das principais dores. Mapeamento das oportunidades.</p>
         <div class="timeline-tags">
           <span class="tag">Discovery</span>
-          <span class="tag">Entrevistas</span>
+          <span class="tag">Stakeholders</span>
+          <span class="tag">Pesquisa</span>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-step">ETAPA 02</div>
-        <h3 class="timeline-title">Discovery</h3>
-        <p class="timeline-desc">Definição dos requisitos de produto, escopo de atuação e restrições institucionais.</p>
+        <h3 class="timeline-title">UX Research</h3>
+        <p class="timeline-desc">Mapeamento dos perfis de usuários. Definição das personas. Objetivos. Necessidades. Comportamentos.</p>
         <div class="timeline-tags">
-          <span class="tag">Product Brief</span>
-          <span class="tag">Escopo</span>
+          <span class="tag">Personas</span>
+          <span class="tag">UX Research</span>
+          <span class="tag">User Research</span>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-step">ETAPA 03</div>
-        <h3 class="timeline-title">Construção da Persona</h3>
-        <p class="timeline-desc">Desenvolvimento do tom de voz, traços de personalidade, diretrizes éticas e visuais da assistente.</p>
+        <h3 class="timeline-title">Conversation Design</h3>
+        <p class="timeline-desc">Definição da arquitetura conversacional. Fluxos. Mensagens. Fallbacks. Intenções. Categorias.</p>
         <div class="timeline-tags">
+          <span class="tag">Conversation Design</span>
           <span class="tag">UX Writing</span>
-          <span class="tag">Persona</span>
+          <span class="tag">Prompt Design</span>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-step">ETAPA 04</div>
-        <h3 class="timeline-title">Validação</h3>
-        <p class="timeline-desc">Apresentação iterativa para lideranças e alinhamento estratégico com áreas envolvidas.</p>
+        <h3 class="timeline-title">Design do Produto</h3>
+        <p class="timeline-desc">Definição da personalidade. Tom de voz. Arquitetura. Estrutura do produto. Escopo. Requisitos.</p>
         <div class="timeline-tags">
-          <span class="tag">Validação</span>
-          <span class="tag">Alinhamento</span>
+          <span class="tag">Product Design</span>
+          <span class="tag">Information Architecture</span>
+          <span class="tag">Product Thinking</span>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-step">ETAPA 05</div>
-        <h3 class="timeline-title">Entrega</h3>
-        <p class="timeline-desc">Consolidação da documentação oficial de produto pronta para direcionar as etapas de desenvolvimento.</p>
+        <h3 class="timeline-title">Validação</h3>
+        <p class="timeline-desc">Apresentação para stakeholders. Discussões. Refinamentos. Consolidação da visão do produto. Preparação para futura implementação técnica.</p>
         <div class="timeline-tags">
-          <span class="tag">Governança</span>
-          <span class="tag">Handoff</span>
+          <span class="tag">Validation</span>
+          <span class="tag">Stakeholders</span>
+          <span class="tag">Product Vision</span>
         </div>
       </div>
     </div>
@@ -777,23 +834,38 @@
   <section class="section" id="resultados">
     <div class="section-header">
       <div class="section-title">04 Resultados</div>
-      <h2 class="section-heading">Entregas de alto valor estratégico.</h2>
+      <h2 class="section-heading">Entregas qualitativas e visões consolidadas.</h2>
     </div>
     <div class="results-grid">
       <div class="result-card">
-        <div class="result-number">100%</div>
-        <div class="result-title">Avatar institucional aprovado</div>
-        <div class="result-desc">Consolidação oficial da identidade visual e comportamental da assistente.</div>
+        <div class="result-number">Produto</div>
+        <div class="result-title">Concebido</div>
+        <div class="result-desc">Escopo estruturado e alinhado com as diretrizes da Secretaria.</div>
       </div>
       <div class="result-card">
-        <div class="result-number">3</div>
-        <div class="result-title">Secretarias envolvidas</div>
-        <div class="result-desc">Alinhamento transversal de governança garantindo coesão nas diretrizes.</div>
+        <div class="result-number">Visão</div>
+        <div class="result-title">Estratégica Consolidada</div>
+        <div class="result-desc">Direcionamento claro para fases atuais e futuras de expansão.</div>
       </div>
       <div class="result-card">
-        <div class="result-number">72h</div>
-        <div class="result-title">Tempo para primeira versão</div>
-        <div class="result-desc">Agilidade no ciclo de alinhamento e estruturação inicial do conceito.</div>
+        <div class="result-number">Arquitetura</div>
+        <div class="result-title">Definida</div>
+        <div class="result-desc">Organização lógica de fluxos, intenções e respostas do assistente.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-number">Personas</div>
+        <div class="result-title">Documentadas</div>
+        <div class="result-desc">Mapeamento detalhado dos perfis de usuários internos e futuros.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-number">Fluxos</div>
+        <div class="result-title">Estruturados</div>
+        <div class="result-desc">Jornadas conversacionais mapeadas de ponta a ponta.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-number">Base</div>
+        <div class="result-title">Pronta para Implementação</div>
+        <div class="result-desc">Documentação robusta para handoff técnico seguro.</div>
       </div>
     </div>
   </section>
@@ -802,50 +874,120 @@
   <section class="section" id="impacto">
     <div class="section-header">
       <div class="section-title">05 Impacto</div>
-      <h2 class="section-heading">Governança e clareza para o futuro digital.</h2>
+      <h2 class="section-heading">A tecnologia veio depois da estratégia.</h2>
     </div>
     <div class="impact-box">
-      <blockquote class="impact-quote">"O projeto estabeleceu o alicerce conceitual indispensável para humanizar os canais digitais da prefeitura, garantindo que inovação tecnológica caminhe lado a lado com a clareza e o respeito ao cidadão."</blockquote>
+      <blockquote class="impact-quote">"Este projeto reforçou que produtos digitais começam pela compreensão do problema. A definição da experiência, da linguagem e das necessidades dos usuários antecede qualquer implementação tecnológica. O valor entregue esteve na estruturação completa da visão do produto."</blockquote>
       <div class="impact-title">Indicadores de Valor</div>
       <div class="indicators-grid">
         <div class="indicator-card">
-          <span class="indicator-badge">PADRÃO</span>
-          <div class="indicator-text">Linguagem unificada</div>
+          <span class="indicator-badge">ESTRATÉGIA</span>
+          <div class="indicator-text">Visão de produto clara</div>
         </div>
         <div class="indicator-card">
-          <span class="indicator-badge">ESCALA</span>
-          <div class="indicator-text">Atendimento expandido</div>
+          <span class="indicator-badge">DISCOVERY</span>
+          <div class="indicator-text">Redução de incertezas</div>
         </div>
         <div class="indicator-card">
-          <span class="indicator-badge">CONFIANÇA</span>
-          <div class="indicator-text">Transparência institucional</div>
+          <span class="indicator-badge">GOVERNANÇA</span>
+          <div class="indicator-text">Alinhamento institucional</div>
         </div>
         <div class="indicator-card">
-          <span class="indicator-badge">VISÃO</span>
-          <div class="indicator-text">Estratégia de produto</div>
+          <span class="indicator-badge">EXPERIÊNCIA</span>
+          <div class="indicator-text">Foco em UX e conversação</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SEÇÃO 06: APRENDIZADOS -->
+  <!-- SEÇÃO 06: DOCUMENTOS DE APOIO -->
+  <section class="section" id="documentos">
+    <div class="section-header">
+      <div class="section-title">06 Documentos de Apoio</div>
+      <h2 class="section-heading">Artefatos estratégicos do projeto.</h2>
+    </div>
+    <div class="artifacts-grid">
+      <a href="documento_visao_produto.html" class="artifact-card">
+        <div>
+          <h3>Documento de Visão do Produto</h3>
+          <p>Objetivos estratégicos, escopo, restrições e visão do assistente institucional.</p>
+        </div>
+        <div class="artifact-action">ACESSAR ARTEFATO →</div>
+      </a>
+      <a href="personas.html" class="artifact-card">
+        <div>
+          <h3>Personas</h3>
+          <p>Perfis completos dos usuários atendidos.</p>
+        </div>
+        <div class="artifact-action">ACESSAR ARTEFATO →</div>
+      </a>
+      <a href="jornada_usuario.html" class="artifact-card">
+        <div>
+          <h3>Jornada do Usuário</h3>
+          <p>Fluxos completos das interações.</p>
+        </div>
+        <div class="artifact-action">ACESSAR ARTEFATO →</div>
+      </a>
+      <a href="arquitetura_conversacional.html" class="artifact-card">
+        <div>
+          <h3>Arquitetura Conversacional</h3>
+          <p>Organização das intenções e estrutura das conversas.</p>
+        </div>
+        <div class="artifact-action">ACESSAR ARTEFATO →</div>
+      </a>
+      <a href="prompt_mestre.html" class="artifact-card">
+        <div>
+          <h3>Prompt Mestre</h3>
+          <p>Documento com as diretrizes de comportamento do assistente.</p>
+        </div>
+        <div class="artifact-action">ACESSAR ARTEFATO →</div>
+      </a>
+      <a href="guia_tom_voz.html" class="artifact-card">
+        <div>
+          <h3>Guia de Tom de Voz</h3>
+          <p>Padrões de comunicação institucional.</p>
+        </div>
+        <div class="artifact-action">ACESSAR ARTEFATO →</div>
+      </a>
+      <a href="prototipo_conceitual.html" class="artifact-card">
+        <div>
+          <h3>Protótipo Conceitual</h3>
+          <p>Representação das interações previstas para o produto.</p>
+        </div>
+        <div class="artifact-action">ACESSAR ARTEFATO →</div>
+      </a>
+      <a href="requisitos_funcionais.html" class="artifact-card">
+        <div>
+          <h3>Requisitos Funcionais</h3>
+          <p>Documento contendo funcionalidades previstas para a primeira versão do produto.</p>
+        </div>
+        <div class="artifact-action">ACESSAR ARTEFATO →</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 07: APRENDIZADOS -->
   <section class="section" id="aprendizados">
     <div class="section-header">
-      <div class="section-title">06 Aprendizados</div>
+      <div class="section-title">07 Aprendizados</div>
       <h2 class="section-heading">Lições consolidadas na jornada.</h2>
     </div>
     <div class="learnings-grid">
       <div class="learning-card">
         <span class="learning-num">01</span>
-        <div class="learning-text">Produtos públicos de IA exigem antes de tudo empatia profunda com a realidade do cidadão.</div>
+        <div class="learning-text">Quanto melhor entendemos o problema, menos retrabalho existe durante o desenvolvimento.</div>
       </div>
       <div class="learning-card">
         <span class="learning-num">02</span>
-        <div class="learning-text">Documentação e governança clara evitam ruídos e desalinhamentos entre equipes multidisciplinares.</div>
+        <div class="learning-text">Cada resposta influencia diretamente a percepção de qualidade do produto.</div>
       </div>
       <div class="learning-card">
         <span class="learning-num">03</span>
-        <div class="learning-text">O discovery bem estruturado economiza meses de retrabalho na implementação prática.</div>
+        <div class="learning-text">Mensagens claras evitam dúvidas e diminuem dependência do atendimento humano.</div>
+      </div>
+      <div class="learning-card">
+        <span class="learning-num">04</span>
+        <div class="learning-text">Antes de desenvolver qualquer solução tecnológica é necessário estruturar visão, objetivos, usuários e requisitos.</div>
       </div>
     </div>
   </section>
