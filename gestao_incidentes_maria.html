@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestão de Incidentes · Prefeitura de Maricá</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #0B0C0E;
+    --bg2:       #121418;
+    --bg3:       #181B20;
+    --gold:      #C9A84C;
+    --gold-lt:   #E8C060;
+    --teal:      #26505A;
+    --teal-br:   #3A7A8A;
+    --coral:     #F57F76;
+    --white:     #F0F6FC;
+    --gray1:     #8B949E;
+    --gray2:     #4A5568;
+    --border:    rgba(201,168,76,0.15);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    padding: 40px 24px;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding-top: 40px; }
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gold);
+    background: rgba(11, 12, 14, 0.9);
+    border: 0.5px solid var(--border);
+    padding: 10px 16px;
+    border-radius: 4px;
+    margin-bottom: 32px;
+    transition: all 0.3s ease;
+  }
+  .back-btn:hover { background: var(--gold); color: var(--bg); }
+  h1 { font-size: 32px; font-weight: 700; margin-bottom: 16px; color: var(--white); }
+  p { font-size: 14px; color: var(--gray1); margin-bottom: 20px; line-height: 1.6; }
+  .card {
+    background: var(--bg2);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .card h2 { font-family: 'Orbitron', monospace; font-size: 14px; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 12px; }
+  ul { list-style: none; padding-left: 0; }
+  ul li { font-size: 13px; color: rgba(240, 246, 252, 0.85); padding: 6px 0; border-bottom: 0.5px solid rgba(255,255,255,0.04); display: flex; gap: 8px; }
+  ul li::before { content: '·'; color: var(--gold); font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="javascript:history.back()" class="back-btn">← VOLTAR AO CASE</a>
+  <h1>Gestão de Incidentes</h1>
+  <p>Processo operacional padronizado para registro, triagem, tratamento e acompanhamento de incidentes em produtos digitais.</p>
+  
+  <div class="card">
+    <h2>1. FLUXO DE TRATAMENTO</h2>
+    <ul>
+      <li><strong>Identificação:</strong> Registro automatizado ou reportado por servidores e cidadãos.</li>
+      <li><strong>Classificação:</strong> Severidade avaliada sob critério de impacto operacional e urgência.</li>
+      <li><strong>Resolução:</strong> Acionamento do time técnico responsável pelo módulo afetado.</li>
+      <li><strong>Encerramento e Post-Mortem:</strong> Análise de causa raiz para mitigação futura.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>2. MATRIZ DE SEVERIDADE</h2>
+    <ul>
+      <li><strong>Crítica:</strong> Indisponibilidade total do canal de atendimento digital.</li>
+      <li><strong>Média:</strong> Lentidão ou falha intermitente em funcionalidades secundárias.</li>
+      <li><strong>Baixa:</strong> Inconsistências estáticas de texto ou melhorias cosméticas.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
