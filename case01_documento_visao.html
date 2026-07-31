@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Documento de Visão do Produto · Case Study 01 · Cleyton Hespanhol</title>
+<title>Documento de Visão · Case Study 01 · Cleyton Hespanhol</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;700&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -124,11 +124,18 @@
     margin-bottom: 20px;
   }
 
+  .content-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
   .content-box p {
     font-size: 14px;
     color: var(--gray1);
     line-height: 1.8;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
 
   .content-box p:last-child {
@@ -142,13 +149,26 @@
     text-align: center;
   }
 
-  .footer-monogram {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 700;
+  .footer-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto 24px auto;
+    padding: 0 12px;
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+  }
+
+  .footer-nav a {
     color: var(--gold);
+    text-decoration: none;
     letter-spacing: 0.1em;
-    margin-bottom: 12px;
+    transition: opacity 0.2s;
+  }
+
+  .footer-nav a:hover {
+    opacity: 0.8;
   }
 
   .footer-copy {
@@ -172,38 +192,34 @@
 <main class="container">
   <header class="hero">
     <div class="hero-eyebrow">ARTEFATO OFICIAL · CASE 01</div>
-    <h1 class="hero-title">Documento de Visão do Produto</h1>
-    <p class="hero-desc">Objetivos estratégicos, escopo, restrições e direcionamento do Assistente Virtual Institucional.</p>
+    <h1 class="hero-title">Documento de Visão</h1>
+    <p class="hero-desc">Alinhamento estratégico, objetivos do produto e definição de escopo para a iniciativa.</p>
   </header>
 
   <section class="section">
-    <h2 class="section-heading">1. Resumo Executivo</h2>
+    <h2 class="section-heading">1. Propósito e Contexto</h2>
     <div class="content-box">
-      <p>O presente documento estabelece a visão estratégica para a concepção e implementação do Assistente Virtual Institucional da Secretaria de Gestão Tributária e Fiscal. O projeto nasce da necessidade de otimizar o suporte interno, consolidando fluxos de comunicação e reduzindo atritos operacionais no dia a dia dos servidores.</p>
+      <h3>Visão Geral da Solução</h3>
+      <p>O Documento de Visão consolida o direcionamento estratégico do projeto, estabelecendo o problema central enfrentado pela operação e a proposta de valor da solução digital desenvolvida.</p>
     </div>
   </section>
 
   <section class="section">
     <h2 class="section-heading">2. Objetivos Estratégicos</h2>
     <div class="content-box">
-      <p>• Centralizar o acesso a diretrizes normativas e procedimentos internos.</p>
-      <p>• Agilizar o tempo de resposta em consultas recorrentes de suporte aos servidores.</p>
-      <p>• Garantir governança e padronização na comunicação institucional por meio de arquitetura conversacional controlada.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2 class="section-heading">3. Escopo e Limitações</h2>
-    <div class="content-box">
-      <p>Nesta primeira fase do produto, o escopo restringe-se ao atendimento interno de suporte aos servidores, priorizando a segurança da informação, a acurácia dos dados consultados e a validação do modelo operacional antes de futuras expansões voltadas ao público externo.</p>
+      <h3>Metas de Curto e Longo Prazo</h3>
+      <p>Garantir maior eficiência na tomada de decisão interna, agilizar o fluxo operacional e otimizar a experiência geral dos usuários envolvidos nos processos normativos.</p>
     </div>
   </section>
 </main>
 
 <footer>
-  <div style="display: flex; justify-content: space-between; align-items: center; max-width: 900px; margin: 0 auto 24px auto; padding: 0 12px; font-family: 'Orbitron', monospace; font-size: 11px;">
-    <a href="index.html" style="color: var(--gold); text-decoration: none; letter-spacing: 0.1em; transition: opacity 0.2s;">← Voltar ao Portfólio</a>
-    <a href="case01_guia_tom_voz.html" style="color: var(--gold); text-decoration: none; letter-spacing: 0.1em; transition: opacity 0.2s;">Próximo Artefato →</a>
+  <div class="footer-nav">
+    <a href="index.html">← Voltar ao Portfólio</a>
+    <a href="case01_requisitos_funcionais.html">Próximo Artefato →</a>
   </div>
   <div class="footer-copy">© 2026 Cleyton Hespanhol. Todos os direitos reservados.</div>
 </footer>
+
+</body>
+</html>
