@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documento de Concepção do Produto · Prefeitura de Maricá</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #0B0C0E;
+    --bg2:       #121418;
+    --bg3:       #181B20;
+    --gold:      #C9A84C;
+    --gold-lt:   #E8C060;
+    --teal:      #26505A;
+    --teal-br:   #3A7A8A;
+    --coral:     #F57F76;
+    --white:     #F0F6FC;
+    --gray1:     #8B949E;
+    --gray2:     #4A5568;
+    --border:    rgba(201,168,76,0.15);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    padding: 40px 24px;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding-top: 40px; }
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gold);
+    background: rgba(11, 12, 14, 0.9);
+    border: 0.5px solid var(--border);
+    padding: 10px 16px;
+    border-radius: 4px;
+    margin-bottom: 32px;
+    transition: all 0.3s ease;
+  }
+  .back-btn:hover { background: var(--gold); color: var(--bg); }
+  h1 { font-size: 32px; font-weight: 700; margin-bottom: 16px; color: var(--white); }
+  p { font-size: 14px; color: var(--gray1); margin-bottom: 20px; line-height: 1.6; }
+  .card {
+    background: var(--bg2);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .card h2 { font-family: 'Orbitron', monospace; font-size: 14px; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 12px; }
+  ul { list-style: none; padding-left: 0; }
+  ul li { font-size: 13px; color: rgba(240, 246, 252, 0.85); padding: 6px 0; border-bottom: 0.5px solid rgba(255,255,255,0.04); display: flex; gap: 8px; }
+  ul li::before { content: '·'; color: var(--gold); font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="javascript:history.back()" class="back-btn">← VOLTAR AO CASE</a>
+  <h1>Documento de Concepção do Produto</h1>
+  <p>Diretrizes oficiais, objetivos estratégicos, persona, identidade e requisitos funcionais da assistente virtual institucional.</p>
+  
+  <div class="card">
+    <h2>1. VISÃO GERAL DO PRODUTO</h2>
+    <p>Este documento estabelece a fundação conceitual e técnica para o desenvolvimento e implantação da assistente virtual institucional da Prefeitura de Maricá, servindo como guia de governança multissetorial.</p>
+  </div>
+  
+  <div class="card">
+    <h2>2. OBJETIVOS PRINCIPAIS</h2>
+    <ul>
+      <li>Centralizar o primeiro nível de orientação ao cidadão em canais digitais.</li>
+      <li>Garantir consistência na comunicação oficial de diferentes secretarias municipais.</li>
+      <li>Reduzir fricção no acesso a serviços de alta demanda por meio de linguagem acessível.</li>
+      <li>Fornecer métricas estruturadas de atendimento para auditoria e melhoria contínua.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>3. DIRETRIZES DE PERSONALIDADE E TOM</h2>
+    <ul>
+      <li><strong>Acolhedora e Empática:</strong> Comunicação respeitosa que valoriza o cidadão maricaense.</li>
+      <li><strong>Objetiva e Clara:</strong> Eliminação de jargões técnicos complexos desnecessários na primeira abordagem.</li>
+      <li><strong>Institucional e Confiável:</strong> Rigor absoluto na precisão das informações prestadas sobre serviços municipais.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
