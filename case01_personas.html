@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personas · Case Study 01 · Cleyton Hespanhol</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;700&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #0B0C0E;
+    --bg2:       #121418;
+    --bg3:       #181B20;
+    --gold:      #C9A84C;
+    --gold-lt:   #E8C060;
+    --teal:      #26505A;
+    --teal-br:   #3A7A8A;
+    --white:     #F0F6FC;
+    --gray1:     #8B949E;
+    --gray2:     #4A5568;
+    --border:    rgba(201,168,76,0.15);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  .back-btn {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gold);
+    background: rgba(11, 12, 14, 0.9);
+    backdrop-filter: blur(8px);
+    border: 0.5px solid var(--border);
+    padding: 10px 16px;
+    border-radius: 4px;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .back-btn:hover {
+    background: var(--gold);
+    color: var(--bg);
+    border-color: var(--gold);
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 120px 24px 80px 24px;
+  }
+
+  .gold-accent-top {
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-lt), var(--gold));
+  }
+
+  .hero {
+    border-bottom: 0.5px solid var(--border);
+    padding-bottom: 48px;
+    margin-bottom: 48px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: var(--gray1);
+    line-height: 1.7;
+  }
+
+  .section {
+    margin-bottom: 48px;
+  }
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--gold-lt);
+    margin-bottom: 16px;
+    border-bottom: 0.5px solid var(--border);
+    padding-bottom: 8px;
+  }
+
+  .content-box {
+    background: var(--bg2);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+
+  .content-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .content-box p {
+    font-size: 14px;
+    color: var(--gray1);
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+
+  .content-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  footer {
+    background: var(--bg);
+    border-top: 0.5px solid var(--border);
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .footer-monogram {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    color: var(--gray2);
+  }
+</style>
+</head>
+<body>
+
+<a href="javascript:history.back()" class="back-btn">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="19" y1="12" x2="5" y2="12"></line>
+    <polyline points="12 19 5 12 12 5"></polyline>
+  </svg>
+  VOLTAR
+</a>
+
+<div class="gold-accent-top"></div>
+
+<main class="container">
+  <header class="hero">
+    <div class="hero-eyebrow">ARTEFATO OFICIAL · CASE 01</div>
+    <h1 class="hero-title">Personas do Sistema</h1>
+    <p class="hero-desc">Mapeamento detalhado dos perfis de usuários contemplados na concepção do assistente.</p>
+  </header>
+
+  <section class="section">
+    <h2 class="section-heading">1. Perfil Primário: O Servidor Operacional</h2>
+    <div class="content-box">
+      <h3>Carlos, 38 anos · Analista de Atendimento Fiscal</h3>
+      <p><strong>Contexto:</strong> Lida diariamente com uma alta volume de consultas de processos, dúvidas de procedimentos internos e orientações normativas na Secretaria.</p>
+      <p><strong>Necessidades:</strong> Respostas rápidas e precisas sem a necessidade de navegar por manuais extensos ou aguardar chamados internos simples.</p>
+      <p><strong>Dores:</strong> Perda de tempo procurando informações fragmentadas em sistemas legados e portais desatualizados.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-heading">2. Perfil Secundário: O Gestor de Área</h2>
+    <div class="content-box">
+      <h3>Mariana, 46 anos · Coordenadora de Equipe</h3>
+      <p><strong>Contexto:</strong> Responsável por supervisionar a conformidade dos processos e alinhar a equipe às diretrizes vigentes.</p>
+      <p><strong>Necessidades:</strong> Garantir que sua equipe utilize fontes confiáveis e padronizadas de informação para evitar divergências operacionais.</p>
+      <p><strong>Dores:</strong> Gargalos de comunicação e retrabalho decorrentes de orientações desencontradas entre os setores.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-monogram">CSH</div>
+  <span class="footer-copy">© 2026 Cleyton Hespanhol. Todos os direitos reservados.</span>
+</footer>
+
+</body>
+</html>
