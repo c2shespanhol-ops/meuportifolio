@@ -14,7 +14,6 @@
     --gold-lt:   #E8C060;
     --teal:      #26505A;
     --teal-br:   #3A7A8A;
-    --coral:     #F57F76;
     --white:     #F0F6FC;
     --gray1:     #8B949E;
     --gray2:     #4A5568;
@@ -168,6 +167,52 @@
     margin-bottom: 16px;
   }
 
+  /* Grid dos Artefatos */
+  .artifacts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .artifact-card {
+    background: var(--bg2);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .artifact-card:hover {
+    border-color: var(--gold);
+    background: var(--bg3);
+    transform: translateY(-2px);
+  }
+
+  .artifact-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .artifact-card p {
+    font-size: 13px;
+    color: var(--gray1);
+  }
+
+  .artifact-action {
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold);
+    white-space: nowrap;
+    margin-left: 20px;
+  }
+
   footer {
     background: var(--bg);
     border-top: 0.5px solid var(--border);
@@ -224,6 +269,72 @@
         <h3>Produto</h3>
         <p>Assistente Virtual Institucional voltado a centralizar conhecimento e reduzir dependência operacional.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- Seção de Artefatos corrigida com arquivos identificados do Case 01 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-title">02 Documentação</div>
+      <h2 class="section-heading">Artefatos de Discovery</h2>
+    </div>
+    <div class="artifacts-grid">
+      <a href="case01_documento_visao.html" class="artifact-card">
+        <div>
+          <h3>Documento de Visão do Produto</h3>
+          <p>Objetivos estratégicos, escopo, restrições e visão do assistente institucional.</p>
+        </div>
+        <div class="artifact-action">ACESSAR ARTEFATO →</div>
+      </a>
+      <a href="case01_personas.html" class="artifact-card">
+        <div>
+          <h3>Personas</h3>
+          <p>Perfis completos dos usuários atendidos.</p>
+        </div>
+        <div class="artifact-action">ACESSAR ARTEFATO →</div>
+      </a>
+      <a href="case01_jornada_usuario.html" class="artifact-card">
+        <div>
+          <h3>Jornada do Usuário</h3>
+          <p>Fluxos completos das interações.</p>
+        </div>
+        <div class="artifact-action">ACESSAR ARTEFATO →</div>
+      </a>
+      <a href="case01_arquitetura_conversacional.html" class="artifact-card">
+        <div>
+          <h3>Arquitetura Conversacional</h3>
+          <p>Organização das intenções e estrutura das conversas.</p>
+        </div>
+        <div class="artifact-action">ACESSAR ARTEFATO →</div>
+      </a>
+      <a href="case01_prompt_mestre.html" class="artifact-card">
+        <div>
+          <h3>Prompt Mestre</h3>
+          <p>Documento com as diretrizes de comportamento do assistente.</p>
+        </div>
+        <div class="artifact-action">ACESSAR ARTEFATO →</div>
+      </a>
+      <a href="case01_guia_tom_voz.html" class="artifact-card">
+        <div>
+          <h3>Guia de Tom de Voz</h3>
+          <p>Padrões de comunicação institucional.</p>
+        </div>
+        <div class="artifact-action">ACESSAR ARTEFATO →</div>
+      </a>
+      <a href="case01_prototipo_conceitual.html" class="artifact-card">
+        <div>
+          <h3>Protótipo Conceitual</h3>
+          <p>Representação das interações previstas para o produto.</p>
+        </div>
+        <div class="artifact-action">ACESSAR ARTEFATO →</div>
+      </a>
+      <a href="case01_requisitos_funcionais.html" class="artifact-card">
+        <div>
+          <h3>Requisitos Funcionais</h3>
+          <p>Documento contendo funcionalidades previstas para a primeira versão do produto.</p>
+        </div>
+        <div class="artifact-action">ACESSAR ARTEFATO →</div>
+      </a>
     </div>
   </section>
 </main>
