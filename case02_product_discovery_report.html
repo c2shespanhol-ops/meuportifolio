@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operational Discovery Report · Case Study 02 · Cleyton Hespanhol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;700&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg:        #0E1114;
+        --bg2:       #13181D;
+        --bg3:       #1A2028;
+        --gold:      #C9A84C;
+        --gold-lt:   #E8C060;
+        --teal:      #26505A;
+        --teal-br:   #3A7A8A;
+        --coral:     #F57F76;
+        --white:     #F0F6FC;
+        --gray1:     #8B949E;
+        --gray2:     #4A5568;
+        --border:    rgba(201,168,76,0.18);
+      }
+
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+
+      body {
+        background: var(--bg);
+        color: var(--white);
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 300;
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.4;
+      }
+
+      .back-btn {
+        position: fixed;
+        top: 24px;
+        left: 24px;
+        z-index: 1001;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        font-family: 'Orbitron', monospace;
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--gold);
+        background: rgba(11, 12, 14, 0.9);
+        backdrop-filter: blur(8px);
+        border: 0.5px solid var(--border);
+        padding: 10px 16px;
+        border-radius: 4px;
+        letter-spacing: 0.1em;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .back-btn:hover {
+        background: var(--gold);
+        color: var(--bg);
+        border-color: var(--gold);
+      }
+
+      .gold-accent-top {
+        height: 2.5px;
+        background: linear-gradient(90deg, var(--gold), var(--gold-lt), var(--gold));
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 70% 60% at 80% 20%, rgba(201,168,76,0.08) 0%, transparent 60%),
+          radial-gradient(ellipse 50% 40% at 10% 80%, rgba(58,122,138,0.06) 0%, transparent 50%),
+          linear-gradient(160deg, #0E1114 0%, #111820 60%, #0A0E12 100%);
+      }
+
+      .nav {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 28px 64px;
+        border-bottom: 0.5px solid var(--border);
+      }
+
+      .nav-brand { display: flex; align-items: center; gap: 14px; }
+
+      .h-mark {
+        width: 36px; height: 36px;
+        border-radius: 50%;
+        border: 1.5px solid var(--gold);
+        display: flex; align-items: center; justify-content: center;
+        font-family: 'Orbitron', monospace;
+        font-size: 14px; font-weight: 700;
+        color: var(--gold);
+        position: relative;
+      }
+
+      .h-mark::after {
+        content: '';
+        position: absolute;
+        inset: 5px;
+        border-radius: 50%;
+        border: 0.5px solid rgba(201,168,76,0.2);
+      }
+
+      .nav-name {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 13px; font-weight: 500;
+        color: var(--white);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .nav-role {
+        font-family: 'Orbitron', monospace;
+        font-size: 7px; color: var(--gold);
+        letter-spacing: 0.15em;
+        display: block; margin-top: 2px;
+      }
+
+      .nav-tag {
+        font-family: 'Orbitron', monospace;
+        font-size: 8px; color: var(--gray1);
+        letter-spacing: 0.12em;
+        padding: 6px 14px;
+        border: 0.5px solid var(--border);
+        border-radius: 2px;
+      }
+
+      .hero-content {
+        position: relative; z-index: 10;
+        display: flex; flex-direction: column;
+        justify-content: center;
+        padding: 80px 64px;
+        max-width: 950px;
+      }
+
+      .case-label {
+        display: inline-flex; align-items: center;
+        gap: 8px; margin-bottom: 32px;
+      }
+
+      .case-label-dot {
+        width: 6px; height: 6px;
+        border-radius: 50%;
+        background: var(--gold);
+      }
+
+      .case-label-text {
+        font-family: 'Orbitron', monospace;
+        font-size: 9px; color: var(--gold);
+        letter-spacing: 0.2em; font-weight: 600;
+      }
+
+      .hero-title {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(40px, 5.5vw, 76px);
+        font-weight: 300; line-height: 1.1;
+        color: var(--white); margin-bottom: 24px;
+      }
+
+      .hero-title em { font-style: italic; color: var(--gold); }
+
+      .hero-desc {
+        font-size: 15px;
+        color: rgba(240,246,252,0.8);
+        max-width: 760px; line-height: 1.8;
+        margin-bottom: 32px;
+      }
+
+      .meta-row {
+        display: flex; gap: 12px; flex-wrap: wrap;
+      }
+
+      .meta-pill {
+        padding: 8px 18px;
+        border: 0.5px solid var(--border);
+        border-radius: 2px;
+        font-size: 11px; color: var(--gray1);
+        background: rgba(201,168,76,0.04);
+        letter-spacing: 0.04em;
+      }
+
+      .meta-pill strong { color: var(--gold); font-weight: 500; }
+
+      main { position: relative; z-index: 1; }
+
+      .section {
+        padding: 100px 64px;
+        border-bottom: 0.5px solid rgba(201,168,76,0.08);
+        position: relative;
+      }
+
+      .section-inner { max-width: 1100px; margin: 0 auto; }
+
+      .section-label {
+        font-family: 'Orbitron', monospace;
+        font-size: 8px; color: var(--gold);
+        letter-spacing: 0.25em;
+        margin-bottom: 16px;
+        display: flex; align-items: center; gap: 12px;
+      }
+
+      .section-label::after {
+        content: '';
+        flex: 1; height: 0.5px;
+        background: var(--border);
+        max-width: 60px;
+      }
+
+      .section-title {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(32px, 4vw, 52px);
+        font-weight: 300; line-height: 1.15;
+        color: var(--white); margin-bottom: 32px;
+      }
+
+      .section-title em { font-style: italic; color: var(--gold); }
+
+      .section-text {
+        font-size: 15px;
+        color: var(--gray1);
+        line-height: 1.8;
+        margin-bottom: 24px;
+      }
+
+      /* Highlight Card for Lead Time */
+      .highlight-metric-card {
+        background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
+        border: 0.5px solid var(--border);
+        border-left: 3px solid var(--gold);
+        padding: 40px;
+        border-radius: 4px;
+        margin: 32px 0;
+        text-align: center;
+      }
+
+      .metric-huge {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(56px, 8vw, 88px);
+        font-weight: 300;
+        color: var(--gold);
+        line-height: 1;
+        margin-bottom: 12px;
+      }
+
+      .metric-label {
+        font-family: 'Orbitron', monospace;
+        font-size: 11px;
+        color: var(--white);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      /* Grids & Cards */
+      .cards-grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        margin-top: 32px;
+      }
+
+      .cards-grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px;
+        margin-top: 32px;
+      }
+
+      .card-item {
+        background: var(--bg2);
+        padding: 32px 28px;
+        border-top: 1px solid transparent;
+        transition: all 0.3s ease;
+      }
+
+      .card-item:hover {
+        background: var(--bg3);
+        border-top-color: var(--gold);
+      }
+
+      .card-tag {
+        font-family: 'Orbitron', monospace;
+        font-size: 8px;
+        color: var(--gold);
+        letter-spacing: 0.15em;
+        margin-bottom: 12px;
+        display: block;
+      }
+
+      .card-heading {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 22px;
+        font-weight: 400;
+        color: var(--white);
+        margin-bottom: 10px;
+      }
+
+      .card-desc {
+        font-size: 13px;
+        color: var(--gray1);
+        line-height: 1.6;
+      }
+
+      /* Workflow / Mechanism Steps */
+      .mechanism-flow {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 32px;
+      }
+
+      .flow-step {
+        background: var(--bg2);
+        border: 0.5px solid var(--border);
+        padding: 20px 24px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        border-left: 2px solid var(--gold);
+      }
+
+      .flow-num {
+        font-family: 'Orbitron', monospace;
+        font-size: 12px;
+        color: var(--gold);
+        font-weight: 700;
+        min-width: 32px;
+      }
+
+      .flow-content {
+        font-size: 14px;
+        color: var(--white);
+      }
+
+      /* Before / After comparison */
+      .comparison-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+        margin-top: 32px;
+      }
+
+      .comparison-box {
+        background: var(--bg2);
+        padding: 36px 32px;
+        border-top: 2px solid var(--gray2);
+      }
+
+      .comparison-box.after {
+        border-top-color: var(--gold);
+      }
+
+      .comparison-title {
+        font-family: 'Orbitron', monospace;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        color: var(--white);
+      }
+
+      .comparison-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        font-size: 14px;
+        color: var(--gray1);
+      }
+
+      .comparison-list li::before {
+        content: '→ ';
+        color: var(--gold);
+      }
+
+      /* Tabelas Executivas */
+      .exec-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 32px;
+        background: var(--bg2);
+        font-size: 14px;
+      }
+
+      .exec-table th, .exec-table td {
+        padding: 20px 24px;
+        text-align: left;
+        border-bottom: 0.5px solid var(--border);
+      }
+
+      .exec-table th {
+        font-family: 'Orbitron', monospace;
+        font-size: 9px;
+        color: var(--gold);
+        letter-spacing: 0.15em;
+        background: rgba(201,168,76,0.03);
+      }
+
+      .exec-table td {
+        color: var(--gray1);
+      }
+
+      .exec-table td strong {
+        color: var(--white);
+        font-weight: 500;
+      }
+
+      /* Footer */
+      footer {
+        background: #080A0C;
+        border-top: 0.5px solid var(--border);
+        padding: 48px 64px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .footer-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1100px;
+        margin-bottom: 12px;
+        font-family: 'Orbitron', monospace;
+        font-size: 11px;
+      }
+
+      .footer-nav a {
+        color: var(--gold);
+        text-decoration: none;
+        letter-spacing: 0.1em;
+        transition: opacity 0.2s;
+      }
+
+      .footer-nav a:hover { opacity: 0.8; }
+
+      .footer-main-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1100px;
+        gap: 24px;
+      }
+
+      .footer-brand { display: flex; align-items: center; gap: 16px; text-align: left; }
+      .footer-info { flex: 1; }
+
+      .footer-name {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--white);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .footer-role {
+        font-family: 'Orbitron', monospace;
+        font-size: 8px;
+        color: var(--gold);
+        letter-spacing: 0.15em;
+        display: block;
+      }
+
+      .footer-right { text-align: right; }
+
+      .footer-linkedin {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 12px;
+        color: var(--teal-br);
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        display: block;
+        margin-bottom: 4px;
+        transition: color 0.2s;
+      }
+
+      .footer-linkedin:hover { color: var(--gold); }
+
+      .footer-copy {
+        font-size: 11px;
+        color: var(--gray2);
+        letter-spacing: 0.04em;
+      }
+
+      @media (max-width: 900px) {
+        .nav, .section, .hero-content, footer { padding-left: 28px; padding-right: 28px; }
+        .cards-grid-3, .cards-grid-2, .comparison-grid { grid-template-columns: 1fr; }
+        .hero-title { font-size: 36px; }
+        .footer-main-row { flex-direction: column; text-align: center; }
+        .footer-brand { text-align: center; justify-content: center; }
+        .footer-right { text-align: center; }
+      }
+    </style>
+</head>
+<body>
+
+<a href="case_study_02.html" class="back-btn">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="19" y1="12" x2="5" y2="12"></line>
+    <polyline points="12 19 5 12 12 5"></polyline>
+  </svg>
+  VOLTAR AO CASE 02
+</a>
+
+<div class="gold-accent-top"></div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <nav class="nav">
+    <div class="nav-brand">
+      <div class="h-mark">H</div>
+      <div>
+        <span class="nav-name">Cleyton Hespanhol</span>
+        <span class="nav-role">PRODUCT OWNER | UX</span>
+      </div>
+    </div>
+    <div class="nav-tag">CASE STUDY 02 · ARTEFATO 01</div>
+  </nav>
+
+  <div class="hero-content">
+    <div class="case-label">
+      <div class="case-label-dot"></div>
+      <span class="case-label-text">OPERATIONAL DISCOVERY REPORT</span>
+    </div>
+
+    <h1 class="hero-title">Governança de Produto para Redução do <em>Lead Time</em> Operacional</h1>
+
+    <p class="hero-desc">
+      Relatório oficial de descoberta e diagnóstico de produto elaborado para estruturação da governança de atendimento na Secretaria de Gestão Tributária e Fiscal (SEGET).
+    </p>
+
+    <div class="meta-row">
+      <div class="meta-pill"><strong>Contexto</strong> · SEGET</div>
+      <div class="meta-pill"><strong>Área responsável</strong> · Subsecretaria de Planejamento e Modernização</div>
+      <div class="meta-pill"><strong>Responsável</strong> · Cleyton Hespanhol (Product Owner)</div>
+      <div class="meta-pill"><strong>Gestão de Demandas</strong> · Jira</div>
+    </div>
+  </div>
+
+  <div class="hero-footer" style="padding: 24px 64px; border-top: 0.5px solid var(--border); display: flex; align-items: center;">
+    <div class="meta-pill">Documentação Executiva de Discovery & Governança</div>
+  </div>
+</section>
+
+<!-- 1. EXECUTIVE SUMMARY -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">01 · VISÃO EXECUTIVA</div>
+    <h2 class="section-title">Executive <em>Summary</em></h2>
+    
+    <p class="section-text">
+      O projeto surgiu a partir da necessidade de estruturar a jornada de demandas tecnológicas dos servidores da Secretaria de Gestão Tributária e Fiscal, especialmente nas áreas de atendimento ao contribuinte e na operação fiscal[cite: 2].
+    </p>
+    <p class="section-text">
+      O problema não estava restrito a solicitações de acesso. Demandas relacionadas a acessos, infraestrutura, equipamentos e outras necessidades de tecnologia chegavam de forma descentralizada e sem uma camada estruturada de curadoria entre os servidores e o Departamento de Tecnologia da Informação[cite: 2].
+    </p>
+    <p class="section-text">
+      A Subsecretaria de Planejamento e Modernização criou um portal para centralizar a abertura dessas demandas. Os servidores passaram a registrar suas necessidades diretamente no portal, enquanto a Subsecretaria assumia a curadoria, orientação, encaminhamento e acompanhamento do processo[cite: 2].
+    </p>
+    <p class="section-text">
+      Cleyton Hespanhol tornou-se o ponto focal dessa jornada. A interlocução entre usuário e TI passou a ser centralizada, evitando que demandas circulassem diretamente entre as duas áreas sem acompanhamento[cite: 2].
+    </p>
+
+    <div class="cards-grid-2" style="margin-top: 32px;">
+      <div class="card-item">
+        <span class="card-tag">PILARES DA GOVERNANÇA</span>
+        <h3 class="card-heading">Curadoria e Acompanhamento</h3>
+        <p class="card-desc">Padronização da entrada, orientação aos usuários, definição de padrões de preenchimento, documentação das solicitações e classificação entre incidente e requisição[cite: 2].</p>
+      </div>
+      <div class="card-item">
+        <span class="card-tag">MONITORAMENTO</span>
+        <h3 class="card-heading">Gestão Ativa no Jira</h3>
+        <p class="card-desc">Gestão dos tickets no Jira, acompanhamento de prazos, criação de lembretes, cobrança estruturada em caso de atraso e solicitação de reclassificação[cite: 2].</p>
+      </div>
+    </div>
+
+    <div class="highlight-metric-card" style="margin-top: 40px;">
+      <div class="metric-huge">~71%</div>
+      <div class="metric-label">Redução expressiva no Lead Time operacional (de ~1 semana para até 72h)[cite: 2]</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. CONTEXTO ORGANIZACIONAL -->
+<section class="section" style="background: var(--bg2);">
+  <div class="section-inner">
+    <div class="section-label">02 · CENÁRIO INSTITUCIONAL</div>
+    <h2 class="section-title">Contexto <em>Organizacional</em></h2>
+    
+    <p class="section-text">
+      A Secretaria de Gestão Tributária e Fiscal dependia de sistemas, infraestrutura e equipamentos tecnológicos para executar suas atividades[cite: 2].
+    </p>
+    <p class="section-text">
+      O maior impacto estava concentrado no atendimento ao contribuinte e na operação fiscal, mas as necessidades de tecnologia alcançavam os servidores da Secretaria de forma mais ampla[cite: 2].
+    </p>
+
+    <div class="cards-grid-3" style="margin-top: 32px;">
+      <div class="card-item">
+        <span class="card-tag">ÓRGÃO</span>
+        <h3 class="card-heading">SEGET</h3>
+        <p class="card-desc">Secretaria de Gestão Tributária e Fiscal, dependente de infraestrutura e sistemas para operar[cite: 2].</p>
+      </div>
+      <div class="card-item">
+        <span class="card-tag">MODERNIZAÇÃO</span>
+        <h3 class="card-heading">Subsecretaria</h3>
+        <p class="card-desc">Responsável pela modernização dos processos e pela curadoria e governança da jornada[cite: 2].</p>
+      </div>
+      <div class="card-item">
+        <span class="card-tag">EXECUÇÃO</span>
+        <h3 class="card-heading">Departamento de TI</h3>
+        <p class="card-desc">Área responsável exclusivamente pela execução técnica das demandas tecnológicas[cite: 2].</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PROBLEMA INICIAL -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">03 · DIAGNÓSTICO DE ORIGEM</div>
+    <h2 class="section-title">Problema <em>Inicial</em></h2>
+    
+    <p class="section-text">
+      Antes da mudança, as demandas relacionadas à tecnologia não possuíam uma jornada única e governada[cite: 2]. No caso dos acessos, por exemplo, servidores realizavam solicitações sem uma estrutura consistente de acompanhamento[cite: 2].
+    </p>
+    <p class="section-text">
+      Existiam formulários, mas havia solicitações genéricas de acessos espelhados em outros logins. Isso fazia com que usuários acumulassem permissões que não necessariamente correspondiam às atividades de seus setores[cite: 2]. Também não existia uma rotina institucional de acompanhamento baseada em prazos[cite: 2]. Quando uma demanda permanecia sem movimentação, não havia um mecanismo estruturado que gerasse uma ação de acompanhamento[cite: 2].
+    </p>
+
+    <div class="cards-grid-3" style="margin-top: 32px;">
+      <div class="card-item">
+        <span class="card-tag">PREVISIBILIDADE</span>
+        <h3 class="card-heading">Baixa Previsibilidade</h3>
+        <p class="card-desc">Incerteza absoluta sobre os prazos de atendimento das necessidades[cite: 2].</p>
+      </div>
+      <div class="card-item">
+        <span class="card-tag">RASTRO</span>
+        <h3 class="card-heading">Dificuldade de Rastreamento</h3>
+        <p class="card-desc">Ausência de histórico centralizado e acompanhamento dos chamados[cite: 2].</p>
+      </div>
+      <div class="card-item">
+        <span class="card-tag">FLUXO</span>
+        <h3 class="card-heading">Retrabalho</h3>
+        <p class="card-desc">Solicitações incompletas e demora na obtenção de respostas[cite: 2].</p>
+      </div>
+      <div class="card-item">
+        <span class="card-tag">COMUNICAÇÃO</span>
+        <h3 class="card-heading">Ruídos com o TI</h3>
+        <p class="card-desc">Dificuldade de comunicação direta e desalinhamento de expectativas[cite: 2].</p>
+      </div>
+      <div class="card-item" style="grid-column: span 2;">
+        <span class="card-tag">SEGURANÇA</span>
+        <h3 class="card-heading">Excesso de Permissões</h3>
+        <p class="card-desc">Risco de concessão de acessos além do necessário devido ao espelhamento de perfis[cite: 2].</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. DESCOBERTA DO GARGALO -->
+<section class="section" style="background: var(--bg2);">
+  <div class="section-inner">
+    <div class="section-label">04 · INVESTIGAÇÃO OPERACIONAL</div>
+    <h2 class="section-title">Descoberta do <em>Gargalo</em></h2>
+    
+    <p class="section-text">
+      O gargalo foi identificado durante o acompanhamento das demandas[cite: 2]. A percepção inicial era de que algumas solicitações simplesmente demoravam para ser respondidas[cite: 2]. Ao acompanhar o fluxo de forma mais próxima, ficou evidente que o problema não era somente o tempo de execução técnica[cite: 2].
+    </p>
+    <p class="section-text">
+      Havia um intervalo relevante em que a demanda permanecia aguardando movimentação e dependia de alguém perceber que o prazo havia sido ultrapassado[cite: 2]. Cleyton deixou de esperar que o Departamento de TI retornasse espontaneamente com uma resposta[cite: 2]. Passou a criar, no Jira, lembretes individuais para acompanhar cada demanda[cite: 2]. A lógica considerava o prazo informado pelo TI para o tipo de solicitação e acrescentava uma margem operacional de 24 horas[cite: 2]. Esse mecanismo passou a funcionar como um gatilho de acompanhamento[cite: 2].
+    </p>
+  </div>
+</section>
+
+<!-- 5. CARTA DE SERVIÇOS E CRITÉRIOS DE DECISÃO -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">05 · REFERÊNCIA NORMATIVA</div>
+    <h2 class="section-title">Carta de Serviços e <em>Critérios de Decisão</em></h2>
+    
+    <p class="section-text">
+      Para que o acompanhamento tivesse uma base objetiva, foi solicitada a Carta de Serviços do Departamento de TI[cite: 2]. O objetivo era compreender os prazos e diferenciar corretamente entre incidente e requisição[cite: 2]. A Carta de Serviços passou a funcionar como referência para o acompanhamento das demandas[cite: 2].
+    </p>
+    <p class="section-text">
+      Para cada ticket, era considerado o prazo correspondente ao tipo de solicitação[cite: 2]. A esse prazo era adicionada uma margem operacional de 24 horas no controle criado por Cleyton[cite: 2]. Quando o lembrete era acionado, a demanda era revisada[cite: 2]. Se o prazo estivesse próximo ou ultrapassado, Cleyton entrava em contato com o TI para obter atualização[cite: 2]. Quando o prazo definido para uma requisição já havia sido ultrapassado e a situação justificava, era solicitada a alteração da classificação para incidente, permitindo um tratamento compatível com a situação[cite: 2].
+    </p>
+
+    <div class="card-item" style="margin-top: 32px; border-left: 2px solid var(--gold);">
+      <span class="card-tag">NOTA IMPORTANTE</span>
+      <h3 class="card-heading">SLA Operacional vs. Institucional</h3>
+      <p class="card-desc">O SLA de 24 horas não era uma regra institucional do TI. Era um mecanismo operacional de acompanhamento criado por iniciativa de Cleyton[cite: 2].</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CENTRALIZAÇÃO DAS DEMANDAS -->
+<section class="section" style="background: var(--bg2);">
+  <div class="section-inner">
+    <div class="section-label">06 · ARQUITETURA DE ENTRADA</div>
+    <h2 class="section-title">Centralização das <em>Demandas</em></h2>
+    
+    <p class="section-text">
+      A Subsecretaria de Planejamento e Modernização criou um portal para abertura dos tickets pelos servidores[cite: 2]. O servidor passou a ter um único ponto de entrada[cite: 2]. O servidor não precisava conhecer a estrutura interna do TI para saber quem procurar; sua responsabilidade era registrar a necessidade, e a Subsecretaria cuidava da jornada a partir daquele ponto[cite: 2].
+    </p>
+
+    <div class="mechanism-flow">
+      <div class="flow-step">
+        <div class="flow-num">01</div>
+        <div class="flow-content">Servidor da SEGET identifica a necessidade</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">02</div>
+        <div class="flow-content">Portal de Tickets (Ponto de entrada único)</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">03</div>
+        <div class="flow-content">Planejamento e Modernização (Curadoria e triagem)</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">04</div>
+        <div class="flow-content">Jira (Gestão e acompanhamento do fluxo)</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">05</div>
+        <div class="flow-content">Departamento de TI (Execução técnica)</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">06</div>
+        <div class="flow-content">Acompanhamento ativo e Retorno ao usuário</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. CURADORIA DA DEMANDA -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">07 · SUPORTE OPERACIONAL</div>
+    <h2 class="section-title">Curadoria da <em>Demanda</em></h2>
+    
+    <p class="section-text">
+      A curadoria envolvia mais do que encaminhar tickets[cite: 2]. Quando o usuário tinha dúvida sobre qual tipo de ticket abrir, como preencher determinado formulário, quais informações apresentar, quais documentos anexar ou como descrever sua necessidade, Cleyton orientava o servidor[cite: 2].
+    </p>
+    <p class="section-text">
+      Quando necessário, ia presencialmente até o usuário para explicar o procedimento e ensinar como realizar a solicitação corretamente[cite: 2]. O objetivo era reduzir ambiguidades na entrada e evitar que o problema de comunicação fosse simplesmente transferido para o TI[cite: 2].
+    </p>
+  </div>
+</section>
+
+<!-- 8. PADRONIZAÇÃO DOS FORMULÁRIOS -->
+<section class="section" style="background: var(--bg2);">
+  <div class="section-inner">
+    <div class="section-label">08 · PADRÃO DE DOCUMENTAÇÃO</div>
+    <h2 class="section-title">Padronização dos <em>Formulários</em></h2>
+    
+    <p class="section-text">
+      Cleyton participou da definição dos padrões de preenchimento e criou regras específicas para situações recorrentes[cite: 2]. Um exemplo ocorria quando um servidor precisava de acesso a diversos menus de uma aplicação e o formulário não possuía espaço suficiente para descrever todos os itens[cite: 2].
+    </p>
+    <p class="section-text">
+      Foi criado um padrão para anexar prints das telas e registrar que os acessos solicitados deveriam seguir exatamente os itens demonstrados nos anexos[cite: 2]. Isso reduzia interpretações diferentes entre o pedido e a execução técnica[cite: 2]. O TI concedia os acessos descritos na solicitação, e a documentação passou a funcionar como mecanismo de clareza, rastreabilidade e controle[cite: 2].
+    </p>
+  </div>
+</section>
+
+<!-- 9. GOVERNANÇA DE ACESSOS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">09 · CONTROLE E SEGURANÇA</div>
+    <h2 class="section-title">Governança de <em>Acessos</em></h2>
+    
+    <p class="section-text">
+      O processo também criou uma melhoria importante na governança das permissões[cite: 2]. Anteriormente, era comum solicitar acessos espelhados em determinado login[cite: 2]. Esse modelo podia fazer com que usuários acumulassem menus e permissões que não eram necessários para suas atividades[cite: 2]. A nova abordagem passou a considerar os acessos necessários para a função exercida naquele setor[cite: 2].
+    </p>
+
+    <div class="cards-grid-2" style="margin-top: 32px;">
+      <div class="card-item">
+        <span class="card-tag">CICLO DE REALOCAÇÃO</span>
+        <h3 class="card-heading">Fluxo de Desligamento / Mudança</h3>
+        <p class="card-desc">Quando um servidor era realocado para outro departamento: 1. os acessos anteriores eram retirados; 2. as novas atividades eram identificadas; 3. novos acessos eram solicitados; 4. eram concedidos somente os perfis necessários para a nova função[cite: 2].</p>
+      </div>
+      <div class="card-item">
+        <span class="card-tag">CONFORMIDADE</span>
+        <h3 class="card-heading">Necessidade Funcional</h3>
+        <p class="card-desc">Essa mudança criou uma camada adicional de governança e contribuiu para reduzir permissões desnecessárias. O projeto não foi um projeto formal de Segurança da Informação, mas o desenho do processo incorporou princípios de controle de acesso e necessidade funcional[cite: 2].</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. GESTÃO NO JIRA -->
+<section class="section" style="background: var(--bg2);">
+  <div class="section-inner">
+    <div class="section-label">10 · SUPORTE TECNOLÓGICO</div>
+    <h2 class="section-title">Gestão no <em>Jira</em></h2>
+    
+    <p class="section-text">
+      O Jira era utilizado pela Subsecretaria de Planejamento e Modernização para gerenciar os tickets[cite: 2]. Ele funcionava como mecanismo de acompanhamento da jornada[cite: 2]. Para cada demanda, era possível controlar entrada, situação, prazo, acompanhamento, necessidade de ação, retorno e conclusão[cite: 2].
+    </p>
+    <p class="section-text">
+      O uso do Jira permitiu transformar uma demanda que poderia ficar perdida na comunicação entre áreas em um item acompanhável[cite: 2]. A ferramenta não era a solução; a solução era o processo de governança que passou a utilizar a ferramenta como mecanismo de controle[cite: 2].
+    </p>
+  </div>
+</section>
+
+<!-- 11. MECANISMO DE MONITORAMENTO -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">11 · ROTINA DE CONTROLE</div>
+    <h2 class="section-title">Mecanismo de <em>Monitoramento</em></h2>
+    
+    <p class="section-text">
+      O modelo criado por Cleyton funcionava com um gatilho de acompanhamento sistemático[cite: 2]:
+    </p>
+
+    <div class="mechanism-flow">
+      <div class="flow-step">
+        <div class="flow-num">01</div>
+        <div class="flow-content">Carta de Serviços do TI</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">02</div>
+        <div class="flow-content">Prazo da solicitação</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">03</div>
+        <div class="flow-content">Margem operacional de 24 horas</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">04</div>
+        <div class="flow-content">Lembrete no Jira</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">05</div>
+        <div class="flow-content">Revisão do ticket</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">06</div>
+        <div class="flow-content">Contato com o TI</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">07</div>
+        <div class="flow-content">Escalonamento quando necessário</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">08</div>
+        <div class="flow-content">Retorno ao usuário</div>
+      </div>
+    </div>
+
+    <p class="section-text" style="margin-top: 32px;">
+      O objetivo da margem adicional era evitar cobranças prematuras[cite: 2]. A cobrança era realizada com base em um critério objetivo, transformando o acompanhamento de uma ação informal em uma rotina previsível[cite: 2].
+    </p>
+  </div>
+</section>
+
+<!-- 12. OWNERSHIP DA JORNADA -->
+<section class="section" style="background: var(--bg2);">
+  <div class="section-inner">
+    <div class="section-label">12 · PAPEL FOCAL</div>
+    <h2 class="section-title">Ownership da <em>Jornada</em></h2>
+    
+    <p class="section-text">
+      Cleyton passou a atuar como ponto focal da relação entre usuário e TI[cite: 2]. A comunicação ocorria nos dois sentidos (Usuário → Cleyton → TI e TI → Cleyton → Usuário)[cite: 2]. Quando o TI precisava de informações do servidor, recorria a Cleyton; quando o servidor precisava de uma resposta do TI, recorria a Cleyton[cite: 2].
+    </p>
+    <p class="section-text">
+      Quando era necessário trabalho de campo relacionado a infraestrutura ou acesso, a interlocução também passava por essa camada[cite: 2]. Nada deveria circular entre as duas pontas sem passar pela curadoria e acompanhamento da Subsecretaria[cite: 2].
+    </p>
+  </div>
+</section>
+
+<!-- 13. VALIDAÇÃO DA SOLUÇÃO -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">13 · QUALIDADE E ENTREGA</div>
+    <h2 class="section-title">Validação da <em>Solução</em></h2>
+    
+    <p class="section-text">
+      O processo não terminava quando o TI informava que havia concluído o ticket[cite: 2]. Cleyton ia até o usuário para comunicar a liberação e solicitava que o próprio servidor testasse o acesso[cite: 2]. Essa etapa era importante porque havia situações em que o ticket era considerado concluído, mas o acesso não havia sido liberado corretamente, o usuário recebia apenas parte do que havia solicitado, ou algum acesso estava incorreto[cite: 2].
+    </p>
+    <p class="section-text">
+      Quando isso acontecia, Cleyton acionava o TI imediatamente para corrigir a inconsistência[cite: 2]. O usuário realizava um novo teste, e somente após a validação da solução o processo era considerado efetivamente concluído[cite: 2].
+    </p>
+  </div>
+</section>
+
+<!-- 14. ANTES E DEPOIS -->
+<section class="section" style="background: var(--bg2);">
+  <div class="section-inner">
+    <div class="section-label">14 · EVOLUÇÃO DO PROCESSO</div>
+    <h2 class="section-title">Antes e <em>Depois</em></h2>
+    
+    <div class="comparison-grid">
+      <div class="comparison-box">
+        <div class="comparison-title">Antes</div>
+        <ul class="comparison-list">
+          <li>Servidor</li>
+          <li>Solicitação descentralizada</li>
+          <li>Espera sem visibilidade</li>
+          <li>Ausência de previsibilidade</li>
+          <li>Possível retrabalho</li>
+          <li>Resposta demorada</li>
+        </ul>
+      </div>
+      <div class="comparison-box after">
+        <div class="comparison-title">Depois</div>
+        <ul class="comparison-list">
+          <li>Servidor</li>
+          <li>Portal centralizado</li>
+          <li>Curadoria ativa</li>
+          <li>Padronização das informações</li>
+          <li>Gestão no Jira</li>
+          <li>Prazo controlado</li>
+          <li>Monitoramento com margem operacional</li>
+          <li>Escalonamento estruturado</li>
+          <li>Solução executada</li>
+          <li>Validação com o usuário</li>
+          <li>Encerramento com qualidade</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="section-text" style="margin-top: 32px; text-align: center; font-style: italic; color: var(--white);">
+      A mudança não foi apenas de canal. Foi uma mudança na responsabilidade sobre a jornada[cite: 2].
+    </p>
+  </div>
+</section>
+
+<!-- 15. HIPÓTESES VALIDADAS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">15 · VALIDAÇÃO DE HIPÓTESES</div>
+    <h2 class="section-title">Hipóteses <em>Validadas</em></h2>
+    
+    <div class="cards-grid-2">
+      <div class="card-item">
+        <span class="card-tag">HIPÓTESE 01</span>
+        <h3 class="card-heading">Acompanhamento Ativo</h3>
+        <p class="card-desc"><strong>Hipótese:</strong> A ausência de acompanhamento ativo contribuía para o aumento do Lead Time.<br><strong>Validação:</strong> O monitoramento sistemático e os gatilhos de acompanhamento aumentaram a velocidade de resposta[cite: 2].</p>
+      </div>
+      <div class="card-item">
+        <span class="card-tag">HIPÓTESE 02</span>
+        <h3 class="card-heading">Padronização</h3>
+        <p class="card-desc"><strong>Hipótese:</strong> A padronização das informações reduziria ambiguidades e retrabalho.<br><strong>Validação:</strong> Formulários e documentação passaram a fornecer informações mais claras para execução[cite: 2].</p>
+      </div>
+      <div class="card-item">
+        <span class="card-tag">HIPÓTESE 03</span>
+        <h3 class="card-heading">Ponto de Entrada Único</h3>
+        <p class="card-desc"><strong>Hipótese:</strong> Um único ponto de entrada melhoraria a experiência do usuário.<br><strong>Validação:</strong> O servidor passou a ter uma referência clara para registrar e acompanhar sua necessidade[cite: 2].</p>
+      </div>
+      <div class="card-item">
+        <span class="card-tag">HIPÓTESE 04</span>
+        <h3 class="card-heading">Critérios Objetivos</h3>
+        <p class="card-desc"><strong>Hipótese:</strong> Critérios objetivos melhorariam a capacidade de cobrança.<br><strong>Validação:</strong> A Carta de Serviços passou a fornecer uma referência para acompanhamento e escalonamento[cite: 2].</p>
+      </div>
+      <div class="card-item" style="grid-column: span 2;">
+        <span class="card-tag">HIPÓTESE 05</span>
+        <h3 class="card-heading">Validação Final</h3>
+        <p class="card-desc"><strong>Hipótese:</strong> Validar a solução com o usuário reduziria encerramentos prematuros.<br><strong>Validação:</strong> Inconsistências passaram a ser identificadas e corrigidas antes do fechamento definitivo[cite: 2].</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16. RESULTADO -->
+<section class="section" style="background: var(--bg2);">
+  <div class="section-inner">
+    <div class="section-label">16 · IMPACTO ALCANÇADO</div>
+    <h2 class="section-title">Resultado do <em>Projeto</em></h2>
+    
+    <div class="highlight-metric-card">
+      <div class="metric-huge">~71%</div>
+      <div class="metric-label">De redução do Lead Time[cite: 2]</div>
+    </div>
+
+    <p class="section-text" style="text-align: center; margin-top: 24px;">
+      Demandas que anteriormente podiam levar aproximadamente uma semana para obter resposta passaram a ser resolvidas, em geral, em até 72 horas[cite: 2].
+    </p>
+
+    <div class="cards-grid-3" style="margin-top: 32px;">
+      <div class="card-item"><h3 class="card-heading">Centralização</h3><p class="card-desc">Ponto único de entrada e curadoria institucional[cite: 2].</p></div>
+      <div class="card-item"><h3 class="card-heading">Padronização</h3><p class="card-desc">Formulários claros e anexos direcionados[cite: 2].</p></div>
+      <div class="card-item"><h3 class="card-heading">Critérios e Monitoramento</h3><p class="card-desc">Uso da Carta de Serviços e controle no Jira[cite: 2].</p></div>
+      <div class="card-item"><h3 class="card-heading">Escalonamento</h3><p class="card-desc">Ações estruturadas diante de estouros de prazo[cite: 2].</p></div>
+      <div class="card-item" style="grid-column: span 2;"><h3 class="card-heading">Validação Rigorosa</h3><p class="card-desc">Testes práticos com o usuário antes do encerramento definitivo[cite: 2].</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 17. INDICADORES DE TRANSFORMAÇÃO -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">17 · MATRIZ COMPARATIVA</div>
+    <h2 class="section-title">Indicadores de <em>Transformação</em></h2>
+    
+    <table class="exec-table">
+      <thead>
+        <tr>
+          <th>Dimensão</th>
+          <th>Antes</th>
+          <th>Depois</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Entrada</strong></td><td>Descentralizada[cite: 2]</td><td>Portal centralizado[cite: 2]</td></tr>
+        <tr><td><strong>Curadoria</strong></td><td>Inexistente[cite: 2]</td><td>Subsecretaria[cite: 2]</td></tr>
+        <tr><td><strong>Gestão</strong></td><td>Reativa[cite: 2]</td><td>Acompanhamento ativo[cite: 2]</td></tr>
+        <tr><td><strong>Ferramenta</strong></td><td>Sem controle estruturado[cite: 2]</td><td>Jira[cite: 2]</td></tr>
+        <tr><td><strong>Critérios</strong></td><td>Pouco definidos[cite: 2]</td><td>Carta de Serviços[cite: 2]</td></tr>
+        <tr><td><strong>Monitoramento</strong></td><td>Dependente de iniciativa individual[cite: 2]</td><td>Lembretes e rotina[cite: 2]</td></tr>
+        <tr><td><strong>Comunicação</strong></td><td>Direta e fragmentada[cite: 2]</td><td>Ponto focal[cite: 2]</td></tr>
+        <tr><td><strong>Acessos</strong></td><td>Espelhamento de perfis[cite: 2]</td><td>Necessidade funcional[cite: 2]</td></tr>
+        <tr><td><strong>Validação</strong></td><td>Dependente do encerramento[cite: 2]</td><td>Teste com usuário[cite: 2]</td></tr>
+        <tr><td><strong>Lead Time</strong></td><td>Até aproximadamente uma semana[cite: 2]</td><td>Em geral até 72h[cite: 2]</td></tr>
+        <tr><td><strong>Resultado</strong></td><td>Baixa previsibilidade[cite: 2]</td><td>Aproximadamente 71% de redução[cite: 2]</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 18. PRODUCT OWNER PERSPECTIVE -->
+<section class="section" style="background: var(--bg2);">
+  <div class="section-inner">
+    <div class="section-label">18 · VISÃO ESTRATÉGICA</div>
+    <h2 class="section-title">Product Owner <em>Perspective</em></h2>
+    
+    <p class="section-text">
+      Este case demonstra uma atuação orientada por Product Discovery e Ownership[cite: 2]. O trabalho não começou pela escolha de uma ferramenta; começou pela observação do problema[cite: 2]. A partir das evidências, foram criados mecanismos de descoberta, desenho de jornada, governança, priorização, tomada de decisão, acompanhamento, validação e melhoria contínua[cite: 2]. O Jira foi utilizado como ferramenta de gestão, mas a transformação veio do desenho do processo[cite: 2].
+    </p>
+  </div>
+</section>
+
+<!-- 19. COMPETÊNCIAS DEMONSTRADAS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">19 · EXPERTISE</div>
+    <h2 class="section-title">Competências <em>Demonstradas</em></h2>
+    
+    <div class="cards-grid-3">
+      <div class="card-item"><h3 class="card-heading">Product Discovery</h3></div>
+      <div class="card-item"><h3 class="card-heading">Product Ownership</h3></div>
+      <div class="card-item"><h3 class="card-heading">Product Strategy</h3></div>
+      <div class="card-item"><h3 class="card-heading">Service Design</h3></div>
+      <div class="card-item"><h3 class="card-heading">User Experience</h3></div>
+      <div class="card-item"><h3 class="card-heading">Stakeholder Management</h3></div>
+      <div class="card-item"><h3 class="card-heading">Process Design</h3></div>
+      <div class="card-item"><h3 class="card-heading">Governance</h3></div>
+      <div class="card-item"><h3 class="card-heading">Prioritization</h3></div>
+      <div class="card-item"><h3 class="card-heading">Decision Making</h3></div>
+      <div class="card-item"><h3 class="card-heading">Continuous Improvement</h3></div>
+      <div class="card-item"><h3 class="card-heading">Business Analysis</h3></div>
+      <div class="card-item"><h3 class="card-heading">Risk Awareness</h3></div>
+      <div class="card-item"><h3 class="card-heading">Data Driven Decisions</h3></div>
+      <div class="card-item"><h3 class="card-heading">Documentation</h3></div>
+      <div class="card-item"><h3 class="card-heading">Jira</h3></div>
+      <div class="card-item" style="grid-column: span 2;"><h3 class="card-heading">Kanban</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- 20. PRINCIPAL DESAFIO -->
+<section class="section" style="background: var(--bg2);">
+  <div class="section-inner">
+    <div class="section-label">20 · BARREIRAS SUPERADAS</div>
+    <h2 class="section-title">Principal <em>Desafio</em></h2>
+    
+    <p class="section-text">
+      O maior desafio foi a mudança de cultura[cite: 2]. Não bastava criar um portal; era necessário mudar a forma como os servidores solicitavam ajuda, como documentavam suas necessidades e como acompanhavam o processo[cite: 2].
+    </p>
+    <p class="section-text">
+      Também foi necessário criar uma nova relação entre a operação e o Departamento de TI[cite: 2]. O processo passou a depender menos de contatos informais e mais de critérios, registros, acompanhamento e responsabilidade sobre a jornada[cite: 2]. A mudança cultural foi, portanto, tão importante quanto a mudança operacional[cite: 2].
+    </p>
+  </div>
+</section>
+
+<!-- 21. PRINCIPAL APRENDIZADO -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">21 · VALOR INSTITUCIONAL</div>
+    <h2 class="section-title">Principal <em>Aprendizado</em></h2>
+    
+    <p class="section-text" style="font-size: 17px; color: var(--white); font-style: italic; border-left: 2px solid var(--gold); padding-left: 24px;">
+      "O maior aprendizado deste projeto foi perceber que processos eficientes não começam pela tecnologia. Eles começam pela compreensão das necessidades das pessoas e pela construção de uma governança capaz de sustentar decisões ao longo do tempo[cite: 2]."
+    </p>
+  </div>
+</section>
+
+<!-- 22. ENCERRAMENTO -->
+<section class="section" style="background: var(--bg2);">
+  <div class="section-inner">
+    <div class="section-label">22 · CONCLUSÃO</div>
+    <h2 class="section-title">Encerramento do <em>Relatório</em></h2>
+    
+    <p class="section-text">
+      O projeto transformou uma jornada fragmentada em um processo centralizado, acompanhado e validado[cite: 2]. O servidor passou a ter um ponto claro de entrada, a Subsecretaria passou a exercer a curadoria, o TI recebeu demandas mais estruturadas, o acompanhamento passou a utilizar critérios objetivos e a solução passou a ser validada com quem realmente precisava dela[cite: 2].
+    </p>
+    <p class="section-text">
+      O resultado foi uma redução aproximada de 71% no Lead Time e uma mudança relevante na previsibilidade e na governança das demandas tecnológicas da Secretaria[cite: 2].
+    </p>
+
+    <div style="margin-top: 40px; display: flex; align-items: center; gap: 16px;">
+      <div class="h-mark">H</div>
+      <div>
+        <span style="font-weight: 500; display: block; color: var(--white); letter-spacing: 0.05em; text-transform: uppercase;">Cleyton Hespanhol</span>
+        <span style="font-family: 'Orbitron', monospace; font-size: 9px; color: var(--gold); letter-spacing: 0.15em;">Product Owner | UX</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-nav">
+    <a href="case_study_02.html">← Voltar ao Case Study 02</a>
+    <a href="case02_as_is_to_be_mapping.html">Próximo Documento →</a>
+  </div>
+  <div class="footer-main-row">
+    <div class="footer-brand">
+      <div class="h-mark">H</div>
+      <div class="footer-info">
+        <span class="footer-name">Cleyton Hespanhol</span>
+        <span class="footer-role">PRODUCT OWNER | UX</span>
+      </div>
+    </div>
+    <div class="footer-right">
+      <a href="https://linkedin.com/in/cleyton-hespanhol" class="footer-linkedin">linkedin.com/in/cleyton-hespanhol</a>
+      <span class="footer-copy">© 2026 · Portfólio Profissional · Operational Discovery Report</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
