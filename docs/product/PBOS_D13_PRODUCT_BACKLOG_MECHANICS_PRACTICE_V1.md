@@ -1,6 +1,6 @@
 # PBOS D13 · Product Backlog Mechanics · Practice v1
 
-**Status:** Draft for user validation  
+**Status:** Validated  
 **Gate:** DG-03 — Product Owner Positioning & Development Plan  
 **Priority:** P0  
 **Base evidence:** D11 Habitat + D12 PAV validated artifacts
@@ -164,8 +164,16 @@ D13 does not establish historical evidence of:
 - formal Product Analytics ownership;
 - E2E Product Ownership.
 
-## 12. Next validation gate
+## 12. Validation and closure
 
-User validation should focus only on whether the reconstructed PO mechanics faithfully represent the already validated Habitat experience and whether any wording overstates historical responsibility.
+D13 was validated incrementally, two points at a time.
 
-Validation should be incremental, two points at a time.
+The user confirmed that the reconstructed PO mechanics faithfully represent the already validated Habitat experience and do not overstate historical responsibility.
+
+**Governance status: D13 validated and closed.**
+
+The separation between historical evidence and reconstructed PO practice must remain explicit in all future use of this artifact.
+
+## 13. Next operational priority
+
+Proceed to the next P0 development activity defined in DG-03, preserving the same evidence-first governance: use validated experience, reconstruct only where appropriate, validate incrementally, and document the decision before advancing.
