@@ -1,9 +1,15 @@
 # PBOS D15 · Product Analytics & Metrics Practice · v1
 
-**Status:** Draft for user validation  
+**Status:** Validated  
 **Gate:** DG-03 — Product Owner Positioning & Development Plan  
 **Priority:** P1  
 **Base evidence:** D11 Habitat + D12 PAV + D13 Product Backlog Mechanics + D14 Product Management Practice
+
+## Validation record
+
+D15 was validated incrementally by the user. The validated scope covers all 12 validation points and preserves the governance boundary between historical evidence and reconstructed Product Analytics practice.
+
+**Governance decision:** D15 is approved as a reconstructed Product Analytics and Product Metrics practice artifact. It must not be presented as historical evidence of formal Product Analytics, Product KPI, analytics-stack, instrumentation, experimentation or North Star ownership.
 
 ## 1. Purpose
 
@@ -296,8 +302,19 @@ The core reasoning is:
 
 The strongest market-facing positioning remains evidence-based and should not claim formal Product Analytics ownership where none is documented.
 
-## 19. Next validation gate
+## 19. Validation summary
 
-Validation will occur incrementally, two points at a time.
+The user validated the D15 framework incrementally in six blocks:
 
-The user should validate whether the reconstructed analytical framework is coherent with the already validated experiences and whether any wording accidentally converts reconstructed practice into historical responsibility.
+- Points 1–2: validated.
+- Points 3–4: validated.
+- Points 5–6: validated.
+- Points 7–8: validated.
+- Points 9–10: validated.
+- Points 11–12: validated.
+
+D15 is therefore **closed and validated** under DG-03.
+
+## 20. Next step
+
+With D15 closed, the next development step should follow the approved DG-03 priority sequence and focus on strengthening the remaining Product Owner competency gaps without restarting already validated competencies.
