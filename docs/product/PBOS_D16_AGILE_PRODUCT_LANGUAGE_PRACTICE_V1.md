@@ -7,15 +7,23 @@
 
 ## 1. Purpose
 
-Strengthen the user's fluency in the language commonly used in Product Owner and Product Management environments, especially the ability to describe decisions, artifacts and ways of working using market-recognizable terminology without converting reconstructed practice into historical claims.
+Strengthen the user's fluency in the language commonly used in Product Owner and Product Management environments, combining **technical review** with translation of existing experience into market-recognizable terminology.
 
-D16 is a **practice artifact**. It is not intended to claim that the user historically performed formal Scrum ceremonies, held a formal Product Owner title or used every listed artifact in a formal framework.
+D16 is not merely a terminology exercise. For each concept, the intended learning path is:
+
+**Concept → definition → purpose → how it works → example → where it appears in the user's experience → how the market may ask about it → how to answer accurately.**
+
+D16 must distinguish between concepts the user already knows, concepts that are review, practices the user already performed without knowing the formal name, and genuine knowledge gaps.
+
+D16 is a **practice and learning artifact**. It is not intended to claim that the user historically performed formal Scrum ceremonies, held a formal Product Owner title or used every listed artifact in a formal framework.
 
 ## 2. Why this is the next step
 
 DG-03 identified formal Agile/Product language as a P2 development priority after the P0 Evidence Conversion and Product Backlog Mechanics work and the P1 Product Management and Product Analytics work.
 
-The objective is not to restart basic Agile learning. The user already has strong Kanban knowledge and certifications. The focus is translation: connecting what was actually done to the vocabulary recruiters and product teams recognize.
+The objective is not to restart basic Agile learning. The user already has strong Kanban knowledge and certifications. However, knowledge should still be reviewed so that technical concepts can be recognized and discussed confidently in interviews.
+
+The focus is therefore both **revision and translation**: connecting what was actually done to the vocabulary recruiters and product teams recognize.
 
 ## 3. Core translation principle
 
@@ -25,7 +33,29 @@ D16 uses the rule:
 
 The terminology should make the experience easier to understand, not make the experience sound more senior than the evidence supports.
 
-## 4. Translation map
+## 4. Learning classification
+
+Each concept should be classified as one of four states:
+
+### A. Conhecimento já existente
+
+The user already knows the concept and terminology. The objective is review, consolidation and interview fluency.
+
+### B. Prática já realizada sem domínio do nome
+
+The user performed the behavior or practice in a real context but did not use the formal market terminology at the time. The objective is to connect action to concept without rewriting history.
+
+### C. Conceito parcialmente conhecido
+
+The user recognizes the concept but needs stronger understanding of purpose, mechanics, relationships and interview application.
+
+### D. Lacuna real
+
+The user does not yet have sufficient technical understanding or practical ability. The concept becomes an explicit development item.
+
+This classification prevents treating every unfamiliar term as a competency gap while also preventing the opposite mistake of assuming that performing a similar activity means mastering the formal framework.
+
+## 5. Translation map
 
 ### Problem Discovery
 
@@ -83,7 +113,7 @@ Market language: **Continuous Improvement, Feedback Loop, Iterative Improvement,
 
 Boundary: do not attribute the work to a formal Scrum ceremony unless documented.
 
-## 5. Agile framework language
+## 6. Agile framework language
 
 D16 distinguishes concepts that are useful in interviews from formal historical claims.
 
@@ -117,7 +147,7 @@ D16 distinguishes concepts that are useful in interviews from formal historical 
 
 The user's Kanban knowledge should be treated as a strong existing competency, supported by TKP, KMP, KSD and KSI, rather than as a basic learning gap.
 
-## 6. Product language translation
+## 7. Product language translation
 
 D16 reinforces market language already developed in D11–D15:
 
@@ -125,7 +155,48 @@ D16 reinforces market language already developed in D11–D15:
 
 This sequence connects the user's practical evidence to a recognizable Product operating model.
 
-## 7. Interview application
+## 8. Technical review scope
+
+The review should cover, at minimum:
+
+- Scrum and its purpose;
+- Product Backlog;
+- Backlog Refinement;
+- Epic;
+- Feature;
+- User Story;
+- Acceptance Criteria;
+- Definition of Done;
+- Sprint;
+- Sprint Planning;
+- Daily Scrum;
+- Sprint Review;
+- Sprint Retrospective;
+- Increment;
+- MVP;
+- Discovery;
+- Delivery;
+- Prioritization;
+- Value;
+- Output;
+- Outcome;
+- Lead Time;
+- Cycle Time;
+- WIP;
+- Flow;
+- Kanban;
+- Product Discovery;
+- Product Vision;
+- Product Strategy;
+- Roadmap;
+- Product Metrics;
+- Hypothesis;
+- Experiment;
+- Validation.
+
+The list is a review scope, not a declaration that every item represents historical experience.
+
+## 9. Interview application
 
 When describing an experience, prefer:
 
@@ -147,7 +218,7 @@ Prefer: “Eu identifiquei problemas recorrentes na jornada do usuário, prioriz
 
 This describes the actual experience while making its Product relevance explicit.
 
-## 8. Recruiter-facing competency signals
+## 10. Recruiter-facing competency signals
 
 D16 strengthens the ability to communicate evidence of:
 
@@ -167,7 +238,7 @@ D16 strengthens the ability to communicate evidence of:
 - stakeholder collaboration;
 - evidence-based decision making.
 
-## 9. Explicit limitations
+## 11. Explicit limitations
 
 D16 does not establish historical evidence of:
 
@@ -179,10 +250,10 @@ D16 does not establish historical evidence of:
 - formal Agile transformation leadership;
 - E2E Product Ownership.
 
-## 10. Expected outcome
+## 12. Expected outcome
 
-The intended outcome is not simply knowing more terminology. It is being able to communicate existing experience in the language of Product without exaggeration, ambiguity or loss of evidence integrity.
+The intended outcome is not simply knowing more terminology. It is being able to recognize the technical concept when an interviewer uses it, understand its mechanics and purpose, connect it to relevant real experience when appropriate, and answer with confidence without exaggerating historical responsibility.
 
-## 11. Next validation gate
+## 13. Validation method
 
-Validation will occur incrementally, two points at a time. The user should validate whether the translation accurately represents the already validated experiences and whether any terminology risks overstating historical responsibility.
+Validation will occur incrementally, two points at a time. The user should validate whether the proposed learning/translation framework accurately represents the already validated experiences and whether the classification of concepts preserves the distinction between knowledge, review, inferred practice and genuine gaps.
