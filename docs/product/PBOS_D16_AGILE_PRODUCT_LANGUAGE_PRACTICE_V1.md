@@ -1,6 +1,6 @@
 # PBOS D16 · Agile & Product Language Practice · v1
 
-**Status:** Draft for user validation  
+**Status:** Validated  
 **Gate:** DG-03 — Product Owner Positioning & Development Plan  
 **Priority:** P2  
 **Base evidence:** D11 Habitat + D12 PAV + D13 Product Backlog Mechanics + D14 Product Management Practice + D15 Product Analytics & Metrics Practice
@@ -13,9 +13,9 @@ D16 is not merely a terminology exercise. For each concept, the intended learnin
 
 **Concept → definition → purpose → how it works → example → where it appears in the user's experience → how the market may ask about it → how to answer accurately.**
 
-D16 must distinguish between concepts the user already knows, concepts that are review, practices the user already performed without knowing the formal name, and genuine knowledge gaps.
+D16 distinguishes concepts the user already knows, concepts that are review, practices the user already performed without knowing the formal name, and genuine knowledge gaps.
 
-D16 is a **practice and learning artifact**. It is not intended to claim that the user historically performed formal Scrum ceremonies, held a formal Product Owner title or used every listed artifact in a formal framework.
+D16 is a **practice and learning artifact**. It must distinguish formal historical responsibilities from reconstructed language and must not inflate the user's seniority or ownership.
 
 ## 2. Why this is the next step
 
@@ -87,7 +87,7 @@ Historical experience: larger needs were broken into layers and smaller executab
 
 Market language: **Decomposition, Epic Breakdown, User Story decomposition**.
 
-Boundary: User Story terminology is reconstructed unless an original formal story artifact exists.
+Boundary: User Story terminology is reconstructed where an original formal story artifact is unavailable.
 
 ### Prioritization
 
@@ -95,25 +95,56 @@ Historical experience: Habitat topics were reordered according to client/user ne
 
 Market language: **Value-based Prioritization, Backlog Prioritization, Opportunity Prioritization**.
 
-Boundary: do not claim formal Scrum Product Backlog prioritization where the historical process was not formally documented as Scrum.
+Boundary: final prioritization of new product functionality at Habitat belonged to the product owner/owner of the product. The user influenced decisions in some situations using evidence from real customer needs.
 
 ### Validation
 
-Historical experience: owner validation, user validation, observation of persistent doubts and usage, and readiness checks were part of the work.
+Historical experience: owner validation, user validation, observation of persistent doubts and usage, readiness checks, and validation of developed functionality were part of the work.
 
 Market language: **Validation, User Validation, Stakeholder Validation, Acceptance Thinking**.
 
-Boundary: do not claim formal Acceptance Criteria as historical artifacts unless original evidence exists.
+Boundary: do not claim a formal historical Acceptance Criteria artifact unless original evidence exists. The user did have practical autonomy to return functionality for adjustment when it did not meet the need.
 
 ### Continuous Improvement
 
-Historical experience: doubts, recurrence, behavior and operational signals were used to identify corrections and improvements.
+Historical experience: doubts, recurrence, behavior and operational signals were used to identify corrections and improvements. In the Habitat development context, retrospectives were also used to identify process improvements for the next cycle.
 
 Market language: **Continuous Improvement, Feedback Loop, Iterative Improvement, Inspect and Adapt**.
 
-Boundary: do not attribute the work to a formal Scrum ceremony unless documented.
+Boundary: the user confirmed practical participation in Sprint Retrospectives; do not infer ownership of every Scrum governance responsibility from this alone.
 
-## 6. Agile framework language
+## 6. Scrum practice discovered in the Habitat experience
+
+A significant historical clarification emerged during D16 validation: at Habitat, the user accumulated responsibilities across **CX, Product Owner and Scrum Master** functions.
+
+The user confirmed practical participation in Scrum with the development team for new functionality, including recurring meetings on Fridays. The user reported doing the following:
+
+- Product Backlog: worked with backlog items, but did not hold final prioritization authority;
+- Backlog Refinement: participated in understanding, detailing and clarifying work before development;
+- Sprint Planning: helped the team understand the customer's need and define the work to be performed;
+- Daily Scrum: participated and, when conducting it, facilitated the conversation, followed progress, identified impediments and supported their resolution;
+- Sprint Review: participated in reviewing and validating developed functionality;
+- Sprint Retrospective: participated in identifying process problems and defining improvements for the next cycle;
+- Impediments: acted to identify and help remove or route impediments;
+- Validation/Acceptance: evaluated functionality against the identified need and returned it for adjustment when it did not meet the expected need.
+
+### Boundary of Product Owner responsibility
+
+Final prioritization of new functionality belonged to the owner of the product. The user nevertheless influenced some decisions by bringing direct evidence of customer needs when the owner's initial perception differed from what users were actually reporting or experiencing.
+
+This supports the following technical interpretation:
+
+**Customer Insight → Evidence → Stakeholder Influence → Product Decision.**
+
+The user should not claim unilateral Product Backlog prioritization or sole product decision authority.
+
+### Boundary of Scrum Master responsibility
+
+The user also accumulated practical Scrum Master responsibilities, particularly facilitation of the Daily Scrum, impediment handling, Retrospective participation and process improvement.
+
+This is evidence of **practical Scrum Master activity in a multifuncional context**. It does not establish a formal Scrum Master job title or exclusive ownership of the Scrum framework.
+
+## 7. Agile framework language
 
 D16 distinguishes concepts that are useful in interviews from formal historical claims.
 
@@ -133,21 +164,22 @@ D16 distinguishes concepts that are useful in interviews from formal historical 
 - flow and Lead Time;
 - Kanban.
 
-### Use with explicit reconstruction or qualification
+### Historical practical experience now confirmed
+
+The Habitat experience provides evidence of practical use of **Scrum with a development team for new functionality**, including Backlog Refinement, Sprint Planning, Daily Scrum participation and facilitation, Sprint Review, Sprint Retrospective, impediment handling and functionality validation.
+
+### Use with explicit qualification
 
 - User Story;
 - Acceptance Criteria;
-- Product Backlog Refinement;
-- Sprint Planning;
-- Daily Scrum;
-- Sprint Review;
-- Sprint Retrospective;
 - Definition of Done;
-- formal Scrum Product Owner responsibilities.
+- formal Product Backlog ownership;
+- unilateral backlog prioritization;
+- formal Scrum Product Owner responsibilities in their entirety.
 
 The user's Kanban knowledge should be treated as a strong existing competency, supported by TKP, KMP, KSD and KSI, rather than as a basic learning gap.
 
-## 7. Product language translation
+## 8. Product language translation
 
 D16 reinforces market language already developed in D11–D15:
 
@@ -155,9 +187,9 @@ D16 reinforces market language already developed in D11–D15:
 
 This sequence connects the user's practical evidence to a recognizable Product operating model.
 
-## 8. Technical review scope
+## 9. Technical review scope
 
-The review should cover, at minimum:
+The review covers, at minimum:
 
 - Scrum and its purpose;
 - Product Backlog;
@@ -196,7 +228,7 @@ The review should cover, at minimum:
 
 The list is a review scope, not a declaration that every item represents historical experience.
 
-## 9. Interview application
+## 10. Interview application
 
 When describing an experience, prefer:
 
@@ -216,9 +248,11 @@ Instead of: “Eu fazia documentação para o suporte.”
 
 Prefer: “Eu identifiquei problemas recorrentes na jornada do usuário, priorizei os temas pelo valor e recorrência, decompondo necessidades em orientações executáveis e validando o material antes de escalar o conhecimento para autoatendimento, chatbot e treinamento.”
 
-This describes the actual experience while making its Product relevance explicit.
+For the Habitat development context, an additional accurate formulation is:
 
-## 10. Recruiter-facing competency signals
+“Eu atuava na interface entre cliente e desenvolvimento, ajudando a equipe a entender a necessidade do usuário, detalhando os itens no Refinement, participando do Planning e validando as funcionalidades entregues. Em paralelo, também facilitava o Daily, atuava sobre impedimentos e participava das retrospectivas.”
+
+## 11. Recruiter-facing competency signals
 
 D16 strengthens the ability to communicate evidence of:
 
@@ -230,30 +264,54 @@ D16 strengthens the ability to communicate evidence of:
 - Requirements Decomposition;
 - Prioritization;
 - Product Backlog thinking;
+- Backlog Refinement;
+- Sprint Planning;
+- Daily Scrum;
+- Sprint Review;
+- Sprint Retrospective;
+- Scrum;
 - Validation;
 - Continuous Improvement;
 - Product Thinking;
 - Agile mindset;
 - Kanban and Flow;
 - stakeholder collaboration;
-- evidence-based decision making.
+- evidence-based decision making;
+- stakeholder influence.
 
-## 11. Explicit limitations
+## 12. Explicit limitations
 
 D16 does not establish historical evidence of:
 
-- formal Scrum ceremony ownership;
-- formal Scrum Product Owner title;
-- formal Sprint ownership;
+- formal Scrum Master job title;
+- formal Product Owner job title in the Habitat experience;
+- unilateral Product Backlog prioritization;
+- sole ownership of product strategy or product decisions;
 - formal Definition of Done ownership;
-- formal Product Backlog ownership in a Scrum environment;
+- formal Product Backlog ownership in the sense of exclusive authority;
 - formal Agile transformation leadership;
 - E2E Product Ownership.
 
-## 12. Expected outcome
+The Habitat experience does establish practical Scrum activity and multifuncional responsibility across CX, Product Owner and Scrum Master functions, based on the user's explicit validation during D16.
+
+## 13. Expected outcome
 
 The intended outcome is not simply knowing more terminology. It is being able to recognize the technical concept when an interviewer uses it, understand its mechanics and purpose, connect it to relevant real experience when appropriate, and answer with confidence without exaggerating historical responsibility.
 
-## 13. Validation method
+## 14. Validation record
 
-Validation will occur incrementally, two points at a time. The user should validate whether the proposed learning/translation framework accurately represents the already validated experiences and whether the classification of concepts preserves the distinction between knowledge, review, inferred practice and genuine gaps.
+D16 was validated incrementally by the user. The user confirmed the learning/translation framework and, during the technical review, provided additional historical clarification about the Habitat experience.
+
+The additional clarification confirmed practical Scrum activity with the development team for new functionality and clarified that the user accumulated CX, Product Owner and Scrum Master responsibilities in that context.
+
+Key validated boundaries:
+
+- final prioritization of new functionality belonged to the product owner/owner of the product;
+- the user influenced some decisions with direct customer evidence;
+- the user participated in Backlog Refinement and Sprint Planning;
+- the user participated in and sometimes conducted Daily Scrum;
+- the user participated in Sprint Review and Sprint Retrospective;
+- the user acted on impediments;
+- the user validated functionality and returned it for adjustment when it did not meet the need.
+
+**Governance decision:** D16 is validated as a technical review and evidence-translation artifact. The newly discovered Scrum evidence must be incorporated into the PBOS Evidence Bank and relevant Habitat positioning materials while preserving the distinction between multifuncional practical activity and exclusive/formal role ownership.
