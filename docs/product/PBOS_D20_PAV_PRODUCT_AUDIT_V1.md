@@ -1,7 +1,8 @@
 # PBOS D20 | Auditoria Product do Case 05 · PAV Receita Federal
 
-**Status:** Draft para validação
+**Status:** Validated
 **Gate:** Pós-DG-03
+**Data de validação:** 2026-09-11
 **Objetivo:** identificar práticas de Product, Discovery, Service Design, UX, priorização, requisitos, validação e gestão de stakeholders efetivamente presentes na experiência do PAV e avaliar o que merece ser explicitado no portfólio.
 
 ## 1. Regra de governança
@@ -107,7 +108,7 @@ O caso não comprova, isoladamente, ownership formal de Product Backlog, prioriz
 - User Validation.
 - Implementação em três unidades.
 
-## 6. O que pode ser tornado mais explícito
+## 6. O que deve ser tornado mais explícito
 
 ### A. Discovery antes da solução
 
@@ -115,7 +116,7 @@ O ponto forte não é simplesmente ter implantado PAV. É ter participado da inv
 
 ### B. Benchmark como instrumento de decisão
 
-A visita a uma unidade existente pode ser apresentada como benchmarking prático para reduzir incerteza de implantação e orientar requisitos locais.
+A visita a uma unidade existente deve ser apresentada como benchmarking prático para reduzir incerteza de implantação e orientar requisitos locais.
 
 ### C. Requirements + Readiness
 
@@ -127,7 +128,11 @@ A validação com usuários fecha o ciclo entre necessidade, implantação e exp
 
 ### E. Stakeholder complexity
 
-O caso envolve múltiplos stakeholders institucionais e cidadãos, o que fortalece a evidência de alinhamento e coordenação cross-functional.
+O caso envolve múltiplos stakeholders institucionais e cidadãos, fortalecendo a evidência de alinhamento e coordenação cross-functional.
+
+### F. Validação externa qualitativa
+
+A avaliação positiva relatada por auditor da Receita Federal pode ser usada como evidência qualitativa externa, sem convertê-la em métrica ou prova de causalidade.
 
 ## 7. O que NÃO deve ser acrescentado
 
@@ -148,7 +153,7 @@ O caso envolve múltiplos stakeholders institucionais e cidadãos, o que fortale
 - Quantificação de deslocamento evitado sem fonte.
 - Métricas de satisfação sem fonte.
 
-## 8. Recomendação
+## 8. Recomendação validada
 
 Atualizar o Case 05 para explicitar quatro sinais de maturidade transferíveis para Product Owner:
 
@@ -157,8 +162,8 @@ Atualizar o Case 05 para explicitar quatro sinais de maturidade transferíveis p
 3. **Requirements Definition e Operational Readiness**
 4. **User Validation e Stakeholder Management**
 
-A atualização deve preservar a natureza colaborativa da experiência e a distinção entre participação e ownership.
+Também pode ser evidenciada a validação externa qualitativa da implementação, preservando a natureza colaborativa da experiência e a distinção entre participação e ownership.
 
-## 9. Próxima etapa
+## 9. Validação
 
-Submeter os achados à validação do usuário em blocos de dois pontos. Após validação, atualizar o Case 05 publicamente e registrar o commit.
+Os pontos 1 a 6 da auditoria foram apresentados ao usuário e aprovados integralmente. A auditoria transversal D21 pode partir deste documento como base validada, sem repetir as perguntas já respondidas.
