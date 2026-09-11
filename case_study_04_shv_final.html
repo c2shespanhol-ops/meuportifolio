@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Caso 04 · SHV Energy · Onboarding e Abastecimento</title>
+<title>Caso 04 · SHV Energy · Onboarding e Jornada do Cliente</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0B0C0E;--bg2:#121418;--bg3:#181B20;--gold:#C9A84C;--gold-lt:#E8C060;--teal:#3A7A8A;--coral:#F57F76;--white:#F0F6FC;--gray:#8B949E;--border:rgba(201,168,76,.16)}
@@ -35,32 +35,34 @@
 <div class="step"><h3>01 · Onboarding</h3><p>Apresentação da empresa, orientação sobre o funcionamento do serviço e explicação sobre consumo e margem de segurança. Também era aplicada uma pesquisa de satisfação com três perguntas sobre a capacidade técnica e organização das equipes envolvidas na alvenaria, instalação e abastecimento.</p><div class="tags"><span class="tag">ONBOARDING</span><span class="tag">ATENDIMENTO</span><span class="tag">PESQUISA</span></div></div>
 <div class="step"><h3>02 · Monitoramento semanal</h3><p>Nos primeiros abastecimentos, o cliente era contatado semanalmente para informar o nível do tanque. A referência de 35% funcionava como margem preventiva para evitar a ruptura do abastecimento.</p><div class="tags"><span class="tag">MONITORAMENTO</span><span class="tag">PREVENÇÃO</span><span class="tag">RISCO</span></div></div>
 <div class="step"><h3>03 · Ação emergencial</h3><p>Quando necessário, era solicitada à logística uma recarga emergencial. O cliente também era orientado a acionar a Central de Atendimento caso atingisse a margem de segurança antes do próximo contato.</p><div class="tags"><span class="tag">LOGÍSTICA</span><span class="tag">SLA</span><span class="tag">CONTINGÊNCIA</span></div></div>
-<div class="step"><h3>04 · Validação</h3><p>O protocolo no Salesforce permitia acompanhar se a recarga havia sido registrada. No contato semanal seguinte, a informação também era confirmada diretamente com o cliente, garantindo que o registro sistêmico correspondesse ao ocorrido na experiência.</p><div class="tags"><span class="tag">SALESFORCE</span><span class="tag">VALIDAÇÃO</span><span class="tag">CRM</span></div></div>
-<div class="step"><h3>05 · Formação do padrão de consumo</h3><p>Os cinco primeiros abastecimentos formavam o histórico necessário para calcular a média de consumo e estabelecer os intervalos entre recargas.</p><div class="tags"><span class="tag">DADOS</span><span class="tag">HISTÓRICO</span><span class="tag">PADRÃO DE CONSUMO</span></div></div>
-<div class="step"><h3>06 · Handoff</h3><p>Depois dessa etapa, o cliente passava para o abastecimento automático. O acompanhamento individual era encerrado e eventuais necessidades futuras eram direcionadas à Central de Atendimento.</p><div class="tags"><span class="tag">HANDOFF</span><span class="tag">ESCALA</span><span class="tag">PROCESSO</span></div></div>
+<div class="step"><h3>04 · Validação e feedback loop</h3><p>O protocolo no Salesforce permitia acompanhar se a recarga havia sido registrada. No contato semanal seguinte, a informação também era confirmada diretamente com o cliente, permitindo confrontar o registro sistêmico com o que efetivamente ocorreu na experiência.</p><div class="tags"><span class="tag">SALESFORCE</span><span class="tag">VALIDAÇÃO</span><span class="tag">FEEDBACK LOOP</span></div></div>
+<div class="step"><h3>05 · Histórico e padrão de consumo</h3><p>Os cinco primeiros abastecimentos formavam o histórico necessário para calcular a média de consumo e apoiar o estabelecimento dos intervalos entre recargas.</p><div class="tags"><span class="tag">DADOS</span><span class="tag">HISTÓRICO</span><span class="tag">DECISÃO OPERACIONAL</span></div></div>
+<div class="step"><h3>06 · Handoff e transição</h3><p>Depois dessa etapa, o cliente passava para o abastecimento automático. O acompanhamento individual era encerrado e eventuais necessidades futuras eram direcionadas à Central de Atendimento.</p><div class="tags"><span class="tag">HANDOFF</span><span class="tag">LIFECYCLE</span><span class="tag">ESCALA</span></div></div>
 </div>
 </section>
 <section class="section">
 <h2>A lógica do processo</h2>
 <div class="flow">
 <div class="flow-row"><div><strong>Dados dos primeiros abastecimentos</strong><span>Histórico real de consumo</span></div><div>→</div><div><strong>Média de consumo</strong><span>Base para estimar o padrão</span></div></div>
-<div class="flow-row"><div><strong>Intervalo de abastecimento</strong><span>Previsibilidade operacional</span></div><div>→</div><div><strong>Abastecimento automático</strong><span>Transferência para o fluxo regular</span></div></div>
+<div class="flow-row"><div><strong>Intervalo de abastecimento</strong><span>Previsibilidade operacional</span></div><div>→</div><div><strong>Abastecimento automático</strong><span>Transição para o fluxo regular</span></div></div>
 </div>
 </section>
 <section class="section">
 <h2>Evidências profissionais</h2>
 <div class="evidence">
-<div class="card positive"><h3>Experiência do cliente</h3><p>Orientação, acompanhamento, comunicação preventiva e confirmação direta da realização do serviço.</p></div>
-<div class="card positive"><h3>Gestão operacional</h3><p>Identificação de risco, acionamento de logística e atuação dentro de uma janela operacional definida.</p></div>
-<div class="card positive"><h3>Dados e histórico</h3><p>Uso dos registros dos abastecimentos para formar uma base de consumo e apoiar a transição de etapa.</p></div>
-<div class="card positive"><h3>Handoff</h3><p>Compreensão clara do momento em que o acompanhamento assistido terminava e o fluxo regular assumia o cliente.</p></div>
-<div class="card positive"><h3>Produtividade</h3><p>A aplicação da pesquisa de satisfação fazia parte das atividades produtivas consideradas para as metas individuais.</p></div>
+<div class="card positive"><h3>Customer Onboarding</h3><p>Orientação inicial, educação do cliente e acompanhamento dos primeiros abastecimentos.</p></div>
+<div class="card positive"><h3>Customer Journey</h3><p>Leitura da jornada desde o onboarding até a transição para o abastecimento automático.</p></div>
+<div class="card positive"><h3>Proactive Monitoring</h3><p>Monitoramento preventivo de sinais de risco antes da ruptura do abastecimento.</p></div>
+<div class="card positive"><h3>Customer Validation</h3><p>Confirmação direta com o cliente para validar se o evento registrado no sistema realmente ocorreu.</p></div>
+<div class="card positive"><h3>Operational Data</h3><p>Uso do histórico dos primeiros abastecimentos para apoiar a definição do padrão de consumo.</p></div>
+<div class="card positive"><h3>Cross-functional Coordination</h3><p>Interação com cliente, Central de Atendimento, logística e Salesforce para conduzir a jornada.</p></div>
+<div class="card positive"><h3>Handoff</h3><p>Identificação do momento em que o acompanhamento assistido terminava e o fluxo automático assumia o cliente.</p></div>
 <div class="card limitation"><h3>Limitações do processo</h3><p>Alguns clientes chegaram a ficar sem gás por ignorarem orientações ou pela indisponibilidade de equipe na data desejada.</p></div>
 </div>
 </section>
 <section class="section">
 <h2>O que este caso demonstra</h2>
-<div class="note">A experiência não representa atuação formal em Product Management. Ela demonstra, dentro do escopo real da função, <strong>Customer Onboarding, monitoramento operacional, gestão preventiva de risco, CRM, validação com usuário, análise de histórico de consumo e handoff operacional</strong>. O valor profissional está em reconhecer essas competências sem atribuir ao trabalho responsabilidades que pertenciam à estrutura da empresa.</div>
+<div class="note">A experiência não representa atuação formal em Product Management. Ela demonstra, dentro do escopo real da função, <strong>Customer Onboarding, Customer Journey, monitoramento preventivo, gestão de risco operacional, Customer Validation, CRM/Salesforce, uso de dados operacionais, coordenação entre áreas e handoff</strong>. Essas competências são transferíveis para Product Owner, mas permanecem ancoradas na experiência operacional real.</div>
 </section>
 </main>
 <footer>Case reconstruído a partir de evidências da experiência profissional.<div class="signature">Cleyton Hespanhol | Product Owner | UX</div></footer>
