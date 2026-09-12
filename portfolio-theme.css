@@ -1,112 +1,192 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
 
 :root {
-  --pbos-bg: #1E2328;
-  --pbos-surface: #242B31;
-  --pbos-surface-2: #2B343B;
-  --pbos-gold: #DAAF57;
-  --pbos-gold-soft: #E6C47A;
-  --pbos-teal: #26505A;
-  --pbos-text: #F5F7FA;
-  --pbos-muted: #A9B0B7;
-  --pbos-border: rgba(218,175,87,.20);
+  --pbos-bg: #090D12;
+  --pbos-surface: #0F151B;
+  --pbos-surface-2: #151D24;
+  --pbos-gold: #E5B642;
+  --pbos-gold-soft: #F0C75A;
+  --pbos-cyan: #4BADB8;
+  --pbos-text: #F4F5F7;
+  --pbos-muted: #B5BBC1;
+  --pbos-border: rgba(229,182,66,.20);
+  --pbos-border-soft: rgba(181,187,193,.12);
   --pbos-max: 1120px;
-  --pbos-radius: 6px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; background: var(--pbos-bg) !important; }
 body {
   background: var(--pbos-bg) !important;
   color: var(--pbos-text) !important;
   font-family: 'DM Sans', sans-serif !important;
-  font-size: 15px !important;
-  line-height: 1.7 !important;
+  font-size: 16px !important;
   font-weight: 300 !important;
+  line-height: 1.72 !important;
   overflow-x: hidden;
 }
+
 a { color: var(--pbos-gold) !important; }
 
-/* One display family across every case. */
-body h1, body h2, body h3, body h4, body h5, body h6,
-body .hero-title, body .hero-subtitle, body .section-heading,
-body .section-title, body .eco-title, body .doc-title,
-body .pillar-card h3, body .artifact-card h3,
-body .hero-highlight-value, body .case-card h3 {
-  font-family: 'DM Sans', sans-serif !important;
-  color: var(--pbos-text) !important;
-  line-height: 1.18 !important;
-}
-body h1, body .hero-title { font-size: clamp(40px, 5vw, 64px) !important; font-weight: 600 !important; }
-body h2, body .section-title { font-size: clamp(30px, 3.5vw, 46px) !important; font-weight: 500 !important; }
-body h3, body .eco-title { font-size: 22px !important; font-weight: 500 !important; }
-body .hero-highlight-value, body .doc-title { font-size: 24px !important; font-weight: 500 !important; }
-body .hero-title { line-height: 1.12 !important; }
-body .hero-subtitle { font-size: clamp(20px, 2.5vw, 28px) !important; font-weight: 400 !important; line-height: 1.3 !important; color: var(--pbos-gold-soft) !important; }
-body .hero-desc { font-size: 15px !important; line-height: 1.7 !important; color: var(--pbos-muted) !important; }
-body .section-title em, body .hero-title em { font-family: 'DM Sans', sans-serif !important; font-style: normal !important; color: var(--pbos-gold) !important; }
+/* HS MIND: eliminate decorative gradients/glows from older case layouts. */
+body .hero-bg,
+body .orb { background: var(--pbos-bg) !important; background-image: none !important; box-shadow: none !important; filter: none !important; opacity: 0 !important; }
+body .hero,
+body main,
+body header,
+body .section,
+body .container,
+body .wrap,
+body .cases-section,
+body .hero-container,
+body .hero-content { background-color: var(--pbos-bg) !important; background-image: none !important; }
+body .corporate-banner { background: var(--pbos-bg) !important; background-image: none !important; border-top: 1px solid var(--pbos-border-soft) !important; border-bottom: 1px solid var(--pbos-border-soft) !important; }
+body section[style*="background"] { background: var(--pbos-bg) !important; background-image: none !important; }
 
-/* Labels and technical metadata. */
-body .eyebrow, body .hero-eyebrow, body .hero-tags,
-body .case-label-text, body .case-meta, body .section-label,
+/* Typography: same hierarchy as the HS MIND reference. */
+body h1, body h2, body h3, body h4, body h5, body h6,
+body .hero-title, body .hero-main-text, body .hero-subtitle,
+body .section-title, body .banner-title, body .eco-title,
+body .doc-title, body .pillar-card h3, body .artifact-card h3,
+body .case-card h3, body .hero-highlight-value {
+  font-family: 'DM Sans', sans-serif !important;
+  font-style: normal !important;
+  color: var(--pbos-text) !important;
+}
+
+body h1, body .hero-title {
+  font-size: clamp(42px, 7vw, 76px) !important;
+  font-weight: 300 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.035em !important;
+}
+body h2, body .section-title {
+  font-size: clamp(32px, 5vw, 52px) !important;
+  font-weight: 300 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -.025em !important;
+}
+body h3, body .eco-title, body .case-card h3, body .doc-title {
+  font-size: 22px !important;
+  font-weight: 400 !important;
+  line-height: 1.25 !important;
+}
+body .hero-main-text {
+  font-size: clamp(25px, 4vw, 42px) !important;
+  font-weight: 300 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -.02em !important;
+}
+body .hero-main-text em,
+body .hero-title em,
+body .section-title em { font-style: normal !important; color: var(--pbos-cyan) !important; }
+body .hero-desc, body .hero-sub-text, body .lead, body .banner-desc,
+body .card p, body .pillar-card p, body .artifact-card p, body .case-card p,
+body .competency-desc, body .eco-text, body .step p, body .note,
+body .metric p, body .footer-copy, body .footer-right {
+  font-family: 'DM Sans', sans-serif !important;
+  color: var(--pbos-muted) !important;
+  font-size: 16px !important;
+  font-weight: 300 !important;
+  line-height: 1.75 !important;
+}
+
+/* Technical labels use Orbitron, as in the reference. */
+body .eyebrow, body .hero-tags, body .case-meta, body .section-label,
 body .nav-role, body .nav-tag, body .label, body .artifact-action,
 body .competency-title, body .eco-role, body .doc-number,
-body .metric-label, body .tag, body .scroll-hint, body .footer-role,
-body .section-header .section-title {
+body .metric-label, body .tag, body .scroll-hint,
+body .footer-role, body .section-header .section-title {
   font-family: 'Orbitron', sans-serif !important;
   color: var(--pbos-gold) !important;
-  letter-spacing: .12em !important;
+  font-style: normal !important;
+  letter-spacing: .16em !important;
 }
-body .section-header .section-title { font-size: 12px !important; font-weight: 600 !important; line-height: 1.2 !important; }
+body .section-header .section-title { font-size: 12px !important; font-weight: 500 !important; }
+body .hero-tags { font-size: 11px !important; margin-bottom: 34px !important; }
+body .case-label-text { font-family: 'Orbitron', sans-serif !important; font-style: normal !important; }
 
-/* Body content. */
-body p, body li, body td, body th, body input, body button, body textarea, body select,
-body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text,
-body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc,
-body .eco-text, body .step p, body .note, body .metric p, body .banner-desc,
-body .case-card p, body .footer-copy, body .footer-right {
+/* Header / brand. */
+body header { max-width: var(--pbos-max) !important; padding: 34px 24px 28px !important; border-bottom: 1px solid var(--pbos-border-soft) !important; }
+body .logo-container, body .nav-brand { gap: 14px !important; }
+body .logo-h, body .h-mark {
+  width: 46px !important; height: 46px !important;
+  border: 1.5px solid var(--pbos-gold) !important;
+  color: var(--pbos-text) !important;
+  background: transparent !important;
   font-family: 'DM Sans', sans-serif !important;
+  font-weight: 600 !important;
 }
-body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text,
-body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc,
-body .eco-text, body .step p, body .note, body .metric p, body .banner-desc,
-body .footer-copy, body .footer-right { color: var(--pbos-muted) !important; }
+body .logo-text, body .nav-name { font-family: 'DM Sans', sans-serif !important; color: var(--pbos-text) !important; font-size: 17px !important; font-weight: 400 !important; letter-spacing: .12em !important; }
+body .nav-role { font-size: 8px !important; margin-top: 5px !important; }
 
-/* Cards and surfaces. */
+/* Mobile-first page spacing. */
+body .hero { max-width: var(--pbos-max) !important; margin: 0 auto !important; padding: 0 24px 80px !important; }
+body .hero-container { gap: 55px !important; }
+body .hero-left { padding-top: 24px !important; }
+body .hero-right { padding-top: 24px !important; }
+body .container { max-width: var(--pbos-max) !important; padding: 86px 24px 72px !important; }
+body .hero-content { max-width: var(--pbos-max) !important; padding: 88px 24px 72px !important; }
+body .section { padding: 88px 24px !important; border-bottom: 1px solid var(--pbos-border-soft) !important; }
+body .section-inner, body .cases-section, body .banner-content { max-width: var(--pbos-max) !important; }
+body .cases-section { margin: 0 auto !important; padding: 88px 24px !important; }
+body .corporate-banner { margin: 0 !important; padding: 72px 24px !important; }
+
+/* Hero details. */
+body .hero-contact-row { display: flex !important; flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; margin-bottom: 38px !important; }
+body .contact-item { display: flex !important; align-items: center !important; gap: 11px !important; color: var(--pbos-muted) !important; font-family: 'DM Sans', sans-serif !important; font-size: 15px !important; font-weight: 300 !important; }
+body .contact-item::before { content: '•'; color: var(--pbos-gold); font-size: 20px; line-height: 1; width: 12px; text-align: center; }
+body .contact-item[href^="tel:"]::before { content: '☎'; font-size: 14px; }
+body .contact-item[href^="mailto:"]::before { content: '✉'; font-size: 14px; }
+body .contact-item[href*="linkedin"]::before { content: 'in'; font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; border: 1px solid var(--pbos-gold); border-radius: 2px; width: 15px; height: 15px; display: inline-flex; align-items: center; justify-content: center; }
+body .metric-display { font-family: 'DM Sans', sans-serif !important; font-size: clamp(70px, 14vw, 120px) !important; font-weight: 300 !important; color: var(--pbos-gold-soft) !important; line-height: 1 !important; }
+body .metric-label { font-size: 9px !important; color: var(--pbos-muted) !important; margin-top: 16px !important; }
+
+/* Cards: flatter, quieter and closer to the reference. */
 body .card, body .pillar-card, body .artifact-card, body .competency-card,
 body .eco-card, body .metric, body .meta, body .hero-highlight-card,
 body .flow, body .note, body .doc-card, body .case-card {
   background: var(--pbos-surface) !important;
-  border-color: var(--pbos-border) !important;
-  border-radius: var(--pbos-radius) !important;
+  border: 1px solid var(--pbos-border-soft) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover { background: var(--pbos-surface-2) !important; border-color: var(--pbos-gold) !important; }
-body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .doc-card { padding: 24px !important; }
-body .meta { padding: 22px !important; }
+body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover { background: var(--pbos-surface-2) !important; border-color: var(--pbos-border) !important; transform: none !important; }
+body .meta { padding: 22px !important; margin: 30px 0 65px !important; }
+body .hero-highlight-card { border-left: 2px solid var(--pbos-gold) !important; padding: 24px !important; }
+body .hero-highlight-label { font-family: 'Orbitron', sans-serif !important; font-size: 9px !important; color: var(--pbos-gold) !important; letter-spacing: .15em !important; }
+body .hero-highlight-value { font-size: 28px !important; font-weight: 300 !important; }
+body .stat-box { background: transparent !important; border: 1px solid var(--pbos-border) !important; border-radius: 0 !important; color: var(--pbos-gold-soft) !important; }
 
-/* Controls and accents. */
-body .back, body .back-btn { font-family: 'Orbitron', sans-serif !important; font-size: 10px !important; font-weight: 600 !important; background: rgba(30,35,40,.94) !important; border: 1px solid var(--pbos-border) !important; color: var(--pbos-gold) !important; border-radius: 5px !important; padding: 9px 14px !important; }
+/* Rules and accents. */
+body .top, body .gold-accent-top { height: 2px !important; background: var(--pbos-gold) !important; }
+body .section-title { border-bottom: 0 !important; padding-bottom: 0 !important; }
+body .banner-title { font-family: 'Orbitron', sans-serif !important; color: var(--pbos-gold) !important; font-size: 18px !important; letter-spacing: .12em !important; font-weight: 500 !important; }
+body .banner-desc { border-left: 1px solid var(--pbos-gold) !important; padding-left: 22px !important; }
+body .banner-desc em { color: var(--pbos-cyan) !important; font-style: normal !important; }
+body .section-label:after { background: var(--pbos-border) !important; }
+body .scroll-line { background: var(--pbos-gold) !important; }
+body .back, body .back-btn { font-family: 'Orbitron', sans-serif !important; font-size: 9px !important; font-weight: 500 !important; background: rgba(9,13,18,.96) !important; border: 1px solid var(--pbos-border) !important; color: var(--pbos-gold) !important; border-radius: 0 !important; padding: 10px 14px !important; }
 body .back:hover, body .back-btn:hover { background: var(--pbos-gold) !important; color: var(--pbos-bg) !important; }
-body .gold-accent-top, body .top { height: 2px !important; background: linear-gradient(90deg, var(--pbos-gold), var(--pbos-gold-soft), var(--pbos-gold)) !important; }
-body .stat-box { background: rgba(218,175,87,.10) !important; border-color: rgba(218,175,87,.22) !important; color: var(--pbos-gold-soft) !important; }
-
-/* Shared layout. */
-body .container, body .wrap, body .section-inner, body .cases-section, body .hero-container, body main { max-width: var(--pbos-max) !important; }
-body .section { padding-top: 72px !important; padding-bottom: 72px !important; }
-body .hero { padding-bottom: 42px !important; margin-bottom: 42px !important; }
-body header { border-color: var(--pbos-border) !important; }
-body .nav-name, body .logo-text { font-family: 'DM Sans', sans-serif !important; color: var(--pbos-text) !important; }
-body .h-mark, body .logo-h { font-family: 'DM Sans', sans-serif !important; font-weight: 700 !important; color: var(--pbos-text) !important; border-color: var(--pbos-gold) !important; }
 
 /* Footer. */
-body footer, body .pbos-footer { background: var(--pbos-bg) !important; border-top: 1px solid var(--pbos-border) !important; padding: 36px 24px !important; margin-top: 64px !important; text-align: center !important; color: var(--pbos-muted) !important; }
-body .pbos-footer-signature { font-family: 'DM Sans', sans-serif !important; font-size: 13px !important; font-weight: 500 !important; letter-spacing: .06em !important; color: var(--pbos-gold) !important; margin-bottom: 8px !important; }
-body .pbos-footer-copy, body .pbos-footer-link { font-family: 'DM Sans', sans-serif !important; font-size: 11px !important; }
-body .pbos-footer-copy { color: var(--pbos-muted) !important; }
+body footer, body .pbos-footer { background: var(--pbos-bg) !important; border-top: 1px solid var(--pbos-border-soft) !important; padding: 44px 24px !important; margin-top: 0 !important; text-align: center !important; }
+body .pbos-footer-signature { font-family: 'DM Sans', sans-serif !important; font-size: 13px !important; font-weight: 400 !important; letter-spacing: .08em !important; color: var(--pbos-text) !important; margin-bottom: 8px !important; }
+body .pbos-footer-copy, body .pbos-footer-link { font-family: 'DM Sans', sans-serif !important; font-size: 11px !important; color: var(--pbos-muted) !important; }
 body .pbos-footer-link { display: block; margin-top: 8px; color: var(--pbos-gold) !important; }
 
+@media (min-width: 768px) {
+  body .hero-contact-row { max-width: 500px !important; }
+  body .hero { padding-top: 30px !important; }
+}
+
 @media (max-width: 760px) {
-  body .container, body .wrap, body .cases-section, body .hero-content, body .hero-footer, body .nav, body footer, body .section { padding-left: 20px !important; padding-right: 20px !important; }
-  body .hero-title, body h1 { font-size: clamp(34px, 10vw, 48px) !important; }
-  body .section-title, body h2 { font-size: clamp(28px, 8vw, 38px) !important; }
+  body header, body .container, body .cases-section, body .hero-content, body .hero-footer, body .nav, body footer, body .section, body .hero, body .corporate-banner { padding-left: 20px !important; padding-right: 20px !important; }
+  body .hero-container { display: flex !important; flex-direction: column !important; align-items: flex-start !important; }
+  body .hero-right { align-items: flex-start !important; width: 100% !important; }
+  body .hero-title, body h1 { font-size: clamp(40px, 11vw, 54px) !important; }
+  body .hero-main-text { font-size: clamp(26px, 7vw, 36px) !important; }
+  body .section-title, body h2 { font-size: clamp(31px, 8vw, 42px) !important; }
+  body .grid-cases { grid-template-columns: 1fr !important; gap: 14px !important; }
+  body .case-card { padding: 26px !important; }
 }
