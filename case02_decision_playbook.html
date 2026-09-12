@@ -1,90 +1,36 @@
-<!DOCTYPE html><html lang="pt-BR" class="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Case Study 02 · Decision & Escalation Playbook</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet"><style>:root{--bg:#090D12;--bg2:#0F151B;--gold:#E5B642;--white:#F4F5F7;--gray:#B5BBC1;--border:rgba(229,182,66,.20)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font:300 15px/1.8 'DM Sans'}.top{height:3px;background:var(--gold)}header,main,footer{max-width:1100px;margin:auto;padding:40px 32px}.back,a{color:var(--gold);text-decoration:none;font:10px Orbitron}.label{font:9px Orbitron;color:var(--gold);letter-spacing:.2em}.title{font:300 clamp(40px,6vw,70px)/1.05 'Cormorant Garamond';margin:24px 0}.title em,h2 em{color:var(--gold)}.lead{max-width:800px;color:#c7cdd4}.section{padding:65px 0;border-top:1px solid rgba(229,182,66,.08)}h2{font:300 42px 'Cormorant Garamond'}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}.card{background:var(--bg2);padding:30px}.num{font:9px Orbitron;color:var(--gold)}h3{font:400 25px 'Cormorant Garamond';margin:6px 0 10px}.decision{background:var(--bg2);padding:28px;margin:2px 0;border-left:2px solid var(--gold)}.decision strong{color:var(--gold)}footer{border-top:1px solid var(--border);font-size:12px}@media(max-width:750px){.grid{grid-template-columns:1fr}header,main,footer{padding-left:22px;padding-right:22px}}</style>
+<!DOCTYPE html><html lang="pt-BR" class="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Case Study 02 · Decision & Escalation Playbook</title>
+<style>:root{--bg:#1E2328;--bg2:#242B31;--gold:#DAAF57;--white:#F5F7FA;--gray:#A9B0B7;--border:rgba(218,175,87,.18)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font:300 15px/1.8 'DM Sans'}.top{height:3px;background:var(--gold)}header,main,footer{max-width:1100px;margin:auto;padding:40px 32px}.back,a{color:var(--gold);text-decoration:none;font:10px Orbitron}.label{font:9px Orbitron;color:var(--gold);letter-spacing:.2em}.title{font:300 clamp(40px,6vw,70px)/1.05 'Cormorant Garamond';margin:24px 0}.title em,h2 em{color:var(--gold)}.lead{max-width:800px;color:#c7cdd4}.section{padding:65px 0;border-top:1px solid rgba(218,175,87,.08)}h2{font:300 42px 'Cormorant Garamond'}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}.card{background:var(--bg2);padding:30px}.num{font:9px Orbitron;color:var(--gold)}h3{font:400 25px 'Cormorant Garamond';margin:6px 0 10px}.decision{background:var(--bg2);padding:28px;margin:2px 0;border-left:2px solid var(--gold)}.decision strong{color:var(--gold)}footer{border-top:1px solid var(--border);font-size:12px}@media(max-width:750px){.grid{grid-template-columns:1fr}header,main,footer{padding-left:22px;padding-right:22px}}</style>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style id="pbos-final-overrides">
-html, body { background:#090D12 !important; color:#F4F5F7 !important; }
-body { font-family:'DM Sans',sans-serif !important; }
-body .hero, body .hero-bg, body main, body .container, body .section, body .cases-section, body .corporate-banner, body .hero-footer, body footer, body .pbos-footer { background:#090D12 !important; }
-body .hero-bg { background-image:none !important; }
-body .orb, body [class*="orb"], body [class*="glow"] { display:none !important; background:none !important; box-shadow:none !important; }
-body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; box-shadow:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:linear-gradient(90deg,#E5B642,#F0C75A,#E5B642) !important; }
-body h1, body h2, body h3, body h4, body h5, body h6, body .hero-title, body .hero-subtitle, body .section-heading, body .section-title, body .eco-title, body .doc-title, body .pillar-card h3, body .artifact-card h3, body .case-card h3, body .hero-highlight-value, body .metric-display, body .number { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.04em !important; line-height:1.05 !important; }
-body h2, body .section-heading, body .section-title { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#4BADB8 !important; }
-body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text, body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label, body .artifact-action, body .competency-title, body .eco-role, body .doc-number, body .metric-label, body .tag, body .scroll-hint, body .footer-role { font-family:'Orbitron',sans-serif !important; color:#E5B642 !important; letter-spacing:.12em !important; }
-body p, body li, body td, body th, body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text, body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc, body .eco-text, body .step p, body .note, body .metric p, body .banner-desc, body .case-card p, body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#B5BBC1 !important; }
-body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .meta, body .hero-highlight-card, body .flow, body .note, body .doc-card, body .case-card, body .stat-box { background:#0F151B !important; border-color:rgba(229,182,66,.20) !important; }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover, body .competency-card:hover { background:#151D24 !important; border-color:#E5B642 !important; }
-body .back, body .back-btn { background:rgba(9,13,18,.94) !important; color:#E5B642 !important; border-color:rgba(229,182,66,.20) !important; }
-body .back:hover, body .back-btn:hover { background:#E5B642 !important; color:#090D12 !important; }
-body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; border-color:#E5B642 !important; }
-body .metric-display, body .number { color:#F0C75A !important; }
-body footer, body .pbos-footer { border-top-color:rgba(181,187,193,.12) !important; color:#B5BBC1 !important; }
-body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body .pbos-footer-copy { color:#B5BBC1 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#E5B642 !important; }
-</style>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style id="pbos-final-overrides">
-html, body { background:#090D12 !important; color:#F4F5F7 !important; }
-body { font-family:'DM Sans',sans-serif !important; }
-body .hero, body .hero-bg, body main, body .container, body .section, body .cases-section, body .corporate-banner, body .hero-footer, body footer, body .pbos-footer { background:#090D12 !important; }
-body .hero-bg { background-image:none !important; }
-body .orb, body [class*="orb"], body [class*="glow"] { display:none !important; background:none !important; box-shadow:none !important; }
-body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; box-shadow:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:linear-gradient(90deg,#E5B642,#F0C75A,#E5B642) !important; }
-body h1, body h2, body h3, body h4, body h5, body h6, body .hero-title, body .hero-subtitle, body .section-heading, body .section-title, body .eco-title, body .doc-title, body .pillar-card h3, body .artifact-card h3, body .case-card h3, body .hero-highlight-value, body .metric-display, body .number { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.04em !important; line-height:1.05 !important; }
-body h2, body .section-heading, body .section-title { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#4BADB8 !important; }
-body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text, body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label, body .artifact-action, body .competency-title, body .eco-role, body .doc-number, body .metric-label, body .tag, body .scroll-hint, body .footer-role { font-family:'Orbitron',sans-serif !important; color:#E5B642 !important; letter-spacing:.12em !important; }
-body p, body li, body td, body th, body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text, body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc, body .eco-text, body .step p, body .note, body .metric p, body .banner-desc, body .case-card p, body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#B5BBC1 !important; }
-body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .meta, body .hero-highlight-card, body .flow, body .note, body .doc-card, body .case-card, body .stat-box { background:#0F151B !important; border-color:rgba(229,182,66,.20) !important; }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover, body .competency-card:hover { background:#151D24 !important; border-color:#E5B642 !important; }
-body .back, body .back-btn { background:rgba(9,13,18,.94) !important; color:#E5B642 !important; border-color:rgba(229,182,66,.20) !important; }
-body .back:hover, body .back-btn:hover { background:#E5B642 !important; color:#090D12 !important; }
-body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; border-color:#E5B642 !important; }
-body .metric-display, body .number { color:#F0C75A !important; }
-body footer, body .pbos-footer { border-top-color:rgba(181,187,193,.12) !important; color:#B5BBC1 !important; }
-body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body .pbos-footer-copy { color:#B5BBC1 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#E5B642 !important; }
-</style>
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="portfolio-theme.css">
 <style id="pbos-final-overrides">
-html, body { background:#090D12 !important; color:#F4F5F7 !important; }
+html, body { background:#1E2328 !important; color:#F5F7FA !important; }
 body { font-family:'DM Sans',sans-serif !important; }
-body .hero, body .hero-bg, body main, body .container, body .section, body .cases-section, body .corporate-banner, body .hero-footer, body footer, body .pbos-footer { background:#090D12 !important; }
+body .hero, body .hero-bg, body main, body .container, body .section, body .cases-section, body .corporate-banner, body .hero-footer, body footer, body .pbos-footer { background:#1E2328 !important; }
 body .hero-bg { background-image:none !important; }
 body .orb, body [class*="orb"], body [class*="glow"] { display:none !important; background:none !important; box-shadow:none !important; }
 body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; box-shadow:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:linear-gradient(90deg,#E5B642,#F0C75A,#E5B642) !important; }
-body h1, body h2, body h3, body h4, body h5, body h6, body .hero-title, body .hero-subtitle, body .section-heading, body .section-title, body .eco-title, body .doc-title, body .pillar-card h3, body .artifact-card h3, body .case-card h3, body .hero-highlight-value, body .metric-display, body .number { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.04em !important; line-height:1.05 !important; }
-body h2, body .section-heading, body .section-title { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#4BADB8 !important; }
-body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text, body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label, body .artifact-action, body .competency-title, body .eco-role, body .doc-number, body .metric-label, body .tag, body .scroll-hint, body .footer-role { font-family:'Orbitron',sans-serif !important; color:#E5B642 !important; letter-spacing:.12em !important; }
-body p, body li, body td, body th, body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text, body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc, body .eco-text, body .step p, body .note, body .metric p, body .banner-desc, body .case-card p, body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#B5BBC1 !important; }
-body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .meta, body .hero-highlight-card, body .flow, body .note, body .doc-card, body .case-card, body .stat-box { background:#0F151B !important; border-color:rgba(229,182,66,.20) !important; }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover, body .competency-card:hover { background:#151D24 !important; border-color:#E5B642 !important; }
-body .back, body .back-btn { background:rgba(9,13,18,.94) !important; color:#E5B642 !important; border-color:rgba(229,182,66,.20) !important; }
-body .back:hover, body .back-btn:hover { background:#E5B642 !important; color:#090D12 !important; }
-body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; border-color:#E5B642 !important; }
-body .metric-display, body .number { color:#F0C75A !important; }
-body footer, body .pbos-footer { border-top-color:rgba(181,187,193,.12) !important; color:#B5BBC1 !important; }
-body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body .pbos-footer-copy { color:#B5BBC1 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#E5B642 !important; }
+body .gold-accent-top, body .top { height:2px !important; background:linear-gradient(90deg,#DAAF57,#E6C47A,#DAAF57) !important; }
+body h1, body h2, body h3, body h4, body h5, body h6, body .hero-title, body .hero-subtitle, body .section-heading, body .section-title, body .eco-title, body .doc-title, body .pillar-card h3, body .artifact-card h3, body .case-card h3, body .hero-highlight-value, body .metric-display, body .number { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
+body h1, body .hero-title { font-weight:600 !important; }
+body h2, body .section-heading, body .section-title { font-weight:500 !important; }
+body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; }
+body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text, body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label, body .artifact-action, body .competency-title, body .eco-role, body .doc-number, body .metric-label, body .tag, body .scroll-hint, body .footer-role { font-family:'Orbitron',sans-serif !important; color:#DAAF57 !important; letter-spacing:.12em !important; }
+body p, body li, body td, body th, body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text, body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc, body .eco-text, body .step p, body .note, body .metric p, body .banner-desc, body .case-card p, body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#A9B0B7 !important; }
+body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .meta, body .hero-highlight-card, body .flow, body .note, body .doc-card, body .case-card, body .stat-box { background:#242B31 !important; border-color:rgba(218,175,87,.18) !important; }
+body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover, body .competency-card:hover { background:#2B343B !important; border-color:#DAAF57 !important; }
+body .back, body .back-btn { background:rgba(30,35,40,.94) !important; color:#DAAF57 !important; border-color:rgba(218,175,87,.18) !important; }
+body .back:hover, body .back-btn:hover { background:#DAAF57 !important; color:#1E2328 !important; }
+body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
+body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; border-color:#DAAF57 !important; }
+body .metric-display, body .number { color:#E6C47A !important; }
+body footer, body .pbos-footer { border-top-color:rgba(218,175,87,.18) !important; color:#A9B0B7 !important; }
+body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
+body .pbos-footer-copy { color:#A9B0B7 !important; }
+body .pbos-footer-link, body .footer-linkedin { color:#DAAF57 !important; }
 </style>
 </head><body><div class="top"></div><header><a class="back" href="https://c2shespanhol-ops.github.io/meuportifolio/case_study_02_leadtime_final.html">← CASE STUDY 02</a><div class="label">DOCUMENTO 05 · DECISION MAKING</div><h1 class="title">Playbook de <em>Decisão e Escalonamento</em></h1><p class="lead">Regras práticas para acompanhar desvios de prazo, resolver ambiguidades e escalar demandas sem transformar o usuário em responsável pela coordenação entre áreas.</p></header><main><section class="section"><div class="label">DECISION FLOW</div><h2>Como uma demanda era <em>tratada</em></h2><div class="decision"><strong>01 · A demanda está clara?</strong><p>Se não, retornar à curadoria e orientar o usuário sobre preenchimento, documentação ou tipo de ticket.</p></div><div class="decision"><strong>02 · O tipo está correto?</strong><p>Validar incidente ou requisição conforme a Carta de Serviços e o contexto.</p></div><div class="decision"><strong>03 · Existe movimentação?</strong><p>Se o ticket permanecer sem movimentação além do ponto de acompanhamento, contatar TIC.</p></div><div class="decision"><strong>04 · O prazo da Carta de Serviços foi ultrapassado?</strong><p>Solicitar posicionamento e, quando justificável, revisão do enquadramento da demanda.</p></div><div class="decision"><strong>05 · A solução foi validada?</strong><p>O usuário deve testar. Se estiver incorreta ou incompleta, o caso retorna para correção.</p></div></section><section class="section"><div class="label">ESCALATION</div><h2>Quando <em>escalar</em></h2><div class="grid"><div class="card"><span class="num">PRAZO</span><h3>Sem resposta</h3><p>Ausência de movimentação após o prazo interno de acompanhamento.</p></div><div class="card"><span class="num">IMPACTO</span><h3>Atividade bloqueada</h3><p>Demanda impede o servidor de executar atividade necessária.</p></div><div class="card"><span class="num">QUALIDADE</span><h3>Entrega incorreta</h3><p>A solução técnica não corresponde ao que foi solicitado.</p></div><div class="card"><span class="num">SEGURANÇA</span><h3>Acesso inadequado</h3><p>Perfil concedido além ou aquém da necessidade da função.</p></div></div></section><section class="section"><div class="label">OWNERSHIP</div><h2>Responsabilidade pela <em>jornada</em></h2><p>A atuação como ponto focal criou uma responsabilidade clara: nenhuma demanda deveria ficar sem dono, sem acompanhamento ou sem validação. O playbook materializa essa lógica de ownership.</p></section></main><footer class="pbos-footer">
   <div class="pbos-footer-signature">Cleyton Hespanhol | Product Owner | UX</div>

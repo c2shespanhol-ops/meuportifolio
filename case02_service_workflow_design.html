@@ -1,90 +1,36 @@
-<!DOCTYPE html><html lang="pt-BR" class="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Case Study 02 · Service Workflow Design</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet"><style>:root{--bg:#090D12;--bg2:#0F151B;--gold:#E5B642;--white:#F4F5F7;--gray:#B5BBC1;--border:rgba(229,182,66,.20)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font:300 15px/1.8 'DM Sans'}.top{height:3px;background:var(--gold)}header,main,footer{max-width:1100px;margin:auto;padding:40px 32px}.back,a{color:var(--gold);text-decoration:none;font:10px Orbitron}.label{font:9px Orbitron;color:var(--gold);letter-spacing:.2em}.title{font:300 clamp(40px,6vw,70px)/1.05 'Cormorant Garamond';margin:24px 0}.title em,h2 em{color:var(--gold)}.lead{max-width:800px;color:#c7cdd4}.section{padding:65px 0;border-top:1px solid rgba(229,182,66,.08)}h2{font:300 42px 'Cormorant Garamond'}.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}.card{background:var(--bg2);padding:28px;border-top:2px solid var(--gold)}.num{font:9px Orbitron;color:var(--gold)}h3{font:400 24px 'Cormorant Garamond';margin:8px 0}.small{color:var(--gray)}.control{display:flex;align-items:center;gap:14px;margin:3px 0;background:var(--bg2);padding:18px}.control b{color:var(--gold)}footer{border-top:1px solid var(--border);font-size:12px}@media(max-width:750px){.flow{grid-template-columns:1fr}header,main,footer{padding-left:22px;padding-right:22px}}</style>
+<!DOCTYPE html><html lang="pt-BR" class="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Case Study 02 · Service Workflow Design</title>
+<style>:root{--bg:#1E2328;--bg2:#242B31;--gold:#DAAF57;--white:#F5F7FA;--gray:#A9B0B7;--border:rgba(218,175,87,.18)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font:300 15px/1.8 'DM Sans'}.top{height:3px;background:var(--gold)}header,main,footer{max-width:1100px;margin:auto;padding:40px 32px}.back,a{color:var(--gold);text-decoration:none;font:10px Orbitron}.label{font:9px Orbitron;color:var(--gold);letter-spacing:.2em}.title{font:300 clamp(40px,6vw,70px)/1.05 'Cormorant Garamond';margin:24px 0}.title em,h2 em{color:var(--gold)}.lead{max-width:800px;color:#c7cdd4}.section{padding:65px 0;border-top:1px solid rgba(218,175,87,.08)}h2{font:300 42px 'Cormorant Garamond'}.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}.card{background:var(--bg2);padding:28px;border-top:2px solid var(--gold)}.num{font:9px Orbitron;color:var(--gold)}h3{font:400 24px 'Cormorant Garamond';margin:8px 0}.small{color:var(--gray)}.control{display:flex;align-items:center;gap:14px;margin:3px 0;background:var(--bg2);padding:18px}.control b{color:var(--gold)}footer{border-top:1px solid var(--border);font-size:12px}@media(max-width:750px){.flow{grid-template-columns:1fr}header,main,footer{padding-left:22px;padding-right:22px}}</style>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style id="pbos-final-overrides">
-html, body { background:#090D12 !important; color:#F4F5F7 !important; }
-body { font-family:'DM Sans',sans-serif !important; }
-body .hero, body .hero-bg, body main, body .container, body .section, body .cases-section, body .corporate-banner, body .hero-footer, body footer, body .pbos-footer { background:#090D12 !important; }
-body .hero-bg { background-image:none !important; }
-body .orb, body [class*="orb"], body [class*="glow"] { display:none !important; background:none !important; box-shadow:none !important; }
-body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; box-shadow:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:linear-gradient(90deg,#E5B642,#F0C75A,#E5B642) !important; }
-body h1, body h2, body h3, body h4, body h5, body h6, body .hero-title, body .hero-subtitle, body .section-heading, body .section-title, body .eco-title, body .doc-title, body .pillar-card h3, body .artifact-card h3, body .case-card h3, body .hero-highlight-value, body .metric-display, body .number { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.04em !important; line-height:1.05 !important; }
-body h2, body .section-heading, body .section-title { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#4BADB8 !important; }
-body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text, body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label, body .artifact-action, body .competency-title, body .eco-role, body .doc-number, body .metric-label, body .tag, body .scroll-hint, body .footer-role { font-family:'Orbitron',sans-serif !important; color:#E5B642 !important; letter-spacing:.12em !important; }
-body p, body li, body td, body th, body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text, body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc, body .eco-text, body .step p, body .note, body .metric p, body .banner-desc, body .case-card p, body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#B5BBC1 !important; }
-body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .meta, body .hero-highlight-card, body .flow, body .note, body .doc-card, body .case-card, body .stat-box { background:#0F151B !important; border-color:rgba(229,182,66,.20) !important; }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover, body .competency-card:hover { background:#151D24 !important; border-color:#E5B642 !important; }
-body .back, body .back-btn { background:rgba(9,13,18,.94) !important; color:#E5B642 !important; border-color:rgba(229,182,66,.20) !important; }
-body .back:hover, body .back-btn:hover { background:#E5B642 !important; color:#090D12 !important; }
-body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; border-color:#E5B642 !important; }
-body .metric-display, body .number { color:#F0C75A !important; }
-body footer, body .pbos-footer { border-top-color:rgba(181,187,193,.12) !important; color:#B5BBC1 !important; }
-body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body .pbos-footer-copy { color:#B5BBC1 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#E5B642 !important; }
-</style>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style id="pbos-final-overrides">
-html, body { background:#090D12 !important; color:#F4F5F7 !important; }
-body { font-family:'DM Sans',sans-serif !important; }
-body .hero, body .hero-bg, body main, body .container, body .section, body .cases-section, body .corporate-banner, body .hero-footer, body footer, body .pbos-footer { background:#090D12 !important; }
-body .hero-bg { background-image:none !important; }
-body .orb, body [class*="orb"], body [class*="glow"] { display:none !important; background:none !important; box-shadow:none !important; }
-body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; box-shadow:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:linear-gradient(90deg,#E5B642,#F0C75A,#E5B642) !important; }
-body h1, body h2, body h3, body h4, body h5, body h6, body .hero-title, body .hero-subtitle, body .section-heading, body .section-title, body .eco-title, body .doc-title, body .pillar-card h3, body .artifact-card h3, body .case-card h3, body .hero-highlight-value, body .metric-display, body .number { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.04em !important; line-height:1.05 !important; }
-body h2, body .section-heading, body .section-title { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#4BADB8 !important; }
-body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text, body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label, body .artifact-action, body .competency-title, body .eco-role, body .doc-number, body .metric-label, body .tag, body .scroll-hint, body .footer-role { font-family:'Orbitron',sans-serif !important; color:#E5B642 !important; letter-spacing:.12em !important; }
-body p, body li, body td, body th, body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text, body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc, body .eco-text, body .step p, body .note, body .metric p, body .banner-desc, body .case-card p, body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#B5BBC1 !important; }
-body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .meta, body .hero-highlight-card, body .flow, body .note, body .doc-card, body .case-card, body .stat-box { background:#0F151B !important; border-color:rgba(229,182,66,.20) !important; }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover, body .competency-card:hover { background:#151D24 !important; border-color:#E5B642 !important; }
-body .back, body .back-btn { background:rgba(9,13,18,.94) !important; color:#E5B642 !important; border-color:rgba(229,182,66,.20) !important; }
-body .back:hover, body .back-btn:hover { background:#E5B642 !important; color:#090D12 !important; }
-body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; border-color:#E5B642 !important; }
-body .metric-display, body .number { color:#F0C75A !important; }
-body footer, body .pbos-footer { border-top-color:rgba(181,187,193,.12) !important; color:#B5BBC1 !important; }
-body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body .pbos-footer-copy { color:#B5BBC1 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#E5B642 !important; }
-</style>
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="portfolio-theme.css">
 <style id="pbos-final-overrides">
-html, body { background:#090D12 !important; color:#F4F5F7 !important; }
+html, body { background:#1E2328 !important; color:#F5F7FA !important; }
 body { font-family:'DM Sans',sans-serif !important; }
-body .hero, body .hero-bg, body main, body .container, body .section, body .cases-section, body .corporate-banner, body .hero-footer, body footer, body .pbos-footer { background:#090D12 !important; }
+body .hero, body .hero-bg, body main, body .container, body .section, body .cases-section, body .corporate-banner, body .hero-footer, body footer, body .pbos-footer { background:#1E2328 !important; }
 body .hero-bg { background-image:none !important; }
 body .orb, body [class*="orb"], body [class*="glow"] { display:none !important; background:none !important; box-shadow:none !important; }
 body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; box-shadow:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:linear-gradient(90deg,#E5B642,#F0C75A,#E5B642) !important; }
-body h1, body h2, body h3, body h4, body h5, body h6, body .hero-title, body .hero-subtitle, body .section-heading, body .section-title, body .eco-title, body .doc-title, body .pillar-card h3, body .artifact-card h3, body .case-card h3, body .hero-highlight-value, body .metric-display, body .number { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.04em !important; line-height:1.05 !important; }
-body h2, body .section-heading, body .section-title { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#4BADB8 !important; }
-body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text, body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label, body .artifact-action, body .competency-title, body .eco-role, body .doc-number, body .metric-label, body .tag, body .scroll-hint, body .footer-role { font-family:'Orbitron',sans-serif !important; color:#E5B642 !important; letter-spacing:.12em !important; }
-body p, body li, body td, body th, body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text, body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc, body .eco-text, body .step p, body .note, body .metric p, body .banner-desc, body .case-card p, body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#B5BBC1 !important; }
-body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .meta, body .hero-highlight-card, body .flow, body .note, body .doc-card, body .case-card, body .stat-box { background:#0F151B !important; border-color:rgba(229,182,66,.20) !important; }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover, body .competency-card:hover { background:#151D24 !important; border-color:#E5B642 !important; }
-body .back, body .back-btn { background:rgba(9,13,18,.94) !important; color:#E5B642 !important; border-color:rgba(229,182,66,.20) !important; }
-body .back:hover, body .back-btn:hover { background:#E5B642 !important; color:#090D12 !important; }
-body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; border-color:#E5B642 !important; }
-body .metric-display, body .number { color:#F0C75A !important; }
-body footer, body .pbos-footer { border-top-color:rgba(181,187,193,.12) !important; color:#B5BBC1 !important; }
-body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body .pbos-footer-copy { color:#B5BBC1 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#E5B642 !important; }
+body .gold-accent-top, body .top { height:2px !important; background:linear-gradient(90deg,#DAAF57,#E6C47A,#DAAF57) !important; }
+body h1, body h2, body h3, body h4, body h5, body h6, body .hero-title, body .hero-subtitle, body .section-heading, body .section-title, body .eco-title, body .doc-title, body .pillar-card h3, body .artifact-card h3, body .case-card h3, body .hero-highlight-value, body .metric-display, body .number { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
+body h1, body .hero-title { font-weight:600 !important; }
+body h2, body .section-heading, body .section-title { font-weight:500 !important; }
+body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; }
+body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text, body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label, body .artifact-action, body .competency-title, body .eco-role, body .doc-number, body .metric-label, body .tag, body .scroll-hint, body .footer-role { font-family:'Orbitron',sans-serif !important; color:#DAAF57 !important; letter-spacing:.12em !important; }
+body p, body li, body td, body th, body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text, body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc, body .eco-text, body .step p, body .note, body .metric p, body .banner-desc, body .case-card p, body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#A9B0B7 !important; }
+body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .meta, body .hero-highlight-card, body .flow, body .note, body .doc-card, body .case-card, body .stat-box { background:#242B31 !important; border-color:rgba(218,175,87,.18) !important; }
+body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover, body .competency-card:hover { background:#2B343B !important; border-color:#DAAF57 !important; }
+body .back, body .back-btn { background:rgba(30,35,40,.94) !important; color:#DAAF57 !important; border-color:rgba(218,175,87,.18) !important; }
+body .back:hover, body .back-btn:hover { background:#DAAF57 !important; color:#1E2328 !important; }
+body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
+body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; border-color:#DAAF57 !important; }
+body .metric-display, body .number { color:#E6C47A !important; }
+body footer, body .pbos-footer { border-top-color:rgba(218,175,87,.18) !important; color:#A9B0B7 !important; }
+body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
+body .pbos-footer-copy { color:#A9B0B7 !important; }
+body .pbos-footer-link, body .footer-linkedin { color:#DAAF57 !important; }
 </style>
 </head><body><div class="top"></div><header><a class="back" href="https://c2shespanhol-ops.github.io/meuportifolio/case_study_02_leadtime_final.html">← CASE STUDY 02</a><div class="label">DOCUMENTO 03 · SERVICE DESIGN</div><h1 class="title">Arquitetura do Fluxo de <em>Atendimento</em></h1><p class="lead">Desenho do workflow que passou a organizar a jornada entre servidores da SEGET, Planejamento e Modernização e TIC.</p></header><main><section class="section"><div class="label">WORKFLOW</div><h2>Da necessidade à <em>resolução</em></h2><div class="flow"><div class="card"><span class="num">01 · CAPTURA</span><h3>Entrada</h3><p>Servidor registra a necessidade no portal de tickets.</p></div><div class="card"><span class="num">02 · CURADORIA</span><h3>Entendimento</h3><p>Planejamento e Modernização analisa a demanda, documentação e contexto.</p></div><div class="card"><span class="num">03 · REGISTRO</span><h3>Jira</h3><p>Ticket passa a ter acompanhamento estruturado.</p></div><div class="card"><span class="num">04 · CLASSIFICAÇÃO</span><h3>Critério</h3><p>Incidente ou requisição conforme o serviço e o contexto.</p></div><div class="card"><span class="num">05 · EXECUÇÃO</span><h3>TIC</h3><p>Departamento de Tecnologia da Informação e Comunicação (TIC) e Comunicação executa a atividade técnica.</p></div><div class="card"><span class="num">06 · MONITORAMENTO</span><h3>Acompanhamento</h3><p>Planejamento monitora prazo e ausência de movimentação.</p></div><div class="card"><span class="num">07 · COMUNICAÇÃO</span><h3>Resposta</h3><p>Informação é intermediada para o usuário.</p></div><div class="card"><span class="num">08 · VALIDAÇÃO</span><h3>Teste</h3><p>Servidor testa o acesso ou solução com acompanhamento.</p></div><div class="card"><span class="num">09 · ENCERRAMENTO</span><h3>Conclusão</h3><p>Ticket é encerrado após validação efetiva.</p></div></div></section><section class="section"><div class="label">QUALITY GATES</div><h2>Controles inseridos no <em>fluxo</em></h2><div class="control"><b>GATE 01</b> Formulário completo e documentação adequada.</div><div class="control"><b>GATE 02</b> Classificação coerente com a Carta de Serviços.</div><div class="control"><b>GATE 03</b> Monitoramento ativo do prazo.</div><div class="control"><b>GATE 04</b> Acompanhamento quando o ticket fica sem movimentação.</div><div class="control"><b>GATE 05</b> Validação da solução pelo usuário.</div><div class="control"><b>GATE 06</b> Correção imediata quando o acesso entregue diverge do solicitado.</div></section><section class="section"><div class="label">EXPERIENCE DESIGN</div><h2>O usuário no centro da <em>jornada</em></h2><p>O processo foi desenhado para que o servidor não precisasse dominar a estrutura interna de TIC. Quando havia dúvida sobre o tipo de ticket, documentação ou preenchimento, a orientação era realizada diretamente com o usuário. O objetivo era reduzir fricção na entrada e aumentar a qualidade da informação recebida.</p></section><section class="section"><div class="label">OUTCOME</div><h2>Workflow orientado à <em>resolução</em></h2><p>O fluxo deixou de considerar uma resposta técnica como ponto final. A jornada passou a terminar somente quando a necessidade do usuário estava efetivamente atendida.</p></section></main><footer class="pbos-footer">
   <div class="pbos-footer-signature">Cleyton Hespanhol | Product Owner | UX</div>

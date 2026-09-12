@@ -4,97 +4,66 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Caso 04 · SHV Energy · Onboarding e Jornada do Cliente</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#090D12;--bg2:#0F151B;--bg3:#151D24;--gold:#E5B642;--gold-lt:#F0C75A;--teal:#4BADB8;--coral:#E5B642;--white:#F4F5F7;--gray:#B5BBC1;--border:rgba(229,182,66,.20)}
+:root{--bg:#1E2328;--bg2:#242B31;--bg3:#2B343B;--gold:#DAAF57;--gold-lt:#E6C47A;--teal:#26505A;--coral:#DAAF57;--white:#F5F7FA;--gray:#A9B0B7;--border:rgba(218,175,87,.18)}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7}a{color:inherit}.top{height:2px;background:var(--bg);}.back{position:fixed;top:22px;left:22px;z-index:10;text-decoration:none;color:var(--gold);font:600 10px Orbitron,sans-serif;letter-spacing:.1em;background:rgba(30,35,40,.92);border:1px solid var(--border);padding:9px 14px;border-radius:4px}.wrap{max-width:920px;margin:auto;padding:105px 24px 70px}.eyebrow{font:600 10px Orbitron,sans-serif;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px}.hero{padding-bottom:38px;border-bottom:1px solid var(--border);margin-bottom:40px}.hero h1{font-size:clamp(34px,5vw,56px);line-height:1.08;margin-bottom:15px;font-weight:700}.hero p{font-size:15px;color:var(--gray);max-width:760px}.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:58px}.meta div,.card,.flow,.note{background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:20px}.label{font:600 9px Orbitron,sans-serif;color:var(--gold);letter-spacing:.13em;text-transform:uppercase;margin-bottom:5px}.value{font-size:13px;font-weight:500}.section{margin-bottom:58px}.section h2{font-size:25px;margin-bottom:22px;border-bottom:1px solid var(--border);padding-bottom:11px}.timeline{border-left:1px solid var(--border);padding-left:23px}.step{position:relative;margin-bottom:30px}.step:last-child{margin-bottom:0}.step:before{content:'';position:absolute;left:-29px;top:7px;width:9px;height:9px;border:2px solid var(--gold);border-radius:50%;background:var(--bg)}.step h3{font-size:18px;margin-bottom:7px}.step p{font-size:13px;color:var(--gray)}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.tag{font:600 8px Orbitron,sans-serif;color:var(--teal);border:1px solid rgba(38,80,90,.35);padding:3px 7px;border-radius:3px}.flow{display:grid;gap:0;padding:0;overflow:hidden}.flow-row{display:grid;grid-template-columns:1fr 42px 1fr;align-items:stretch}.flow-row>div{padding:19px}.flow-row>div:nth-child(2){display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:20px;border-left:1px solid var(--border);border-right:1px solid var(--border)}.flow-row+.flow-row{border-top:1px solid var(--border)}.flow strong{font-size:14px}.flow span{display:block;font-size:12px;color:var(--gray);margin-top:4px}.evidence{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card h3{font-size:15px;margin-bottom:7px}.card p{font-size:12px;color:var(--gray)}.positive{border-top:2px solid var(--gold)}.limitation{border-top:2px solid var(--coral)}.note{border-left:2px solid var(--gold);font-size:13px;color:var(--white)}.note strong{color:var(--gold-lt)}footer{border-top:1px solid var(--border);text-align:center;padding:28px 20px;color:var(--gray);font-size:11px}.signature{margin-top:9px;color:var(--gold);font:600 9px Orbitron,sans-serif;letter-spacing:.08em}@media(max-width:600px){.flow-row{grid-template-columns:1fr}.flow-row>div:nth-child(2){display:none}.flow-row+.flow-row{border-top:1px solid var(--border)}}
 </style>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style id="pbos-final-overrides">
-html, body { background:#090D12 !important; color:#F4F5F7 !important; }
-body { font-family:'DM Sans',sans-serif !important; }
-body .hero, body .hero-bg, body main, body .container, body .section, body .cases-section, body .corporate-banner, body .hero-footer, body footer, body .pbos-footer { background:#090D12 !important; }
-body .hero-bg { background-image:none !important; }
-body .orb, body [class*="orb"], body [class*="glow"] { display:none !important; background:none !important; box-shadow:none !important; }
-body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; box-shadow:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:linear-gradient(90deg,#E5B642,#F0C75A,#E5B642) !important; }
-body h1, body h2, body h3, body h4, body h5, body h6, body .hero-title, body .hero-subtitle, body .section-heading, body .section-title, body .eco-title, body .doc-title, body .pillar-card h3, body .artifact-card h3, body .case-card h3, body .hero-highlight-value, body .metric-display, body .number { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.04em !important; line-height:1.05 !important; }
-body h2, body .section-heading, body .section-title { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#4BADB8 !important; }
-body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text, body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label, body .artifact-action, body .competency-title, body .eco-role, body .doc-number, body .metric-label, body .tag, body .scroll-hint, body .footer-role { font-family:'Orbitron',sans-serif !important; color:#E5B642 !important; letter-spacing:.12em !important; }
-body p, body li, body td, body th, body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text, body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc, body .eco-text, body .step p, body .note, body .metric p, body .banner-desc, body .case-card p, body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#B5BBC1 !important; }
-body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .meta, body .hero-highlight-card, body .flow, body .note, body .doc-card, body .case-card, body .stat-box { background:#0F151B !important; border-color:rgba(229,182,66,.20) !important; }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover, body .competency-card:hover { background:#151D24 !important; border-color:#E5B642 !important; }
-body .back, body .back-btn { background:rgba(9,13,18,.94) !important; color:#E5B642 !important; border-color:rgba(229,182,66,.20) !important; }
-body .back:hover, body .back-btn:hover { background:#E5B642 !important; color:#090D12 !important; }
-body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; border-color:#E5B642 !important; }
-body .metric-display, body .number { color:#F0C75A !important; }
-body footer, body .pbos-footer { border-top-color:rgba(181,187,193,.12) !important; color:#B5BBC1 !important; }
-body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body .pbos-footer-copy { color:#B5BBC1 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#E5B642 !important; }
-</style>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style id="pbos-final-overrides-2">
-html, body { background:#090D12 !important; color:#F4F5F7 !important; }
+html, body { background:#1E2328 !important; color:#F5F7FA !important; }
 body { font-family:'DM Sans',sans-serif !important; }
-body .hero, body .hero-bg, body main, body .container, body .section, body .cases-section, body .corporate-banner, body .hero-footer, body footer, body .pbos-footer { background:#090D12 !important; }
+body .hero, body .hero-bg, body main, body .container, body .section, body .cases-section, body .corporate-banner, body .hero-footer, body footer, body .pbos-footer { background:#1E2328 !important; }
 body .hero-bg { background-image:none !important; }
 body .orb, body [class*="orb"], body [class*="glow"] { display:none !important; background:none !important; box-shadow:none !important; }
 body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; box-shadow:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:linear-gradient(90deg,#E5B642,#F0C75A,#E5B642) !important; }
-body h1, body h2, body h3, body h4, body h5, body h6, body .hero-title, body .hero-subtitle, body .section-heading, body .section-title, body .eco-title, body .doc-title, body .pillar-card h3, body .artifact-card h3, body .case-card h3, body .hero-highlight-value, body .metric-display, body .number { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
+body .gold-accent-top, body .top { height:2px !important; background:linear-gradient(90deg,#DAAF57,#E6C47A,#DAAF57) !important; }
+body h1, body h2, body h3, body h4, body h5, body h6, body .hero-title, body .hero-subtitle, body .section-heading, body .section-title, body .eco-title, body .doc-title, body .pillar-card h3, body .artifact-card h3, body .case-card h3, body .hero-highlight-value, body .metric-display, body .number { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
 body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.04em !important; line-height:1.05 !important; }
 body h2, body .section-heading, body .section-title { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#4BADB8 !important; }
-body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text, body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label, body .artifact-action, body .competency-title, body .eco-role, body .doc-number, body .metric-label, body .tag, body .scroll-hint, body .footer-role { font-family:'Orbitron',sans-serif !important; color:#E5B642 !important; letter-spacing:.12em !important; }
+body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#26505A !important; }
+body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text, body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label, body .artifact-action, body .competency-title, body .eco-role, body .doc-number, body .metric-label, body .tag, body .scroll-hint, body .footer-role { font-family:'Orbitron',sans-serif !important; color:#DAAF57 !important; letter-spacing:.12em !important; }
 body p, body li, body td, body th, body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text, body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc, body .eco-text, body .step p, body .note, body .metric p, body .banner-desc, body .case-card p, body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#B5BBC1 !important; }
-body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .meta, body .hero-highlight-card, body .flow, body .note, body .doc-card, body .case-card, body .stat-box { background:#0F151B !important; border-color:rgba(229,182,66,.20) !important; }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover, body .competency-card:hover { background:#151D24 !important; border-color:#E5B642 !important; }
-body .back, body .back-btn { background:rgba(9,13,18,.94) !important; color:#E5B642 !important; border-color:rgba(229,182,66,.20) !important; }
-body .back:hover, body .back-btn:hover { background:#E5B642 !important; color:#090D12 !important; }
-body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; border-color:#E5B642 !important; }
-body .metric-display, body .number { color:#F0C75A !important; }
+body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .meta, body .hero-highlight-card, body .flow, body .note, body .doc-card, body .case-card, body .stat-box { background:#242B31 !important; border-color:rgba(218,175,87,.20) !important; }
+body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover, body .competency-card:hover { background:#2B343B !important; border-color:#DAAF57 !important; }
+body .back, body .back-btn { background:rgba(9,13,18,.94) !important; color:#DAAF57 !important; border-color:rgba(218,175,87,.20) !important; }
+body .back:hover, body .back-btn:hover { background:#DAAF57 !important; color:#1E2328 !important; }
+body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
+body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; border-color:#DAAF57 !important; }
+body .metric-display, body .number { color:#E6C47A !important; }
 body footer, body .pbos-footer { border-top-color:rgba(181,187,193,.12) !important; color:#B5BBC1 !important; }
-body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
+body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
 body .pbos-footer-copy { color:#B5BBC1 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#E5B642 !important; }
+body .pbos-footer-link, body .footer-linkedin { color:#DAAF57 !important; }
 </style>
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="portfolio-theme.css">
 <style id="pbos-final-overrides">
-html, body { background:#090D12 !important; color:#F4F5F7 !important; }
+html, body { background:#1E2328 !important; color:#F5F7FA !important; }
 body { font-family:'DM Sans',sans-serif !important; }
-body .hero, body .hero-bg, body main, body .container, body .section, body .cases-section, body .corporate-banner, body .hero-footer, body footer, body .pbos-footer { background:#090D12 !important; }
+body .hero, body .hero-bg, body main, body .container, body .section, body .cases-section, body .corporate-banner, body .hero-footer, body footer, body .pbos-footer { background:#1E2328 !important; }
 body .hero-bg { background-image:none !important; }
 body .orb, body [class*="orb"], body [class*="glow"] { display:none !important; background:none !important; box-shadow:none !important; }
 body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; box-shadow:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:linear-gradient(90deg,#E5B642,#F0C75A,#E5B642) !important; }
-body h1, body h2, body h3, body h4, body h5, body h6, body .hero-title, body .hero-subtitle, body .section-heading, body .section-title, body .eco-title, body .doc-title, body .pillar-card h3, body .artifact-card h3, body .case-card h3, body .hero-highlight-value, body .metric-display, body .number { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.04em !important; line-height:1.05 !important; }
-body h2, body .section-heading, body .section-title { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#4BADB8 !important; }
-body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text, body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label, body .artifact-action, body .competency-title, body .eco-role, body .doc-number, body .metric-label, body .tag, body .scroll-hint, body .footer-role { font-family:'Orbitron',sans-serif !important; color:#E5B642 !important; letter-spacing:.12em !important; }
-body p, body li, body td, body th, body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text, body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc, body .eco-text, body .step p, body .note, body .metric p, body .banner-desc, body .case-card p, body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#B5BBC1 !important; }
-body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .meta, body .hero-highlight-card, body .flow, body .note, body .doc-card, body .case-card, body .stat-box { background:#0F151B !important; border-color:rgba(229,182,66,.20) !important; }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover, body .competency-card:hover { background:#151D24 !important; border-color:#E5B642 !important; }
-body .back, body .back-btn { background:rgba(9,13,18,.94) !important; color:#E5B642 !important; border-color:rgba(229,182,66,.20) !important; }
-body .back:hover, body .back-btn:hover { background:#E5B642 !important; color:#090D12 !important; }
-body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; border-color:#E5B642 !important; }
-body .metric-display, body .number { color:#F0C75A !important; }
-body footer, body .pbos-footer { border-top-color:rgba(181,187,193,.12) !important; color:#B5BBC1 !important; }
-body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F4F5F7 !important; }
-body .pbos-footer-copy { color:#B5BBC1 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#E5B642 !important; }
+body .gold-accent-top, body .top { height:2px !important; background:linear-gradient(90deg,#DAAF57,#E6C47A,#DAAF57) !important; }
+body h1, body h2, body h3, body h4, body h5, body h6, body .hero-title, body .hero-subtitle, body .section-heading, body .section-title, body .eco-title, body .doc-title, body .pillar-card h3, body .artifact-card h3, body .case-card h3, body .hero-highlight-value, body .metric-display, body .number { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
+body h1, body .hero-title { font-weight:600 !important; }
+body h2, body .section-heading, body .section-title { font-weight:500 !important; }
+body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; }
+body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text, body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label, body .artifact-action, body .competency-title, body .eco-role, body .doc-number, body .metric-label, body .tag, body .scroll-hint, body .footer-role { font-family:'Orbitron',sans-serif !important; color:#DAAF57 !important; letter-spacing:.12em !important; }
+body p, body li, body td, body th, body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text, body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc, body .eco-text, body .step p, body .note, body .metric p, body .banner-desc, body .case-card p, body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#A9B0B7 !important; }
+body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .meta, body .hero-highlight-card, body .flow, body .note, body .doc-card, body .case-card, body .stat-box { background:#242B31 !important; border-color:rgba(218,175,87,.18) !important; }
+body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover, body .competency-card:hover { background:#2B343B !important; border-color:#DAAF57 !important; }
+body .back, body .back-btn { background:rgba(30,35,40,.94) !important; color:#DAAF57 !important; border-color:rgba(218,175,87,.18) !important; }
+body .back:hover, body .back-btn:hover { background:#DAAF57 !important; color:#1E2328 !important; }
+body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
+body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; border-color:#DAAF57 !important; }
+body .metric-display, body .number { color:#E6C47A !important; }
+body footer, body .pbos-footer { border-top-color:rgba(218,175,87,.18) !important; color:#A9B0B7 !important; }
+body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
+body .pbos-footer-copy { color:#A9B0B7 !important; }
+body .pbos-footer-link, body .footer-linkedin { color:#DAAF57 !important; }
 </style>
 </head>
 <body>
