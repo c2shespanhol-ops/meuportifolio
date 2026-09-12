@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Operational Discovery Report · Case Study 02 · Cleyton Hespanhol</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;700&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=family=DM+Sans:wght@300;400;500;700&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
       :root {
-        --bg:        #1E2328;
-        --bg2:       #242B31;
-        --bg3:       #2B343B;
-        --gold:      #DAAF57;
-        --gold-lt:   #E6C47A;
-        --teal:      #26505A;
-        --teal-br:   #26505A;
-        --coral:     #DAAF57;
-        --white:     #F5F7FA;
-        --gray1:     #A9B0B7;
-        --gray2:     #66717A;
-        --border:    rgba(218,175,87,0.18);
+        --bg:        #090D12;
+        --bg2:       #0F151B;
+        --bg3:       #151D24;
+        --gold:      #E5B642;
+        --gold-lt:   #F0C75A;
+        --teal:      #4BADB8;
+        --teal-br:   #4BADB8;
+        --coral:     #E5B642;
+        --white:     #F4F5F7;
+        --gray1:     #B5BBC1;
+        --gray2:     #737D87;
+        --border:    rgba(229,182,66,.20);
       }
 
       *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -74,7 +74,7 @@
 
       .gold-accent-top {
         height: 2.5px;
-        background: linear-gradient(90deg, var(--gold), var(--gold-lt), var(--gold));
+        background:var(--bg);
       }
 
       .hero {
@@ -88,10 +88,7 @@
       .hero-bg {
         position: absolute;
         inset: 0;
-        background:
-          radial-gradient(ellipse 70% 60% at 80% 20%, rgba(218,175,87,0.08) 0%, transparent 60%),
-          radial-gradient(ellipse 50% 40% at 10% 80%, rgba(38,80,90,0.06) 0%, transparent 50%),
-          linear-gradient(160deg, #1E2328 0%, #242B31 60%, #1E2328 100%);
+        background:var(--bg);
       }
 
       .nav {
@@ -122,7 +119,7 @@
         position: absolute;
         inset: 5px;
         border-radius: 50%;
-        border: 0.5px solid rgba(218,175,87,0.2);
+        border: 0.5px solid rgba(229,182,66,0.2);
       }
 
       .nav-name {
@@ -175,13 +172,13 @@
       }
 
       .hero-title {
-        font-family: 'Cormorant Garamond', serif;
+        font-family: 'DM Sans', sans-serif;
         font-size: clamp(40px, 5.5vw, 76px);
         font-weight: 300; line-height: 1.1;
         color: var(--white); margin-bottom: 24px;
       }
 
-      .hero-title em { font-style: italic; color: var(--gold); }
+      .hero-title em { font-style: normal; color: var(--gold); }
 
       .hero-desc {
         font-size: 15px;
@@ -199,7 +196,7 @@
         border: 0.5px solid var(--border);
         border-radius: 2px;
         font-size: 11px; color: var(--gray1);
-        background: rgba(218,175,87,0.04);
+        background: rgba(229,182,66,0.04);
         letter-spacing: 0.04em;
       }
 
@@ -209,7 +206,7 @@
 
       .section {
         padding: 100px 64px;
-        border-bottom: 0.5px solid rgba(218,175,87,0.08);
+        border-bottom: 0.5px solid rgba(229,182,66,0.08);
         position: relative;
       }
 
@@ -231,13 +228,13 @@
       }
 
       .section-title {
-        font-family: 'Cormorant Garamond', serif;
+        font-family: 'DM Sans', sans-serif;
         font-size: clamp(32px, 4vw, 52px);
         font-weight: 300; line-height: 1.15;
         color: var(--white); margin-bottom: 32px;
       }
 
-      .section-title em { font-style: italic; color: var(--gold); }
+      .section-title em { font-style: normal; color: var(--gold); }
 
       .section-text {
         font-size: 15px;
@@ -248,7 +245,7 @@
 
       /* Highlight Card for Lead Time */
       .highlight-metric-card {
-        background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
+        background:var(--bg);
         border: 0.5px solid var(--border);
         border-left: 3px solid var(--gold);
         padding: 40px;
@@ -258,7 +255,7 @@
       }
 
       .metric-huge {
-        font-family: 'Cormorant Garamond', serif;
+        font-family: 'DM Sans', sans-serif;
         font-size: clamp(56px, 8vw, 88px);
         font-weight: 300;
         color: var(--gold);
@@ -311,7 +308,7 @@
       }
 
       .card-heading {
-        font-family: 'Cormorant Garamond', serif;
+        font-family: 'DM Sans', sans-serif;
         font-size: 22px;
         font-weight: 400;
         color: var(--white);
@@ -416,7 +413,7 @@
         font-size: 9px;
         color: var(--gold);
         letter-spacing: 0.15em;
-        background: rgba(218,175,87,0.03);
+        background: rgba(229,182,66,0.03);
       }
 
       .exec-table td {
@@ -430,7 +427,7 @@
 
       /* Footer */
       footer {
-        background: #1E2328;
+        background: #090D12;
         border-top: 0.5px solid var(--border);
         padding: 48px 64px;
         display: flex;
@@ -521,7 +518,8 @@
         .footer-right { text-align: center; }
       }
     </style>
-  <link rel="stylesheet" href="portfolio-theme.css">
+
+<link rel="stylesheet" href="portfolio-theme.css">
 </head>
 <body>
 
@@ -917,7 +915,7 @@
       </div>
     </div>
 
-    <p class="section-text" style="margin-top: 32px; text-align: center; font-style: italic; color: var(--white);">
+    <p class="section-text" style="margin-top: 32px; text-align: center; font-style: normal; color: var(--white);">
       A mudança não foi apenas de canal. Foi uma mudança na responsabilidade sobre a jornada.
     </p>
   </div>
@@ -1076,7 +1074,7 @@
     <div class="section-label">21 · VALOR INSTITUCIONAL</div>
     <h2 class="section-title">Principal <em>Aprendizado</em></h2>
     
-    <p class="section-text" style="font-size: 17px; color: var(--white); font-style: italic; border-left: 2px solid var(--gold); padding-left: 24px;">
+    <p class="section-text" style="font-size: 17px; color: var(--white); font-style: normal; border-left: 2px solid var(--gold); padding-left: 24px;">
       "O maior aprendizado deste projeto foi perceber que processos eficientes não começam pela tecnologia. Eles começam pela compreensão das necessidades das pessoas e pela construção de uma governança capaz de sustentar decisões ao longo do tempo."
     </p>
   </div>
