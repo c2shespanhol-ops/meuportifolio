@@ -39,6 +39,12 @@ for path in sorted(ROOT.glob('*.html')):
     for old, new in COLOR_MAP.items():
         text = text.replace(old, new)
 
+    if path.name == 'index.html' and 'portfolio-theme.css' not in text:
+        text = text.replace('</head>', f'  <link rel="stylesheet" href="{CSS}">\n</head>', 1)
+
+    if path.name == 'case_study_02_leadtime_final.html':
+        text = text.replace('<strong>Papel</strong> · Product Owner | UX', '<strong>Atuação</strong> · Product Operations | UX')
+
     if re.search(r'<footer\b[^>]*>.*?</footer>', text, flags=re.I | re.S):
         text = re.sub(r'<footer\b[^>]*>.*?</footer>', FOOTER, text, count=1, flags=re.I | re.S)
     elif re.search(r'</body>', text, flags=re.I):
