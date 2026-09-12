@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;600;700&display=swap');
 
 :root {
   --pbos-bg: #1E2328;
@@ -16,7 +16,6 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-
 body {
   background: var(--pbos-bg) !important;
   color: var(--pbos-text) !important;
@@ -26,8 +25,41 @@ body {
   font-weight: 300 !important;
   overflow-x: hidden;
 }
+a { color: var(--pbos-gold) !important; }
 
-/* Body typography: one font for readable content across every page. */
+/* One display family across every case. */
+body h1, body h2, body h3, body h4, body h5, body h6,
+body .hero-title, body .hero-subtitle, body .section-heading,
+body .section-title, body .eco-title, body .doc-title,
+body .pillar-card h3, body .artifact-card h3,
+body .hero-highlight-value, body .case-card h3 {
+  font-family: 'DM Sans', sans-serif !important;
+  color: var(--pbos-text) !important;
+  line-height: 1.18 !important;
+}
+body h1, body .hero-title { font-size: clamp(40px, 5vw, 64px) !important; font-weight: 600 !important; }
+body h2, body .section-title { font-size: clamp(30px, 3.5vw, 46px) !important; font-weight: 500 !important; }
+body h3, body .eco-title { font-size: 22px !important; font-weight: 500 !important; }
+body .hero-highlight-value, body .doc-title { font-size: 24px !important; font-weight: 500 !important; }
+body .hero-title { line-height: 1.12 !important; }
+body .hero-subtitle { font-size: clamp(20px, 2.5vw, 28px) !important; font-weight: 400 !important; line-height: 1.3 !important; color: var(--pbos-gold-soft) !important; }
+body .hero-desc { font-size: 15px !important; line-height: 1.7 !important; color: var(--pbos-muted) !important; }
+body .section-title em, body .hero-title em { font-family: 'DM Sans', sans-serif !important; font-style: italic !important; color: var(--pbos-gold) !important; }
+
+/* Labels and technical metadata. */
+body .eyebrow, body .hero-eyebrow, body .hero-tags,
+body .case-label-text, body .case-meta, body .section-label,
+body .nav-role, body .nav-tag, body .label, body .artifact-action,
+body .competency-title, body .eco-role, body .doc-number,
+body .metric-label, body .tag, body .scroll-hint, body .footer-role,
+body .section-header .section-title {
+  font-family: 'Orbitron', sans-serif !important;
+  color: var(--pbos-gold) !important;
+  letter-spacing: .12em !important;
+}
+body .section-header .section-title { font-size: 12px !important; font-weight: 600 !important; line-height: 1.2 !important; }
+
+/* Body content. */
 body p, body li, body td, body th, body input, body button, body textarea, body select,
 body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text,
 body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc,
@@ -35,159 +67,46 @@ body .eco-text, body .step p, body .note, body .metric p, body .banner-desc,
 body .case-card p, body .footer-copy, body .footer-right {
   font-family: 'DM Sans', sans-serif !important;
 }
+body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text,
+body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc,
+body .eco-text, body .step p, body .note, body .metric p, body .banner-desc,
+body .footer-copy, body .footer-right { color: var(--pbos-muted) !important; }
 
-/* Display typography: one title family across every page. */
-body h1, body h2, body h3, body h4, body h5, body h6,
-body .hero-title, body .hero-subtitle, body .section-heading,
-body .eco-title, body .doc-title, body .pillar-card h3,
-body .artifact-card h3, body .hero-highlight-value,
-body .footer-monogram, body .case-card h3 {
-  font-family: 'Cormorant Garamond', serif !important;
-  color: var(--pbos-text) !important;
-  line-height: 1.18 !important;
-}
-
-body h1 { font-size: clamp(40px, 5vw, 64px) !important; font-weight: 600 !important; }
-body h2 { font-size: clamp(30px, 3.5vw, 46px) !important; font-weight: 500 !important; }
-body h3 { font-size: 22px !important; font-weight: 500 !important; }
-
-body .hero-title {
-  font-size: clamp(40px, 5vw, 64px) !important;
-  font-weight: 600 !important;
-  line-height: 1.12 !important;
-}
-body .hero-subtitle {
-  font-size: clamp(20px, 2.5vw, 28px) !important;
-  font-weight: 400 !important;
-  line-height: 1.3 !important;
-  color: var(--pbos-gold-soft) !important;
-}
-body .hero-desc { font-size: 15px !important; line-height: 1.7 !important; color: var(--pbos-muted) !important; }
-
-/* Labels and technical metadata use one label family. */
-body .eyebrow, body .hero-eyebrow, body .hero-tags,
-body .case-label-text, body .case-meta, body .section-label,
-body .nav-role, body .nav-tag, body .label, body .artifact-action,
-body .competency-title, body .eco-role, body .doc-number,
-body .metric-label, body .tag, body .scroll-hint, body .footer-role {
-  font-family: 'Orbitron', sans-serif !important;
-  color: var(--pbos-gold) !important;
-  letter-spacing: .12em !important;
-}
-
-body .section-title {
-  font-family: 'Cormorant Garamond', serif !important;
-  font-size: clamp(30px, 3.5vw, 46px) !important;
-  font-weight: 500 !important;
-  line-height: 1.18 !important;
-  color: var(--pbos-text) !important;
-}
-body .section-header .section-title {
-  font-family: 'Orbitron', sans-serif !important;
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  line-height: 1.2 !important;
-  color: var(--pbos-gold) !important;
-  letter-spacing: .12em !important;
-}
-body .section-heading { font-size: clamp(28px, 3.5vw, 46px) !important; font-weight: 500 !important; }
-body .section-title em, body .hero-title em { font-family: inherit !important; color: var(--pbos-gold) !important; }
-
-/* Navigation */
-body .nav-name, body .logo-text {
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  color: var(--pbos-text) !important;
-}
-body .h-mark, body .logo-h {
-  font-family: 'DM Sans', sans-serif !important;
-  font-weight: 700 !important;
-  color: var(--pbos-text) !important;
-  border-color: var(--pbos-gold) !important;
-}
-
-/* Cards and surfaces */
-body .card, body .pillar-card, body .artifact-card,
-body .competency-card, body .eco-card, body .metric,
-body .meta, body .hero-highlight-card, body .flow,
-body .note, body .doc-card, body .case-card {
+/* Cards and surfaces. */
+body .card, body .pillar-card, body .artifact-card, body .competency-card,
+body .eco-card, body .metric, body .meta, body .hero-highlight-card,
+body .flow, body .note, body .doc-card, body .case-card {
   background: var(--pbos-surface) !important;
   border-color: var(--pbos-border) !important;
   border-radius: var(--pbos-radius) !important;
 }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover {
-  background: var(--pbos-surface-2) !important;
-  border-color: var(--pbos-gold) !important;
-}
-body .pillar-card, body .artifact-card, body .competency-card,
-body .eco-card, body .metric, body .doc-card { padding: 24px !important; }
+body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover { background: var(--pbos-surface-2) !important; border-color: var(--pbos-gold) !important; }
+body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .doc-card { padding: 24px !important; }
 body .meta { padding: 22px !important; }
 
-/* Controls */
-body .back, body .back-btn {
-  font-family: 'Orbitron', sans-serif !important;
-  font-size: 10px !important;
-  font-weight: 600 !important;
-  background: rgba(30,35,40,.94) !important;
-  border: 1px solid var(--pbos-border) !important;
-  color: var(--pbos-gold) !important;
-  border-radius: 5px !important;
-  padding: 9px 14px !important;
-}
+/* Controls and accents. */
+body .back, body .back-btn { font-family: 'Orbitron', sans-serif !important; font-size: 10px !important; font-weight: 600 !important; background: rgba(30,35,40,.94) !important; border: 1px solid var(--pbos-border) !important; color: var(--pbos-gold) !important; border-radius: 5px !important; padding: 9px 14px !important; }
 body .back:hover, body .back-btn:hover { background: var(--pbos-gold) !important; color: var(--pbos-bg) !important; }
+body .gold-accent-top, body .top { height: 2px !important; background: linear-gradient(90deg, var(--pbos-gold), var(--pbos-gold-soft), var(--pbos-gold)) !important; }
+body .stat-box { background: rgba(218,175,87,.10) !important; border-color: rgba(218,175,87,.22) !important; color: var(--pbos-gold-soft) !important; }
 
-body .gold-accent-top, body .top {
-  height: 2px !important;
-  background: linear-gradient(90deg, var(--pbos-gold), var(--pbos-gold-soft), var(--pbos-gold)) !important;
-}
-body .stat-box {
-  background: rgba(218,175,87,.10) !important;
-  border-color: rgba(218,175,87,.22) !important;
-  color: var(--pbos-gold-soft) !important;
-}
-
-/* Shared layout */
-body .container, body .wrap, body .section-inner,
-body .cases-section, body .hero-container, body main {
-  max-width: var(--pbos-max) !important;
-}
+/* Shared layout. */
+body .container, body .wrap, body .section-inner, body .cases-section, body .hero-container, body main { max-width: var(--pbos-max) !important; }
 body .section { padding-top: 72px !important; padding-bottom: 72px !important; }
 body .hero { padding-bottom: 42px !important; margin-bottom: 42px !important; }
+body header { border-color: var(--pbos-border) !important; }
+body .nav-name, body .logo-text { font-family: 'DM Sans', sans-serif !important; color: var(--pbos-text) !important; }
+body .h-mark, body .logo-h { font-family: 'DM Sans', sans-serif !important; font-weight: 700 !important; color: var(--pbos-text) !important; border-color: var(--pbos-gold) !important; }
 
-/* Footer */
-body footer, body .pbos-footer {
-  background: var(--pbos-bg) !important;
-  border-top: 1px solid var(--pbos-border) !important;
-  padding: 36px 24px !important;
-  margin-top: 64px !important;
-  text-align: center !important;
-  color: var(--pbos-muted) !important;
-}
-body .pbos-footer-signature {
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  letter-spacing: .06em !important;
-  color: var(--pbos-gold) !important;
-  margin-bottom: 8px !important;
-}
-body .pbos-footer-copy, body .pbos-footer-link {
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 11px !important;
-}
+/* Footer. */
+body footer, body .pbos-footer { background: var(--pbos-bg) !important; border-top: 1px solid var(--pbos-border) !important; padding: 36px 24px !important; margin-top: 64px !important; text-align: center !important; color: var(--pbos-muted) !important; }
+body .pbos-footer-signature { font-family: 'DM Sans', sans-serif !important; font-size: 13px !important; font-weight: 500 !important; letter-spacing: .06em !important; color: var(--pbos-gold) !important; margin-bottom: 8px !important; }
+body .pbos-footer-copy, body .pbos-footer-link { font-family: 'DM Sans', sans-serif !important; font-size: 11px !important; }
 body .pbos-footer-copy { color: var(--pbos-muted) !important; }
 body .pbos-footer-link { display: block; margin-top: 8px; color: var(--pbos-gold) !important; }
 
-header { border-color: var(--pbos-border) !important; }
-
 @media (max-width: 760px) {
-  body .container, body .wrap, body .cases-section,
-  body .hero-content, body .hero-footer, body .nav,
-  body footer, body .section {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
+  body .container, body .wrap, body .cases-section, body .hero-content, body .hero-footer, body .nav, body footer, body .section { padding-left: 20px !important; padding-right: 20px !important; }
   body .hero-title, body h1 { font-size: clamp(34px, 10vw, 48px) !important; }
   body .section-title, body h2 { font-size: clamp(28px, 8vw, 38px) !important; }
 }
