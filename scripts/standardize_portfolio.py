@@ -37,6 +37,9 @@ for path in sorted(ROOT.glob('*.html')):
 
     if path.name == 'case_study_02_leadtime_final.html':
         text = text.replace('<strong>Papel</strong> · Product Owner | UX', '<strong>Atuação</strong> · Product Operations | UX')
+        text = re.sub(r'background\s*:\s*radial-gradient\([^;]+\)', 'background:var(--bg)', text, flags=re.I)
+        text = re.sub(r'\.hero-bg\{[^}]*\}', '.hero-bg{position:absolute;inset:0;background:var(--bg)}', text, flags=re.I)
+        text = re.sub(r'\.orb\{[^}]*\}', '.orb{display:none}', text, flags=re.I)
 
     if re.search(r'<footer\b[^>]*>.*?</footer>', text, flags=re.I | re.S):
         text = re.sub(r'<footer\b[^>]*>.*?</footer>', FOOTER, text, count=1, flags=re.I | re.S)
