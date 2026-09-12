@@ -30,7 +30,7 @@ PALETTE = {
 
 COLOR_MAP = {
     '#0B0C0E': '#090D12', '#0E1114': '#090D12', '#080A0C': '#090D12',
-    '#0A0E12': '#090D12', '#0D0F10': '#090D12', '#090D12': '#090D12',
+    '#0A0E12': '#090D12', '#0D0F10': '#090D12',
     '#111820': '#0F151B', '#121418': '#0F151B', '#13181D': '#0F151B',
     '#181B20': '#151D24', '#1A2028': '#151D24', '#1A1D20': '#151D24',
     '#1E2328': '#090D12', '#242B31': '#0F151B', '#2B343B': '#151D24',
@@ -39,7 +39,7 @@ COLOR_MAP = {
     '#F0F6FC': '#F4F5F7', '#F5F7FA': '#F4F5F7', '#8B949E': '#B5BBC1',
     '#4A5568': '#737D87', '#66717A': '#737D87', '#9AA3AD': '#B5BBC1',
     '#3A7A8A': '#4BADB8', '#26505A': '#4BADB8', '#F57F76': '#E5B642',
-    '#737D87': '#737D87', '#68717B': '#737D87',
+    '#68717B': '#737D87',
     'rgba(201,168,76': 'rgba(229,182,66',
     'rgba(197,162,93': 'rgba(229,182,66',
     'rgba(11,12,14': 'rgba(9,13,18',
@@ -48,9 +48,11 @@ COLOR_MAP = {
 }
 
 FONT_IMPORT_RE = re.compile(r"<link[^>]+fonts\.googleapis\.com[^>]+>", re.I)
-CORMORANT_RE = re.compile(r"['\"]Cormorant Garamond['\"]\s*,?\s*serif", re.I)
 FONT_DECL_RE = re.compile(r"font-family\s*:\s*[^;{}]*Cormorant Garamond[^;{}]*;?", re.I)
+CORMORANT_TOKEN_RE = re.compile(r"['\"]Cormorant Garamond['\"]\s*,?\s*serif", re.I)
 ITALIC_RE = re.compile(r"font-style\s*:\s*italic\s*;?", re.I)
+
+CANONICAL_FONT_LINK = '<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">'
 
 
 def normalize_root_palette(text: str) -> str:
@@ -65,18 +67,22 @@ def normalize_root_palette(text: str) -> str:
 
 
 def normalize_fonts(text: str) -> str:
-    # Remove legacy Cormorant from Google Fonts imports while preserving other fonts.
-    def clean_import(match):
-        tag = match.group(0)
-        tag = re.sub(r"Cormorant\+Garamond[^&]*&?", "", tag, flags=re.I)
-        tag = tag.replace('??', '?')
-        tag = re.sub(r"family=&", "family=", tag)
-        return tag
-
-    text = FONT_IMPORT_RE.sub(clean_import, text)
-    text = CORMORANT_RE.sub("'DM Sans', sans-serif", text)
+    # Replace every Google Fonts import with the exact portfolio standard.
+    text = FONT_IMPORT_RE.sub(CANONICAL_FONT_LINK, text)
+    text = CORMORANT_TOKEN_RE.sub("'DM Sans', sans-serif", text)
     text = FONT_DECL_RE.sub("font-family: 'DM Sans', sans-serif;", text)
     text = ITALIC_RE.sub("font-style: normal;", text)
+    return text
+
+
+def normalize_decorative_backgrounds(text: str) -> str:
+    # Remove radial glow effects used by older case pages.
+    text = re.sub(
+        r"background(?:-image)?\s*:\s*radial-gradient\([^;{}]+\)\s*;?",
+        "background: var(--bg);",
+        text,
+        flags=re.I,
+    )
     return text
 
 
@@ -84,31 +90,25 @@ for path in sorted(ROOT.glob('*.html')):
     text = path.read_text(encoding='utf-8')
     original = text
 
-    if 'portfolio-theme.css' not in text:
-        text = re.sub(r'</head>', f'  <link rel="stylesheet" href="{CSS}">\n</head>', text, count=1, flags=re.I)
+    # Ensure the shared stylesheet is loaded exactly once and last in <head>.
+    text = re.sub(r'\s*<link rel="stylesheet" href="portfolio-theme\.css">', '', text, flags=re.I)
 
     for old, new in COLOR_MAP.items():
         text = text.replace(old, new)
 
     text = normalize_root_palette(text)
     text = normalize_fonts(text)
+    text = normalize_decorative_backgrounds(text)
 
-    # Eliminate decorative backgrounds that make older cases visually different.
-    text = re.sub(r'background\s*:\s*radial-gradient\([^;{}]+\)\s*;?', 'background:var(--bg);', text, flags=re.I)
-    text = re.sub(r'background-image\s*:\s*radial-gradient\([^;{}]+\)\s*;?', 'background-image:none;', text, flags=re.I)
-    text = re.sub(r'background\s*:\s*linear-gradient\([^;{}]+\)\s*;?', 'background:var(--bg);', text, flags=re.I)
-
-    # Case 02 has an explicit decorative orb. Keep the element only if it is not decorative.
+    # Case 02: eliminate the old decorative orb and preserve the validated role wording.
     if path.name == 'case_study_02_leadtime_final.html':
         text = re.sub(r'\.orb\s*\{[^}]*\}', '.orb{display:none;}', text, flags=re.I)
         text = re.sub(r'\.hero-bg\s*\{[^}]*\}', '.hero-bg{position:absolute;inset:0;background:var(--bg);}', text, flags=re.I)
-        text = text.replace('<strong>Papel</strong> · Product Owner | UX', '<strong>Atuação</strong> · Product Operations | UX')
+        text = text.replace('Papel · Product Owner | UX', 'Atuação · Product Operations | UX')
 
-    # Shared stylesheet must remain the final stylesheet so it wins over legacy inline rules.
-    text = re.sub(r'\s*<link rel="stylesheet" href="portfolio-theme\.css">', '', text, flags=re.I)
-    text = re.sub(r'</head>', f'\n<link rel="stylesheet" href="{CSS}">\n</head>', text, count=1, flags=re.I)
+    text = re.sub(r'</head>', f'\n{CANONICAL_FONT_LINK}\n<link rel="stylesheet" href="{CSS}">\n</head>', text, count=1, flags=re.I)
 
-    # Standard footer across all pages.
+    # Standard footer across every HTML page in the portfolio.
     if re.search(r'<footer\b[^>]*>.*?</footer>', text, flags=re.I | re.S):
         text = re.sub(r'<footer\b[^>]*>.*?</footer>', FOOTER, text, count=1, flags=re.I | re.S)
     elif re.search(r'</body>', text, flags=re.I):
