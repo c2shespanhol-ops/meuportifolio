@@ -25,6 +25,10 @@ COLOR_MAP = {
     'rgba(58,122,138': 'rgba(38,80,90',
 }
 
+FONT_IMPORT_RE = re.compile(r"<link[^>]+fonts\.googleapis\.com[^>]*>", re.I)
+CORMORANT_RE = re.compile(r"font-family\s*:\s*['\"]?Cormorant Garamond['\"]?\s*,?\s*serif\s*!?important?\s*;?", re.I)
+CORMORANT_TOKEN_RE = re.compile(r"['\"]Cormorant Garamond['\"]\s*,?\s*serif", re.I)
+
 for path in sorted(ROOT.glob('*.html')):
     text = path.read_text(encoding='utf-8')
     original = text
@@ -34,6 +38,12 @@ for path in sorted(ROOT.glob('*.html')):
 
     for old, new in COLOR_MAP.items():
         text = text.replace(old, new)
+
+    # The shared system owns typography. Remove Cormorant imports and local declarations.
+    text = FONT_IMPORT_RE.sub(lambda m: m.group(0) if 'DM+Sans' in m.group(0) and 'Orbitron' in m.group(0) else '', text)
+    text = re.sub(r"\s*family=Cormorant\+Garamond[^&'\"]*&?", '', text, flags=re.I)
+    text = CORMORANT_RE.sub('', text)
+    text = CORMORANT_TOKEN_RE.sub("'DM Sans', sans-serif", text)
 
     if path.name == 'case_study_02_leadtime_final.html':
         text = text.replace('<strong>Papel</strong> · Product Owner | UX', '<strong>Atuação</strong> · Product Operations | UX')
