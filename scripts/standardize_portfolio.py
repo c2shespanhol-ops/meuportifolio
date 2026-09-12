@@ -10,12 +10,34 @@ FOOTER = '''<footer class="pbos-footer">
   <a class="pbos-footer-link" href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener">linkedin.com/in/cleyton-hespanhol</a>
 </footer>'''
 
+COLOR_MAP = {
+    '#0B0C0E': '#1E2328',
+    '#0E1114': '#1E2328',
+    '#080A0C': '#1E2328',
+    '#0A0E12': '#1E2328',
+    '#111820': '#242B31',
+    '#121418': '#242B31',
+    '#13181D': '#242B31',
+    '#181B20': '#2B343B',
+    '#1A2028': '#2B343B',
+    '#C9A84C': '#DAAF57',
+    '#E8C060': '#E6C47A',
+    '#F0F6FC': '#F5F7FA',
+    '#8B949E': '#A9B0B7',
+    '#4A5568': '#66717A',
+    'rgba(201,168,76': 'rgba(218,175,87',
+    'rgba(11,12,14': 'rgba(30,35,40',
+}
+
 for path in sorted(ROOT.glob('*.html')):
     text = path.read_text(encoding='utf-8')
     original = text
 
     if 'portfolio-theme.css' not in text:
         text = re.sub(r'</head>', f'  <link rel="stylesheet" href="{CSS}">\n</head>', text, count=1, flags=re.I)
+
+    for old, new in COLOR_MAP.items():
+        text = text.replace(old, new)
 
     if re.search(r'<footer\b[^>]*>.*?</footer>', text, flags=re.I | re.S):
         text = re.sub(r'<footer\b[^>]*>.*?</footer>', FOOTER, text, count=1, flags=re.I | re.S)
