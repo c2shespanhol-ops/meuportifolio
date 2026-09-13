@@ -10,37 +10,33 @@ FOOTER = '''<footer class="pbos-footer">
   <a class="pbos-footer-link" href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener">linkedin.com/in/cleyton-hespanhol</a>
 </footer>'''
 
-# Approved HS MIND palette from the visual reference supplied by the user.
 PALETTE = {
-    '--bg': '#090D12', '--bg2': '#121820', '--bg3': '#19222B',
-    '--gold': '#E5B642', '--gold-lt': '#E5B642', '--cyan': '#56C8D4',
-    '--teal': '#56C8D4', '--teal-br': '#56C8D4', '--white': '#F5F7FA',
-    '--text': '#F5F7FA', '--gray': '#B8C0C8', '--gray1': '#B8C0C8',
-    '--gray2': '#7D8790', '--border': 'rgba(229,182,66,.22)',
+    '--bg': '#1E2328', '--bg2': '#242B31', '--bg3': '#2B343B',
+    '--gold': '#DAAF57', '--gold-lt': '#E6C47A', '--cyan': '#26505A',
+    '--teal': '#26505A', '--teal-br': '#26505A', '--white': '#F5F7FA',
+    '--text': '#F5F7FA', '--gray': '#A9B0B7', '--gray1': '#A9B0B7',
+    '--gray2': '#66717A', '--border': 'rgba(218,175,87,.20)',
 }
 
-# Normalize legacy hard-coded colors that exist in older case files.
 COLOR_MAP = {
-    '#1E2328': '#090D12', '#242B31': '#121820', '#2B343B': '#19222B',
-    '#090D12': '#090D12', '#0F151B': '#121820', '#151D24': '#19222B',
-    '#0B0C0E': '#090D12', '#0E1114': '#090D12', '#080A0C': '#090D12',
-    '#0A0E12': '#090D12', '#0D0F10': '#090D12', '#111820': '#121820',
-    '#121418': '#121820', '#13181D': '#121820', '#181B20': '#19222B',
-    '#1A2028': '#19222B', '#1A1D20': '#19222B',
-    '#DAAF57': '#E5B642', '#E6C47A': '#E5B642', '#C9A84C': '#E5B642',
-    '#C5A25D': '#E5B642', '#E8C060': '#E5B642', '#DEC082': '#E5B642',
-    '#F0C75A': '#E5B642', '#F57F76': '#E5B642', '#26505A': '#56C8D4',
-    '#3A7A8A': '#56C8D4', '#4BADB8': '#56C8D4', '#F0F6FC': '#F5F7FA',
-    '#F4F5F7': '#F5F7FA', '#8B949E': '#B8C0C8', '#9AA3AD': '#B8C0C8',
-    '#68717B': '#7D8790', '#737D87': '#7D8790', '#4A5568': '#7D8790',
-    'rgba(218,175,87': 'rgba(229,182,66',
-    'rgba(229,182,66': 'rgba(229,182,66',
-    'rgba(197,162,93': 'rgba(229,182,66',
-    'rgba(201,168,76': 'rgba(229,182,66',
-    'rgba(11,12,14': 'rgba(9,13,18',
-    'rgba(38,80,90': 'rgba(86,200,212',
-    'rgba(58,122,138': 'rgba(86,200,212',
-    'rgba(75,173,184': 'rgba(86,200,212',
+    '#090D12': '#1E2328', '#121820': '#242B31', '#19222B': '#2B343B',
+    '#0F151B': '#242B31', '#151D24': '#2B343B', '#0B0C0E': '#1E2328',
+    '#0E1114': '#1E2328', '#080A0C': '#1E2328', '#0A0E12': '#1E2328',
+    '#0D0F10': '#1E2328', '#111820': '#242B31', '#121418': '#242B31',
+    '#13181D': '#242B31', '#181B20': '#2B343B', '#1A2028': '#2B343B',
+    '#1A1D20': '#2B343B', '#E5B642': '#DAAF57', '#C9A84C': '#DAAF57',
+    '#C5A25D': '#DAAF57', '#E8C060': '#DAAF57', '#F0C75A': '#DAAF57',
+    '#F57F76': '#DAAF57', '#3A7A8A': '#26505A', '#4BADB8': '#26505A',
+    '#56C8D4': '#26505A', '#F0F6FC': '#F5F7FA', '#F4F5F7': '#F5F7FA',
+    '#8B949E': '#A9B0B7', '#9AA3AD': '#A9B0B7', '#B8C0C8': '#A9B0B7',
+    '#68717B': '#66717A', '#737D87': '#66717A', '#4A5568': '#66717A',
+    'rgba(229,182,66': 'rgba(218,175,87',
+    'rgba(197,162,93': 'rgba(218,175,87',
+    'rgba(201,168,76': 'rgba(218,175,87',
+    'rgba(11,12,14': 'rgba(30,35,40',
+    'rgba(38,80,90': 'rgba(38,80,90',
+    'rgba(58,122,138': 'rgba(38,80,90',
+    'rgba(75,173,184': 'rgba(38,80,90',
 }
 
 FONT_IMPORT_RE = re.compile(r"<link[^>]+fonts\.googleapis\.com[^>]+>", re.I)
@@ -49,34 +45,34 @@ CORMORANT_TOKEN_RE = re.compile(r"['\"]Cormorant Garamond['\"]\s*,?\s*serif", re
 ITALIC_RE = re.compile(r"font-style\s*:\s*italic\s*;?", re.I)
 OVERRIDE_RE = re.compile(r"<style\s+id=[\"']pbos-final-overrides[\"'][^>]*>.*?</style>", re.I | re.S)
 THEME_LINK_RE = re.compile(r"\s*<link\s+rel=[\"']stylesheet[\"']\s+href=[\"']portfolio-theme\.css[\"']\s*/?>", re.I)
-CANONICAL_FONT_LINK = '<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">'
+CANONICAL_FONT_LINK = '<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">'
 
 FINAL_OVERRIDES = '''<style id="pbos-final-overrides">
-html, body { background:#090D12 !important; color:#F5F7FA !important; }
+html, body { background:#1E2328 !important; color:#F5F7FA !important; }
 body { font-family:'DM Sans',sans-serif !important; }
-body .hero, body .hero-bg, body main, body .container, body .section, body .cases-section, body .corporate-banner, body .hero-footer, body footer, body .pbos-footer { background:#090D12 !important; }
+body .hero, body .hero-bg, body main, body .container, body .section, body .cases-section, body .corporate-banner, body .hero-footer, body footer, body .pbos-footer { background:#1E2328 !important; }
 body .hero-bg { background-image:none !important; }
 body .orb, body [class*="orb"], body [class*="glow"], body [class*="ambient"], body [class*="halo"] { display:none !important; background:none !important; background-image:none !important; box-shadow:none !important; filter:none !important; opacity:0 !important; }
 body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; background-image:none !important; box-shadow:none !important; content:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:#E5B642 !important; background-image:none !important; }
+body .gold-accent-top, body .top { height:2px !important; background:#DAAF57 !important; background-image:none !important; }
 body h1, body h2, body h3, body h4, body h5, body h6, body .hero-title, body .hero-subtitle, body .section-heading, body .section-title, body .eco-title, body .doc-title, body .pillar-card h3, body .artifact-card h3, body .case-card h3, body .hero-highlight-value, body .metric-display, body .number { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#F5F7FA !important; }
 body h1, body .hero-title { font-weight:600 !important; }
 body h2, body .section-heading, body .section-title { font-weight:500 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#E5B642 !important; }
-body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text, body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label, body .artifact-action, body .competency-title, body .eco-role, body .doc-number, body .metric-label, body .tag, body .scroll-hint, body .footer-role { font-family:'Orbitron',sans-serif !important; font-style:normal !important; color:#E5B642 !important; letter-spacing:.12em !important; }
-body p, body li, body td, body th, body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text, body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc, body .eco-text, body .step p, body .note, body .metric p, body .banner-desc, body .case-card p, body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#B8C0C8 !important; }
-body .hero-main-text em, body .banner-desc em { color:#56C8D4 !important; }
-body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .meta, body .hero-highlight-card, body .flow, body .note, body .doc-card, body .case-card, body .stat-box { background:#121820 !important; border-color:rgba(229,182,66,.22) !important; box-shadow:none !important; }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover, body .competency-card:hover, body .eco-card:hover { background:#19222B !important; border-color:#E5B642 !important; }
-body .back, body .back-btn { background:rgba(9,13,18,.96) !important; color:#E5B642 !important; border-color:rgba(229,182,66,.22) !important; }
-body .back:hover, body .back-btn:hover { background:#E5B642 !important; color:#090D12 !important; }
+body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; }
+body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text, body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label, body .artifact-action, body .competency-title, body .eco-role, body .doc-number, body .metric-label, body .tag, body .scroll-hint, body .footer-role { font-family:'Orbitron',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; letter-spacing:.12em !important; }
+body p, body li, body td, body th, body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text, body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc, body .eco-text, body .step p, body .note, body .metric p, body .banner-desc, body .case-card p, body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#A9B0B7 !important; }
+body .hero-main-text em, body .banner-desc em { color:#26505A !important; }
+body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .meta, body .hero-highlight-card, body .flow, body .note, body .doc-card, body .case-card, body .stat-box { background:#242B31 !important; border-color:rgba(218,175,87,.20) !important; box-shadow:none !important; }
+body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover, body .competency-card:hover, body .eco-card:hover { background:#2B343B !important; border-color:#DAAF57 !important; }
+body .back, body .back-btn { background:rgba(30,35,40,.96) !important; color:#DAAF57 !important; border-color:rgba(218,175,87,.20) !important; }
+body .back:hover, body .back-btn:hover { background:#DAAF57 !important; color:#1E2328 !important; }
 body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; border-color:#E5B642 !important; }
-body .metric-display, body .number { color:#E5B642 !important; }
-body footer, body .pbos-footer { border-top-color:rgba(229,182,66,.22) !important; color:#B8C0C8 !important; }
+body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; border-color:#DAAF57 !important; }
+body .metric-display, body .number { color:#DAAF57 !important; }
+body footer, body .pbos-footer { border-top-color:rgba(218,175,87,.20) !important; color:#A9B0B7 !important; }
 body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
-body .pbos-footer-copy { color:#B8C0C8 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#E5B642 !important; }
+body .pbos-footer-copy { color:#A9B0B7 !important; }
+body .pbos-footer-link, body .footer-linkedin { color:#DAAF57 !important; }
 </style>'''
 
 
@@ -98,19 +94,16 @@ for path in sorted(ROOT.glob('*.html')):
     text = path.read_text(encoding='utf-8')
     original = text
 
-    # Replace literal legacy colors first, then normalize CSS variables.
     for old, new in COLOR_MAP.items():
         text = text.replace(old, new)
     text = normalize_root_palette(text)
     text = normalize_fonts(text)
 
-    # Remove any previous final override block and install the canonical one last.
     text = OVERRIDE_RE.sub('', text)
     text = THEME_LINK_RE.sub('', text)
     text = re.sub(r"\s*<link[^>]+fonts\.googleapis\.com[^>]+>\s*", "\n", text, flags=re.I)
     text = re.sub(r'</head>', f'\n{CANONICAL_FONT_LINK}\n<link rel="stylesheet" href="{CSS}">\n{FINAL_OVERRIDES}\n</head>', text, count=1, flags=re.I)
 
-    # Keep the footer identical across all portfolio pages.
     if re.search(r'<footer\b[^>]*>.*?</footer>', text, flags=re.I | re.S):
         text = re.sub(r'<footer\b[^>]*>.*?</footer>', FOOTER, text, count=1, flags=re.I | re.S)
     elif re.search(r'</body>', text, flags=re.I):
