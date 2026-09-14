@@ -1,33 +1,61 @@
 <!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=case02_governance_prioritization_framework.html"><title>Case Study 02 · Documento 04</title>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portfolio-theme.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio-theme.css?v=20260914">
 <style id="pbos-final-overrides">
-html, body { background:#1E2328 !important; color:#F5F7FA !important; }
-body { font-family:'DM Sans',sans-serif !important; }
-body .hero, body .hero-bg, body main, body .container, body .section, body .cases-section, body .corporate-banner, body .hero-footer, body footer, body .pbos-footer { background:#1E2328 !important; }
-body .hero-bg { background-image:none !important; }
-body .orb, body [class*="orb"], body [class*="glow"], body [class*="ambient"], body [class*="halo"] { display:none !important; background:none !important; background-image:none !important; box-shadow:none !important; filter:none !important; opacity:0 !important; }
+html, body { background:#090D12 !important; color:#F7F8FA !important; }
+body { font-family:'DM Sans',sans-serif !important; font-weight:300 !important; }
+body, body main, body header, body footer, body .hero, body .container, body .wrap,
+body .section, body .section-inner, body .cases-section, body .hero-container,
+body .hero-content, body .hero-footer, body .corporate-banner { background-color:#090D12 !important; background-image:none !important; }
+body .hero-bg, body .orb, body [class*="orb"], body [class*="glow"], body [class*="ambient"], body [class*="halo"] { display:none !important; background:none !important; background-image:none !important; box-shadow:none !important; filter:none !important; opacity:0 !important; }
 body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; background-image:none !important; box-shadow:none !important; content:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:#DAAF57 !important; background-image:none !important; }
-body h1, body h2, body h3, body h4, body h5, body h6, body .hero-title, body .hero-subtitle, body .section-heading, body .section-title, body .eco-title, body .doc-title, body .pillar-card h3, body .artifact-card h3, body .case-card h3, body .hero-highlight-value, body .metric-display, body .number { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#F5F7FA !important; }
-body h1, body .hero-title { font-weight:600 !important; }
-body h2, body .section-heading, body .section-title { font-weight:500 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; }
-body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text, body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label, body .artifact-action, body .competency-title, body .eco-role, body .doc-number, body .metric-label, body .tag, body .scroll-hint, body .footer-role { font-family:'Orbitron',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; letter-spacing:.12em !important; }
-body p, body li, body td, body th, body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text, body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc, body .eco-text, body .step p, body .note, body .metric p, body .banner-desc, body .case-card p, body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#A9B0B7 !important; }
-body .hero-main-text em, body .banner-desc em { color:#26505A !important; }
-body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .meta, body .hero-highlight-card, body .flow, body .note, body .doc-card, body .case-card, body .stat-box { background:#242B31 !important; border-color:rgba(218,175,87,.20) !important; box-shadow:none !important; }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover, body .competency-card:hover, body .eco-card:hover { background:#2B343B !important; border-color:#DAAF57 !important; }
-body .back, body .back-btn { background:rgba(30,35,40,.96) !important; color:#DAAF57 !important; border-color:rgba(218,175,87,.20) !important; }
-body .back:hover, body .back-btn:hover { background:#DAAF57 !important; color:#1E2328 !important; }
-body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; border-color:#DAAF57 !important; }
-body .metric-display, body .number { color:#DAAF57 !important; }
-body footer, body .pbos-footer { border-top-color:rgba(218,175,87,.20) !important; color:#A9B0B7 !important; }
-body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
-body .pbos-footer-copy { color:#A9B0B7 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#DAAF57 !important; }
+body .gold-accent-top, body .top { height:2px !important; background:#E5B642 !important; background-image:none !important; }
+body h1, body h2, body h3, body h4, body h5, body h6,
+body .hero-title, body .hero-main-text, body .hero-subtitle, body .section-title,
+body .section-heading, body .banner-title, body .eco-title, body .doc-title,
+body .pillar-card h3, body .artifact-card h3, body .case-card h3,
+body .hero-highlight-value, body .metric-display, body .number {
+  font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#F7F8FA !important;
+}
+body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.035em !important; line-height:1.08 !important; }
+body h2, body .section-title, body .section-heading { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
+body h3, body .eco-title, body .case-card h3, body .doc-title { font-weight:400 !important; line-height:1.22 !important; }
+body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#53C0CC !important; }
+body .hero-desc, body .hero-sub-text, body .lead, body .banner-desc,
+body .card p, body .pillar-card p, body .artifact-card p, body .case-card p,
+body .competency-desc, body .eco-text, body .step p, body .note, body .metric p,
+body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#AFB8C1 !important; font-weight:300 !important; line-height:1.75 !important; }
+body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text,
+body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label,
+body .artifact-action, body .competency-title, body .eco-role, body .doc-number,
+body .metric-label, body .tag, body .scroll-hint, body .footer-role {
+  font-family:'Orbitron',sans-serif !important; font-style:normal !important; color:#E5B642 !important; letter-spacing:.14em !important;
+}
+body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card,
+body .metric, body .meta, body .hero-highlight-card, body .flow, body .note,
+body .doc-card, body .case-card, body .stat-box { background:#121820 !important; border-color:rgba(229,182,66,.22) !important; box-shadow:none !important; }
+body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover,
+body .competency-card:hover, body .eco-card:hover { background:#19222B !important; border-color:#E5B642 !important; }
+body .back, body .back-btn { background:rgba(9,13,18,.96) !important; color:#E5B642 !important; border-color:rgba(229,182,66,.22) !important; }
+body .back:hover, body .back-btn:hover { background:#E5B642 !important; color:#090D12 !important; }
+body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F7F8FA !important; }
+body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F7F8FA !important; border-color:#E5B642 !important; }
+body .metric-display, body .number { color:#E5B642 !important; font-weight:300 !important; }
+body footer, body .pbos-footer { background:#090D12 !important; border-top-color:rgba(229,182,66,.22) !important; color:#AFB8C1 !important; }
+body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F7F8FA !important; font-weight:400 !important; }
+body .pbos-footer-copy { color:#AFB8C1 !important; }
+body .pbos-footer-link, body .footer-linkedin { color:#E5B642 !important; }
+body .btn-case-mock { color:#E5B642 !important; border-color:#E5B642 !important; }
+body .btn-case-mock:hover { background:#E5B642 !important; color:#090D12 !important; }
+body .stat-box { color:#E5B642 !important; }
+@media (max-width:760px) {
+  body .container, body .wrap, body .cases-section, body .hero-content, body .hero-footer,
+  body .nav, body footer, body .section, body header { padding-left:20px !important; padding-right:20px !important; }
+  body .hero-title, body h1 { font-size:clamp(36px,10vw,52px) !important; }
+  body .hero-main-text { font-size:clamp(28px,8vw,40px) !important; }
+  body .section-title, body h2 { font-size:clamp(28px,8vw,40px) !important; }
+}
 </style>
 </head><body><a href="case02_governance_prioritization_framework.html">Abrir Documento 04</a><footer class="pbos-footer">
   <div class="pbos-footer-signature">Cleyton Hespanhol | Product Owner | UX</div>
