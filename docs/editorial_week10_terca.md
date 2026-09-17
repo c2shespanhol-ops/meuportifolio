@@ -15,7 +15,7 @@ A referência histórica deve funcionar como catalisador, não como assunto prin
 
 Uma equipe pode ouvir a mesma mensagem e sair com cinco interpretações diferentes.
 
-Barack Obama apareceu no cenário nacional dos Estados Unidos em 2004, quando seu discurso na Convenção Nacional Democrata destacou uma ideia de união em torno de uma identidade comum. A própria Obama Foundation registra que, anos depois, ele descreveu aquele discurso como uma condensação de histórias e trabalho construídos ao longo de sua atuação comunitária. citeturn1search1turn1search13
+Barack Obama apareceu no cenário nacional dos Estados Unidos em 2004, quando seu discurso na Convenção Nacional Democrata destacou uma ideia de união em torno de uma identidade comum. A Obama Foundation registra que, anos depois, ele descreveu aquele discurso como uma condensação de histórias e trabalho construídos ao longo de sua atuação comunitária.
 
 O ponto que interessa aqui não é a política.
 É a comunicação.
