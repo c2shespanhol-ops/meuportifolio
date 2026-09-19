@@ -9,7 +9,7 @@
 </style>
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portfolio-theme.css?v=20260914">
+<link rel="stylesheet" href="portfolio-theme.css?v=20260919">
 <style id="pbos-final-overrides">
 html, body { background:#090D12 !important; color:#F7F8FA !important; }
 body { font-family:'DM Sans',sans-serif !important; font-weight:300 !important; }
@@ -65,8 +65,50 @@ body .stat-box { color:#E5B642 !important; }
   body .section-title, body h2 { font-size:clamp(28px,8vw,40px) !important; }
 }
 </style>
+<script src="portfolio-language.js?v=20260919" defer></script>
+<style id="pbos-unified-visual-standard">
+/* PBOS unified visual standard */
+html,body{background:#090D12!important;color:#F7F8FA!important}
+body{font-family:'DM Sans',sans-serif!important;font-weight:300!important}
+body,body main,body header,body footer,body .hero,body .container,body .wrap,body .section,body .section-inner,body .cases-section,body .hero-container,body .hero-content,body .hero-footer,body .corporate-banner{background-color:#090D12!important;background-image:none!important}
+body .hero-bg,body .orb,body [class*="orb"],body [class*="glow"],body [class*="ambient"],body [class*="halo"]{display:none!important;background:none!important;background-image:none!important;box-shadow:none!important;filter:none!important;opacity:0!important}
+body .hero:before,body .hero:after,body main:before,body main:after{background:none!important;background-image:none!important;box-shadow:none!important;content:none!important}
+body .gold-accent-top,body .top{height:2px!important;background:#E5B642!important;background-image:none!important}
+body h1,body h2,body h3,body h4,body h5,body h6,body .hero-title,body .hero-main-text,body .hero-subtitle,body .section-title,body .section-heading,body .banner-title,body .eco-title,body .doc-title,body .pillar-card h3,body .artifact-card h3,body .case-card h3,body .hero-highlight-value,body .metric-display,body .number{font-family:'DM Sans',sans-serif!important;font-style:normal!important;color:#F7F8FA!important}
+body .hero-title em,body .section-title em,body .section-heading em,body .hero-main-text em,body .banner-desc em{font-family:'DM Sans',sans-serif!important;font-style:normal!important;color:#53C0CC!important}
+body p,body li,body td,body th,body input,body button,body textarea,body select,body .lead,body .hero-desc,body .hero-sub-text,body .hero-main-text,body .card p,body .pillar-card p,body .artifact-card p,body .case-card p,body .competency-desc,body .eco-text,body .step p,body .note,body .metric p,body .footer-copy,body .footer-right{font-family:'DM Sans',sans-serif!important;color:#AFB8C1!important;font-weight:300!important;line-height:1.75!important}
+body .eyebrow,body .hero-eyebrow,body .hero-tags,body .case-label-text,body .case-meta,body .section-label,body .nav-role,body .nav-tag,body .label,body .artifact-action,body .competency-title,body .eco-role,body .doc-number,body .metric-label,body .tag,body .scroll-hint,body .footer-role{font-family:'Orbitron',sans-serif!important;font-style:normal!important;color:#E5B642!important;letter-spacing:.14em!important}
+body .card,body .pillar-card,body .artifact-card,body .competency-card,body .eco-card,body .metric,body .meta,body .hero-highlight-card,body .flow,body .note,body .doc-card,body .case-card,body .stat-box{background:#121820!important;border-color:rgba(229,182,66,.22)!important;box-shadow:none!important}
+body .card:hover,body .artifact-card:hover,body .case-card:hover,body .doc-card:hover,body .competency-card:hover,body .eco-card:hover{background:#19222B!important;border-color:#E5B642!important}
+body .back,body .back-btn{background:rgba(9,13,18,.96)!important;color:#E5B642!important;border-color:rgba(229,182,66,.22)!important}
+body .back:hover,body .back-btn:hover{background:#E5B642!important;color:#090D12!important}
+body .nav-name,body .logo-text{font-family:'DM Sans',sans-serif!important;color:#F7F8FA!important}
+body .h-mark,body .logo-h{font-family:'DM Sans',sans-serif!important;color:#F7F8FA!important;border-color:#E5B642!important}
+body .metric-display,body .number{color:#E5B642!important;font-weight:300!important}
+body footer,body .pbos-footer{background:#090D12!important;border-top-color:rgba(229,182,66,.22)!important;color:#AFB8C1!important}
+body .pbos-footer-signature{font-family:'DM Sans',sans-serif!important;color:#F7F8FA!important;font-weight:400!important}
+body .pbos-footer-copy{color:#AFB8C1!important}
+body .pbos-footer-link,body .footer-linkedin{color:#E5B642!important}
+@media(max-width:760px){body .container,body .wrap,body .cases-section,body .hero-content,body .hero-footer,body .nav,body footer,body .section,body header{padding-left:20px!important;padding-right:20px!important}}
+
+
+/* Language control */
+.portfolio-language-switcher{
+  position:fixed;top:18px;right:18px;z-index:1100;display:flex;gap:2px;
+  padding:3px;border:1px solid rgba(229,182,66,.22);border-radius:6px;
+  background:rgba(9,13,18,.94);backdrop-filter:blur(8px);box-shadow:0 6px 20px rgba(0,0,0,.18)
+}
+.portfolio-language-switcher a{
+  min-width:34px;padding:7px 8px;text-align:center;text-decoration:none;
+  font:600 9px/1 'Orbitron',sans-serif;letter-spacing:.08em;color:#AFB8C1!important;
+  border-radius:4px;transition:.2s ease
+}
+.portfolio-language-switcher a:hover,.portfolio-language-switcher a.active{background:#E5B642;color:#090D12!important}
+@media(max-width:760px){.portfolio-language-switcher{top:12px;right:12px}.portfolio-language-switcher a{min-width:31px;padding:7px 6px}}
+</style>
 </head>
-<body><div class="top"></div><a class="back" href="index.html">← VOLTAR</a><main class="container">
+<body>
+<div class="portfolio-language-switcher" aria-label="Idioma"><a href="#" data-lang="pt" class="active">PT</a><a href="#" data-lang="en">EN</a></div><div class="top"></div><a class="back" href="index.html">← VOLTAR</a><main class="container">
 <section class="hero"><div class="eyebrow">CASO 05 · PAV RECEITA FEDERAL · MARICÁ</div><h1>Levar o serviço até o cidadão, sem criar um novo caminho do zero.</h1><p class="lead">Participação na Discovery, estruturação de requisitos, alinhamento com a Receita Federal e implementação dos Pontos de Atendimento Virtual em três regiões de Maricá.</p></section>
 <div class="meta"><div><small>Contexto</small><strong>Prefeitura de Maricá · SEGET</strong></div><div><small>Atuação</small><strong>Discovery · Service Design · Product Ops</strong></div><div><small>Stakeholders</small><strong>Cidadãos · Prefeitura · Receita Federal</strong></div><div><small>Escala</small><strong>Implementação em 3 unidades</strong></div></div>
 <section class="section"><h2>O problema</h2><div class="grid"><div class="card"><h3>Acesso distante</h3><p>Para resolver determinadas pendências, o cidadão de Maricá precisava recorrer a unidades da Receita Federal fora do município, tornando o atendimento presencial mais difícil e custoso.</p></div><div class="card"><h3>Uma oportunidade local</h3><p>A demanda da Prefeitura abriu a possibilidade de aproximar parte desses serviços da população por meio do modelo de Ponto de Atendimento Virtual da Receita Federal.</p></div><div class="card"><h3>Não era criar um serviço do zero</h3><p>A Receita Federal já possuía um modelo de PAV utilizado em outros municípios e uma estrutura de serviços. O desafio era entender o problema local e viabilizar a implantação dentro desse modelo.</p></div><div class="card"><h3>Dependência entre organizações</h3><p>A solução exigia alinhamento entre Prefeitura e Receita Federal, além de requisitos físicos, tecnológicos, operacionais e de atendimento.</p></div></div></section>
