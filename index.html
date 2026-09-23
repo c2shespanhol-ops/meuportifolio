@@ -1,343 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cleyton Hespanhol | Product Owner | UX</title>
-<meta name="description" content="Portfólio profissional de Cleyton Hespanhol. Experiência em Product Discovery, backlog, priorização, User Stories, critérios de aceitação, UAT/OAT, Jira, Kanban, UX e melhoria contínua.">
-<meta name="keywords" content="Product Owner, Product Discovery, Backlog, Priorização, User Stories, Acceptance Criteria, Jira, Kanban, UAT, UX, SaaS B2B, Service Design">
+<meta name="description" content="Portfólio profissional de Cleyton Hespanhol. Product Discovery, backlog, priorização, UX, Jira, Kanban, UAT/OAT e melhoria contínua.">
 <meta name="author" content="Cleyton S. Hespanhol">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Cleyton Hespanhol | Product Owner | UX">
-<meta property="og:description" content="Experiência real na interface entre usuários, negócio e tecnologia, com evidências em Discovery, fluxo de demandas, priorização, validação e melhoria contínua.">
-<meta property="og:type" content="profile">
-<meta property="og:locale" content="pt_BR">
+<meta property="og:description" content="Experiência na interface entre usuários, negócio e tecnologia.">
+<link rel="stylesheet" href="portfolio-theme.css?v=20260922">
 <script src="portfolio-language.js?v=20260922" defer></script>
 <style>
-  :root{
-    --max:1180px;
-    --pad:clamp(20px,4vw,48px);
-    --section:clamp(72px,9vw,116px);
-  }
-  .site-header{
-    max-width:var(--max);margin:0 auto;padding:28px var(--pad);
-    display:flex;align-items:center;justify-content:space-between;
-    border-bottom:1px solid var(--pbos-border-soft);
-  }
-  .brand{display:flex;align-items:center;gap:14px}
-  .brand-mark{
-    width:46px;height:46px;border:1.5px solid var(--pbos-gold);border-radius:50%;
-    display:grid;place-items:center;color:var(--pbos-text);font:600 18px/1 'DM Sans',sans-serif;
-  }
-  .brand-name{font:500 17px/1 'DM Sans',sans-serif;letter-spacing:.16em;color:var(--pbos-text)}
-  .brand-role{
-    font:500 9px/1.4 'Orbitron',sans-serif;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--pbos-gold);margin-top:7px;
-  }
-  .hero-home{max-width:var(--max);margin:0 auto;padding:var(--section) var(--pad) 96px}
-  .hero-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(240px,.55fr);gap:80px;align-items:end}
-  .eyebrow-home{font:500 10px/1.5 'Orbitron',sans-serif;letter-spacing:.18em;color:var(--pbos-gold);text-transform:uppercase;margin-bottom:24px}
-  .hero-home h1{font-size:clamp(48px,7vw,86px);font-weight:300;line-height:1.02;letter-spacing:-.05em;margin-bottom:30px;max-width:950px}
-  .hero-home h1 span{color:var(--pbos-gold)}
-  .hero-lead{font-size:clamp(21px,2.8vw,32px);line-height:1.35!important;color:var(--pbos-text)!important;max-width:900px;margin-bottom:24px}
-  .hero-support{font-size:16px;max-width:760px;margin-bottom:34px}
-  .hero-links{display:flex;flex-wrap:wrap;gap:10px}
-  .hero-link{
-    display:inline-flex;align-items:center;min-height:42px;padding:10px 16px;
-    border:1px solid var(--pbos-border);border-radius:8px;
-    color:var(--pbos-text)!important;font:500 10px/1 'Orbitron',sans-serif;letter-spacing:.08em;text-transform:uppercase;
-  }
-  .hero-link.primary{background:var(--pbos-gold);color:var(--pbos-bg)!important;border-color:var(--pbos-gold)}
-  .hero-link:hover{border-color:var(--pbos-gold)}
-  .hero-proof{border-left:1px solid var(--pbos-gold);padding-left:28px}
-  .hero-proof .number{font-size:clamp(70px,10vw,110px);line-height:.9;letter-spacing:-.06em}
-  .hero-proof .label{display:block;margin-top:18px;line-height:1.7!important}
-  .hero-proof p{font-size:13px;margin-top:10px}
-  
-  .section-home{max-width:var(--max);margin:0 auto;padding:var(--section) var(--pad)}
-  .section-intro{display:grid;grid-template-columns:.7fr 1.3fr;gap:70px;margin-bottom:42px}
-  .section-kicker{font:500 10px/1.5 'Orbitron',sans-serif;letter-spacing:.16em;color:var(--pbos-gold);text-transform:uppercase}
-  .section-home h2{margin:0;max-width:780px}
-  .section-home .intro-text{font-size:18px;max-width:780px}
-  
-  .proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-  .proof-card{padding:26px;min-height:178px}
-  .proof-card .proof-number{font:300 clamp(42px,5vw,58px)/1 'DM Sans',sans-serif;color:var(--pbos-gold);letter-spacing:-.04em}
-  .proof-card h3{font-size:13px;text-transform:uppercase;letter-spacing:.06em;margin:14px 0 7px}
-  .proof-card p{font-size:13px!important;line-height:1.6!important}
-  
-  .cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-  .cap-card{padding:28px;min-height:240px}
-  .cap-index{font:500 9px/1 'Orbitron',sans-serif;color:var(--pbos-gold);letter-spacing:.15em}
-  .cap-card h3{margin:28px 0 12px;font-size:21px}
-  .cap-card p{font-size:14px!important}
-  .cap-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
-  .cap-tags span{font:500 8px/1 'Orbitron',sans-serif;color:var(--pbos-gold);letter-spacing:.07em;border:1px solid var(--pbos-border);padding:7px 8px;border-radius:6px}
-  
-  .method-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
-  .method-step{padding:24px;position:relative}
-  .method-step .step-no{font:500 9px/1 'Orbitron',sans-serif;color:var(--pbos-gold);letter-spacing:.14em}
-  .method-step h3{font-size:18px;margin:26px 0 10px}
-  .method-step p{font-size:13px!important}
-  
-  .cases-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:36px}
-  .cases-head p{max-width:580px;margin:0;font-size:15px}
-  .case-grid-home{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-  .case-card-home{padding:30px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between}
-  .case-card-home .case-meta{display:block;margin-bottom:18px}
-  .case-card-home h3{font-size:25px;margin-bottom:13px}
-  .case-card-home p{font-size:14px!important}
-  .case-tags{display:flex;flex-wrap:wrap;gap:7px;margin:22px 0}
-  .case-tags span{font:500 8px/1 'Orbitron',sans-serif;color:var(--pbos-gold);letter-spacing:.07em;border:1px solid var(--pbos-border);padding:7px 8px;border-radius:6px}
-  .case-open{font:500 9px/1 'Orbitron',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--pbos-gold)!important}
-  .case-card-home:hover .case-open{text-decoration:underline;text-underline-offset:5px}
-  
-  .truth-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .truth-card{padding:30px}
-  .truth-card h3{font-size:19px;margin-bottom:12px}
-  .truth-card p{font-size:14px!important}
-  .truth-card strong{color:var(--pbos-gold)}
-  
-  .contact-section{max-width:var(--max);margin:0 auto;padding:0 var(--pad) var(--section)}
-  .contact-card{
-    border:1px solid var(--pbos-gold);border-radius:14px;padding:42px;
-    display:flex;justify-content:space-between;align-items:center;gap:40px;
-    background:linear-gradient(135deg,rgba(229,182,66,.08),rgba(9,13,18,0));
-  }
-  .contact-card h2{font-size:clamp(30px,4vw,48px);margin-bottom:10px}
-  .contact-card p{max-width:650px}
-  .contact-actions{display:flex;flex-direction:column;gap:10px;min-width:230px}
-  .contact-actions a{border:1px solid var(--pbos-border);padding:12px 14px;border-radius:8px;text-align:center;font:500 9px/1 'Orbitron',sans-serif;letter-spacing:.08em}
-  .contact-actions a:first-child{background:var(--pbos-gold);color:var(--pbos-bg)!important;border-color:var(--pbos-gold)}
-  
-  .site-footer{padding:38px var(--pad);border-top:1px solid var(--pbos-border-soft);text-align:center}
-  .site-footer .signature{font:500 13px/1.5 'DM Sans',sans-serif;color:var(--pbos-text);letter-spacing:.05em}
-  .site-footer .copy{font-size:11px;margin-top:7px}
-  
-  @media(max-width:900px){
-    .hero-grid,.section-intro,.truth-grid{grid-template-columns:1fr}
-    .hero-grid{gap:48px}.hero-proof{max-width:280px}
-    .proof-grid,.cap-grid{grid-template-columns:repeat(2,1fr)}
-    .method-grid{grid-template-columns:repeat(2,1fr)}
-    .section-intro{gap:20px}
-    .contact-card{flex-direction:column;align-items:flex-start}
-    .contact-actions{width:100%;max-width:360px}
-  }
-  @media(max-width:620px){
-    .site-header{padding-top:24px;padding-bottom:24px}
-    .brand-name{font-size:15px}.brand-role{font-size:8px}
-    .hero-home{padding-top:70px;padding-bottom:70px}
-    .hero-home h1{font-size:clamp(42px,12vw,58px)}
-    .hero-lead{font-size:22px}
-    .proof-grid,.cap-grid,.method-grid,.case-grid-home{grid-template-columns:1fr}
-    .proof-card,.cap-card{min-height:0}
-    .cases-head{display:block}.cases-head p{margin-top:16px}
-    .case-card-home{min-height:0}
-    .contact-card{padding:28px}
-  }
-</style>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portfolio-theme.css?v=20260914">
-<style id="pbos-final-overrides">
-html, body { background:#090D12 !important; color:#F7F8FA !important; }
-body { font-family:'DM Sans',sans-serif !important; font-weight:300 !important; }
-body, body main, body header, body footer, body .hero, body .container, body .wrap,
-body .section, body .section-inner, body .cases-section, body .hero-container,
-body .hero-content, body .hero-footer, body .corporate-banner { background-color:#090D12 !important; background-image:none !important; }
-body .hero-bg, body .orb, body [class*="orb"], body [class*="glow"], body [class*="ambient"], body [class*="halo"] { display:none !important; background:none !important; background-image:none !important; box-shadow:none !important; filter:none !important; opacity:0 !important; }
-body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; background-image:none !important; box-shadow:none !important; content:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:#E5B642 !important; background-image:none !important; }
-body h1, body h2, body h3, body h4, body h5, body h6,
-body .hero-title, body .hero-main-text, body .hero-subtitle, body .section-title,
-body .section-heading, body .banner-title, body .eco-title, body .doc-title,
-body .pillar-card h3, body .artifact-card h3, body .case-card h3,
-body .hero-highlight-value, body .metric-display, body .number {
-  font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#F7F8FA !important;
-}
-body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.035em !important; line-height:1.08 !important; }
-body h2, body .section-title, body .section-heading { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
-body h3, body .eco-title, body .case-card h3, body .doc-title { font-weight:400 !important; line-height:1.22 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#53C0CC !important; }
-body .hero-desc, body .hero-sub-text, body .lead, body .banner-desc,
-body .card p, body .pillar-card p, body .artifact-card p, body .case-card p,
-body .competency-desc, body .eco-text, body .step p, body .note, body .metric p,
-body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#AFB8C1 !important; font-weight:300 !important; line-height:1.75 !important; }
-body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text,
-body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label,
-body .artifact-action, body .competency-title, body .eco-role, body .doc-number,
-body .metric-label, body .tag, body .scroll-hint, body .footer-role {
-  font-family:'Orbitron',sans-serif !important; font-style:normal !important; color:#E5B642 !important; letter-spacing:.14em !important;
-}
-body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card,
-body .metric, body .meta, body .hero-highlight-card, body .flow, body .note,
-body .doc-card, body .case-card, body .stat-box { background:#121820 !important; border-color:rgba(229,182,66,.22) !important; box-shadow:none !important; }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover,
-body .competency-card:hover, body .eco-card:hover { background:#19222B !important; border-color:#E5B642 !important; }
-body .back, body .back-btn { background:rgba(9,13,18,.96) !important; color:#E5B642 !important; border-color:rgba(229,182,66,.22) !important; }
-body .back:hover, body .back-btn:hover { background:#E5B642 !important; color:#090D12 !important; }
-body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F7F8FA !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F7F8FA !important; border-color:#E5B642 !important; }
-body .metric-display, body .number { color:#E5B642 !important; font-weight:300 !important; }
-body footer, body .pbos-footer { background:#090D12 !important; border-top-color:rgba(229,182,66,.22) !important; color:#AFB8C1 !important; }
-body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F7F8FA !important; font-weight:400 !important; }
-body .pbos-footer-copy { color:#AFB8C1 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#E5B642 !important; }
-body .btn-case-mock { color:#E5B642 !important; border-color:#E5B642 !important; }
-body .btn-case-mock:hover { background:#E5B642 !important; color:#090D12 !important; }
-body .stat-box { color:#E5B642 !important; }
-@media (max-width:760px) {
-  body .container, body .wrap, body .cases-section, body .hero-content, body .hero-footer,
-  body .nav, body footer, body .section, body header { padding-left:20px !important; padding-right:20px !important; }
-  body .hero-title, body h1 { font-size:clamp(36px,10vw,52px) !important; }
-  body .hero-main-text { font-size:clamp(28px,8vw,40px) !important; }
-  body .section-title, body h2 { font-size:clamp(28px,8vw,40px) !important; }
-}
+:root{--max:1180px;--pad:clamp(20px,4vw,48px);--sec:clamp(68px,9vw,112px)}
+.site-header,.section,.hero,.contact,.site-footer{max-width:var(--max);margin:auto;padding-left:var(--pad);padding-right:var(--pad)}
+.site-header{padding-top:28px;padding-bottom:28px;border-bottom:1px solid var(--pbos-border-soft);display:flex;align-items:center}
+.brand{display:flex;align-items:center;gap:14px}.mark{width:46px;height:46px;border:1.5px solid var(--pbos-gold);border-radius:50%;display:grid;place-items:center;font:600 18px/1 'DM Sans';color:var(--pbos-text)}.brand-name{font:500 17px/1 'DM Sans';letter-spacing:.16em}.brand-role{margin-top:7px;font:500 9px/1 'Orbitron';letter-spacing:.13em;color:var(--pbos-gold);text-transform:uppercase}
+.hero{padding-top:var(--sec);padding-bottom:var(--sec);display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,.5fr);gap:72px;align-items:end}.eyebrow{font:500 10px/1.5 'Orbitron';letter-spacing:.17em;color:var(--pbos-gold);text-transform:uppercase;margin-bottom:24px}.hero h1{font-size:clamp(46px,7vw,82px);font-weight:300;line-height:1.03;letter-spacing:-.05em;margin:0 0 28px}.hero h1 span{color:var(--pbos-gold)}.lead{font-size:clamp(21px,2.8vw,32px);line-height:1.36!important;color:var(--pbos-text)!important;max-width:900px;margin-bottom:20px}.support{max-width:760px;margin-bottom:30px}.actions{display:flex;flex-wrap:wrap;gap:10px}.btn{display:inline-flex;padding:11px 16px;border:1px solid var(--pbos-border);border-radius:8px;color:var(--pbos-text)!important;font:500 9px/1 'Orbitron';letter-spacing:.09em;text-transform:uppercase}.btn.primary{background:var(--pbos-gold);color:var(--pbos-bg)!important;border-color:var(--pbos-gold)}
+.proof{border-left:1px solid var(--pbos-gold);padding-left:26px}.proof .num{font:300 clamp(68px,10vw,110px)/.9 'DM Sans';letter-spacing:-.06em;color:var(--pbos-gold)}.proof .label{display:block;margin-top:18px;font:500 9px/1.7 'Orbitron';letter-spacing:.13em;color:var(--pbos-gold);text-transform:uppercase}.proof p{font-size:13px;margin-top:9px}
+.section{padding-top:var(--sec);padding-bottom:0}.section-head{display:grid;grid-template-columns:.7fr 1.3fr;gap:60px;margin-bottom:38px}.kicker{font:500 10px/1.5 'Orbitron';letter-spacing:.16em;color:var(--pbos-gold);text-transform:uppercase}.section h2{margin:0;font-size:clamp(30px,4vw,52px);font-weight:300;line-height:1.08;letter-spacing:-.035em}.intro{font-size:17px;max-width:780px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.card{padding:27px;min-height:190px}.stat{font:300 clamp(42px,5vw,58px)/1 'DM Sans';color:var(--pbos-gold);letter-spacing:-.04em}.card h3{margin:15px 0 9px;font-size:19px}.card p{font-size:13px!important}.cap{min-height:230px}.cap .idx,.step .idx{font:500 9px/1 'Orbitron';color:var(--pbos-gold);letter-spacing:.14em}.cap h3{margin-top:28px}.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}.tags span{font:500 8px/1 'Orbitron';color:var(--pbos-gold);letter-spacing:.07em;border:1px solid var(--pbos-border);padding:7px 8px;border-radius:6px}.step{min-height:180px}.step h3{margin-top:25px}.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.case{min-height:290px;padding:30px;display:flex;flex-direction:column;justify-content:space-between}.case-meta{font:500 9px/1.5 'Orbitron';letter-spacing:.14em;color:var(--pbos-gold);text-transform:uppercase}.case h3{font-size:25px;margin:18px 0 12px}.open{font:500 9px/1 'Orbitron';letter-spacing:.12em;color:var(--pbos-gold)!important;text-transform:uppercase}.truth{display:grid;grid-template-columns:1fr 1fr;gap:12px}.contact{padding-top:var(--sec);padding-bottom:var(--sec)}.contact-box{border:1px solid var(--pbos-gold);border-radius:14px;padding:40px;display:flex;justify-content:space-between;gap:40px;align-items:center;background:rgba(229,182,66,.05)}.contact-box h2{max-width:700px}.contact-actions{display:flex;flex-direction:column;gap:9px;min-width:220px}.contact-actions a{padding:12px 14px;border:1px solid var(--pbos-border);border-radius:8px;text-align:center;font:500 9px/1 'Orbitron';letter-spacing:.08em;color:var(--pbos-text)!important}.contact-actions a:first-child{background:var(--pbos-gold);color:var(--pbos-bg)!important;border-color:var(--pbos-gold)}
+.site-footer{padding-top:34px;padding-bottom:38px;text-align:center;border-top:1px solid var(--pbos-border-soft)}.signature{font:500 13px/1.5 'DM Sans';color:var(--pbos-text)}.copy{font-size:11px;margin-top:7px}
+@media(max-width:900px){.hero{grid-template-columns:1fr;gap:46px}.section-head{grid-template-columns:1fr;gap:18px}.grid4{grid-template-columns:repeat(2,1fr)}.grid5{grid-template-columns:repeat(2,1fr)}.contact-box{flex-direction:column;align-items:flex-start}.contact-actions{width:100%;max-width:340px}}
+@media(max-width:620px){.site-header{padding-top:23px;padding-bottom:23px}.brand-name{font-size:15px}.brand-role{font-size:8px}.hero{padding-top:70px;padding-bottom:70px}.hero h1{font-size:clamp(42px,12vw,58px)}.lead{font-size:22px}.grid4,.grid5,.cases,.truth{grid-template-columns:1fr}.card,.case{min-height:0}.contact-box{padding:28px}}
 </style>
 </head>
 <body>
-<div class="portfolio-language-switcher" aria-label="Idioma">
-  <a href="#" data-lang="pt" class="active">PT</a>
-  <a href="#" data-lang="en">EN</a>
-</div>
-
-<header class="site-header">
-  <div class="brand">
-    <div class="brand-mark">H</div>
-    <div>
-      <div class="brand-name">HS MIND</div>
-      <div class="brand-role">Portfolio · Product Owner · UX</div>
-    </div>
-  </div>
-</header>
-
+<div class="portfolio-language-switcher" aria-label="Idioma"><a href="#" data-lang="pt" class="active">PT</a><a href="#" data-lang="en">EN</a></div>
+<header class="site-header"><div class="brand"><div class="mark">H</div><div><div class="brand-name">HS MIND</div><div class="brand-role">Portfolio · Product Owner · UX</div></div></div></header>
 <main>
-<section class="hero-home">
-  <div class="hero-grid">
-    <div>
-      <div class="eyebrow-home">CLEYTON S. HESPANHOL · PRODUCT OWNER · UX</div>
-      <h1>Transformar necessidade real em <span>clareza para decidir e entregar.</span></h1>
-      <p class="hero-lead">Experiência na interface entre usuários, negócio e tecnologia, conectando Discovery, backlog, priorização, requisitos, validação e melhoria contínua.</p>
-      <p class="hero-support">Minha trajetória combina Produto, CX e Operações em contextos de SaaS B2B, transformação digital e serviços públicos. O ponto em comum é sempre o mesmo: entender o problema antes de acelerar a solução.</p>
-      <div class="hero-links">
-        <a class="hero-link primary" href="#cases">Explorar cases ↗</a>
-        <a class="hero-link" href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener">LinkedIn ↗</a>
-      </div>
-    </div>
-    <aside class="hero-proof">
-      <div class="number">71%</div>
-      <span class="label">redução de lead time<br>em experiência reportada</span>
-      <p>Resultado associado à reorganização do fluxo de demandas, priorização operacional, Jira/Kanban e validação da entrega.</p>
-    </aside>
-  </div>
-</section>
+<section class="hero"><div><div class="eyebrow">CLEYTON S. HESPANHOL · PRODUCT OWNER · UX</div><h1>Transformar necessidade real em <span>clareza para decidir e entregar.</span></h1><p class="lead">Experiência na interface entre usuários, negócio e tecnologia, conectando Discovery, backlog, priorização, requisitos, validação e melhoria contínua.</p><p class="support">Minha trajetória combina Produto, CX e Operações em SaaS B2B, transformação digital e serviços públicos. O ponto em comum é entender o problema antes de acelerar a solução.</p><div class="actions"><a class="btn primary" href="#cases">Explorar cases ↗</a><a class="btn" href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener">LinkedIn ↗</a></div></div><aside class="proof"><div class="num">71%</div><span class="label">redução de lead time<br>resultado relatado</span><p>Fluxo de solicitações com entradas estruturadas, priorização, Jira/Kanban, rastreabilidade e validação pelo usuário.</p></aside></section>
 
-<section class="section-home">
-  <div class="section-intro">
-    <div class="section-kicker">01 · Evidências</div>
-    <div>
-      <h2>Experiência que pode ser explicada, não apenas declarada.</h2>
-      <p class="intro-text">Os cases registram contexto, problema, ação, decisão, resultado e limites de ownership. Métricas sem validação primária são identificadas como resultados relatados.</p>
-    </div>
-  </div>
-  <div class="proof-grid">
-    <article class="proof-card card"><div class="proof-number">71%</div><h3>Lead time</h3><p>Resultado relatado em fluxo de solicitações estruturado em Jira.</p></article>
-    <article class="proof-card card"><div class="proof-number">27%</div><h3>Demandas recorrentes</h3><p>Redução relatada no contexto SaaS B2B da Habitat.</p></article>
-    <article class="proof-card card"><div class="proof-number">100+</div><h3>Materiais</h3><p>Conteúdos estruturados para conhecimento, autoatendimento e treinamento.</p></article>
-    <article class="proof-card card"><div class="proof-number">3</div><h3>Unidades PAV</h3><p>Implantação acompanhada em Centro, Itaipuaçu e São José.</p></article>
-  </div>
-</section>
+<section class="section"><div class="section-head"><div class="kicker">01 · Evidências</div><div><h2>Experiência que pode ser explicada, não apenas declarada.</h2><p class="intro">Os cases registram contexto, problema, ação, decisão, resultado e limites de ownership.</p></div></div><div class="grid4"><article class="card"><div class="stat">71%</div><h3>Lead time</h3><p>Resultado relatado no fluxo de solicitações.</p></article><article class="card"><div class="stat">27%</div><h3>Demandas recorrentes</h3><p>Redução relatada no contexto SaaS B2B.</p></article><article class="card"><div class="stat">100+</div><h3>Materiais</h3><p>Conteúdos para conhecimento, autoatendimento e treinamento.</p></article><article class="card"><div class="stat">3</div><h3>Unidades PAV</h3><p>Implantação acompanhada em Centro, Itaipuaçu e São José.</p></article></div></section>
 
-<section class="section-home">
-  <div class="section-intro">
-    <div class="section-kicker">02 · Competências</div>
-    <div><h2>O que a experiência demonstra na prática.</h2></div>
-  </div>
-  <div class="cap-grid">
-    <article class="cap-card card"><span class="cap-index">01 · DISCOVERY</span><h3>Entender antes de construir</h3><p>Conversas com usuários, jornada, comportamento, contexto operacional, benchmarking e investigação do problema.</p><div class="cap-tags"><span>Discovery</span><span>Customer Insights</span><span>Service Design</span></div></article>
-    <article class="cap-card card"><span class="cap-index">02 · BACKLOG</span><h3>Estruturar e priorizar</h3><p>Organização de demandas, refinamento, priorização por impacto, User Stories, critérios de aceitação e acompanhamento do fluxo.</p><div class="cap-tags"><span>Backlog</span><span>Prioritization</span><span>Jira</span></div></article>
-    <article class="cap-card card"><span class="cap-index">03 · UX & VALIDATION</span><h3>Validar com o usuário</h3><p>UAT/OAT, testes A/B, validação da entrega, observação de comportamento e melhoria de conteúdo e jornadas.</p><div class="cap-tags"><span>UAT/OAT</span><span>A/B Testing</span><span>UX</span></div></article>
-    <article class="cap-card card"><span class="cap-index">04 · FLOW</span><h3>Melhorar o sistema</h3><p>Kanban, rastreabilidade, análise de gargalos, redução de retrabalho, SLA, melhoria contínua e interface entre áreas.</p><div class="cap-tags"><span>Kanban</span><span>Process Improvement</span><span>Stakeholders</span></div></article>
-  </div>
-</section>
+<section class="section"><div class="section-head"><div class="kicker">02 · Competências</div><div><h2>O que a experiência demonstra na prática.</h2></div></div><div class="grid4"><article class="card cap"><span class="idx">01 · DISCOVERY</span><h3>Entender antes de construir</h3><p>Conversas com usuários, jornada, comportamento, contexto operacional, benchmarking e investigação do problema.</p><div class="tags"><span>Discovery</span><span>Customer Insights</span><span>Service Design</span></div></article><article class="card cap"><span class="idx">02 · BACKLOG</span><h3>Estruturar e priorizar</h3><p>Demandas, refinamento, priorização por impacto, User Stories, critérios de aceitação e fluxo.</p><div class="tags"><span>Backlog</span><span>Prioritization</span><span>Jira</span></div></article><article class="card cap"><span class="idx">03 · UX & VALIDATION</span><h3>Validar com o usuário</h3><p>UAT/OAT, A/B testing, validação da entrega, comportamento e melhoria de jornadas.</p><div class="tags"><span>UAT/OAT</span><span>A/B Testing</span><span>UX</span></div></article><article class="card cap"><span class="idx">04 · FLOW</span><h3>Melhorar o sistema</h3><p>Kanban, rastreabilidade, gargalos, retrabalho, SLA, melhoria contínua e interface entre áreas.</p><div class="tags"><span>Kanban</span><span>Process Improvement</span><span>Stakeholders</span></div></article></div></section>
 
-<section class="section-home">
-  <div class="section-intro">
-    <div class="section-kicker">03 · Forma de trabalhar</div>
-    <div><h2>Um ciclo simples para problemas complexos.</h2><p class="intro-text">A lógica aparece em contextos diferentes, mas mantém a mesma disciplina de pensamento.</p></div>
-  </div>
-  <div class="method-grid">
-    <article class="method-step card"><span class="step-no">01</span><h3>Entender</h3><p>Problema, usuário, contexto e evidências.</p></article>
-    <article class="method-step card"><span class="step-no">02</span><h3>Estruturar</h3><p>Requisitos, jornada, história e critérios claros.</p></article>
-    <article class="method-step card"><span class="step-no">03</span><h3>Priorizar</h3><p>Impacto, urgência, recorrência e capacidade.</p></article>
-    <article class="method-step card"><span class="step-no">04</span><h3>Validar</h3><p>Usuário, comportamento, qualidade e resultado.</p></article>
-    <article class="method-step card"><span class="step-no">05</span><h3>Aprender</h3><p>Gargalos, feedback e melhoria do próximo ciclo.</p></article>
-  </div>
-</section>
+<section class="section"><div class="section-head"><div class="kicker">03 · Forma de trabalhar</div><div><h2>Um ciclo simples para problemas complexos.</h2><p class="intro">Entender, estruturar, priorizar, validar e aprender. A lógica aparece em contextos diferentes.</p></div></div><div class="grid5"><article class="card step"><span class="idx">01</span><h3>Entender</h3><p>Problema, usuário, contexto e evidências.</p></article><article class="card step"><span class="idx">02</span><h3>Estruturar</h3><p>Requisitos, jornada, história e critérios.</p></article><article class="card step"><span class="idx">03</span><h3>Priorizar</h3><p>Impacto, urgência, recorrência e capacidade.</p></article><article class="card step"><span class="idx">04</span><h3>Validar</h3><p>Usuário, comportamento, qualidade e resultado.</p></article><article class="card step"><span class="idx">05</span><h3>Aprender</h3><p>Feedback, gargalos e melhoria do próximo ciclo.</p></article></div></section>
 
-<section class="section-home" id="cases">
-  <div class="cases-head">
-    <div><div class="section-kicker">04 · Cases</div><h2>Experiências em contextos diferentes.</h2></div>
-    <p>Os cinco cases mostram como as competências aparecem em Produto, UX, Operações, SaaS B2B e Service Design, sem transformar experiência operacional em ownership formal de produto.</p>
-  </div>
-  <div class="case-grid-home">
-    <a href="case_study_01_persona_final.html" class="case-card-home card">
-      <div><span class="case-meta">CASO 01 · DISCOVERY · SERVIÇO DIGITAL</span><h3>Assistente Virtual Institucional</h3><p>Estruturação da concepção de um assistente para suporte interno, com visão, personas, jornada, arquitetura conversacional, requisitos e protótipo conceitual.</p></div>
-      <div><div class="case-tags"><span>Discovery</span><span>Journey</span><span>Requirements</span></div><span class="case-open">Ver case ↗</span></div>
-    </a>
-    <a href="case_study_02_leadtime_final.html" class="case-card-home card">
-      <div><span class="case-meta">CASO 02 · FLUXO · JIRA · KANBAN</span><h3>Redução do Lead Time Operacional</h3><p>Organização de um fluxo de solicitações com entradas estruturadas, priorização, rastreabilidade, interface com TI e validação pelo usuário.</p></div>
-      <div><div class="case-tags"><span>71% relatado</span><span>Jira</span><span>Kanban</span></div><span class="case-open">Ver case ↗</span></div>
-    </a>
-    <a href="case_study_03_habitat_final.html" class="case-card-home card">
-      <div><span class="case-meta">CASO 03 · HABITAT · SAAS B2B</span><h3>Da resposta individual ao autoatendimento</h3><p>Discovery com usuários, priorização, User Stories, critérios de aceitação, UAT/OAT, A/B tests, conhecimento por persona e interface com Produto e Desenvolvimento.</p></div>
-      <div><div class="case-tags"><span>27% relatado</span><span>100+ materiais</span><span>A/B Testing</span></div><span class="case-open">Ver case ↗</span></div>
-    </a>
-    <a href="case_study_04_shv_final.html" class="case-card-home card">
-      <div>
-        <span class="case-meta">CASO 04 · SHV ENERGY · OPERAÇÕES</span>
-        <h3>Onboarding e monitoramento preventivo</h3>
-        <p>Jornada dos primeiros abastecimentos, margem preventiva, Salesforce, validação com cliente, histórico de consumo e handoff para abastecimento automático.</p>
-      </div>
-      <div><div class="case-tags"><span>Customer Journey</span><span>Salesforce</span><span>Risk</span></div><span class="case-open">Ver case ↗</span></div>
-    </a>
-    <a href="case_study_05_pav_receita_federal_final.html" class="case-card-home card">
-      <div>
-        <span class="case-meta">CASO 05 · PAV · SERVICE DESIGN</span>
-        <h3>Da Discovery à implantação do PAV</h3>
-        <p>Participação na Discovery, jornada, requisitos, alinhamento com a Receita Federal, benchmark de uma unidade existente, implementação e validação em três unidades.</p>
-      </div>
-      <div><div class="case-tags"><span>3 unidades</span><span>Service Design</span><span>Stakeholders</span></div><span class="case-open">Ver case ↗</span></div>
-    </a>
-  </div>
-</section>
+<section class="section" id="cases"><div class="section-head"><div class="kicker">04 · Cases</div><div><h2>Experiências em contextos diferentes.</h2><p class="intro">Produto, UX, Operações, SaaS B2B e Service Design, sem transformar experiência operacional em ownership formal de produto.</p></div></div><div class="cases">
+<a class="card case" href="case_study_01_persona_final.html"><div><span class="case-meta">CASO 01 · DISCOVERY · SERVIÇO DIGITAL</span><h3>Assistente Virtual Institucional</h3><p>Visão, personas, jornada, arquitetura conversacional, requisitos e protótipo conceitual para uma solução institucional.</p></div><div><div class="tags"><span>Discovery</span><span>Journey</span><span>Requirements</span></div><span class="open">Ver case ↗</span></div></a>
+<a class="card case" href="case_study_02_leadtime_final.html"><div><span class="case-meta">CASO 02 · FLUXO · JIRA · KANBAN</span><h3>Redução do Lead Time Operacional</h3><p>Entradas estruturadas, priorização, rastreabilidade, interface com TI e validação pelo usuário.</p></div><div><div class="tags"><span>71% relatado</span><span>Jira</span><span>Kanban</span></div><span class="open">Ver case ↗</span></div></a>
+<a class="card case" href="case_study_03_habitat_final.html"><div><span class="case-meta">CASO 03 · HABITAT · SAAS B2B</span><h3>Da resposta individual ao autoatendimento</h3><p>Discovery, priorização, User Stories, critérios de aceitação, UAT/OAT, A/B tests e conhecimento por persona.</p></div><div><div class="tags"><span>27% relatado</span><span>100+ materiais</span><span>A/B Testing</span></div><span class="open">Ver case ↗</span></div></a>
+<a class="card case" href="case_study_04_shv_final.html"><div><span class="case-meta">CASO 04 · SHV ENERGY · OPERAÇÕES</span><h3>Onboarding e monitoramento preventivo</h3><p>Primeiros abastecimentos, margem preventiva, Salesforce, validação com cliente, histórico e handoff para o fluxo automático.</p></div><div><div class="tags"><span>Customer Journey</span><span>Salesforce</span><span>Risk</span></div><span class="open">Ver case ↗</span></div></a>
+<a class="card case" href="case_study_05_pav_receita_federal_final.html"><div><span class="case-meta">CASO 05 · PAV · SERVICE DESIGN</span><h3>Da Discovery à implantação do PAV</h3><p>Discovery, jornada, requisitos, alinhamento com a Receita Federal, benchmark, implementação e validação em três unidades.</p></div><div><div class="tags"><span>3 unidades</span><span>Service Design</span><span>Stakeholders</span></div><span class="open">Ver case ↗</span></div></a>
+</div></section>
 
-<section class="section-home">
-  <div class="section-intro">
-    <div class="section-kicker">05 · Transparência</div>
-    <div><h2>Experiência real exige limite claro.</h2></div>
-  </div>
-  <div class="truth-grid">
-    <article class="truth-card card"><h3>O que os cases sustentam</h3><p>Discovery, entendimento de usuários, backlog e priorização em contextos específicos, User Stories, critérios de aceitação, Jira/Kanban, UAT/OAT, experimentação, Service Design, stakeholder management e melhoria contínua.</p></article>
-    <article class="truth-card card"><h3>O que não é atribuído sem evidência</h3><p><strong>Product Strategy, Product Vision, Product Backlog ownership, roadmap, métricas de produto e frameworks formais de priorização</strong> só são apresentados quando existe evidência suficiente. A precisão faz parte do portfólio.</p></article>
-  </div>
-</section>
+<section class="section"><div class="section-head"><div class="kicker">05 · Transparência</div><div><h2>Experiência real exige limite claro.</h2></div></div><div class="truth"><article class="card"><h3>O que os cases sustentam</h3><p>Discovery, entendimento de usuários, backlog e priorização em contextos específicos, User Stories, critérios de aceitação, Jira/Kanban, UAT/OAT, experimentação, Service Design, stakeholders e melhoria contínua.</p></article><article class="card"><h3>O que não é atribuído sem evidência</h3><p><strong>Product Strategy, Product Vision, Product Backlog ownership, roadmap e métricas de produto</strong> só aparecem quando existe evidência suficiente.</p></article></div></section>
 
-<section class="contact-section">
-  <div class="contact-card">
-    <div><div class="section-kicker">06 · Próximo passo</div><h2>Vamos conversar sobre o problema antes da solução.</h2><p>Aberto a oportunidades de Product Owner e funções de Produto/UX em que Discovery, clareza operacional, priorização e experiência do usuário sejam parte do trabalho.</p></div>
-    <div class="contact-actions">
-      <a href="mailto:cleyton.s.hespanhol@gmail.com">Entrar em contato</a>
-      <a href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener">LinkedIn ↗</a>
-    </div>
-  </div>
-</section>
+<section class="contact"><div class="contact-box"><div><div class="kicker">06 · Próximo passo</div><h2>Vamos conversar sobre o problema antes da solução.</h2><p>Aberto a oportunidades de Product Owner e funções de Produto/UX em que Discovery, clareza operacional, priorização e experiência do usuário façam parte do trabalho.</p></div><div class="contact-actions"><a href="mailto:cleyton.s.hespanhol@gmail.com">Entrar em contato</a><a href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener">LinkedIn ↗</a></div></div></section>
 </main>
-
-<footer class="pbos-footer">
-  <div class="pbos-footer-signature">Cleyton Hespanhol | Product Owner | UX</div>
-  <div class="pbos-footer-copy">© 2026 Cleyton S. Hespanhol. Todos os direitos reservados.</div>
-  <a class="pbos-footer-link" href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener">linkedin.com/in/cleyton-hespanhol</a>
-</footer>
+<footer class="site-footer"><div class="signature">Cleyton Hespanhol | Product Owner | UX</div><div class="copy">© 2026 Cleyton S. Hespanhol. Todos os direitos reservados.</div></footer>
 </body>
 </html>
