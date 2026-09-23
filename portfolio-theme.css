@@ -1,24 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
 
 :root{
-  --pbos-bg:#090D12;
-  --pbos-surface:#121820;
-  --pbos-surface-2:#1D2228;
-  --pbos-gold:#E5B642;
-  --pbos-gold-soft:#F0C95A;
+  --pbos-bg:#1E2328;
+  --pbos-surface:#202A30;
+  --pbos-surface-2:#27343A;
+  --pbos-gold:#DAAF57;
+  --pbos-gold-soft:#E7C36D;
   --pbos-text:#F5F7FA;
-  --pbos-muted:#B8C0C8;
-  --pbos-muted-2:#7D8790;
-  --pbos-border:rgba(229,182,66,.24);
-  --pbos-border-soft:rgba(245,247,250,.10);
+  --pbos-muted:#D0D6DA;
+  --pbos-muted-2:#98A4AA;
+  --pbos-border:rgba(218,175,87,.30);
+  --pbos-border-soft:rgba(245,247,250,.14);
   --bg:var(--pbos-bg);
   --bg2:var(--pbos-surface);
   --bg3:var(--pbos-surface-2);
   --gold:var(--pbos-gold);
   --gold-lt:var(--pbos-gold-soft);
-  --teal:var(--pbos-gold);
-  --teal-br:var(--pbos-gold);
-  --cyan:var(--pbos-gold);
+  --teal:#26505A;
+  --teal-br:#26505A;
+  --cyan:#26505A;
   --text:var(--pbos-text);
   --text-muted:var(--pbos-muted);
   --white:var(--pbos-text);
@@ -165,3 +165,13 @@ footer,.pbos-footer{
   .portfolio-language-switcher{top:12px;right:12px}
   .portfolio-language-switcher a{min-width:31px;padding:8px 7px}
 }
+
+/* Palette application: dark blue + gold + green + white */
+:root{--pbos-green:#26505A;}
+a{color:var(--pbos-green)}
+strong{color:var(--pbos-text)}
+em{color:var(--pbos-green)!important}
+.eyebrow,.hero-eyebrow,.hero-tags,.case-label-text,.case-meta,.section-label,.nav-role,.nav-tag,.label,.artifact-action,.competency-title,.eco-role,.doc-number,.metric-label,.tag,.scroll-hint,.footer-role{color:var(--pbos-gold)!important}
+.logo-h,.h-mark{border-color:var(--pbos-gold)!important}
+.metric-display,.number{color:var(--pbos-gold)!important}
+.footer-linkedin,.pbos-footer-link{color:var(--pbos-green)!important}
