@@ -1,301 +1,167 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
 
-:root {
-  /* HS MIND approved palette from the new visual reference */
-  --pbos-bg: #090D12;
-  --pbos-surface: #121820;
-  --pbos-surface-2: #19222B;
-  --pbos-gold: #E5B642;
-  --pbos-gold-soft: #E5B642;
-  --pbos-teal: #56C8D4;
-  --pbos-text: #F5F7FA;
-  --pbos-muted: #B8C0C8;
-  --pbos-muted-2: #7D8790;
-  --pbos-border: rgba(229,182,66,.22);
-  --pbos-border-soft: rgba(184,192,200,.14);
-
-  /* Legacy variable aliases used by existing case files */
-  --bg: #090D12;
-  --bg2: #121820;
-  --bg3: #19222B;
-  --gold: #E5B642;
-  --gold-lt: #E5B642;
-  --teal: #56C8D4;
-  --teal-br: #56C8D4;
-  --cyan: #56C8D4;
-  --text: #F5F7FA;
-  --text-muted: #B8C0C8;
-  --white: #F5F7FA;
-  --gray1: #B8C0C8;
-  --gray2: #7D8790;
-  --border: rgba(229,182,66,.22);
+:root{
+  --pbos-bg:#090D12;
+  --pbos-surface:#121820;
+  --pbos-surface-2:#1D2228;
+  --pbos-gold:#E5B642;
+  --pbos-gold-soft:#F0C95A;
+  --pbos-text:#F5F7FA;
+  --pbos-muted:#B8C0C8;
+  --pbos-muted-2:#7D8790;
+  --pbos-border:rgba(229,182,66,.24);
+  --pbos-border-soft:rgba(245,247,250,.10);
+  --bg:var(--pbos-bg);
+  --bg2:var(--pbos-surface);
+  --bg3:var(--pbos-surface-2);
+  --gold:var(--pbos-gold);
+  --gold-lt:var(--pbos-gold-soft);
+  --teal:var(--pbos-gold);
+  --teal-br:var(--pbos-gold);
+  --cyan:var(--pbos-gold);
+  --text:var(--pbos-text);
+  --text-muted:var(--pbos-muted);
+  --white:var(--pbos-text);
+  --gray1:var(--pbos-muted);
+  --gray2:var(--pbos-muted-2);
+  --border:var(--pbos-border);
 }
 
-*, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; background: var(--pbos-bg) !important; }
-html body {
-  background: var(--pbos-bg) !important;
-  color: var(--pbos-text) !important;
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 15px !important;
-  font-weight: 300 !important;
-  line-height: 1.7 !important;
-  overflow-x: hidden;
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--pbos-bg)!important}
+body{
+  margin:0;
+  background:var(--pbos-bg)!important;
+  color:var(--pbos-text)!important;
+  font-family:'DM Sans',sans-serif!important;
+  font-size:16px!important;
+  font-weight:300!important;
+  line-height:1.72!important;
+  overflow-x:hidden;
 }
-html body a { color: var(--pbos-gold) !important; }
+a{color:var(--pbos-gold);text-decoration:none}
+::selection{background:var(--pbos-gold);color:var(--pbos-bg)}
 
-/* Remove visual effects that were unique to Case 02. */
-html body .hero-bg,
-html body .orb,
-html body [class*="orb"],
-html body [class*="glow"],
-html body [class*="ambient"],
-html body [class*="halo"] {
-  display: none !important;
-  background: none !important;
-  background-image: none !important;
-  box-shadow: none !important;
-  filter: none !important;
-  opacity: 0 !important;
+h1,h2,h3,h4,h5,h6{
+  font-family:'DM Sans',sans-serif!important;
+  color:var(--pbos-text)!important;
+  font-style:normal!important;
 }
-html body .hero::before,
-html body .hero::after,
-html body main::before,
-html body main::after {
-  background: none !important;
-  background-image: none !important;
-  box-shadow: none !important;
-  content: none !important;
-}
+h1{font-size:clamp(42px,6vw,76px);font-weight:400;line-height:1.06;letter-spacing:-.045em}
+h2{font-size:clamp(32px,4vw,52px);font-weight:400;line-height:1.1;letter-spacing:-.035em}
+h3{font-size:22px;font-weight:500;line-height:1.25;letter-spacing:-.015em}
 
-/* Global page surfaces. */
-html body main,
-html body header,
-html body footer,
-html body .hero,
-html body .container,
-html body .wrap,
-html body .section,
-html body .section-inner,
-html body .cases-section,
-html body .hero-container,
-html body .hero-content,
-html body .hero-footer,
-html body .corporate-banner,
-html body section[style*="background"] {
-  background-color: var(--pbos-bg) !important;
-  background-image: none !important;
+p,li,td,th{
+  font-family:'DM Sans',sans-serif!important;
+  color:var(--pbos-muted)!important;
+  font-weight:300!important;
+  line-height:1.78!important;
+}
+strong{color:var(--pbos-text);font-weight:500}
+em{font-style:normal;color:var(--pbos-gold)!important}
+
+.eyebrow,.hero-eyebrow,.hero-tags,.case-label-text,.case-meta,.section-label,
+.nav-role,.nav-tag,.label,.artifact-action,.competency-title,.eco-role,.doc-number,
+.metric-label,.tag,.scroll-hint,.footer-role{
+  font-family:'Orbitron',sans-serif!important;
+  color:var(--pbos-gold)!important;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.16em!important;
+  text-transform:uppercase;
 }
 
-html body .top,
-html body .gold-accent-top {
-  height: 2px !important;
-  background: var(--pbos-gold) !important;
-  background-image: none !important;
+.card,.pillar-card,.artifact-card,.competency-card,.eco-card,.metric,.meta,
+.hero-highlight-card,.flow,.note,.doc-card,.case-card,.stat-box{
+  background:var(--pbos-surface)!important;
+  border:1px solid var(--pbos-border)!important;
+  box-shadow:none!important;
+  border-radius:12px!important;
 }
 
-/* Typography: DM Sans for communication, Orbitron only for technical labels. */
-html body h1,
-html body h2,
-html body h3,
-html body h4,
-html body h5,
-html body h6,
-html body .hero-title,
-html body .hero-main-text,
-html body .hero-subtitle,
-html body .section-title,
-html body .section-heading,
-html body .banner-title,
-html body .eco-title,
-html body .doc-title,
-html body .pillar-card h3,
-html body .artifact-card h3,
-html body .case-card h3,
-html body .hero-highlight-value,
-html body .metric-display,
-html body .number {
-  font-family: 'DM Sans', sans-serif !important;
-  font-style: normal !important;
-  color: var(--pbos-text) !important;
-}
-html body h1, html body .hero-title {
-  font-size: clamp(40px, 6vw, 70px) !important;
-  font-weight: 600 !important;
-  line-height: 1.1 !important;
-  letter-spacing: -0.035em !important;
-}
-html body h2, html body .section-title, html body .section-heading {
-  font-size: clamp(30px, 4vw, 48px) !important;
-  font-weight: 500 !important;
-  line-height: 1.15 !important;
-  letter-spacing: -0.025em !important;
-}
-html body h3, html body .eco-title, html body .case-card h3, html body .doc-title {
-  font-size: 22px !important;
-  font-weight: 500 !important;
-  line-height: 1.25 !important;
-}
-html body .hero-main-text {
-  font-size: clamp(25px, 4vw, 42px) !important;
-  font-weight: 400 !important;
-  line-height: 1.25 !important;
-}
-html body em,
-html body .hero-title em,
-html body .hero-main-text em,
-html body .section-title em,
-html body .section-heading em,
-html body .banner-desc em {
-  font-family: 'DM Sans', sans-serif !important;
-  font-style: normal !important;
-  color: var(--pbos-gold) !important;
+.card:hover,.pillar-card:hover,.artifact-card:hover,.competency-card:hover,
+.eco-card:hover,.case-card:hover,.doc-card:hover{
+  background:var(--pbos-surface-2)!important;
+  border-color:var(--pbos-gold)!important;
+  transform:translateY(-2px);
 }
 
-html body .hero-desc,
-html body .hero-sub-text,
-html body .lead,
-html body .banner-desc,
-html body .card p,
-html body .pillar-card p,
-html body .artifact-card p,
-html body .case-card p,
-html body .competency-desc,
-html body .eco-text,
-html body .step p,
-html body .note,
-html body .metric p,
-html body .footer-copy,
-html body .footer-right {
-  font-family: 'DM Sans', sans-serif !important;
-  color: var(--pbos-muted) !important;
-  font-size: 15px !important;
-  font-weight: 300 !important;
-  line-height: 1.75 !important;
+.hero-bg,.orb,[class*="orb"],[class*="glow"],[class*="ambient"],[class*="halo"]{
+  display:none!important;
+  background:none!important;
+  box-shadow:none!important;
+  filter:none!important;
 }
 
-html body .eyebrow,
-html body .hero-eyebrow,
-html body .hero-tags,
-html body .case-label-text,
-html body .case-meta,
-html body .section-label,
-html body .nav-role,
-html body .nav-tag,
-html body .label,
-html body .artifact-action,
-html body .competency-title,
-html body .eco-role,
-html body .doc-number,
-html body .metric-label,
-html body .tag,
-html body .scroll-hint,
-html body .footer-role {
-  font-family: 'Orbitron', sans-serif !important;
-  font-style: normal !important;
-  color: var(--pbos-gold) !important;
-  letter-spacing: .12em !important;
+.hero::before,.hero::after,main::before,main::after{
+  background:none!important;
+  box-shadow:none!important;
+  content:none!important;
 }
 
-html body .logo-h,
-html body .h-mark {
-  font-family: 'DM Sans', sans-serif !important;
-  font-weight: 700 !important;
-  color: var(--pbos-text) !important;
-  background: transparent !important;
-  border-color: var(--pbos-gold) !important;
-}
-html body .logo-text,
-html body .nav-name {
-  font-family: 'DM Sans', sans-serif !important;
-  color: var(--pbos-text) !important;
+.top,.gold-accent-top{
+  height:2px!important;
+  background:var(--pbos-gold)!important;
 }
 
-/* Shared cards. */
-html body .card,
-html body .pillar-card,
-html body .artifact-card,
-html body .competency-card,
-html body .eco-card,
-html body .metric,
-html body .meta,
-html body .hero-highlight-card,
-html body .flow,
-html body .note,
-html body .doc-card,
-html body .case-card,
-html body .stat-box {
-  background: var(--pbos-surface) !important;
-  border-color: var(--pbos-border) !important;
-  box-shadow: none !important;
+.back,.back-btn{
+  font-family:'Orbitron',sans-serif!important;
+  font-size:9px!important;
+  font-weight:600!important;
+  letter-spacing:.12em!important;
+  background:rgba(9,13,18,.96)!important;
+  color:var(--pbos-gold)!important;
+  border:1px solid var(--pbos-border)!important;
+  border-radius:8px!important;
+  box-shadow:none!important;
 }
-html body .card:hover,
-html body .pillar-card:hover,
-html body .artifact-card:hover,
-html body .competency-card:hover,
-html body .eco-card:hover,
-html body .case-card:hover,
-html body .doc-card:hover {
-  background: var(--pbos-surface-2) !important;
-  border-color: var(--pbos-gold) !important;
+.back:hover,.back-btn:hover{background:var(--pbos-gold)!important;color:var(--pbos-bg)!important}
+
+.logo-h,.h-mark{
+  font-family:'DM Sans',sans-serif!important;
+  font-weight:600!important;
+  color:var(--pbos-text)!important;
+  background:transparent!important;
+  border-color:var(--pbos-gold)!important;
 }
-html body .metric-display,
-html body .number {
-  color: var(--pbos-gold) !important;
+.logo-text,.nav-name{
+  font-family:'DM Sans',sans-serif!important;
+  color:var(--pbos-text)!important;
 }
 
-/* Controls. */
-html body .back,
-html body .back-btn {
-  font-family: 'Orbitron', sans-serif !important;
-  font-size: 10px !important;
-  font-weight: 600 !important;
-  background: rgba(9,13,18,.96) !important;
-  color: var(--pbos-gold) !important;
-  border-color: var(--pbos-border) !important;
-  border-radius: 4px !important;
+.metric-display,.number{color:var(--pbos-gold)!important;font-weight:400!important}
+footer,.pbos-footer{
+  background:var(--pbos-bg)!important;
+  border-top:1px solid var(--pbos-border)!important;
+  color:var(--pbos-muted)!important;
 }
-html body .back:hover,
-html body .back-btn:hover {
-  background: var(--pbos-gold) !important;
-  color: var(--pbos-bg) !important;
+.pbos-footer-signature{font-family:'DM Sans',sans-serif!important;color:var(--pbos-text)!important;font-weight:500!important}
+.pbos-footer-copy{color:var(--pbos-muted)!important}
+.pbos-footer-link,.footer-linkedin{color:var(--pbos-gold)!important}
+
+.portfolio-language-switcher{
+  position:fixed;top:18px;right:18px;z-index:1100;
+  display:flex;gap:2px;padding:3px;
+  border:1px solid var(--pbos-border);border-radius:8px;
+  background:rgba(9,13,18,.94);
+  backdrop-filter:blur(10px);
+}
+.portfolio-language-switcher a{
+  min-width:34px;padding:8px 9px;
+  text-align:center;text-decoration:none;
+  font:600 9px/1 'Orbitron',sans-serif;
+  letter-spacing:.08em;color:var(--pbos-muted)!important;
+  border-radius:6px;
+}
+.portfolio-language-switcher a:hover,
+.portfolio-language-switcher a.active{
+  background:var(--pbos-gold);color:var(--pbos-bg)!important;
 }
 
-/* Footer. */
-html body .pbos-footer,
-html body footer {
-  background: var(--pbos-bg) !important;
-  border-top: 1px solid var(--pbos-border) !important;
-  color: var(--pbos-muted) !important;
-}
-html body .pbos-footer-signature {
-  font-family: 'DM Sans', sans-serif !important;
-  color: var(--pbos-text) !important;
-  font-weight: 500 !important;
-}
-html body .pbos-footer-copy { color: var(--pbos-muted) !important; }
-html body .pbos-footer-link,
-html body .footer-linkedin { color: var(--pbos-gold) !important; }
-
-@media (max-width: 760px) {
-  html body header,
-  html body .container,
-  html body .wrap,
-  html body .cases-section,
-  html body .hero-content,
-  html body .hero-footer,
-  html body .nav,
-  html body footer,
-  html body .section,
-  html body .hero,
-  html body .corporate-banner {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-  html body h1, html body .hero-title {
-    font-size: clamp(34px, 10vw, 48px) !important;
-  }
-  html body h2, html body .section-title, html body .section-heading {
-    font-size: clamp(28px, 8vw, 38px) !important;
-  }
+@media(max-width:760px){
+  body{font-size:15px!important}
+  h1{font-size:clamp(38px,11vw,54px)}
+  h2{font-size:clamp(30px,9vw,42px)}
+  .portfolio-language-switcher{top:12px;right:12px}
+  .portfolio-language-switcher a{min-width:31px;padding:8px 7px}
 }
