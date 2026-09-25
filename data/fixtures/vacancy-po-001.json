@@ -1,0 +1,21 @@
+{
+  "id":"fixture-po-001",
+  "source":"manual",
+  "source_ref":"internal-fixture",
+  "title":"Product Owner",
+  "company":"Example Company",
+  "url":"https://example.com/jobs/product-owner",
+  "location":{"raw":"Remote","country":"Brasil","remote":true,"hybrid":false,"onsite":false},
+  "description":"Internal test fixture. Not a real vacancy.",
+  "normalized":{
+    "seniority":["pleno"],
+    "must_have":["Product Discovery","Jira","Stakeholder Management"],
+    "preferred":["SaaS B2B","UX"],
+    "tools":["Jira","Kanban"],
+    "responsibilities":["User Stories","Acceptance Criteria","UAT/OAT"],
+    "domain_terms":["SaaS B2B"],
+    "keywords":["Product Owner","Product Discovery","Backlog Management","Jira","UX","Kanban"]
+  },
+  "captured_at":"2026-09-24T00:00:00Z",
+  "dedupe_key":"example-company|product-owner|remote"
+}
