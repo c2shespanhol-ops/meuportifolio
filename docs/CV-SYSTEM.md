@@ -1,8 +1,14 @@
 # CV System 2.0
 
-## Objetivo
+## Fonte primária
 
-Manter um currículo principal em português e uma versão nativa em inglês, ambos orientados a Product Owner e construídos a partir de evidências verificáveis.
+Para experiência profissional, formação, competências e demais dados de carreira, o LinkedIn é a fonte primária.
+
+Fluxo: LinkedIn → snapshot datado → Career Profile → Job Pack → CV adaptado
+
+O currículo não deve ser montado diretamente a partir de memória conversacional ou de uma versão antiga do CV.
+
+Cases, certificados e outros documentos podem complementar e validar evidências, mas não devem contradizer a fonte primária sem revisão humana.
 
 ## Regras
 
@@ -11,33 +17,8 @@ Manter um currículo principal em português e uma versão nativa em inglês, am
 - Experiência de contribuição, influência, exposição e ownership devem permanecer semanticamente distintas.
 - Palavras-chave ATS podem ser incorporadas quando forem verdadeiras para a trajetória.
 - Métricas devem preservar o contexto do case de origem.
-- O CV deve ser legível por ATS e também por recrutadores humanos.
-- A adaptação futura por vaga será derivada do CV-base, nunca escrita do zero sem evidência.
+- A adaptação por vaga deve ser derivada do perfil profissional aprovado, cuja origem é um snapshot do LinkedIn.
 
-## Estrutura
+## Regra de atualização
 
-1. Nome e posicionamento
-2. Resumo profissional
-3. Competências-chave
-4. Resultados selecionados
-5. Experiência profissional
-6. Formação
-7. Certificações e desenvolvimento
-8. Idiomas
-
-## Arquivos atuais
-
-- `cv/cv-pt.html`: versão ATS em português.
-- `cv/cv-en.html`: versão ATS nativa em inglês.
-
-## Próxima evolução
-
-O Career OS poderá gerar uma versão específica para cada Job Pack usando:
-
-`requisitos da vaga → palavras-chave → evidências verificadas → seleção de experiências → CV adaptado`
-
-A saída deverá registrar quais evidências sustentaram cada adaptação.
-
-## Limite
-
-O currículo não deve transformar experiência operacional em ownership formal de Produto. A força do posicionamento está em demonstrar práticas concretas de Discovery, priorização, requisitos, validação, UX, Jira/Kanban, Scrum e interface com stakeholders, preservando o contexto de cada experiência.
+Quando o LinkedIn mudar: capturar novo snapshot, comparar com o anterior, revisar alterações materiais, atualizar o Career Profile e regenerar os CVs afetados.
