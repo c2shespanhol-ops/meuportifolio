@@ -63,6 +63,20 @@ function emptySalary() {
   };
 }
 
+function buildAdaptedCv(profile, keywords, competencies) {
+  const baseSkills = Array.isArray(profile?.skills) ? profile.skills : [];
+  const skills = unique([...competencies, ...keywords, ...baseSkills]).slice(0, 12);
+  const metrics = Array.isArray(profile?.metrics) ? profile.metrics : [];
+
+  return {
+    title: profile?.title ?? "Product Owner | UX",
+    summary: profile?.positioning ??
+      "Product Owner com atuação complementar em UX, conectando usuários, negócio e tecnologia.",
+    skills,
+    metrics
+  };
+}
+
 export function buildJobPack(vacancy, evidenceClaims, profile, options = {}) {
   const match = matchVacancy(vacancy, evidenceClaims);
   const keywords = verifiedKeywords(vacancy, evidenceClaims);
@@ -90,6 +104,7 @@ export function buildJobPack(vacancy, evidenceClaims, profile, options = {}) {
     presentation: buildPresentation(vacancy, match, profile),
     competencies,
     salary,
+    adapted_cv: buildAdaptedCv(profile, keywords, competencies),
     status: reviewReasons.length ? "review_required" : "ready_for_review",
     review_reasons: reviewReasons,
     matcher: match
