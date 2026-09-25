@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Career OS: análise de vagas, evidências e Job Pack para a busca de Product Owner.">
+  <title>Career OS | Product Owner</title>
+  <style>
+    :root{--bg:#1E2328;--panel:#26505A;--gold:#DAAF57;--text:#F5F7FA;--muted:#b9c4c9;--line:#476d75}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+    main{max-width:1180px;margin:auto;padding:40px 20px 64px}header{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:28px}
+    h1{margin:0;font-size:clamp(32px,5vw,52px)}h2{margin-top:0}.eyebrow{color:var(--gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .muted{color:var(--muted)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{background:#182126;border:1px solid var(--line);border-radius:16px;padding:20px}
+    textarea{width:100%;min-height:280px;background:#11171a;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:14px;resize:vertical}
+    button{background:var(--gold);color:#1E2328;border:0;border-radius:9px;padding:11px 16px;font-weight:800;cursor:pointer}button:hover{filter:brightness(1.05)}
+    .actions{display:flex;gap:10px;align-items:center;margin-top:12px}.status{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .metric{border:1px solid var(--line);border-radius:12px;padding:14px}.metric strong{display:block;font-size:26px}.match{border-left:4px solid var(--gold);padding:12px 14px;background:#11171a;border-radius:8px;margin:10px 0}
+    .verified{color:#bfe8c8}.partial{color:#f1d79c}.gap{color:#efb1b1}.unknown{color:#c8c8c8}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.empty{padding:22px;border:1px dashed var(--line);border-radius:10px;color:var(--muted)}
+    @media(max-width:800px){.grid,.cards{grid-template-columns:1fr}header{display:block}}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div><div class="eyebrow">Career OS</div><h1>Job Matcher</h1><p class="muted">Cole uma vaga para transformar requisitos em evidências verificáveis e um ponto de partida para o Job Pack.</p></div>
+    <a href="../index.html" style="color:var(--gold)">← Portfólio</a>
+  </header>
+
+  <section class="grid">
+    <div class="panel">
+      <h2>Entrada da vaga</h2>
+      <p class="muted">Use o JSON normalizado do contrato. Nesta primeira versão, a interface também aceita o fixture de demonstração.</p>
+      <textarea id="vacancy" spellcheck="false"></textarea>
+      <div class="actions"><button id="run">Analisar vaga</button><span id="status" class="status"></span></div>
+    </div>
+    <div class="panel">
+      <h2>Resultado</h2>
+      <div id="result" class="empty">Nenhuma análise executada.</div>
+    </div>
+  </section>
+</main>
+<script type="module">
+  import { matchVacancy } from "./job-matcher.mjs";
+
+  const vacancyEl=document.querySelector("#vacancy");
+  const resultEl=document.querySelector("#result");
+  const statusEl=document.querySelector("#status");
+
+  const evidenceUrl="../data/evidence-map.json";
+  const fixtureUrl="../data/fixtures/vacancy-po-001.json";
+
+  const escapeHtml=(value)=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]));
+  const pct=(value)=>`${value}%`;
+
+  async function load(){
+    const response=await fetch(fixtureUrl);
+    const fixture=await response.json();
+    vacancyEl.value=JSON.stringify(fixture,null,2);
+  }
+
+  function render(result){
+    const groups=["must_have","preferred","tools","responsibilities","domain_terms"];
+    const cards=groups.map(group=>{
+      const s=result.match[group];
+      return `<div class="metric"><strong>${pct(s.coverage)}</strong><span>${group.replaceAll("_"," ")} · ${s.verified}/${s.total} verified</span></div>`;
+    }).join("");
+
+    const details=groups.flatMap(group=>result.matches[group].map(item=>
+      `<div class="match"><strong>${escapeHtml(item.requirement)}</strong> <span class="${item.status}">${item.status}</span><br><span class="muted">${escapeHtml(item.rationale)}</span>${item.evidence?.length?`<br><small>Evidence: ${item.evidence.map(escapeHtml).join(", ")}</small>`:""}</div>`
+    )).join("");
+
+    resultEl.innerHTML=`<p><strong>${escapeHtml(result.title)}</strong> · ${escapeHtml(result.company)}</p><div class="cards">${cards}</div><h3>Requisitos</h3>${details}`;
+  }
+
+  document.querySelector("#run").addEventListener("click",async()=>{
+    statusEl.textContent="Analisando...";
+    try{
+      const vacancy=JSON.parse(vacancyEl.value);
+      const evidence=await (await fetch(evidenceUrl)).json();
+      render(matchVacancy(vacancy,evidence.claims));
+      statusEl.textContent="Análise concluída.";
+    }catch(error){
+      resultEl.innerHTML=`<div class="empty">JSON inválido ou estrutura incompatível: ${escapeHtml(error.message)}</div>`;
+      statusEl.textContent="";
+    }
+  });
+
+  load().catch(()=>{vacancyEl.value="";});
+</script>
+</body>
+</html>
