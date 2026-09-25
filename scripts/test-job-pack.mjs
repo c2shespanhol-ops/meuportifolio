@@ -1,0 +1,29 @@
+import fs from "node:fs";
+import { buildJobPack } from "../career-os/job-pack.mjs";
+
+const vacancy = JSON.parse(fs.readFileSync("data/fixtures/vacancy-po-001.json", "utf8"));
+const evidence = JSON.parse(fs.readFileSync("data/evidence-map.json", "utf8"));
+const profile = JSON.parse(fs.readFileSync("data/profile.json", "utf8"));
+
+const pack = buildJobPack(vacancy, evidence.claims, profile);
+const assert = (condition, message) => {
+  if (!condition) throw new Error(message);
+};
+
+assert(pack.competencies.length <= 3, "Job Pack must contain at most 3 competencies.");
+assert(pack.presentation.length <= 1500, "Presentation must be at most 1500 characters.");
+assert(pack.keywords.includes("Product Discovery"), "Verified vacancy keyword should be included.");
+assert(!pack.keywords.includes("Product Backlog"), "Unsupported keyword must not be included.");
+assert(pack.status === "review_required", "Missing salary research must trigger human review.");
+assert(pack.review_reasons.includes("salary research is missing"), "Salary review reason must be explicit.");
+
+const ownershipVacancy = {
+  ...vacancy,
+  id: "job-pack-ownership-check",
+  normalized: { must_have: ["end-to-end Product Backlog ownership"] }
+};
+const ownershipPack = buildJobPack(ownershipVacancy, evidence.claims, profile);
+assert(ownershipPack.matcher.matches.must_have[0].status === "partial", "Ownership requirement must remain partial.");
+
+console.log(JSON.stringify(pack, null, 2));
+console.log("Job Pack tests passed.");

@@ -1,0 +1,20 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"Career OS Normalized Vacancy",
+  "type":"object",
+  "required":["id","source","title","company","url","description","normalized","captured_at"],
+  "properties":{
+    "id":{"type":"string"},
+    "source":{"type":"string","enum":["linkedin","indeed","gupy","infojobs","company_site","manual","other"]},
+    "source_ref":{"type":"string"},
+    "title":{"type":"string"},
+    "company":{"type":"string"},
+    "url":{"type":"string","format":"uri"},
+    "location":{"type":"object","properties":{"raw":{"type":"string"},"city":{"type":"string"},"state":{"type":"string"},"country":{"type":"string"},"remote":{"type":"boolean"},"hybrid":{"type":"boolean"},"onsite":{"type":"boolean"}}},
+    "description":{"type":"string"},
+    "salary":{"type":["object","null"],"properties":{"min":{"type":"number"},"max":{"type":"number"},"currency":{"type":"string"},"period":{"type":"string"}}},
+    "normalized":{"type":"object","required":["seniority","must_have","preferred","tools","responsibilities","domain_terms","keywords"],"properties":{"seniority":{"type":"array","items":{"type":"string"}},"must_have":{"type":"array","items":{"type":"string"}},"preferred":{"type":"array","items":{"type":"string"}},"tools":{"type":"array","items":{"type":"string"}},"responsibilities":{"type":"array","items":{"type":"string"}},"domain_terms":{"type":"array","items":{"type":"string"}},"keywords":{"type":"array","items":{"type":"string"}}}},
+    "captured_at":{"type":"string","format":"date-time"},
+    "dedupe_key":{"type":"string"}
+  }
+}

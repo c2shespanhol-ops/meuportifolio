@@ -1,0 +1,16 @@
+{
+  "name": "Cleyton S. Hespanhol",
+  "title": "Product Owner | UX",
+  "location": "Maricá, RJ, Brasil",
+  "languages": ["pt-BR", "en"],
+  "career_focus": "Product Owner",
+  "positioning": "Product Owner com atuação complementar em UX, conectando usuários, negócio e tecnologia.",
+  "linkedin": "https://www.linkedin.com/in/cleyton-hespanhol",
+  "email": "cleyton.s.hespanhol@gmail.com",
+  "skills": ["Product Discovery", "Backlog Management", "Prioritization", "UX", "Jira", "Kanban", "Scrum", "User Stories", "Acceptance Criteria", "UAT/OAT", "Stakeholder Management", "Service Design", "SaaS B2B", "Customer Experience", "Continuous Improvement"],
+  "metrics": [
+    {"value": "71%", "label": "lead-time reduction", "evidence": "case_study_02_leadtime_final.html"},
+    {"value": "27%", "label": "recurring SaaS demand reduction", "evidence": "case_study_03_habitat_final.html"},
+    {"value": "31%", "label": "resolution-time improvement", "evidence": "case_study_03_habitat_final.html"}
+  ]
+}
