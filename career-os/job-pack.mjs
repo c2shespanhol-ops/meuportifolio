@@ -40,13 +40,13 @@ function verifiedKeywords(vacancy, evidenceClaims) {
   ));
 }
 
-function buildPresentation(vacancy, matchResult) {
-  const verified = verifiedRequirements(matchResult)
-    .map((item) => item.requirement);
+function buildPresentation(vacancy, matchResult, profile) {
+  const verified = verifiedRequirements(matchResult).map((item) => item.requirement);
   const focus = unique(verified).slice(0, 4);
   const skills = focus.length ? focus.join(", ") : "Discovery, experiência do usuário e melhoria contínua";
+  const title = profile?.title ?? "Product Owner";
 
-  const text = "Sou Cleyton S. Hespanhol, Product Owner com atuação complementar em UX, conectando usuários, negócio e tecnologia. Minha experiência combina Product Discovery, gestão e refinamento de backlog, priorização, Jira, Kanban e validação de soluções em contextos digitais e SaaS B2B.\n\n" +
+  const text = "Sou Cleyton S. Hespanhol, " + title + ", conectando usuários, negócio e tecnologia. Minha experiência combina Product Discovery, gestão e refinamento de backlog, priorização, Jira, Kanban e validação de soluções em contextos digitais e SaaS B2B.\n\n" +
     "Para esta oportunidade, destaco experiência verificável em " + skills + ". Também atuo na definição de User Stories e Acceptance Criteria, UAT/OAT e gestão de stakeholders, buscando reduzir gargalos e transformar problemas operacionais em melhorias de produto e experiência.\n\n" +
     "Meu trabalho é orientado por evidências: entender o problema antes da solução, priorizar com clareza, validar antes de escalar e acompanhar o impacto da mudança.";
 
@@ -65,14 +65,15 @@ function emptySalary() {
 }
 
 function buildAdaptedCv(profile, keywords, competencies) {
-  const baseSkills = Array.isArray(profile?.skills) ? profile.skills : [];
+  const baseSkills = Array.isArray(profile?.skills)
+    ? profile.skills.map((skill) => typeof skill === "string" ? skill : skill?.name).filter(Boolean)
+    : [];
   const skills = unique([...competencies, ...keywords, ...baseSkills]).slice(0, 12);
   const metrics = Array.isArray(profile?.metrics) ? profile.metrics : [];
 
   return {
-    title: profile?.title ?? "Product Owner | UX",
-    summary: profile?.positioning ??
-      "Product Owner com atuação complementar em UX, conectando usuários, negócio e tecnologia.",
+    title: profile?.title ?? "Product Owner",
+    summary: profile?.positioning ?? "Product Owner com atuação complementar em UX, conectando usuários, negócio e tecnologia.",
     skills,
     metrics
   };
