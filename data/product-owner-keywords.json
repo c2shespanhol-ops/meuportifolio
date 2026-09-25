@@ -1,0 +1,20 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"Product Owner Search Keyword Map",
+  "target_role":"Product Owner",
+  "groups":{
+    "core":["Product Owner","Product Discovery","Product Backlog","Backlog Management","Prioritization","User Stories","Acceptance Criteria","Stakeholder Management"],
+    "delivery":["UAT","OAT","Jira","Kanban","Scrum","Refinement","Sprint Planning","Review","Retrospective"],
+    "ux":["UX","User Journey","Journey Mapping","Service Design","Conversational UX","Customer Experience"],
+    "business":["SaaS B2B","Digital Transformation","Continuous Improvement","KPIs","SLA"],
+    "validation":["Hypothesis","Experimentation","A/B Testing","Validation","User Feedback"]
+  },
+  "verified_for_current_profile":{
+    "core":["Product Discovery","Backlog Management","Prioritization","User Stories","Acceptance Criteria","Stakeholder Management"],
+    "delivery":["UAT","OAT","Jira","Kanban","Scrum"],
+    "ux":["UX","User Journey","Journey Mapping","Service Design","Customer Experience"],
+    "business":["SaaS B2B","Digital Transformation","Continuous Improvement","SLA"],
+    "validation":["Hypothesis","Experimentation","A/B Testing","Validation","User Feedback"]
+  },
+  "rule":"Only use a keyword in an adapted CV when the corresponding evidence is verified."
+}
