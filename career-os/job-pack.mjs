@@ -1,4 +1,5 @@
 import { matchVacancy } from "./job-matcher.mjs";
+import { assertLinkedInSourcedProfile } from "./linkedin-profile.mjs";
 
 const MAX_PRESENTATION_CHARS = 1500;
 const unique = (items) => [...new Set(items.filter(Boolean))];
@@ -85,6 +86,7 @@ export function buildJobPack(vacancy, evidenceClaims, profile, options = {}) {
 
   const reviewReasons = [];
   if (!salary.sources?.length) reviewReasons.push("salary research is missing");
+  if (!assertLinkedInSourcedProfile(profile)) reviewReasons.push("LinkedIn-sourced profile snapshot is not available");
   if (match.match.must_have.partial || match.match.must_have.gap || match.match.must_have.unknown) {
     reviewReasons.push("must-have requirements need human review");
   }
@@ -107,6 +109,7 @@ export function buildJobPack(vacancy, evidenceClaims, profile, options = {}) {
     adapted_cv: buildAdaptedCv(profile, keywords, competencies),
     status: reviewReasons.length ? "review_required" : "ready_for_review",
     review_reasons: reviewReasons,
-    matcher: match
+    matcher: match,
+    profile_source: profile?.source ?? null
   };
 }
