@@ -18,3 +18,4 @@ jobs:
           node-version: 20
       - run: node scripts/test-job-matcher.mjs
       - run: node scripts/test-job-pack.mjs
+      - run: node scripts/test-linkedin-profile.mjs
