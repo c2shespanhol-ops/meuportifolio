@@ -1,0 +1,10 @@
+{
+  "version":"2.0",
+  "schema":["context","problem","role","discovery","decision","execution","evidence","impact","learnings","ownership_boundary"],
+  "cases":[
+    {"id":"01","slug":"virtual-assistant","file_pt":"case_study_01_persona_final.html","file_en":"en/cases/case-01-virtual-assistant.html","title_pt":"Assistente Virtual Institucional","title_en":"Institutional Virtual Assistant","focus":["Product Discovery","Personas","User Journey","Requirements","Conversational UX"]},
+    {"id":"02","slug":"lead-time-governance","file_pt":"case_study_02_leadtime_final.html","file_en":"en/cases/case-02-lead-time-governance.html","title_pt":"Governança de Produto para Redução do Lead Time Operacional","title_en":"Product Governance for Operational Lead-Time Reduction","focus":["Discovery","Jira","Kanban","Prioritization","UAT"]},
+    {"id":"03","slug":"habitat-saas","file_pt":"case_study_03_habitat_final.html","file_en":"en/cases/case-03-habitat-saas.html","title_pt":"Habitat Consultórios Inteligentes","title_en":"Habitat Consultórios Inteligentes","focus":["CX","Product","Scrum","SaaS","Discovery","UX"]},
+    {"id":"05","slug":"pav-receita-federal","file_pt":"case_study_05_pav_receita_federal_final.html","file_en":"en/cases/case-05-pav-receita-federal.html","title_pt":"PAV Receita Federal","title_en":"Federal Revenue Virtual Service Points","focus":["Service Discovery","Service Design","Requirements","Stakeholders","Benchmarking"]}
+  ]
+}
