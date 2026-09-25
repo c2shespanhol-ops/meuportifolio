@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LinkedIn Profile Snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "source",
+    "profile_url",
+    "captured_at",
+    "data"
+  ],
+  "properties": {
+    "source": {
+      "const": "linkedin"
+    },
+    "profile_url": {
+      "const": "https://www.linkedin.com/in/cleyton-hespanhol"
+    },
+    "captured_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "data": {
+      "type": "object",
+      "description": "Authorized normalized LinkedIn professional-profile data. Preserve source semantics; do not infer unsupported claims.",
+      "additionalProperties": true
+    }
+  }
+}
