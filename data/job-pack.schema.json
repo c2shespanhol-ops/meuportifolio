@@ -2,7 +2,7 @@
   "$schema":"https://json-schema.org/draft/2020-12/schema",
   "title":"Career OS Job Pack",
   "type":"object",
-  "required":["id","source","title","company","description","keywords","evidence","presentation","competencies","salary"],
+  "required":["id","source","title","company","description","keywords","evidence","presentation","competencies","salary","adapted_cv"],
   "properties":{
     "id":{"type":"string"},
     "source":{"type":"string"},
@@ -12,9 +12,23 @@
     "description":{"type":"string"},
     "keywords":{"type":"array","items":{"type":"string"}},
     "evidence":{"type":"array","items":{"type":"object"}},
-    "presentation":{"type":"string"},
+    "presentation":{"type":"string","maxLength":1500},
     "competencies":{"type":"array","maxItems":3,"items":{"type":"string"}},
-    "salary":{"type":"object","required":["market_low","market_high","suggested_low","suggested_high","sources","checked_at"],"properties":{"market_low":{"type":"number"},"market_high":{"type":"number"},"suggested_low":{"type":"number"},"suggested_high":{"type":"number"},"sources":{"type":"array","items":{"type":"object"}},"checked_at":{"type":"string"}}},
-    "status":{"type":"string"}
+    "salary":{"type":"object","required":["market_low","market_high","suggested_low","suggested_high","sources","checked_at"],"properties":{
+      "market_low":{"type":["number","null"]},
+      "market_high":{"type":["number","null"]},
+      "suggested_low":{"type":["number","null"]},
+      "suggested_high":{"type":["number","null"]},
+      "sources":{"type":"array","items":{"type":"object"}},
+      "checked_at":{"type":["string","null"]}
+    }},
+    "adapted_cv":{"type":"object","required":["title","summary","skills","metrics"],"properties":{
+      "title":{"type":"string"},
+      "summary":{"type":"string"},
+      "skills":{"type":"array","items":{"type":"string"}},
+      "metrics":{"type":"array","items":{"type":"object"}}
+    }},
+    "status":{"type":"string"},
+    "review_reasons":{"type":"array","items":{"type":"string"}}
   }
 }
