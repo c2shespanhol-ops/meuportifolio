@@ -1,0 +1,186 @@
+{
+  "$schema": "../data/linkedin-profile.schema.json",
+  "source": "linkedin",
+  "profile_url": "https://www.linkedin.com/in/cleyton-hespanhol",
+  "captured_at": "2026-09-25T10:13:00-03:00",
+  "data": {
+    "source_artifact": "LinkedIn PDF export supplied by user",
+    "headline": "Product Owner | Gestão de Produtos | Discovery | Gestão de Backlog | SaaS B2B",
+    "location": "Rio de Janeiro, Brasil",
+    "contact": {
+      "mobile": "21986314378",
+      "email": "c2shespanhol@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/cleyton-hespanhol",
+      "portfolio": "https://c2shespanhol-ops.github.io/meuportifolio/index.html",
+      "blog": "https://coursera.org/share/c70b1e842bbcd97bb73cf2be28115288"
+    },
+    "summary": "Product Owner e Analista de Produtos Digitais, com experiência em transformação digital, produtos SaaS B2B, Discovery, gestão e priorização de backlog e melhoria contínua de processos. Atuação na conexão entre negócio, tecnologia e experiência do usuário, com foco em transformar necessidades em soluções digitais eficientes e orientadas por dados. Experiência com mapeamento de jornadas e processos, definição de critérios de aceitação, gestão de stakeholders, KPIs e validações UAT/OAT. Ao longo da trajetória, resultados como: Redução de 71% no lead time; Redução de 31% nos SLAs; Redução de 27% na recorrência de demandas em ambiente SaaS B2B; Redução de 31% no tempo de resolução; Melhoria de processos de onboarding, atendimento e autonomia dos usuários. Experiência anterior em Customer Experience, Business Analysis e Process Improvement, construindo uma base sólida em análise de dados, identificação de gargalos, melhoria de processos e compreensão da jornada do cliente. Interesse em oportunidades como Product Owner, especialmente em produtos digitais, SaaS B2B e transformação digital, contribuindo para a evolução de produtos, eficiência operacional e geração de valor para usuários e negócio. Aberto a conexões e trocas sobre Produto, Discovery, experiência do usuário, transformação digital e melhoria de processos.",
+    "skills": [
+      "Customer Journey",
+      "Jornada do cliente",
+      "Levantamento de requisitos"
+    ],
+    "languages": {
+      "Português": "Native or Bilingual",
+      "Espanhol": "Elementary",
+      "Inglês": "Elementary"
+    },
+    "certifications": [
+      "Design Thinking - TERA 2025",
+      "TKP - Team Kanban Practitioner - KANBAN UNIVERSITY 2024",
+      "Gestão de Projetos de Software com PMBOK - IFRS",
+      "UX Writing - TERA 2025",
+      "Ux Research - TERA 2025"
+    ],
+    "honors_awards": [
+      "Servidor Destaque 2025 — Reconhecimento por Eficiência Operacional e Melhoria de Processos"
+    ],
+    "experience": [
+      {
+        "company": "Prefeitura Municipal de Maricá",
+        "title": "Product Owner | Analista de Produtos Digitais",
+        "start": "2025-01",
+        "end": "2026-05",
+        "location": "Maricá, RJ",
+        "responsibilities": [
+          "Gestão e priorização do Product Backlog com foco na experiência do cidadão, do servidor público e no valor de negócio",
+          "Mapeamento de processos end-to-end e identificação de gargalos",
+          "Alinhamento entre stakeholders de negócio e tecnologia",
+          "Gestão centralizada de demandas no Jira, com rastreabilidade do ciclo de entrega",
+          "Definição de critérios de aceitação e acompanhamento de KPIs, como Cycle Time e volume de demandas"
+        ],
+        "results": [
+          "Redução de 71% no lead time",
+          "Implementação de SLA de 24 horas para triagem de demandas críticas",
+          "Redução de retrabalho causado por registros incompletos",
+          "Criação de avatar institucional utilizado na experiência de atendimento",
+          "Reconhecimento como Servidor Destaque 2025 por eficiência operacional e melhoria de processos"
+        ]
+      },
+      {
+        "company": "Habitat Consultórios",
+        "title": "Product Owner | Product Analyst",
+        "start": "2023-10",
+        "end": "2025-01",
+        "duration": "1 ano 4 meses",
+        "responsibilities": [
+          "Gestão e priorização de backlog em produto SaaS B2B",
+          "Mapeamento da jornada e dos padrões de comportamento dos usuários",
+          "Estruturação de hipóteses e testes A/B para apoiar decisões de produto",
+          "Melhoria contínua de fluxos de atendimento e onboarding",
+          "Alinhamento entre produto, operação e experiência do usuário"
+        ],
+        "results": [
+          "Redução de 27% na recorrência de demandas",
+          "Aumento de 31% na eficiência operacional",
+          "Estruturação de central de conhecimento segmentada por perfil de usuário",
+          "Integração da central de conhecimento com a plataforma SaaS e chatbot",
+          "Redução de fricções no primeiro contato e aumento da autonomia dos usuários"
+        ]
+      },
+      {
+        "company": "SHV Energy",
+        "title": "Business Analyst | Product Operations Specialist",
+        "start": "2018-01",
+        "end": "2023-06",
+        "location": "Rio de Janeiro",
+        "responsibilities": [
+          "Integração entre atendimento, logística, operação e processos críticos",
+          "Análise de dados e indicadores operacionais",
+          "Mapeamento de gargalos e proposição de melhorias junto a stakeholders",
+          "Padronização de processos e organização de fluxos operacionais",
+          "Participação em validações UAT e OAT antes do lançamento de produtos"
+        ],
+        "results": [
+          "Redução de 40% no tempo de resposta em demandas críticas",
+          "Aumento de 20% na produtividade operacional",
+          "Estruturação de jornada de onboarding de novos clientes",
+          "Criação de fluxos mais rastreáveis e previsíveis"
+        ]
+      },
+      {
+        "company": "Peixe Urbano",
+        "title": "Customer Experience Specialist | Process Improvement",
+        "start": "2015-11",
+        "end": "2017-03",
+        "location": "Rio de Janeiro",
+        "responsibilities": [
+          "Análise da jornada e dos feedbacks dos usuários",
+          "Gestão de demandas estratégicas com foco em SLA",
+          "Acompanhamento de KPIs e identificação de oportunidades de melhoria",
+          "Otimização de processos de atendimento com apoio de CRM"
+        ],
+        "results": [
+          "Redução de 37% no tempo médio de resolução",
+          "Melhoria da experiência do cliente e redução de fricções",
+          "Contribuição para a retenção de clientes premium",
+          "Apoio ao aumento da satisfação e da lealdade dos clientes"
+        ]
+      },
+      {
+        "company": "NEXTEL TELECOMUNICAÇÕES LTDA",
+        "title": "Customer Experience Specialist",
+        "start": "2010-06",
+        "end": "2015-03",
+        "location": "Centro-RJ",
+        "responsibilities": [
+          "Análise de dados, indicadores e padrões de comportamento do cliente",
+          "Otimização de processos e fluxos operacionais",
+          "Gestão de triagem e classificação de demandas",
+          "Desenvolvimento de relatórios para apoiar decisões operacionais"
+        ],
+        "results": [
+          "Redução de 25% no tempo médio de atendimento",
+          "Aumento de 30% na resolução no primeiro contato",
+          "Aumento de 15% na eficiência operacional",
+          "Melhoria da retenção e da satisfação dos clientes"
+        ]
+      },
+      {
+        "company": "Contax S.A.",
+        "title": "Corporate Relationship Analyst | Process Improvement",
+        "start": "2005-06",
+        "end": "2010-05",
+        "location": "Niterói-RJ",
+        "responsibilities": [
+          "Gestão de demandas corporativas com foco em SLA",
+          "Análise de dados e identificação de gargalos",
+          "Estruturação de treinamentos operacionais",
+          "Desenvolvimento de relatórios analíticos e acompanhamento de KPIs"
+        ],
+        "results": [
+          "Redução de 40% no tempo de resolução de solicitações críticas",
+          "Aumento de 33% na produtividade de novos colaboradores",
+          "Melhoria de 25% na eficiência operacional",
+          "Maior visibilidade dos resultados e apoio à tomada de decisão"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "Faculdade Famart",
+        "credential": "Pós-graduação Lato Sensu - Especialização, Direito administrativo",
+        "start": "2021-11",
+        "end": "2023-03"
+      },
+      {
+        "institution": "Universidade Estácio de Sá",
+        "credential": "Bacharel em Direito, Ciências Jurídicas",
+        "start": "2011-03",
+        "end": "2016-06"
+      },
+      {
+        "institution": "Centro Federal de Educação Tecnológica Celso Suckow da Fonseca",
+        "credential": "Técnico em Segurança do Trabalho, Tecnologia em Segurança do Trabalho",
+        "start": "2008-06",
+        "end": "2010-03"
+      },
+      {
+        "institution": "Colégio São Gonçalo",
+        "credential": "Técnico em Processamento de Dados, técnico em processamento de dados",
+        "start": "2000",
+        "end": "2000"
+      }
+    ]
+  }
+}
