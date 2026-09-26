@@ -9,9 +9,9 @@ export function evaluateCandidacy(matchResult) {
   const coverage = total ? Number(((verified / total) * 100).toFixed(1)) : 0;
 
   return {
-    qualifies: total > 0 && coverage > CANDIDACY_THRESHOLD_PERCENT,
+    qualifies: total > 0 && coverage >= CANDIDACY_THRESHOLD_PERCENT,
     threshold_percent: CANDIDACY_THRESHOLD_PERCENT,
-    rule: "more_than_50_percent_of_must_have_requirements_verified",
+    rule: "at_least_50_percent_of_must_have_requirements_verified",
     basis: "must_have",
     total,
     verified,
