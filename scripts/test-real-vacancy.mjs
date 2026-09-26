@@ -19,7 +19,7 @@ assert(pack.status === "review_required", "Real-vacancy Job Pack must require hu
 assert(pack.review_reasons.includes("salary research is missing"), "Salary review reason must be explicit.");
 assert(pack.competencies.length <= 3, "Job Pack must contain at most 3 competencies.");
 assert(pack.presentation.length <= 1500, "Presentation must be at most 1500 characters.");
-assert(pack.profile_source === "linkedin", "Job Pack must use the LinkedIn-sourced profile.");
+assert(pack.profile_source?.primary_source === "linkedin", "Job Pack must use the LinkedIn-sourced profile.");
 assert(pack.keywords.includes("Product Owner"), "Verified Product Owner keyword should be included.");
 assert(pack.keywords.includes("Jira"), "Verified Jira keyword should be included.");
 assert(pack.keywords.includes("User Stories"), "Verified User Stories keyword should be included.");
