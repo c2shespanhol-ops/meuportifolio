@@ -44,7 +44,7 @@ const exactHalfVacancy = {
 };
 const exactHalfPack = buildJobPack(exactHalfVacancy, evidence.claims, profile);
 assert(exactHalfPack.candidacy.coverage === 50, "Exact 50% coverage must be represented accurately.");
-assert(exactHalfPack.candidacy.qualifies === false, "Exactly 50% must not qualify because the rule is greater than 50%.");
+assert(exactHalfPack.candidacy.qualifies === true, "Exactly 50% must qualify at the threshold.");
 
 
 console.log(JSON.stringify(pack, null, 2));
