@@ -66,7 +66,7 @@ function emptySalary() {
 
 function buildAdaptedCv(profile, keywords, competencies) {
   const baseSkills = Array.isArray(profile?.skills)
-    ? profile.skills.map((skill) => typeof skill === "string" ? skill : skill?.name).filter(Boolean)
+    ? profile.skills.filter((skill) => typeof skill === "string" || skill?.status === "verified" || skill?.status === "linkedin").map((skill) => typeof skill === "string" ? skill : skill?.name).filter(Boolean)
     : [];
   const skills = unique([...competencies, ...keywords, ...baseSkills]).slice(0, 12);
   const metrics = Array.isArray(profile?.metrics) ? profile.metrics : [];
