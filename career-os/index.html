@@ -55,7 +55,7 @@
   const profileUrl="../data/profile.json";
   const fixtureUrl="../data/fixtures/vacancy-po-001.json";
 
-  const escapeHtml=(value)=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",""":"&quot;","'":"&#039;"}[c]));
+  const escapeHtml=(value)=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]));
   const pct=(value)=>`${value}%`;
 
   async function load(){
