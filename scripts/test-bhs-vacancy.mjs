@@ -16,6 +16,9 @@ const status = (group, requirement) => {
 };
 
 assert(pack.status === "review_required", "BHS Job Pack must require human review.");
+assert(pack.candidacy.qualifies === true, "BHS vacancy should qualify as a candidature above the 50% threshold.");
+assert(pack.candidacy.basis === "must_have", "Candidacy threshold must be based on must-have requirements.");
+assert(pack.candidacy.coverage > 50, "BHS candidacy coverage must be greater than 50%.");
 assert(pack.profile_source?.primary_source === "linkedin", "Job Pack must use the LinkedIn-sourced profile.");
 assert(vacancy.location.remote === true, "BHS fixture must remain remote.");
 assert(pack.keywords.includes("Product Owner"), "Product Owner must be a verified keyword.");
@@ -34,7 +37,7 @@ assert(status("responsibilities", "Backlog Refinement") === "verified", "Backlog
 assert(status("responsibilities", "Backlog Prioritization") === "partial", "Backlog prioritization must remain partial when the evidence is related but not exact.");
 assert(status("responsibilities", "Client Training") === "gap", "Client training must not be inferred.");
 assert(status("preferred", "UX") === "verified", "UX must be verified.");
-assert(pack.review_reasons.some((reason) => reason.includes("must-have requirements")), "Education gap must require human review.");
+assert(!pack.review_reasons.some((reason) => reason.includes("candidacy threshold not met")), "A vacancy above the 50% threshold must not be blocked by the candidacy gate.");
 
 console.log(JSON.stringify(pack, null, 2));
 console.log("Real BHS vacancy validation passed.");
