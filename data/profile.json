@@ -96,6 +96,21 @@
       "name": "Customer Experience",
       "status": "verified",
       "source": "evidence-map"
+    },
+    {
+      "name": "Scrum",
+      "status": "secondary_source",
+      "source": "career-profile"
+    },
+    {
+      "name": "Service Design",
+      "status": "secondary_source",
+      "source": "career-profile"
+    },
+    {
+      "name": "Continuous Improvement",
+      "status": "secondary_source",
+      "source": "career-profile"
     }
   ],
   "metrics": [
