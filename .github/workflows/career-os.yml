@@ -18,6 +18,7 @@ jobs:
           node-version: 20
       - run: node scripts/test-job-matcher.mjs
       - run: node scripts/test-job-pack.mjs
+      - run: node scripts/test-vacancy-triage.mjs
       - run: node scripts/test-linkedin-profile.mjs
       - run: node scripts/test-real-vacancy.mjs
       - run: node scripts/test-bhs-vacancy.mjs
