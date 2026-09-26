@@ -30,8 +30,8 @@ assert(!pack.keywords.includes("BDD"), "Unsupported BDD keyword must not be incl
 assert(status("must_have", "Agile Methodologies") === "partial", "Agile methodologies must remain partial.");
 assert(status("must_have", "Waterfall") === "gap", "Waterfall must remain a gap.");
 assert(status("must_have", "Jira") === "verified", "Jira must be verified.");
-assert(status("must_have", "Functional Requirements") === "verified", "Requirements evidence must support functional requirements.");
-assert(status("must_have", "Non-Functional Requirements") === "verified", "Requirements evidence must support non-functional requirements.");
+assert(status("must_have", "Functional Requirements") === "partial", "Generic requirements evidence must not verify functional requirements.");
+assert(status("must_have", "Non-Functional Requirements") === "partial", "Generic requirements evidence must not verify non-functional requirements.");
 assert(status("must_have", "User Stories") === "verified", "User Stories must be verified.");
 assert(status("must_have", "Use Cases") === "gap", "Use Cases must remain a gap.");
 assert(status("must_have", "BDD") === "gap", "BDD must remain a gap.");
@@ -40,9 +40,9 @@ assert(status("must_have", "Low-Fidelity Prototyping") === "gap", "Low-fidelity 
 assert(status("must_have", "Product Metrics") === "verified", "Product Metrics must be verified.");
 assert(status("must_have", "SQL") === "gap", "SQL must remain a gap.");
 
-assert(status("preferred", "UX/UI") === "verified", "UX/UI must be verified.");
+assert(status("preferred", "UX/UI") === "partial", "UX evidence must not automatically verify UX/UI.");
 assert(status("responsibilities", "Backlog Refinement") === "verified", "Backlog refinement must be verified.");
-assert(status("responsibilities", "System Validation") === "verified", "System validation must be supported by validation evidence.");
+assert(status("responsibilities", "System Validation") === "partial", "Generic validation evidence must not verify system validation.");
 assert(status("responsibilities", "Team Leadership") === "gap", "Team leadership must not be inferred.");
 assert(status("responsibilities", "Mentoring") === "gap", "Mentoring must not be inferred.");
 assert(status("responsibilities", "Market Analysis") === "gap", "Market analysis must remain a gap.");
