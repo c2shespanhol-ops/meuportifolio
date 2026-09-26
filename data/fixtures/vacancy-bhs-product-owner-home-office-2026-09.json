@@ -1,0 +1,60 @@
+{
+  "id": "vacancy-bhs-product-owner-home-office-2026-09",
+  "source": "web",
+  "source_ref": "https://remotar.com.br/job/141531/bhs/product-owner-(home-office)",
+  "title": "Product Owner (Home Office)",
+  "company": "Somos BHS",
+  "url": "https://remotar.com.br/job/141531/bhs/product-owner-(home-office)",
+  "location": {
+    "raw": "Brasil",
+    "country": "Brasil",
+    "remote": true,
+    "hybrid": false,
+    "onsite": false
+  },
+  "description": "Product Owner para evolução e sustentação de produtos, atuando como ponte entre negócio, clientes e tecnologia. Responsabilidades incluem construção e refinamento de backlog, priorização de histórias, identificação de valor e dores do usuário, mapeamento de oportunidades, treinamento de clientes e garantia da qualidade e transparência do Product Backlog. Requisitos: graduação em Tecnologia ou correlatas; metodologias ágeis (Scrum, Kanban); Produto SaaS e B2B; criação de produtos digitais; priorização orientada a valor. Desejáveis: IA, certificação ágil, Auditoria/Compliance e atuação multidisciplinar com Negócio, Tecnologia, UX e Engenharia.",
+  "normalized": {
+    "seniority": [
+      "pleno-senior"
+    ],
+    "must_have": [
+      "Technology Degree",
+      "Agile Methodologies",
+      "SaaS B2B",
+      "Digital Products",
+      "Prioritization"
+    ],
+    "preferred": [
+      "AI Tools",
+      "Agile Certification",
+      "Audit and Compliance",
+      "UX"
+    ],
+    "tools": [],
+    "responsibilities": [
+      "Backlog Refinement",
+      "Backlog Prioritization",
+      "User Pain Points",
+      "Opportunity Mapping",
+      "Client Training",
+      "Product Backlog"
+    ],
+    "domain_terms": [
+      "Product Owner",
+      "SaaS B2B",
+      "Digital Products",
+      "UX"
+    ],
+    "keywords": [
+      "Product Owner",
+      "Backlog Refinement",
+      "Agile Methodologies",
+      "SaaS B2B",
+      "Digital Products",
+      "Prioritization",
+      "UX"
+    ]
+  },
+  "captured_at": "2026-09-26T13:20:00-03:00",
+  "dedupe_key": "somos-bhs|product-owner-home-office|brazil"
+}
