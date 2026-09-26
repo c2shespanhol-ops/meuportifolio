@@ -18,38 +18,40 @@
       "pleno-senior"
     ],
     "must_have": [
-      "Conhecimento dos fundamentos de Scrum e metodologias ágeis",
-      "Gestão e organização de backlog",
-      "Histórias de usuário",
-      "Critérios de aceite",
-      "Traduzir necessidades em requisitos para times de desenvolvimento",
+      "Scrum",
+      "Agile",
+      "Backlog Management",
+      "User Stories",
+      "Acceptance Criteria",
+      "Requirements Gathering",
       "Pacote Office"
     ],
     "preferred": [
-      "Experiência anterior como Product Owner ou Analista de Produtos",
-      "Experiência com produtos digitais",
-      "Métricas e indicadores de produto",
+      "Product Owner",
+      "Digital Products",
+      "Product Metrics",
       "Product Discovery",
-      "Jornada do cliente",
-      "Priorização"
+      "Customer Journey",
+      "Prioritization"
     ],
     "tools": [
-      "Ferramentas de gestão de backlog e projetos",
-      "Jira"
+      "Backlog Management",
+      "Jira",
+      "Project Management Tools"
     ],
     "responsibilities": [
-      "Organizar e realizar o refinamento do backlog",
-      "Apoiar a priorização das demandas",
-      "Acompanhar desenvolvimento e entrega de funcionalidades",
-      "Interagir com stakeholders",
-      "Acompanhar resultados das entregas e oportunidades de melhoria",
-      "Elaborar e acompanhar indicadores"
+      "Backlog Refinement",
+      "Prioritization",
+      "Delivery Tracking",
+      "Stakeholder Management",
+      "Continuous Improvement",
+      "Product Metrics"
     ],
     "domain_terms": [
       "Product Owner",
       "Product Discovery",
-      "Jornada do cliente",
-      "Métricas de produto",
+      "Customer Journey",
+      "Product Metrics",
       "MVP"
     ],
     "keywords": [
