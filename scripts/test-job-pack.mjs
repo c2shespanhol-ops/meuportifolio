@@ -15,6 +15,9 @@ assert(pack.presentation.length <= 1500, "Presentation must be at most 1500 char
 assert(pack.keywords.includes("Product Discovery"), "Verified vacancy keyword should be included.");
 assert(!pack.keywords.includes("Product Backlog"), "Unsupported keyword must not be included.");
 assert(pack.status === "review_required", "Missing salary research must trigger human review.");
+assert(!pack.adapted_cv.skills.includes("Scrum"), "Secondary-source Scrum must not enter the adapted CV automatically.");
+assert(!pack.adapted_cv.skills.includes("Service Design"), "Secondary-source Service Design must not enter the adapted CV automatically.");
+assert(!pack.adapted_cv.skills.includes("Continuous Improvement"), "Secondary-source Continuous Improvement must not enter the adapted CV automatically.");
 assert(pack.review_reasons.includes("salary research is missing"), "Salary review reason must be explicit.");
 
 const ownershipVacancy = {
