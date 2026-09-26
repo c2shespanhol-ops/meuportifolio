@@ -1,0 +1,92 @@
+{
+  "id": "vacancy-radix-profissional-product-owner-senior-2026-09",
+  "source": "linkedin",
+  "source_ref": "turn1search0",
+  "title": "Profissional Product Owner Sênior",
+  "company": "Radix",
+  "url": "https://br.linkedin.com/jobs/view/profissional-product-owner-s%C3%AAnior-at-radix-4452819555",
+  "location": {
+    "raw": "Rio de Janeiro e Região",
+    "country": "Brasil",
+    "remote": false,
+    "hybrid": true,
+    "onsite": false
+  },
+  "description": "Vaga híbrida, 2x por semana, no Rio de Janeiro. A posição atua na análise e especificação de requisitos funcionais e não funcionais, definição e validação de sistemas, testes com visão orientada ao usuário, construção e refinamento de backlog, revisão técnica de documentação, aprovação junto a clientes, liderança de equipes de especificação, mentoria e treinamentos, além de análise de mercado e negócios. Requisitos: metodologias ágeis e modelos em cascata; Jira, Trello e Azure Boards; levantamento de requisitos funcionais e não funcionais; especificações funcionais; histórias de usuário; casos de uso; cenários BDD; matriz de rastreabilidade; prototipação de baixa fidelidade; métricas de produto; modelagem, relacionamentos e consultas SQL. Diferenciais: superior em áreas de tecnologia, CSPO, inglês intermediário, UML/BPMN, lógica de programação e UX/UI.",
+  "normalized": {
+    "seniority": [
+      "pleno-senior"
+    ],
+    "must_have": [
+      "Agile Methodologies",
+      "Waterfall",
+      "Jira",
+      "Trello",
+      "Azure Boards",
+      "Functional Requirements",
+      "Non-Functional Requirements",
+      "Functional Specifications",
+      "User Stories",
+      "Use Cases",
+      "BDD",
+      "Traceability Matrix",
+      "Low-Fidelity Prototyping",
+      "Product Metrics",
+      "SQL"
+    ],
+    "preferred": [
+      "CSPO",
+      "English",
+      "UML",
+      "BPMN",
+      "Programming Logic",
+      "UX/UI"
+    ],
+    "tools": [
+      "Jira",
+      "Trello",
+      "Azure Boards"
+    ],
+    "responsibilities": [
+      "Requirements Analysis",
+      "Requirements Specification",
+      "Backlog Refinement",
+      "System Validation",
+      "User Testing",
+      "Documentation Review",
+      "Client Approval",
+      "Team Leadership",
+      "Mentoring",
+      "Training",
+      "Market Analysis",
+      "Business Analysis",
+      "Product Metrics"
+    ],
+    "domain_terms": [
+      "Product Owner",
+      "Product Backlog",
+      "Digital Products",
+      "UX/UI"
+    ],
+    "keywords": [
+      "Product Owner",
+      "Backlog Refinement",
+      "Jira",
+      "Functional Requirements",
+      "Non-Functional Requirements",
+      "Functional Specifications",
+      "User Stories",
+      "Use Cases",
+      "BDD",
+      "Traceability Matrix",
+      "Low-Fidelity Prototyping",
+      "Product Metrics",
+      "SQL",
+      "UX/UI",
+      "Agile Methodologies",
+      "Waterfall"
+    ]
+  },
+  "captured_at": "2026-09-25T21:30:00-03:00",
+  "dedupe_key": "radix|profissional-product-owner-senior|rio-de-janeiro"
+}
