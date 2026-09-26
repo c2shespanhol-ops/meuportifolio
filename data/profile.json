@@ -18,58 +18,318 @@
   "portfolio": "https://c2shespanhol-ops.github.io/meuportifolio/index.html",
   "blog": "https://coursera.org/share/c70b1e842bbcd97bb73cf2be28115288",
   "languages": [
-    {"language": "Português", "level": "Native or Bilingual"},
-    {"language": "Espanhol", "level": "Elementary"},
-    {"language": "Inglês", "level": "Elementary"}
+    {
+      "language": "Português",
+      "level": "Native or Bilingual"
+    },
+    {
+      "language": "Espanhol",
+      "level": "Elementary"
+    },
+    {
+      "language": "Inglês",
+      "level": "Elementary"
+    }
   ],
-  "linkedin_skills": ["Customer Journey", "Jornada do cliente", "Levantamento de requisitos"],
+  "linkedin_skills": [
+    "Customer Journey",
+    "Jornada do cliente",
+    "Levantamento de requisitos"
+  ],
   "skills": [
-    {"name": "Product Discovery", "status": "verified", "source": "evidence-map"},
-    {"name": "Backlog Management", "status": "verified", "source": "evidence-map"},
-    {"name": "Prioritization", "status": "linkedin", "source": "linkedin"},
-    {"name": "UX", "status": "verified", "source": "evidence-map"},
-    {"name": "Jira", "status": "verified", "source": "evidence-map"},
-    {"name": "Kanban", "status": "verified", "source": "evidence-map"},
-    {"name": "Scrum", "status": "secondary_source", "source": "career-profile"},
-    {"name": "User Stories", "status": "verified", "source": "evidence-map"},
-    {"name": "Acceptance Criteria", "status": "verified", "source": "evidence-map"},
-    {"name": "UAT/OAT", "status": "verified", "source": "evidence-map"},
-    {"name": "Stakeholder Management", "status": "verified", "source": "evidence-map"},
-    {"name": "Service Design", "status": "secondary_source", "source": "career-profile"},
-    {"name": "SaaS B2B", "status": "verified", "source": "evidence-map"},
-    {"name": "Customer Experience", "status": "verified", "source": "evidence-map"},
-    {"name": "Continuous Improvement", "status": "secondary_source", "source": "career-profile"}
+    {
+      "name": "Product Discovery",
+      "status": "verified",
+      "source": "evidence-map"
+    },
+    {
+      "name": "Backlog Management",
+      "status": "verified",
+      "source": "evidence-map"
+    },
+    {
+      "name": "Prioritization",
+      "status": "linkedin",
+      "source": "linkedin"
+    },
+    {
+      "name": "UX",
+      "status": "verified",
+      "source": "evidence-map"
+    },
+    {
+      "name": "Jira",
+      "status": "verified",
+      "source": "evidence-map"
+    },
+    {
+      "name": "Kanban",
+      "status": "verified",
+      "source": "evidence-map"
+    },
+    {
+      "name": "User Stories",
+      "status": "verified",
+      "source": "evidence-map"
+    },
+    {
+      "name": "Acceptance Criteria",
+      "status": "verified",
+      "source": "evidence-map"
+    },
+    {
+      "name": "UAT/OAT",
+      "status": "verified",
+      "source": "evidence-map"
+    },
+    {
+      "name": "Stakeholder Management",
+      "status": "verified",
+      "source": "evidence-map"
+    },
+    {
+      "name": "SaaS B2B",
+      "status": "verified",
+      "source": "evidence-map"
+    },
+    {
+      "name": "Customer Experience",
+      "status": "verified",
+      "source": "evidence-map"
+    }
   ],
   "metrics": [
-    {"value": "71%", "label": "lead-time reduction", "evidence": "case_study_02_leadtime_final.html", "source": "linkedin_and_case"},
-    {"value": "31%", "label": "SLA reduction", "source": "linkedin"},
-    {"value": "27%", "label": "recurring SaaS demand reduction", "evidence": "case_study_03_habitat_final.html", "source": "linkedin_and_case"},
-    {"value": "31%", "label": "resolution-time reduction", "evidence": "case_study_03_habitat_final.html", "source": "linkedin_and_case"},
-    {"value": "40%", "label": "response-time reduction in critical demands", "source": "linkedin"},
-    {"value": "20%", "label": "operational productivity increase", "source": "linkedin"},
-    {"value": "37%", "label": "average resolution-time reduction", "source": "linkedin"},
-    {"value": "25%", "label": "average service-time reduction", "source": "linkedin"},
-    {"value": "30%", "label": "first-contact resolution increase", "source": "linkedin"},
-    {"value": "15%", "label": "operational efficiency increase", "source": "linkedin"},
-    {"value": "40%", "label": "critical-request resolution-time reduction", "source": "linkedin"},
-    {"value": "33%", "label": "new-hire productivity increase", "source": "linkedin"},
-    {"value": "25%", "label": "operational efficiency improvement", "source": "linkedin"}
+    {
+      "value": "71%",
+      "label": "lead-time reduction",
+      "evidence": "case_study_02_leadtime_final.html",
+      "source": "linkedin_and_case"
+    },
+    {
+      "value": "31%",
+      "label": "SLA reduction",
+      "source": "linkedin"
+    },
+    {
+      "value": "27%",
+      "label": "recurring SaaS demand reduction",
+      "evidence": "case_study_03_habitat_final.html",
+      "source": "linkedin_and_case"
+    },
+    {
+      "value": "31%",
+      "label": "resolution-time reduction",
+      "evidence": "case_study_03_habitat_final.html",
+      "source": "linkedin_and_case"
+    },
+    {
+      "value": "40%",
+      "label": "response-time reduction in critical demands",
+      "source": "linkedin"
+    },
+    {
+      "value": "20%",
+      "label": "operational productivity increase",
+      "source": "linkedin"
+    },
+    {
+      "value": "37%",
+      "label": "average resolution-time reduction",
+      "source": "linkedin"
+    },
+    {
+      "value": "25%",
+      "label": "average service-time reduction",
+      "source": "linkedin"
+    },
+    {
+      "value": "30%",
+      "label": "first-contact resolution increase",
+      "source": "linkedin"
+    },
+    {
+      "value": "15%",
+      "label": "operational efficiency increase",
+      "source": "linkedin"
+    },
+    {
+      "value": "40%",
+      "label": "critical-request resolution-time reduction",
+      "source": "linkedin"
+    },
+    {
+      "value": "33%",
+      "label": "new-hire productivity increase",
+      "source": "linkedin"
+    },
+    {
+      "value": "25%",
+      "label": "operational efficiency improvement",
+      "source": "linkedin"
+    }
   ],
   "experience": [
-    {"company":"Prefeitura Municipal de Maricá","title":"Product Owner | Analista de Produtos Digitais","start":"2025-01","end":"2026-05","location":"Maricá, RJ","responsibilities":["Gestão e priorização do Product Backlog com foco na experiência do cidadão, do servidor público e no valor de negócio","Mapeamento de processos end-to-end e identificação de gargalos","Alinhamento entre stakeholders de negócio e tecnologia","Gestão centralizada de demandas no Jira, com rastreabilidade do ciclo de entrega","Definição de critérios de aceitação e acompanhamento de KPIs, como Cycle Time e volume de demandas"],"results":["Redução de 71% no lead time","Implementação de SLA de 24 horas para triagem de demandas críticas","Redução de retrabalho causado por registros incompletos","Criação de avatar institucional utilizado na experiência de atendimento","Reconhecimento como Servidor Destaque 2025 por eficiência operacional e melhoria de processos"],"source":"linkedin"},
-    {"company":"Habitat Consultórios","title":"Product Owner | Product Analyst","start":"2023-10","end":"2025-01","duration":"1 ano 4 meses","responsibilities":["Gestão e priorização de backlog em produto SaaS B2B","Mapeamento da jornada e dos padrões de comportamento dos usuários","Estruturação de hipóteses e testes A/B para apoiar decisões de produto","Melhoria contínua de fluxos de atendimento e onboarding","Alinhamento entre produto, operação e experiência do usuário"],"results":["Redução de 27% na recorrência de demandas","Aumento de 31% na eficiência operacional","Estruturação de central de conhecimento segmentada por perfil de usuário","Integração da central de conhecimento com a plataforma SaaS e chatbot","Redução de fricções no primeiro contato e aumento da autonomia dos usuários"],"source":"linkedin"},
-    {"company":"SHV Energy","title":"Business Analyst | Product Operations Specialist","start":"2018-01","end":"2023-06","location":"Rio de Janeiro","responsibilities":["Integração entre atendimento, logística, operação e processos críticos","Análise de dados e indicadores operacionais","Mapeamento de gargalos e proposição de melhorias junto a stakeholders","Padronização de processos e organização de fluxos operacionais","Participação em validações UAT e OAT antes do lançamento de produtos"],"results":["Redução de 40% no tempo de resposta em demandas críticas","Aumento de 20% na produtividade operacional","Estruturação de jornada de onboarding de novos clientes","Criação de fluxos mais rastreáveis e previsíveis"],"source":"linkedin"},
-    {"company":"Peixe Urbano","title":"Customer Experience Specialist | Process Improvement","start":"2015-11","end":"2017-03","location":"Rio de Janeiro","responsibilities":["Análise da jornada e dos feedbacks dos usuários","Gestão de demandas estratégicas com foco em SLA","Acompanhamento de KPIs e identificação de oportunidades de melhoria","Otimização de processos de atendimento com apoio de CRM"],"results":["Redução de 37% no tempo médio de resolução","Melhoria da experiência do cliente e redução de fricções","Contribuição para a retenção de clientes premium","Apoio ao aumento da satisfação e da lealdade dos clientes"],"source":"linkedin"},
-    {"company":"NEXTEL TELECOMUNICAÇÕES LTDA","title":"Customer Experience Specialist","start":"2010-06","end":"2015-03","location":"Centro-RJ","responsibilities":["Análise de dados, indicadores e padrões de comportamento do cliente","Otimização de processos e fluxos operacionais","Gestão de triagem e classificação de demandas","Desenvolvimento de relatórios para apoiar decisões operacionais"],"results":["Redução de 25% no tempo médio de atendimento","Aumento de 30% na resolução no primeiro contato","Aumento de 15% na eficiência operacional","Melhoria da retenção e da satisfação dos clientes"],"source":"linkedin"},
-    {"company":"Contax S.A.","title":"Corporate Relationship Analyst | Process Improvement","start":"2005-06","end":"2010-05","location":"Niterói-RJ","responsibilities":["Gestão de demandas corporativas com foco em SLA","Análise de dados e identificação de gargalos","Estruturação de treinamentos operacionais","Desenvolvimento de relatórios analíticos e acompanhamento de KPIs"],"results":["Redução de 40% no tempo de resolução de solicitações críticas","Aumento de 33% na produtividade de novos colaboradores","Melhoria de 25% na eficiência operacional","Maior visibilidade dos resultados e apoio à tomada de decisão"],"source":"linkedin"}
+    {
+      "company": "Prefeitura Municipal de Maricá",
+      "title": "Product Owner | Analista de Produtos Digitais",
+      "start": "2025-01",
+      "end": "2026-05",
+      "location": "Maricá, RJ",
+      "responsibilities": [
+        "Gestão e priorização do Product Backlog com foco na experiência do cidadão, do servidor público e no valor de negócio",
+        "Mapeamento de processos end-to-end e identificação de gargalos",
+        "Alinhamento entre stakeholders de negócio e tecnologia",
+        "Gestão centralizada de demandas no Jira, com rastreabilidade do ciclo de entrega",
+        "Definição de critérios de aceitação e acompanhamento de KPIs, como Cycle Time e volume de demandas"
+      ],
+      "results": [
+        "Redução de 71% no lead time",
+        "Implementação de SLA de 24 horas para triagem de demandas críticas",
+        "Redução de retrabalho causado por registros incompletos",
+        "Criação de avatar institucional utilizado na experiência de atendimento",
+        "Reconhecimento como Servidor Destaque 2025 por eficiência operacional e melhoria de processos"
+      ],
+      "source": "linkedin"
+    },
+    {
+      "company": "Habitat Consultórios",
+      "title": "Product Owner | Product Analyst",
+      "start": "2023-10",
+      "end": "2025-01",
+      "duration": "1 ano 4 meses",
+      "responsibilities": [
+        "Gestão e priorização de backlog em produto SaaS B2B",
+        "Mapeamento da jornada e dos padrões de comportamento dos usuários",
+        "Estruturação de hipóteses e testes A/B para apoiar decisões de produto",
+        "Melhoria contínua de fluxos de atendimento e onboarding",
+        "Alinhamento entre produto, operação e experiência do usuário"
+      ],
+      "results": [
+        "Redução de 27% na recorrência de demandas",
+        "Aumento de 31% na eficiência operacional",
+        "Estruturação de central de conhecimento segmentada por perfil de usuário",
+        "Integração da central de conhecimento com a plataforma SaaS e chatbot",
+        "Redução de fricções no primeiro contato e aumento da autonomia dos usuários"
+      ],
+      "source": "linkedin"
+    },
+    {
+      "company": "SHV Energy",
+      "title": "Business Analyst | Product Operations Specialist",
+      "start": "2018-01",
+      "end": "2023-06",
+      "location": "Rio de Janeiro",
+      "responsibilities": [
+        "Integração entre atendimento, logística, operação e processos críticos",
+        "Análise de dados e indicadores operacionais",
+        "Mapeamento de gargalos e proposição de melhorias junto a stakeholders",
+        "Padronização de processos e organização de fluxos operacionais",
+        "Participação em validações UAT e OAT antes do lançamento de produtos"
+      ],
+      "results": [
+        "Redução de 40% no tempo de resposta em demandas críticas",
+        "Aumento de 20% na produtividade operacional",
+        "Estruturação de jornada de onboarding de novos clientes",
+        "Criação de fluxos mais rastreáveis e previsíveis"
+      ],
+      "source": "linkedin"
+    },
+    {
+      "company": "Peixe Urbano",
+      "title": "Customer Experience Specialist | Process Improvement",
+      "start": "2015-11",
+      "end": "2017-03",
+      "location": "Rio de Janeiro",
+      "responsibilities": [
+        "Análise da jornada e dos feedbacks dos usuários",
+        "Gestão de demandas estratégicas com foco em SLA",
+        "Acompanhamento de KPIs e identificação de oportunidades de melhoria",
+        "Otimização de processos de atendimento com apoio de CRM"
+      ],
+      "results": [
+        "Redução de 37% no tempo médio de resolução",
+        "Melhoria da experiência do cliente e redução de fricções",
+        "Contribuição para a retenção de clientes premium",
+        "Apoio ao aumento da satisfação e da lealdade dos clientes"
+      ],
+      "source": "linkedin"
+    },
+    {
+      "company": "NEXTEL TELECOMUNICAÇÕES LTDA",
+      "title": "Customer Experience Specialist",
+      "start": "2010-06",
+      "end": "2015-03",
+      "location": "Centro-RJ",
+      "responsibilities": [
+        "Análise de dados, indicadores e padrões de comportamento do cliente",
+        "Otimização de processos e fluxos operacionais",
+        "Gestão de triagem e classificação de demandas",
+        "Desenvolvimento de relatórios para apoiar decisões operacionais"
+      ],
+      "results": [
+        "Redução de 25% no tempo médio de atendimento",
+        "Aumento de 30% na resolução no primeiro contato",
+        "Aumento de 15% na eficiência operacional",
+        "Melhoria da retenção e da satisfação dos clientes"
+      ],
+      "source": "linkedin"
+    },
+    {
+      "company": "Contax S.A.",
+      "title": "Corporate Relationship Analyst | Process Improvement",
+      "start": "2005-06",
+      "end": "2010-05",
+      "location": "Niterói-RJ",
+      "responsibilities": [
+        "Gestão de demandas corporativas com foco em SLA",
+        "Análise de dados e identificação de gargalos",
+        "Estruturação de treinamentos operacionais",
+        "Desenvolvimento de relatórios analíticos e acompanhamento de KPIs"
+      ],
+      "results": [
+        "Redução de 40% no tempo de resolução de solicitações críticas",
+        "Aumento de 33% na produtividade de novos colaboradores",
+        "Melhoria de 25% na eficiência operacional",
+        "Maior visibilidade dos resultados e apoio à tomada de decisão"
+      ],
+      "source": "linkedin"
+    }
   ],
-  "certifications": ["Design Thinking - TERA 2025","TKP - Team Kanban Practitioner - KANBAN UNIVERSITY 2024","Gestão de Projetos de Software com PMBOK - IFRS","UX Writing - TERA 2025","Ux Research - TERA 2025"],
-  "honors_awards": ["Servidor Destaque 2025 — Reconhecimento por Eficiência Operacional e Melhoria de Processos"],
+  "certifications": [
+    "Design Thinking - TERA 2025",
+    "TKP - Team Kanban Practitioner - KANBAN UNIVERSITY 2024",
+    "Gestão de Projetos de Software com PMBOK - IFRS",
+    "UX Writing - TERA 2025",
+    "Ux Research - TERA 2025"
+  ],
+  "honors_awards": [
+    "Servidor Destaque 2025 — Reconhecimento por Eficiência Operacional e Melhoria de Processos"
+  ],
   "education": [
-    {"institution":"Faculdade Famart","credential":"Pós-graduação Lato Sensu - Especialização, Direito administrativo","start":"2021-11","end":"2023-03"},
-    {"institution":"Universidade Estácio de Sá","credential":"Bacharel em Direito, Ciências Jurídicas","start":"2011-03","end":"2016-06"},
-    {"institution":"Centro Federal de Educação Tecnológica Celso Suckow da Fonseca","credential":"Técnico em Segurança do Trabalho, Tecnologia em Segurança do Trabalho","start":"2008-06","end":"2010-03"},
-    {"institution":"Colégio São Gonçalo","credential":"Técnico em Processamento de Dados, técnico em processamento de dados","start":"2000","end":"2000"}
+    {
+      "institution": "Faculdade Famart",
+      "credential": "Pós-graduação Lato Sensu - Especialização, Direito administrativo",
+      "start": "2021-11",
+      "end": "2023-03"
+    },
+    {
+      "institution": "Universidade Estácio de Sá",
+      "credential": "Bacharel em Direito, Ciências Jurídicas",
+      "start": "2011-03",
+      "end": "2016-06"
+    },
+    {
+      "institution": "Centro Federal de Educação Tecnológica Celso Suckow da Fonseca",
+      "credential": "Técnico em Segurança do Trabalho, Tecnologia em Segurança do Trabalho",
+      "start": "2008-06",
+      "end": "2010-03"
+    },
+    {
+      "institution": "Colégio São Gonçalo",
+      "credential": "Técnico em Processamento de Dados, técnico em processamento de dados",
+      "start": "2000",
+      "end": "2000"
+    }
   ],
   "review_notes": [
     "This profile is derived from the supplied LinkedIn PDF snapshot and secondary evidence map.",
