@@ -53,6 +53,25 @@ function buildPresentation(vacancy, matchResult, profile) {
   return text.slice(0, MAX_PRESENTATION_CHARS);
 }
 
+const CANDIDACY_THRESHOLD_PERCENT = 50;
+
+function evaluateCandidacy(matchResult) {
+  const basis = matchResult.matches.must_have ?? [];
+  const total = basis.length;
+  const verified = basis.filter((item) => item.status === "verified").length;
+  const coverage = total ? Number(((verified / total) * 100).toFixed(1)) : 0;
+
+  return {
+    qualifies: total > 0 && coverage > CANDIDACY_THRESHOLD_PERCENT,
+    threshold_percent: CANDIDACY_THRESHOLD_PERCENT,
+    rule: "more_than_50_percent_of_must_have_requirements_verified",
+    basis: "must_have",
+    total,
+    verified,
+    coverage
+  };
+}
+
 function emptySalary() {
   return {
     market_low: null,
@@ -84,12 +103,15 @@ export function buildJobPack(vacancy, evidenceClaims, profile, options = {}) {
   const keywords = verifiedKeywords(vacancy, evidenceClaims);
   const competencies = selectCompetencies(vacancy, match, evidenceClaims);
   const salary = options.salary ?? emptySalary();
+  const candidacy = evaluateCandidacy(match);
 
   const reviewReasons = [];
   if (!salary.sources?.length) reviewReasons.push("salary research is missing");
   if (!assertLinkedInSourcedProfile(profile)) reviewReasons.push("LinkedIn-sourced profile snapshot is not available");
-  if (match.match.must_have.partial || match.match.must_have.gap || match.match.must_have.unknown) {
-    reviewReasons.push("must-have requirements need human review");
+  if (!candidacy.qualifies) {
+    reviewReasons.push(
+      `candidacy threshold not met: ${candidacy.coverage}% of must-have requirements verified; threshold is >${CANDIDACY_THRESHOLD_PERCENT}%`
+    );
   }
   if (match.match.responsibilities.partial || match.match.responsibilities.gap || match.match.responsibilities.unknown) {
     reviewReasons.push("responsibility requirements need human review");
@@ -111,6 +133,7 @@ export function buildJobPack(vacancy, evidenceClaims, profile, options = {}) {
     status: reviewReasons.length ? "review_required" : "ready_for_review",
     review_reasons: reviewReasons,
     matcher: match,
+    candidacy,
     profile_source: profile?.source ?? null
   };
 }
