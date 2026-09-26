@@ -20,4 +20,5 @@ jobs:
       - run: node scripts/test-job-pack.mjs
       - run: node scripts/test-linkedin-profile.mjs
       - run: node scripts/test-real-vacancy.mjs
+      - run: node scripts/test-bhs-vacancy.mjs
       - run: node scripts/test-application-tracker.mjs
