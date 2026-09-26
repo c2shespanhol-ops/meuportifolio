@@ -1,5 +1,6 @@
 import { matchVacancy } from "./job-matcher.mjs";
 import { assertLinkedInSourcedProfile } from "./linkedin-profile.mjs";
+import { evaluateCandidacy } from "./vacancy-triage.mjs";
 
 const MAX_PRESENTATION_CHARS = 1500;
 const unique = (items) => [...new Set(items.filter(Boolean))];
@@ -51,25 +52,6 @@ function buildPresentation(vacancy, matchResult, profile) {
     "Meu trabalho é orientado por evidências: entender o problema antes da solução, priorizar com clareza, validar antes de escalar e acompanhar o impacto da mudança.";
 
   return text.slice(0, MAX_PRESENTATION_CHARS);
-}
-
-const CANDIDACY_THRESHOLD_PERCENT = 50;
-
-function evaluateCandidacy(matchResult) {
-  const basis = matchResult.matches.must_have ?? [];
-  const total = basis.length;
-  const verified = basis.filter((item) => item.status === "verified").length;
-  const coverage = total ? Number(((verified / total) * 100).toFixed(1)) : 0;
-
-  return {
-    qualifies: total > 0 && coverage > CANDIDACY_THRESHOLD_PERCENT,
-    threshold_percent: CANDIDACY_THRESHOLD_PERCENT,
-    rule: "more_than_50_percent_of_must_have_requirements_verified",
-    basis: "must_have",
-    total,
-    verified,
-    coverage
-  };
 }
 
 function emptySalary() {
