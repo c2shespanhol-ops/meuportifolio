@@ -15,7 +15,7 @@ assert(bhsTriage.candidacy.qualifies === true, "BHS must be an apply candidate."
 assert(bhsTriage.candidacy.decision === "apply_candidate", "BHS decision must be apply_candidate.");
 
 const radixTriage = triageVacancy(radix, evidence.claims);
-assert(radixTriage.candidacy.coverage <= 50, "Radix must not exceed the 50% candidacy threshold.");
+assert(radixTriage.candidacy.coverage < 50, "Radix must be below the 50% candidacy threshold.");
 assert(radixTriage.candidacy.qualifies === false, "Radix must not qualify for candidature.");
 assert(radixTriage.candidacy.decision === "do_not_apply", "Radix decision must be do_not_apply.");
 
@@ -26,7 +26,8 @@ const exactHalf = {
 };
 const halfTriage = triageVacancy(exactHalf, evidence.claims);
 assert(halfTriage.candidacy.coverage === 50, "Exact 50% must be calculated correctly.");
-assert(halfTriage.candidacy.decision === "do_not_apply", "Exactly 50% must not qualify.");
+assert(halfTriage.candidacy.qualifies === true, "Exactly 50% must qualify.");
+assert(halfTriage.candidacy.decision === "apply_candidate", "Exactly 50% must be apply_candidate.");
 
 console.log(JSON.stringify({ bhs: bhsTriage.candidacy, radix: radixTriage.candidacy, exact_half: halfTriage.candidacy }, null, 2));
 console.log("Vacancy triage tests passed.");
