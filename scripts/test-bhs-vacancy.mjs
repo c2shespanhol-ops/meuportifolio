@@ -31,7 +31,7 @@ assert(status("must_have", "SaaS B2B") === "verified", "SaaS B2B must be verifie
 assert(status("must_have", "Digital Products") === "verified", "Digital Products must be verified.");
 assert(status("must_have", "Prioritization") === "verified", "Prioritization must be verified.");
 assert(status("responsibilities", "Backlog Refinement") === "verified", "Backlog refinement must be verified.");
-assert(status("responsibilities", "Backlog Prioritization") === "verified", "Backlog prioritization must be verified.");
+assert(status("responsibilities", "Backlog Prioritization") === "partial", "Backlog prioritization must remain partial when the evidence is related but not exact.");
 assert(status("responsibilities", "Client Training") === "gap", "Client training must not be inferred.");
 assert(status("preferred", "UX") === "verified", "UX must be verified.");
 assert(pack.review_reasons.some((reason) => reason.includes("must-have requirements")), "Education gap must require human review.");
