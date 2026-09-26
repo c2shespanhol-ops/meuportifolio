@@ -16,7 +16,7 @@ export function evaluateCandidacy(matchResult) {
     total,
     verified,
     coverage,
-    decision: total === 0 ? "review_required" : coverage > CANDIDACY_THRESHOLD_PERCENT ? "apply_candidate" : "do_not_apply"
+    decision: total === 0 ? "review_required" : coverage >= CANDIDACY_THRESHOLD_PERCENT ? "apply_candidate" : "do_not_apply"
   };
 }
 
