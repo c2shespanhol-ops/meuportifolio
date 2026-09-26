@@ -1,26 +1,265 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "title":"Product Owner Evidence Map",
-  "version":"1.0",
-  "rules":{
-    "verified":"Direct evidence exists in the profile or cited case.",
-    "partial":"Related evidence exists, but the vacancy requirement exceeds the demonstrated scope or ownership.",
-    "gap":"No verified evidence for the requirement.",
-    "unknown":"The requirement is ambiguous or cannot be safely classified."
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Product Owner Evidence Map",
+  "version": "1.0",
+  "rules": {
+    "verified": "Direct evidence exists in the profile or cited case.",
+    "partial": "Related evidence exists, but the vacancy requirement exceeds the demonstrated scope or ownership.",
+    "gap": "No verified evidence for the requirement.",
+    "unknown": "The requirement is ambiguous or cannot be safely classified."
   },
-  "claims":[
-    {"id":"discovery","aliases":["Product Discovery","Discovery"],"status":"verified","ownership":"contribution","sources":["case_study_02_leadtime_final.html","case_study_03_habitat_final.html"]},
-    {"id":"jira","aliases":["Jira"],"status":"verified","ownership":"contribution","sources":["case_study_02_leadtime_final.html"]},
-    {"id":"stakeholders","aliases":["Stakeholder Management","Stakeholder Management"],"status":"verified","ownership":"contribution","sources":["case_study_02_leadtime_final.html","case_study_03_habitat_final.html"]},
-    {"id":"saas","aliases":["SaaS B2B","B2B SaaS"],"status":"verified","ownership":"contribution","sources":["case_study_03_habitat_final.html"]},
-    {"id":"ux","aliases":["UX","User Experience","Customer Experience"],"status":"verified","ownership":"contribution","sources":["case_study_03_habitat_final.html","case_study_01_persona_final.html"]},
-    {"id":"kanban","aliases":["Kanban"],"status":"verified","ownership":"contribution","sources":["case_study_02_leadtime_final.html"]},
-    {"id":"user-stories","aliases":["User Stories","User Story"],"status":"verified","ownership":"contribution","sources":["case_study_03_habitat_final.html"]},
-    {"id":"acceptance-criteria","aliases":["Acceptance Criteria"],"status":"verified","ownership":"contribution","sources":["case_study_03_habitat_final.html"]},
-    {"id":"uat-oat","aliases":["UAT","OAT","UAT/OAT"],"status":"verified","ownership":"contribution","sources":["case_study_03_habitat_final.html"]},
-    {"id":"backlog-management","aliases":["Backlog Management","Backlog Refinement","backlog refinement"],"status":"verified","ownership":"contribution","sources":["case_study_03_habitat_final.html","case_study_02_leadtime_final.html"]},
-    {"id":"product-backlog-ownership","aliases":["Product Backlog ownership","Product Backlog Owner","end-to-end Product Backlog ownership"],"status":"partial","ownership":"none","sources":[],"reason":"Evidence supports backlog management and refinement, not end-to-end Product Backlog ownership."},
-    {"id":"product-strategy-ownership","aliases":["Product Strategy ownership","end-to-end Product Strategy","Product Strategy Owner"],"status":"gap","ownership":"none","sources":[]},
-    {"id":"experimentation","aliases":["Experimentation","A/B Testing","Hypothesis","Validation","User Feedback"],"status":"verified","ownership":"contribution","sources":["case_study_03_habitat_final.html"]}
+  "claims": [
+    {
+      "id": "discovery",
+      "aliases": [
+        "Product Discovery",
+        "Discovery"
+      ],
+      "status": "verified",
+      "ownership": "contribution",
+      "sources": [
+        "case_study_02_leadtime_final.html",
+        "case_study_03_habitat_final.html"
+      ]
+    },
+    {
+      "id": "jira",
+      "aliases": [
+        "Jira"
+      ],
+      "status": "verified",
+      "ownership": "contribution",
+      "sources": [
+        "case_study_02_leadtime_final.html"
+      ]
+    },
+    {
+      "id": "stakeholders",
+      "aliases": [
+        "Stakeholder Management",
+        "Stakeholder Management"
+      ],
+      "status": "verified",
+      "ownership": "contribution",
+      "sources": [
+        "case_study_02_leadtime_final.html",
+        "case_study_03_habitat_final.html"
+      ]
+    },
+    {
+      "id": "saas",
+      "aliases": [
+        "SaaS B2B",
+        "B2B SaaS"
+      ],
+      "status": "verified",
+      "ownership": "contribution",
+      "sources": [
+        "case_study_03_habitat_final.html"
+      ]
+    },
+    {
+      "id": "ux",
+      "aliases": [
+        "UX",
+        "User Experience",
+        "Customer Experience"
+      ],
+      "status": "verified",
+      "ownership": "contribution",
+      "sources": [
+        "case_study_03_habitat_final.html",
+        "case_study_01_persona_final.html"
+      ]
+    },
+    {
+      "id": "kanban",
+      "aliases": [
+        "Kanban"
+      ],
+      "status": "verified",
+      "ownership": "contribution",
+      "sources": [
+        "case_study_02_leadtime_final.html"
+      ]
+    },
+    {
+      "id": "user-stories",
+      "aliases": [
+        "User Stories",
+        "User Story"
+      ],
+      "status": "verified",
+      "ownership": "contribution",
+      "sources": [
+        "case_study_03_habitat_final.html"
+      ]
+    },
+    {
+      "id": "acceptance-criteria",
+      "aliases": [
+        "Acceptance Criteria"
+      ],
+      "status": "verified",
+      "ownership": "contribution",
+      "sources": [
+        "case_study_03_habitat_final.html"
+      ]
+    },
+    {
+      "id": "uat-oat",
+      "aliases": [
+        "UAT",
+        "OAT",
+        "UAT/OAT"
+      ],
+      "status": "verified",
+      "ownership": "contribution",
+      "sources": [
+        "case_study_03_habitat_final.html"
+      ]
+    },
+    {
+      "id": "backlog-management",
+      "aliases": [
+        "Backlog Management",
+        "Backlog Refinement",
+        "backlog refinement"
+      ],
+      "status": "verified",
+      "ownership": "contribution",
+      "sources": [
+        "case_study_03_habitat_final.html",
+        "case_study_02_leadtime_final.html"
+      ]
+    },
+    {
+      "id": "product-backlog-ownership",
+      "aliases": [
+        "Product Backlog ownership",
+        "Product Backlog Owner",
+        "end-to-end Product Backlog ownership"
+      ],
+      "status": "partial",
+      "ownership": "none",
+      "sources": [],
+      "reason": "Evidence supports backlog management and refinement, not end-to-end Product Backlog ownership."
+    },
+    {
+      "id": "product-strategy-ownership",
+      "aliases": [
+        "Product Strategy ownership",
+        "end-to-end Product Strategy",
+        "Product Strategy Owner"
+      ],
+      "status": "gap",
+      "ownership": "none",
+      "sources": []
+    },
+    {
+      "id": "experimentation",
+      "aliases": [
+        "Experimentation",
+        "A/B Testing",
+        "Hypothesis",
+        "Validation",
+        "User Feedback"
+      ],
+      "status": "verified",
+      "ownership": "contribution",
+      "sources": [
+        "case_study_03_habitat_final.html"
+      ]
+    },
+    {
+      "id": "product-owner",
+      "aliases": [
+        "Product Owner",
+        "Product Owner | Gestão de Produtos",
+        "Product Owner I"
+      ],
+      "status": "verified",
+      "ownership": "contribution",
+      "sources": [
+        "linkedin-profile.snapshot.json"
+      ]
+    },
+    {
+      "id": "prioritization",
+      "aliases": [
+        "Prioritization",
+        "Priorização"
+      ],
+      "status": "verified",
+      "ownership": "contribution",
+      "sources": [
+        "linkedin-profile.snapshot.json"
+      ]
+    },
+    {
+      "id": "customer-journey",
+      "aliases": [
+        "Customer Journey",
+        "Jornada do cliente"
+      ],
+      "status": "verified",
+      "ownership": "contribution",
+      "sources": [
+        "linkedin-profile.snapshot.json"
+      ]
+    },
+    {
+      "id": "requirements",
+      "aliases": [
+        "Requirements",
+        "Levantamento de requisitos",
+        "requisitos"
+      ],
+      "status": "verified",
+      "ownership": "contribution",
+      "sources": [
+        "linkedin-profile.snapshot.json"
+      ]
+    },
+    {
+      "id": "product-metrics",
+      "aliases": [
+        "Product Metrics",
+        "Métricas de produto",
+        "KPIs",
+        "indicadores"
+      ],
+      "status": "verified",
+      "ownership": "contribution",
+      "sources": [
+        "linkedin-profile.snapshot.json"
+      ]
+    },
+    {
+      "id": "digital-products",
+      "aliases": [
+        "Digital Products",
+        "produtos digitais"
+      ],
+      "status": "verified",
+      "ownership": "contribution",
+      "sources": [
+        "linkedin-profile.snapshot.json"
+      ]
+    },
+    {
+      "id": "scrum-agile",
+      "aliases": [
+        "Scrum",
+        "metodologias ágeis",
+        "Agile"
+      ],
+      "status": "partial",
+      "ownership": "contribution",
+      "sources": [
+        "career-profile"
+      ],
+      "reason": "Scrum and agile methods are present in the broader career profile/training record, but are not explicit in the supplied LinkedIn skills snapshot."
+    }
   ]
 }
