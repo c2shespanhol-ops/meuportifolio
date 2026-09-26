@@ -37,7 +37,7 @@ export function matchRequirement(requirement, evidenceClaims) {
 
   const exactVerified = relations.find((item) => item.relation === "exact" && item.claim.status === "verified");
   const exactPartial = relations.find((item) => item.relation === "exact" && item.claim.status === "partial");
-  const relatedVerified = relations.find((item) => item.relation !== "requirement_contains_alias" && item.claim.status === "verified");
+  const relatedVerified = relations.find((item) => item.claim.status === "verified");
   const relatedPartial = relations.find((item) => item.claim.status === "partial");
 
   if (requirementNeedsOwnership(requirement)) {
