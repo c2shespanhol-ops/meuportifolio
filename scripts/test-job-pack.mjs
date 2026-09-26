@@ -28,5 +28,24 @@ const ownershipVacancy = {
 const ownershipPack = buildJobPack(ownershipVacancy, evidence.claims, profile);
 assert(ownershipPack.matcher.matches.must_have[0].status === "partial", "Ownership requirement must remain partial.");
 
+const thresholdVacancy = {
+  ...vacancy,
+  id: "job-pack-threshold-check",
+  normalized: { must_have: ["SaaS B2B", "Digital Products", "Prioritization", "Technology Degree"] }
+};
+const thresholdPack = buildJobPack(thresholdVacancy, evidence.claims, profile);
+assert(thresholdPack.candidacy.coverage === 75, "Candidacy coverage should count only verified must-have requirements.");
+assert(thresholdPack.candidacy.qualifies === true, "More than 50% verified must-have requirements should qualify the candidature.");
+
+const exactHalfVacancy = {
+  ...vacancy,
+  id: "job-pack-exact-half-check",
+  normalized: { must_have: ["SaaS B2B", "Technology Degree"] }
+};
+const exactHalfPack = buildJobPack(exactHalfVacancy, evidence.claims, profile);
+assert(exactHalfPack.candidacy.coverage === 50, "Exact 50% coverage must be represented accurately.");
+assert(exactHalfPack.candidacy.qualifies === false, "Exactly 50% must not qualify because the rule is greater than 50%.");
+
+
 console.log(JSON.stringify(pack, null, 2));
 console.log("Job Pack tests passed.");
