@@ -1,6 +1,6 @@
 import { matchVacancy } from "./job-matcher.mjs";
 import { assertLinkedInSourcedProfile } from "./linkedin-profile.mjs";
-import { evaluateCandidacy } from "./vacancy-triage.mjs";
+import { CANDIDACY_THRESHOLD_PERCENT, evaluateCandidacy } from "./vacancy-triage.mjs";
 
 const MAX_PRESENTATION_CHARS = 1500;
 const unique = (items) => [...new Set(items.filter(Boolean))];
