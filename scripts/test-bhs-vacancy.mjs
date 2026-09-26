@@ -17,7 +17,7 @@ const status = (group, requirement) => {
 
 assert(pack.status === "review_required", "BHS Job Pack must require human review.");
 assert(pack.profile_source?.primary_source === "linkedin", "Job Pack must use the LinkedIn-sourced profile.");
-assert(pack.location.remote === true, "BHS fixture must remain remote.");
+assert(vacancy.location.remote === true, "BHS fixture must remain remote.");
 assert(pack.keywords.includes("Product Owner"), "Product Owner must be a verified keyword.");
 assert(pack.keywords.includes("SaaS B2B"), "SaaS B2B must be a verified keyword.");
 assert(pack.keywords.includes("Digital Products"), "Digital Products must be a verified keyword.");
