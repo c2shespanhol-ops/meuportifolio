@@ -14,11 +14,18 @@ const requirementNeedsOwnership = (requirement) => {
 };
 
 export function matchRequirement(requirement, evidenceClaims) {
-  const direct = evidenceClaims.filter((claim) =>
-    claim.aliases.some((alias) => containsTerm(requirement, alias) || containsTerm(alias, requirement))
+  const relations = evidenceClaims.flatMap((claim) =>
+    claim.aliases.flatMap((alias) => {
+      const requirementNorm = normalize(requirement);
+      const aliasNorm = normalize(alias);
+      if (requirementNorm === aliasNorm) return [{ claim, relation: "exact" }];
+      if (containsTerm(alias, requirement)) return [{ claim, relation: "alias_contains_requirement" }];
+      if (containsTerm(requirement, alias)) return [{ claim, relation: "requirement_contains_alias" }];
+      return [];
+    })
   );
 
-  if (!direct.length) {
+  if (!relations.length) {
     return {
       requirement,
       status: "gap",
@@ -28,40 +35,53 @@ export function matchRequirement(requirement, evidenceClaims) {
     };
   }
 
-  const exact = direct.find((claim) => claim.status === "verified");
-  const partial = direct.find((claim) => claim.status === "partial");
+  const exactVerified = relations.find((item) => item.relation === "exact" && item.claim.status === "verified");
+  const exactPartial = relations.find((item) => item.relation === "exact" && item.claim.status === "partial");
+  const relatedVerified = relations.find((item) => item.relation !== "requirement_contains_alias" && item.claim.status === "verified");
+  const relatedPartial = relations.find((item) => item.claim.status === "partial");
 
   if (requirementNeedsOwnership(requirement)) {
-    const owned = direct.find((claim) => claim.status === "verified" && claim.ownership === "ownership");
+    const owned = relations.find((item) => item.claim.status === "verified" && item.claim.ownership === "ownership");
     if (!owned) {
-      const candidate = partial || exact;
+      const candidate = exactPartial || relatedPartial || exactVerified || relatedVerified;
       return {
         requirement,
         status: "partial",
-        ownership: candidate?.ownership ?? "none",
-        evidence: candidate?.sources ?? [],
-        rationale: candidate?.reason ?? "Related evidence exists, but the required ownership level is not verified."
+        ownership: candidate?.claim.ownership ?? "none",
+        evidence: candidate?.claim.sources ?? [],
+        rationale: candidate?.claim.reason ?? "Related evidence exists, but the required ownership level is not verified."
       };
     }
   }
 
-  if (exact) {
+  if (exactVerified) {
     return {
       requirement,
       status: "verified",
-      ownership: exact.ownership,
-      evidence: exact.sources,
-      rationale: "Requirement is supported by a verified evidence claim."
+      ownership: exactVerified.claim.ownership,
+      evidence: exactVerified.claim.sources,
+      rationale: "Requirement is supported by an exact verified evidence claim."
     };
   }
 
-  if (partial) {
+  if (exactPartial) {
     return {
       requirement,
       status: "partial",
-      ownership: partial.ownership,
-      evidence: partial.sources,
-      rationale: partial.reason ?? "Related evidence exists but is not sufficient for a verified match."
+      ownership: exactPartial.claim.ownership,
+      evidence: exactPartial.claim.sources,
+      rationale: exactPartial.claim.reason ?? "The requirement has an exact mapped claim, but the evidence is partial."
+    };
+  }
+
+  if (relatedPartial || relatedVerified) {
+    const candidate = relatedPartial || relatedVerified;
+    return {
+      requirement,
+      status: candidate.claim.status === "verified" ? "partial" : "partial",
+      ownership: candidate.claim.ownership,
+      evidence: candidate.claim.sources,
+      rationale: candidate.claim.reason ?? "Related evidence exists, but the requirement is more specific than the mapped evidence."
     };
   }
 
