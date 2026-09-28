@@ -17,16 +17,71 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="portfolio-theme.css?v=20260925">
 <style>
-:root{--bg:#090D12;--surface:#121820;--surface2:#19222B;--text:#F7F8FA;--muted:#AFB8C1;--gold:#E5B642;--cyan:#53C0CC;--border:rgba(229,182,66,.22);--max:1180px;--pad:clamp(20px,4vw,48px);--sec:clamp(72px,9vw,120px)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;font-weight:300;line-height:1.7}a{color:inherit;text-decoration:none}.shell{width:min(var(--max),100%);margin:auto;padding-left:var(--pad);padding-right:var(--pad)}
-.skip{position:absolute;left:16px;top:-80px;background:var(--gold);color:var(--bg);padding:10px 14px;z-index:100}.skip:focus{top:16px}
-header{position:sticky;top:0;z-index:20;background:rgba(9,13,18,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(229,182,66,.12)}
-.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:13px}.mark{width:42px;height:42px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;font-size:18px;font-weight:600}.brand-name{font-size:15px;letter-spacing:.08em}.brand-role{font:500 8px/1.4 Orbitron;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-top:4px}.navlinks{display:flex;gap:20px;align-items:center;font-size:13px}.navlinks a:hover,.navlinks a:focus-visible{color:var(--cyan)}.lang{font:500 9px Orbitron;letter-spacing:.1em;color:var(--gold)}
-.hero{padding-top:var(--sec);padding-bottom:var(--sec);display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,.5fr);gap:72px;align-items:end}.eyebrow,.kicker{font:500 9px/1.5 Orbitron;letter-spacing:.16em;color:var(--gold);text-transform:uppercase}.hero h1{font-size:clamp(48px,7vw,82px);font-weight:300;line-height:1.02;letter-spacing:-.05em;margin:22px 0}.hero h1 span{color:var(--cyan)}.lead{font-size:clamp(20px,2.5vw,30px);line-height:1.35;color:var(--text);max-width:850px}.support{max-width:760px;color:var(--muted)}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border:1px solid var(--border);border-radius:7px;font:500 9px Orbitron;letter-spacing:.08em;text-transform:uppercase}.btn:hover,.btn:focus-visible{border-color:var(--cyan);color:var(--cyan)}.btn.primary{background:var(--gold);border-color:var(--gold);color:var(--bg)}.proof{border-left:1px solid var(--gold);padding-left:25px}.proof .num{font-size:clamp(70px,10vw,110px);line-height:.9;color:var(--gold);letter-spacing:-.06em}.proof .label{display:block;color:var(--gold);font:500 9px/1.7 Orbitron;letter-spacing:.12em;text-transform:uppercase;margin-top:18px}.proof p{font-size:13px;color:var(--muted)}
-section{padding-top:var(--sec)}.section-head{display:grid;grid-template-columns:.65fr 1.35fr;gap:60px;margin-bottom:38px}.section h2{font-size:clamp(31px,4vw,52px);font-weight:300;line-height:1.08;letter-spacing:-.035em;margin:0}.intro{font-size:17px;color:var(--muted);max-width:780px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:26px}.card:hover{background:var(--surface2);border-color:rgba(229,182,66,.55)}.stat{font-size:clamp(42px,5vw,58px);line-height:1;color:var(--gold)}.card h3{font-size:19px;font-weight:400;line-height:1.25;margin:15px 0 8px}.card p{color:var(--muted);font-size:13px;margin:0}.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}.tags span{font:500 8px/1 Orbitron;letter-spacing:.06em;border:1px solid rgba(83,192,204,.5);color:var(--cyan);border-radius:5px;padding:7px 8px}.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.case{min-height:285px;display:flex;flex-direction:column;justify-content:space-between}.case-meta{font:500 9px/1.5 Orbitron;letter-spacing:.13em;color:var(--gold)}.case h3{font-size:25px}.open{display:inline-block;margin-top:20px;font:500 9px Orbitron;letter-spacing:.1em;color:var(--gold)}.truth{display:grid;grid-template-columns:1fr 1fr;gap:12px}.contact{padding-bottom:var(--sec)}.contact-box{border:1px solid var(--gold);border-radius:12px;padding:40px;display:flex;justify-content:space-between;gap:40px;align-items:center;background:rgba(229,182,66,.04)}.contact-actions{display:flex;flex-direction:column;gap:9px;min-width:230px}.contact-actions a{padding:12px 14px;border:1px solid var(--border);border-radius:7px;text-align:center;font:500 9px Orbitron;letter-spacing:.08em}.contact-actions a:first-child{background:var(--gold);color:var(--bg);border-color:var(--gold)}
-footer{border-top:1px solid var(--border);padding:32px var(--pad) 38px;text-align:center;color:var(--muted);font-size:11px}.signature{color:var(--text);font-size:13px}
-:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media(max-width:900px){.hero{grid-template-columns:1fr;gap:44px}.section-head{grid-template-columns:1fr;gap:18px}.grid{grid-template-columns:repeat(2,1fr)}.contact-box{flex-direction:column;align-items:flex-start}}@media(max-width:620px){.navlinks a:nth-child(-n+3){display:none}.grid,.cases,.truth{grid-template-columns:1fr}.hero{padding-top:70px;padding-bottom:70px}.hero h1{font-size:clamp(42px,12vw,58px)}.contact-box{padding:28px}}
+:root{
+  --bg:#090D12;--surface:#121820;--surface2:#19222B;--text:#F7F8FA;
+  --muted:#AFB8C1;--gold:#E5B642;--teal:#53C0CC;--border:rgba(229,182,66,.22);
+  --max:1180px;--pad:clamp(20px,4vw,48px);--sec:clamp(72px,9vw,120px)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;font-weight:300;font-size:15px;line-height:1.72}
+a{color:var(--gold);text-decoration:none}
+.shell{width:min(var(--max),100%);margin:auto;padding-left:var(--pad);padding-right:var(--pad)}
+.skip{position:absolute;left:16px;top:-80px;background:var(--gold);color:var(--bg);padding:10px 14px;z-index:100}
+.skip:focus{top:16px}
+header{position:sticky;top:0;z-index:20;background:rgba(9,13,18,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:13px}
+.mark{width:42px;height:42px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;font:600 18px "DM Sans",sans-serif;color:var(--text)}
+.brand-name{font:500 15px/1.2 "DM Sans",sans-serif;letter-spacing:.08em;color:var(--text)}
+.brand-role{display:block;font:500 8px/1.4 Orbitron,sans-serif;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-top:4px}
+.navlinks{display:flex;gap:20px;align-items:center;font:500 9px/1 Orbitron,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.navlinks a{color:var(--muted)}
+.navlinks a:hover,.navlinks a:focus-visible{color:var(--gold)}
+.lang{color:var(--gold)!important}
+.hero{padding-top:var(--sec);padding-bottom:var(--sec);display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,.5fr);gap:72px;align-items:end}
+.eyebrow,.kicker{font:500 9px/1.5 Orbitron,sans-serif;letter-spacing:.16em;color:var(--gold);text-transform:uppercase}
+.hero h1{font-size:clamp(40px,5vw,64px);font-weight:300;line-height:1.05;letter-spacing:-.04em;margin:20px 0 16px;color:var(--text)}
+.hero h1 span{color:var(--teal)}
+.lead{font-size:clamp(18px,2vw,24px);line-height:1.45;color:var(--text);max-width:850px}
+.support{max-width:760px;color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 15px;border:1px solid var(--border);border-radius:7px;font:500 9px Orbitron,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.btn:hover,.btn:focus-visible{border-color:var(--gold);color:var(--gold)}
+.btn.primary{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+.proof{border-left:1px solid var(--gold);padding-left:25px}
+.proof .num{font-size:clamp(64px,9vw,100px);line-height:.9;color:var(--gold);letter-spacing:-.06em}
+.proof .label{display:block;color:var(--gold);font:500 9px/1.7 Orbitron,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-top:18px}
+.proof p{font-size:13px;color:var(--muted)}
+section{padding-top:var(--sec)}
+.section-head{display:grid;grid-template-columns:.65fr 1.35fr;gap:60px;margin-bottom:38px}
+.section h2{font-size:clamp(28px,3vw,36px);font-weight:300;line-height:1.12;letter-spacing:-.025em;margin:0;color:var(--text)}
+.intro{font-size:15px;color:var(--muted);max-width:780px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:24px}
+.card:hover{background:var(--surface2);border-color:var(--gold)}
+.stat{font-size:clamp(40px,5vw,56px);line-height:1;color:var(--gold)}
+.card h3{font-size:20px;font-weight:500;line-height:1.25;margin:15px 0 8px;color:var(--text)}
+.card p{color:var(--muted);font-size:13px;margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.tags span{font:500 8px/1 Orbitron,sans-serif;letter-spacing:.06em;border:1px solid rgba(83,192,204,.5);color:var(--teal);border-radius:5px;padding:7px 8px}
+.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.case{min-height:285px;display:flex;flex-direction:column;justify-content:space-between}
+.case-meta{font:500 9px/1.5 Orbitron,sans-serif;letter-spacing:.13em;color:var(--gold)}
+.case h3{font-size:23px}
+.open{display:inline-block;margin-top:20px;font:500 9px Orbitron,sans-serif;letter-spacing:.1em;color:var(--gold)}
+.truth{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.contact{padding-bottom:var(--sec)}
+.contact-box{border:1px solid var(--gold);border-radius:8px;padding:36px;display:flex;justify-content:space-between;gap:40px;align-items:center;background:rgba(229,182,66,.04)}
+.contact-actions{display:flex;flex-direction:column;gap:9px;min-width:230px}
+.contact-actions a{padding:11px 14px;border:1px solid var(--border);border-radius:7px;text-align:center;font:500 9px Orbitron,sans-serif;letter-spacing:.08em;color:var(--gold)}
+.contact-actions a:first-child{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+footer{border-top:1px solid var(--border);padding:32px var(--pad) 38px;text-align:center;color:var(--muted);font-size:11px}
+.signature{color:var(--text);font-size:13px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(max-width:900px){.hero{grid-template-columns:1fr;gap:44px}.section-head{grid-template-columns:1fr;gap:18px}.grid{grid-template-columns:repeat(2,1fr)}.contact-box{flex-direction:column;align-items:flex-start}}
+@media(max-width:620px){.navlinks a:nth-child(-n+3){display:none}.grid,.cases,.truth{grid-template-columns:1fr}.hero{padding-top:70px;padding-bottom:70px}.hero h1{font-size:clamp(40px,11vw,54px)}.contact-box{padding:28px}}
 </style>
 <!-- Analytics is intentionally configured through a later deployment variable. -->
 </head>
@@ -54,7 +109,7 @@ footer{border-top:1px solid var(--border);padding:32px var(--pad) 38px;text-alig
 <a class="card case" href="case_study_05_pav_receita_federal_final.html"><div><span class="case-meta">CASO 05 · PAV · SERVICE DESIGN</span><h3>Da Discovery à implantação do PAV</h3><p>Discovery, jornada, requisitos, stakeholders, benchmark, implementação e validação em três unidades.</p></div><div><div class="tags"><span>3 unidades</span><span>Service Design</span><span>Stakeholders</span></div><span class="open">Ver case ↗</span></div></a>
 <a class="card case" href="case_study_01_persona_final.html"><div><span class="case-meta">CASO 01 · DISCOVERY · SERVIÇO DIGITAL</span><h3>Assistente Virtual Institucional</h3><p>Personas, jornada, arquitetura conversacional, requisitos e protótipo conceitual para uma solução institucional.</p></div><div><div class="tags"><span>Discovery</span><span>Journey</span><span>Requirements</span></div><span class="open">Ver case ↗</span></div></a>
 </div></section>
-<section><div class="section-head"><div class="kicker">04 · Certifications</div><div><h2>Conhecimento aplicado, não apenas listado.</h2><p class="intro">Certificações e formações serão conectadas às evidências e aos contextos em que o conhecimento aparece.</p></div></div><div class="grid"><article class="card"><h3>Lean Agile Coach Professional</h3><p>LACP</p></article><article class="card"><h3>Team Kanban Practitioner</h3><p>TKP</p></article><article class="card"><h3>Scrum</h3><p>Formação em Scrum</p></article><article class="card"><h3>Gestão 3.0</h3><p>Gestão e liderança</p></article></div></section>
+<section><div class="section-head"><div class="kicker">04 · Certificações</div><div><h2>Conhecimento aplicado, não apenas listado.</h2><p class="intro">Certificações e formações conectadas às evidências e aos contextos em que o conhecimento aparece.</p></div></div><div class="grid"><article class="card"><h3>KSD</h3><p>Kanban System Design</p></article><article class="card"><h3>KSI</h3><p>Kanban System Improvement</p></article><article class="card"><h3>KMP</h3><p>Kanban Management Professional</p></article><article class="card"><h3>TKP</h3><p>Team Kanban Practitioner</p></article></div></section>
 <section><div class="section-head"><div class="kicker">05 · Career OS</div><div><h2>O portfólio público concentra cases, evidências e materiais profissionais.</h2><p class="intro">Job Matcher, ATS, currículo adaptado, texto de apresentação, três competências, inteligência salarial, histórico de candidaturas e busca diária serão construídos em uma aplicação separada.</p></div></div></section>
 <section id="cv" class="section"><div class="section-label">MATERIAIS DE CARREIRA</div><h2>CV orientado a evidências e leitura por ATS.</h2><p>Currículo estruturado para Product Owner, com palavras-chave alinhadas à experiência comprovada.</p><p><a href="cv/cv-pt.html" target="_blank" rel="noopener">Abrir CV em português →</a> · <a href="cv/cv-en.html" target="_blank" rel="noopener">CV em inglês →</a></p></section><section id="contact" class="contact"><div class="contact-box"><div><div class="kicker">06 · Próximo passo</div><h2>Vamos conversar sobre o problema antes da solução.</h2><p class="intro">Aberto a oportunidades de Product Owner e funções de Produto/UX em que Discovery, clareza operacional, priorização e experiência do usuário façam parte do trabalho.</p></div><div class="contact-actions"><a href="mailto:cleyton.s.hespanhol@gmail.com">E-mail ↗</a><a href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener">LinkedIn ↗</a></div></div></section>
 </div></main>
