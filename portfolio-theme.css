@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
 
 :root{
-  --pbos-bg:#1E2328;
-  --pbos-surface:#202A30;
-  --pbos-surface-2:#27343A;
-  --pbos-gold:#DAAF57;
-  --pbos-gold-soft:#E7C36D;
-  --pbos-text:#F5F7FA;
+  --pbos-bg:#090D12;
+  --pbos-surface:#121820;
+  --pbos-surface-2:#19222B;
+  --pbos-gold:#E5B642;
+  --pbos-gold-soft:#E5B642;
+  --pbos-text:#F7F8FA;
   --pbos-muted:#D0D6DA;
-  --pbos-muted-2:#98A4AA;
+  --pbos-muted-2:#AFB8C1;
   --pbos-border:rgba(218,175,87,.30);
   --pbos-border-soft:rgba(245,247,250,.14);
   --bg:var(--pbos-bg);
@@ -16,9 +16,9 @@
   --bg3:var(--pbos-surface-2);
   --gold:var(--pbos-gold);
   --gold-lt:var(--pbos-gold-soft);
-  --teal:#26505A;
-  --teal-br:#26505A;
-  --cyan:#26505A;
+  --teal:#53C0CC;
+  --teal-br:#53C0CC;
+  --cyan:#53C0CC;
   --text:var(--pbos-text);
   --text-muted:var(--pbos-muted);
   --white:var(--pbos-text);
@@ -167,7 +167,7 @@ footer,.pbos-footer{
 }
 
 /* Palette application: dark blue + gold + green + white */
-:root{--pbos-green:#26505A;}
+:root{--pbos-green:#53C0CC;}
 a{color:var(--pbos-green)}
 strong{color:var(--pbos-text)}
 em{color:var(--pbos-green)!important}
