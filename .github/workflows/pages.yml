@@ -37,6 +37,28 @@ jobs:
             --exclude 'scripts' \
             --exclude '_site'
 
+      - name: Validate public artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f _site/index.html
+          test -f _site/en/index.html
+          test -f _site/robots.txt
+          test -f _site/sitemap.xml
+          test -f _site/cv/cv-pt.html
+          test -f _site/cv/cv-en.html
+          test -f _site/case_study_01_persona_final.html
+          test -f _site/case_study_02_leadtime_final.html
+          test -f _site/case_study_03_habitat_final.html
+          test -f _site/case_study_05_pav_receita_federal_final.html
+          test -f _site/en/cases/case-01-virtual-assistant.html
+          test -f _site/en/cases/case-02-lead-time-governance.html
+          test -f _site/en/cases/case-03-habitat-saas.html
+          test -f _site/en/cases/case-05-pav-receita-federal.html
+          ! find _site -type f \( -path '*/data/*' -o -path '*/career-os/*' -o -path '*/scripts/*' -o -path '*/docs/*' \) | grep -q .
+          ! grep -RniE '\+55[0-9 ()-]{8,}|whatsapp' _site >/dev/null
+          ! grep -Rni 'undefined</main>' _site/en/cases >/dev/null
+
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
