@@ -52,3 +52,21 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Smoke test published site
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://c2shespanhol-ops.github.io/meuportifolio"
+          for i in $(seq 1 12); do
+            if curl -fsSL "$base/" > /tmp/pt.html &&                curl -fsSL "$base/en/" > /tmp/en.html &&                curl -fsSL "$base/cv/cv-pt.html" > /tmp/cv.html; then
+              grep -q "Cleyton Hespanhol | Product Owner | UX" /tmp/pt.html
+              grep -q "Product Owner | UX" /tmp/en.html
+              grep -q "Product Owner" /tmp/cv.html
+              ! grep -q "undefined</main>" /tmp/en.html
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "Published site did not become reachable or failed smoke-test assertions."
+          exit 1
