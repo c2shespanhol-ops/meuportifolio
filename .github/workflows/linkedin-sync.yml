@@ -1,0 +1,49 @@
+name: Career OS · LinkedIn Sync
+
+on:
+  push:
+    paths:
+      - "career-os/inbox/linkedin-profile.json"
+      - "career-os/linkedin-sync.mjs"
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "Aplicar o snapshot depois da revisão do diff"
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run LinkedIn diff
+        id: diff
+        shell: bash
+        env:
+          APPLY: ${{ inputs.apply && 'true' || 'false' }}
+        run: |
+          set -o pipefail
+          node career-os/linkedin-sync.mjs | tee linkedin-sync-report.json
+
+      - name: Upload diff report
+        uses: actions/upload-artifact@v4
+        with:
+          name: linkedin-sync-report
+          path: linkedin-sync-report.json
+
+      - name: Commit approved snapshot
+        if: ${{ inputs.apply == true }}
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add career-os/linkedin-profile.json career-os/inbox/linkedin-profile.json
+          git commit -m "chore: apply reviewed LinkedIn profile snapshot" || echo "No snapshot changes to commit."
+          git push
