@@ -50,10 +50,12 @@ jobs:
           test -f _site/case_study_01_persona_final.html
           test -f _site/case_study_02_leadtime_final.html
           test -f _site/case_study_03_habitat_final.html
+          test -f _site/case_study_04_shv_final.html
           test -f _site/case_study_05_pav_receita_federal_final.html
           test -f _site/en/cases/case-01-virtual-assistant.html
           test -f _site/en/cases/case-02-lead-time-governance.html
           test -f _site/en/cases/case-03-habitat-saas.html
+          test -f _site/en/cases/case-04-shv-energy.html
           test -f _site/en/cases/case-05-pav-receita-federal.html
           ! find _site -type f \( -path '*/data/*' -o -path '*/career-os/*' -o -path '*/scripts/*' -o -path '*/docs/*' \) | grep -q .
           ! grep -RniE '\+55[0-9 ()-]{8,}|whatsapp' _site >/dev/null
@@ -90,10 +92,12 @@ jobs:
                 case_study_01_persona_final.html \
                 case_study_02_leadtime_final.html \
                 case_study_03_habitat_final.html \
+                case_study_04_shv_final.html \
                 case_study_05_pav_receita_federal_final.html \
                 en/cases/case-01-virtual-assistant.html \
                 en/cases/case-02-lead-time-governance.html \
                 en/cases/case-03-habitat-saas.html \
+                en/cases/case-04-shv-energy.html \
                 en/cases/case-05-pav-receita-federal.html; do
                 curl -fsSL "$base/$path" >/tmp/page.html
                 ! grep -q "undefined</main>" /tmp/page.html
