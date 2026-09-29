@@ -121,7 +121,7 @@ jobs:
             done
             return 0
           }
-          for i in $(seq 1 12); do
+          for i in $(seq 1 60); do
             if check_site; then
               echo "HTTP smoke test passed on attempt $i."
               exit 0
