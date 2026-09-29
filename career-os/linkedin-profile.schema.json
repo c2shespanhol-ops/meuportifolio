@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Career OS LinkedIn Profile Snapshot",
+  "type": "object",
+  "required": ["source", "capturedAt", "profile"],
+  "properties": {
+    "source": {
+      "type": "object",
+      "required": ["type", "profileUrl"],
+      "properties": {
+        "type": { "const": "linkedin-profile-snapshot" },
+        "profileUrl": { "type": "string", "format": "uri" }
+      }
+    },
+    "capturedAt": { "type": "string" },
+    "profile": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "headline": { "type": "string" },
+        "about": { "type": "string" },
+        "location": { "type": "string" },
+        "experience": { "type": "array" },
+        "education": { "type": "array" },
+        "certifications": { "type": "array" },
+        "skills": { "type": "array" },
+        "languages": { "type": "array" }
+      }
+    }
+  }
+}
