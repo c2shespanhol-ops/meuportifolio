@@ -89,35 +89,44 @@ jobs:
       - name: Smoke test published site
         shell: bash
         run: |
-          set -euo pipefail
+          set -u
           base="https://c2shespanhol-ops.github.io/meuportifolio"
+          check_site() {
+            rm -f /tmp/pt.html /tmp/en.html /tmp/cv.html /tmp/cv-pt.pdf /tmp/cv-en.pdf
+            curl -fsSL "$base/" > /tmp/pt.html || return 1
+            curl -fsSL "$base/en/" > /tmp/en.html || return 1
+            curl -fsSL "$base/cv/cv-pt.html" > /tmp/cv.html || return 1
+            grep -q "Cleyton Hespanhol | Product Owner | UX" /tmp/pt.html || return 1
+            grep -q "Product Owner | UX" /tmp/en.html || return 1
+            grep -q "Product Owner" /tmp/cv.html || return 1
+            grep -q "Servidor Destaque" /tmp/cv.html && return 1
+            grep -q "undefined</main>" /tmp/en.html && return 1
+            curl -fsSL "$base/cv/Cleyton-Hespanhol-Product-Owner-PT.pdf" -o /tmp/cv-pt.pdf || return 1
+            curl -fsSL "$base/cv/Cleyton-Hespanhol-Product-Owner-EN.pdf" -o /tmp/cv-en.pdf || return 1
+            test "$(head -c 4 /tmp/cv-pt.pdf)" = "%PDF" || return 1
+            test "$(head -c 4 /tmp/cv-en.pdf)" = "%PDF" || return 1
+            for path in \
+              case_study_01_persona_final.html \
+              case_study_02_leadtime_final.html \
+              case_study_03_habitat_final.html \
+              case_study_04_shv_final.html \
+              case_study_05_pav_receita_federal_final.html \
+              en/cases/case-01-virtual-assistant.html \
+              en/cases/case-02-lead-time-governance.html \
+              en/cases/case-03-habitat-saas.html \
+              en/cases/case-04-shv-energy.html \
+              en/cases/case-05-pav-receita-federal.html; do
+              curl -fsSL "$base/$path" >/tmp/page.html || return 1
+              grep -q "undefined</main>" /tmp/page.html && return 1
+            done
+            return 0
+          }
           for i in $(seq 1 12); do
-            if curl -fsSL "$base/" > /tmp/pt.html &&                curl -fsSL "$base/en/" > /tmp/en.html &&                curl -fsSL "$base/cv/cv-pt.html" > /tmp/cv.html; then
-              grep -q "Cleyton Hespanhol | Product Owner | UX" /tmp/pt.html
-              grep -q "Product Owner | UX" /tmp/en.html
-              grep -q "Product Owner" /tmp/cv.html
-              curl -fsSL "$base/cv/Cleyton-Hespanhol-Product-Owner-PT.pdf" -o /tmp/cv-pt.pdf
-              curl -fsSL "$base/cv/Cleyton-Hespanhol-Product-Owner-EN.pdf" -o /tmp/cv-en.pdf
-              test "$(head -c 4 /tmp/cv-pt.pdf)" = "%PDF"
-              test "$(head -c 4 /tmp/cv-en.pdf)" = "%PDF"
-              ! grep -q "Servidor Destaque" /tmp/cv.html
-              ! grep -q "undefined</main>" /tmp/en.html
-              for path in \
-                case_study_01_persona_final.html \
-                case_study_02_leadtime_final.html \
-                case_study_03_habitat_final.html \
-                case_study_04_shv_final.html \
-                case_study_05_pav_receita_federal_final.html \
-                en/cases/case-01-virtual-assistant.html \
-                en/cases/case-02-lead-time-governance.html \
-                en/cases/case-03-habitat-saas.html \
-                en/cases/case-04-shv-energy.html \
-                en/cases/case-05-pav-receita-federal.html; do
-                curl -fsSL "$base/$path" >/tmp/page.html
-                ! grep -q "undefined</main>" /tmp/page.html
-              done
+            if check_site; then
+              echo "HTTP smoke test passed on attempt $i."
               exit 0
             fi
+            echo "HTTP smoke test not ready on attempt $i; waiting 5s."
             sleep 5
           done
           echo "Published site did not become reachable or failed smoke-test assertions."
