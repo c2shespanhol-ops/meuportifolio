@@ -2,27 +2,43 @@
   "use strict";
 
   /*
-   * Portfolio analytics for GitHub Pages.
-   * Provider: Counter.dev
+   * Portfolio analytics.
+   * Primary provider: Google Analytics 4.
+   * Fallback provider: Counter.dev.
    *
-   * Activation:
-   * 1. Create a Counter account and add the portfolio domain.
-   * 2. Copy the generated site ID into portfolio-config.js:
-   *    window.PORTFOLIO_COUNTER_ID = "YOUR_SITE_ID";
-   *
-   * No analytics request is sent while the ID is empty.
+   * GA4 requires only the public Measurement ID in the frontend.
+   * Private reporting credentials stay exclusively in Career OS.
    */
+
   var provider = window.PORTFOLIO_ANALYTICS_PROVIDER;
+  var ga4Id = window.PORTFOLIO_GA4_MEASUREMENT_ID;
   var counterId = window.PORTFOLIO_COUNTER_ID;
 
-  if (provider !== "counter" || !counterId) {
+  if (provider === "ga4" && ga4Id) {
+    var gaScript = document.createElement("script");
+    gaScript.async = true;
+    gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(ga4Id);
+    document.head.appendChild(gaScript);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () {
+      window.dataLayer.push(arguments);
+    };
+
+    window.gtag("js", new Date());
+    window.gtag("config", ga4Id, {
+      anonymize_ip: true,
+      transport_type: "beacon"
+    });
     return;
   }
 
-  var script = document.createElement("script");
-  script.src = "https://cdn.counter.dev/script.js";
-  script.dataset.id = counterId;
-  script.dataset.utcoffset = "-3";
-  script.async = true;
-  document.head.appendChild(script);
+  if (counterId) {
+    var counterScript = document.createElement("script");
+    counterScript.src = "https://cdn.counter.dev/script.js";
+    counterScript.dataset.id = counterId;
+    counterScript.dataset.utcoffset = "-3";
+    counterScript.async = true;
+    document.head.appendChild(counterScript);
+  }
 })();
