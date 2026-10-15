@@ -175,3 +175,29 @@ em{color:var(--pbos-green)!important}
 .logo-h,.h-mark{border-color:var(--pbos-gold)!important}
 .metric-display,.number{color:var(--pbos-gold)!important}
 .footer-linkedin,.pbos-footer-link{color:var(--pbos-green)!important}
+
+
+/* Mobile-first readability and responsive layout safeguards */
+html{scroll-padding-top:84px}
+body{overflow-wrap:anywhere}
+img,video,iframe,svg{max-width:100%}
+pre,table{max-width:100%}
+@media(max-width:760px){
+  body{font-size:16px!important;line-height:1.75!important}
+  p,li,td,th{line-height:1.75!important}
+  .container,.wrap,.shell,.section-inner{max-width:100%;padding-left:20px!important;padding-right:20px!important}
+  .back,.back-btn{top:12px!important;left:12px!important;max-width:calc(100vw - 24px);padding:9px 11px!important;font-size:9px!important;letter-spacing:.06em!important}
+  .artifact-card,.doc-card{align-items:flex-start!important;gap:12px;flex-wrap:wrap}
+  .artifact-action,.doc-action{margin-left:0!important;white-space:normal!important}
+  .links,.actions,.tags{max-width:100%}
+  .links a,.actions a{min-height:42px;display:inline-flex;align-items:center}
+  .flow-row{min-width:0}
+  .meta,.meta-row{grid-template-columns:1fr!important}
+  .section{scroll-margin-top:84px}
+}
+@media(max-width:420px){
+  .container,.wrap,.shell,.section-inner{padding-left:16px!important;padding-right:16px!important}
+  h1,.hero-title{font-size:clamp(32px,10vw,42px)!important;overflow-wrap:anywhere}
+  h2,.section-title,.section-heading{font-size:clamp(25px,8vw,32px)!important}
+  .card,.pillar-card,.artifact-card,.competency-card,.eco-card,.doc-card{padding:18px!important}
+}
