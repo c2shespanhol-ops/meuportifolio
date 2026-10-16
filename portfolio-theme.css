@@ -216,3 +216,31 @@ img, video, iframe, svg { max-width:100%; }
   table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
   th, td { padding:12px !important; }
 }
+
+
+/* Portfolio-wide consistency pass: readable rhythm, alignment and responsive overflow */
+html { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body { overflow-wrap:break-word; }
+main, header, footer, section, article, .container, .wrap, .case-shell, .section-inner { min-width:0; }
+p, li, dd, blockquote { line-height:1.75; }
+p { text-wrap:pretty; }
+h1, h2, h3, h4 { text-wrap:balance; overflow-wrap:break-word; }
+img, video, iframe, svg { max-width:100%; }
+table { max-width:100%; border-collapse:collapse; }
+th, td { text-align:left; vertical-align:top; overflow-wrap:anywhere; }
+.card, .panel, .step, .flow-step, .comparison-box, .metric, .doc-card, .artifact-card { min-width:0; }
+@media (max-width:760px) {
+  body { font-size:16px; line-height:1.75; }
+  p, li, dd, td, th { line-height:1.7; }
+  h1 { line-height:1.12; }
+  h2 { line-height:1.2; }
+  table { display:block; max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  th, td { padding:12px; }
+  .case-shell { padding-left:20px; padding-right:20px; }
+  .case-meta, .role-grid, .evidence-grid, .grid, .cards-grid-2, .cards-grid-3, .comparison-grid { grid-template-columns:minmax(0,1fr); }
+  .step { grid-template-columns:minmax(0,1fr); }
+}
+@media (max-width:380px) {
+  body { font-size:15px; }
+  header, main, footer, .section { padding-left:16px; padding-right:16px; }
+}
