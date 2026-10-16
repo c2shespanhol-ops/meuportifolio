@@ -221,6 +221,103 @@ body .stat-box { color:#E5B642 !important; }
 </style>
 <script src="portfolio-config.js" defer></script>
 <script src="portfolio-analytics.js" defer></script>
+
+<style id="topic-format-normalization">
+/* Consistent formatting for all case topics and supporting details */
+body .section h2,
+body .section h2.section-heading,
+body .section-inner h2 {
+  color:#F7F8FA!important;
+  font-family:'DM Sans',sans-serif!important;
+  font-size:clamp(28px,3.4vw,38px)!important;
+  font-weight:400!important;
+  line-height:1.2!important;
+  letter-spacing:-.025em!important;
+  margin:0 0 24px!important;
+}
+body .section h3,
+body .section-inner h3,
+body .card h3,
+body .step h3,
+body .eco-card h3,
+body .competency-card h3,
+body .doc-card h3 {
+  color:#F7F8FA!important;
+  font-family:'DM Sans',sans-serif!important;
+  font-size:clamp(17px,2vw,21px)!important;
+  font-weight:500!important;
+  line-height:1.35!important;
+  letter-spacing:0!important;
+  margin:0 0 8px!important;
+}
+body .section p,
+body .section-inner p,
+body .card p,
+body .step p,
+body .eco-card p,
+body .competency-card p,
+body .doc-card p,
+body .note {
+  color:#AFB8C1!important;
+  font-family:'DM Sans',sans-serif!important;
+  font-size:14px!important;
+  font-weight:300!important;
+  line-height:1.75!important;
+}
+body .section ul,
+body .section ol,
+body .section-inner ul,
+body .section-inner ol {
+  margin:12px 0 18px!important;
+  padding-left:24px!important;
+}
+body .section li,
+body .section-inner li {
+  color:#D0D6DA!important;
+  font-family:'DM Sans',sans-serif!important;
+  font-size:14px!important;
+  font-weight:300!important;
+  line-height:1.75!important;
+  margin:0 0 8px!important;
+}
+body .section li::marker,
+body .section-inner li::marker {color:#E5B642!important}
+body .section .step>span,
+body .section .label,
+body .section .section-label,
+body .section .tag,
+body .section .metric-label {
+  color:#E5B642!important;
+  font-family:'Orbitron',sans-serif!important;
+  font-size:9px!important;
+  font-weight:500!important;
+  line-height:1.6!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+}
+body .section .card,
+body .section .step,
+body .section .eco-card,
+body .section .competency-card,
+body .section .doc-card {
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+@media(max-width:760px){
+  body .section h2,
+  body .section h2.section-heading,
+  body .section-inner h2 {font-size:clamp(26px,7.5vw,34px)!important}
+  body .section h3,
+  body .section-inner h3,
+  body .section .card h3,
+  body .section .step h3 {font-size:18px!important}
+  body .section p,
+  body .section-inner p,
+  body .section li,
+  body .section-inner li {font-size:14px!important}
+}
+</style>
+
 </head>
 <body>
 <div class="portfolio-language-switcher" aria-label="Idioma"><a href="#" data-lang="pt" class="active">PT</a><a href="#" data-lang="en">EN</a></div>
