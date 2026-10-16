@@ -254,7 +254,7 @@ th, td { text-align:left; vertical-align:top; overflow-wrap:anywhere; }
   --pbos-gold-soft: oklch(0.80 0.14 86);
   --pbos-green: oklch(0.72 0.10 235);
   --pbos-text: oklch(0.98 0.003 250);
-  --pbos-muted: oklch(0.82 0.012 245);
+  --pbos-muted: oklch(0.72 0.018 245);
   --pbos-muted-2: oklch(0.72 0.018 245);
   --pbos-border: oklch(0.98 0.003 250 / 0.12);
   --pbos-border-soft: oklch(0.98 0.003 250 / 0.08);
