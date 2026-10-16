@@ -14,6 +14,41 @@ html body .card,html body .pillar-card,html body .artifact-card,html body .compe
 html body .back,html body .back-btn{font-family:'Orbitron',sans-serif!important;background:rgba(30,35,40,.96)!important;color:var(--pbos-gold)!important;border-color:var(--pbos-border)!important;border-radius:4px!important}html body .back:hover,html body .back-btn:hover{background:var(--pbos-gold)!important;color:var(--pbos-bg)!important}
 html body .pbos-footer,html body footer{background:var(--pbos-bg)!important;border-top:1px solid var(--pbos-border)!important;color:var(--pbos-muted)!important}html body .pbos-footer-signature{font-family:'DM Sans',sans-serif!important;color:var(--pbos-text)!important;font-weight:500!important}html body .pbos-footer-copy{color:var(--pbos-muted)!important}html body .pbos-footer-link,html body .footer-linkedin{color:var(--pbos-gold)!important}
 @media(max-width:760px){html body header,html body .container,html body .wrap,html body .cases-section,html body .hero-content,html body .hero-footer,html body .nav,html body footer,html body .section,html body .hero,html body .corporate-banner{padding-left:20px!important;padding-right:20px!important}html body h1,html body .hero-title{font-size:clamp(34px,10vw,48px)!important}html body h2,html body .section-title,html body .section-heading{font-size:clamp(28px,8vw,38px)!important}}
-/* Lovable HS MIND reference palette sync */
-:root{--pbos-bg:oklch(0.16 0.012 250);--pbos-surface:oklch(0.22 0.014 250);--pbos-surface-2:oklch(0.26 0.014 250);--pbos-gold:oklch(0.80 0.14 86);--pbos-gold-soft:oklch(0.80 0.14 86);--pbos-teal:oklch(0.72 0.10 235);--pbos-text:oklch(0.98 0.003 250);--pbos-muted:oklch(0.72 0.018 245);--pbos-muted-2:oklch(0.72 0.018 245);--pbos-border:oklch(0.98 0.003 250 / 0.12);--pbos-border-soft:oklch(0.98 0.003 250 / 0.08)}
-html,body{background:var(--pbos-bg)!important;color:var(--pbos-text)!important}a,.footer-linkedin,.pbos-footer-link{color:var(--pbos-gold)!important}.card,.panel,.step,.metric,.doc-card,.artifact-card{background:var(--pbos-surface)!important;border-color:var(--pbos-border)!important}.card:hover,.panel:hover,.step:hover{background:var(--pbos-surface-2)!important;border-color:var(--pbos-gold)!important}
+
+/* SINGLE SOURCE OF TRUTH: HS MIND Lovable reference palette */
+:root{
+  --pbos-bg:oklch(0.16 0.012 250);
+  --pbos-surface:oklch(0.22 0.014 250);
+  --pbos-surface-2:oklch(0.26 0.014 250);
+  --pbos-gold:oklch(0.80 0.14 86);
+  --pbos-gold-soft:oklch(0.80 0.14 86);
+  --pbos-teal:oklch(0.72 0.10 235);
+  --pbos-text:oklch(0.98 0.003 250);
+  --pbos-muted:oklch(0.72 0.018 245);
+  --pbos-muted-2:oklch(0.72 0.018 245);
+  --pbos-border:oklch(0.98 0.003 250 / 0.08);
+  --pbos-border-soft:oklch(0.98 0.003 250 / 0.08);
+  --bg:var(--pbos-bg);--bg2:var(--pbos-surface);--bg3:var(--pbos-surface-2);
+  --gold:var(--pbos-gold);--gold-lt:var(--pbos-gold-soft);
+  --teal:var(--pbos-teal);--teal-br:var(--pbos-teal);--cyan:var(--pbos-teal);
+  --text:var(--pbos-text);--text-muted:var(--pbos-muted);--white:var(--pbos-text);
+  --gray1:var(--pbos-muted);--gray2:var(--pbos-muted-2);--border:var(--pbos-border);
+  --background:var(--pbos-bg);--foreground:var(--pbos-text);
+  --card:var(--pbos-surface);--card-foreground:var(--pbos-text);
+  --popover:oklch(0.20 0.013 250);--popover-foreground:var(--pbos-text);
+  --primary:var(--pbos-gold);--primary-foreground:var(--pbos-bg);
+  --secondary:var(--pbos-surface-2);--secondary-foreground:var(--pbos-text);
+  --muted:oklch(0.24 0.012 250);--muted-foreground:var(--pbos-muted);
+  --accent:var(--pbos-teal);--accent-foreground:var(--pbos-bg);
+  --input:oklch(0.26 0.012 250);--ring:oklch(0.80 0.14 86 / 0.6);
+}
+html,body{background:var(--pbos-bg)!important;color:var(--pbos-text)!important}
+body{color:var(--pbos-text)!important}
+p,li,td,th,.muted,.lead,.description{color:var(--pbos-muted)!important}
+h1,h2,h3,h4,h5,h6,strong{color:var(--pbos-text)!important}
+a{color:var(--pbos-teal)!important}
+button,.btn,.button,.cta,.primary-button,[class*="primary"]{background-color:var(--pbos-gold)!important;color:var(--pbos-bg)!important;border-color:var(--pbos-gold)!important}
+.card,.panel,.step,.metric,.doc-card,.artifact-card,.competency-card,.eco-card,.case-card,.stat-box,.meta,.flow,.note,.comparison-box{background:var(--pbos-surface)!important;color:var(--pbos-text)!important;border-color:var(--pbos-border)!important}
+.card:hover,.panel:hover,.step:hover,.case-card:hover{background:var(--pbos-surface-2)!important}
+.eyebrow,.hero-eyebrow,.section-label,.section-kicker,.icon-accent,.text-gradient-accent{color:var(--pbos-teal)!important}
+.metric-display,.number,.metric-value{color:var(--pbos-gold)!important}
