@@ -57,8 +57,50 @@ body .stat-box { color:#E5B642 !important; }
   body .hero-main-text { font-size:clamp(28px,8vw,40px) !important; }
   body .section-title, body h2 { font-size:clamp(28px,8vw,40px) !important; }
 }
+
+/* Documento 06: tipografia, alinhamento e leitura responsiva */
+html { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body { font-size:16px !important; line-height:1.75 !important; overflow-wrap:anywhere; }
+header, main, footer { width:100%; max-width:1100px; margin-left:auto; margin-right:auto; }
+header { padding:clamp(28px,5vw,56px) clamp(18px,4vw,40px) 36px !important; }
+main { padding:0 clamp(18px,4vw,40px) !important; }
+footer { padding:32px clamp(18px,4vw,40px) !important; line-height:1.7 !important; }
+.title { max-width:900px; margin:22px 0 18px !important; font-size:clamp(34px,5.6vw,64px) !important; line-height:1.12 !important; letter-spacing:-.035em !important; text-wrap:balance; }
+.lead { max-width:72ch !important; font-size:clamp(16px,1.5vw,18px) !important; line-height:1.75 !important; margin:0 !important; }
+.section { padding:clamp(36px,5vw,64px) 0 !important; }
+.section h2 { font-size:clamp(26px,3.5vw,40px) !important; line-height:1.2 !important; letter-spacing:-.025em !important; margin:12px 0 24px !important; text-wrap:balance; }
+.section p, .card p, td { font-size:16px !important; line-height:1.75 !important; overflow-wrap:anywhere; }
+.table { width:100%; table-layout:fixed; border-collapse:collapse; }
+.table th, .table td { padding:16px 14px !important; vertical-align:top; text-align:left !important; line-height:1.6 !important; overflow-wrap:anywhere; }
+.table th { font-size:10px !important; line-height:1.45 !important; }
+.grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:14px !important; }
+.card { min-width:0; padding:24px !important; }
+.card h3 { font-size:clamp(19px,2vw,23px) !important; line-height:1.3 !important; margin:0 0 10px !important; overflow-wrap:anywhere; }
+.label { display:block; line-height:1.5 !important; margin-bottom:10px; }
+a, button { overflow-wrap:anywhere; }
+@media (max-width:760px) {
+  body { font-size:16px !important; }
+  header, main, footer { padding-left:20px !important; padding-right:20px !important; }
+  .section { padding:36px 0 !important; }
+  .grid { grid-template-columns:1fr !important; gap:12px !important; }
+  .card { padding:20px !important; }
+  .table, .table tbody, .table tr, .table td { display:block; width:100%; }
+  .table thead { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  .table tbody { display:grid; gap:12px; }
+  .table tr { background:#121820; border:1px solid rgba(229,182,66,.22); border-radius:10px; padding:10px 14px; }
+  .table td { display:grid; grid-template-columns:minmax(96px,34%) minmax(0,1fr); gap:12px; padding:10px 0 !important; border-bottom:1px solid rgba(229,182,66,.12); }
+  .table td:last-child { border-bottom:0; }
+  .table td::before { content:attr(data-label); color:#E5B642; font:500 10px/1.5 'Orbitron',sans-serif; letter-spacing:.06em; text-transform:uppercase; }
+  .title { font-size:clamp(32px,9vw,44px) !important; }
+  .section h2 { font-size:clamp(25px,7vw,32px) !important; }
+}
+@media (max-width:380px) {
+  header, main, footer { padding-left:16px !important; padding-right:16px !important; }
+  .table td { grid-template-columns:1fr; gap:5px; }
+}
+
 </style>
-</head><body><div class="top"></div><header><a class="back" href="https://c2shespanhol-ops.github.io/meuportifolio/case_study_02_leadtime_final.html">← CASE STUDY 02</a><div class="label">DOCUMENTO 06 · STAKEHOLDER MANAGEMENT</div><h1 class="title">Mapa de Stakeholders e <em>Alinhamento</em></h1><p class="lead">Estrutura de relacionamento utilizada para organizar responsabilidades, interesses e comunicação ao longo da jornada de transformação.</p></header><main><section class="section"><div class="label">MATRIZ</div><h2>Interesse, influência e <em>estratégia</em></h2><table class="table"><thead><tr><th>Stakeholder</th><th>Interesse</th><th>Influência</th><th>Estratégia</th></tr></thead><tbody><tr><td>SEGET</td><td>Alto</td><td>Alto</td><td>Manter próxima e orientada a resultados.</td></tr><tr><td>Planejamento e Modernização</td><td>Alto</td><td>Alto</td><td>Conduzir governança, curadoria e evolução do processo.</td></tr><tr><td>Departamento de Tecnologia da Informação e Comunicação (TIC) e Comunicação (TIC)</td><td>Alto</td><td>Alto</td><td>Alinhar critérios, prazos, execução e escalonamento.</td></tr><tr><td>Servidores da SEGET</td><td>Alto</td><td>Médio</td><td>Orientar, ouvir, acompanhar e validar a solução.</td></tr></tbody></table></section><section class="section"><div class="label">ROLES</div><h2>Quem fazia <em>o quê</em></h2><div class="grid"><div class="card"><h3>Planejamento e Modernização</h3><p>Responsável pela modernização dos processos e pela curadoria das solicitações.</p></div><div class="card"><h3>SEGET</h3><p>Área cliente e beneficiária da melhoria de previsibilidade e atendimento.</p></div><div class="card"><h3>TIC</h3><p>Parceiro responsável pela execução técnica das solicitações.</p></div><div class="card"><h3>Product Owner</h3><p>Ponto focal entre usuário e TIC, responsável por acompanhamento, orientação, cobrança, validação e melhoria do fluxo.</p></div></div></section><section class="section"><div class="label">ALIGNMENT</div><h2>A governança dependia de <em>conexão</em></h2><p>A principal mudança foi criar uma camada clara de interlocução. O usuário não precisava negociar diretamente com TIC, e TIC não precisava buscar cada usuário individualmente. A curadoria assumia a responsabilidade pela jornada e pela qualidade da comunicação.</p></section></main><footer class="pbos-footer">
+</head><body><div class="top"></div><header><a class="back" href="https://c2shespanhol-ops.github.io/meuportifolio/case_study_02_leadtime_final.html">← CASE STUDY 02</a><div class="label">DOCUMENTO 06 · STAKEHOLDER MANAGEMENT</div><h1 class="title">Mapa de Stakeholders e <em>Alinhamento</em></h1><p class="lead">Estrutura de relacionamento utilizada para organizar responsabilidades, interesses e comunicação ao longo da jornada de transformação.</p></header><main><section class="section"><div class="label">MATRIZ</div><h2>Interesse, influência e <em>estratégia</em></h2><table class="table"><thead><tr><th>Stakeholder</th><th>Interesse</th><th>Influência</th><th>Estratégia</th></tr></thead><tbody><tr><td data-label="Stakeholder">SEGET</td><td data-label="Interesse">Alto</td><td data-label="Influência">Alto</td><td data-label="Estratégia">Manter próxima e orientada a resultados.</td></tr><tr><td data-label="Stakeholder">Planejamento e Modernização</td><td data-label="Interesse">Alto</td><td data-label="Influência">Alto</td><td data-label="Estratégia">Conduzir governança, curadoria e evolução do processo.</td></tr><tr><td data-label="Stakeholder">Departamento de Tecnologia da Informação e Comunicação (TIC)</td><td data-label="Interesse">Alto</td><td data-label="Influência">Alto</td><td data-label="Estratégia">Alinhar critérios, prazos, execução e escalonamento.</td></tr><tr><td data-label="Stakeholder">Servidores da SEGET</td><td data-label="Interesse">Alto</td><td data-label="Influência">Médio</td><td data-label="Estratégia">Orientar, ouvir, acompanhar e validar a solução.</td></tr></tbody></table></section><section class="section"><div class="label">ROLES</div><h2>Quem fazia <em>o quê</em></h2><div class="grid"><div class="card"><h3>Planejamento e Modernização</h3><p>Responsável pela modernização dos processos e pela curadoria das solicitações.</p></div><div class="card"><h3>SEGET</h3><p>Área cliente e beneficiária da melhoria de previsibilidade e atendimento.</p></div><div class="card"><h3>TIC</h3><p>Parceiro responsável pela execução técnica das solicitações.</p></div><div class="card"><h3>Product Owner</h3><p>Ponto focal entre usuário e TIC, responsável por acompanhamento, orientação, cobrança, validação e melhoria do fluxo.</p></div></div></section><section class="section"><div class="label">ALIGNMENT</div><h2>A governança dependia de <em>conexão</em></h2><p>A principal mudança foi criar uma camada clara de interlocução. O usuário não precisava negociar diretamente com TIC, e TIC não precisava buscar cada usuário individualmente. A curadoria assumia a responsabilidade pela jornada e pela qualidade da comunicação.</p></section></main><footer class="pbos-footer">
   <div class="pbos-footer-signature">Cleyton Hespanhol | Product Owner | UX</div>
   <div class="pbos-footer-copy">© 2026 Cleyton S. Hespanhol. Todos os direitos reservados.</div>
   <a class="pbos-footer-link" href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener">linkedin.com/in/cleyton-hespanhol</a>
