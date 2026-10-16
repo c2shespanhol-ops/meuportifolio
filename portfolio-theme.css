@@ -201,3 +201,18 @@ pre,table{max-width:100%}
   h2,.section-title,.section-heading{font-size:clamp(25px,8vw,32px)!important}
   .card,.pillar-card,.artifact-card,.competency-card,.eco-card,.doc-card{padding:18px!important}
 }
+
+
+/* Global readability safeguards: consistent text rhythm and mobile-safe tables */
+p, li, dd, blockquote { max-width: 75ch; }
+p, li { text-wrap:pretty; }
+table { width:100%; max-width:100%; border-collapse:collapse; }
+th, td { text-align:left; vertical-align:top; overflow-wrap:anywhere; }
+img, video, iframe, svg { max-width:100%; }
+.card, .doc-card, .artifact-card, .competency-card, .eco-card { min-width:0; }
+@media (max-width:760px) {
+  body { font-size:16px !important; line-height:1.75 !important; }
+  p, li, td, th { line-height:1.7 !important; }
+  table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  th, td { padding:12px !important; }
+}
