@@ -1,29 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
 
 :root{
-  --pbos-bg:#090D12;
-  --pbos-surface:#121820;
-  --pbos-surface-2:#19222B;
-  --pbos-gold:#E5B642;
-  --pbos-gold-soft:#E5B642;
-  --pbos-text:#F7F8FA;
-  --pbos-muted:#D0D6DA;
-  --pbos-muted-2:#AFB8C1;
-  --pbos-border:rgba(218,175,87,.30);
-  --pbos-border-soft:rgba(245,247,250,.14);
-  --bg:var(--pbos-bg);
-  --bg2:var(--pbos-surface);
-  --bg3:var(--pbos-surface-2);
-  --gold:var(--pbos-gold);
-  --gold-lt:var(--pbos-gold-soft);
-  --teal:#53C0CC;
-  --teal-br:#53C0CC;
-  --cyan:#53C0CC;
-  --text:var(--pbos-text);
-  --text-muted:var(--pbos-muted);
-  --white:var(--pbos-text);
-  --gray1:var(--pbos-muted);
-  --gray2:var(--pbos-muted-2);
+  --pbos-bg:oklch(0.16 0.012 250);
+  --pbos-surface:oklch(0.22 0.014 250);
+  --pbos-surface-2:oklch(0.26 0.014 250);
+  --pbos-gold:oklch(0.80 0.14 86);
+  --pbos-gold-soft:oklch(0.84 0.14 88);
+  --pbos-teal:oklch(0.72 0.10 235);
+  --pbos-text:oklch(0.98 0.003 250);
+  --pbos-muted:oklch(0.72 0.018 245);
+  --pbos-muted-2:oklch(0.72 0.018 245);
+  --pbos-border:oklch(0.98 0.003 250 / 0.08);
+  --pbos-border-soft:oklch(0.98 0.003 250 / 0.08);
+  --bg:var(--pbos-bg); --bg2:var(--pbos-surface); --bg3:var(--pbos-surface-2);
+  --surface:var(--pbos-surface); --surface2:var(--pbos-surface-2);
+  --gold:var(--pbos-gold); --gold-lt:var(--pbos-gold-soft);
+  --teal:var(--pbos-teal); --teal-br:var(--pbos-teal); --cyan:var(--pbos-teal);
+  --text:var(--pbos-text); --white:var(--pbos-text); --muted:var(--pbos-muted);
+  --text-muted:var(--pbos-muted); --gray1:var(--pbos-muted); --gray2:var(--pbos-muted-2);
   --border:var(--pbos-border);
 }
 
