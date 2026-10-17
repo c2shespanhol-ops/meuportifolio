@@ -15,13 +15,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portfolio-theme.css?v=20261020">
+<link rel="stylesheet" href="portfolio-theme.css?v=20261022">
 <style>
-:root{
-  --bg:#1E2328;--surface:#26505A;--surface2:#26505A;--text:#F5F7FA;
-  --muted:#C4CDD3;--gold:#DAAF57;--teal:#DAAF57;--border:rgba(229,182,66,.22);
-  --max:1180px;--pad:clamp(20px,4vw,48px);--sec:clamp(72px,9vw,120px)
-}
+:root{--bg:var(--pbos-bg);--surface:var(--pbos-surface);--surface2:var(--pbos-surface-2);--text:var(--pbos-text);--muted:var(--pbos-muted);--gold:var(--pbos-gold);--teal:var(--pbos-teal);--border:var(--pbos-border);--max:1180px;--pad:clamp(20px,4vw,48px);--sec:clamp(72px,9vw,120px)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--bg)}
 body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;font-weight:300;font-size:16px;line-height:1.75}
@@ -29,7 +25,7 @@ a{color:var(--gold);text-decoration:none}
 .shell{width:min(var(--max),100%);margin:auto;padding-left:var(--pad);padding-right:var(--pad)}
 .skip{position:absolute;left:16px;top:-80px;background:var(--gold);color:var(--bg);padding:10px 14px;z-index:100}
 .skip:focus{top:16px}
-header{position:sticky;top:0;z-index:20;background:rgba(9,13,18,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+header{position:sticky;top:0;z-index:20;background:oklch(0.16 0.012 250 / 0.78);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand{display:flex;align-items:center;gap:13px}
 .mark{width:42px;height:42px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;font:600 18px "DM Sans",sans-serif;color:var(--text)}
