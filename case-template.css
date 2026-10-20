@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
 /* SINGLE SOURCE OF TRUTH: HS MIND Lovable reference palette */
 :root{
-  --pbos-bg:oklch(0.16 0.012 250);
-  --pbos-surface:oklch(0.22 0.014 250);
-  --pbos-surface-2:oklch(0.26 0.014 250);
-  --pbos-gold:oklch(0.80 0.14 86);
-  --pbos-gold-soft:oklch(0.80 0.14 86);
-  --pbos-teal:oklch(0.72 0.10 235);
-  --pbos-text:oklch(0.98 0.003 250);
-  --pbos-muted:oklch(0.72 0.018 245);
-  --pbos-muted-2:oklch(0.72 0.018 245);
-  --pbos-border:oklch(0.98 0.003 250 / 0.08);
-  --pbos-border-soft:oklch(0.98 0.003 250 / 0.08);
+  --pbos-bg:#1E2328;
+  --pbos-surface:#26505A;
+  --pbos-surface-2:#26505A;
+  --pbos-gold:#DAAF57;
+  --pbos-gold-soft:#DAAF57;
+  --pbos-teal:#DAAF57;
+  --pbos-text:#F5F7FA;
+  --pbos-muted:#C4CDD3;
+  --pbos-muted-2:#C4CDD3;
+  --pbos-border:rgba(218,175,87,.22);
+  --pbos-border-soft:rgba(218,175,87,.22);
   --bg:var(--pbos-bg);--bg2:var(--pbos-surface);--bg3:var(--pbos-surface-2);
   --gold:var(--pbos-gold);--gold-lt:var(--pbos-gold-soft);
   --teal:var(--pbos-teal);--teal-br:var(--pbos-teal);--cyan:var(--pbos-teal);
@@ -19,12 +19,12 @@
   --gray1:var(--pbos-muted);--gray2:var(--pbos-muted-2);--border:var(--pbos-border);
   --background:var(--pbos-bg);--foreground:var(--pbos-text);
   --card:var(--pbos-surface);--card-foreground:var(--pbos-text);
-  --popover:oklch(0.20 0.013 250);--popover-foreground:var(--pbos-text);
+  --popover:#1E2328;--popover-foreground:var(--pbos-text);
   --primary:var(--pbos-gold);--primary-foreground:var(--pbos-bg);
   --secondary:var(--pbos-surface-2);--secondary-foreground:var(--pbos-text);
-  --muted:oklch(0.24 0.012 250);--muted-foreground:var(--pbos-muted);
+  --muted:#26505A;--muted-foreground:var(--pbos-muted);
   --accent:var(--pbos-teal);--accent-foreground:var(--pbos-bg);
-  --input:oklch(0.26 0.012 250);--ring:oklch(0.80 0.14 86 / 0.6);
+  --input:#26505A;--ring:rgba(218,175,87,.6);
 }
 html,body{background:var(--pbos-bg)!important;color:var(--pbos-text)!important}
 body{color:var(--pbos-text)!important}
