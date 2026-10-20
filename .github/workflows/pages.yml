@@ -39,6 +39,9 @@ jobs:
 
       - name: Generate recruiter CV PDFs
         run: |
+          mkdir -p .build_fonts
+          curl -fsSL https://raw.githubusercontent.com/googlefonts/dm-fonts/main/Sans/Exports/DMSans-Regular.ttf -o .build_fonts/DMSans-Regular.ttf
+          curl -fsSL https://raw.githubusercontent.com/googlefonts/dm-fonts/main/Sans/Exports/DMSans-Bold.ttf -o .build_fonts/DMSans-Bold.ttf
           python -m pip install --disable-pip-version-check --no-input reportlab
           python scripts/build_cv_pdfs.py
 
