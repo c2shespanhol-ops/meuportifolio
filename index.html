@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="portfolio-theme.css?v=20261024">
+<link rel="stylesheet" href="portfolio-theme.css?v=20261019-badges2">
 <style>
 :root{--bg:var(--pbos-bg);--surface:var(--pbos-surface);--surface2:var(--pbos-surface-2);--text:var(--pbos-text);--muted:var(--pbos-muted);--gold:var(--pbos-gold);--teal:var(--pbos-teal);--border:var(--pbos-border);--max:1180px;--pad:clamp(20px,4vw,48px);--sec:clamp(72px,9vw,120px)}
 *{box-sizing:border-box}
@@ -85,25 +85,29 @@ footer{border-top:1px solid var(--border);padding:32px var(--pad) 38px;text-alig
 .credential-badge-link{width:100px;min-width:100px;display:flex;align-items:center;justify-content:center}.credential-badge-image{display:block;width:100%;height:auto;max-height:82px;object-fit:contain}.credential.text-only{display:block}.credential-badge-link:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:4px}@media(max-width:620px){.credential-badge-link{width:82px;min-width:82px}.credential-badge-image{max-height:70px}}
 .topic-link{display:block;color:inherit;text-decoration:none;cursor:pointer;transition:border-color .18s ease,background .18s ease}.topic-link:hover,.topic-link:focus-visible{border-color:var(--gold);background:var(--surface2)}.topic-link h3,.topic-link p{color:inherit}.topic-link p{color:var(--muted)}
 
-/* Institution-specific credential badges: light, identifiable institutional colors */
-.credential-badge-tera{
-  background:#FFFFFF;padding:8px;border:2px solid #6B4EFF;border-radius:10px;
+/* Institution-specific credential badges: explicit image tint and cache-safe selectors */
+.credential-badge-link.credential-badge-tera{
+  background:#fff!important;padding:8px;border:2px solid #6B4EFF;border-radius:10px;
   box-sizing:border-box;box-shadow:inset 0 0 0 3px rgba(107,78,255,.10)
 }
-.credential-badge-tera .credential-badge-image{
-  max-height:66px;filter:brightness(0) saturate(100%) invert(29%) sepia(82%) saturate(3218%) hue-rotate(240deg) brightness(98%) contrast(101%)
+.credential-badge-link.credential-badge-tera img.credential-badge-image{
+  display:block;background:transparent;filter:brightness(0) saturate(100%) invert(29%) sepia(82%) saturate(3218%) hue-rotate(240deg) brightness(98%) contrast(101%)!important;
+  mix-blend-mode:multiply;max-height:66px
 }
-.credential-badge-ifrj,.credential-badge-ifrs{
-  background:#FFFFFF;padding:8px;border:2px solid #2F9E41;border-radius:10px;
-  box-sizing:border-box;box-shadow:inset 0 0 0 3px rgba(205,25,30,.14)
+.credential-badge-link.credential-badge-ifrj,
+.credential-badge-link.credential-badge-ifrs{
+  background:#fff!important;padding:8px;border:2px solid #2F9E41;border-radius:10px;
+  box-sizing:border-box;box-shadow:inset 0 0 0 3px rgba(47,158,65,.12)
 }
-.credential-badge-ifrs .credential-badge-image{
-  filter:brightness(0) saturate(100%) invert(39%) sepia(83%) saturate(481%) hue-rotate(77deg) brightness(93%) contrast(92%) !important
+.credential-badge-link.credential-badge-ifrs img.credential-badge-image{
+  display:block;background:transparent;filter:brightness(0) saturate(100%) invert(39%) sepia(83%) saturate(481%) hue-rotate(77deg) brightness(93%) contrast(92%)!important;
+  mix-blend-mode:multiply
 }
-.credential-badge-ifrj .credential-badge-image{
-  filter:brightness(0) saturate(100%) invert(23%) sepia(91%) saturate(2240%) hue-rotate(337deg) brightness(93%) contrast(96%) !important
+.credential-badge-link.credential-badge-ifrj img.credential-badge-image{
+  display:block;background:transparent;filter:brightness(0) saturate(100%) invert(23%) sepia(91%) saturate(2240%) hue-rotate(337deg) brightness(93%) contrast(96%)!important;
+  mix-blend-mode:multiply
 }
-.credential-badge-ifrj::after{content:"IFRJ";display:block;color:#2F9E41;font:700 10px "DM Sans",sans-serif;text-align:center;letter-spacing:.08em}
+.credential-badge-link.credential-badge-ifrj::after{content:"IFRJ";display:block;color:#2F9E41;font:700 10px "DM Sans",sans-serif;text-align:center;letter-spacing:.08em}
 </style>
 <!-- Analytics is intentionally configured through a later deployment variable. -->
 <script src="portfolio-config.js" defer></script>
