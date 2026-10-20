@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import html, os, re
 from reportlab.lib.pagesizes import A4
+from reportlab.lib import colors
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.platypus import SimpleDocTemplate, Paragraph
 from reportlab.lib.units import mm
@@ -28,12 +29,12 @@ def build_pdf(source_path, output_path):
         title="Cleyton S. Hespanhol - Product Owner", author="Cleyton S. Hespanhol")
     base = getSampleStyleSheet()
     styles = {
-        "h1": ParagraphStyle("h1x", parent=base["Heading1"], fontName="Helvetica-Bold", fontSize=18, leading=21, spaceAfter=3),
-        "h2": ParagraphStyle("h2x", parent=base["Heading2"], fontName="Helvetica-Bold", fontSize=10.5, leading=13, spaceBefore=8, spaceAfter=4),
-        "h3": ParagraphStyle("h3x", parent=base["Heading3"], fontName="Helvetica-Bold", fontSize=9.2, leading=11.5, spaceBefore=4, spaceAfter=1.5),
-        "p": ParagraphStyle("px", parent=base["BodyText"], fontName="Helvetica", fontSize=8.3, leading=10.8, spaceAfter=3),
-        "meta": ParagraphStyle("mx", parent=base["BodyText"], fontName="Helvetica", fontSize=7.7, leading=9.8, spaceAfter=3, textColor="#555555"),
-        "li": ParagraphStyle("lx", parent=base["BodyText"], fontName="Helvetica", fontSize=8.15, leading=10.5, leftIndent=10, firstLineIndent=-6, spaceAfter=2),
+        "h1": ParagraphStyle("h1x", parent=base["Heading1"], fontName="Helvetica-Bold", fontSize=18, leading=21, spaceAfter=3, textColor=colors.HexColor("#1E2328")),
+        "h2": ParagraphStyle("h2x", parent=base["Heading2"], fontName="Helvetica-Bold", fontSize=10.5, leading=13, spaceBefore=8, spaceAfter=4, textColor=colors.HexColor("#DAAF57")),
+        "h3": ParagraphStyle("h3x", parent=base["Heading3"], fontName="Helvetica-Bold", fontSize=9.2, leading=11.5, spaceBefore=4, spaceAfter=1.5, textColor=colors.HexColor("#26505A")),
+        "p": ParagraphStyle("px", parent=base["BodyText"], fontName="Helvetica", fontSize=8.3, leading=10.8, spaceAfter=3, textColor=colors.HexColor("#1E2328")),
+        "meta": ParagraphStyle("mx", parent=base["BodyText"], fontName="Helvetica", fontSize=7.7, leading=9.8, spaceAfter=3, textColor=colors.HexColor("#26505A")),
+        "li": ParagraphStyle("lx", parent=base["BodyText"], fontName="Helvetica", fontSize=8.15, leading=10.5, leftIndent=10, firstLineIndent=-6, spaceAfter=2, textColor=colors.HexColor("#1E2328")),
     }
     story=[]
     for tag, text in extract_sections(source):
