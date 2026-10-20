@@ -102,11 +102,13 @@ footer{border-top:1px solid var(--border);padding:32px var(--pad) 38px;text-alig
 .credential-badge-link.credential-badge-ifrs img.credential-badge-image{
   display:block;background:transparent;filter:none!important;mix-blend-mode:normal;max-height:66px
 }
+
+@media(max-width:620px){.nav{flex-wrap:wrap;gap:12px}.navlinks{width:100%;display:flex;flex-wrap:wrap;justify-content:flex-start;gap:8px 12px}.navlinks a:nth-child(-n+3){display:inline-flex}.navlinks a{min-height:36px;display:inline-flex;align-items:center}}
 </style>
 <!-- Analytics is intentionally configured through a later deployment variable. -->
 <script src="portfolio-config.js" defer></script>
 <script src="portfolio-analytics.js" defer></script>
-<link rel="stylesheet" href="portfolio-theme.css?v=20261020-unified">
+<link rel="stylesheet" href="portfolio-theme.css?v=20261020-unified-nav">
 </head>
 <body>
 <a class="skip" href="#main">Pular para o conteúdo</a>
