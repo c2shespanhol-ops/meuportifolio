@@ -29,7 +29,7 @@
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--pbos-bg)!important;scroll-padding-top:88px}
-body{background:var(--pbos-bg)!important;color:var(--pbos-text)!important;font-family:'DM Sans',sans-serif!important;overflow-wrap:anywhere}
+body{background:var(--pbos-bg)!important;color:var(--pbos-text)!important;font-family:'DM Sans',sans-serif!important;overflow-wrap:break-word;word-break:normal}
 h1,h2,h3,h4,h5,h6,strong{color:var(--pbos-text)!important}
 p,li,td,th,.muted,.lead,.description,.hero-desc,.support,.intro,.cv-note{color:var(--pbos-muted)!important}
 a{color:var(--pbos-gold)!important;text-underline-offset:.2em}
@@ -63,7 +63,7 @@ button,a,.btn,.back,.back-btn,.lang{touch-action:manipulation}
 
 /* Mobile readability correction: never break normal words to fit a flex row. */
 html, body { overflow-wrap: normal !important; word-break: normal !important; }
-p, li, h1, h2, h3, h4, h5, h6, a, span { overflow-wrap: break-word; word-break: normal; }
+p, li, h1, h2, h3, h4, h5, h6, a, span { overflow-wrap: break-word !important; word-break: normal !important; }
 .artifact-card, .pillar-card, .card, .case-card, .doc-card { min-width: 0; }
 .artifact-card > * { min-width: 0; }
 .artifact-card h3, .artifact-card p { max-width: 100%; overflow-wrap: break-word; word-break: normal; }
@@ -75,4 +75,34 @@ p, li, h1, h2, h3, h4, h5, h6, a, span { overflow-wrap: break-word; word-break: 
   .artifact-card p { font-size: 15px !important; line-height: 1.6 !important; }
   .artifact-action { display: inline-block; margin: 0 !important; white-space: normal !important; max-width: 100%; font-size: 10px !important; line-height: 1.5 !important; }
   .pillar-card h3, .card h3, .case-card h3 { overflow-wrap: break-word; word-break: normal; }
+}
+
+/* Final cross-page overrides based on the approved HS MIND reference and mobile screenshots */
+:root {
+ --pbos-bg:#090D13; --pbos-surface:#101820; --pbos-surface-2:#101820;
+ --pbos-gold:#E8B642; --pbos-gold-soft:#E8B642; --pbos-teal:#69B5E8;
+ --pbos-text:#F5F7FA; --pbos-muted:#A4ADB8; --pbos-muted-2:#A4ADB8;
+ --pbos-border:rgba(164,173,184,.20);
+ --bg:var(--pbos-bg); --bg2:var(--pbos-surface); --bg3:var(--pbos-surface-2);
+ --gold:var(--pbos-gold); --gold-lt:var(--pbos-gold-soft); --teal:var(--pbos-teal);
+ --teal-br:var(--pbos-teal); --cyan:var(--pbos-teal);
+ --white:var(--pbos-text); --gray1:var(--pbos-muted); --gray2:var(--pbos-muted-2);
+ --border:var(--pbos-border);
+}
+html,body{background:#090D13!important;color:#F5F7FA!important;overflow-x:hidden!important;overflow-wrap:normal!important;word-break:normal!important}
+body main,body header,body footer,body .container,body .wrap,body .section,body .hero,body .cases-section,body .hero-container,body .hero-content{background-color:#090D13!important;background-image:none!important}
+body .card,body .pillar-card,body .artifact-card,body .competency-card,body .eco-card,body .metric,body .meta,body .hero-highlight-card,body .flow,body .note,body .doc-card,body .case-card,body .stat-box,body .panel,body .step,body .flow-step,body .comparison-box,body .highlight{background:#101820!important;color:#F5F7FA!important;border-color:rgba(164,173,184,.20)!important;box-shadow:none!important}
+body p,body li,body td,body th,body .muted,body .lead,body .description,body .hero-desc,body .support,body .intro,body .cv-note{color:#A4ADB8!important}
+body a,body .artifact-action,body .eyebrow,body .hero-eyebrow,body .section-label,body .section-title,body .case-label-text,body .case-meta,body .doc-number,body .tag{color:#E8B642!important}
+body .artifact-card{display:flex;align-items:center;gap:20px;min-width:0}
+body .artifact-card > *{min-width:0;max-width:100%}
+body .artifact-card h3,body .artifact-card p{overflow-wrap:break-word!important;word-break:normal!important;white-space:normal}
+body .artifact-action{flex-shrink:0;white-space:nowrap}
+@media(max-width:700px){
+ body .artifact-card{flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;gap:12px!important;padding:24px!important}
+ body .artifact-card > div,body .artifact-card > section{width:100%!important;max-width:100%!important}
+ body .artifact-card h3{font-size:clamp(20px,5.5vw,26px)!important;line-height:1.25!important}
+ body .artifact-card p{font-size:15px!important;line-height:1.6!important}
+ body .artifact-action{display:inline-block;white-space:normal!important;margin:0!important;font-size:10px!important;line-height:1.5!important}
+ body .pillar-card,body .card,body .case-card,body .doc-card{min-width:0!important}
 }
