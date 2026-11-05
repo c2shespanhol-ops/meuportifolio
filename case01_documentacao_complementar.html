@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Documentação complementar · Case 01 · MarIA | Cleyton Hespanhol</title>
+<meta name="description" content="Documentação de Discovery, UX, arquitetura conversacional, requisitos e modelos de acompanhamento do Case 01, Assistente Virtual Institucional MarIA.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1E2328;--panel:#26505A;--gold:#DAAF57;--white:#F5F7FA;--muted:#D0D6DA;--line:rgba(218,175,87,.3)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font:300 16px/1.75 'DM Sans',Arial,sans-serif}
+a{color:var(--gold);text-decoration:none}.wrap{max-width:1120px;margin:auto;padding:110px 28px 76px}
+.back{position:fixed;top:16px;left:16px;z-index:20;padding:10px 14px;background:#151b20;border:1px solid var(--line);border-radius:7px;font:500 9px Orbitron,sans-serif;letter-spacing:.08em}
+.lang{position:fixed;top:16px;right:16px;z-index:20;padding:10px 14px;background:#151b20;border:1px solid var(--line);border-radius:7px;font:500 9px Orbitron,sans-serif}
+.eyebrow,.label,.num{font:500 9px Orbitron,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+h1{font-size:clamp(38px,6vw,64px);line-height:1.05;font-weight:300;letter-spacing:-.04em;margin:16px 0}
+h2{font-size:clamp(27px,4vw,38px);font-weight:300;line-height:1.12;margin:8px 0 20px}
+h3{font-size:18px;font-weight:500;margin:0 0 8px}
+p,li{color:var(--muted)}.hero{padding-bottom:36px;border-bottom:1px solid var(--line);margin-bottom:42px}.lead{max-width:900px;font-size:17px}
+.notice{padding:18px 20px;margin:22px 0;background:#202a30;border-left:3px solid var(--gold);border-radius:8px;color:var(--muted)}
+.section{margin:56px 0}.section-head{margin-bottom:20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.doc-card{display:flex;flex-direction:column;min-height:180px;padding:20px;background:linear-gradient(145deg,#263e45,#1d292f);border:1px solid rgba(218,175,87,.32);border-radius:12px;color:var(--white);transition:transform .22s,border-color .22s,box-shadow .22s;cursor:pointer}
+.doc-card:hover,.doc-card:focus-visible{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 14px 28px rgba(0,0,0,.3),0 3px 0 rgba(218,175,87,.16)}
+.doc-card:focus-visible{outline:3px solid var(--gold);outline-offset:4px}.doc-card strong{font-size:17px;font-weight:500}.doc-card p{font-size:13px;margin:8px 0 16px}.cta{margin-top:auto;align-self:flex-start;padding:7px 10px;border:1px solid rgba(218,175,87,.5);border-radius:4px;font:500 8px Orbitron,sans-serif;letter-spacing:.08em;color:var(--gold)}
+.doc-card:hover .cta,.doc-card:focus-visible .cta{background:var(--gold);color:#1E2328}
+.panel{padding:22px;background:var(--panel);border:1px solid var(--line);border-radius:12px;margin:14px 0}
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:20px 0}
+.node{flex:1 1 135px;min-height:78px;display:flex;flex-direction:column;justify-content:center;padding:12px;background:#202a30;border:1px solid var(--line);border-radius:8px;text-align:center}
+.node b{color:var(--white);font-size:13px;font-weight:500}.node small{color:var(--muted);font-size:11px}.arrow{align-self:center;color:var(--gold);font-size:20px}
+.branch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}.branch .panel{margin:0}
+.tree{display:grid;gap:10px;max-width:900px;margin:18px auto}.tree-root{padding:15px;text-align:center;border:1px solid var(--gold);border-radius:8px;background:#202a30;font-weight:500}
+.tree-branches{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.tree-branches>div{padding:15px;text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:8px;font-size:13px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}th,td{padding:12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--gold);font-weight:500}
+.artifact-detail{scroll-margin-top:28px;padding:22px;margin:18px 0;background:#202a30;border:1px solid var(--line);border-radius:12px}
+.artifact-detail .original{display:inline-flex;margin-top:8px;padding:8px 11px;border:1px solid rgba(218,175,87,.45);border-radius:5px;font:500 8px Orbitron,sans-serif;letter-spacing:.06em}
+small.muted{color:var(--muted)}
+footer{text-align:center;padding:32px 20px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+@media(max-width:650px){.wrap{padding:90px 18px 60px}.branch,.tree-branches{grid-template-columns:1fr}.flow{display:grid;grid-template-columns:1fr}.arrow{transform:rotate(90deg)}.doc-card{min-height:150px}}
+@media(hover:none){.doc-card .cta{background:rgba(218,175,87,.12)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.doc-card{transition:none}}
+</style>
+</head>
+<body>
+<a class="back" href="case_study_01_persona_final.html">← VOLTAR AO CASE</a><a class="lang" href="en/cases/case-01-virtual-assistant-artifacts.html">EN</a>
+<main class="wrap">
+<header class="hero"><div class="eyebrow">CASE 01 · MARIA · DOCUMENTAÇÃO COMPLEMENTAR</div><h1>Da descoberta à arquitetura da experiência.</h1><p class="lead">Conjunto de artefatos que organiza a concepção do Assistente Virtual Institucional da Secretaria de Gestão Tributária e Fiscal da Prefeitura de Maricá. A documentação apresenta a lógica de produto, a jornada proposta, a arquitetura conversacional e os requisitos definidos no contexto de Discovery.</p>
+<div class="notice"><strong>Limite de evidência:</strong> este case documenta a concepção e especificação da solução. Não há evidência disponível de implantação do assistente em produção, métricas operacionais ou testes formais de usabilidade. A persona recebeu aprovação da gestão e foi utilizada em canais internos, o que não comprova a implantação do assistente.</div></header>
+<section class="section"><div class="section-head"><div class="label">01 · BIBLIOTECA DE ARTEFATOS</div><h2>Explore cada documento.</h2><p>Selecione um cartão para acessar a explicação do artefato nesta página. Cada seção também oferece acesso ao documento individual correspondente.</p></div>
+<div class="grid">
+<a class="doc-card" href="#artifact-01"><span class="num">ARTEFATO 01</span><strong>Documento de Visão do Produto</strong><p>Problema, contexto, público, proposta de valor e limites do produto.</p><span class="cta">EXPLORAR DOCUMENTO ↗</span></a>
+<a class="doc-card" href="#artifact-02"><span class="num">ARTEFATO 02</span><strong>Proto-personas</strong><p>Perfis de referência para organizar necessidades e hipóteses de uso.</p><span class="cta">EXPLORAR DOCUMENTO ↗</span></a>
+<a class="doc-card" href="#artifact-03"><span class="num">ARTEFATO 03</span><strong>Jornada do Usuário</strong><p>Etapas previstas, decisões, resposta e encaminhamento humano.</p><span class="cta">EXPLORAR DOCUMENTO ↗</span></a>
+<a class="doc-card" href="#artifact-04"><span class="num">ARTEFATO 04</span><strong>Arquitetura Conversacional</strong><p>Intenções, rotas de diálogo, fallback e transbordo para atendimento humano.</p><span class="cta">EXPLORAR DOCUMENTO ↗</span></a>
+<a class="doc-card" href="#artifact-05"><span class="num">ARTEFATO 05</span><strong>Prompt Mestre</strong><p>Papel do assistente, fontes permitidas, restrições e limites de resposta.</p><span class="cta">EXPLORAR DOCUMENTO ↗</span></a>
+<a class="doc-card" href="#artifact-06"><span class="num">ARTEFATO 06</span><strong>Guia de Tom de Voz</strong><p>Clareza, objetividade, postura institucional e consistência da comunicação.</p><span class="cta">EXPLORAR DOCUMENTO ↗</span></a>
+<a class="doc-card" href="#artifact-07"><span class="num">ARTEFATO 07</span><strong>Protótipo Conceitual</strong><p>Estrutura inicial da interface e das interações previstas.</p><span class="cta">EXPLORAR DOCUMENTO ↗</span></a>
+<a class="doc-card" href="#artifact-08"><span class="num">ARTEFATO 08</span><strong>Requisitos Funcionais</strong><p>Capacidades esperadas, base de conhecimento e encaminhamento humano.</p><span class="cta">EXPLORAR DOCUMENTO ↗</span></a>
+</div></section>
+<section class="section"><div class="label">02 · FLUXO DE DISCOVERY</div><h2>Da necessidade à especificação.</h2><div class="panel"><p>Representação da sequência lógica de estruturação do produto. Não representa cronograma de execução nem sprints registrados.</p><div class="flow"><div class="node"><b>Necessidade</b><small>Informação dispersa e dúvidas operacionais</small></div><div class="arrow">→</div><div class="node"><b>Usuários</b><small>Perfis e contextos de referência</small></div><div class="arrow">→</div><div class="node"><b>Jornada</b><small>Etapas e pontos de decisão</small></div><div class="arrow">→</div><div class="node"><b>Arquitetura</b><small>Intenções, respostas e exceções</small></div><div class="arrow">→</div><div class="node"><b>Especificação</b><small>Requisitos, prompt e protótipo</small></div></div></div></section>
+<section class="section"><div class="label">03 · FLUXO CONVERSACIONAL PROPOSTO</div><h2>Como a experiência deveria responder.</h2><div class="panel"><div class="flow"><div class="node"><b>Acesso</b><small>Servidor abre o canal</small></div><div class="arrow">→</div><div class="node"><b>Pergunta</b><small>Consulta em linguagem natural</small></div><div class="arrow">→</div><div class="node"><b>Identificação</b><small>Classificação da intenção</small></div><div class="arrow">→</div><div class="node"><b>Fonte oficial</b><small>Busca em conteúdo homologado</small></div><div class="arrow">→</div><div class="node"><b>Resposta</b><small>Orientação clara e rastreável</small></div></div><div class="branch"><div class="panel"><strong>Se a resposta resolver a dúvida</strong><p>Confirmar entendimento e encerrar a interação.</p></div><div class="panel"><strong>Se houver incerteza ou complexidade</strong><p>Solicitar esclarecimento, apresentar opções ou encaminhar ao canal humano competente.</p></div></div><p class="muted">Fluxo conceitual derivado dos artefatos de jornada, arquitetura conversacional e requisitos. Não comprova comportamento de sistema em produção.</p></div></section>
+<section class="section"><div class="label">04 · ÁRVORE DE RESULTADOS E MEDIÇÃO</div><h2>O que faria sentido acompanhar após uma implantação.</h2><div class="tree"><div class="tree-root">Objetivo proposto: facilitar o acesso a orientações institucionais confiáveis</div><div class="tree-branches"><div><strong>Resolução</strong><br>Taxa de resolução sem encaminhamento humano</div><div><strong>Qualidade</strong><br>Avaliação de utilidade e precisão percebida</div><div><strong>Governança</strong><br>Cobertura e atualização das fontes oficiais</div></div></div>
+<table><thead><tr><th>Indicador proposto</th><th>Definição operacional</th><th>Dados necessários</th></tr></thead><tbody>
+<tr><td>Resolução sem transbordo</td><td>Interações concluídas sem encaminhamento humano ÷ interações elegíveis.</td><td>Eventos de início, conclusão e transbordo.</td></tr>
+<tr><td>Taxa de fallback</td><td>Interações em que a intenção não foi reconhecida ou exigiu reformulação.</td><td>Logs de intenção, fallback e nova tentativa.</td></tr>
+<tr><td>Utilidade percebida</td><td>Avaliações positivas ÷ avaliações recebidas.</td><td>Feedback explícito após a resposta.</td></tr>
+<tr><td>Atualização da base</td><td>Percentual de fontes revisadas dentro da periodicidade definida.</td><td>Inventário de fontes, responsável e data de revisão.</td></tr>
+<tr><td>Tempo de resposta</td><td>Tempo entre envio da pergunta e apresentação da resposta.</td><td>Marcas de tempo por interação.</td></tr>
+</tbody></table><div class="notice">Esses indicadores são uma proposta de mensuração futura. Não há séries históricas ou resultados quantitativos disponíveis neste case. Portanto, não há gráfico de desempenho real a apresentar.</div></section>
+<section class="section"><div class="label">05 · ACOMPANHAMENTO ÁGIL</div><h2>Quando Burndown e Burnup seriam aplicáveis.</h2><div class="panel"><p>Burndown e Burnup exigem dados de execução por sprint, como escopo comprometido, trabalho concluído, alterações de escopo e datas de acompanhamento. Esses registros não estão disponíveis para este case.</p><p>Por isso, não foram criados gráficos simulados. A sequência de Discovery acima representa a lógica do trabalho, não uma sprint, um backlog versionado ou uma curva de entrega.</p></div></section>
+<section class="section"><div class="label">06 · DETALHAMENTO DOS ARTEFATOS</div><h2>Conteúdo e acesso aos documentos.</h2>
+<div id="artifact-01" class="artifact-detail"><span class="num">ARTEFATO 01</span><h3>Documento de Visão do Produto</h3><p>Consolida o contexto da Secretaria, o público inicial, o problema de acesso à informação e a intenção de centralizar orientações institucionais. Deve ser lido como visão e escopo propostos, não como evidência de produto implantado.</p><a class="original" href="case01_documento_visao.html">ABRIR DOCUMENTO INDIVIDUAL ↗</a></div>
+<div id="artifact-02" class="artifact-detail"><span class="num">ARTEFATO 02</span><h3>Proto-personas</h3><p>Perfis de referência para servidor operacional e gestor de área. Os nomes e atributos demográficos são ilustrativos. Não devem ser interpretados como pessoas reais ou como resultado de pesquisa formal com usuários.</p><a class="original" href="case01_personas.html">ABRIR DOCUMENTO INDIVIDUAL ↗</a></div>
+<div id="artifact-03" class="artifact-detail"><span class="num">ARTEFATO 03</span><h3>Jornada do Usuário</h3><p>Descreve a jornada proposta: acesso, pergunta, interpretação, consulta a fonte oficial, resposta, confirmação de entendimento e eventual encaminhamento humano.</p><a class="original" href="case01_jornada_usuario.html">ABRIR DOCUMENTO INDIVIDUAL ↗</a></div>
+<div id="artifact-04" class="artifact-detail"><span class="num">ARTEFATO 04</span><h3>Arquitetura Conversacional</h3><p>Organiza as intenções em consultas normativas, procedimentos e direcionamento de chamados, com tratamento de dúvidas ambíguas e rotas de fallback.</p><a class="original" href="case01_arquitetura_conversacional.html">ABRIR DOCUMENTO INDIVIDUAL ↗</a></div>
+<div id="artifact-05" class="artifact-detail"><span class="num">ARTEFATO 05</span><h3>Prompt Mestre</h3><p>Define o papel institucional esperado, o uso restrito de fontes oficiais, a proibição de inventar normas e o encaminhamento humano diante de incerteza ou falta de cobertura.</p><a class="original" href="case01_prompt_mestre.html">ABRIR DOCUMENTO INDIVIDUAL ↗</a></div>
+<div id="artifact-06" class="artifact-detail"><span class="num">ARTEFATO 06</span><h3>Guia de Tom de Voz</h3><p>Estabelece comunicação objetiva, clara, respeitosa e adequada ao contexto institucional, evitando jargões desnecessários.</p><a class="original" href="case01_guia_tom_voz.html">ABRIR DOCUMENTO INDIVIDUAL ↗</a></div>
+<div id="artifact-07" class="artifact-detail"><span class="num">ARTEFATO 07</span><h3>Protótipo Conceitual</h3><p>Representa uma proposta de interface e de acesso rápido a temas frequentes. Não há evidência documentada de teste formal de usabilidade nem de validação de desempenho da interface.</p><a class="original" href="case01_prototipo_conceitual.html">ABRIR DOCUMENTO INDIVIDUAL ↗</a></div>
+<div id="artifact-08" class="artifact-detail"><span class="num">ARTEFATO 08</span><h3>Requisitos Funcionais</h3><p>Descreve capacidades esperadas de interpretação de linguagem natural, consulta a fontes homologadas e encaminhamento para atendimento humano. São requisitos especificados, não funcionalidades cuja implantação esteja comprovada.</p><a class="original" href="case01_requisitos_funcionais.html">ABRIR DOCUMENTO INDIVIDUAL ↗</a></div>
+</section>
+</main>
+<footer>Cleyton Hespanhol · Product Owner | UX · Case 01 · MarIA</footer>
+</body></html>
