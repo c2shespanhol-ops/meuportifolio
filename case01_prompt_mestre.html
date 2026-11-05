@@ -235,6 +235,10 @@ body .stat-box { color:#DAAF57 !important; }
 <link rel="stylesheet" href="portfolio-theme.css?v=20261020-reference-fix">
 <style id="case01-hub-link-style">.case01-hub-link{position:fixed;top:18px;right:18px;z-index:1100;padding:10px 13px;border:1px solid rgba(218,175,87,.5);border-radius:6px;background:rgba(9,13,18,.96);color:#DAAF57!important;text-decoration:none;font:500 8px Orbitron,sans-serif;letter-spacing:.07em}.case01-hub-link:hover,.case01-hub-link:focus-visible{background:#DAAF57;color:#1E2328!important;outline:2px solid #DAAF57;outline-offset:3px}@media(max-width:520px){.case01-hub-link{top:14px;right:12px;font-size:7px;padding:8px 9px}.back-btn{top:14px!important;left:12px!important;padding:8px 9px!important;font-size:8px!important}}</style>
 <style id="case01-evidence-note-style">.case01-evidence-note{margin:28px auto 0;padding:18px 20px;max-width:1040px;background:#1E2328;border-left:3px solid #DAAF57;border-radius:8px}.case01-evidence-note strong{display:block;margin-bottom:6px;color:#DAAF57;font:500 9px Orbitron,sans-serif;letter-spacing:.12em}.case01-evidence-note p{margin:0;color:#D0D6DA;font:300 13px/1.7 'DM Sans',sans-serif}</style>
+<style id="case01-expanded-artifact-style">
+.case01-expanded{margin-top:54px}.case01-expanded .eyebrow{font:500 9px Orbitron,sans-serif;letter-spacing:.14em;color:#DAAF57;text-transform:uppercase;margin-bottom:10px}.case01-expanded h2{font:400 clamp(24px,3vw,32px)/1.2 'DM Sans',sans-serif;color:#F5F7FA;margin:0 0 16px}.case01-expanded h3{font:500 17px/1.35 'DM Sans',sans-serif;color:#F5F7FA;margin:0 0 8px}.case01-expanded p,.case01-expanded li{font:300 14px/1.8 'DM Sans',sans-serif;color:#D0D6DA}.case01-expanded .intro{max-width:850px;margin-bottom:20px}.case01-expanded .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}.case01-expanded .panel{background:#26505A;border:1px solid rgba(218,175,87,.28);border-radius:9px;padding:20px}.case01-expanded .panel ul{padding-left:18px;margin-top:8px}.case01-expanded .panel li{margin:5px 0}.case01-expanded .sequence{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:20px 0}.case01-expanded .step{position:relative;background:#26505A;border:1px solid rgba(218,175,87,.28);border-radius:8px;padding:16px;min-height:130px}.case01-expanded .step b{display:block;color:#DAAF57;font:500 9px Orbitron,sans-serif;letter-spacing:.1em;margin-bottom:8px}.case01-expanded .step p{font-size:12px;margin:0}.case01-expanded table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13px}.case01-expanded th{color:#DAAF57;text-align:left;font-weight:500}.case01-expanded th,.case01-expanded td{padding:12px;border-bottom:1px solid rgba(218,175,87,.25);vertical-align:top;color:#D0D6DA}.case01-expanded .decision{border-left:3px solid #DAAF57;padding:15px 18px;background:#1E2328;margin:18px 0;border-radius:0 7px 7px 0}.case01-expanded .decision strong{color:#F5F7FA}.case01-expanded .micro{font-size:12px;color:#D0D6DA}.case01-expanded .sample{background:#1E2328;border:1px solid rgba(218,175,87,.25);border-radius:7px;padding:15px;margin:10px 0}.case01-expanded .sample b{display:block;color:#DAAF57;font:500 9px Orbitron,sans-serif;letter-spacing:.1em;margin-bottom:6px}
+@media(max-width:620px){.case01-expanded .sequence{grid-template-columns:1fr 1fr}.case01-expanded table{display:block;overflow-x:auto;white-space:normal}}
+</style>
 </head>
 <body>
 
@@ -271,6 +275,36 @@ body .stat-box { color:#DAAF57 !important; }
       <p>O modelo é estritamente proibido de inventar normativas ou fornecer dados divergentes dos manuais oficiais da secretaria. Em caso de dúvida, o sistema deve direcionar o usuário para o canal humano competente.</p>
     </div>
   </section>
+<section class="case01-expanded">
+<div class="eyebrow">03 · ESTRUTURA DO PROMPT</div><h2>Instruções organizadas por responsabilidade.</h2>
+<p class="intro">O Prompt Mestre traduz a visão do assistente em regras de comportamento. A especificação parte de um papel institucional claro, limita as fontes aceitas e define como agir quando a resposta não puder ser sustentada. A estrutura abaixo detalha as diretrizes registradas, sem afirmar que este texto tenha sido carregado em um modelo ou implantado.</p>
+<div class="grid">
+<div class="panel"><h3>Identidade e papel</h3><p>Atuar como facilitador institucional no apoio aos servidores da Secretaria de Gestão Tributária e Fiscal, com linguagem clara e rigor técnico.</p></div>
+<div class="panel"><h3>Domínio de atuação</h3><p>Apoiar consultas normativas, dúvidas sobre procedimentos e direcionamento de chamados, respeitando os limites do conteúdo institucional disponível.</p></div>
+<div class="panel"><h3>Fonte de verdade</h3><p>Utilizar manuais e normativas oficiais homologados. Não tratar conhecimento genérico ou suposição como orientação oficial da Secretaria.</p></div>
+</div>
+<div class="eyebrow">04 · PROTOCOLO DE RESPOSTA</div><h2>Sequência lógica antes de responder.</h2>
+<div class="sequence">
+<div class="step"><b>01 · ENTENDER</b><h3>Interpretar a solicitação</h3><p>Identificar a intenção e verificar se o contexto informado permite compreender a dúvida.</p></div>
+<div class="step"><b>02 · CONFERIR</b><h3>Verificar sustentação</h3><p>Relacionar a pergunta a uma fonte institucional oficial e homologada.</p></div>
+<div class="step"><b>03 · RESPONDER</b><h3>Ser direto e claro</h3><p>Apresentar a orientação de forma objetiva, sem extrapolar o conteúdo de referência.</p></div>
+<div class="step"><b>04 · RECONHECER</b><h3>Explicitar limites</h3><p>Quando faltar contexto ou fonte suficiente, informar que não é possível confirmar a orientação.</p></div>
+<div class="step"><b>05 · DIRECIONAR</b><h3>Preservar o atendimento</h3><p>Solicitar esclarecimento ou indicar o canal humano competente, conforme o tipo de exceção.</p></div>
+</div>
+<div class="eyebrow">05 · REGRAS E RESTRIÇÕES</div><h2>Comportamentos permitidos e proibidos.</h2>
+<table><thead><tr><th>Diretriz</th><th>Comportamento esperado</th><th>Comportamento a evitar</th></tr></thead><tbody>
+<tr><td>Fidelidade normativa</td><td>Reproduzir e explicar apenas o que estiver sustentado por fonte oficial homologada.</td><td>Inventar normas, prazos, regras ou procedimentos.</td></tr>
+<tr><td>Clareza</td><td>Organizar a orientação em linguagem direta e etapas compreensíveis quando aplicável.</td><td>Usar jargões desnecessários ou respostas vagas.</td></tr>
+<tr><td>Incerteza</td><td>Reconhecer quando a informação disponível não permite uma resposta segura.</td><td>Preencher lacunas com hipóteses apresentadas como fatos.</td></tr>
+<tr><td>Escopo</td><td>Direcionar dúvidas complexas ou não cobertas ao canal humano competente.</td><td>Simular que a solicitação foi resolvida quando depende de análise externa.</td></tr>
+</tbody></table>
+<div class="eyebrow">06 · EXEMPLOS DE COMPORTAMENTO</div><h2>Como as regras mudam a resposta.</h2>
+<div class="sample"><b>QUANDO HÁ FONTE SUFICIENTE</b><p>Organizar a orientação conforme o conteúdo oficial disponível, indicando os passos aplicáveis sem acrescentar exigências não documentadas.</p></div>
+<div class="sample"><b>QUANDO FALTA CONTEXTO</b><p>Solicitar uma informação objetiva para entender qual procedimento o servidor está tentando realizar, em vez de escolher uma interpretação por conta própria.</p></div>
+<div class="sample"><b>QUANDO NÃO HÁ BASE CONFIÁVEL</b><p>Informar que não foi possível confirmar a orientação com o conteúdo disponível e direcionar ao canal humano responsável.</p></div>
+<div class="decision"><strong>Princípio de controle:</strong> a utilidade do assistente não está em responder a qualquer custo. Está em responder com base confiável e reconhecer o limite da automação.</div>
+<p class="micro">A especificação não define modelo de IA, parâmetros técnicos, integração, mecanismo de recuperação, logs ou política de segurança não documentados nos materiais deste case.</p>
+</section>
 <div class="case01-evidence-note" role="note"><strong>NOTA DE EVIDÊNCIA</strong><p>Este documento registra diretrizes de comportamento e restrições especificadas para a solução. Não comprova a implementação do prompt, a integração com um modelo de IA ou a operação do assistente em produção.</p></div>
 </main>
 
