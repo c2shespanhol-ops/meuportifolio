@@ -2,7 +2,7 @@
 :root{--bg:#1E2328;--panel:#26505A;--gold:#DAAF57;--white:#F5F7FA;--muted:#D0D6DA;--line:rgba(218,175,87,.28)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font:300 16px/1.75 'DM Sans',Arial,sans-serif}a{color:var(--gold);text-decoration:none}.wrap{max-width:1040px;margin:auto;padding:120px 28px 80px}.back{position:fixed;top:18px;left:18px;z-index:10;background:#171c20;border:1px solid var(--line);border-radius:7px;padding:9px 13px;font-size:11px}.eyebrow,.label{font:500 10px 'Orbitron',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}h1{font-size:clamp(40px,6vw,66px);font-weight:300;line-height:1.06;letter-spacing:-.04em;margin:16px 0}h2{font-size:clamp(27px,4vw,38px);font-weight:300;line-height:1.15;margin:0 0 18px}h3{font-size:18px;font-weight:500;margin:0 0 8px}p,li{color:var(--muted)}.lead{font-size:19px;max-width:850px}.hero{padding-bottom:42px;border-bottom:1px solid var(--line);margin-bottom:48px}.meta,.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}.meta{margin:28px 0}.panel,.metric,.artifact{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px}.metric strong{display:block;color:var(--gold);font-size:46px;font-weight:300;line-height:1.1}.metric span{font-size:12px;color:var(--muted)}section{margin:62px 0}.section-label{margin-bottom:12px}.steps{counter-reset:s;display:grid;gap:10px}.step{background:var(--panel);border-left:2px solid var(--gold);padding:17px 20px}.step b{color:var(--gold);font-size:12px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tag{display:inline-block;border:1px solid var(--line);border-radius:5px;padding:5px 8px;margin:4px 4px 0 0;font-size:11px;color:var(--gold)}.callout{border-left:3px solid var(--gold);padding:18px 22px;background:#202a2e;font-size:16px}.small{font-size:12px}.artifacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}.artifact a{display:inline-block;margin-top:12px;font-size:12px}.lang-switch{position:fixed;right:18px;top:18px;z-index:20;background:#171c20;border:1px solid var(--line);padding:8px 12px;border-radius:6px}.lang-switch a{padding:5px 7px}.lang-switch a.active{background:var(--gold);color:var(--bg);border-radius:4px}.bilingual .en{display:none}.bilingual.show-en .pt{display:none}.bilingual.show-en .en{display:block}footer{border-top:1px solid var(--line);padding:30px;text-align:center;color:var(--muted);font-size:12px}@media(max-width:650px){.wrap{padding:100px 20px 60px}.two{grid-template-columns:1fr}.meta{grid-template-columns:1fr 1fr}}
 
-<style id="case06-simulated-charts">
+</style><style id="case06-simulated-charts">
 /* Case 06 · retrospective illustrative charts */
 .sim-chart-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:18px 0}
 .sim-chart{background:#090D13;border:1px solid rgba(164,173,184,.2);border-radius:7px;padding:20px;min-width:0}
@@ -10,7 +10,7 @@
 .sim-chart .chart-sub{margin:0 0 18px;color:#A4ADB8;font-size:11px}
 .pie-layout{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .pie-graphic{width:178px;height:178px;flex:0 0 178px;border-radius:50%;background:conic-gradient(#69B5E8 0 65%,#E8B642 65% 77.6%,#52616D 77.6% 100%);position:relative}
-.pie-graphic:after{content:'1.000\\A cupons';white-space:pre;position:absolute;inset:31px;border-radius:50%;background:#101820;display:grid;place-content:center;text-align:center;color:#F5F7FA;font:600 16px 'DM Sans',Arial;line-height:1.35}
+.pie-graphic:after{content:'1.000 cupons';white-space:pre;position:absolute;inset:31px;border-radius:50%;background:#101820;display:grid;place-content:center;text-align:center;color:#F5F7FA;font:600 16px 'DM Sans',Arial;line-height:1.35}
 .chart-legend{display:grid;gap:10px;flex:1;min-width:160px}
 .chart-legend div{display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:start;color:#A4ADB8;font-size:11px}
 .chart-legend i{width:9px;height:9px;border-radius:2px;margin-top:4px}.chart-legend b{color:#F5F7FA;font-size:11px}
@@ -173,11 +173,7 @@ body main,body header,body footer,body .wrap{background:#090D13!important}
 <div class="sim-chart">
 <h4 class="pt">Distribuição estimada após a iniciativa</h4><h4 class="en">Estimated distribution after the initiative</h4>
 <p class="chart-sub pt">Destino hipotético de 1.000 cupons elegíveis</p><p class="chart-sub en">Hypothetical outcome for 1,000 eligible coupons</p>
-<div class="pie-layout"><div class="pie-graphic" role="img" aria-label="650 utilizados, 126 cancelados e 224 não utilizados em até sete dias"></div><div class="chart-legend">
-<div><i style="background:#69B5E8"></i><span class="pt">Utilizados em até 7 dias</span><span class="en">Redeemed within 7 days</span><b>650 · 65%</b></div>
-<div><i style="background:#E8B642"></i><span class="pt">Cancelados ou desistências</span><span class="en">Cancelled or withdrawn</span><b>126 · 12,6%</b></div>
-<div><i style="background:#52616D"></i><span class="pt">Não utilizados em até 7 dias, sem cancelamento</span><span class="en">Not redeemed within 7 days, not cancelled</span><b>224 · 22,4%</b></div>
-</div></div>
+<div class="pie-layout"><div class="pie-graphic" role="img" aria-label="650 utilizados, 126 cancelados e 224 não utilizados em até sete dias"></div><div class="chart-legend"><div><i style="background:#69B5E8"></i><span><span class="pt">Utilizados em até 7 dias</span><span class="en">Redeemed within 7 days</span></span><b>650 · 65%</b></div><div><i style="background:#E8B642"></i><span><span class="pt">Cancelados ou desistências</span><span class="en">Cancelled or withdrawn</span></span><b>126 · 12,6%</b></div><div><i style="background:#52616D"></i><span><span class="pt">Não utilizados em até 7 dias, sem cancelamento</span><span class="en">Not redeemed within 7 days, not cancelled</span></span><b>224 · 22,4%</b></div></div></div>
 </div>
 <div class="sim-chart">
 <h4 class="pt">Comparação estimada: antes e depois</h4><h4 class="en">Estimated comparison: before and after</h4>
