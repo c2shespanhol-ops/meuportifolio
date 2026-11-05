@@ -3,11 +3,13 @@
     "/meuportifolio/case_study_01_persona_final.html":"/meuportifolio/en/cases/case-01-virtual-assistant.html",
     "/meuportifolio/case_study_02_leadtime_final.html":"/meuportifolio/en/cases/case-02-lead-time-governance.html",
     "/meuportifolio/case_study_03_habitat_final.html":"/meuportifolio/en/cases/case-03-habitat-saas.html",
-    "/meuportifolio/case_study_05_pav_receita_federal_final.html":"/meuportifolio/en/cases/case-05-pav-receita-federal.html",\n    "/meuportifolio/case_study_06_peixe_urbano_final.html":"/meuportifolio/en/cases/case-06-peixe-urbano.html",
+    "/meuportifolio/case_study_05_pav_receita_federal_final.html":"/meuportifolio/en/cases/case-05-pav-receita-federal.html",
+    "/meuportifolio/case_study_06_peixe_urbano_final.html":"/meuportifolio/en/cases/case-06-peixe-urbano.html",
     "/meuportifolio/en/cases/case-01-virtual-assistant.html":"/meuportifolio/case_study_01_persona_final.html",
     "/meuportifolio/en/cases/case-02-lead-time-governance.html":"/meuportifolio/case_study_02_leadtime_final.html",
     "/meuportifolio/en/cases/case-03-habitat-saas.html":"/meuportifolio/case_study_03_habitat_final.html",
-    "/meuportifolio/en/cases/case-05-pav-receita-federal.html":"/meuportifolio/case_study_05_pav_receita_federal_final.html",\n    "/meuportifolio/en/cases/case-06-peixe-urbano.html":"/meuportifolio/case_study_06_peixe_urbano_final.html"
+    "/meuportifolio/en/cases/case-05-pav-receita-federal.html":"/meuportifolio/case_study_05_pav_receita_federal_final.html",
+    "/meuportifolio/en/cases/case-06-peixe-urbano.html":"/meuportifolio/case_study_06_peixe_urbano_final.html"
   };
   function init(){
     const en=document.querySelector('[data-lang="en"]');
