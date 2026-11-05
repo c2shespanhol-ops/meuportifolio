@@ -6,31 +6,31 @@
 <meta name="description" content="Documentação de Discovery, UX, arquitetura conversacional, requisitos e modelos de acompanhamento do Case 01, Assistente Virtual Institucional MarIA.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#1E2328;--panel:#26505A;--gold:#DAAF57;--white:#F5F7FA;--muted:#D0D6DA;--line:rgba(218,175,87,.3)}
+:root{--bg:#1E2328;--panel:#26505A;--gold:#DAAF57;--white:#F5F7FA;--muted:#D0D6DA;--line:rgba(218,175,87,.28)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font:300 16px/1.75 'DM Sans',Arial,sans-serif}
 a{color:var(--gold);text-decoration:none}.wrap{max-width:1120px;margin:auto;padding:110px 28px 76px}
-.back{position:fixed;top:16px;left:16px;z-index:20;padding:10px 14px;background:#151b20;border:1px solid var(--line);border-radius:7px;font:500 9px Orbitron,sans-serif;letter-spacing:.08em}
-.lang{position:fixed;top:16px;right:16px;z-index:20;padding:10px 14px;background:#151b20;border:1px solid var(--line);border-radius:7px;font:500 9px Orbitron,sans-serif}
+.back{position:fixed;top:16px;left:16px;z-index:20;padding:10px 14px;background:#171c20;border:1px solid var(--line);border-radius:7px;font:500 9px Orbitron,sans-serif;letter-spacing:.08em}
+.lang{position:fixed;top:16px;right:16px;z-index:20;padding:10px 14px;background:#171c20;border:1px solid var(--line);border-radius:7px;font:500 9px Orbitron,sans-serif}
 .eyebrow,.label,.num{font:500 9px Orbitron,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
 h1{font-size:clamp(38px,6vw,64px);line-height:1.05;font-weight:300;letter-spacing:-.04em;margin:16px 0}
 h2{font-size:clamp(27px,4vw,38px);font-weight:300;line-height:1.12;margin:8px 0 20px}
 h3{font-size:18px;font-weight:500;margin:0 0 8px}
 p,li{color:var(--muted)}.hero{padding-bottom:36px;border-bottom:1px solid var(--line);margin-bottom:42px}.lead{max-width:900px;font-size:17px}
-.notice{padding:18px 20px;margin:22px 0;background:#202a30;border-left:3px solid var(--gold);border-radius:8px;color:var(--muted)}
+.notice{padding:18px 20px;margin:22px 0;background:#202a2e;border-left:3px solid var(--gold);border-radius:8px;color:var(--muted)}
 .section{margin:56px 0}.section-head{margin-bottom:20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-.doc-card{display:flex;flex-direction:column;min-height:180px;padding:20px;background:linear-gradient(145deg,#263e45,#1d292f);border:1px solid rgba(218,175,87,.32);border-radius:12px;color:var(--white);transition:transform .22s,border-color .22s,box-shadow .22s;cursor:pointer}
+.doc-card{display:flex;flex-direction:column;min-height:180px;padding:20px;background:linear-gradient(145deg,#26505A,#26505A);border:1px solid rgba(218,175,87,.28);border-radius:12px;color:var(--white);transition:transform .22s,border-color .22s,box-shadow .22s;cursor:pointer}
 .doc-card:hover,.doc-card:focus-visible{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 14px 28px rgba(0,0,0,.3),0 3px 0 rgba(218,175,87,.16)}
 .doc-card:focus-visible{outline:3px solid var(--gold);outline-offset:4px}.doc-card strong{font-size:17px;font-weight:500}.doc-card p{font-size:13px;margin:8px 0 16px}.cta{margin-top:auto;align-self:flex-start;padding:7px 10px;border:1px solid rgba(218,175,87,.5);border-radius:4px;font:500 8px Orbitron,sans-serif;letter-spacing:.08em;color:var(--gold)}
 .doc-card:hover .cta,.doc-card:focus-visible .cta{background:var(--gold);color:#1E2328}
 .panel{padding:22px;background:var(--panel);border:1px solid var(--line);border-radius:12px;margin:14px 0}
 .flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:20px 0}
-.node{flex:1 1 135px;min-height:78px;display:flex;flex-direction:column;justify-content:center;padding:12px;background:#202a30;border:1px solid var(--line);border-radius:8px;text-align:center}
+.node{flex:1 1 135px;min-height:78px;display:flex;flex-direction:column;justify-content:center;padding:12px;background:#202a2e;border:1px solid var(--line);border-radius:8px;text-align:center}
 .node b{color:var(--white);font-size:13px;font-weight:500}.node small{color:var(--muted);font-size:11px}.arrow{align-self:center;color:var(--gold);font-size:20px}
 .branch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}.branch .panel{margin:0}
-.tree{display:grid;gap:10px;max-width:900px;margin:18px auto}.tree-root{padding:15px;text-align:center;border:1px solid var(--gold);border-radius:8px;background:#202a30;font-weight:500}
+.tree{display:grid;gap:10px;max-width:900px;margin:18px auto}.tree-root{padding:15px;text-align:center;border:1px solid var(--gold);border-radius:8px;background:#202a2e;font-weight:500}
 .tree-branches{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.tree-branches>div{padding:15px;text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:8px;font-size:13px}
 table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}th,td{padding:12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--gold);font-weight:500}
-.artifact-detail{scroll-margin-top:28px;padding:22px;margin:18px 0;background:#202a30;border:1px solid var(--line);border-radius:12px}
+.artifact-detail{scroll-margin-top:28px;padding:22px;margin:18px 0;background:#202a2e;border:1px solid var(--line);border-radius:12px}
 .artifact-detail .original{display:inline-flex;margin-top:8px;padding:8px 11px;border:1px solid rgba(218,175,87,.45);border-radius:5px;font:500 8px Orbitron,sans-serif;letter-spacing:.06em}
 small.muted{color:var(--muted)}
 footer{text-align:center;padding:32px 20px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
