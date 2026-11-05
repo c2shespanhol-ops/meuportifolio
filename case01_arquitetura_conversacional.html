@@ -222,6 +222,10 @@ body .stat-box { color:#DAAF57 !important; }
 <link rel="stylesheet" href="portfolio-theme.css?v=20261020-reference-fix">
 <style id="case01-evidence-note-style">.case01-evidence-note{margin:28px auto 0;padding:18px 20px;max-width:1040px;background:#1E2328;border-left:3px solid #DAAF57;border-radius:8px}.case01-evidence-note strong{display:block;margin-bottom:6px;color:#DAAF57;font:500 9px Orbitron,sans-serif;letter-spacing:.12em}.case01-evidence-note p{margin:0;color:#D0D6DA;font:300 13px/1.7 'DM Sans',sans-serif}</style>
 <style id="case01-hub-link-style">.case01-hub-link{position:fixed;top:18px;right:18px;z-index:1100;padding:10px 13px;border:1px solid rgba(218,175,87,.5);border-radius:6px;background:rgba(9,13,18,.96);color:#DAAF57!important;text-decoration:none;font:500 8px Orbitron,sans-serif;letter-spacing:.07em}.case01-hub-link:hover,.case01-hub-link:focus-visible{background:#DAAF57;color:#1E2328!important;outline:2px solid #DAAF57;outline-offset:3px}@media(max-width:520px){.case01-hub-link{top:14px;right:12px;font-size:7px;padding:8px 9px}.back-btn{top:14px!important;left:12px!important;padding:8px 9px!important;font-size:8px!important}}</style>
+<style id="case01-expanded-artifact-style">
+.case01-expanded{margin-top:54px}.case01-expanded .eyebrow{font:500 9px Orbitron,sans-serif;letter-spacing:.14em;color:#DAAF57;text-transform:uppercase;margin-bottom:10px}.case01-expanded h2{font:400 clamp(24px,3vw,32px)/1.2 'DM Sans',sans-serif;color:#F5F7FA;margin:0 0 16px}.case01-expanded h3{font:500 17px/1.35 'DM Sans',sans-serif;color:#F5F7FA;margin:0 0 8px}.case01-expanded p,.case01-expanded li{font:300 14px/1.8 'DM Sans',sans-serif;color:#D0D6DA}.case01-expanded .intro{max-width:850px;margin-bottom:20px}.case01-expanded .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}.case01-expanded .panel{background:#26505A;border:1px solid rgba(218,175,87,.28);border-radius:9px;padding:20px}.case01-expanded .panel ul{padding-left:18px;margin-top:8px}.case01-expanded .panel li{margin:5px 0}.case01-expanded .sequence{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:20px 0}.case01-expanded .step{position:relative;background:#26505A;border:1px solid rgba(218,175,87,.28);border-radius:8px;padding:16px;min-height:130px}.case01-expanded .step b{display:block;color:#DAAF57;font:500 9px Orbitron,sans-serif;letter-spacing:.1em;margin-bottom:8px}.case01-expanded .step p{font-size:12px;margin:0}.case01-expanded table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13px}.case01-expanded th{color:#DAAF57;text-align:left;font-weight:500}.case01-expanded th,.case01-expanded td{padding:12px;border-bottom:1px solid rgba(218,175,87,.25);vertical-align:top;color:#D0D6DA}.case01-expanded .decision{border-left:3px solid #DAAF57;padding:15px 18px;background:#1E2328;margin:18px 0;border-radius:0 7px 7px 0}.case01-expanded .decision strong{color:#F5F7FA}.case01-expanded .micro{font-size:12px;color:#D0D6DA}.case01-expanded .sample{background:#1E2328;border:1px solid rgba(218,175,87,.25);border-radius:7px;padding:15px;margin:10px 0}.case01-expanded .sample b{display:block;color:#DAAF57;font:500 9px Orbitron,sans-serif;letter-spacing:.1em;margin-bottom:6px}
+@media(max-width:620px){.case01-expanded .sequence{grid-template-columns:1fr 1fr}.case01-expanded table{display:block;overflow-x:auto;white-space:normal}}
+</style>
 </head>
 <body>
 
@@ -258,6 +262,38 @@ body .stat-box { color:#DAAF57 !important; }
       <p>Quando o assistente não reconhece com precisão o comando do usuário, o sistema aciona protocolos de refinamento contextual em vez de falhar silenciosamente, oferecendo opções objetivas de menu.</p>
     </div>
   </section>
+<section class="case01-expanded">
+<div class="eyebrow">03 · MODELO DE CONVERSA</div><h2>Da intenção à resposta segura.</h2>
+<p class="intro">A arquitetura organiza a conversa em torno de três grupos de intenção identificados na documentação: consultas normativas, apoio a procedimentos e direcionamento de chamados. O objetivo é evitar que toda pergunta receba o mesmo tratamento e definir uma saída clara quando a informação não for suficiente.</p>
+<div class="grid">
+<div class="panel"><h3>Consultas normativas</h3><p>Perguntas sobre orientações, regras e diretrizes institucionais. A resposta deve estar vinculada a conteúdo oficial homologado, sem criar interpretações não sustentadas pela fonte.</p></div>
+<div class="panel"><h3>Suporte a procedimentos</h3><p>Dúvidas sobre como executar procedimentos internos. A resposta deve organizar a orientação em etapas claras, mantendo o conteúdo aderente às diretrizes disponíveis.</p></div>
+<div class="panel"><h3>Direcionamento de chamados</h3><p>Solicitações que demandem atuação de uma equipe ou canal competente. A conversa deve ajudar o servidor a reconhecer quando a dúvida deixa de ser uma consulta informativa.</p></div>
+</div>
+<div class="eyebrow">04 · FLUXO PRINCIPAL</div><h2>Etapas e decisões da interação.</h2>
+<div class="sequence">
+<div class="step"><b>01 · ENTRADA</b><h3>Receber a pergunta</h3><p>O servidor descreve a dúvida em linguagem natural, sem precisar conhecer previamente a categoria correta.</p></div>
+<div class="step"><b>02 · INTENÇÃO</b><h3>Classificar o pedido</h3><p>Identificar se a solicitação é normativa, procedimental ou de direcionamento de chamado.</p></div>
+<div class="step"><b>03 · CONTEXTO</b><h3>Refinar quando necessário</h3><p>Se a intenção estiver ambígua, solicitar um esclarecimento ou apresentar opções objetivas.</p></div>
+<div class="step"><b>04 · FONTE</b><h3>Consultar referência</h3><p>Considerar apenas conteúdos e manuais oficiais homologados como base para a orientação.</p></div>
+<div class="step"><b>05 · RESPOSTA</b><h3>Responder ou encaminhar</h3><p>Apresentar orientação clara quando houver sustentação ou indicar o canal humano competente.</p></div>
+</div>
+<div class="eyebrow">05 · TRATAMENTO DE EXCEÇÕES</div><h2>O que acontece quando a conversa sai do caminho esperado.</h2>
+<table><thead><tr><th>Situação</th><th>Comportamento previsto</th><th>Objetivo de experiência</th></tr></thead><tbody>
+<tr><td>Intenção não reconhecida</td><td>Não encerrar silenciosamente. Pedir reformulação ou oferecer opções de menu que ajudem a classificar a dúvida.</td><td>Reduzir a fricção e recuperar o contexto da solicitação.</td></tr>
+<tr><td>Pergunta ambígua</td><td>Solicitar informação adicional antes de selecionar uma orientação.</td><td>Evitar resposta baseada em interpretação precipitada.</td></tr>
+<tr><td>Fonte oficial não localizada ou insuficiente</td><td>Informar o limite da resposta e direcionar ao canal humano competente.</td><td>Preservar confiabilidade em vez de preencher lacunas com suposições.</td></tr>
+<tr><td>Demanda fora do escopo automatizado</td><td>Direcionar para atendimento humano ou canal responsável.</td><td>Manter continuidade de atendimento sem simular resolução.</td></tr>
+</tbody></table>
+<div class="decision"><strong>Regra central de decisão:</strong> a resposta só deve avançar como orientação institucional quando houver conteúdo oficial suficiente para sustentá-la. Se a fonte, a intenção ou o contexto forem insuficientes, a arquitetura prevê esclarecimento ou encaminhamento, não improvisação.</div>
+<div class="eyebrow">06 · GOVERNANÇA DA CONVERSA</div><h2>Relação entre conteúdo, resposta e responsabilidade.</h2>
+<div class="grid">
+<div class="panel"><h3>Conteúdo de referência</h3><p>Manuais e normativas oficiais homologados são a base permitida para respostas institucionais.</p></div>
+<div class="panel"><h3>Comportamento do assistente</h3><p>Identificar a intenção, manter clareza, reconhecer incerteza e não inventar normas ou procedimentos.</p></div>
+<div class="panel"><h3>Limite de automação</h3><p>Quando a dúvida exigir análise ou ultrapassar o conteúdo disponível, preservar a rota de atendimento humano.</p></div>
+</div>
+<p class="micro">Este detalhamento explicita a lógica já descrita nos artefatos de jornada, requisitos, prompt e fluxogramas. Não acrescenta integração técnica, ferramenta de NLP, classificação implantada ou processo operacional comprovado.</p>
+</section>
 <div class="case01-evidence-note" role="note"><strong>NOTA DE EVIDÊNCIA</strong><p>A arquitetura descreve o comportamento conversacional especificado para a solução. Não comprova que os fluxos tenham sido implementados ou operados em produção.</p></div>
 </main>
 
