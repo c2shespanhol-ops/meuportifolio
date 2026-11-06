@@ -34,11 +34,6 @@ header{position:sticky;top:0;z-index:20;background:rgba(30,35,40,.96);backdrop-f
 .navlinks a{color:var(--muted)}
 .navlinks a:hover,.navlinks a:focus-visible{color:var(--gold)}
 .lang{color:var(--gold)!important}
-.hero{grid-template-columns:minmax(0,1.45fr) minmax(170px,.58fr) minmax(190px,.62fr);gap:38px;align-items:center}
-.hero-photo{margin:0;width:100%;max-width:260px;justify-self:center;aspect-ratio:4/5;overflow:hidden;border:1px solid var(--gold);border-radius:8px;background:var(--surface)}
-.hero-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 35%}
-@media(max-width:900px){.hero{grid-template-columns:minmax(0,1fr) minmax(170px,.7fr);gap:30px}.hero-photo{grid-column:2;grid-row:1;max-width:220px}.proof{grid-column:1/-1}}
-@media(max-width:620px){.hero{grid-template-columns:1fr;gap:28px}.hero-photo{grid-column:1;grid-row:auto;width:min(72%,260px);justify-self:start}.proof{grid-column:1}}
 .hero{padding-top:var(--sec);padding-bottom:var(--sec);display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,.5fr);gap:72px;align-items:end}
 .eyebrow,.kicker{font:500 9px/1.5 Orbitron,sans-serif;letter-spacing:.16em;color:var(--gold);text-transform:uppercase}
 .hero h1{font-size:clamp(40px,5vw,64px);font-weight:300;line-height:1.05;letter-spacing:-.04em;margin:20px 0 16px;color:var(--text)}
@@ -117,6 +112,11 @@ footer{border-top:1px solid var(--border);padding:32px var(--pad) 38px;text-alig
 }
 
 @media(max-width:620px){.nav{flex-wrap:wrap;gap:12px}.navlinks{width:100%;display:flex;flex-wrap:wrap;justify-content:flex-start;gap:8px 12px}.navlinks a:nth-child(-n+3){display:inline-flex}.navlinks a{min-height:36px;display:inline-flex;align-items:center}}
+.hero{grid-template-columns:minmax(0,1.45fr) minmax(170px,.58fr) minmax(190px,.62fr);gap:38px;align-items:center}
+.hero-photo{margin:0;width:100%;max-width:260px;justify-self:center;aspect-ratio:4/5;overflow:hidden;border:1px solid var(--gold);border-radius:8px;background:var(--surface)}
+.hero-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 35%}
+@media(max-width:900px){.hero{grid-template-columns:minmax(0,1fr) minmax(170px,.7fr);gap:30px}.hero-photo{grid-column:2;grid-row:1;max-width:220px}.proof{grid-column:1/-1}}
+@media(max-width:620px){.hero{grid-template-columns:1fr;gap:28px}.hero-photo{grid-column:1;grid-row:auto;width:min(72%,260px);justify-self:start}.proof{grid-column:1}}
 </style>
 <!-- Analytics is intentionally configured through a later deployment variable. -->
 <script src="portfolio-config.js" defer></script>
