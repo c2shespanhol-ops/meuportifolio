@@ -64,11 +64,16 @@ jobs:
           test -f _site/case_study_03_habitat_final.html
           test -f _site/case_study_04_shv_final.html
           test -f _site/case_study_05_pav_receita_federal_final.html
+          test -f _site/case_study_06_peixe_urbano_final.html
+          test -f _site/case_study_06_peixe_urbano_artifacts.html
+          test -f _site/case04_documentacao.html
+          test -f _site/en/cases/case-04-shv-documentation.html
           test -f _site/en/cases/case-01-virtual-assistant.html
           test -f _site/en/cases/case-02-lead-time-governance.html
           test -f _site/en/cases/case-03-habitat-saas.html
           test -f _site/en/cases/case-04-shv-energy.html
           test -f _site/en/cases/case-05-pav-receita-federal.html
+          test -f _site/en/cases/case-06-peixe-urbano.html
           ! find _site -type f \( -path '*/data/*' -o -path '*/career-os/*' -o -path '*/scripts/*' -o -path '*/docs/*' \) | grep -q .
           grep -RniE 'whatsapp|wa\.me/5521986314378' _site/index.html _site/en/index.html >/dev/null
           ! grep -Rni 'undefined</main>' _site/en/cases >/dev/null
@@ -114,11 +119,16 @@ jobs:
               case_study_03_habitat_final.html \
               case_study_04_shv_final.html \
               case_study_05_pav_receita_federal_final.html \
+              case_study_06_peixe_urbano_final.html \
+              case_study_06_peixe_urbano_artifacts.html \
+              case04_documentacao.html \
+              en/cases/case-04-shv-documentation.html \
               en/cases/case-01-virtual-assistant.html \
               en/cases/case-02-lead-time-governance.html \
               en/cases/case-03-habitat-saas.html \
               en/cases/case-04-shv-energy.html \
-              en/cases/case-05-pav-receita-federal.html; do
+              en/cases/case-05-pav-receita-federal.html \
+              en/cases/case-06-peixe-urbano.html; do
               curl -fsSL "$base/$path" >/tmp/page.html || return 1
               grep -q "undefined</main>" /tmp/page.html && return 1
             done
