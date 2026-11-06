@@ -59,6 +59,16 @@ jobs:
           test -f _site/cv/Cleyton-Hespanhol-Product-Owner-EN.pdf
           test "$(head -c 4 _site/cv/Cleyton-Hespanhol-Product-Owner-PT.pdf)" = "%PDF"
           test "$(head -c 4 _site/cv/Cleyton-Hespanhol-Product-Owner-EN.pdf)" = "%PDF"
+          grep -q "31% menos retrabalho" _site/cv/cv-pt.html
+          grep -q "31% less rework" _site/cv/cv-en.html
+          grep -q "31% de aumento na eficiência operacional" _site/cv/cv-pt.html
+          grep -q "31% increase in operational efficiency" _site/cv/cv-en.html
+          ! grep -qiE "31% de redução em SLAs|31% SLA reduction|31% de redução no tempo de resolução|31% reduction in resolution time" _site/cv/cv-pt.html _site/cv/cv-en.html
+          ! grep -qiE "40%|20%" _site/cv/cv-pt.html _site/cv/cv-en.html _site/index.html _site/en/index.html
+          ! grep -qiE "Product Operations|Product Ops" _site/case_study_05_pav_receita_federal_final.html _site/en/cases/case-05-pav-receita-federal.html _site/cv/cv-pt.html _site/cv/cv-en.html
+          grep -q "31% menos retrabalho por registros incompletos" _site/case_study_02_leadtime_final.html
+          grep -q "31% less rework from incomplete request records" _site/en/cases/case-02-lead-time-governance.html
+          grep -q "+31%" _site/case_study_03_habitat_final.html
           test -f _site/case_study_01_persona_final.html
           test -f _site/case_study_02_leadtime_final.html
           test -f _site/case_study_03_habitat_final.html
