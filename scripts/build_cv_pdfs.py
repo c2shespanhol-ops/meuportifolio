@@ -5,7 +5,7 @@ from reportlab.lib import colors
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
-from reportlab.platypus import SimpleDocTemplate, Paragraph
+from reportlab.platypus import SimpleDocTemplate, Paragraph, PageBreak
 from reportlab.lib.units import mm
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -57,6 +57,8 @@ def build_pdf(source_path, output_path):
     }
     story=[]
     for tag, text in extract_sections(source):
+        if tag == "h3" and text.startswith("Habitat Consultórios"):
+            story.append(PageBreak())
         safe=html.escape(text)
         if tag=="h1": story.append(Paragraph(safe, styles["h1"]))
         elif tag=="h2": story.append(Paragraph(safe, styles["h2"]))
