@@ -105,6 +105,14 @@ body .stat-box { color:#DAAF57 !important; }
 }
 </style>
 <link rel="stylesheet" href="portfolio-theme.css?v=20261020-reference-fix">
+
+<style id="pbos-process-flow">
+.process-flow{list-style:none;display:flex;align-items:stretch;gap:24px;margin:24px 0;padding:0;counter-reset:flow;}
+.process-flow li{position:relative;display:flex;align-items:center;justify-content:center;flex:1;min-width:0;min-height:92px;padding:18px 14px;background:#26505A;border:1px solid rgba(218,175,87,.35);border-radius:8px;color:#F5F7FA;text-align:center;font:500 13px/1.45 'DM Sans',sans-serif;}
+.process-flow li::before{counter-increment:flow;content:counter(flow,decimal-leading-zero);display:block;position:absolute;top:7px;left:10px;color:#DAAF57;font:500 9px 'Orbitron',sans-serif;letter-spacing:.08em;}
+.process-flow li+li::after{content:'›';position:absolute;left:-19px;top:50%;transform:translateY(-50%);color:#DAAF57;font:400 25px 'DM Sans',sans-serif;}
+@media(max-width:760px){.process-flow{display:grid;grid-template-columns:1fr;gap:10px}.process-flow li{min-height:62px;padding:20px 16px 14px}.process-flow li+li::after{content:'↓';left:50%;top:-18px;transform:translateX(-50%);font-size:18px}}
+</style>
 </head>
 <body><div style="border-left:4px solid #DAAF57;background:#26505A;padding:16px;margin:18px 0;color:#F5F7FA"><strong>Natureza do documento:</strong> reconstrução de referência elaborada para representar práticas de identificação de necessidades, organização de temas e detalhamento de demandas. Não é registro histórico de um processo formal de Product Discovery. Os percentuais de acurácia e redução de desperdício não possuem evidência histórica validada e foram retirados. As métricas abaixo são sugestões de acompanhamento, sem resultados atribuídos à Habitat.</div>
 
@@ -181,9 +189,13 @@ body .stat-box { color:#DAAF57 !important; }
     <!-- FLUXO DE DISCOVERY -->
     <section>
       <h2 style="color: #F5F7FA; margin-bottom: 15px;">Etapas de organização de necessidades e requisitos</h2>
-      <div style="background: #26505A; padding: 25px; border-radius: 8px; border: 1px solid #26505A; text-align: center; font-family: monospace; font-size: 1rem; color: #DAAF57;">
-        Coleta de Insights &rarr; Agrupamento por Tema &rarr; Validação de Hipótese &rarr; Especificação &rarr; Backlog de Produto
-      </div>
+      <ol class="process-flow" aria-label="Etapas do modelo de referência">
+        <li>Coleta de Insights</li>
+        <li>Agrupamento por Tema</li>
+        <li>Validação de Hipótese</li>
+        <li>Especificação</li>
+        <li>Backlog de Produto</li>
+      </ol>
     </section>
 
     <hr>
