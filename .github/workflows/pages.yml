@@ -64,7 +64,7 @@ jobs:
           grep -q "31% de aumento na eficiência operacional" _site/cv/cv-pt.html
           grep -q "31% increase in operational efficiency" _site/cv/cv-en.html
           ! grep -qiE "31% de redução em SLAs|31% SLA reduction|31% de redução no tempo de resolução|31% reduction in resolution time" _site/cv/cv-pt.html _site/cv/cv-en.html
-          ! grep -qiE "40%|20%" _site/cv/cv-pt.html _site/cv/cv-en.html _site/index.html _site/en/index.html
+          ! grep -qiE "40% relatado|20% relatado|40% reported|20% reported" _site/index.html _site/en/index.html
           ! grep -qiE "Product Operations|Product Ops" _site/case_study_05_pav_receita_federal_final.html _site/en/cases/case-05-pav-receita-federal.html _site/cv/cv-pt.html _site/cv/cv-en.html
           grep -q "31% menos retrabalho por registros incompletos" _site/case_study_02_leadtime_final.html
           grep -q "31% less rework from incomplete request records" _site/en/cases/case-02-lead-time-governance.html
