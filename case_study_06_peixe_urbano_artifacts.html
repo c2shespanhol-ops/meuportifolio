@@ -5,7 +5,7 @@
 </style><style id="case06-simulated-charts">
 /* Case 06 · retrospective illustrative charts */
 .sim-chart-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:18px 0}
-.sim-chart{background:#1E2328;border:1px solid rgba(164,173,184,.2);border-radius:7px;padding:20px;min-width:0}
+.sim-chart{background:#1E2328;border:1px solid rgba(196,205,211,.2);border-radius:7px;padding:20px;min-width:0}
 .sim-chart h4{margin:0 0 6px;color:#F5F7FA;font-size:15px;font-weight:600}
 .sim-chart .chart-sub{margin:0 0 18px;color:#C4CDD3;font-size:11px}
 .pie-layout{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
@@ -17,11 +17,11 @@
 .bar-chart{display:grid;gap:15px}
 .bar-group{display:grid;gap:7px}.bar-title{font-size:11px;color:#F5F7FA;font-weight:600}
 .bar-pair{display:grid;grid-template-columns:48px 1fr 42px;gap:8px;align-items:center;font-size:10px;color:#C4CDD3}
-.bar-track{height:13px;background:#242B31;border-radius:2px;overflow:hidden;border:1px solid rgba(164,173,184,.14)}
+.bar-track{height:13px;background:#242B31;border-radius:2px;overflow:hidden;border:1px solid rgba(196,205,211,.14)}
 .bar-fill{height:100%;display:block;border-radius:2px}.bar-fill.before{background:#C4CDD3}.bar-fill.after{background:#26505A}
 .bar-value{color:#F5F7FA;text-align:right;font-variant-numeric:tabular-nums}
 .sim-data-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:18px}
-.sim-data-table th,.sim-data-table td{padding:10px 12px;border-bottom:1px solid rgba(164,173,184,.2);text-align:right;color:#C4CDD3}
+.sim-data-table th,.sim-data-table td{padding:10px 12px;border-bottom:1px solid rgba(196,205,211,.2);text-align:right;color:#C4CDD3}
 .sim-data-table th:first-child,.sim-data-table td:first-child{text-align:left}
 .sim-data-table th{color:#DAAF57;font-weight:600}.sim-data-table td strong{color:#F5F7FA}
 .sim-warning{border-left:3px solid #DAAF57;background:#1E2328;padding:15px 18px;margin:18px 0;color:#C4CDD3;font-size:12px}
@@ -76,28 +76,28 @@ body{background:var(--doc-bg)!important;color:var(--doc-text)!important}
 @media(max-width:720px){.doc-grid{grid-template-columns:1fr}.doc-flow{grid-template-columns:1fr 1fr}.doc-flow .node:nth-child(2):after{display:none}.kpi-row{grid-template-columns:100px 1fr 38px}.doc-visual{padding:16px}.doc-table{min-width:620px}.doc-table-wrap{overflow-x:auto}}
 @media print{body{background:#F5F7FA!important;color:#1E2328!important}.back,.lang-switch,.artifact-index,.artifact-toolbar{display:none!important}.wrap{max-width:none!important;padding:15mm!important}.hero,.artifact-section{break-inside:avoid}.artifact-section .panel,.doc-visual,.doc-flow .node{print-color-adjust:exact;-webkit-print-color-adjust:exact}.bilingual .en{display:none!important}}
 </style><style id="case06-canonical-theme">
-:root{--doc-bg:#1E2328;--doc-surface:#1E2328;--doc-gold:#DAAF57;--doc-blue:#26505A;--doc-text:#F5F7FA;--doc-muted:#C4CDD3;--doc-line:rgba(164,173,184,.20)}
+:root{--doc-bg:#1E2328;--doc-surface:#1E2328;--doc-gold:#DAAF57;--doc-blue:#26505A;--doc-text:#F5F7FA;--doc-muted:#C4CDD3;--doc-line:rgba(196,205,211,.20)}
 html,body{background:#1E2328!important;color:#F5F7FA!important}
 body main,body header,body footer,body .wrap{background:#1E2328!important}
-.artifact-index{background:rgba(9,13,19,.97)!important;border-color:rgba(164,173,184,.20)!important}
+.artifact-index{background:rgba(30,35,40,.97)!important;border-color:rgba(196,205,211,.20)!important}
 .artifact-index a,.artifact-toolbar a,.artifact-link .num,.artifact-link .open,.doc-visual h3,.artifact-section .section-label{color:#DAAF57!important}
-.artifact-link,.artifact-section .panel,.artifact-section .metric,.artifact-section .artifact,.doc-flow .node{background:#1E2328!important;border-color:rgba(164,173,184,.20)!important}
+.artifact-link,.artifact-section .panel,.artifact-section .metric,.artifact-section .artifact,.doc-flow .node{background:#1E2328!important;border-color:rgba(196,205,211,.20)!important}
 .artifact-link{color:#F5F7FA!important}
 .artifact-link strong,.artifact-section h2,.artifact-section h3,.artifact-section b,.artifact-section strong{color:#F5F7FA!important}
 .artifact-link small,.artifact-section p,.artifact-section li,.doc-table td,.doc-visual figcaption,.doc-visual p,.doc-visual li{color:#C4CDD3!important}
-.doc-visual{background:#1E2328!important;border-color:rgba(164,173,184,.20)!important}
+.doc-visual{background:#1E2328!important;border-color:rgba(196,205,211,.20)!important}
 .doc-visual .node{background:#1E2328!important}
 .doc-flow .node b,.doc-visual .kpi-caveat{color:#DAAF57!important}
 .doc-flow .node span{color:#C4CDD3!important}
 .doc-flow .node:not(:last-child):after{color:#26505A!important}
 .doc-table th{color:#DAAF57!important}
-.doc-table th,.doc-table td{border-color:rgba(164,173,184,.20)!important}
+.doc-table th,.doc-table td{border-color:rgba(196,205,211,.20)!important}
 .doc-visual svg text{fill:#F5F7FA}
 .doc-visual svg rect{fill:#1E2328;stroke:#26505A}
 .doc-visual svg path{stroke:#DAAF57}
 .artifact-toolbar .primary{background:#DAAF57!important;color:#1E2328!important}
 .artifact-toolbar .print-doc{color:#DAAF57!important}
-.doc-visual .panel{background:#1E2328!important;border-color:rgba(164,173,184,.20)!important}
+.doc-visual .panel{background:#1E2328!important;border-color:rgba(196,205,211,.20)!important}
 @media print{body,html{background:#1E2328!important}}
 </style></head><body class="bilingual"><a class="back" href="case_study_06_peixe_urbano_final.html">← Voltar ao case</a><div class="lang-switch"><a href="#" class="active" id="ptBtn">PT</a><a href="#" id="enBtn">EN</a></div><main class="wrap">
 <header class="hero"><div class="eyebrow">CASE 06 · DOCUMENTAÇÃO DE PRODUTO E SERVICE DESIGN</div><h1>Oito artefatos e modelos visuais para explicar a experiência.</h1><p class="lead">Documentação analítica complementar ao case Peixe Urbano. Os modelos foram estruturados retrospectivamente para explicitar problema, jornada, operação, indicadores e aprendizados.</p><p class="small">Importante: estes artefatos não são apresentados como documentos originais usados em 2015-2017. São reconstruções baseadas nos fatos relatados sobre a iniciativa.</p></header><nav class="artifact-index" aria-label="Índice dos artefatos"><a href="#artifact-01">01 · Discovery</a><a href="#artifact-02">02 · JTBD</a><a href="#artifact-03">03 · Journey</a><a href="#artifact-04">04 · Blueprint</a><a href="#artifact-05">05 · Workflow</a><a href="#artifact-06">06 · Metrics</a><a href="#artifact-07">07 · Stakeholders</a><a href="#artifact-08">08 · Learnings</a><a href="#visual-models">09 · Visual models</a></nav><div class="artifact-toolbar"><a class="primary" href="case_study_06_peixe_urbano_final.html">VOLTAR AO CASE</a><a class="print-doc" href="#" onclick="window.print();return false;">SALVAR / IMPRIMIR PDF</a><a href="en/cases/case-06-peixe-urbano.html">ENGLISH CASE</a></div>
