@@ -32,7 +32,7 @@ def extract_sections(source):
     items = []
     pattern = re.compile(r"<(h1|h2|h3|p|li)\b([^>]*)>(.*?)</\1>", re.I | re.S)
     for tag, attrs, raw in pattern.findall(body.group(1)):
-        if re.search(r"class=[""'][^""']*\b(?:cv-download|cv-note)\b", attrs, re.I):
+        if re.search(r'class=["\'][^"\']*\b(?:cv-download|cv-note)\b', attrs, re.I):
             continue
         text = re.sub(r"<[^>]+>", "", raw)
         text = re.sub(r"\s+", " ", html.unescape(text)).strip()
