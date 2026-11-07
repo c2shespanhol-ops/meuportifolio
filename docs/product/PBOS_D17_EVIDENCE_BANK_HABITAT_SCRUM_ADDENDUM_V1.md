@@ -17,7 +17,7 @@ The user confirmed practical use of **Scrum with the development team for new fu
 
 Confirmed activities:
 
-- Product Backlog: worked with backlog items, but final prioritization authority belonged to the product owner/owner of the product;
+- Product Backlog: worked with backlog items, but final decision authority over product direction and new-feature priorities belonged to the owner of the company;
 - Backlog Refinement: helped understand, detail and clarify items before development;
 - Sprint Planning: helped the team understand the customer's need and define the work to be performed;
 - Daily Scrum: participated and, when conducting it, facilitated the conversation, followed progress, identified impediments and supported their resolution;
@@ -28,9 +28,9 @@ Confirmed activities:
 
 ## Product Owner evidence
 
-The user did **not** hold final authority for prioritizing new functionality. The product owner/owner of the product held that decision.
+The user did **not** hold final authority for prioritizing new functionality. The owner of the company held that decision.
 
-However, the user sometimes influenced decisions by bringing direct evidence of customer needs when the owner's perception differed from what customers were actually reporting or experiencing.
+However, the user sometimes influenced decisions by bringing direct evidence of customer needs when the company owner's perception differed from what customers were actually reporting or experiencing.
 
 This supports the competency chain:
 
@@ -85,3 +85,8 @@ The evidence does not support, by itself:
 The current `main` tree of `meuportifolio` was inspected during this update. The previously referenced canonical `PBOS_D03_EVIDENCE_BANK_V1.md` file is not currently present in the repository tree. Therefore this addendum is being stored as an explicit evidence record rather than recreating or overwriting the missing canonical bank without source verification.
 
 When the canonical Evidence Bank is restored or located, this validated addendum should be incorporated into its Habitat evidence section without changing the historical claim boundaries above.
+
+
+## User clarification · 2026-11-07
+
+The user clarified that the final decision on product direction and new-feature priorities belonged to the **owner of the company**, not to a separate product owner. The public case and all derivative summaries must use this authority boundary.

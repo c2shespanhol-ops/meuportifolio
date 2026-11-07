@@ -50,7 +50,7 @@ Habitat experience includes practical work across CX, Product Owner activities a
 
 Confirmed practical Scrum exposure includes Product Backlog work, Backlog Refinement, Sprint Planning, Daily Scrum participation and facilitation, Sprint Review, Sprint Retrospective, impediment handling and validation of developed functionality, including returning functionality for adjustment when the customer need was not met.
 
-The final prioritization of new functionalities remained with the product owner/product owner of the business. Therefore, the PBOS must distinguish practical Product Owner contribution from unilateral backlog ownership.
+The final prioritization of new functionalities remained with the owner of the company. Therefore, the PBOS must distinguish practical Product Owner contribution from unilateral backlog ownership.
 
 ## 6. Claim boundaries
 
@@ -83,3 +83,8 @@ The next phase is market execution and continuous evidence strengthening:
 The Product Owner positioning and development cycle has sufficient documented evidence to move from internal competency development toward market execution.
 
 The PBOS should now return the operational focus to the Editorial/Product Brand workstream while preserving Batman Mode as an available development workstream for targeted gaps.
+
+
+## User clarification · 2026-11-07
+
+The final decision on product direction and new-feature priorities at Habitat belonged to the **owner of the company**. This clarification supersedes older references to a product owner as the final decision-maker.

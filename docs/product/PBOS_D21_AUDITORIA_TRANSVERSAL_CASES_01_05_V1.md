@@ -131,7 +131,7 @@ Discovery é tratado como investigação do problema e das necessidades antes da
 A priorização é qualificada pelo objeto:
 
 - Case 02: demandas operacionais por impacto/valor do usuário.
-- Habitat: temas/conteúdos e participação no trabalho de backlog; prioridade final de novas funcionalidades com o proprietário do produto.
+- Habitat: temas/conteúdos e participação no trabalho de backlog; decisão final sobre direção do produto e prioridade de novas funcionalidades com o proprietário da empresa.
 - PAV: sem atribuição de priorização da Carta de Serviços ao usuário.
 
 ### F5 · Backlog e Scrum
@@ -227,3 +227,8 @@ Foram aplicados os ajustes considerados necessários, sem remover conteúdo hist
 O portfólio passa a operar como um conjunto único de evidências profissionais, com **Product Owner | UX** como posicionamento transversal e Product Operations, Discovery, Requirements, Prioritization, Validation, Stakeholder Management, Kanban/Flow e UX/CX como competências sustentadas pelos diferentes cases.
 
 O objetivo não é fazer todas as experiências parecerem iguais. É fazer todas elas parecerem parte da mesma trajetória profissional, com evidência proporcional ao que efetivamente foi realizado.
+
+
+## Clarification recorded · 2026-11-07
+
+The user confirmed that, at Habitat, final decisions on product direction and new-feature priorities were made by the **company owner**. The case describes the user's accumulated Product, Scrum, testing, CX, lead-management and content-production responsibilities, while preserving this final decision boundary.
