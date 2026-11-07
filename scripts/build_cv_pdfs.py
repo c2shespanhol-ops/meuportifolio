@@ -5,7 +5,7 @@ from reportlab.lib import colors
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
-from reportlab.platypus import SimpleDocTemplate, Paragraph
+from reportlab.platypus import SimpleDocTemplate, Paragraph, PageBreak
 from reportlab.lib.units import mm
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,8 +30,10 @@ def extract_sections(source):
     if not body:
         raise ValueError("CV body not found")
     items = []
-    pattern = re.compile(r"<(h1|h2|h3|p|li)\b[^>]*>(.*?)</\1>", re.I | re.S)
-    for tag, raw in pattern.findall(body.group(1)):
+    pattern = re.compile(r"<(h1|h2|h3|p|li)\b([^>]*)>(.*?)</\1>", re.I | re.S)
+    for tag, attrs, raw in pattern.findall(body.group(1)):
+        if re.search(r'class=["\'][^"\']*\b(?:cv-download|cv-note)\b', attrs, re.I) or re.search(r'class=["\'][^"\']*\b(?:cv-download|cv-note)\b', raw, re.I):
+            continue
         text = re.sub(r"<[^>]+>", "", raw)
         text = re.sub(r"\s+", " ", html.unescape(text)).strip()
         if text:
@@ -46,15 +48,17 @@ def build_pdf(source_path, output_path):
         title="Cleyton S. Hespanhol - Product Owner", author="Cleyton S. Hespanhol")
     base = getSampleStyleSheet()
     styles = {
-        "h1": ParagraphStyle("h1x", parent=base["Heading1"], fontName=BOLD, fontSize=18, leading=21, spaceAfter=3, textColor=colors.HexColor("#1E2328")),
-        "h2": ParagraphStyle("h2x", parent=base["Heading2"], fontName=BOLD, fontSize=10.5, leading=13, spaceBefore=8, spaceAfter=4, textColor=colors.HexColor("#DAAF57")),
-        "h3": ParagraphStyle("h3x", parent=base["Heading3"], fontName=BOLD, fontSize=9.2, leading=11.5, spaceBefore=4, spaceAfter=1.5, textColor=colors.HexColor("#26505A")),
-        "p": ParagraphStyle("px", parent=base["BodyText"], fontName=REGULAR, fontSize=8.3, leading=10.8, spaceAfter=3, textColor=colors.HexColor("#1E2328")),
-        "meta": ParagraphStyle("mx", parent=base["BodyText"], fontName=REGULAR, fontSize=7.7, leading=9.8, spaceAfter=3, textColor=colors.HexColor("#26505A")),
-        "li": ParagraphStyle("lx", parent=base["BodyText"], fontName=REGULAR, fontSize=8.15, leading=10.5, leftIndent=10, firstLineIndent=-6, spaceAfter=2, textColor=colors.HexColor("#1E2328")),
+        "h1": ParagraphStyle("h1x", parent=base["Heading1"], fontName=BOLD, fontSize=19, leading=23, spaceAfter=4, textColor=colors.HexColor("#1E2328")),
+        "h2": ParagraphStyle("h2x", parent=base["Heading2"], fontName=BOLD, fontSize=11.2, leading=14, spaceBefore=9, spaceAfter=5, textColor=colors.HexColor("#DAAF57")),
+        "h3": ParagraphStyle("h3x", parent=base["Heading3"], fontName=BOLD, fontSize=10, leading=12.5, spaceBefore=5, spaceAfter=2, textColor=colors.HexColor("#26505A")),
+        "p": ParagraphStyle("px", parent=base["BodyText"], fontName=REGULAR, fontSize=9.4, leading=12.2, spaceAfter=4, textColor=colors.HexColor("#1E2328")),
+        "meta": ParagraphStyle("mx", parent=base["BodyText"], fontName=REGULAR, fontSize=8.5, leading=10.8, spaceAfter=3.5, textColor=colors.HexColor("#26505A")),
+        "li": ParagraphStyle("lx", parent=base["BodyText"], fontName=REGULAR, fontSize=9.2, leading=12, leftIndent=10, firstLineIndent=-6, spaceAfter=3, textColor=colors.HexColor("#1E2328")),
     }
     story=[]
     for tag, text in extract_sections(source):
+        if tag == "h3" and text.startswith("Habitat Consultórios"):
+            story.append(PageBreak())
         safe=html.escape(text)
         if tag=="h1": story.append(Paragraph(safe, styles["h1"]))
         elif tag=="h2": story.append(Paragraph(safe, styles["h2"]))

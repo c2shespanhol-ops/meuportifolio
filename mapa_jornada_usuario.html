@@ -7,41 +7,41 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background-color: #0d0d0d;
-      color: #e0e0e0;
+      background-color: #1E2328;
+      color: #C4CDD3;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.6;
     }
-    a { color: #b8975e; text-decoration: none; }
+    a { color: #DAAF57; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .btn {
       display: inline-block;
       padding: 10px 18px;
-      border: 1px solid #b8975e;
-      color: #b8975e;
+      border: 1px solid #DAAF57;
+      color: #DAAF57;
       border-radius: 4px;
       font-size: 0.9rem;
       transition: background 0.2s, color 0.2s;
     }
-    .btn:hover { background-color: #b8975e; color: #0d0d0d; text-decoration: none; }
+    .btn:hover { background-color: #DAAF57; color: #1E2328; text-decoration: none; }
     .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-    header { padding: 20px 40px; border-bottom: 1px solid #222; }
-    hr { border: 0; border-top: 1px solid #222; margin: 40px 0; }
+    header { padding: 20px 40px; border-bottom: 1px solid #26505A; }
+    hr { border: 0; border-top: 1px solid #26505A; margin: 40px 0; }
     .grid-meta {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 15px;
-      background: #141414;
+      background: #26505A;
       padding: 20px;
       border-radius: 8px;
-      border: 1px solid #222;
+      border: 1px solid #26505A;
       margin-top: 20px;
     }
     .card-proximo {
-      border: 1px solid #222;
+      border: 1px solid #26505A;
       padding: 20px;
       border-radius: 8px;
-      background: #141414;
+      background: #26505A;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -81,15 +81,15 @@ body .metric-label, body .tag, body .scroll-hint, body .footer-role {
 }
 body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card,
 body .metric, body .meta, body .hero-highlight-card, body .flow, body .note,
-body .doc-card, body .case-card, body .stat-box { background:#26505A !important; border-color:rgba(229,182,66,.22) !important; box-shadow:none !important; }
+body .doc-card, body .case-card, body .stat-box { background:#26505A !important; border-color:rgba(218,175,87,.22) !important; box-shadow:none !important; }
 body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover,
 body .competency-card:hover, body .eco-card:hover { background:#26505A !important; border-color:#DAAF57 !important; }
-body .back, body .back-btn { background:rgba(9,13,18,.96) !important; color:#DAAF57 !important; border-color:rgba(229,182,66,.22) !important; }
+body .back, body .back-btn { background:rgba(30,35,40,.96) !important; color:#DAAF57 !important; border-color:rgba(218,175,87,.22) !important; }
 body .back:hover, body .back-btn:hover { background:#DAAF57 !important; color:#1E2328 !important; }
 body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
 body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; border-color:#DAAF57 !important; }
 body .metric-display, body .number { color:#DAAF57 !important; font-weight:300 !important; }
-body footer, body .pbos-footer { background:#1E2328 !important; border-top-color:rgba(229,182,66,.22) !important; color:#C4CDD3 !important; }
+body footer, body .pbos-footer { background:#1E2328 !important; border-top-color:rgba(218,175,87,.22) !important; color:#C4CDD3 !important; }
 body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; font-weight:400 !important; }
 body .pbos-footer-copy { color:#C4CDD3 !important; }
 body .pbos-footer-link, body .footer-linkedin { color:#DAAF57 !important; }
@@ -105,8 +105,16 @@ body .stat-box { color:#DAAF57 !important; }
 }
 </style>
 <link rel="stylesheet" href="portfolio-theme.css?v=20261020-reference-fix">
+
+<style id="pbos-process-flow">
+.process-flow{list-style:none;display:flex;align-items:stretch;gap:24px;margin:24px 0;padding:0;counter-reset:flow;}
+.process-flow li{position:relative;display:flex;align-items:center;justify-content:center;flex:1;min-width:0;min-height:92px;padding:18px 14px;background:#26505A;border:1px solid rgba(218,175,87,.35);border-radius:8px;color:#F5F7FA;text-align:center;font:500 13px/1.45 'DM Sans',sans-serif;}
+.process-flow li::before{counter-increment:flow;content:counter(flow,decimal-leading-zero);display:block;position:absolute;top:7px;left:10px;color:#DAAF57;font:500 9px 'Orbitron',sans-serif;letter-spacing:.08em;}
+.process-flow li+li::after{content:'›';position:absolute;left:-19px;top:50%;transform:translateY(-50%);color:#DAAF57;font:400 25px 'DM Sans',sans-serif;}
+@media(max-width:760px){.process-flow{display:grid;grid-template-columns:1fr;gap:10px}.process-flow li{min-height:62px;padding:20px 16px 14px}.process-flow li+li::after{content:'↓';left:50%;top:-18px;transform:translateX(-50%);font-size:18px}}
+</style>
 </head>
-<body>
+<body><div style="border-left:4px solid #DAAF57;background:#26505A;padding:16px;margin:18px 0;color:#F5F7FA"><strong>Natureza do documento:</strong> mapa de referência estruturado a partir dos públicos e contextos de uso identificados. Não representa pesquisa formal de jornada, survey de satisfação ou medição de CSAT/NPS. Os valores numéricos sem evidência foram removidos.</div>
 
   <header>
     <a href="case_study_03_habitat_final.html" class="btn">&larr; Voltar para o Case Study</a>
@@ -116,18 +124,18 @@ body .stat-box { color:#DAAF57 !important; }
     
     <!-- CABEÇALHO CORPORATIVO -->
     <section>
-      <span style="color: #b8975e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional · HBT-MAP-006</span>
-      <h1 style="font-size: 2.4rem; color: #fff; margin-top: 10px; margin-bottom: 15px;">Mapa da Jornada do Usuário</h1>
-      <p style="font-size: 1.15rem; color: #aaa; max-width: 800px; line-height: 1.6;">
+      <span style="color: #DAAF57; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional · HBT-MAP-006</span>
+      <h1 style="font-size: 2.4rem; color: #F5F7FA; margin-top: 10px; margin-bottom: 15px;">Mapa da Jornada do Usuário</h1>
+      <p style="font-size: 1.15rem; color: #C4CDD3; max-width: 800px; line-height: 1.6;">
         Visão consolidada das etapas, pontos de contato, fricções e oportunidades na experiência dos consultórios parceiros.
       </p>
 
       <div class="grid-meta">
-        <div><strong style="color: #b8975e;">Código:</strong> <span style="color: #fff;">HBT-MAP-006</span></div>
-        <div><strong style="color: #b8975e;">Versão:</strong> <span style="color: #fff;">2.0</span></div>
-        <div><strong style="color: #b8975e;">Status:</strong> <span style="color: #50fa7b;">Aprovado</span></div>
-        <div><strong style="color: #b8975e;">Responsável:</strong> <span style="color: #fff;">Product Operations</span></div>
-        <div><strong style="color: #b8975e;">Atualização:</strong> <span style="color: #fff;">Março/2024</span></div>
+        <div><strong style="color: #DAAF57;">Código:</strong> <span style="color: #F5F7FA;">HBT-MAP-006</span></div>
+        <div><strong style="color: #DAAF57;">Versão:</strong> <span style="color: #F5F7FA;">2.0</span></div>
+        <div><strong style="color: #DAAF57;">Status:</strong> <span style="color: #DAAF57;">Documento de referência</span></div>
+        <div><strong style="color: #DAAF57;">Responsável:</strong> <span style="color: #F5F7FA;">CX · Produto · Operação</span></div>
+        <div><strong style="color: #DAAF57;">Documento reconstruído:</strong> <span style="color: #F5F7FA;">Novembro/2026</span></div>
       </div>
     </section>
 
@@ -135,8 +143,8 @@ body .stat-box { color:#DAAF57 !important; }
 
     <!-- OBJETIVO -->
     <section>
-      <h2 style="color: #fff; margin-bottom: 10px;">Objetivo</h2>
-      <p style="color: #ccc; font-size: 1.05rem;">
+      <h2 style="color: #F5F7FA; margin-bottom: 10px;">Objetivo</h2>
+      <p style="color: #C4CDD3; font-size: 1.05rem;">
         Compreender profundamente a vivência dos profissionais e gestores de consultórios ao utilizarem a plataforma, identificando dores críticas e momentos de encantamento.
       </p>
     </section>
@@ -145,8 +153,8 @@ body .stat-box { color:#DAAF57 !important; }
 
     <!-- CONTEXTO -->
     <section>
-      <h2 style="color: #fff; margin-bottom: 10px;">Contexto</h2>
-      <p style="color: #ccc; font-size: 1.05rem;">
+      <h2 style="color: #F5F7FA; margin-bottom: 10px;">Contexto</h2>
+      <p style="color: #C4CDD3; font-size: 1.05rem;">
         Estruturado a partir de entrevistas de profundidade e análise comportamental dos usuários para guiar as melhorias de experiência implementadas no ecossistema.
       </p>
     </section>
@@ -155,19 +163,19 @@ body .stat-box { color:#DAAF57 !important; }
 
     <!-- ESCOPO -->
     <section>
-      <h2 style="color: #fff; margin-bottom: 15px;">Escopo</h2>
+      <h2 style="color: #F5F7FA; margin-bottom: 15px;">Escopo</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
-          <h3 style="color: #50fa7b; margin-bottom: 10px;">O que cobre</h3>
-          <ul style="color: #ccc; padding-left: 20px; line-height: 1.6;">
+        <div style="background: #26505A; padding: 20px; border-radius: 8px; border: 1px solid #26505A;">
+          <h3 style="color: #DAAF57; margin-bottom: 10px;">O que cobre</h3>
+          <ul style="color: #C4CDD3; padding-left: 20px; line-height: 1.6;">
             <li>Descoberta inicial da solução pelo consultório</li>
             <li>Processo de integração e uso cotidiano</li>
             <li>Interações com canais de suporte e atendimento</li>
           </ul>
         </div>
-        <div style="background: #141414; padding: 20px; border-radius: 8px; border: 1px solid #222;">
-          <h3 style="color: #ff5555; margin-bottom: 10px;">O que não cobre</h3>
-          <ul style="color: #ccc; padding-left: 20px; line-height: 1.6;">
+        <div style="background: #26505A; padding: 20px; border-radius: 8px; border: 1px solid #26505A;">
+          <h3 style="color: #C4CDD3; margin-bottom: 10px;">O que não cobre</h3>
+          <ul style="color: #C4CDD3; padding-left: 20px; line-height: 1.6;">
             <li>Processos internos de desenvolvimento de software</li>
             <li>Gestão administrativa societária da Habitat</li>
             <li>Relações com fornecedores de infraestrutura de rede</li>
@@ -180,36 +188,41 @@ body .stat-box { color:#DAAF57 !important; }
 
     <!-- ETAPAS DA JORNADA -->
     <section>
-      <h2 style="color: #fff; margin-bottom: 15px;">Etapas Principais da Jornada</h2>
-      <div style="background: #141414; padding: 25px; border-radius: 8px; border: 1px solid #222; text-align: center; font-family: monospace; font-size: 1rem; color: #b8975e;">
-        Descoberta &rarr; Onboarding &rarr; Uso Diário &rarr; Suporte / Atendimento &rarr; Retenção &rarr; Recomendação
-      </div>
+      <h2 style="color: #F5F7FA; margin-bottom: 15px;">Etapas Principais da Jornada</h2>
+      <ol class="process-flow" aria-label="Etapas do modelo de referência">
+        <li>Descoberta</li>
+        <li>Onboarding</li>
+        <li>Uso Diário</li>
+        <li>Suporte / Atendimento</li>
+        <li>Retenção</li>
+        <li>Recomendação</li>
+      </ol>
     </section>
 
     <hr>
 
     <!-- INDICADORES MONITORADOS -->
     <section>
-      <h2 style="color: #fff; margin-bottom: 15px;">Indicadores de Experiência</h2>
+      <h2 style="color: #F5F7FA; margin-bottom: 15px;">Indicadores sugeridos para acompanhamento</h2>
       <div style="overflow-x: auto;">
-        <table style="width: 100%; border-collapse: collapse; text-align: left; background: #141414; border: 1px solid #222;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; background: #26505A; border: 1px solid #26505A;">
           <thead>
-            <tr style="border-bottom: 2px solid #b8975e; background: #181818;">
-              <th style="padding: 12px; color: #fff;">Indicador</th>
-              <th style="padding: 12px; color: #fff;">Objetivo</th>
-              <th style="padding: 12px; color: #fff;">Resultado</th>
+            <tr style="border-bottom: 2px solid #DAAF57; background: #26505A;">
+              <th style="padding: 12px; color: #F5F7FA;">Indicador</th>
+              <th style="padding: 12px; color: #F5F7FA;">Objetivo</th>
+              <th style="padding: 12px; color: #F5F7FA;">Resultado</th>
             </tr>
           </thead>
-          <tbody style="color: #ccc;">
-            <tr style="border-bottom: 1px solid #222;">
-              <td style="padding: 12px; font-weight: bold; color: #b8975e;">CSAT (Satisfação do Cliente)</td>
+          <tbody style="color: #C4CDD3;">
+            <tr style="border-bottom: 1px solid #26505A;">
+              <td style="padding: 12px; font-weight: bold; color: #DAAF57;">CSAT (Satisfação do Cliente)</td>
               <td style="padding: 12px;">Elevar o contentamento com a plataforma</td>
-              <td style="padding: 12px; color: #50fa7b;">92%</td>
+              <td style="padding: 12px; color: #DAAF57;">Não mensurado</td>
             </tr>
             <tr>
-              <td style="padding: 12px; font-weight: bold; color: #b8975e;">NPS (Net Promoter Score)</td>
+              <td style="padding: 12px; font-weight: bold; color: #DAAF57;">NPS (Net Promoter Score)</td>
               <td style="padding: 12px;">Garantir recomendação orgânica de parceiros</td>
-              <td style="padding: 12px; color: #50fa7b;">+68 pts</td>
+              <td style="padding: 12px; color: #DAAF57;">Não mensurado</td>
             </tr>
           </tbody>
         </table>
@@ -220,13 +233,13 @@ body .stat-box { color:#DAAF57 !important; }
 
     <!-- IMPACTO NO PROJETO -->
     <section>
-      <div style="background: #141414; padding: 25px; border-radius: 8px; border-left: 4px solid #b8975e; border: 1px solid #222;">
-        <h3 style="color: #fff; margin-bottom: 12px;">Impacto no Projeto</h3>
-        <ul style="list-style: none; padding: 0; margin: 0; color: #ccc; line-height: 1.8;">
-          <li>✓ Identificação precisa de pontos críticos de atrito</li>
-          <li>✓ Alinhamento das entregas de produto com o valor percebido</li>
-          <li>✓ Crescimento expressivo na retenção de consultórios</li>
-          <li>✓ Visão unificada da experiência do usuário</li>
+      <div style="background: #26505A; padding: 25px; border-radius: 8px; border-left: 4px solid #DAAF57; border: 1px solid #26505A;">
+        <h3 style="color: #F5F7FA; margin-bottom: 12px;">Aplicação potencial, sem resultado histórico atribuído</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; color: #C4CDD3; line-height: 1.8;">
+          <li>• Potencial: explicitar pontos de atrito percebidos por perfil</li>
+          <li>• Potencial: levar necessidades dos usuários para a conversa de produto</li>
+          <li>• Potencial: apoiar a identificação de fatores que afetam a continuidade de uso</li>
+          <li>• Potencial: reunir etapas e necessidades dos diferentes perfis</li>
         </ul>
       </div>
     </section>
@@ -235,8 +248,8 @@ body .stat-box { color:#DAAF57 !important; }
 
     <!-- RASTREABILIDADE / ARTEFATOS RELACIONADOS -->
     <section>
-      <h2 style="color: #fff; margin-bottom: 15px;">Artefatos Relacionados</h2>
-      <p style="color: #aaa; margin-bottom: 20px;">
+      <h2 style="color: #F5F7FA; margin-bottom: 15px;">Artefatos Relacionados</h2>
+      <p style="color: #C4CDD3; margin-bottom: 20px;">
         Este mapa integra-se diretamente aos demais instrumentos do ecossistema Habitat:
       </p>
       <div style="display: flex; flex-wrap: wrap; gap: 10px;">
@@ -254,19 +267,19 @@ body .stat-box { color:#DAAF57 !important; }
 
     <!-- PRÓXIMOS ARTEFATOS (RODAPÉ) -->
     <section>
-      <h2 style="color: #fff; margin-bottom: 15px;">Próximos Artefatos</h2>
+      <h2 style="color: #F5F7FA; margin-bottom: 15px;">Próximos Artefatos</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px;">
         <div class="card-proximo">
           <div>
-            <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">Modelo de Onboarding</h3>
-            <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">Diretrizes para integração eficiente de novos parceiros.</p>
+            <h3 style="color: #F5F7FA; font-size: 1.1rem; margin-bottom: 8px;">Modelo de Onboarding</h3>
+            <p style="color: #C4CDD3; font-size: 0.9rem; margin-bottom: 15px;">Diretrizes para integração eficiente de novos parceiros.</p>
           </div>
           <div><a href="modelo_onboarding.html" class="btn" style="font-size: 0.85rem; padding: 8px 14px;">Acessar documento &rarr;</a></div>
         </div>
         <div class="card-proximo">
           <div>
-            <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">Relatório de Lead Time</h3>
-            <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">Análise consolidada de vazão e tempo de entrega.</p>
+            <h3 style="color: #F5F7FA; font-size: 1.1rem; margin-bottom: 8px;">Relatório de Lead Time</h3>
+            <p style="color: #C4CDD3; font-size: 0.9rem; margin-bottom: 15px;">Análise consolidada de vazão e tempo de entrega.</p>
           </div>
           <div><a href="relatorio_leadtime.html" class="btn" style="font-size: 0.85rem; padding: 8px 14px;">Acessar documento &rarr;</a></div>
         </div>
@@ -276,7 +289,7 @@ body .stat-box { color:#DAAF57 !important; }
   </main>
 
 <footer class="pbos-footer">
-  <div class="pbos-footer-signature">Cleyton Hespanhol | Product Owner | UX</div>
+  <div class="pbos-footer-signature">Cleyton Hespanhol | CX · Produto · UX</div>
   <div class="pbos-footer-copy">© 2026 Cleyton S. Hespanhol. Todos os direitos reservados.</div>
   <a class="pbos-footer-link" href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener">linkedin.com/in/cleyton-hespanhol</a>
 </footer>

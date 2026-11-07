@@ -79,9 +79,9 @@ p, li, h1, h2, h3, h4, h5, h6, a, span { overflow-wrap: break-word !important; w
 
 /* Final cross-page overrides based on the approved HS MIND reference and mobile screenshots */
 :root {
- --pbos-bg:#090D13; --pbos-surface:#101820; --pbos-surface-2:#101820;
- --pbos-gold:#E8B642; --pbos-gold-soft:#E8B642; --pbos-teal:#69B5E8;
- --pbos-text:#F5F7FA; --pbos-muted:#A4ADB8; --pbos-muted-2:#A4ADB8;
+ --pbos-bg:#1E2328; --pbos-surface:#26505A; --pbos-surface-2:#26505A;
+ --pbos-gold:#DAAF57; --pbos-gold-soft:#DAAF57; --pbos-teal:#DAAF57;
+ --pbos-text:#F5F7FA; --pbos-muted:#C4CDD3; --pbos-muted-2:#C4CDD3;
  --pbos-border:rgba(164,173,184,.20);
  --bg:var(--pbos-bg); --bg2:var(--pbos-surface); --bg3:var(--pbos-surface-2);
  --gold:var(--pbos-gold); --gold-lt:var(--pbos-gold-soft); --teal:var(--pbos-teal);
@@ -89,11 +89,11 @@ p, li, h1, h2, h3, h4, h5, h6, a, span { overflow-wrap: break-word !important; w
  --white:var(--pbos-text); --gray1:var(--pbos-muted); --gray2:var(--pbos-muted-2);
  --border:var(--pbos-border);
 }
-html,body{background:#090D13!important;color:#F5F7FA!important;overflow-x:hidden!important;overflow-wrap:normal!important;word-break:normal!important}
-body main,body header,body footer,body .container,body .wrap,body .section,body .hero,body .cases-section,body .hero-container,body .hero-content{background-color:#090D13!important;background-image:none!important}
-body .card,body .pillar-card,body .artifact-card,body .competency-card,body .eco-card,body .metric,body .meta,body .hero-highlight-card,body .flow,body .note,body .doc-card,body .case-card,body .stat-box,body .panel,body .step,body .flow-step,body .comparison-box,body .highlight{background:#101820!important;color:#F5F7FA!important;border-color:rgba(164,173,184,.20)!important;box-shadow:none!important}
-body p,body li,body td,body th,body .muted,body .lead,body .description,body .hero-desc,body .support,body .intro,body .cv-note{color:#A4ADB8!important}
-body a,body .artifact-action,body .eyebrow,body .hero-eyebrow,body .section-label,body .section-title,body .case-label-text,body .case-meta,body .doc-number,body .tag{color:#E8B642!important}
+html,body{background:#1E2328!important;color:#F5F7FA!important;overflow-x:hidden!important;overflow-wrap:normal!important;word-break:normal!important}
+body main,body header,body footer,body .container,body .wrap,body .section,body .hero,body .cases-section,body .hero-container,body .hero-content{background-color:#1E2328!important;background-image:none!important}
+body .card,body .pillar-card,body .artifact-card,body .competency-card,body .eco-card,body .metric,body .meta,body .hero-highlight-card,body .flow,body .note,body .doc-card,body .case-card,body .stat-box,body .panel,body .step,body .flow-step,body .comparison-box,body .highlight{background:#26505A!important;color:#F5F7FA!important;border-color:rgba(164,173,184,.20)!important;box-shadow:none!important}
+body p,body li,body td,body th,body .muted,body .lead,body .description,body .hero-desc,body .support,body .intro,body .cv-note{color:#C4CDD3!important}
+body a,body .artifact-action,body .eyebrow,body .hero-eyebrow,body .section-label,body .section-title,body .case-label-text,body .case-meta,body .doc-number,body .tag{color:#DAAF57!important}
 body .artifact-card{display:flex;align-items:center;gap:20px;min-width:0}
 body .artifact-card > *{min-width:0;max-width:100%}
 body .artifact-card h3,body .artifact-card p{overflow-wrap:break-word!important;word-break:normal!important;white-space:normal}
