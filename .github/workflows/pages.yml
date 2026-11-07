@@ -59,7 +59,8 @@ jobs:
 
       - name: Install responsive test browser
         run: |
-          npm install --no-save playwright
+          npm install --no-save playwright cspell @cspell/dict-pt-br@2.4.4
+          npx cspell --no-progress --config cspell.json "_site/**/*.html"
           npx playwright install --with-deps chromium
           python -m http.server 8765 --directory _site >/tmp/portfolio-http.log 2>&1 &
           sleep 2

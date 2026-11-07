@@ -1,0 +1,36 @@
+{
+  "version": "0.2",
+  "language": "en,pt_BR",
+  "import": ["@cspell/dict-pt-br/cspell-ext.json"],
+  "words": [
+    "Cleyton", "Hespanhol", "Maricá", "MarIA", "Itaipuaçu", "PAV",
+    "SaaS", "Kanban", "Jira", "Scrum", "Backlog", "Discovery",
+    "Product", "Owner", "UX", "CX", "UAT", "OAT", "Salesforce",
+    "Pipedrive", "Zendesk", "PureCloud", "GLP", "Nielsen", "Norman",
+    "Krug", "Peixe", "Habitat", "Nextel", "Supergasbras", "SHV",
+    "Gupy", "ATS", "B2B", "B2C", "API", "CRM", "FAQ", "SLA",
+    "Lead", "Leads", "Leadtime", "MarIA", "Maricá", "Kanban",
+    "Retrospective", "Refinement", "User Stories", "Stakeholders",
+    "Pipedrive", "WhatsApp", "Salesforce", "Jira", "Scrum Master",
+    "Product Owner", "Discovery", "Backlog", "Onboarding", "Chatbot",
+    "CX", "OAT", "UAT", "NPS", "A/B", "e-commerce", "workflow",
+    "multifunctional", "follow-up", "followup", "checklist",
+    "stakeholder", "stakeholders", "roadmap", "SLA", "lead time"
+  ],
+  "ignoreRegExpList": [
+    "Urls",
+    "/<script[\\s\\S]*?<\\/script>/gi",
+    "/<style[\\s\\S]*?<\\/style>/gi",
+    "/<[^>]+>/g"
+  ],
+  "ignorePaths": [
+    "docs/**",
+    "scripts/**",
+    "node_modules/**",
+    "**/*.css",
+    "**/*.js",
+    "**/*.json",
+    "**/*.xml",
+    "**/*.svg"
+  ]
+}
