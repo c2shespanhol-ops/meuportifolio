@@ -2,7 +2,7 @@
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, unquote
-import sys
+import re, sys
 root=Path(sys.argv[1] if len(sys.argv)>1 else "_site").resolve()
 errors=[]
 class Audit(HTMLParser):
@@ -38,7 +38,8 @@ pages=list(root.rglob("*.html"))
 for page in pages:
  source=page.read_text(encoding="utf-8"); rel=page.relative_to(root)
  if 'name="viewport"' not in source.lower(): errors.append(f"{rel}: missing viewport meta")
- if "portfolio-theme.css" not in source: errors.append(f"{rel}: shared stylesheet missing")
+ theme_links=len(re.findall(r'<link\b[^>]*href=["\'][^"\']*portfolio-theme\.css[^"\']*["\'][^>]*>',source,re.I))
+ if theme_links!=1: errors.append(f"{rel}: expected exactly one shared stylesheet link, found {theme_links}")
  parser=Audit(rel); parser.feed(source)
 if errors: print("\n".join(errors)); raise SystemExit(1)
 print(f"HTML audit passed: {len(pages)} pages checked.")

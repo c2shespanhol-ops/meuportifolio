@@ -54,6 +54,9 @@ jobs:
       - name: Validate HTML structure and internal links
         run: python scripts/validate_html.py _site
 
+      - name: Validate copy spacing
+        run: python scripts/validate_copy_quality.py _site
+
       - name: Install responsive test browser
         run: |
           npm install --no-save playwright
