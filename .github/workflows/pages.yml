@@ -40,6 +40,9 @@ jobs:
             --exclude 'scripts' \
             --exclude '_site'
 
+      - name: Apply shared design system to all HTML pages
+        run: python scripts/ensure_shared_theme.py _site
+
       - name: Generate recruiter CV PDFs
         run: |
           mkdir -p .build_fonts
@@ -47,6 +50,21 @@ jobs:
           curl -fsSL https://raw.githubusercontent.com/googlefonts/dm-fonts/main/Sans/Exports/DMSans-Bold.ttf -o .build_fonts/DMSans-Bold.ttf
           python -m pip install --disable-pip-version-check --no-input reportlab
           python scripts/build_cv_pdfs.py
+
+      - name: Validate HTML structure and internal links
+        run: python scripts/validate_html.py _site
+
+      - name: Validate copy spacing
+        run: python scripts/validate_copy_quality.py _site
+
+      - name: Install responsive test browser
+        run: |
+          npm install --no-save playwright cspell @cspell/dict-pt-br@2.4.4
+          npx cspell --no-progress --config cspell.json "_site/**/*.html"
+          npx playwright install --with-deps chromium
+          python -m http.server 8765 --directory _site >/tmp/portfolio-http.log 2>&1 &
+          sleep 2
+          node scripts/validate_responsive.mjs
 
       - name: Validate public artifact
         shell: bash
@@ -64,14 +82,14 @@ jobs:
           test "$(head -c 4 _site/cv/Cleyton-Hespanhol-Product-Owner-EN.pdf)" = "%PDF"
           grep -q "31% menos retrabalho" _site/cv/cv-pt.html
           grep -q "31% less rework" _site/cv/cv-en.html
-          grep -q "31% de aumento na eficiência operacional" _site/cv/cv-pt.html
-          grep -q "31% increase in operational efficiency" _site/cv/cv-en.html
-          ! grep -qiE "31% de redução em SLAs|31% SLA reduction|31% de redução no tempo de resolução|31% reduction in resolution time" _site/cv/cv-pt.html _site/cv/cv-en.html
+          grep -q "31% de redução no tempo médio de resolução" _site/cv/cv-pt.html
+          grep -q "31% reduction in average resolution time" _site/cv/cv-en.html
+          ! grep -qiE "31% de aumento na eficiência operacional|31% increase in operational efficiency" _site/cv/cv-pt.html _site/cv/cv-en.html
           ! grep -qiE "40% relatado|20% relatado|40% reported|20% reported" _site/index.html _site/en/index.html
           ! grep -qiE "Product Operations|Product Ops" _site/case_study_05_pav_receita_federal_final.html _site/en/cases/case-05-pav-receita-federal.html _site/cv/cv-pt.html _site/cv/cv-en.html
           grep -q "31% menos retrabalho por registros incompletos" _site/case_study_02_leadtime_final.html
           grep -q "31% less rework from incomplete request records" _site/en/cases/case-02-lead-time-governance.html
-          grep -q "+31%" _site/case_study_03_habitat_final.html
+          grep -q -- "-31%" _site/case_study_03_habitat_final.html
           test -f _site/case_study_01_persona_final.html
           test -f _site/case_study_02_leadtime_final.html
           test -f _site/case_study_03_habitat_final.html
