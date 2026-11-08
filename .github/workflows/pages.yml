@@ -84,8 +84,10 @@ jobs:
           test "$(head -c 4 _site/cv/Cleyton-Hespanhol-Product-Owner-EN.pdf)" = "%PDF"
           grep -q "31% menos retrabalho" _site/cv/cv-pt.html
           grep -q "31% less rework" _site/cv/cv-en.html
-          grep -q "31% de redução no tempo médio de resolução" _site/cv/cv-pt.html
-          grep -q "31% reduction in average resolution time" _site/cv/cv-en.html
+          grep -q "31% de ganho de eficiência" _site/cv/cv-pt.html
+          grep -q "31% efficiency gain" _site/cv/cv-en.html
+          grep -q "37% de redução nas desistências" _site/cv/cv-pt.html
+          grep -q "37% reduction in cancellations" _site/cv/cv-en.html
           ! grep -qiE "31% de aumento na eficiência operacional|31% increase in operational efficiency" _site/cv/cv-pt.html _site/cv/cv-en.html
           ! grep -qiE "40% relatado|20% relatado|40% reported|20% reported" _site/index.html _site/en/index.html
           ! grep -qiE "Product Operations|Product Ops" _site/case_study_05_pav_receita_federal_final.html _site/en/cases/case-05-pav-receita-federal.html _site/cv/cv-pt.html _site/cv/cv-en.html
