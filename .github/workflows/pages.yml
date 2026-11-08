@@ -92,7 +92,9 @@ jobs:
           test "$(grep -c '<h3>' _site/cv/cv-pt.html)" -eq 3
           test "$(grep -c '<h3>' _site/cv/cv-en.html)" -eq 3
           grep -q "Supergasbras | Analista de Operações e Experiência do Cliente" _site/cv/cv-pt.html
+          grep -q "jan/2018 – jun/2024" _site/cv/cv-pt.html
           grep -q "Supergasbras | Operations &amp; Customer Experience Analyst" _site/cv/cv-en.html
+          grep -q "Jan 2018 – Jun 2024" _site/cv/cv-en.html
           ! grep -qiE "SHVB|SHV Energy|Peixe Urbano|Nextel" _site/cv/cv-pt.html _site/cv/cv-en.html
           grep -q "40% de redução no tempo de resposta" _site/cv/cv-pt.html
           grep -q "40% reduction in critical-response time" _site/cv/cv-en.html
