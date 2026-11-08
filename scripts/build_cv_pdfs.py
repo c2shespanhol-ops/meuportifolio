@@ -57,8 +57,6 @@ def build_pdf(source_path, output_path):
     }
     story=[]
     for tag, text in extract_sections(source):
-        if tag == "h3" and (text.startswith("SHVB") or text.startswith("SHV Energy")):
-            story.append(PageBreak())
         safe=html.escape(text)
         if tag=="h1": story.append(Paragraph(safe, styles["h1"]))
         elif tag=="h2": story.append(Paragraph(safe, styles["h2"]))
