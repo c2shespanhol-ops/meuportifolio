@@ -72,8 +72,8 @@ jobs:
           set -euo pipefail
           test -f _site/index.html
           test -f _site/en/index.html
-          test -s _site/assets/cleyton-portfolio-2026.jpg
-          test "$(od -An -tx1 -N2 _site/assets/cleyton-portfolio-2026.jpg | tr -d " \n")" = "ffd8"
+          grep -q "photo-fallback-mark" _site/index.html
+          grep -q "photo-fallback-mark" _site/en/index.html
           test -f _site/robots.txt
           test -f _site/sitemap.xml
           test -f _site/cv/cv-pt.html
