@@ -44,20 +44,20 @@ def build_pdf(source_path, output_path):
     with open(source_path, encoding="utf-8") as f:
         source = f.read()
     doc = SimpleDocTemplate(output_path, pagesize=A4,
-        rightMargin=15*mm, leftMargin=15*mm, topMargin=13*mm, bottomMargin=13*mm,
+        rightMargin=13*mm, leftMargin=13*mm, topMargin=11*mm, bottomMargin=11*mm,
         title="Cleyton S. Hespanhol - Product Owner", author="Cleyton S. Hespanhol")
     base = getSampleStyleSheet()
     styles = {
-        "h1": ParagraphStyle("h1x", parent=base["Heading1"], fontName=BOLD, fontSize=19, leading=23, spaceAfter=4, textColor=colors.HexColor("#1E2328")),
-        "h2": ParagraphStyle("h2x", parent=base["Heading2"], fontName=BOLD, fontSize=11.2, leading=14, spaceBefore=9, spaceAfter=5, textColor=colors.HexColor("#DAAF57")),
-        "h3": ParagraphStyle("h3x", parent=base["Heading3"], fontName=BOLD, fontSize=10, leading=12.5, spaceBefore=5, spaceAfter=2, textColor=colors.HexColor("#26505A")),
-        "p": ParagraphStyle("px", parent=base["BodyText"], fontName=REGULAR, fontSize=9.4, leading=12.2, spaceAfter=4, textColor=colors.HexColor("#1E2328")),
-        "meta": ParagraphStyle("mx", parent=base["BodyText"], fontName=REGULAR, fontSize=8.5, leading=10.8, spaceAfter=3.5, textColor=colors.HexColor("#26505A")),
-        "li": ParagraphStyle("lx", parent=base["BodyText"], fontName=REGULAR, fontSize=9.2, leading=12, leftIndent=10, firstLineIndent=-6, spaceAfter=3, textColor=colors.HexColor("#1E2328")),
+        "h1": ParagraphStyle("h1x", parent=base["Heading1"], fontName=BOLD, fontSize=18, leading=21, spaceAfter=3, textColor=colors.HexColor("#1E2328")),
+        "h2": ParagraphStyle("h2x", parent=base["Heading2"], fontName=BOLD, fontSize=10.5, leading=12.5, spaceBefore=7, spaceAfter=3.5, textColor=colors.HexColor("#DAAF57")),
+        "h3": ParagraphStyle("h3x", parent=base["Heading3"], fontName=BOLD, fontSize=9.2, leading=10.8, spaceBefore=3.5, spaceAfter=1, textColor=colors.HexColor("#26505A")),
+        "p": ParagraphStyle("px", parent=base["BodyText"], fontName=REGULAR, fontSize=8.7, leading=10.8, spaceAfter=2.5, textColor=colors.HexColor("#1E2328")),
+        "meta": ParagraphStyle("mx", parent=base["BodyText"], fontName=REGULAR, fontSize=7.8, leading=9.2, spaceAfter=2, textColor=colors.HexColor("#26505A")),
+        "li": ParagraphStyle("lx", parent=base["BodyText"], fontName=REGULAR, fontSize=8.5, leading=10.2, leftIndent=9, firstLineIndent=-6, spaceAfter=1.8, textColor=colors.HexColor("#1E2328")),
     }
     story=[]
     for tag, text in extract_sections(source):
-        if tag == "h3" and text.startswith("Habitat Consultórios"):
+        if tag == "h3" and (text.startswith("SHVB") or text.startswith("SHV Energy")):
             story.append(PageBreak())
         safe=html.escape(text)
         if tag=="h1": story.append(Paragraph(safe, styles["h1"]))
