@@ -153,3 +153,22 @@ a,button{min-height:24px}
  .proof{padding-left:16px}
  .credential{align-items:flex-start}
 }
+
+
+/* Tera badge contrast fix · 2026-11
+   Keep the supplied logo white on a true black field and add a gold edge
+   so the T mark remains legible at small display sizes. */
+.credential-badge-link.credential-badge-tera{
+  background:#000!important;
+  border:2px solid #DAAF57!important;
+  box-shadow:inset 0 0 0 1px rgba(245,247,250,.18)!important;
+  padding:8px!important;
+  border-radius:10px!important;
+}
+.credential-badge-link.credential-badge-tera img.credential-badge-image{
+  background:#000!important;
+  filter:brightness(0) invert(1) drop-shadow(0 0 1px #DAAF57)!important;
+  mix-blend-mode:normal!important;
+  object-fit:contain!important;
+  max-height:66px!important;
+}
