@@ -138,6 +138,29 @@ footer{border-top:1px solid var(--border);padding:32px var(--pad) 38px;text-alig
 /* Tera: fundo preto e logotipo branco com contorno visível */
 .credential-badge-link.credential-badge-tera{background:#000!important;border:2px solid #2F9E41!important;box-shadow:inset 0 0 0 2px rgba(47,158,65,.22)!important;padding:8px!important;border-radius:10px!important}
 .credential-badge-link.credential-badge-tera img.credential-badge-image{background:#000!important;filter:brightness(0) invert(1)!important;mix-blend-mode:normal!important;object-fit:contain;max-height:66px}
+
+/* Final correction: Tera identity contrast and visible email CTA label. */
+body .credential-badge-link.credential-badge-tera{
+  background-color:#000!important;
+  border:2px solid #DAAF57!important;
+  box-shadow:0 0 0 1px #1E2328,inset 0 0 0 1px rgba(245,247,250,.22)!important;
+}
+body .credential-badge-link.credential-badge-tera img.credential-badge-image{
+  background-color:#000!important;
+  filter:brightness(0) invert(1)
+    drop-shadow(1px 0 0 #DAAF57)
+    drop-shadow(-1px 0 0 #DAAF57)
+    drop-shadow(0 1px 0 #DAAF57)
+    drop-shadow(0 -1px 0 #DAAF57)!important;
+  mix-blend-mode:normal!important;
+}
+body .contact-actions a[href^="mailto:"]{
+  color:#1E2328!important;
+  background-color:#DAAF57!important;
+  border-color:#DAAF57!important;
+  font-weight:700!important;
+}
+
 </style>
 <!-- Analytics is intentionally configured through a later deployment variable. -->
 <script src="portfolio-config.js" defer></script>
@@ -193,7 +216,7 @@ footer{border-top:1px solid var(--border);padding:32px var(--pad) 38px;text-alig
 <article class="card credential"><span class="credential-badge-link credential-badge-ifrs" aria-hidden="true"><img class="credential-badge-image" src="https://ifrs.edu.br/wp-content/uploads/2022/08/Logo-IFRS-cores-sem-fundo-Vertical.png" alt="Logotipo oficial do IFRS" loading="lazy"></span><div><h3>Gestão de Projetos de Software com PMBOK</h3><p>IFRS · Instituto Federal do Rio Grande do Sul</p></div></article>
 </div></section>
 
-<section id="contact" class="contact"><div class="contact-box"><p class="intro">Aberto a oportunidades de Product Owner e funções de Produto/UX em que Discovery, clareza operacional, priorização e experiência do usuário façam parte do trabalho.</p><div class="contact-actions"><a href="mailto:cleyton.s.hespanhol@gmail.com">E-mail ↗</a><a href="https://wa.me/5521986314378" target="_blank" rel="noopener" aria-label="Conversar com Cleyton pelo WhatsApp">WhatsApp ↗</a><a href="cv/Cleyton-Hespanhol-Product-Owner-PT.pdf" download>Baixar currículo em PDF ↓</a></div></div></section>
+<section id="contact" class="contact"><div class="contact-box"><p class="intro">Aberto a oportunidades de Product Owner e funções de Produto/UX em que Discovery, clareza operacional, priorização e experiência do usuário façam parte do trabalho.</p><div class="contact-actions"><a href="mailto:cleyton.s.hespanhol@gmail.com">Contato por e-mail ↗</a><a href="https://wa.me/5521986314378" target="_blank" rel="noopener" aria-label="Conversar com Cleyton pelo WhatsApp">WhatsApp ↗</a><a href="cv/Cleyton-Hespanhol-Product-Owner-PT.pdf" download>Baixar currículo em PDF ↓</a></div></div></section>
 </div></main>
 <footer><div class="signature">Cleyton S. Hespanhol · Product Owner · Experiência do Usuário (UX)</div><div>© 2026 Cleyton S. Hespanhol · <a href="https://github.com/c2shespanhol-ops/meuportifolio" target="_blank" rel="noopener">GitHub</a></div></footer>
 <script src="portfolio-config.js?v=20260924" defer></script>
