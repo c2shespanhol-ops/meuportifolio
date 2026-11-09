@@ -79,6 +79,33 @@ body .contact-actions a[href^="mailto:"]{
 <script src="../portfolio-config.js" defer></script>
 <script src="../portfolio-analytics.js" defer></script>
 <link rel="stylesheet" href="../portfolio-theme.css?v=20261020-reference-fix">
+<style>
+/* Final responsive layout and Tera brand asset correction */
+.truth{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:20px!important;width:100%;align-items:stretch}
+.truth>.card{grid-column:1/-1;width:100%;max-width:none;min-width:0}
+.truth .actions{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;width:100%;align-items:stretch}
+.truth .actions .btn{min-width:0;min-height:48px;padding:12px 14px;text-align:center;white-space:normal;line-height:1.35;overflow-wrap:normal;word-break:normal;font-size:clamp(9px,.75vw,11px)}
+.credential-badge-link.credential-badge-tera{width:100px;min-width:100px;height:72px;background:#000!important;border:1px solid #DAAF57!important;border-radius:10px!important;padding:8px!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:hidden}
+.credential-badge-link.credential-badge-tera img.credential-badge-image{width:100%!important;height:100%!important;max-height:56px!important;object-fit:contain!important;background:transparent!important;filter:none!important;mix-blend-mode:normal!important}
+@media(min-width:1100px){
+ .truth>.card{padding:clamp(28px,3vw,44px)}
+ .truth>.card>p{max-width:1000px;line-height:1.75}
+}
+@media(min-width:701px) and (max-width:1099px){
+ .truth .actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .section-head{grid-template-columns:minmax(160px,.45fr) minmax(0,1.55fr);gap:32px}
+ .credentials{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+ .truth .actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .truth>.card{padding:22px!important}
+ .section-head{grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
+}
+@media(max-width:420px){
+ .truth .actions{grid-template-columns:minmax(0,1fr)}
+ .truth .actions .btn{width:100%}
+}
+</style>
 </head>
 <body><header><nav class="shell nav" aria-label="Main navigation"><a class="brand" href="./"><span class="mark">H</span><span><span class="brand-name">CLEYTON HESPANHOL</span><span class="brand-role">Product Owner · UX</span></span></a><div class="navlinks"><a href="#about">About</a><a href="#cases">Cases</a><a href="#thinking">How I think</a><a href="#evidence">Evidence</a><a href="#artifacts">Artifacts</a><a href="#contact">Contact</a><a class="lang" href="../" data-lang="pt">PT</a></div></nav></header>
 <main><div class="shell">
@@ -103,9 +130,9 @@ body .contact-actions a[href^="mailto:"]{
 <article class="card credential"><span class="credential-badge-link" aria-hidden="true"><img class="credential-badge-image" src="https://uniagil.com.br/produtos/lacp-selo.png" alt="Official LACP Lean Agile Coach Professional seal from UNIAGIL" loading="lazy"></span><div><h3>Lean Agile Coach Professional (LACP)</h3><p>UNIAGIL · Universidade Ágil</p></div></article>
 <article class="card credential"><span class="credential-badge-link" aria-hidden="true"><img class="credential-badge-image" src="https://images.credly.com/images/c5866d05-73f1-4dbf-b2b4-d8c740bb67cf/image.png" alt="Official Google UX Design Certificate badge" loading="lazy"></span><div><h3>Google UX Design</h3><p>Google Career Certificates · Coursera</p></div></article>
 <article class="card credential"><span class="credential-badge-link" aria-hidden="true"><img class="credential-badge-image" src="https://images.credly.com/images/c3ce934c-ea35-4c7d-9319-578209747fb7/image.png" alt="Official Google Project Management Certificate badge" loading="lazy"></span><div><h3>Google Project Management</h3><p>Google Career Certificates · Coursera</p></div></article>
-<article class="card credential"><span class="credential-badge-link credential-badge-tera" aria-hidden="true"><img class="credential-badge-image" src="https://framerusercontent.com/images/Wh4VdLqTgRqS9nfDivsHcQYhA94.png?scale-down-to=1024" alt="Tera logo" loading="lazy"></span><div><h3>UX Research</h3><p>TERA</p></div></article>
-<article class="card credential"><span class="credential-badge-link credential-badge-tera" aria-hidden="true"><img class="credential-badge-image" src="https://framerusercontent.com/images/Wh4VdLqTgRqS9nfDivsHcQYhA94.png?scale-down-to=1024" alt="Tera logo" loading="lazy"></span><div><h3>UX Writing</h3><p>TERA</p></div></article>
-<article class="card credential"><span class="credential-badge-link credential-badge-tera" aria-hidden="true"><img class="credential-badge-image" src="https://framerusercontent.com/images/Wh4VdLqTgRqS9nfDivsHcQYhA94.png?scale-down-to=1024" alt="Tera logo" loading="lazy"></span><div><h3>Design Thinking</h3><p>TERA</p></div></article>
+<article class="card credential"><span class="credential-badge-link credential-badge-tera" aria-hidden="true"><img class="credential-badge-image" src="https://cdn.brandfetch.io/idTQFat4Wg/w/106/h/106/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Tera logo" loading="lazy"></span><div><h3>UX Research</h3><p>TERA</p></div></article>
+<article class="card credential"><span class="credential-badge-link credential-badge-tera" aria-hidden="true"><img class="credential-badge-image" src="https://cdn.brandfetch.io/idTQFat4Wg/w/106/h/106/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Tera logo" loading="lazy"></span><div><h3>UX Writing</h3><p>TERA</p></div></article>
+<article class="card credential"><span class="credential-badge-link credential-badge-tera" aria-hidden="true"><img class="credential-badge-image" src="https://cdn.brandfetch.io/idTQFat4Wg/w/106/h/106/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Tera logo" loading="lazy"></span><div><h3>Design Thinking</h3><p>TERA</p></div></article>
 <article class="card credential"><span class="credential-badge-link credential-badge-ifrs" aria-hidden="true"><img class="credential-badge-image" src="https://ifrs.edu.br/wp-content/uploads/2022/08/Logo-IFRS-cores-sem-fundo-Vertical.png" alt="Official IFRS institutional logo" loading="lazy"></span><div><h3>SCRUM: Gerenciando Projetos de Software com Agilidade</h3><p>IFRS · Instituto Federal do Rio Grande do Sul</p></div></article>
 <article class="card credential"><span class="credential-badge-link credential-badge-ifrs" aria-hidden="true"><img class="credential-badge-image" src="https://ifrs.edu.br/wp-content/uploads/2022/08/Logo-IFRS-cores-sem-fundo-Vertical.png" alt="Official IFRS institutional logo" loading="lazy"></span><div><h3>Gestão de Projetos de Software com PMBOK</h3><p>IFRS · Instituto Federal do Rio Grande do Sul</p></div></article>
 </div></section>
