@@ -516,7 +516,16 @@
         .footer-brand { text-align: center; justify-content: center; }
         .footer-right { text-align: center; }
       }
-    </style>
+    
+/* Item 15 · alinhamento dos cinco cartões de validação */
+.cards-grid-2{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:stretch}
+.cards-grid-2 .card-item{min-width:0;padding:clamp(22px,2.4vw,32px);overflow-wrap:normal;word-break:normal}
+.cards-grid-2 .card-item:last-child{grid-column:1 / -1;width:calc((100% - 14px)/2);justify-self:center}
+.cards-grid-2 .card-desc{max-width:62ch;overflow-wrap:normal;word-break:normal;hyphens:auto;line-height:1.7}
+.cards-grid-2 .card-desc strong{display:block;color:var(--gold);font-size:10px;letter-spacing:.08em;margin:12px 0 3px}
+.cards-grid-2 .card-desc strong:first-child{margin-top:0}
+@media(max-width:900px){.cards-grid-2{grid-template-columns:1fr}.cards-grid-2 .card-item:last-child{grid-column:auto;width:100%;justify-self:stretch}}
+</style>
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style id="pbos-final-overrides">
@@ -979,27 +988,27 @@ body .stat-box { color:#DAAF57 !important; }
       <div class="card-item">
         <span class="card-tag">HIPÓTESE 01</span>
         <h3 class="card-heading">Acompanhamento Ativo</h3>
-        <p class="card-desc"><strong>Hipótese:</strong> A ausência de acompanhamento ativo contribuía para o aumento do Lead Time.<br><strong>Validação:</strong> O monitoramento sistemático e os gatilhos de acompanhamento aumentaram a velocidade de resposta.</p>
+        <p class="card-desc"><strong>Hipótese:</strong> A ausência de acompanhamento ativo contribuía para o aumento do Lead Time.<strong>Validação:</strong> O monitoramento sistemático e os gatilhos de acompanhamento aumentaram a velocidade de resposta.</p>
       </div>
       <div class="card-item">
         <span class="card-tag">HIPÓTESE 02</span>
         <h3 class="card-heading">Padronização</h3>
-        <p class="card-desc"><strong>Hipótese:</strong> A padronização das informações reduziria ambiguidades e retrabalho.<br><strong>Validação:</strong> Formulários e documentação passaram a fornecer informações mais claras para execução.</p>
+        <p class="card-desc"><strong>Hipótese:</strong> A padronização das informações reduziria ambiguidades e retrabalho.<strong>Validação:</strong> Formulários e documentação passaram a fornecer informações mais claras para execução.</p>
       </div>
       <div class="card-item">
         <span class="card-tag">HIPÓTESE 03</span>
         <h3 class="card-heading">Ponto de Entrada Único</h3>
-        <p class="card-desc"><strong>Hipótese:</strong> Um único ponto de entrada melhoraria a experiência do usuário.<br><strong>Validação:</strong> O servidor passou a ter uma referência clara para registrar e acompanhar sua necessidade.</p>
+        <p class="card-desc"><strong>Hipótese:</strong> Um único ponto de entrada melhoraria a experiência do usuário.<strong>Validação:</strong> O servidor passou a ter uma referência clara para registrar e acompanhar sua necessidade.</p>
       </div>
       <div class="card-item">
         <span class="card-tag">HIPÓTESE 04</span>
         <h3 class="card-heading">Critérios Objetivos</h3>
-        <p class="card-desc"><strong>Hipótese:</strong> Critérios objetivos melhorariam a capacidade de cobrança.<br><strong>Validação:</strong> A Carta de Serviços passou a fornecer uma referência para acompanhamento e escalonamento.</p>
+        <p class="card-desc"><strong>Hipótese:</strong> Critérios objetivos melhorariam a capacidade de cobrança.<strong>Validação:</strong> A Carta de Serviços passou a fornecer uma referência para acompanhamento e escalonamento.</p>
       </div>
-      <div class="card-item" style="grid-column: span 2;">
+      <div class="card-item">
         <span class="card-tag">HIPÓTESE 05</span>
         <h3 class="card-heading">Validação Final</h3>
-        <p class="card-desc"><strong>Hipótese:</strong> Validar a solução com o usuário reduziria encerramentos prematuros.<br><strong>Validação:</strong> Inconsistências passaram a ser identificadas e corrigidas antes do fechamento definitivo.</p>
+        <p class="card-desc"><strong>Hipótese:</strong> Validar a solução com o usuário reduziria encerramentos prematuros.<strong>Validação:</strong> Inconsistências passaram a ser identificadas e corrigidas antes do fechamento definitivo.</p>
       </div>
     </div>
   </div>
