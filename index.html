@@ -319,9 +319,9 @@ body .contact-actions a[href^="mailto:"]{
 <article class="card credential"><span class="credential-badge-link" aria-hidden="true"><img class="credential-badge-image" src="https://uniagil.com.br/produtos/lacp-selo.png" alt="Selo oficial LACP Lean Agile Coach Professional da UNIAGIL" loading="lazy"></span><div><h3>Lean Agile Coach Professional (LACP)</h3><p>UNIAGIL · Universidade Ágil</p></div></article>
 <article class="card credential"><span class="credential-badge-link" aria-hidden="true"><img class="credential-badge-image" src="https://images.credly.com/images/c5866d05-73f1-4dbf-b2b4-d8c740bb67cf/image.png" alt="Badge oficial Google UX Design Certificate" loading="lazy"></span><div><h3>Google UX Design</h3><p>Google Career Certificates · Coursera</p></div></article>
 <article class="card credential"><span class="credential-badge-link" aria-hidden="true"><img class="credential-badge-image" src="https://images.credly.com/images/c3ce934c-ea35-4c7d-9319-578209747fb7/image.png" alt="Badge oficial Google Project Management Certificate" loading="lazy"></span><div><h3>Google Project Management</h3><p>Google Career Certificates · Coursera</p></div></article>
-<article class="card credential"><span class="credential-badge-link credential-badge-tera" aria-hidden="true"><img class="credential-badge-image" src="assets/tera-logo-white.svg" alt="Logo da Tera" loading="lazy"></span><div><h3>UX Research</h3><p>TERA</p></div></article>
-<article class="card credential"><span class="credential-badge-link credential-badge-tera" aria-hidden="true"><img class="credential-badge-image" src="assets/tera-logo-white.svg" alt="Logo da Tera" loading="lazy"></span><div><h3>UX Writing</h3><p>TERA</p></div></article>
-<article class="card credential"><span class="credential-badge-link credential-badge-tera" aria-hidden="true"><img class="credential-badge-image" src="assets/tera-logo-white.svg" alt="Logo da Tera" loading="lazy"></span><div><h3>Design Thinking</h3><p>TERA</p></div></article>
+<article class="card credential"><span class="credential-badge-link credential-badge-tera" aria-hidden="true"><span class="tera-logo-wordmark">Tera</span></span><div><h3>UX Research</h3><p>TERA</p></div></article>
+<article class="card credential"><span class="credential-badge-link credential-badge-tera" aria-hidden="true"><span class="tera-logo-wordmark">Tera</span></span><div><h3>UX Writing</h3><p>TERA</p></div></article>
+<article class="card credential"><span class="credential-badge-link credential-badge-tera" aria-hidden="true"><span class="tera-logo-wordmark">Tera</span></span><div><h3>Design Thinking</h3><p>TERA</p></div></article>
 <article class="card credential"><span class="credential-badge-link credential-badge-ifrs" aria-hidden="true"><img class="credential-badge-image" src="https://ifrs.edu.br/wp-content/uploads/2022/08/Logo-IFRS-cores-sem-fundo-Vertical.png" alt="Logotipo oficial do IFRS" loading="lazy"></span><div><h3>SCRUM: Gerenciando Projetos de Software com Agilidade</h3><p>IFRS · Instituto Federal do Rio Grande do Sul</p></div></article>
 <article class="card credential"><span class="credential-badge-link credential-badge-ifrs" aria-hidden="true"><img class="credential-badge-image" src="https://ifrs.edu.br/wp-content/uploads/2022/08/Logo-IFRS-cores-sem-fundo-Vertical.png" alt="Logotipo oficial do IFRS" loading="lazy"></span><div><h3>Gestão de Projetos de Software com PMBOK</h3><p>IFRS · Instituto Federal do Rio Grande do Sul</p></div></article>
 </div></section>
@@ -332,4 +332,23 @@ body .contact-actions a[href^="mailto:"]{
 <script src="portfolio-config.js?v=20260924" defer></script>
 <script src="portfolio-language.js?v=20260925" defer></script>
 
+<style>
+/* Tera badge rebuilt as native markup to avoid image and filter conflicts */
+body .credential-badge-link.credential-badge-tera{
+ width:100px!important;min-width:100px!important;height:72px!important;
+ box-sizing:border-box!important;padding:8px!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ background:#080808!important;border:1px solid #DAAF57!important;
+ border-radius:10px!important;overflow:hidden!important;filter:none!important;
+}
+body .credential-badge-link.credential-badge-tera .tera-logo-wordmark{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ width:100%!important;height:36px!important;box-sizing:border-box!important;
+ background:#fff!important;color:#080808!important;
+ font-family:Arial,Helvetica,sans-serif!important;font-size:29px!important;
+ font-weight:700!important;letter-spacing:-1.8px!important;line-height:1!important;
+ text-transform:none!important;opacity:1!important;visibility:visible!important;
+ -webkit-text-fill-color:#080808!important;text-shadow:none!important;
+}
+</style>
 </body></html>
