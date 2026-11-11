@@ -1,74 +1,107 @@
 #!/usr/bin/env python3
-import html, os, re
-from reportlab.lib.pagesizes import A4
+import html
+import os
+import re
+from html.parser import HTMLParser
+
 from reportlab.lib import colors
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
-from reportlab.platypus import SimpleDocTemplate, Paragraph, PageBreak
 from reportlab.lib.units import mm
+from reportlab.platypus import Paragraph, SimpleDocTemplate
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FONT_DIR = os.path.join(ROOT, ".build_fonts")
-REGULAR_FONT = os.path.join(FONT_DIR, "DMSans-Regular.ttf")
-BOLD_FONT = os.path.join(FONT_DIR, "DMSans-Bold.ttf")
+TARGET_TAGS = {"h1", "h2", "h3", "p", "li"}
 
-if os.path.isfile(REGULAR_FONT) and os.path.isfile(BOLD_FONT):
-    pdfmetrics.registerFont(TTFont("DMSans", REGULAR_FONT))
-    pdfmetrics.registerFont(TTFont("DMSans-Bold", BOLD_FONT))
-    pdfmetrics.registerFontFamily("DMSans", normal="DMSans", bold="DMSans-Bold",
-                                  italic="DMSans", boldItalic="DMSans-Bold")
-    REGULAR = "DMSans"
-    BOLD = "DMSans-Bold"
-else:
-    # Safe fallback for local builds without the font files.
-    REGULAR = "Helvetica"
-    BOLD = "Helvetica-Bold"
+class ResumeTextParser(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.current_tag = None
+        self.current_text = []
+        self.items = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "br" and self.current_tag:
+            self.current_text.append(" ")
+        elif tag in TARGET_TAGS and self.current_tag is None:
+            attr_map = dict(attrs)
+            classes = attr_map.get("class", "").split()
+            if not ({"cv-download", "cv-note"} & set(classes)):
+                self.current_tag = tag
+                self.current_text = []
+
+    def handle_data(self, data):
+        if self.current_tag:
+            self.current_text.append(data)
+
+    def handle_endtag(self, tag):
+        if self.current_tag == tag:
+            text = " ".join("".join(self.current_text).split())
+            if text:
+                self.items.append((tag, text))
+            self.current_tag = None
+            self.current_text = []
 
 def extract_sections(source):
-    body = re.search(r"<body>(.*?)</body>", source, re.I | re.S)
-    if not body:
-        raise ValueError("CV body not found")
-    items = []
-    pattern = re.compile(r"<(h1|h2|h3|p|li)\b([^>]*)>(.*?)</\1>", re.I | re.S)
-    for tag, attrs, raw in pattern.findall(body.group(1)):
-        if re.search(r'class=["\'][^"\']*\b(?:cv-download|cv-note)\b', attrs, re.I) or re.search(r'class=["\'][^"\']*\b(?:cv-download|cv-note)\b', raw, re.I):
-            continue
-        text = re.sub(r"<[^>]+>", "", raw)
-        text = re.sub(r"\s+", " ", html.unescape(text)).strip()
-        if text:
-            items.append((tag.lower(), text))
-    return items
+    parser = ResumeTextParser()
+    parser.feed(source)
+    if not parser.items:
+        raise ValueError("No resume content found in source HTML")
+    return parser.items
 
-def build_pdf(source_path, output_path):
-    with open(source_path, encoding="utf-8") as f:
-        source = f.read()
-    doc = SimpleDocTemplate(output_path, pagesize=A4,
-        rightMargin=13*mm, leftMargin=13*mm, topMargin=11*mm, bottomMargin=11*mm,
-        title="Cleyton S. Hespanhol - Product Owner", author="Cleyton S. Hespanhol")
+def build_pdf(source_path, output_path, language):
+    with open(source_path, encoding="utf-8") as file:
+        source = file.read()
+
+    doc = SimpleDocTemplate(
+        output_path,
+        pagesize=A4,
+        rightMargin=15 * mm,
+        leftMargin=15 * mm,
+        topMargin=13 * mm,
+        bottomMargin=13 * mm,
+        title=("Cleyton S. Hespanhol - Product Owner Resume" if language == "en"
+               else "Cleyton S. Hespanhol - Currículo Product Owner"),
+        author="Cleyton S. Hespanhol",
+    )
     base = getSampleStyleSheet()
     styles = {
-        "h1": ParagraphStyle("h1x", parent=base["Heading1"], fontName=BOLD, fontSize=18, leading=21, spaceAfter=3, textColor=colors.HexColor("#1E2328")),
-        "h2": ParagraphStyle("h2x", parent=base["Heading2"], fontName=BOLD, fontSize=10.5, leading=12.5, spaceBefore=7, spaceAfter=3.5, textColor=colors.HexColor("#DAAF57")),
-        "h3": ParagraphStyle("h3x", parent=base["Heading3"], fontName=BOLD, fontSize=9.2, leading=10.8, spaceBefore=3.5, spaceAfter=1, textColor=colors.HexColor("#26505A")),
-        "p": ParagraphStyle("px", parent=base["BodyText"], fontName=REGULAR, fontSize=8.7, leading=10.8, spaceAfter=2.5, textColor=colors.HexColor("#1E2328")),
-        "meta": ParagraphStyle("mx", parent=base["BodyText"], fontName=REGULAR, fontSize=7.8, leading=9.2, spaceAfter=2, textColor=colors.HexColor("#26505A")),
-        "li": ParagraphStyle("lx", parent=base["BodyText"], fontName=REGULAR, fontSize=8.5, leading=10.2, leftIndent=9, firstLineIndent=-6, spaceAfter=1.8, textColor=colors.HexColor("#1E2328")),
+        "h1": ParagraphStyle("resume_h1", parent=base["Heading1"], fontName="Helvetica-Bold",
+            fontSize=17, leading=20, spaceAfter=3, textColor=colors.HexColor("#1E2328")),
+        "h2": ParagraphStyle("resume_h2", parent=base["Heading2"], fontName="Helvetica-Bold",
+            fontSize=10, leading=12, spaceBefore=7, spaceAfter=3, textColor=colors.HexColor("#26505A")),
+        "h3": ParagraphStyle("resume_h3", parent=base["Heading3"], fontName="Helvetica-Bold",
+            fontSize=9, leading=10.5, spaceBefore=4, spaceAfter=1, textColor=colors.HexColor("#1E2328")),
+        "p": ParagraphStyle("resume_p", parent=base["BodyText"], fontName="Helvetica",
+            fontSize=8.4, leading=10.2, spaceAfter=2.2, textColor=colors.HexColor("#1E2328")),
+        "meta": ParagraphStyle("resume_meta", parent=base["BodyText"], fontName="Helvetica",
+            fontSize=7.7, leading=9, spaceAfter=2, textColor=colors.HexColor("#26505A")),
+        "li": ParagraphStyle("resume_li", parent=base["BodyText"], fontName="Helvetica",
+            fontSize=8.2, leading=9.8, leftIndent=9, firstLineIndent=-6, spaceAfter=1.5,
+            textColor=colors.HexColor("#1E2328")),
     }
-    story=[]
+
+    story = []
     for tag, text in extract_sections(source):
-        safe=html.escape(text)
-        if tag=="h1": story.append(Paragraph(safe, styles["h1"]))
-        elif tag=="h2": story.append(Paragraph(safe, styles["h2"]))
-        elif tag=="h3": story.append(Paragraph(safe, styles["h3"]))
-        elif tag=="li": story.append(Paragraph("• "+safe, styles["li"]))
+        safe = html.escape(text)
+        if tag == "h1":
+            story.append(Paragraph(safe, styles["h1"]))
+        elif tag == "h2":
+            story.append(Paragraph(safe, styles["h2"]))
+        elif tag == "h3":
+            story.append(Paragraph(safe, styles["h3"]))
+        elif tag == "li":
+            story.append(Paragraph("&#8226; " + safe, styles["li"]))
         else:
-            style=styles["meta"] if "|" in text and ("RJ" in text or "Brazil" in text) else styles["p"]
-            story.append(Paragraph(safe, style))
+            is_meta = "|" in text and any(token in text for token in ("RJ", "Brazil", "Niterói"))
+            story.append(Paragraph(safe, styles["meta"] if is_meta else styles["p"]))
+
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     doc.build(story)
 
-out=os.path.join(ROOT,"_site","cv")
-os.makedirs(out,exist_ok=True)
-build_pdf(os.path.join(ROOT,"cv","cv-pt.html"), os.path.join(out,"Cleyton-Hespanhol-Product-Owner-PT.pdf"))
-build_pdf(os.path.join(ROOT,"cv","cv-en.html"), os.path.join(out,"Cleyton-Hespanhol-Product-Owner-EN.pdf"))
-print("CV PDFs generated.")
+output_dir = os.path.join(ROOT, "_site", "cv")
+build_pdf(os.path.join(ROOT, "cv", "cv-pt.html"),
+          os.path.join(output_dir, "Cleyton-Hespanhol-Product-Owner-PT.pdf"), "pt")
+build_pdf(os.path.join(ROOT, "cv", "cv-en.html"),
+          os.path.join(output_dir, "Cleyton-Hespanhol-Product-Owner-EN.pdf"), "en")
+print("Portuguese and English CV PDFs generated from the current HTML sources.")
