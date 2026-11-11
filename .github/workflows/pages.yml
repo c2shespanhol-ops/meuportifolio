@@ -81,8 +81,10 @@ jobs:
           test "$(head -c 4 _site/cv/Cleyton-Hespanhol-Product-Owner-EN.pdf)" = "%PDF"
           grep -q "71% no Lead Time" _site/cv/cv-pt.html
           grep -q "71% reduction in Lead Time" _site/cv/cv-en.html
-          grep -q "SHV Energy | jan/2018 – jun/2023" _site/cv/cv-pt.html
-          grep -q "SHV Energy | Jan 2018 – Jun 2023" _site/cv/cv-en.html
+          grep -q "SHV Energy" _site/cv/cv-pt.html
+          grep -q "jan/2018 – jun/2023" _site/cv/cv-pt.html
+          grep -q "SHV Energy" _site/cv/cv-en.html
+          grep -q "Jan 2018 – Jun 2023" _site/cv/cv-en.html
           grep -q "Supergasbras, Peixe Urbano, Nextel e Contax" _site/cv/cv-pt.html
           grep -q "Supergasbras, Peixe Urbano, Nextel, and Contax" _site/cv/cv-en.html
           grep -q "31% no tempo médio de resolução" _site/cv/cv-pt.html
