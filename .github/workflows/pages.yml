@@ -45,8 +45,33 @@ jobs:
 
       - name: Generate recruiter CV PDFs
         run: |
-          python -m pip install --disable-pip-version-check --no-input reportlab
+          python -m pip install --disable-pip-version-check --no-input reportlab pypdf
           python scripts/build_cv_pdfs.py
+
+      - name: Validate generated CV PDF content
+        run: |
+          python - <<'PY'
+          from pypdf import PdfReader
+          checks = {
+              "_site/cv/Cleyton-Hespanhol-Product-Owner-PT.pdf": [
+                  "Cleyton S. Hespanhol", "SHV Energy", "71%", "Supergasbras",
+                  "Peixe Urbano", "Nextel", "Contax", "Niterói"
+              ],
+              "_site/cv/Cleyton-Hespanhol-Product-Owner-EN.pdf": [
+                  "Cleyton S. Hespanhol", "SHV Energy", "71%", "Supergasbras",
+                  "Peixe Urbano", "Nextel", "Contax", "Niterói"
+              ],
+          }
+          for path, required in checks.items():
+              reader = PdfReader(path)
+              text = "\\n".join(page.extract_text() or "" for page in reader.pages)
+              assert len(reader.pages) <= 2, f"{path}: expected no more than 2 pages, got {len(reader.pages)}"
+              missing = [term for term in required if term not in text]
+              assert not missing, f"{path}: missing PDF text: {missing}"
+              assert "Jan 2018 – Jun 2024" not in text
+              assert "jan/2018 – jun/2024" not in text
+          print("Both CV PDFs contain the expected content and fit within two pages.")
+          PY
 
       - name: Validate HTML structure and internal links
         run: python scripts/validate_html.py _site
@@ -92,6 +117,7 @@ jobs:
           ! grep -qiE "Supergasbras \\| Analista de Operações|Supergasbras \\| Operations" _site/cv/cv-pt.html _site/cv/cv-en.html
           ! grep -qiE "jan/2018 – jun/2024|Jan 2018 – Jun 2024" _site/cv/cv-pt.html _site/cv/cv-en.html
           ! grep -qiE "Servidor Destaque|Outstanding Civil Servant" _site/cv/cv-pt.html _site/cv/cv-en.html
+          ! grep -qiE "Product Operations|Product Ops" _site/cv/cv-pt.html _site/cv/cv-en.html
           test "$(grep -c '<h3>' _site/cv/cv-pt.html)" -eq 3
           test "$(grep -c '<h3>' _site/cv/cv-en.html)" -eq 3
           test -f _site/case_study_01_persona_final.html
