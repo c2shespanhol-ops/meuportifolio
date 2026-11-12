@@ -114,18 +114,18 @@ body .stat-box { color:#DAAF57 !important; }
 @media(max-width:760px){.process-flow{display:grid;grid-template-columns:1fr;gap:10px}.process-flow li{min-height:62px;padding:20px 16px 14px}.process-flow li+li::after{content:'↓';left:50%;top:-18px;transform:translateX(-50%);font-size:18px}}
 </style>
 
-/* Ajuste tipográfico para manter o padrão editorial da Matriz de Evidências */
+<!-- Ajuste tipográfico alinhado à identidade visual do portfólio -->
 <style id="discovery-typography-fix">
 html, body, body * {
-  font-family: Inter, Arial, sans-serif !important;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif !important;
   font-style: normal !important;
   letter-spacing: normal;
 }
 body { font-weight: 400 !important; line-height: 1.65 !important; }
-h1, h2, h3, h4, h5, h6 { font-weight: 600 !important; line-height: 1.25 !important; }
+h1, h2, h3, h4, h5, h6 { font-weight: 500 !important; line-height: 1.25 !important; }
 p, li, td, th, span, strong, a { line-height: 1.65 !important; }
-.process-flow li { font: 500 14px/1.5 Inter, Arial, sans-serif !important; }
-.process-flow li::before { font: 600 10px/1.2 Inter, Arial, sans-serif !important; }
+.process-flow li { font: 500 14px/1.5 'DM Sans', sans-serif !important; }
+.process-flow li::before { font: 600 10px/1.2 'DM Sans', sans-serif !important; }
 </style>
 </head>
 <body><div style="border-left:4px solid #DAAF57;background:#26505A;padding:16px;margin:18px 0;color:#F5F7FA"><strong>Natureza do documento:</strong> reconstrução de referência elaborada para representar práticas de identificação de necessidades, organização de temas e detalhamento de demandas. Não é registro histórico de um processo formal de Product Discovery. Os percentuais de acurácia e redução de desperdício não possuem evidência histórica validada e foram retirados. As métricas abaixo são sugestões de acompanhamento, sem resultados atribuídos à Habitat.</div>
@@ -141,7 +141,7 @@ p, li, td, th, span, strong, a { line-height: 1.65 !important; }
       <span style="color: #DAAF57; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional · HBT-DISC-004</span>
       <h1 style="font-size: 2.4rem; color: #F5F7FA; margin-top: 10px; margin-bottom: 15px;">Fluxo de Discovery</h1>
       <p style="font-size: 1.15rem; color: #C4CDD3; max-width: 800px; line-height: 1.6;">
-        Diretrizes e etapas para transformar padrões observados na operação de atendimento em melhorias estruturadas para o produto.
+        Modelo de referência para organizar dúvidas, fricções e necessidades observadas no atendimento, detalhá-las e apoiar conversas sobre melhorias do produto.
       </p>
 
       <div class="grid-meta">
@@ -159,7 +159,7 @@ p, li, td, th, span, strong, a { line-height: 1.65 !important; }
     <section>
       <h2 style="color: #F5F7FA; margin-bottom: 10px;">Objetivo</h2>
       <p style="color: #C4CDD3; font-size: 1.05rem;">
-        Estruturar a coleta contínua de insights diretamente do suporte e da operação, convertendo dores reais de clientes em hipóteses validadas e requisitos para o product backlog.
+        Organizar sinais disponíveis no atendimento e na operação, agrupar dúvidas recorrentes, esclarecer necessidades e transformar o que estiver suficientemente compreendido em requisitos para discussão no backlog. Este modelo não pressupõe entrevistas formais nem validação experimental de hipóteses.
       </p>
     </section>
 
@@ -169,7 +169,7 @@ p, li, td, th, span, strong, a { line-height: 1.65 !important; }
     <section>
       <h2 style="color: #F5F7FA; margin-bottom: 10px;">Contexto</h2>
       <p style="color: #C4CDD3; font-size: 1.05rem;">
-        Criado para estreitar o fosso entre o que o time de operações identificava diariamente no campo e o que o time de desenvolvimento priorizava nas sprints.
+        Representa uma forma de aproximar os relatos e as dúvidas observadas no atendimento das conversas entre produto e desenvolvimento. É uma reconstrução de referência, não o registro de um processo formal adotado pela empresa.
       </p>
     </section>
 
@@ -182,17 +182,17 @@ p, li, td, th, span, strong, a { line-height: 1.65 !important; }
         <div style="background: #26505A; padding: 20px; border-radius: 8px; border: 1px solid #26505A;">
           <h3 style="color: #DAAF57; margin-bottom: 10px;">O que cobre</h3>
           <ul style="color: #C4CDD3; padding-left: 20px; line-height: 1.6;">
-            <li>Análise de tickets recorrentes e fricções de uso</li>
-            <li>Entrevistas qualitativas com consultórios parceiros</li>
-            <li>Matriz de impacto versus esforço para priorização</li>
+            <li>Leitura de dúvidas recorrentes e fricções observadas no atendimento via WhatsApp</li>
+            <li>Organização dos relatos e necessidades disponíveis, sem presumir entrevistas formais</li>
+            <li>Detalhamento de temas considerando necessidade, recorrência, impacto, dificuldade e potencial de autonomia; a priorização final de novas funcionalidades cabia ao proprietário</li>
           </ul>
         </div>
         <div style="background: #26505A; padding: 20px; border-radius: 8px; border: 1px solid #26505A;">
           <h3 style="color: #C4CDD3; margin-bottom: 10px;">O que não cobre</h3>
           <ul style="color: #C4CDD3; padding-left: 20px; line-height: 1.6;">
-            <li>Decisões de design visual isoladas sem validação</li>
-            <li>Demandas comerciais sem aderência ao core product</li>
-            <li>Implementação de código de engenharia direto</li>
+            <li>Pesquisa formal com entrevistas estruturadas não documentada na matriz</li>
+            <li>Experimentos controlados ou validação quantitativa de hipóteses não comprovados</li>
+            <li>Decisão unilateral sobre a prioridade final de novas funcionalidades</li>
           </ul>
         </div>
       </div>
@@ -204,11 +204,11 @@ p, li, td, th, span, strong, a { line-height: 1.65 !important; }
     <section>
       <h2 style="color: #F5F7FA; margin-bottom: 15px;">Etapas de organização de necessidades e requisitos</h2>
       <ol class="process-flow" aria-label="Etapas do modelo de referência">
-        <li>Coleta de Insights</li>
-        <li>Agrupamento por Tema</li>
-        <li>Validação de Hipótese</li>
-        <li>Especificação</li>
-        <li>Backlog de Produto</li>
+        <li>Registro de dúvidas e fricções observadas</li>
+        <li>Agrupamento por tema e recorrência</li>
+        <li>Esclarecimento da necessidade com as informações disponíveis</li>
+        <li>Detalhamento e orientação do conteúdo ou requisito</li>
+        <li>Discussão para encaminhamento ao backlog, com decisão final do proprietário</li>
       </ol>
     </section>
 
