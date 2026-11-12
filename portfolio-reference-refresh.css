@@ -71,3 +71,11 @@
 .portfolio-home .contact-actions .contact-action:hover{transform:translateY(-2px);border-color:var(--pbos-gold)}
 @media(max-width:900px){.portfolio-home .contact-actions{justify-content:flex-start}}
 @media(max-width:620px){.portfolio-home .contact-actions{display:flex;flex-direction:row;width:auto}.portfolio-home .contact-actions .contact-action{width:46px;min-width:46px}}
+
+
+/* Final contact icon proportion correction: larger glyphs with balanced touch targets. */
+.portfolio-home .contact-actions .contact-action{width:52px;height:52px;min-width:52px;min-height:52px;padding:0;border-radius:10px}
+.portfolio-home .contact-actions .contact-action-icon{width:30px;height:30px;flex:0 0 30px}
+.portfolio-home .contact-actions .contact-action-email .contact-action-icon{width:29px;height:29px;flex-basis:29px;stroke-width:1.9}
+.portfolio-home .contact-actions .contact-action-whatsapp .contact-action-icon{width:32px;height:32px;flex-basis:32px}
+@media(max-width:620px){.portfolio-home .contact-actions .contact-action{width:52px;min-width:52px;min-height:52px}}
