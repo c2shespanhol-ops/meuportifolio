@@ -56,3 +56,18 @@
 .portfolio-home .contact-actions .contact-action:hover{transform:translateY(-1px);border-color:var(--pbos-gold)}
 .portfolio-home .contact-actions .contact-action:focus-visible{outline:3px solid var(--pbos-gold);outline-offset:3px}
 @media(max-width:620px){.portfolio-home .contact-actions .contact-action{width:100%;min-height:50px}}
+
+/* Contact buttons: icon-only, compact and proportionate. */
+.portfolio-home .contact-actions{display:flex;flex-direction:row;align-items:center;gap:12px;min-width:0}
+.portfolio-home .contact-actions .contact-action{
+  width:46px;height:46px;min-width:46px;min-height:46px;padding:0;
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid var(--pbos-gold);border-radius:8px;
+  font-size:0;line-height:0;gap:0;overflow:hidden;
+}
+.portfolio-home .contact-actions .contact-action-icon{width:22px;height:22px;flex:0 0 22px}
+.portfolio-home .contact-actions .contact-action-whatsapp{color:var(--pbos-text);background:transparent;border-color:var(--pbos-border)}
+.portfolio-home .contact-actions .contact-action-email{color:var(--pbos-bg);background:var(--pbos-gold);border-color:var(--pbos-gold)}
+.portfolio-home .contact-actions .contact-action:hover{transform:translateY(-2px);border-color:var(--pbos-gold)}
+@media(max-width:900px){.portfolio-home .contact-actions{justify-content:flex-start}}
+@media(max-width:620px){.portfolio-home .contact-actions{display:flex;flex-direction:row;width:auto}.portfolio-home .contact-actions .contact-action{width:46px;min-width:46px}}
