@@ -199,3 +199,100 @@ a,button{min-height:24px}
  .truth .actions{grid-template-columns:minmax(0,1fr)}
  .truth .actions .btn{width:100%}
 }
+
+
+/* PBOS Portfolio Visual Standard v1 · canonical alignment
+   Source: PBOS/docs/branding/PBOS_PORTFOLIO_VISUAL_STANDARD_V1.md
+   Keep the personal monogram as a white H inside a gold circle. */
+:root{
+  --pbos-bg:#1E2328;
+  --pbos-surface:#202A30;
+  --pbos-surface-2:#27343A;
+  --pbos-gold:#DAAF57;
+  --pbos-gold-soft:#DAAF57;
+  --pbos-teal:#26505A;
+  --pbos-text:#F5F7FA;
+  --pbos-muted:#D0D6DA;
+  --pbos-muted-2:#98A4AA;
+  --pbos-border:rgba(218,175,87,.24);
+  --pbos-border-soft:rgba(208,214,218,.16);
+  --bg:var(--pbos-bg);--bg2:var(--pbos-surface);--bg3:var(--pbos-surface-2);
+  --surface:var(--pbos-surface);--surface2:var(--pbos-surface-2);
+  --gold:var(--pbos-gold);--gold-lt:var(--pbos-gold-soft);
+  --teal:var(--pbos-teal);--teal-br:var(--pbos-teal);--cyan:var(--pbos-teal);
+  --text:var(--pbos-text);--white:var(--pbos-text);--muted:var(--pbos-muted);
+  --text-muted:var(--pbos-muted);--gray1:var(--pbos-muted);--gray2:var(--pbos-muted-2);
+  --border:var(--pbos-border);--background:var(--pbos-bg);--foreground:var(--pbos-text);
+  --card:var(--pbos-surface);--card-foreground:var(--pbos-text);
+  --popover:var(--pbos-surface-2);--popover-foreground:var(--pbos-text);
+  --primary:var(--pbos-gold);--primary-foreground:var(--pbos-bg);
+  --secondary:var(--pbos-surface-2);--secondary-foreground:var(--pbos-text);
+  --muted-foreground:var(--pbos-muted-2);--accent:var(--pbos-gold);--accent-foreground:var(--pbos-bg);
+  --input:var(--pbos-surface-2);--ring:rgba(218,175,87,.65);
+}
+html,body{background:var(--pbos-bg)!important;color:var(--pbos-text)!important}
+body{font-family:'DM Sans',sans-serif!important;font-weight:400}
+h1,h2,h3,h4,h5,h6,p,li,td,th,label,input,button,.btn,.card,.case,.intro,.lead,.support{
+  font-family:'DM Sans',sans-serif!important;
+}
+h1,h2,h3,h4,h5,h6{font-weight:500}
+body p,body li,body td,body th,body .muted,body .lead,body .description,
+body .hero-desc,body .support,body .intro,body .cv-note{
+  color:var(--pbos-muted)!important;
+}
+body .card,body .pillar-card,body .artifact-card,body .competency-card,
+body .eco-card,body .metric,body .meta,body .hero-highlight,
+body .hero-highlight-card,body .flow,body .note,body .doc-card,
+body .case-card,body .stat-box,body .panel,body .step,body .flow-step,
+body .comparison-box,body .highlight{
+  background:var(--pbos-surface)!important;
+  color:var(--pbos-text)!important;
+  border-color:var(--pbos-border)!important;
+}
+body .card:nth-child(even),body .artifact-card:nth-child(even),
+body .doc-card:nth-child(even),body .panel:nth-child(even){
+  background:var(--pbos-surface-2)!important;
+}
+body .eyebrow,body .hero-eyebrow,body .hero-tags,body .case-label,
+body .case-label-text,body .case-meta,body .section-label,
+body .section-kicker,body .label,body .artifact-action,
+body .competency-title,body .eco-role,body .doc-number,body .tag,
+body .scroll-hint,body .footer-role,body .kicker,body .nav-role,
+body .nav-tag,body .metric-label{
+  color:var(--pbos-gold)!important;
+  font-family:'Orbitron',sans-serif!important;
+  font-weight:500;
+  letter-spacing:.08em;
+}
+body .navlinks,body .brand-role,.btn,.button,.cta,.primary-button{
+  font-family:'Orbitron',sans-serif!important;
+}
+body .brand-name,body .signature,body .hero h1,body .section h2,
+body .case h3,body .card h3{
+  font-family:'DM Sans',sans-serif!important;
+}
+body .mark{
+  width:46px!important;height:46px!important;min-width:46px!important;
+  display:grid!important;place-items:center!important;
+  border:2px solid var(--pbos-gold)!important;
+  border-radius:50%!important;
+  background:transparent!important;
+  color:#F5F7FA!important;
+  font-family:'DM Sans',sans-serif!important;
+  font-size:20px!important;font-weight:700!important;line-height:1!important;
+  letter-spacing:0!important;
+  box-shadow:0 0 0 3px rgba(218,175,87,.08)!important;
+}
+body a{ text-underline-offset:.2em }
+body .btn:not(.primary),body .button:not(.primary),body .secondary-button{
+  background:transparent!important;color:var(--pbos-gold)!important;
+  border-color:var(--pbos-gold)!important;
+}
+body .quick-path{
+  background:linear-gradient(145deg,rgba(39,52,58,.96),rgba(32,42,48,.96))!important;
+  border-color:var(--pbos-border)!important;
+}
+body .quick-path:hover,body .quick-path:focus-visible{
+  background:var(--pbos-surface-2)!important;border-color:var(--pbos-gold)!important;
+}
+body .contact-box{background:rgba(218,175,87,.035)!important}
