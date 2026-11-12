@@ -1,0 +1,48 @@
+/* Reference-inspired visual refinement. Preserves the approved PBOS palette and all case content. */
+:root{--ref-radius:14px}
+.portfolio-home .hero{padding-top:clamp(58px,7vw,92px);padding-bottom:clamp(54px,6vw,78px);gap:clamp(34px,5vw,68px)}
+.portfolio-home .hero-visual{align-self:center;gap:12px}
+.portfolio-home .hero-photo{max-width:300px;border-radius:var(--ref-radius);box-shadow:0 18px 44px rgba(0,0,0,.20)}
+.portfolio-home .hero-photo img{object-position:center 22%}
+.portfolio-home .portrait-caption{margin:0;color:var(--pbos-text);font-size:12px;font-weight:500;letter-spacing:.04em;text-align:center}
+.portfolio-home .hero-quote{max-width:300px;margin:0;color:var(--pbos-muted);font-size:12px;font-style:normal;text-align:center}
+.portfolio-home .hero-actions{gap:10px;margin-top:24px}
+.portfolio-home .hero-actions .btn{min-height:44px;padding:11px 15px;border-radius:8px;font-size:9px;letter-spacing:.055em}
+.portfolio-home .hero-actions .btn.primary{box-shadow:0 7px 18px rgba(218,175,87,.13)}
+.portfolio-home .quick-paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:4px 0 0}
+.portfolio-home .quick-path{display:flex;flex-direction:column;justify-content:space-between;min-height:142px;padding:22px 24px;border:1px solid var(--pbos-border);border-radius:var(--ref-radius);background:linear-gradient(145deg,rgba(38,80,90,.82),rgba(38,80,90,.42));color:var(--pbos-text);transition:border-color .18s ease,transform .18s ease,background .18s ease}
+.portfolio-home .quick-path:hover,.portfolio-home .quick-path:focus-visible{border-color:var(--pbos-gold);background:#26505A;transform:translateY(-2px)}
+.portfolio-home .quick-path strong{display:block;font-size:18px;font-weight:500;line-height:1.25}
+.portfolio-home .quick-path span{display:block;margin-top:8px;color:var(--pbos-muted);font-size:13px;line-height:1.55}
+.portfolio-home .quick-path em{margin-top:16px;color:var(--pbos-gold);font:500 9px/1.4 'Orbitron',sans-serif;font-style:normal;letter-spacing:.08em;text-transform:uppercase}
+.portfolio-home #evidence{padding-top:clamp(58px,7vw,84px)}
+.portfolio-home .impact-grid .card,.portfolio-home .case{border-radius:var(--ref-radius);transition:transform .18s ease,border-color .18s ease,background .18s ease}
+.portfolio-home .impact-grid .card:hover,.portfolio-home .case:hover{transform:translateY(-3px)}
+.portfolio-home .impact-grid .card{padding:clamp(18px,2.1vw,26px);min-height:214px}
+.portfolio-home .impact-grid .stat{font-weight:500}
+.portfolio-home .case{padding:clamp(22px,2.5vw,30px);min-height:300px}
+.portfolio-home .case h3{line-height:1.25}
+.portfolio-home .case p{max-width:52ch}
+.portfolio-home .tags span{border-radius:6px}
+.portfolio-home #certifications .credential{min-height:118px;border-radius:12px}
+.portfolio-home .contact-box{border-radius:var(--ref-radius);padding:clamp(24px,3.5vw,42px)}
+.portfolio-home footer{line-height:1.8}
+.portfolio-case-refresh .container,.portfolio-case-refresh .wrap{max-width:1040px}
+.portfolio-case-refresh .hero{padding-bottom:clamp(38px,5vw,58px);margin-bottom:clamp(42px,5vw,64px)}
+.portfolio-case-refresh .section{margin-bottom:clamp(54px,7vw,82px)}
+.portfolio-case-refresh .card,.portfolio-case-refresh .metric,.portfolio-case-refresh .meta,.portfolio-case-refresh .artifact-card,.portfolio-case-refresh .doc-card{border-radius:12px}
+.portfolio-case-refresh .back,.portfolio-case-refresh .back-btn{border-radius:8px}
+@media(max-width:760px){
+ .portfolio-home .quick-paths{grid-template-columns:1fr;gap:10px}
+ .portfolio-home .quick-path{min-height:112px;padding:18px 20px}
+ .portfolio-home .hero-visual{width:min(100%,340px)}
+ .portfolio-home .hero-photo{width:min(72vw,260px);margin-inline:auto}
+ .portfolio-home .hero-actions{display:grid;grid-template-columns:1fr;width:100%}
+ .portfolio-home .hero-actions .btn{width:100%}
+ .portfolio-home .impact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .portfolio-home .impact-grid .card{min-height:195px}
+ .portfolio-home .case{min-height:unset}
+ .portfolio-case-refresh .container,.portfolio-case-refresh .wrap{padding-left:20px!important;padding-right:20px!important}
+}
+@media(max-width:420px){.portfolio-home .impact-grid{grid-template-columns:1fr}.portfolio-home .impact-grid .card{min-height:unset}}
+@media(prefers-reduced-motion:reduce){.portfolio-home .quick-path,.portfolio-home .impact-grid .card,.portfolio-home .case{transition:none}}
