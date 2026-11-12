@@ -113,6 +113,20 @@ body .stat-box { color:#DAAF57 !important; }
 .process-flow li+li::after{content:'›';position:absolute;left:-19px;top:50%;transform:translateY(-50%);color:#DAAF57;font:400 25px 'DM Sans',sans-serif;}
 @media(max-width:760px){.process-flow{display:grid;grid-template-columns:1fr;gap:10px}.process-flow li{min-height:62px;padding:20px 16px 14px}.process-flow li+li::after{content:'↓';left:50%;top:-18px;transform:translateX(-50%);font-size:18px}}
 </style>
+
+/* Ajuste tipográfico para manter o padrão editorial da Matriz de Evidências */
+<style id="discovery-typography-fix">
+html, body, body * {
+  font-family: Inter, Arial, sans-serif !important;
+  font-style: normal !important;
+  letter-spacing: normal;
+}
+body { font-weight: 400 !important; line-height: 1.65 !important; }
+h1, h2, h3, h4, h5, h6 { font-weight: 600 !important; line-height: 1.25 !important; }
+p, li, td, th, span, strong, a { line-height: 1.65 !important; }
+.process-flow li { font: 500 14px/1.5 Inter, Arial, sans-serif !important; }
+.process-flow li::before { font: 600 10px/1.2 Inter, Arial, sans-serif !important; }
+</style>
 </head>
 <body><div style="border-left:4px solid #DAAF57;background:#26505A;padding:16px;margin:18px 0;color:#F5F7FA"><strong>Natureza do documento:</strong> reconstrução de referência elaborada para representar práticas de identificação de necessidades, organização de temas e detalhamento de demandas. Não é registro histórico de um processo formal de Product Discovery. Os percentuais de acurácia e redução de desperdício não possuem evidência histórica validada e foram retirados. As métricas abaixo são sugestões de acompanhamento, sem resultados atribuídos à Habitat.</div>
 
