@@ -136,9 +136,18 @@ jobs:
           test -f _site/en/cases/case-01-virtual-assistant.html
           test -f _site/en/cases/case-02-lead-time-governance.html
           test -f _site/en/cases/case-02-supporting-documents.html
+          test -f _site/en/cases/case-02-operational-discovery-report.html
+          test -f _site/en/cases/case-02-as-is-to-be-mapping.html
+          test -f _site/en/cases/case-02-service-workflow-design.html
+          test -f _site/en/cases/case-02-governance-prioritization-framework.html
+          test -f _site/en/cases/case-02-decision-escalation-playbook.html
+          test -f _site/en/cases/case-02-stakeholder-alignment.html
+          test -f _site/en/cases/case-02-success-metrics.html
+          test -f _site/en/cases/case-02-lessons-learned.html
           test -f _site/en/cases/case-03-habitat-saas.html
           test -f _site/en/cases/case-03-habitat-operational-protocol.html
           test -f _site/en/cases/case-03-habitat-master-protocol.html
+          test -f _site/en/cases/case-03-habitat-lead-time-report.html
           test -f _site/en/cases/case-04-shv-energy.html
           test -f _site/en/cases/case-05-pav-receita-federal.html
           test -f _site/en/cases/case-06-peixe-urbano.html
@@ -221,9 +230,18 @@ jobs:
               en/cases/case-01-virtual-assistant.html \
               en/cases/case-02-lead-time-governance.html \
               en/cases/case-02-supporting-documents.html \
+              en/cases/case-02-operational-discovery-report.html \
+              en/cases/case-02-as-is-to-be-mapping.html \
+              en/cases/case-02-service-workflow-design.html \
+              en/cases/case-02-governance-prioritization-framework.html \
+              en/cases/case-02-decision-escalation-playbook.html \
+              en/cases/case-02-stakeholder-alignment.html \
+              en/cases/case-02-success-metrics.html \
+              en/cases/case-02-lessons-learned.html \
               en/cases/case-03-habitat-saas.html \
               en/cases/case-03-habitat-operational-protocol.html \
               en/cases/case-03-habitat-master-protocol.html \
+              en/cases/case-03-habitat-lead-time-report.html \
               en/cases/case-04-shv-energy.html \
               en/cases/case-05-pav-receita-federal.html \
               en/cases/case-06-peixe-urbano.html; do
