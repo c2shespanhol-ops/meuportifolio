@@ -159,7 +159,7 @@ jobs:
           grep -qi 'mailto:cleyton.s.hespanhol@gmail.com' _site/index.html
           grep -qi 'linkedin.com/in/cleyton-hespanhol' _site/index.html
           grep -qi 'mailto:cleyton.s.hespanhol@gmail.com' _site/en/index.html
-          grep -qi 'wa.me/5521986314378' _site/en/index.html
+          grep -qi 'linkedin.com/in/cleyton-hespanhol' _site/en/index.html
           grep -q 'Maricá City Hall' _site/en/index.html
           grep -q 'Urban Fish (Peixe Urbano)' _site/en/index.html
           grep -q 'Maricá City Hall' _site/cv/cv-en.html
