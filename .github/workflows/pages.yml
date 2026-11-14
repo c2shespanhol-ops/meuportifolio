@@ -139,7 +139,10 @@ jobs:
           test -f _site/en/cases/case-06-peixe-urbano.html
           ! find _site -type f \( -path '*/data/*' -o -path '*/career-os/*' -o -path '*/scripts/*' -o -path '*/docs/*' \) | grep -q .
           grep -RniE 'whatsapp|wa\.me/5521986314378' _site/index.html _site/en/index.html >/dev/null
-          ! grep -Rni 'undefined</main>' _site/en/cases >/dev/null
+          if grep -Rni 'undefined</main>' _site/en/cases; then
+            echo '::error::Unexpected undefined closing main marker in English case pages.'
+            exit 1
+          fi
 
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
