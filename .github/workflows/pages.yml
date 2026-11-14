@@ -125,6 +125,7 @@ jobs:
           test -f _site/case_study_01_persona_final.html
           test -f _site/case_study_02_leadtime_final.html
           test -f _site/case_study_03_habitat_final.html
+          test -f _site/case03_matriz_evidencias.html
           test -f _site/case_study_04_shv_final.html
           test -f _site/case_study_05_pav_receita_federal_final.html
           test -f _site/case_study_06_peixe_urbano_final.html
