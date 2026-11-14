@@ -1,264 +1,29 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Métricas de Impacto · Case Study 01 · Cleyton Hespanhol</title>
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Framework de métricas para validação futura · Case 01 · MarIA</title>
+<meta name="description" content="Indicadores propostos para avaliar uma futura implantação do assistente MarIA. Não apresenta resultados históricos ou métricas medidas.">
+<meta name="theme-color" content="#1E2328">
+<link rel="canonical" href="https://c2shespanhol-ops.github.io/meuportifolio/case01_metricas_impacto.html">
+<link rel="alternate" hreflang="pt-BR" href="https://c2shespanhol-ops.github.io/meuportifolio/case01_metricas_impacto.html">
+<link rel="alternate" hreflang="en" href="https://c2shespanhol-ops.github.io/meuportifolio/en/cases/case-01-measurement-framework.html">
+<link rel="stylesheet" href="artifact.css?v=20261113">
 <style>
-  :root {
-    --bg:        #1E2328;
-    --bg2:       #26505A;
-    --bg3:       #26505A;
-    --gold:      #DAAF57;
-    --gold-lt:   #DAAF57;
-    --teal:      #DAAF57;
-    --teal-br:   #DAAF57;
-    --white:     #F5F7FA;
-    --gray1:     #C4CDD3;
-    --gray2:     #C4CDD3;
-    --border:    rgba(218,175,87,.22);
-  }
-
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  .back-btn {
-    position: fixed;
-    top: 24px;
-    left: 24px;
-    z-index: 1001;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    font-family: 'Orbitron', monospace;
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--gold);
-    background: rgba(11, 12, 14, 0.9);
-    backdrop-filter: blur(8px);
-    border: 0.5px solid var(--border);
-    padding: 10px 16px;
-    border-radius: 4px;
-    letter-spacing: 0.1em;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-
-  .back-btn:hover {
-    background: var(--gold);
-    color: var(--bg);
-    border-color: var(--gold);
-  }
-
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 120px 24px 80px 24px;
-  }
-
-  .gold-accent-top {
-    height: 2px;
-    background:var(--bg);
-  }
-
-  .hero {
-    border-bottom: 0.5px solid var(--border);
-    padding-bottom: 48px;
-    margin-bottom: 48px;
-  }
-
-  .hero-eyebrow {
-    font-family: 'Orbitron', monospace;
-    font-size: 10px;
-    color: var(--gold);
-    letter-spacing: 0.2em;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
-
-  .hero-title {
-    font-family: 'DM Sans', sans-serif;
-    font-size: clamp(36px, 4vw, 52px);
-    font-weight: 700;
-    line-height: 1.1;
-    color: var(--white);
-    margin-bottom: 16px;
-  }
-
-  .hero-desc {
-    font-size: 15px;
-    color: var(--gray1);
-    line-height: 1.7;
-  }
-
-  .section {
-    margin-bottom: 48px;
-  }
-
-  .section-heading {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--gold-lt);
-    margin-bottom: 16px;
-    border-bottom: 0.5px solid var(--border);
-    padding-bottom: 8px;
-  }
-
-  .content-box {
-    background: var(--bg2);
-    border: 0.5px solid var(--border);
-    border-radius: 4px;
-    padding: 28px;
-    margin-bottom: 20px;
-  }
-
-  .content-box h3 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 22px;
-    color: var(--white);
-    margin-bottom: 10px;
-  }
-
-  .content-box p {
-    font-size: 14px;
-    color: var(--gray1);
-    line-height: 1.8;
-    margin-bottom: 12px;
-  }
-
-  .content-box p:last-child {
-    margin-bottom: 0;
-  }
-
-  footer {
-    background: var(--bg);
-    border-top: 0.5px solid var(--border);
-    padding: 40px 24px;
-    text-align: center;
-  }
-
-  .footer-monogram {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 0.1em;
-    margin-bottom: 12px;
-  }
-
-  .footer-copy {
-    font-size: 11px;
-    color: var(--gray2);
-  }
-</style>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style id="pbos-final-overrides">
-html, body { background:#1E2328 !important; color:#F5F7FA !important; }
-body { font-family:'DM Sans',sans-serif !important; font-weight:300 !important; }
-body, body main, body header, body footer, body .hero, body .container, body .wrap,
-body .section, body .section-inner, body .cases-section, body .hero-container,
-body .hero-content, body .hero-footer, body .corporate-banner { background-color:#1E2328 !important; background-image:none !important; }
-body .hero-bg, body .orb, body [class*="orb"], body [class*="glow"], body [class*="ambient"], body [class*="halo"] { display:none !important; background:none !important; background-image:none !important; box-shadow:none !important; filter:none !important; opacity:0 !important; }
-body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; background-image:none !important; box-shadow:none !important; content:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:#DAAF57 !important; background-image:none !important; }
-body h1, body h2, body h3, body h4, body h5, body h6,
-body .hero-title, body .hero-main-text, body .hero-subtitle, body .section-title,
-body .section-heading, body .banner-title, body .eco-title, body .doc-title,
-body .pillar-card h3, body .artifact-card h3, body .case-card h3,
-body .hero-highlight-value, body .metric-display, body .number {
-  font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#F5F7FA !important;
-}
-body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.035em !important; line-height:1.08 !important; }
-body h2, body .section-title, body .section-heading { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
-body h3, body .eco-title, body .case-card h3, body .doc-title { font-weight:400 !important; line-height:1.22 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; }
-body .hero-desc, body .hero-sub-text, body .lead, body .banner-desc,
-body .card p, body .pillar-card p, body .artifact-card p, body .case-card p,
-body .competency-desc, body .eco-text, body .step p, body .note, body .metric p,
-body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#C4CDD3 !important; font-weight:300 !important; line-height:1.75 !important; }
-body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text,
-body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label,
-body .artifact-action, body .competency-title, body .eco-role, body .doc-number,
-body .metric-label, body .tag, body .scroll-hint, body .footer-role {
-  font-family:'Orbitron',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; letter-spacing:.14em !important;
-}
-body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card,
-body .metric, body .meta, body .hero-highlight-card, body .flow, body .note,
-body .doc-card, body .case-card, body .stat-box { background:#26505A !important; border-color:rgba(218,175,87,.22) !important; box-shadow:none !important; }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover,
-body .competency-card:hover, body .eco-card:hover { background:#26505A !important; border-color:#DAAF57 !important; }
-body .back, body .back-btn { background:rgba(30,35,40,.96) !important; color:#DAAF57 !important; border-color:rgba(218,175,87,.22) !important; }
-body .back:hover, body .back-btn:hover { background:#DAAF57 !important; color:#1E2328 !important; }
-body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; border-color:#DAAF57 !important; }
-body .metric-display, body .number { color:#DAAF57 !important; font-weight:300 !important; }
-body footer, body .pbos-footer { background:#1E2328 !important; border-top-color:rgba(218,175,87,.22) !important; color:#C4CDD3 !important; }
-body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; font-weight:400 !important; }
-body .pbos-footer-copy { color:#C4CDD3 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#DAAF57 !important; }
-body .btn-case-mock { color:#DAAF57 !important; border-color:#DAAF57 !important; }
-body .btn-case-mock:hover { background:#DAAF57 !important; color:#1E2328 !important; }
-body .stat-box { color:#DAAF57 !important; }
-@media (max-width:760px) {
-  body .container, body .wrap, body .cases-section, body .hero-content, body .hero-footer,
-  body .nav, body footer, body .section, body header { padding-left:20px !important; padding-right:20px !important; }
-  body .hero-title, body h1 { font-size:clamp(36px,10vw,52px) !important; }
-  body .hero-main-text { font-size:clamp(28px,8vw,40px) !important; }
-  body .section-title, body h2 { font-size:clamp(28px,8vw,40px) !important; }
-}
-</style>
-<link rel="stylesheet" href="portfolio-theme.css?v=20261020-reference-fix">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="artifact.css?v=20261113"></head>
-<body>
-
-<a href="javascript:history.back()" class="back-btn">
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="19" y1="12" x2="5" y2="12"></line>
-    <polyline points="12 19 5 12 12 5"></polyline>
-  </svg>
-  VOLTAR
-</a>
-
-<div class="gold-accent-top"></div>
-
-<main class="container">
-  <header class="hero">
-    <div class="hero-eyebrow">ARTEFATO OFICIAL · CASE 01</div>
-    <h1 class="hero-title">Métricas de Impacto</h1>
-    <p class="hero-desc">Avaliação dos indicadores de desempenho, eficiência operacional e ganho de produtividade.</p>
-  </header>
-
-  <section class="section">
-    <h2 class="section-heading">1. Indicadores de Desempenho</h2>
-    <div class="content-box">
-      <h3>Eficiência e Redução de Tempo</h3>
-      <p>O monitoramento contínuo apontou uma redução expressiva no tempo médio de atendimento a dúvidas normativas dos servidores, otimizando o fluxo de trabalho interno.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2 class="section-heading">2. Adoção e Retorno</h2>
-    <div class="content-box">
-      <h3>Engajamento Institucional</h3>
-      <p>As taxas de resolução autônoma e satisfação validaram a eficácia do assistente como ferramenta estratégica de suporte na secretaria.</p>
-    </div>
-  </section>
-</main>
-
-<footer class="pbos-footer">
-  <div class="pbos-footer-signature">Cleyton Hespanhol | Product Owner | UX</div>
-  <div class="pbos-footer-copy">© 2026 Cleyton S. Hespanhol. Todos os direitos reservados.</div>
-  <a class="pbos-footer-link" href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener">linkedin.com/in/cleyton-hespanhol</a>
-</footer>
+.doc-wrap{max-width:900px;margin:auto;padding:38px 22px 64px}.eyebrow{color:#DAAF57;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase}h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.12;font-weight:400;margin:12px 0}.lead{color:#C4CDD3;font-size:1.08rem}.meta,.note{margin:22px 0;padding:16px 18px;border:1px solid #DAAF57;border-radius:8px;background:#26505A;color:#C4CDD3}article{padding:22px 0;border-top:1px solid rgba(196,205,211,.2)}h2{color:#DAAF57;font-size:1.35rem;margin:0 0 12px}h3{color:#F5F7FA;font-size:1rem;margin:16px 0 6px}p,li{color:#C4CDD3;line-height:1.7;margin:0 0 10px}ul{padding-left:22px}table{width:100%;border-collapse:collapse;margin:14px 0}th,td{text-align:left;vertical-align:top;padding:12px;border-bottom:1px solid rgba(196,205,211,.2);color:#C4CDD3}th{color:#DAAF57}.nav{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0}.nav a{padding:9px 13px;border:1px solid #DAAF57;border-radius:6px;color:#DAAF57;text-decoration:none}footer{border-top:1px solid #26505A;padding:22px;text-align:center;color:#C4CDD3;font-size:.9rem}@media(max-width:600px){.doc-wrap{padding:26px 16px 50px}table{display:block;overflow-x:auto}th,td{min-width:145px}}
+</style></head><body><main class="doc-wrap">
+<div class="eyebrow">CASE 01 · MARIA · ARTEFATO DE DESCOBERTA</div>
+<h1>Framework de métricas para validação futura</h1>
+<p class="lead">Proposta de indicadores para avaliar uma eventual implantação do Assistente Virtual Institucional, conectando qualidade da orientação, autonomia do servidor e necessidade de atendimento humano.</p>
+<div class="meta"><strong>Status:</strong> framework proposto para uma etapa futura de piloto e validação. O assistente não possui implantação em produção comprovada neste case. Não há métricas históricas de atendimento, adoção, resolução autônoma ou satisfação para reportar.</div>
+<article><h2>01 · Objetivo da medição</h2><p>Definir como uma futura avaliação poderia verificar se a solução reduz o esforço para encontrar orientações oficiais sem comprometer a precisão, a segurança da informação ou a continuidade do atendimento.</p></article>
+<article><h2>02 · Indicadores propostos</h2><table><thead><tr><th>Dimensão</th><th>Indicador sugerido</th><th>Como interpretar</th></tr></thead><tbody>
+<tr><td>Acesso à informação</td><td>Tempo para localizar uma orientação sustentada por fonte oficial</td><td>Comparar a linha de base do processo atual com os resultados de um piloto, usando tarefas equivalentes.</td></tr>
+<tr><td>Autonomia</td><td>Percentual de consultas concluídas sem encaminhamento humano</td><td>Contar apenas casos em que a orientação foi confirmada como suficiente, não apenas conversas encerradas.</td></tr>
+<tr><td>Qualidade</td><td>Taxa de respostas aderentes à fonte oficial em amostra revisada</td><td>Exigir revisão por responsável pelo conteúdo e registrar erros, omissões e versões da fonte.</td></tr>
+<tr><td>Encaminhamento</td><td>Percentual de consultas direcionadas ao canal humano</td><td>Separar encaminhamentos corretos, por limite de escopo, de encaminhamentos causados por falha de entendimento.</td></tr>
+<tr><td>Experiência</td><td>Avaliação do servidor após a interação</td><td>Aplicar pergunta curta e opcional, com período, amostra e taxa de resposta registrados.</td></tr>
+<tr><td>Demanda recorrente</td><td>Variação no volume de dúvidas repetidas por tema</td><td>Comparar períodos equivalentes e considerar sazonalidade, mudanças de processo e campanhas internas.</td></tr>
+</tbody></table></article>
+<article><h2>03 · Requisitos mínimos de uma avaliação</h2><ul><li>Definir linha de base antes do piloto e documentar período, população e volume de consultas.</li><li>Separar perguntas normativas, dúvidas procedimentais e demandas que exigem encaminhamento humano.</li><li>Registrar a fonte oficial usada e a versão do conteúdo consultado.</li><li>Revisar amostras de respostas com critérios de precisão, completude e aderência à fonte.</li><li>Não tratar encerramento da conversa como prova de resolução ou autonomia.</li><li>Publicar resultados com denominadores, período e limitações da amostra.</li></ul></article>
+<div class="note"><strong>Limite de evidência:</strong> os indicadores desta página são recomendações de avaliação futura. Não representam metas aprovadas, resultados medidos, testes com usuários ou evidência de que o assistente tenha sido implantado.</div>
+<div class="nav"><a href="case01_documentacao_complementar.html">Voltar à documentação do Case 01</a><a href="en/cases/case-01-measurement-framework.html">English version</a><a href="case_study_01_persona_final.html">Voltar ao case</a></div>
+</main><footer>Cleyton Hespanhol | Product Owner | UX · © 2026 Cleyton S. Hespanhol</footer></body></html>
