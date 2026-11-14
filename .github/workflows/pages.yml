@@ -94,8 +94,9 @@ jobs:
           set -euo pipefail
           test -f _site/index.html
           test -f _site/en/index.html
-          grep -q "photo-fallback-mark" _site/index.html
-          grep -q "photo-fallback-mark" _site/en/index.html
+          grep -q 'class="about-photo"' _site/index.html
+          grep -q 'class="about-photo"' _site/en/index.html
+          test -s _site/assets/cleyton-profile.jpg
           test -f _site/robots.txt
           test -f _site/sitemap.xml
           test -f _site/cv/cv-pt.html
