@@ -1,20 +1,155 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Request Flow Governance and Operational Lead-Time Reduction | Cleyton Hespanhol</title><meta name="description" content="Request flow governance using Jira and Kanban, with traceability and user validation.">
-<style>
-.container{max-width:980px;margin:0 auto;padding:72px 24px 0}.hero{padding:50px 0;border-bottom:1px solid rgba(218,175,87,.20);margin-bottom:50px}.case-label,.section-label{font:500 9px Orbitron,sans-serif;letter-spacing:.16em;color:#DAAF57;text-transform:uppercase}.hero h1{font:300 clamp(40px,5vw,64px)/1.05 "DM Sans",sans-serif;letter-spacing:-.04em;margin:18px 0;color:#F5F7FA}.hero p,.section p{color:#C4CDD3;line-height:1.75}.highlight,.card,.note{background:#1E2328;border:1px solid rgba(218,175,87,.22);border-radius:8px;padding:24px}.highlight{border-left:3px solid #DAAF57;margin-top:28px}.highlight strong{color:#DAAF57}.highlight .result{display:block;color:#F5F7FA;font-size:24px;margin-top:6px}.meta,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}.meta div{background:#1E2328;border:1px solid rgba(218,175,87,.22);padding:18px;border-radius:8px;color:#C4CDD3}.meta strong{display:block;color:#DAAF57;font:500 9px Orbitron,sans-serif;letter-spacing:.12em;margin-bottom:5px}.section{margin-bottom:58px}.section h2{font:300 clamp(28px,3vw,36px)/1.12 "DM Sans",sans-serif;color:#F5F7FA;margin:14px 0 24px}.card:hover{background:#1E2328;border-color:#DAAF57}.card h3{color:#F5F7FA}.back,.lang{position:fixed;top:18px;z-index:20;padding:9px 13px;border:1px solid rgba(218,175,87,.22);border-radius:7px;background:rgba(30,35,40,.96);color:#DAAF57;font:600 9px Orbitron,sans-serif}.back{left:18px}.lang{right:18px}@media(max-width:700px){.cards,.meta{grid-template-columns:1fr}.container{padding-top:72px}}
-</style><script src="../../portfolio-config.js" defer></script>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case 02 · Request Flow Governance | Cleyton Hespanhol</title>
+<meta name="description" content="How an uncontrolled request flow moved from approximately one week to up to 48 hours through Jira, Kanban and impact-based prioritization.">
+<meta name="author" content="Cleyton S. Hespanhol">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0A0D12">
+<link rel="canonical" href="https://c2shespanhol-ops.github.io/meuportifolio/en/cases/case-02-lead-time-governance.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Case 02 · Flow governance de solicitações">
+<meta property="og:description" content="De cerca de uma semana para até 48 horas, com base de comparação e limites da evidência.">
+<meta property="og:url" content="https://c2shespanhol-ops.github.io/meuportifolio/en/cases/case-02-lead-time-governance.html">
+<meta property="og:image" content="https://c2shespanhol-ops.github.io/meuportifolio/assets/og-cleyton.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../site.css?v=20261112-v2">
+<script src="../../portfolio-config.js" defer></script>
 <script src="../../portfolio-analytics.js" defer></script>
+<script src="../../portfolio-language.js" defer></script>
+<script src="../../site.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
 
-<link rel="stylesheet" href="../../portfolio-theme.css?v=20261112-pbos">
-<link rel="stylesheet" href="../../portfolio-theme.css?v=20261112-pbos">
-<link rel="stylesheet" href="../../portfolio-reference-refresh.css?v=20261112">
-</head><body class="portfolio-case-refresh"><a class="back" href="../../index.html">← BACK</a><a class="lang" href="../../case_study_02_leadtime_final.html">PT</a>
-<main class="container"><header class="hero"><div class="case-label">CASE STUDY 02 · REQUEST FLOW GOVERNANCE</div><h1>Request Flow Governance and Operational <em>Lead Time</em> Reduction</h1><p>I organized an uncontrolled request flow, restored user visibility and used process evidence to reduce delays and rework.</p><div class="highlight"><strong>REPORTED RESULT</strong><span class="result">71% Lead Time reduction · requests reaching 48 hours<br>31% less rework from incomplete request records</span></div><div class="meta"><div><strong>Client</strong>Tax and Fiscal Management Secretariat</div><div><strong>Context</strong>Planning and Modernization</div><div><strong>Contribution</strong>Request Flow Governance | UX</div><div><strong>Focus</strong>Flow, traceability and user experience</div></div></header>
-<section class="section"><div class="section-label">04 · RESULT</div><h2><em>71%</em> reported Lead Time reduction</h2><div class="highlight"><strong>REPORTED IMPACT</strong><span class="result">Approximately one week → requests reaching 48 hours<br>31% less rework from incomplete request records</span></div><div class="note" style="margin-top:16px"><p><strong>Evidence scope:</strong> the result comes from the operational flow described in this case. The experience demonstrates demand-flow management, standardized intake, operational prioritization, Jira/Kanban, traceability and user validation. It is not presented as formal product ownership.</p></div></section>
-<section class="section"><div class="section-label">ROLE & OWNERSHIP</div><h2>What I did and <em>what this case proves.</em></h2><div class="note"><p><strong>My contribution:</strong> I structured the operational flow in Jira and Kanban, supported prioritization and SLA monitoring, acted as an interface with Technology and validated delivery with users. <strong>Limit:</strong> this demonstrates Product practice and flow governance, not formal end-to-end Product Owner ownership.</p></div></section>
-<section class="section"><div class="section-label">01 · THE PROBLEM</div><h2>The problem was not only <em>delay.</em></h2><div class="cards"><div class="card"><h3>Requests entered without control</h3><p>Users and stakeholders often came directly for help. Requests could lack protocol, deadline, owner or clear tracking, and some were not completed.</p></div><div class="card"><h3>Users lost control</h3><p>The flow was slow as well as opaque. The challenge was to establish control and identify where time was being lost.</p></div></div></section>
-<section class="section"><div class="section-label">02 · HOW I ACTED</div><h2>First I organized the flow. Then I looked for <em>speed.</em></h2><div class="cards"><div class="card"><h3>Understand</h3><p>Talked with users and stakeholders and observed recurring service problems.</p></div><div class="card"><h3>Research</h3><p>Evaluated alternatives to Trello and selected Jira for more dynamic ticket control.</p></div><div class="card"><h3>Organize</h3><p>Structured a Kanban flow with owners, categories, priorities, statuses and deadlines.</p></div><div class="card"><h3>Prioritize</h3><p>Impact and user value guided operational prioritization rather than simple arrival order.</p></div><div class="card"><h3>Monitor</h3><p>Used the IT Service Charter as a deadline reference and created an internal 24-hour monitoring margin.</p></div><div class="card"><h3>Validate</h3><p>A ticket was not considered complete just because Technology responded. The user tested the solution and confirmed resolution.</p></div></div></section>
-<section class="section"><div class="section-label">03 · WHAT CHANGED</div><h2>Once the flow became visible, the <em>bottlenecks</em> became visible too.</h2><div class="cards"><div class="card"><h3>Less interpretation. Less rework.</h3><p>Screen captures clarified system-access requests and reduced cases where delivered access differed from what was requested.</p></div><div class="card"><h3>Exceptions became visible</h3><p>Requests dependent on technical visits became explicit in the flow, improving tracking of operational constraints.</p></div></div></section>
-<section class="section"><div class="section-inner"><div class="section-label">VISUAL EVIDENCE</div><h2 class="section-title">Lead time before and after flow organization.</h2><div class="pbos-data-chart" role="img" aria-label="Reported reference: approximately 168 hours before, and requests reaching 48 hours after flow organization."><div class="pbos-chart-row"><span class="pbos-chart-label">Before · approximately one week</span><div class="pbos-chart-track"><span style="width:100%"></span></div><strong class="pbos-chart-value">168h</strong></div><div class="pbos-chart-row"><span class="pbos-chart-label">After · requests reaching 48 hours</span><div class="pbos-chart-track"><span style="width:28.6%"></span></div><strong class="pbos-chart-value">48h</strong></div><p class="pbos-chart-note">Reported reference comparison. The 71% reduction is calculated from approximately one week to 48 hours; it does not mean every request was completed within that time.</p></div></div></section></main><footer class="pbos-footer"><div class="pbos-footer-signature">Cleyton Hespanhol | Product Owner | UX</div><div class="pbos-footer-copy">© 2026 Cleyton S. Hespanhol. All rights reserved.</div></footer><link rel="stylesheet" href="/meuportifolio/pbos-career-theme.css?v=20261112-career-os">
-</body></html>
+<header class="site-header">
+  <div class="shell case-bar">
+    <a class="back-link" href="../../index.html"><svg aria-hidden="true" width="18" height="18"><use href="#i-left"/></svg>Portfolio</a>
+    <span class="lang" role="group" aria-label="Language">
+      <a data-lang="pt" href="../../case_study_02_leadtime_final.html" lang="pt-BR" hreflang="pt-BR" aria-current="false">PT</a>
+      <a data-lang="en" href="case-02-lead-time-governance.html" lang="en" hreflang="en" aria-current="page">EN</a>
+    </span>
+  </div>
+</header>
+
+<main id="main" class="case-wrap">
+
+  <section class="case-hero" aria-labelledby="titulo">
+    <span class="eyebrow">Case 02 · Governança de fluxo</span>
+    <h1 id="titulo">Flow governance de solicitações e redução do <em>lead time</em></h1>
+    <p class="lead">How I organized an uncontrolled request flow, restored user visibility and used process data to reduce delays and rework.</p>
+    <p class="reading-time">About 3 min read</p>
+
+    <dl class="summary">
+      <div class="wide"><dt>Reported result</dt><dd class="result-line">71% less lead time: from approximately one week to up to 48 hours</dd></div>
+      <div><dt>Rework</dt><dd>31% less rework caused by incomplete records</dd></div>
+      <div><dt>Tools</dt><dd>Jira e Kanban</dd></div>
+      <div><dt>Period</dt><dd>January 2025 to May 2026</dd></div>
+      <div><dt>Client</dt><dd>SEGET, Maricá City Government, served by the Undersecretariat of Planning and Modernization</dd></div>
+    </dl>
+
+    <p class="role-box"><b>My role:</b> I structured the Jira and Kanban workflow, defined prioritization, monitored deadlines, coordinated with IT and validated each delivery with the user. <b>Evidence boundary:</b> this case demonstrates Product practice and flow governance, not formal Product Owner ownership.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="t-problema">
+    <span class="eyebrow">01 · The problem</span>
+    <h2 id="t-problema">The problem was not only the delay</h2>
+    <div class="pair">
+      <div><h3>Uncontrolled requests</h3><p>Users and stakeholders requested help without a ticket, deadline, owner or way to track progress. In some cases, requests were never completed.</p></div>
+      <div><h3>Users had no visibility</h3><p>As I organized tracking, I also realized the flow was slow. The challenge became twofold: establish control and identify where the process was losing time.</p></div>
+    </div>
+  </section>
+
+  <section class="case-section" aria-labelledby="t-agi">
+    <span class="eyebrow">02 · How I acted</span>
+    <h2 id="t-agi">First I organized the flow. Then I worked on speed.</h2>
+    <ol class="steps">
+      <li><div><b>Entender</b><span>I spoke with users and stakeholders and observed recurring service problems.</span></div></li>
+      <li><div><b>Organizar</b><span>I was familiar with Trello, but needed a more dynamic tool. I researched alternatives, selected Jira and structured a Kanban workflow with owners, categories, priorities, statuses and deadlines.</span></div></li>
+      <li><div><b>Priorizar</b><span>Requests were not handled in arrival order. The main criteria were impact and value for the user.</span></div></li>
+      <li><div><b>Acompanhar</b><span>I used the IT Service Charter as the deadline reference and created an internal 24-hour monitoring buffer.</span></div></li>
+      <li><div><b>Decidir</b><span>When the official deadline was missed, I had evidence to follow up with IT and, when applicable, request that the ticket be reclassified from a service request to an incident.</span></div></li>
+      <li><div><b>Analisar gargalos</b><span>I looked for the causes of delays instead of simply asking for faster delivery.</span></div></li>
+      <li><div><b>Simplificar</b><span>For system-access requests, I agreed with IT to use screenshots, removing ambiguity from the request.</span></div></li>
+      <li><div><b>Validar</b><span>A ticket was closed only after the user tested the solution and confirmed that the issue was resolved.</span></div></li>
+    </ol>
+  </section>
+
+  <section class="case-section" aria-labelledby="t-mudou">
+    <span class="eyebrow">03 · What changed</span>
+    <h2 id="t-mudou">Once the flow became visible, bottlenecks emerged</h2>
+    <div class="pair">
+      <div><h3>Acessos</h3><p>Screenshots clarified which access permissions were required and reduced cases where the access granted differed from what had been requested.</p></div>
+      <div><h3>Visitas técnicas</h3><p>These requests became trackable. When the reference deadline was exceeded, there was evidence to question the handling and reclassify the request.</p></div>
+      <div><h3>Usuário</h3><p>An IT response was no longer the end of the process. The user tested the solution, and only then was the ticket closed.</p></div>
+      <div><h3>Gestores</h3><p>Managers saw requests that had taken a week, and sometimes up to a month, being handled faster.</p></div>
+    </div>
+  </section>
+
+  <section class="case-section" aria-labelledby="t-resultado">
+    <span class="eyebrow">04 · Results and learning</span>
+    <h2 id="t-resultado">The metric shows the result. The process explains why.</h2>
+    <div class="compare" role="img" aria-label="Reported lead time: approximately 168 hours before and up to 48 hours after workflow organization.">
+      <div class="bar-row"><span class="lab">Before · approximately 1 week</span><div class="track"><span style="width:100%"></span></div><strong class="val">168h</strong></div>
+      <div class="bar-row"><span class="lab">After · up to 48 hours</span><div class="track"><span style="width:28.6%"></span></div><strong class="val">48h</strong></div>
+      <p class="note"><b>Comparison basis:</b> the 71% reduction compares approximately one week (168 hours) with up to 48 hours. This does not mean every request was completed within that time. Monitoring combined Jira charts with conversations during delivery.</p>
+    </div>
+    <figure class="sample-chart">
+      <figcaption><span class="badge">Illustration</span> Burndown example (fictional data)</figcaption>
+      <svg viewBox="0 0 360 230" role="img" aria-label="Illustrative burndown chart: open requests over 10 business days, showing ideal and actual lines. Fictional data.">
+        <line x1="40" x2="346" y1="186.0" y2="186.0" stroke="currentColor" stroke-opacity=".14"/><text x="32" y="190.0" text-anchor="end">0</text><line x1="40" x2="346" y1="143.5" y2="143.5" stroke="currentColor" stroke-opacity=".14"/><text x="32" y="147.5" text-anchor="end">5</text><line x1="40" x2="346" y1="101.0" y2="101.0" stroke="currentColor" stroke-opacity=".14"/><text x="32" y="105.0" text-anchor="end">10</text><line x1="40" x2="346" y1="58.5" y2="58.5" stroke="currentColor" stroke-opacity=".14"/><text x="32" y="62.5" text-anchor="end">15</text><line x1="40" x2="346" y1="16.0" y2="16.0" stroke="currentColor" stroke-opacity=".14"/><text x="32" y="20.0" text-anchor="end">20</text><text x="40.0" y="204" text-anchor="middle">0</text><text x="101.2" y="204" text-anchor="middle">2</text><text x="162.4" y="204" text-anchor="middle">4</text><text x="223.6" y="204" text-anchor="middle">6</text><text x="284.8" y="204" text-anchor="middle">8</text><text x="346.0" y="204" text-anchor="middle">10</text>
+        <polyline points="40.0,16.0 70.6,33.0 101.2,50.0 131.8,67.0 162.4,84.0 193.0,101.0 223.6,118.0 254.2,135.0 284.8,152.0 315.4,169.0 346.0,186.0" fill="none" stroke="#AEB5BD" stroke-width="2" stroke-dasharray="6 5"/>
+        <polyline points="40.0,16.0 70.6,24.5 101.2,41.5 131.8,50.0 162.4,75.5 193.0,84.0 223.6,109.5 254.2,126.5 284.8,152.0 315.4,169.0 346.0,186.0" fill="none" stroke="#DEB758" stroke-width="3" stroke-linejoin="round"/>
+        <circle cx="40.0" cy="16.0" r="3.5" fill="#DEB758"/><circle cx="70.6" cy="24.5" r="3.5" fill="#DEB758"/><circle cx="101.2" cy="41.5" r="3.5" fill="#DEB758"/><circle cx="131.8" cy="50.0" r="3.5" fill="#DEB758"/><circle cx="162.4" cy="75.5" r="3.5" fill="#DEB758"/><circle cx="193.0" cy="84.0" r="3.5" fill="#DEB758"/><circle cx="223.6" cy="109.5" r="3.5" fill="#DEB758"/><circle cx="254.2" cy="126.5" r="3.5" fill="#DEB758"/><circle cx="284.8" cy="152.0" r="3.5" fill="#DEB758"/><circle cx="315.4" cy="169.0" r="3.5" fill="#DEB758"/><circle cx="346.0" cy="186.0" r="3.5" fill="#DEB758"/>
+        <text x="193" y="224" text-anchor="middle">Business days</text>
+        <text x="0" y="9">Open requests</text>
+      </svg>
+      <p class="legend"><span class="k ideal"></span>Ideal <span class="k real"></span>Actual</p>
+      <p class="note">This chart is a sample showing how monitoring was interpreted. <b>It is not a Jira screenshot and does not substantiate the 71% result.</b> The figures are fictional and illustrate the reading only: the dashed line represents the ideal completion pace and the gold line represents actual completed work.</p>
+    </figure>
+    <p style="margin-top:22px">Key learning: before trying to speed up a process, understand where users lose control, where information arrives incomplete and where the workflow starts to stall.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="t-docs">
+    <span class="eyebrow">05 · Project documents</span>
+    <h2 id="t-docs">Materials produced</h2>
+    <details class="docs" id="project-documents"><summary>Supporting documents are not yet available in English</summary>
+    <p>These materials are available in Portuguese. English links will be added after the supporting documents are translated.</p><ul class="doc-links" hidden>
+      <li><a href="#project-documents">Product Discovery Report</a></li>
+      <li><a href="#project-documents">Current and future state workflow mapping (AS IS and TO BE)</a></li>
+      <li><a href="#project-documents">Service workflow architecture</a></li>
+      <li><a href="#project-documents">Governance and prioritization framework</a></li>
+      <li><a href="#project-documents">Decision and escalation playbook</a></li>
+      <li><a href="#project-documents">Stakeholder map and alignment</a></li>
+      <li><a href="#project-documents">Success metrics</a></li>
+      <li><a href="#project-documents">Lessons learned</a></li>
+    </ul>
+    </details>
+  </section>
+
+  <p class="case-count">You are viewing case 02 of 06.</p>
+
+  <div class="next-case">
+    <a class="btn primary" href="case-03-habitat-saas.html">Next case: Habitat</a>
+    <a class="btn" href="../../index.html#cases">Back to case studies</a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div><strong>Cleyton S. Hespanhol</strong> · Product Owner | UX</div>
+  <div>© 2026 Cleyton S. Hespanhol · <a href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+</footer>
+<button class="to-top" type="button" aria-label="Back to top"><svg aria-hidden="true"><use href="#i-up"/></svg></button>
+</body>
+</html>
