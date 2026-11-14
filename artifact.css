@@ -47,12 +47,12 @@ html body :focus-visible{outline:3px solid #DAAF57 !important;outline-offset:3px
 html body .back,html body .back-btn,html body .case01-hub-link,html body .btn,html body .cta,
 html body .lang a,html body .links a,html body .pbos-footer-link,html body .card-proximo{
   display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 18px;
-  border:1px solid rgba(247,248,250,.12) !important;border-radius:12px !important;
+  border:1px solid rgba(245,247,250,.12) !important;border-radius:12px !important;
   background:#1E2328 !important;color:#F5F7FA !important;font-size:14px !important;
   font-weight:600 !important;letter-spacing:0 !important;text-transform:none !important;
 }
 html body .back:hover,html body .back-btn:hover,html body .btn:hover,html body .cta:hover,html body .card-proximo:hover{
-  border-color:rgba(222,183,88,.34) !important;text-decoration:none;
+  border-color:rgba(218,175,87,.34) !important;text-decoration:none;
 }
 html body .btn.primary,html body .cta.primary,html body .btn-primary{background:#DAAF57 !important;color:#1E2328 !important;border-color:#DAAF57 !important}
 html body .back{position:static !important;margin:16px 0}
@@ -61,17 +61,17 @@ html body .card,html body .card-item,html body .panel,html body .notice,html bod
 html body .content-box,html body .node,html body .step,html body .flow-step,html body .decision,
 html body .artifact-detail,html body .artifact-section,html body .quote,html body .sample,
 html body .metric,html body .stat,html body table{
-  background:#1E2328 !important;border:1px solid rgba(247,248,250,.12) !important;
+  background:#1E2328 !important;border:1px solid rgba(245,247,250,.12) !important;
   border-radius:16px !important;color:#C4CDD3 !important;box-shadow:none !important;
 }
 html body .notice{border-left:3px solid #DAAF57 !important}
 html body .gold-accent-top,html body .top{height:3px;background:#DAAF57 !important;border:0 !important}
 html body table{border-collapse:separate;border-spacing:0;overflow:hidden;display:block;overflow-x:auto;max-width:100%}
-html body th,html body td{border-color:rgba(247,248,250,.12) !important;padding:12px 14px;text-align:left}
+html body th,html body td{border-color:rgba(245,247,250,.12) !important;padding:12px 14px;text-align:left}
 html body th{background:#26505A !important}
-html body .section,html body section{border-color:rgba(247,248,250,.12) !important}
-html body .arrow,html body .line{color:#DAAF57 !important;border-color:rgba(222,183,88,.34) !important}
-html body footer,html body .pbos-footer{background:transparent !important;border-top:1px solid rgba(247,248,250,.12) !important;color:#C4CDD3 !important}
+html body .section,html body section{border-color:rgba(245,247,250,.12) !important}
+html body .arrow,html body .line{color:#DAAF57 !important;border-color:rgba(218,175,87,.34) !important}
+html body footer,html body .pbos-footer{background:transparent !important;border-top:1px solid rgba(245,247,250,.12) !important;color:#C4CDD3 !important}
 html body .pbos-footer a,html body footer a{background:transparent !important;border:0 !important;min-height:44px;display:inline-flex;align-items:center}
 /* mobile */
 html body img,html body svg,html body video{max-width:100%;height:auto}
@@ -87,7 +87,7 @@ html body b,html body strong,html body span{font-size:max(12px,1em) !important}
 html body table th,html body .table th,html body .exec-table th{font-size:12px !important;text-transform:uppercase}
 html body a.lang,html body a.original,html body a.primary,html body a.print-doc,html body .lang a{
   display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:10px 14px;
-  font-size:14px !important;border:1px solid rgba(247,248,250,.12);border-radius:12px;background:#1E2328 !important;
+  font-size:14px !important;border:1px solid rgba(245,247,250,.12);border-radius:12px;background:#1E2328 !important;
   color:#F5F7FA !important;text-transform:none !important;letter-spacing:0 !important;font-weight:600 !important;
 }
 html body a.primary{background:#DAAF57 !important;color:#1E2328 !important}
