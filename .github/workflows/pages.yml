@@ -92,6 +92,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          set -x
           test -f _site/index.html
           test -f _site/en/index.html
           grep -q 'class="about-photo"' _site/index.html
@@ -112,7 +113,7 @@ jobs:
           grep -q "SHV Energy" _site/cv/cv-en.html
           grep -q "Jan 2018 – Jun 2023" _site/cv/cv-en.html
           grep -q "Supergasbras, Peixe Urbano, Nextel e Contax" _site/cv/cv-pt.html
-          grep -q "Supergasbras, Peixe Urbano, Nextel, and Contax" _site/cv/cv-en.html
+          grep -q "Supergasbras, Urban Fish (Peixe Urbano), Nextel, and Contax" _site/cv/cv-en.html
           grep -q "31% no tempo médio de resolução" _site/cv/cv-pt.html
           grep -q "31% reduction in average resolution time" _site/cv/cv-en.html
           ! grep -qiE "Supergasbras \\| Analista de Operações|Supergasbras \\| Operations" _site/cv/cv-pt.html _site/cv/cv-en.html
@@ -134,7 +135,10 @@ jobs:
           test -f _site/en/cases/case-05-pav-documentation.html
           test -f _site/en/cases/case-01-virtual-assistant.html
           test -f _site/en/cases/case-02-lead-time-governance.html
+          test -f _site/en/cases/case-02-supporting-documents.html
           test -f _site/en/cases/case-03-habitat-saas.html
+          test -f _site/en/cases/case-03-habitat-operational-protocol.html
+          test -f _site/en/cases/case-03-habitat-master-protocol.html
           test -f _site/en/cases/case-04-shv-energy.html
           test -f _site/en/cases/case-05-pav-receita-federal.html
           test -f _site/en/cases/case-06-peixe-urbano.html
@@ -156,6 +160,9 @@ jobs:
           grep -qi 'linkedin.com/in/cleyton-hespanhol' _site/index.html
           grep -qi 'mailto:cleyton.s.hespanhol@gmail.com' _site/en/index.html
           grep -qi 'wa.me/5521986314378' _site/en/index.html
+          grep -q 'Maricá City Hall' _site/en/index.html
+          grep -q 'Urban Fish (Peixe Urbano)' _site/en/index.html
+          grep -q 'Maricá City Hall' _site/cv/cv-en.html
           if grep -Rni 'undefined</main>' _site/en/cases; then
             echo '::error::Unexpected undefined closing main marker in English case pages.'
             exit 1
@@ -213,7 +220,10 @@ jobs:
               en/cases/case-05-pav-documentation.html \
               en/cases/case-01-virtual-assistant.html \
               en/cases/case-02-lead-time-governance.html \
+              en/cases/case-02-supporting-documents.html \
               en/cases/case-03-habitat-saas.html \
+              en/cases/case-03-habitat-operational-protocol.html \
+              en/cases/case-03-habitat-master-protocol.html \
               en/cases/case-04-shv-energy.html \
               en/cases/case-05-pav-receita-federal.html \
               en/cases/case-06-peixe-urbano.html; do
