@@ -1,35 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Conversational Architecture · Case 01 · MarIA | Cleyton Hespanhol</title>
-<link rel="stylesheet" href="../../portfolio-theme.css?v=20261114-en">
-<link rel="stylesheet" href="../../artifact.css?v=20261113">
-<link rel="stylesheet" href="../../pbos-career-theme.css?v=20261112-career-os">
-<style>
-body{background:#1E2328;color:#F5F7FA;font-family:Inter,Arial,sans-serif;line-height:1.7}
-.doc-wrap{max-width:900px;margin:0 auto;padding:36px 22px 64px}
-.topline{color:#DAAF57;letter-spacing:.12em;text-transform:uppercase;font-size:.76rem}
-h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:400;line-height:1.12;margin:12px 0}
-.lead{color:#C4CDD3;font-size:1.08rem;max-width:760px}
-.meta{margin:24px 0;padding:14px 18px;border:1px solid #26505A;border-radius:8px;color:#C4CDD3}
-article{padding:24px 0;border-top:1px solid #26505A}
-h2{font-size:1.35rem;font-weight:500;margin:0 0 12px;color:#DAAF57}
-p{color:#C4CDD3;margin:0;white-space:pre-line}
-.note{margin-top:28px;padding:20px;border:1px solid #DAAF57;border-radius:8px;background:#26505A}
-.nav{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}
-.btn{display:inline-block;padding:10px 16px;border:1px solid #DAAF57;border-radius:5px;color:#DAAF57;text-decoration:none}
-footer{border-top:1px solid #26505A;padding:22px;text-align:center;color:#C4CDD3;font-size:.9rem}
-</style>
-</head>
-<body><main class="doc-wrap">
-<div class="topline">Case 01 · MarIA · Discovery Artifact</div>
-<h1>Conversational Architecture</h1><p class="lead">Intent organization, dialogue structure and proposed assistant flow guidelines.</p>
-<div class="meta"><strong>Document status:</strong> Retrospective documentation based on the available case materials. <strong>Language:</strong> English.</div>
-<article><h2>01 · Intent structure</h2><p>The interaction model is organized into three central groups: normative queries, procedural support and ticket routing. This separation is intended to avoid treating every question in the same way.</p></article>
-<article><h2>02 · Main interaction flow</h2><p>1. Receive the employee's natural-language question. 2. Classify the request as normative, procedural or ticket-related. 3. Ask for clarification when intent is ambiguous. 4. Consult only approved official manuals and references. 5. Provide a supported answer or route the request to the appropriate human channel.</p></article>
-<article><h2>03 · Exception handling</h2><p>When intent is not recognized, ask the user to rephrase or offer objective menu options. When the question is ambiguous, request additional context. When an official source is missing or insufficient, state the limitation and route the user to a responsible human channel. Requests outside the automated scope must not be presented as resolved.</p></article>
-<article><h2>04 · Conversation governance</h2><p>Approved official manuals and regulations are the permitted reference base. The assistant should recognize uncertainty, avoid inventing rules or procedures and preserve human support when the available content is insufficient.</p></article>
-<article><h2>05 · Evidence note</h2><p>This is a proposed behavioral architecture derived from the Discovery artifacts. It does not establish a deployed NLP classifier, technical integration or proven operational process.</p></article>
-<div class="nav"><a class="btn" href="case-01-virtual-assistant-artifacts.html">Back to MarIA documentation</a><a class="btn" href="case-01-virtual-assistant.html">Back to case overview</a></div>
+<meta name="description" content="Proposed conversational architecture for MarIA, including intent groups, response flow, exception handling and governance boundaries.">
+<link rel="canonical" href="https://c2shespanhol-ops.github.io/meuportifolio/en/cases/case-01-conversational-architecture.html">
+<link rel="alternate" hreflang="pt-BR" href="https://c2shespanhol-ops.github.io/meuportifolio/case01_arquitetura_conversacional.html">
+<link rel="alternate" hreflang="en" href="https://c2shespanhol-ops.github.io/meuportifolio/en/cases/case-01-conversational-architecture.html">
+<link rel="stylesheet" href="../../artifact.css?v=20261113"><style>
+.doc-wrap{max-width:960px;margin:0 auto;padding:36px 22px 64px}.topline{color:#DAAF57;letter-spacing:.12em;text-transform:uppercase;font-size:.76rem}h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:400;line-height:1.12;margin:12px 0}.lead{color:#C4CDD3;font-size:1.08rem;max-width:760px}.meta{margin:24px 0;padding:14px 18px;border:1px solid #26505A;border-radius:8px;color:#C4CDD3}article{padding:24px 0;border-top:1px solid #26505A}h2{font-size:1.35rem;font-weight:500;margin:0 0 12px;color:#DAAF57}h3{font-size:1rem;color:#F5F7FA;margin:16px 0 6px}p,li{color:#C4CDD3;margin:0 0 10px;line-height:1.7}ol,ul{padding-left:22px}table{width:100%;border-collapse:collapse;margin:14px 0}th,td{text-align:left;vertical-align:top;padding:12px;border-bottom:1px solid rgba(196,205,211,.2);color:#C4CDD3}th{color:#DAAF57}.note{margin-top:28px;padding:20px;border:1px solid #DAAF57;border-radius:8px;background:#26505A}.nav{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}.btn{display:inline-block;padding:10px 16px;border:1px solid #DAAF57;border-radius:5px;color:#DAAF57;text-decoration:none}footer{border-top:1px solid #26505A;padding:22px;text-align:center;color:#C4CDD3;font-size:.9rem}@media(max-width:600px){.doc-wrap{padding:26px 16px 52px}table{display:block;overflow-x:auto}th,td{min-width:150px}}
+</style></head><body><main class="doc-wrap">
+<div class="topline">Case 01 · MarIA · Discovery artifact</div><h1>Conversational Architecture</h1><p class="lead">Organization of user intents, dialogue structure and proposed flow guidelines for the assistant.</p>
+<div class="meta"><strong>Document status:</strong> Retrospective specification based on the available case materials. It describes intended behavior, not a deployed workflow. <strong>Language:</strong> English.</div>
+<article><h2>01 · Intent structure</h2><p>The interaction model separates requests into three groups so that different questions do not receive the same treatment.</p>
+<h3>Normative queries</h3><p>Questions about institutional guidance, rules and guidelines. Answers should be tied to approved official content and must not introduce interpretations unsupported by the source.</p>
+<h3>Procedural support</h3><p>Questions about how to perform internal procedures. Guidance should be organized into clear steps and remain consistent with the available institutional guidelines.</p>
+<h3>Ticket routing</h3><p>Requests that require action by a responsible team or service channel. The conversation should help the employee recognize when a question is no longer an informational query.</p></article>
+<article><h2>02 · Main interaction flow</h2><ol><li><strong>Receive the question.</strong> The employee describes the issue in natural language without having to know the correct category in advance.</li><li><strong>Classify the request.</strong> Identify whether it is normative, procedural or related to ticket routing.</li><li><strong>Clarify the context.</strong> If intent is ambiguous, ask a focused follow-up question or present objective options.</li><li><strong>Consult the source.</strong> Use only approved official content and manuals as the basis for guidance.</li><li><strong>Answer or route.</strong> Provide a clear answer when evidence is sufficient, or direct the employee to the appropriate human channel.</li></ol></article>
+<article><h2>03 · Exception handling</h2><p>The architecture defines a recovery path for situations in which the conversation cannot safely proceed.</p><table><thead><tr><th>Situation</th><th>Expected behavior</th><th>Experience objective</th></tr></thead><tbody>
+<tr><td>Intent not recognized</td><td>Do not end the conversation silently. Ask the employee to rephrase or offer menu options that help classify the question.</td><td>Reduce friction and recover the request context.</td></tr>
+<tr><td>Ambiguous question</td><td>Request additional information before selecting a guidance path.</td><td>Avoid answers based on premature interpretation.</td></tr>
+<tr><td>Official source missing or insufficient</td><td>State the limitation and route the employee to the responsible human channel.</td><td>Preserve reliability instead of filling gaps with assumptions.</td></tr>
+<tr><td>Request outside the automated scope</td><td>Direct the employee to human support or the responsible channel.</td><td>Maintain service continuity without pretending the request was resolved.</td></tr></tbody></table>
+<p><strong>Central decision rule:</strong> institutional guidance should be provided only when sufficient official content supports it. If the source, intent or context is insufficient, the proposed flow calls for clarification or handoff, not improvisation.</p></article>
+<article><h2>04 · Conversation governance</h2><h3>Reference content</h3><p>Approved official manuals and regulations are the permitted basis for institutional answers.</p><h3>Assistant behavior</h3><p>Identify intent, communicate clearly, recognize uncertainty and avoid inventing rules or procedures.</p><h3>Automation boundary</h3><p>When a question requires analysis or exceeds the available content, preserve the human-support route.</p></article>
+<div class="note"><strong>Evidence note:</strong> this document details the conversational behavior specified for the proposed solution. It does not prove implementation of the flows, a deployed NLP tool or classifier, technical integration, or operation in production.</div>
+<div class="nav"><a class="btn" href="../../case01_arquitetura_conversacional.html">Português</a><a class="btn" href="case-01-virtual-assistant-artifacts.html">Back to MarIA documentation</a><a class="btn" href="case-01-virtual-assistant.html">Back to case overview</a></div>
 </main><footer>Cleyton Hespanhol | Product Owner | UX · © 2026 Cleyton S. Hespanhol</footer></body></html>
