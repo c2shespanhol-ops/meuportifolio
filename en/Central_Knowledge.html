@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Base - Habitat | Cleyton Hespanhol</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #1E2328;
+      color: #F5F7FA;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: #DAAF57; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border: 1px solid #DAAF57;
+      color: #DAAF57;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn:hover { background-color: #DAAF57; color: #1E2328; text-decoration: none; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+    header { padding: 20px 40px; border-bottom: 1px solid #26505A; }
+    hr { border: 0; border-top: 1px solid #26505A; margin: 40px 0; }
+    .grid-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      background: #1E2328;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #26505A;
+      margin-top: 20px;
+    }
+    .card-proximo {
+      border: 1px solid #26505A;
+      padding: 20px;
+      border-radius: 8px;
+      background: #1E2328;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  </style>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style id="pbos-final-overrides">
+html, body { background:#1E2328 !important; color:#F5F7FA !important; }
+body { font-family:'DM Sans',sans-serif !important; font-weight:300 !important; }
+body, body main, body header, body footer, body .hero, body .container, body .wrap,
+body .section, body .section-inner, body .cases-section, body .hero-container,
+body .hero-content, body .hero-footer, body .corporate-banner { background-color:#1E2328 !important; background-image:none !important; }
+body .hero-bg, body .orb, body [class*="orb"], body [class*="glow"], body [class*="ambient"], body [class*="halo"] { display:none !important; background:none !important; background-image:none !important; box-shadow:none !important; filter:none !important; opacity:0 !important; }
+body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; background-image:none !important; box-shadow:none !important; content:none !important; }
+body .gold-accent-top, body .top { height:2px !important; background:#DAAF57 !important; background-image:none !important; }
+body h1, body h2, body h3, body h4, body h5, body h6,
+body .hero-title, body .hero-main-text, body .hero-subtitle, body .section-title,
+body .section-heading, body .banner-title, body .eco-title, body .doc-title,
+body .pillar-card h3, body .artifact-card h3, body .case-card h3,
+body .hero-highlight-value, body .metric-display, body .number {
+  font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#F5F7FA !important;
+}
+body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.035em !important; line-height:1.08 !important; }
+body h2, body .section-title, body .section-heading { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
+body h3, body .eco-title, body .case-card h3, body .doc-title { font-weight:400 !important; line-height:1.22 !important; }
+body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; }
+body .hero-desc, body .hero-sub-text, body .lead, body .banner-desc,
+body .card p, body .pillar-card p, body .artifact-card p, body .case-card p,
+body .competency-desc, body .eco-text, body .step p, body .note, body .metric p,
+body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#C4CDD3 !important; font-weight:300 !important; line-height:1.75 !important; }
+body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text,
+body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label,
+body .artifact-action, body .competency-title, body .eco-role, body .doc-number,
+body .metric-label, body .tag, body .scroll-hint, body .footer-role {
+  font-family:'Orbitron',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; letter-spacing:.14em !important;
+}
+body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card,
+body .metric, body .meta, body .hero-highlight-card, body .flow, body .note,
+body .doc-card, body .case-card, body .stat-box { background:#26505A !important; border-color:rgba(218,175,87,.22) !important; box-shadow:none !important; }
+body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover,
+body .competency-card:hover, body .eco-card:hover { background:#26505A !important; border-color:#DAAF57 !important; }
+body .back, body .back-btn { background:rgba(30,35,40,.96) !important; color:#DAAF57 !important; border-color:rgba(218,175,87,.22) !important; }
+body .back:hover, body .back-btn:hover { background:#DAAF57 !important; color:#1E2328 !important; }
+body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
+body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; border-color:#DAAF57 !important; }
+body .metric-display, body .number { color:#DAAF57 !important; font-weight:300 !important; }
+body footer, body .pbos-footer { background:#1E2328 !important; border-top-color:rgba(218,175,87,.22) !important; color:#C4CDD3 !important; }
+body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; font-weight:400 !important; }
+body .pbos-footer-copy { color:#C4CDD3 !important; }
+body .pbos-footer-link, body .footer-linkedin { color:#DAAF57 !important; }
+body .btn-case-mock { color:#DAAF57 !important; border-color:#DAAF57 !important; }
+body .btn-case-mock:hover { background:#DAAF57 !important; color:#1E2328 !important; }
+body .stat-box { color:#DAAF57 !important; }
+@media (max-width:760px) {
+  body .container, body .wrap, body .cases-section, body .hero-content, body .hero-footer,
+  body .nav, body footer, body .section, body header { padding-left:20px !important; padding-right:20px !important; }
+  body .hero-title, body h1 { font-size:clamp(36px,10vw,52px) !important; }
+  body .hero-main-text { font-size:clamp(28px,8vw,40px) !important; }
+  body .section-title, body h2 { font-size:clamp(28px,8vw,40px) !important; }
+}
+</style>
+<link rel="stylesheet" href="../portfolio-theme.css?v=20261114-en">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../artifact.css?v=20261113"></head>
+<body>
+
+  <header>
+    <a href="cases/case-03-habitat-saas.html" class="btn">&larr; Back to Case Study</a>
+  </header>
+
+  <main class="container">
+    
+    <!-- CABEÇALHO CORPORATIVO -->
+    <section>
+      <span style="color: #DAAF57; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">OPERATIONAL DOCUMENT · HBT-KB-003</span>
+      <h1 style="font-size: 2.4rem; color: #F5F7FA; margin-top: 10px; margin-bottom: 15px;">Knowledge Base</h1>
+      <p style="font-size: 1.15rem; color: #C4CDD3; max-width: 800px; line-height: 1.6;">
+        A structured knowledge repository for self-service, support guides and documentation standards at Habitat.
+      </p>
+
+      <div class="grid-meta">
+        <div><strong style="color: #DAAF57;">Code:</strong> <span style="color: #F5F7FA;">HBT-KB-003</span></div>
+        <div><strong style="color: #DAAF57;">Version:</strong> <span style="color: #F5F7FA;">2.1</span></div>
+        <div><strong style="color: #DAAF57;">Status:</strong> <span style="color: #DAAF57;">Active & Published</span></div>
+        <div><strong style="color: #DAAF57;">Owner:</strong> <span style="color: #F5F7FA;">CX · Produto · Operação</span></div>
+        <div><strong style="color: #DAAF57;">Reconstructed document:</strong> <span style="color: #F5F7FA;">November 2026</span></div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- OBJETIVO -->
+    <section>
+      <h2 style="color: #F5F7FA; margin-bottom: 10px;">Purpose</h2>
+      <p style="color: #C4CDD3; font-size: 1.05rem;">
+        Centralize technical and operational knowledge in a single repository, reducing reliance on manual support and helping customers and employees solve recurring questions independently.
+      </p>
+    </section>
+
+    <hr>
+
+    <!-- CONTEXTO -->
+    <section>
+      <h2 style="color: #F5F7FA; margin-bottom: 10px;">Context</h2>
+      <p style="color: #C4CDD3; font-size: 1.05rem;">
+        Created to address fragmented documentation and make recurring questions easier to resolve through structured knowledge articles.
+      </p>
+    </section>
+
+    <hr>
+
+    <!-- ESCOPO -->
+    <section>
+      <h2 style="color: #F5F7FA; margin-bottom: 15px;">Scope</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        <div style="background: #1E2328; padding: 20px; border-radius: 8px; border: 1px solid #26505A;">
+          <h3 style="color: #DAAF57; margin-bottom: 10px;">In scope</h3>
+          <ul style="color: #C4CDD3; padding-left: 20px; line-height: 1.6;">
+            <li>Initial clinic setup guides</li>
+            <li>Guides for resolving common system errors</li>
+            <li>Operational FAQs for support teams and customers</li>
+          </ul>
+        </div>
+        <div style="background: #1E2328; padding: 20px; border-radius: 8px; border: 1px solid #26505A;">
+          <h3 style="color: #C4CDD3; margin-bottom: 10px;">Out of scope</h3>
+          <ul style="color: #C4CDD3; padding-left: 20px; line-height: 1.6;">
+            <li>Engineering source-code repository</li>
+            <li>Confidential executive documents</li>
+            <li>Individual payroll records</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- ARQUITETURA DA INFORMAÇÃO & GOVERNANÇA -->
+    <section>
+      <h2 style="color: #F5F7FA; margin-bottom: 15px;">Governance and Publication Criteria</h2>
+      <div style="background: #1E2328; padding: 20px; border-radius: 8px; border: 1px solid #26505A; color: #C4CDD3; line-height: 1.8;">
+        <p><strong>Information Architecture:</strong> Organized around three main pillars: Onboarding Tutorials, Error Resolution and Process Manuals.</p>
+        <p style="margin-top: 10px;"><strong>Publication Criteria:</strong> Every new article undergoes a technical review by CX · Product · Operations, a clarity review and layout approval before being added to the knowledge base.</p>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- FLUXO DE APROVAÇÃO -->
+    <section>
+      <h2 style="color: #F5F7FA; margin-bottom: 15px;">Content Approval Workflow</h2>
+      <div style="background: #1E2328; padding: 25px; border-radius: 8px; border: 1px solid #26505A; text-align: center; font-family: monospace; font-size: 1rem; color: #DAAF57;">
+        Article Drafting &rarr; Technical Review &rarr; Operations Validation &rarr; Acceptance &rarr; Official Publication
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- INDICADORES MONITORADOS -->
+    <section>
+      <h2 style="color: #F5F7FA; margin-bottom: 15px;">Metrics and Results</h2>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; background: #1E2328; border: 1px solid #26505A;">
+          <thead>
+            <tr style="border-bottom: 2px solid #DAAF57; background: #1E2328;">
+              <th style="padding: 12px; color: #F5F7FA;">Metric</th>
+              <th style="padding: 12px; color: #F5F7FA;">Purpose</th>
+              <th style="padding: 12px; color: #F5F7FA;">Result</th>
+            </tr>
+          </thead>
+          <tbody style="color: #C4CDD3;">
+            <tr style="border-bottom: 1px solid #26505A;">
+              <td style="padding: 12px; font-weight: bold; color: #DAAF57;">Published Articles</td>
+              <td style="padding: 12px;">Cover 100% of frequently asked questions</td>
+              <td style="padding: 12px; color: #DAAF57;">+100 artigos</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px; font-weight: bold; color: #DAAF57;">Reduction in Repetitive Requests</td>
+              <td style="padding: 12px;">Reduce basic support requests</td>
+              <td style="padding: 12px; color: #DAAF57;">-27%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- IMPACTO NO PROJETO -->
+    <section>
+      <div style="background: #1E2328; padding: 25px; border-radius: 8px; border-left: 4px solid #DAAF57; border: 1px solid #26505A;">
+        <h3 style="color: #F5F7FA; margin-bottom: 12px;">Project Impact</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; color: #C4CDD3; line-height: 1.8;">
+          <li>✓ Increased user autonomy</li>
+          <li>✓ Standardized support communication</li>
+          <li>✓ Reduced volume of repetitive tickets</li>
+          <li>✓ Centralized, auditable documentation</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- RASTREABILIDADE / ARTEFATOS RELACIONADOS -->
+    <section>
+      <h2 style="color: #F5F7FA; margin-bottom: 15px;">Related Artifacts</h2>
+      <p style="color: #C4CDD3; margin-bottom: 20px;">
+        This knowledge base is connected to other Habitat operating resources:
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <a href="cases/case-03-habitat-saas.html" class="btn">Habitat SaaS Case</a>
+        <a href="cases/case-03-habitat-saas.html" class="btn">Product and CX Case</a>
+        <a href="cases/case-03-habitat-saas.html" class="btn">Discovery and Backlog</a>
+        <a href="cases/case-03-habitat-saas.html" class="btn">Operational Workflow</a>
+        <a href="cases/case-03-habitat-saas.html" class="btn">User Journey</a>
+        <a href="cases/case-03-habitat-saas.html" class="btn">Onboarding</a>
+        <a href="cases/case-03-habitat-saas.html" class="btn">Lead Time and Metrics</a>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- PRÓXIMOS ARTEFATOS (RODAPÉ) -->
+    <section>
+      <h2 style="color: #F5F7FA; margin-bottom: 15px;">Next Resources</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div class="card-proximo">
+          <div>
+            <h3 style="color: #F5F7FA; font-size: 1.1rem; margin-bottom: 8px;">Operational Workflow</h3>
+            <p style="color: #C4CDD3; font-size: 0.9rem; margin-bottom: 15px;">Visual representation of the workflow between support and the platform.</p>
+          </div>
+          <div><a href="fluxo_operacional.html" class="btn" style="font-size: 0.85rem; padding: 8px 14px;">Open document &rarr;</a></div>
+        </div>
+        <div class="card-proximo">
+          <div>
+            <h3 style="color: #F5F7FA; font-size: 1.1rem; margin-bottom: 8px;">Discovery Workflow</h3>
+            <p style="color: #C4CDD3; font-size: 0.9rem; margin-bottom: 15px;">Turning operational patterns into improvement opportunities.</p>
+          </div>
+          <div><a href="cases/case-03-habitat-saas.html" class="btn" style="font-size: 0.85rem; padding: 8px 14px;">Open document &rarr;</a></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+<footer class="pbos-footer">
+  <div class="pbos-footer-signature">Cleyton Hespanhol | Product Owner | UX</div>
+  <div class="pbos-footer-copy">© 2026 Cleyton S. Hespanhol. All rights reserved.</div>
+  <a class="pbos-footer-link" href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener">linkedin.com/in/cleyton-hespanhol</a>
+</footer>
+<link rel="stylesheet" href="../pbos-career-theme.css?v=20261112-career-os">
+</body>
+</html>
