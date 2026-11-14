@@ -1,26 +1,110 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Building an Institutional Virtual Assistant | Cleyton Hespanhol</title>
-<meta name="description" content="Product Discovery applied to the design of an institutional virtual assistant for internal public-sector users.">
-<style>
-.container{max-width:980px;margin:0 auto;padding:72px 24px 0}.hero{padding:50px 0;border-bottom:1px solid var(--pbos-border);margin-bottom:50px}.case-label,.section-label{font:500 9px Orbitron,sans-serif;letter-spacing:.16em;color:#DAAF57;text-transform:uppercase}.hero h1{font:300 clamp(40px,5vw,64px) "DM Sans",sans-serif;line-height:1.05;letter-spacing:-.04em;margin:18px 0 16px;color:#F5F7FA}.hero p,.section p{color:#C4CDD3;line-height:1.75}.hero-highlight,.card,.note{background:#26505A;border:1px solid rgba(218,175,87,.28);border-radius:8px;padding:24px}.hero-highlight{border-left:3px solid #DAAF57;margin-top:28px}.hero-highlight strong{display:block;color:#DAAF57;font:500 9px Orbitron,sans-serif;letter-spacing:.14em}.hero-highlight span{display:block;color:#F5F7FA;font-size:24px;margin-top:6px}.meta,.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}.meta div{background:#26505A;border:1px solid rgba(218,175,87,.28);padding:18px;border-radius:8px;color:#C4CDD3}.meta strong{display:block;color:#DAAF57;font:500 9px Orbitron,sans-serif;letter-spacing:.12em;margin-bottom:5px}.section{margin-bottom:58px}.section h2{font:300 clamp(28px,3vw,36px)/1.12 "DM Sans",sans-serif;color:#F5F7FA;margin:14px 0 24px}.section h3{color:#F5F7FA}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.card:hover{background:#26505A;border-color:#DAAF57}.back{position:fixed;top:18px;left:18px;z-index:20;padding:9px 13px;border:1px solid rgba(218,175,87,.28);border-radius:7px;background:rgba(30,35,40,.96);color:#DAAF57;font:600 9px Orbitron,sans-serif}.lang{position:fixed;top:18px;right:18px;z-index:20;padding:9px 13px;border:1px solid rgba(218,175,87,.28);border-radius:7px;background:rgba(30,35,40,.96);color:#DAAF57;font:600 9px Orbitron,sans-serif}@media(max-width:700px){.cards,.meta{grid-template-columns:1fr}.container{padding-top:72px}}
-</style><script src="../../portfolio-config.js" defer></script>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case 01 · Institutional Virtual Assistant | Cleyton Hespanhol</title>
+<meta name="description" content="Structured Discovery before implementation of a virtual assistant for employees of Maricá's Tax and Fiscal Management Secretariat.">
+<meta name="author" content="Cleyton S. Hespanhol">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0A0D12">
+<link rel="canonical" href="https://c2shespanhol-ops.github.io/meuportifolio/en/cases/case-01-virtual-assistant.html">
+<link rel="alternate" hreflang="pt-BR" href="https://c2shespanhol-ops.github.io/meuportifolio/en/cases/case-01-virtual-assistant.html">
+<link rel="alternate" hreflang="en" href="https://c2shespanhol-ops.github.io/meuportifolio/en/cases/case-01-virtual-assistant.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Case 01 · Institutional Virtual Assistant">
+<meta property="og:description" content="Discovery applied to internal service. Concept and specification only, with no production deployment.">
+<meta property="og:url" content="https://c2shespanhol-ops.github.io/meuportifolio/en/cases/case-01-virtual-assistant.html">
+<meta property="og:image" content="https://c2shespanhol-ops.github.io/meuportifolio/assets/og-cleyton.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../site.css?v=20261112-v2">
+<script src="../../portfolio-config.js" defer></script>
 <script src="../../portfolio-analytics.js" defer></script>
-
-<link rel="stylesheet" href="../../portfolio-theme.css?v=20261112-pbos">
-<style id="case01-doc-interaction">.doc-hub{display:inline-flex;margin:0 0 18px;padding:10px 14px;border:1px solid rgba(218,175,87,.55);border-radius:6px;font:500 9px Orbitron,sans-serif;letter-spacing:.08em;color:#DAAF57}.doc-hub:hover,.doc-hub:focus-visible{background:#DAAF57;color:#1E2328;outline:2px solid #DAAF57;outline-offset:3px}.doc-card{display:flex;flex-direction:column;min-height:170px;color:#F5F7FA;text-decoration:none;transition:transform .22s,border-color .22s,box-shadow .22s}.doc-card p{margin-bottom:16px}.doc-card span{margin-top:auto;align-self:flex-start;padding:7px 9px;border:1px solid rgba(218,175,87,.5);border-radius:4px;color:#DAAF57;font:500 8px Orbitron,sans-serif;letter-spacing:.07em}.doc-card:hover,.doc-card:focus-visible{transform:translateY(-5px);border-color:#DAAF57;box-shadow:0 14px 28px rgba(0,0,0,.28),0 3px 0 rgba(218,175,87,.18)}.doc-card:hover span,.doc-card:focus-visible span{background:#DAAF57;color:#1E2328}.doc-card:focus-visible{outline:3px solid #DAAF57;outline-offset:4px}@media(hover:none){.doc-card span{background:rgba(218,175,87,.12)}}@media(prefers-reduced-motion:reduce){.doc-card{transition:none}}</style>
-<link rel="stylesheet" href="../../portfolio-reference-refresh.css?v=20261112">
+<script src="../../portfolio-language.js" defer></script>
+<script src="../../site.js" defer></script>
 </head>
-<body class="portfolio-case-refresh">
-<a class="back" href="../../index.html">← BACK</a><a class="lang" href="../../case_study_01_persona_final.html">PT</a>
-<main class="container">
-<header class="hero"><div class="case-label">CASE STUDY 01 · TAX & FISCAL MANAGEMENT</div><h1>Building an Institutional Virtual Assistant</h1><p>Product Discovery applied to the design of an institutional virtual assistant initially intended to support employees of the Tax and Fiscal Management Secretariat.</p><div class="hero-highlight"><strong>PRODUCT APPROACH</strong><span>Discovery before technology</span></div><div class="meta"><div><strong>Users</strong>Secretariat employees</div><div><strong>Contribution</strong>Product Discovery | UX</div><div><strong>Context</strong>Internal institutional support</div><div><strong>Focus</strong>Knowledge, journey and conversational experience</div></div></header>
-<section class="section"><div class="section-label">01 · THE PRODUCT</div><h2>A product thought through <em>before implementation.</em></h2><div class="cards"><div class="card"><h3>Primary user</h3><p>Secretariat employees needing institutional communications, quick answers and internal procedures.</p></div><div class="card"><h3>Product</h3><p>An institutional virtual assistant designed to centralize knowledge and reduce operational dependency.</p></div></div></section>
-<section class="section"><div class="note"><p><strong>30-second outcome:</strong> Discovery structured before implementation, covering product vision, proto-personas, journey, conversational architecture, requirements and a conceptual prototype. The persona was approved by management and used in internal channels. The assistant is not presented as a production deployment.</p></div></section>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
 
-<section class="section"><div class="section-label">ROLE & OWNERSHIP</div><h2>What I did and <em>what this case proves.</em></h2><div class="note"><p><strong>My contribution:</strong> I structured Discovery, product vision, personas, journey, conversational architecture, tone of voice, functional requirements and the conceptual prototype. <strong>Limit:</strong> this case is not presented as evidence of formal ownership of Product Strategy, Product Backlog or product metrics.</p></div></section>
-<section class="section"><div class="section-label">03 · PRODUCT READING</div><h2>From need to <em>experience design.</em></h2><div class="cards"><div class="card"><h3>Discovery</h3><p>The work structured the need, users, journey and usage context before implementation.</p></div><div class="card"><h3>Experience architecture</h3><p>Conversational architecture, tone of voice, requirements and prototype translated the intended experience into tangible artifacts.</p></div><div class="card"><h3>Internal approval and use</h3><p>The persona was approved by management and used in internal Secretariat channels, including management presentations and meetings. This does not establish that the assistant was deployed in production.</p></div><div class="card"><h3>Evidence boundary</h3><p>The case demonstrates Discovery, user understanding, journey mapping, requirements and institutional solution design as solution design and specification, without claiming production deployment, formal product strategy ownership or product metrics.</p></div></div></section>
-</main><footer class="pbos-footer"><div class="pbos-footer-signature">Cleyton Hespanhol | Product Owner | UX</div><div class="pbos-footer-copy">© 2026 Cleyton S. Hespanhol. All rights reserved.</div></footer>
-<link rel="stylesheet" href="/meuportifolio/pbos-career-theme.css?v=20261112-career-os">
-</body></html><section class="section"><div class="section-label">02 · DISCOVERY ARTIFACTS</div><h2>From the problem to <em>the experience architecture.</em></h2><a class="doc-hub" href="case-01-virtual-assistant-artifacts.html">EXPLORE FULL DOCUMENTATION ↗</a> <a class="doc-hub" href="case-01-virtual-assistant-brief.html">RECONSTRUCTED BRIEF ↗</a> <a class="doc-hub" href="case-01-virtual-assistant-flows.html">VIEW FLOWCHARTS ↗</a><div class="cards"><a class="card doc-card" href="case-01-virtual-assistant-artifacts.html#artifact-01"><h3>Product Vision</h3><p>Objectives, scope, constraints and the intended vision for the institutional assistant.</p><span>OPEN DOCUMENTATION ↗</span></a><a class="card doc-card" href="case-01-virtual-assistant-artifacts.html#artifact-02"><h3>Proto-personas</h3><p>Reference profiles used to structure needs and usage hypotheses.</p><span>OPEN DOCUMENTATION ↗</span></a><a class="card doc-card" href="case-01-virtual-assistant-artifacts.html#artifact-03"><h3>User Journey</h3><p>Proposed stages, decisions, responses and human handoff.</p><span>OPEN DOCUMENTATION ↗</span></a><a class="card doc-card" href="case-01-virtual-assistant-artifacts.html#artifact-04"><h3>Conversational Architecture</h3><p>Intent groups, dialogue structure, fallback and escalation paths.</p><span>OPEN DOCUMENTATION ↗</span></a><a class="card doc-card" href="case-01-virtual-assistant-artifacts.html#artifact-05"><h3>Master Prompt</h3><p>Assistant role, source restrictions and response boundaries.</p><span>OPEN DOCUMENTATION ↗</span></a><a class="card doc-card" href="case-01-virtual-assistant-artifacts.html#artifact-06"><h3>Tone of Voice Guide</h3><p>Clarity, objectivity and institutional communication standards.</p><span>OPEN DOCUMENTATION ↗</span></a><a class="card doc-card" href="case-01-virtual-assistant-artifacts.html#artifact-07"><h3>Conceptual Prototype</h3><p>Initial interface structure and expected interactions.</p><span>OPEN DOCUMENTATION ↗</span></a><a class="card doc-card" href="case-01-virtual-assistant-artifacts.html#artifact-08"><h3>Functional Requirements</h3><p>Expected capabilities, approved knowledge sources and human handoff.</p><span>OPEN DOCUMENTATION ↗</span></a></div></section>
+<header class="site-header">
+  <div class="shell case-bar">
+    <a class="back-link" href="index.html"><svg aria-hidden="true" width="18" height="18"><use href="#i-left"/></svg>Portfolio</a>
+    <span class="lang" role="group" aria-label="Language">
+      <a data-lang="pt" href="case_study_01_persona_final.html" lang="pt-BR" hreflang="pt-BR" aria-current="false">PT</a>
+      <a data-lang="en" href="case-01-virtual-assistant.html" lang="en" hreflang="en" aria-current="page">EN</a>
+    </span>
+  </div>
+</header>
+
+<main id="main" class="case-wrap">
+
+  <section class="case-hero" aria-labelledby="titulo">
+    <span class="eyebrow">Case 01 · Tax and Fiscal Management Secretariat</span>
+    <h1 id="titulo">Institutional virtual assistant: <em>Discovery</em> before technology</h1>
+    <p class="lead">Structured concept for a virtual assistant to support internal services for Secretariat employees, centralizing knowledge and reducing operational dependency.</p>
+    <p class="reading-time">About 2 min read</p>
+    <dl class="summary">
+      <div class="wide"><dt>What this case delivers</dt><dd class="result-line">Product vision, personas, journey, conversational architecture, requirements and conceptual prototype</dd></div>
+      <div><dt>Primary user</dt><dd>Secretariat employees seeking communications, quick answers and internal procedures</dd></div>
+      <div><dt>Status</dt><dd>Concept and specification. Not deployed in production</dd></div>
+      <div><dt>Approval</dt><dd>Persona approved by management and used in internal channels</dd></div>
+      <div><dt>Context and period</dt><dd>SEGET, Maricá City Government, January 2025 to May 2026</dd></div>
+    </dl>
+    <p class="role-box"><b>My role:</b> I structured Discovery, product vision, personas, the user journey, conversational architecture, tone of voice, functional requirements and the conceptual prototype. <b>Evidence boundary:</b> this case does not demonstrate assistant deployment or formal ownership of Product Strategy, Product Backlog or product metrics. No quantitative outcome is claimed.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="s0">
+    <span class="eyebrow">01 · Product perspective</span>
+    <h2 id="s0">From the need to experience design</h2>
+    <div class="pair">
+      <div><h3>Discovery</h3><p>I structured the need, users, journey and usage context before any implementation, using product vision, persona and journey artifacts.</p></div>
+      <div><h3>Arquitetura da experiência</h3><p>The concept was detailed through conversational architecture, tone of voice, functional requirements and a conceptual prototype.</p></div>
+      <div><h3>Approval e uso interno</h3><p>The persona was approved by management and used in internal Secretariat channels, including visual management presentations and meetings.</p></div>
+      <div><h3>O que isso não prova</h3><p>The use of the persona does not prove that the assistant was deployed. This case demonstrates Discovery and specification.</p></div>
+    </div>
+  </section>
+
+  <section class="case-section" aria-labelledby="s1">
+    <span class="eyebrow">02 · Discovery artifacts</span>
+    <h2 id="s1">Documents produced</h2>
+    <details class="docs"><summary>Explore supporting documentation</summary>
+    <ul class="doc-links">
+      <li><a href="case-01-virtual-assistant-artifacts.html#artifact-01">Product Vision</a></li>
+      <li><a href="case-01-virtual-assistant-artifacts.html#artifact-02">Proto-personas</a></li>
+      <li><a href="case-01-virtual-assistant-artifacts.html#artifact-03">User Journey</a></li>
+      <li><a href="case-01-virtual-assistant-artifacts.html#artifact-04">Conversational Architecture</a></li>
+      <li><a href="case-01-virtual-assistant-artifacts.html#artifact-05">Master Prompt</a></li>
+      <li><a href="case-01-virtual-assistant-artifacts.html#artifact-06">Tone of Voice Guide</a></li>
+      <li><a href="case-01-virtual-assistant-artifacts.html#artifact-07">Conceptual Prototype</a></li>
+      <li><a href="case-01-virtual-assistant-artifacts.html#artifact-08">Functional Requirements</a></li>
+      <li><a href="case-01-virtual-assistant-brief.html">Reconstructed brief</a></li>
+      <li><a href="case-01-virtual-assistant-flows.html">Flowcharts</a></li>
+      <li><a href="case-01-virtual-assistant-artifacts.html">Additional documentation</a></li>
+    </ul>
+    </details>
+    <p class="limit"><b>Note:</b> the brief and some artifacts were reconstructed from the experience and are not original corporate documents.</p>
+
+  <p class="case-count">Case 01 of 06.</p>
+
+  <div class="next-case">
+    <a class="btn primary" href="case-02-lead-time-governance.html">Next case: Request flow governance</a>
+    <a class="btn" href="../../index.html#cases">Back to case studies</a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div><strong>Cleyton S. Hespanhol</strong> · Product Owner | UX</div>
+  <div>© 2026 Cleyton S. Hespanhol · <a href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+</footer>
+<button class="to-top" type="button" aria-label="Back to top"><svg aria-hidden="true"><use href="#i-up"/></svg></button>
+</body>
+</html>
