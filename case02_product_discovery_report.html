@@ -401,8 +401,9 @@
         font-size: 14px;
       }
 
-      .exec-table th, .exec-table{display:block;width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
-      .exec-table th,.exec-table td{min-width:150px;overflow-wrap:break-word}
+      .table-scroll{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+      .exec-table{min-width:620px}
+      .exec-table th,.exec-table td{overflow-wrap:break-word}
       .exec-table td {
         padding: 20px 24px;
         text-align: left;
@@ -1047,7 +1048,7 @@ body .stat-box { color:#DAAF57 !important; }
     <div class="section-label">17 · MATRIZ COMPARATIVA</div>
     <h2 class="section-title">Indicadores de <em>Transformação</em></h2>
     
-    <table class="exec-table">
+    <div class="table-scroll"><table class="exec-table">
       <thead>
         <tr>
           <th>Dimensão</th>
@@ -1068,7 +1069,7 @@ body .stat-box { color:#DAAF57 !important; }
         <tr><td><strong>Lead Time</strong></td><td>Até aproximadamente uma semana</td><td>Em geral até 48h</td></tr>
         <tr><td><strong>Resultado</strong></td><td>Baixa previsibilidade</td><td>Aproximadamente 71% de redução</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 </section>
 
