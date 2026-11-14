@@ -147,6 +147,7 @@ jobs:
           test -f _site/en/cases/case-03-habitat-saas.html
           test -f _site/en/cases/case-03-habitat-operational-protocol.html
           test -f _site/en/cases/case-03-habitat-master-protocol.html
+          test -f _site/en/cases/case-03-habitat-evidence-matrix.html
           test -f _site/en/cases/case-03-habitat-lead-time-report.html
           test -f _site/en/cases/case-03-habitat-discovery-flow.html
           test -f _site/en/cases/case-03-habitat-operational-workflow.html
@@ -246,6 +247,7 @@ jobs:
               en/cases/case-03-habitat-saas.html \
               en/cases/case-03-habitat-operational-protocol.html \
               en/cases/case-03-habitat-master-protocol.html \
+              en/cases/case-03-habitat-evidence-matrix.html \
               en/cases/case-03-habitat-lead-time-report.html \
               en/cases/case-03-habitat-discovery-flow.html \
               en/cases/case-03-habitat-operational-workflow.html \
