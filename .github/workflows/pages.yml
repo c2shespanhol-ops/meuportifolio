@@ -264,6 +264,38 @@ jobs:
               case_study_06_peixe_urbano_artifacts.html \
               case04_documentacao.html \
               case05_documentacao.html \
+              case01_documento_visao.html \
+              case01_personas.html \
+              case01_jornada_usuario.html \
+              case01_arquitetura_conversacional.html \
+              case01_prompt_mestre.html \
+              case01_guia_tom_voz.html \
+              case01_prototipo_conceitual.html \
+              case01_requisitos_funcionais.html \
+              case01_briefing_reconstruido.html \
+              case01_fluxogramas.html \
+              case01_documentacao_complementar.html \
+              case02_product_discovery_report.html \
+              case02_as_is_to_be_mapping.html \
+              case02_service_workflow_design.html \
+              case02_governance_prioritization_framework.html \
+              case02_decision_playbook.html \
+              case02_stakeholder_alignment.html \
+              case02_product_success_metrics.html \
+              case02_lessons_learned.html \
+              Central_Conhecimento.html \
+              modelo_onboarding.html \
+              fluxo_operacional.html \
+              mapa_jornada_usuario.html \
+              fluxo_discovery.html \
+              protocolo_habitat.html \
+              artefato_protocolo_habitat.html \
+              protocolo_gestao_incidentes.html \
+              relatorio_leadtime.html \
+              case05_checklist_prontidao.html \
+              case05_jornada_cidadao.html \
+              case05_mapa_stakeholders.html \
+              case05_plano_validacao_usuario.html \
               en/cases/case-04-shv-documentation.html \
               en/cases/case-05-pav-documentation.html \
               en/cases/case-01-virtual-assistant.html \
