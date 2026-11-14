@@ -8,6 +8,16 @@ pattern=re.compile(r'<link\b[^>]*href=["\'][^"\']*portfolio-theme\.css[^"\']*["\
 count=0
 for page in root.rglob("*.html"):
  source=page.read_text(encoding="utf-8")
+ def normalize_theme_color(match):
+  tag=match.group(0)
+  if re.search(r'content=["\\\']',tag,re.I):
+   return re.sub(r'content=(["\\\']).*?\\1','content="#1E2328"',tag,count=1,flags=re.I)
+  return tag[:-1]+' content="#1E2328">'
+ theme_meta=re.compile(r'<meta\\b[^>]*name=["\\\']theme-color["\\\'][^>]*>',re.I)
+ if theme_meta.search(source):
+  source=theme_meta.sub(normalize_theme_color,source,count=1)
+ else:
+  source=re.sub(r"</head>",'<meta name="theme-color" content="#1E2328">\\n</head>',source,count=1,flags=re.I)
  relative=os.path.relpath(theme,page.parent).replace(os.sep,"/")
  href=relative+"?v=20261107-ux"
  matches=list(pattern.finditer(source))
