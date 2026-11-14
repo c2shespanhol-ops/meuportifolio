@@ -25,7 +25,7 @@ for page in root.rglob("*.html"):
   source=re.sub(r"</head>",'<meta name="theme-color" content="#1E2328">\n</head>',source,count=1,flags=re.I)
 
  relative=os.path.relpath(theme,page.parent).replace(os.sep,"/")
- href=relative+"?v=20261114-parity"
+ href=relative+"?v=20261114-palette"
  source=pattern.sub("",source)
  link=f'<link rel="stylesheet" href="{href}">'
  if re.search(r"</body>",source,re.I):
