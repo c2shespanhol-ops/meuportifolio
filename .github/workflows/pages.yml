@@ -137,8 +137,24 @@ jobs:
           test -f _site/en/cases/case-04-shv-energy.html
           test -f _site/en/cases/case-05-pav-receita-federal.html
           test -f _site/en/cases/case-06-peixe-urbano.html
+          test -f _site/en/cases/case-05-citizen-journey.html
+          test -f _site/en/cases/case-05-user-validation.html
+          test -f _site/en/cases/case-05-readiness-checklist.html
+          test -f _site/en/cases/case-05-stakeholder-map.html
+          test -f _site/en/Central_Knowledge.html
+          test -f _site/en/cases/case-01-product-vision.html
+          test -f _site/en/cases/case-01-proto-personas.html
+          test -f _site/en/cases/case-01-user-journey.html
+          test -f _site/en/cases/case-01-conversational-architecture.html
+          test -f _site/en/cases/case-01-master-prompt.html
+          test -f _site/en/cases/case-01-tone-of-voice.html
+          test -f _site/en/cases/case-01-conceptual-prototype.html
+          test -f _site/en/cases/case-01-functional-requirements.html
           ! find _site -type f \( -path '*/data/*' -o -path '*/career-os/*' -o -path '*/scripts/*' -o -path '*/docs/*' \) | grep -q .
-          grep -RniE 'whatsapp|wa\.me/5521986314378' _site/index.html _site/en/index.html >/dev/null
+          grep -qi 'mailto:cleyton.s.hespanhol@gmail.com' _site/index.html
+          grep -qi 'linkedin.com/in/cleyton-hespanhol' _site/index.html
+          grep -qi 'mailto:cleyton.s.hespanhol@gmail.com' _site/en/index.html
+          grep -qi 'wa.me/5521986314378' _site/en/index.html
           if grep -Rni 'undefined</main>' _site/en/cases; then
             echo '::error::Unexpected undefined closing main marker in English case pages.'
             exit 1
