@@ -7,7 +7,7 @@
   --pbos-surface-2:#26505A;
   --pbos-gold:#DAAF57;
   --pbos-gold-soft:#DAAF57;
-  --pbos-teal:#DAAF57;
+  --pbos-teal:#26505A;
   --pbos-text:#F5F7FA;
   --pbos-muted:#C4CDD3;
   --pbos-muted-2:#C4CDD3;
@@ -16,7 +16,7 @@
   --bg:var(--pbos-bg);--bg2:var(--pbos-surface);--bg3:var(--pbos-surface-2);
   --surface:var(--pbos-surface);--surface2:var(--pbos-surface-2);
   --gold:var(--pbos-gold);--gold-lt:var(--pbos-gold-soft);
-  --teal:var(--pbos-teal);--teal-br:var(--pbos-teal);--cyan:var(--pbos-gold);
+  --teal:var(--pbos-teal);--teal-br:var(--pbos-teal);--cyan:var(--pbos-teal);
   --text:var(--pbos-text);--white:var(--pbos-text);--muted:var(--pbos-muted);
   --text-muted:var(--pbos-muted);--gray1:var(--pbos-muted);--gray2:var(--pbos-muted-2);
   --border:var(--pbos-border);--background:var(--pbos-bg);--foreground:var(--pbos-text);
@@ -80,7 +80,7 @@ p, li, h1, h2, h3, h4, h5, h6, a, span { overflow-wrap: break-word !important; w
 /* Final cross-page overrides based on the approved HS MIND reference and mobile screenshots */
 :root {
  --pbos-bg:#1E2328; --pbos-surface:#26505A; --pbos-surface-2:#26505A;
- --pbos-gold:#DAAF57; --pbos-gold-soft:#DAAF57; --pbos-teal:#DAAF57;
+ --pbos-gold:#DAAF57; --pbos-gold-soft:#DAAF57; --pbos-teal:#26505A;
  --pbos-text:#F5F7FA; --pbos-muted:#C4CDD3; --pbos-muted-2:#C4CDD3;
  --pbos-border:rgba(196,205,211,.20);
  --bg:var(--pbos-bg); --bg2:var(--pbos-surface); --bg3:var(--pbos-surface-2);
@@ -214,7 +214,7 @@ a,button{min-height:24px}
   --pbos-text:#F5F7FA;
   --pbos-muted:#C4CDD3;
   --pbos-muted-2:#C4CDD3;
-  --pbos-border:rgba(218,175,87,.24);
+  --pbos-border:rgba(196,205,211,.20);
   --pbos-border-soft:rgba(196,205,211,.16);
   --bg:var(--pbos-bg);--bg2:var(--pbos-surface);--bg3:var(--pbos-surface-2);
   --surface:var(--pbos-surface);--surface2:var(--pbos-surface-2);
