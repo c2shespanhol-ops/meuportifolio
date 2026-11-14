@@ -132,6 +132,38 @@ jobs:
           test -f _site/case_study_06_peixe_urbano_artifacts.html
           test -f _site/case04_documentacao.html
           test -f _site/case05_documentacao.html
+          test -f _site/case01_documento_visao.html
+          test -f _site/case01_personas.html
+          test -f _site/case01_jornada_usuario.html
+          test -f _site/case01_arquitetura_conversacional.html
+          test -f _site/case01_prompt_mestre.html
+          test -f _site/case01_guia_tom_voz.html
+          test -f _site/case01_prototipo_conceitual.html
+          test -f _site/case01_requisitos_funcionais.html
+          test -f _site/case01_briefing_reconstruido.html
+          test -f _site/case01_fluxogramas.html
+          test -f _site/case01_documentacao_complementar.html
+          test -f _site/case02_product_discovery_report.html
+          test -f _site/case02_as_is_to_be_mapping.html
+          test -f _site/case02_service_workflow_design.html
+          test -f _site/case02_governance_prioritization_framework.html
+          test -f _site/case02_decision_playbook.html
+          test -f _site/case02_stakeholder_alignment.html
+          test -f _site/case02_product_success_metrics.html
+          test -f _site/case02_lessons_learned.html
+          test -f _site/Central_Conhecimento.html
+          test -f _site/modelo_onboarding.html
+          test -f _site/fluxo_operacional.html
+          test -f _site/mapa_jornada_usuario.html
+          test -f _site/fluxo_discovery.html
+          test -f _site/protocolo_habitat.html
+          test -f _site/artefato_protocolo_habitat.html
+          test -f _site/protocolo_gestao_incidentes.html
+          test -f _site/relatorio_leadtime.html
+          test -f _site/case05_checklist_prontidao.html
+          test -f _site/case05_jornada_cidadao.html
+          test -f _site/case05_mapa_stakeholders.html
+          test -f _site/case05_plano_validacao_usuario.html
           test -f _site/en/cases/case-04-shv-documentation.html
           test -f _site/en/cases/case-05-pav-documentation.html
           test -f _site/en/cases/case-01-virtual-assistant.html
