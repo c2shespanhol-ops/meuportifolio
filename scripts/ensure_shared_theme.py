@@ -25,19 +25,13 @@ for page in root.rglob("*.html"):
   source=re.sub(r"</head>",'<meta name="theme-color" content="#1E2328">\n</head>',source,count=1,flags=re.I)
 
  relative=os.path.relpath(theme,page.parent).replace(os.sep,"/")
- href=relative+"?v=20261107-ux"
- matches=list(pattern.finditer(source))
- if matches:
-  first=matches[0].group(0)
-  first=re.sub(r'href=(["\']).*?\1',f'href="{href}"',first,count=1,flags=re.I)
-  n=[0]
-  def keep_one(match):
-   n[0]+=1
-   return first if n[0]==1 else ""
-  source=pattern.sub(keep_one,source)
+ href=relative+"?v=20261114-parity"
+ source=pattern.sub("",source)
+ link=f'<link rel="stylesheet" href="{href}">'
+ if re.search(r"</body>",source,re.I):
+  source=re.sub(r"</body>",link+"\n</body>",source,count=1,flags=re.I)
  else:
-  link=f'<link rel="stylesheet" href="{href}">\n'
-  source=re.sub(r"</head>",link+"</head>",source,count=1,flags=re.I)
+  source=re.sub(r"</head>",link+"\n</head>",source,count=1,flags=re.I)
 
  if 'name="viewport"' not in source.lower():
   source=re.sub(r"<head([^>]*)>",r'<head\1>\n<meta name="viewport" content="width=device-width, initial-scale=1">',source,count=1,flags=re.I)
@@ -45,4 +39,4 @@ for page in root.rglob("*.html"):
  page.write_text(source,encoding="utf-8")
  count+=1
 
-print(f"Shared stylesheet deduplicated and refreshed on {count} HTML pages.")
+print(f"Canonical portfolio stylesheet moved to the end of {count} HTML pages.")
