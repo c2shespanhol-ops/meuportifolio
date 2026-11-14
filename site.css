@@ -325,3 +325,8 @@ html[lang^="en"] .case.visited .company-chip::after{content:" · viewed"}
 .result .mini-compare b{display:inline;margin:0;font:600 12px/1 var(--font-body);letter-spacing:0;text-transform:none;color:var(--text)}
 .mail-text{margin:0;flex-basis:100%;font-size:14px;color:var(--muted)}
 .mail-text span{color:var(--text);user-select:all;-webkit-user-select:all}
+
+
+/* Tabelas dos documentos: rolagem interna em telas estreitas, sem ampliar a página */
+.case-section table{display:block;width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.case-section th,.case-section td{overflow-wrap:break-word}
