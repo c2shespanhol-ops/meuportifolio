@@ -143,6 +143,11 @@ jobs:
           test -f _site/case01_briefing_reconstruido.html
           test -f _site/case01_fluxogramas.html
           test -f _site/case01_documentacao_complementar.html
+          test -f _site/case01_metricas_impacto.html
+          test -f _site/en/cases/case-01-measurement-framework.html
+          test -f _site/case03_protocolo_mestre.html
+          test -f _site/en/cases/case-03-habitat-documentation-history.html
+          test -f _site/protocolo_maria.html
           test -f _site/case02_product_discovery_report.html
           test -f _site/case02_as_is_to_be_mapping.html
           test -f _site/case02_service_workflow_design.html
@@ -264,6 +269,11 @@ jobs:
               case_study_06_peixe_urbano_artifacts.html \
               case04_documentacao.html \
               case05_documentacao.html \
+              case01_metricas_impacto.html \
+              en/cases/case-01-measurement-framework.html \
+              case03_protocolo_mestre.html \
+              en/cases/case-03-habitat-documentation-history.html \
+              protocolo_maria.html \
               case01_documento_visao.html \
               case01_personas.html \
               case01_jornada_usuario.html \
