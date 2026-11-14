@@ -148,6 +148,11 @@ jobs:
           test -f _site/en/cases/case-03-habitat-operational-protocol.html
           test -f _site/en/cases/case-03-habitat-master-protocol.html
           test -f _site/en/cases/case-03-habitat-lead-time-report.html
+          test -f _site/en/cases/case-03-habitat-discovery-flow.html
+          test -f _site/en/cases/case-03-habitat-operational-workflow.html
+          test -f _site/en/cases/case-03-habitat-user-journey-map.html
+          test -f _site/en/cases/case-03-habitat-onboarding-model.html
+          test -f _site/en/cases/case-03-habitat-incident-management.html
           test -f _site/en/cases/case-04-shv-energy.html
           test -f _site/en/cases/case-05-pav-receita-federal.html
           test -f _site/en/cases/case-06-peixe-urbano.html
@@ -242,6 +247,11 @@ jobs:
               en/cases/case-03-habitat-operational-protocol.html \
               en/cases/case-03-habitat-master-protocol.html \
               en/cases/case-03-habitat-lead-time-report.html \
+              en/cases/case-03-habitat-discovery-flow.html \
+              en/cases/case-03-habitat-operational-workflow.html \
+              en/cases/case-03-habitat-user-journey-map.html \
+              en/cases/case-03-habitat-onboarding-model.html \
+              en/cases/case-03-habitat-incident-management.html \
               en/cases/case-04-shv-energy.html \
               en/cases/case-05-pav-receita-federal.html \
               en/cases/case-06-peixe-urbano.html; do
