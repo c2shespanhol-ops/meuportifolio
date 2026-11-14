@@ -6,16 +6,16 @@
   Regra de legibilidade: nenhum texto abaixo de 12px, corpo em 16px, alvos de toque de 44px ou mais.
 */
 :root{
-  --bg:#0A0D12;
-  --surface:#0F151C;
-  --surface-2:#131D28;
-  --text:#F7F8FA;
-  --muted:#AEB5BD;
-  --blue:#7FB2DC;
-  --gold:#DEB758;
-  --gold-ink:#14100A;
-  --line:rgba(247,248,250,.12);
-  --line-gold:rgba(222,183,88,.34);
+  --bg:#1E2328;
+  --surface:#26505A;
+  --surface-2:#26505A;
+  --text:#F5F7FA;
+  --muted:#C4CDD3;
+  --blue:#DAAF57;
+  --gold:#DAAF57;
+  --gold-ink:#1E2328;
+  --line:rgba(245,247,250,.12);
+  --line-gold:rgba(218,175,87,.34);
   --radius:20px;
   --radius-sm:12px;
   --max:1120px;
@@ -64,7 +64,7 @@ p{margin:0}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 20px;border:1px solid var(--line);border-radius:14px;font:600 15px/1.2 var(--font-body);color:var(--text);background:transparent;cursor:pointer;transition:background-color .18s ease,border-color .18s ease,transform .18s ease}
 .btn:hover{text-decoration:none;border-color:var(--gold);background:var(--surface)}
 .btn.primary{background:var(--gold);border-color:var(--gold);color:var(--gold-ink)}
-.btn.primary:hover{background:#ECC76B}
+.btn.primary:hover{background:#DAAF57}
 .btn svg{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
 /* Hero */
