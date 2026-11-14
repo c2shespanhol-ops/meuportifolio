@@ -1,343 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Caso 05 · SHV Energy · Onboarding e Jornada do Cliente</title>
-<style>
-:root{--bg:#1E2328;--bg2:#26505A;--bg3:#26505A;--gold:#DAAF57;--gold-lt:#DAAF57;--teal:#DAAF57;--coral:#DAAF57;--white:#F5F7FA;--gray:#C4CDD3;--border:rgba(218,175,87,.22)}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7}a{color:inherit}.top{height:2px;background:var(--bg);}.back{position:fixed;top:22px;left:22px;z-index:10;text-decoration:none;color:var(--gold);font:600 10px Orbitron,sans-serif;letter-spacing:.1em;background:rgba(30,35,40,.92);border:1px solid var(--border);padding:9px 14px;border-radius:4px}.wrap{max-width:920px;margin:auto;padding:105px 24px 70px}.eyebrow{font:600 10px Orbitron,sans-serif;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px}.hero{padding-bottom:38px;border-bottom:1px solid var(--border);margin-bottom:40px}.hero h1{font-size:clamp(34px,5vw,56px);line-height:1.08;margin-bottom:15px;font-weight:700}.hero p{font-size:15px;color:var(--gray);max-width:760px}.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:58px}.meta div,.card,.flow,.note{background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:20px}.label{font:600 9px Orbitron,sans-serif;color:var(--gold);letter-spacing:.13em;text-transform:uppercase;margin-bottom:5px}.value{font-size:13px;font-weight:500}.section{margin-bottom:58px}.section h2{font-size:25px;margin-bottom:22px;border-bottom:1px solid var(--border);padding-bottom:11px}.timeline{border-left:1px solid var(--border);padding-left:23px}.step{position:relative;margin-bottom:30px}.step:last-child{margin-bottom:0}.step:before{content:'';position:absolute;left:-29px;top:7px;width:9px;height:9px;border:2px solid var(--gold);border-radius:50%;background:var(--bg)}.step h3{font-size:18px;margin-bottom:7px}.step p{font-size:13px;color:var(--gray)}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.tag{font:600 8px Orbitron,sans-serif;color:var(--teal);border:1px solid rgba(218,175,87,.35);padding:3px 7px;border-radius:3px}.flow{display:grid;gap:0;padding:0;overflow:hidden}.flow-row{display:grid;grid-template-columns:1fr 42px 1fr;align-items:stretch}.flow-row>div{padding:19px}.flow-row>div:nth-child(2){display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:20px;border-left:1px solid var(--border);border-right:1px solid var(--border)}.flow-row+.flow-row{border-top:1px solid var(--border)}.flow strong{font-size:14px}.flow span{display:block;font-size:12px;color:var(--gray);margin-top:4px}.evidence{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card h3{font-size:15px;margin-bottom:7px}.card p{font-size:12px;color:var(--gray)}.positive{border-top:2px solid var(--gold)}.limitation{border-top:2px solid var(--coral)}.note{border-left:2px solid var(--gold);font-size:13px;color:var(--white)}.note strong{color:var(--gold-lt)}footer{border-top:1px solid var(--border);text-align:center;padding:28px 20px;color:var(--gray);font-size:11px}.signature{margin-top:9px;color:var(--gold);font:600 9px Orbitron,sans-serif;letter-spacing:.08em}@media(max-width:600px){.flow-row{grid-template-columns:1fr}.flow-row>div:nth-child(2){display:none}.flow-row+.flow-row{border-top:1px solid var(--border)}}
-</style>
-
-
-<style id="pbos-final-overrides-2">
-html, body { background:#1E2328 !important; color:#F5F7FA !important; }
-body { font-family:'DM Sans',sans-serif !important; }
-body .hero, body .hero-bg, body main, body .container, body .section, body .cases-section, body .corporate-banner, body .hero-footer, body footer, body .pbos-footer { background:#1E2328 !important; }
-body .hero-bg { background-image:none !important; }
-body .orb, body [class*="orb"], body [class*="glow"] { display:none !important; background:none !important; box-shadow:none !important; }
-body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; box-shadow:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:linear-gradient(90deg,#DAAF57,#DAAF57,#DAAF57) !important; }
-body h1, body h2, body h3, body h4, body h5, body h6, body .hero-title, body .hero-subtitle, body .section-heading, body .section-title, body .eco-title, body .doc-title, body .pillar-card h3, body .artifact-card h3, body .case-card h3, body .hero-highlight-value, body .metric-display, body .number { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
-body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.04em !important; line-height:1.05 !important; }
-body h2, body .section-heading, body .section-title { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; }
-body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text, body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label, body .artifact-action, body .competency-title, body .eco-role, body .doc-number, body .metric-label, body .tag, body .scroll-hint, body .footer-role { font-family:'Orbitron',sans-serif !important; color:#DAAF57 !important; letter-spacing:.12em !important; }
-body p, body li, body td, body th, body .lead, body .hero-desc, body .hero-sub-text, body .hero-main-text, body .card p, body .pillar-card p, body .artifact-card p, body .competency-desc, body .eco-text, body .step p, body .note, body .metric p, body .banner-desc, body .case-card p, body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#C4CDD3 !important; }
-body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card, body .metric, body .meta, body .hero-highlight-card, body .flow, body .note, body .doc-card, body .case-card, body .stat-box { background:#26505A !important; border-color:rgba(218,175,87,.20) !important; }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover, body .competency-card:hover { background:#26505A !important; border-color:#DAAF57 !important; }
-body .back, body .back-btn { background:rgba(30,35,40,.94) !important; color:#DAAF57 !important; border-color:rgba(218,175,87,.20) !important; }
-body .back:hover, body .back-btn:hover { background:#DAAF57 !important; color:#1E2328 !important; }
-body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; border-color:#DAAF57 !important; }
-body .metric-display, body .number { color:#DAAF57 !important; }
-body footer, body .pbos-footer { border-top-color:rgba(181,187,193,.12) !important; color:#C4CDD3 !important; }
-body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
-body .pbos-footer-copy { color:#C4CDD3 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#DAAF57 !important; }
-</style>
-<script src="portfolio-language.js?v=20260919" defer></script>
-<style id="pbos-unified-visual-standard">
-/* PBOS unified visual standard */
-html,body{background:#1E2328!important;color:#F5F7FA!important}
-body{font-family:'DM Sans',sans-serif!important;font-weight:300!important}
-body,body main,body header,body footer,body .hero,body .container,body .wrap,body .section,body .section-inner,body .cases-section,body .hero-container,body .hero-content,body .hero-footer,body .corporate-banner{background-color:#1E2328!important;background-image:none!important}
-body .hero-bg,body .orb,body [class*="orb"],body [class*="glow"],body [class*="ambient"],body [class*="halo"]{display:none!important;background:none!important;background-image:none!important;box-shadow:none!important;filter:none!important;opacity:0!important}
-body .hero:before,body .hero:after,body main:before,body main:after{background:none!important;background-image:none!important;box-shadow:none!important;content:none!important}
-body .gold-accent-top,body .top{height:2px!important;background:#DAAF57!important;background-image:none!important}
-body h1,body h2,body h3,body h4,body h5,body h6,body .hero-title,body .hero-main-text,body .hero-subtitle,body .section-title,body .section-heading,body .banner-title,body .eco-title,body .doc-title,body .pillar-card h3,body .artifact-card h3,body .case-card h3,body .hero-highlight-value,body .metric-display,body .number{font-family:'DM Sans',sans-serif!important;font-style:normal!important;color:#F5F7FA!important}
-body .hero-title em,body .section-title em,body .section-heading em,body .hero-main-text em,body .banner-desc em{font-family:'DM Sans',sans-serif!important;font-style:normal!important;color:#DAAF57!important}
-body p,body li,body td,body th,body input,body button,body textarea,body select,body .lead,body .hero-desc,body .hero-sub-text,body .hero-main-text,body .card p,body .pillar-card p,body .artifact-card p,body .case-card p,body .competency-desc,body .eco-text,body .step p,body .note,body .metric p,body .footer-copy,body .footer-right{font-family:'DM Sans',sans-serif!important;color:#C4CDD3!important;font-weight:300!important;line-height:1.75!important}
-body .eyebrow,body .hero-eyebrow,body .hero-tags,body .case-label-text,body .case-meta,body .section-label,body .nav-role,body .nav-tag,body .label,body .artifact-action,body .competency-title,body .eco-role,body .doc-number,body .metric-label,body .tag,body .scroll-hint,body .footer-role{font-family:'Orbitron',sans-serif!important;font-style:normal!important;color:#DAAF57!important;letter-spacing:.14em!important}
-body .card,body .pillar-card,body .artifact-card,body .competency-card,body .eco-card,body .metric,body .meta,body .hero-highlight-card,body .flow,body .note,body .doc-card,body .case-card,body .stat-box{background:#26505A!important;border-color:rgba(218,175,87,.30)!important;box-shadow:none!important}
-body .card:hover,body .artifact-card:hover,body .case-card:hover,body .doc-card:hover,body .competency-card:hover,body .eco-card:hover{background:#26505A!important;border-color:#DAAF57!important}
-body .back,body .back-btn{background:rgba(30,35,40,.96)!important;color:#DAAF57!important;border-color:rgba(218,175,87,.30)!important}
-body .back:hover,body .back-btn:hover{background:#DAAF57!important;color:#1E2328!important}
-body .nav-name,body .logo-text{font-family:'DM Sans',sans-serif!important;color:#F5F7FA!important}
-body .h-mark,body .logo-h{font-family:'DM Sans',sans-serif!important;color:#F5F7FA!important;border-color:#DAAF57!important}
-body .metric-display,body .number{color:#DAAF57!important;font-weight:300!important}
-body footer,body .pbos-footer{background:#1E2328!important;border-top-color:rgba(218,175,87,.30)!important;color:#C4CDD3!important}
-body .pbos-footer-signature{font-family:'DM Sans',sans-serif!important;color:#F5F7FA!important;font-weight:400!important}
-body .pbos-footer-copy{color:#C4CDD3!important}
-body .pbos-footer-link,body .footer-linkedin{color:#DAAF57!important}
-@media(max-width:760px){body .container,body .wrap,body .cases-section,body .hero-content,body .hero-footer,body .nav,body footer,body .section,body header{padding-left:20px!important;padding-right:20px!important}}
-
-
-/* Language control */
-.portfolio-language-switcher{
-  position:fixed;top:18px;right:18px;z-index:1100;display:flex;gap:2px;
-  padding:3px;border:1px solid rgba(218,175,87,.30);border-radius:6px;
-  background:rgba(30,35,40,.94);backdrop-filter:blur(8px);box-shadow:0 6px 20px rgba(0,0,0,.18)
-}
-.portfolio-language-switcher a{
-  min-width:34px;padding:7px 8px;text-align:center;text-decoration:none;
-  font:600 9px/1 'Orbitron',sans-serif;letter-spacing:.08em;color:#C4CDD3!important;
-  border-radius:4px;transition:.2s ease
-}
-.portfolio-language-switcher a:hover,.portfolio-language-switcher a.active{background:#DAAF57;color:#1E2328!important}
-@media(max-width:760px){.portfolio-language-switcher{top:12px;right:12px}.portfolio-language-switcher a{min-width:31px;padding:7px 6px}}
-</style>
-<style id="pbos-v2-case-standard">
-:root{
-  --bg:#1E2328;--bg2:#26505A;--bg3:#26505A;
-  --gold:#DAAF57;--gold-lt:#DAAF57;
-  --teal:#DAAF57;--teal-br:#DAAF57;--cyan:#DAAF57;
-  --white:#F5F7FA;--gray1:#C4CDD3;--gray2:#C4CDD3;
-  --border:rgba(218,175,87,.22);
-}
-html,body{background:#1E2328!important;color:#F5F7FA!important}
-body{font-family:'DM Sans',sans-serif!important;font-size:16px!important;font-weight:300!important;line-height:1.75!important}
-body h1,body h2,body h3,body h4{font-family:'DM Sans',sans-serif!important;color:#F5F7FA!important;font-style:normal!important}
-body p,body li{font-family:'DM Sans',sans-serif!important;color:#C4CDD3!important;font-weight:300!important;line-height:1.78!important}
-body em{font-style:normal!important;color:#DAAF57!important}
-body .container,body .wrap{
-  max-width:1040px!important;margin:0 auto!important;
-  padding:128px 32px 96px!important;
-}
-body .hero{
-  padding:0 0 58px!important;
-  margin-bottom:64px!important;
-  border-bottom:1px solid rgba(218,175,87,.30)!important;
-}
-body .hero-eyebrow,body .eyebrow,body .section-label,body .section-title,
-body .case-label-text,body .case-meta,body .doc-number,body .artifact-action,
-body .competency-title,body .eco-role,body .hero-highlight-label,
-body .label,body .tag{
-  font-family:'Orbitron',sans-serif!important;
-  color:#DAAF57!important;
-  letter-spacing:.15em!important;
-  text-transform:uppercase;
-}
-body .hero-title{
-  font-size:clamp(42px,6vw,72px)!important;
-  font-weight:300!important;line-height:1.05!important;letter-spacing:-.045em!important;
-  margin-bottom:22px!important;
-}
-body .hero-subtitle{
-  color:#DAAF57!important;font-size:clamp(20px,3vw,30px)!important;
-  font-weight:400!important;line-height:1.3!important;margin-bottom:24px!important;
-}
-body .hero-desc,body .lead{font-size:16px!important;max-width:820px!important}
-body .section{margin-bottom:88px!important;padding:0!important}
-body .section-header{margin-bottom:30px!important;padding-bottom:15px!important;border-bottom:1px solid rgba(218,175,87,.30)!important}
-body .section-title{font-size:10px!important;font-weight:500!important}
-body .section-heading,body .section-title + h2{
-  font-size:clamp(30px,4vw,48px)!important;font-weight:300!important;
-  line-height:1.1!important;letter-spacing:-.035em!important;margin-top:8px!important;
-}
-body .pillars-grid,body .artifacts-grid,body .competencies-grid,body .eco-grid,
-body .grid,body .metrics{gap:12px!important}
-body .pillar-card,body .artifact-card,body .competency-card,body .eco-card,
-body .card,body .metric,body .meta,body .flow,body .highlight,body .note,
-body .doc-card,body .hero-highlight-card{
-  background:#26505A!important;border:1px solid rgba(218,175,87,.30)!important;
-  border-radius:12px!important;box-shadow:none!important;
-}
-body .pillar-card,body .artifact-card,body .competency-card,body .eco-card,
-body .card,body .metric,body .meta,body .flow,body .highlight,body .note,body .doc-card{padding:26px!important}
-body .pillar-card h3,body .artifact-card h3,body .eco-title,body .doc-title{
-  color:#F5F7FA!important;font-weight:500!important
-}
-body .pillar-card p,body .artifact-card p,body .competency-desc,body .eco-text,
-body .step p,body .metric p,body .note{font-size:14px!important}
-body .artifact-card:hover,body .card:hover,body .doc-card:hover,body .pillar-card:hover,
-body .competency-card:hover,body .eco-card:hover{
-  background:#26505A!important;border-color:#DAAF57!important;transform:translateY(-2px)
-}
-body .back,body .back-btn{
-  background:rgba(30,35,40,.96)!important;color:#DAAF57!important;
-  border:1px solid rgba(218,175,87,.30)!important;border-radius:8px!important;
-  padding:11px 15px!important;
-}
-body .back:hover,body .back-btn:hover{background:#DAAF57!important;color:#1E2328!important}
-body .metric .number,body .number{color:#DAAF57!important;font-weight:300!important}
-body .hero-highlight-card{border-left:3px solid #DAAF57!important;padding:24px 26px!important}
-body .hero-highlight-value{color:#F5F7FA!important;font-weight:500!important}
-body .meta-row{background:#26505A!important;border:1px solid rgba(218,175,87,.30)!important;border-radius:12px!important;padding:24px!important}
-body .meta-pill strong{color:#DAAF57!important}
-body .step span{color:#DAAF57!important;font-family:'Orbitron',sans-serif!important}
-body .highlight{border-left:3px solid #DAAF57!important}
-body .links a{border:1px solid rgba(218,175,87,.30)!important;border-radius:8px!important;padding:10px 14px!important}
-body .links a:hover{background:#DAAF57!important;color:#1E2328!important}
-body .tags{gap:7px!important}
-body .tag{border:1px solid rgba(218,175,87,.30)!important;border-radius:6px!important;padding:7px 8px!important}
-body .positive{border-color:rgba(218,175,87,.40)!important}
-body .limitation{border-left-color:#DAAF57!important}
-body footer,body .pbos-footer{
-  background:#1E2328!important;border-top:1px solid rgba(218,175,87,.30)!important;
-  padding:42px 24px!important;text-align:center!important;
-}
-body .pbos-footer-signature{font-family:'DM Sans',sans-serif!important;color:#F5F7FA!important;font-weight:500!important}
-body .pbos-footer-copy{color:#C4CDD3!important}
-body .pbos-footer-link{color:#DAAF57!important}
-@media(max-width:760px){
-  body .container,body .wrap{padding:104px 20px 72px!important}
-  body .hero{padding-bottom:44px!important;margin-bottom:52px!important}
-  body .hero-title{font-size:clamp(38px,11vw,54px)!important}
-  body .section{margin-bottom:64px!important}
-  body .section-heading,body .section-title + h2{font-size:clamp(28px,8vw,40px)!important}
-  body .pillar-card,body .artifact-card,body .competency-card,body .eco-card,
-  body .card,body .metric,body .meta,body .flow,body .highlight,body .note,body .doc-card{padding:22px!important}
-  body .back,body .back-btn{top:18px!important;left:18px!important}
-}
-</style>
-<style id="portfolio-reference-palette">
-:root{--portfolio-green:#DAAF57}
-body a{color:#DAAF57!important}
-body em{color:#DAAF57!important}
-body .hero-subtitle,body .hero-highlight-label{color:#DAAF57!important}
-body .links a:hover,body .back:hover,body .back-btn:hover{background:#DAAF57!important;color:#1E2328!important}
-body .artifact-card:hover,body .card:hover,body .doc-card:hover,body .pillar-card:hover,body .competency-card:hover,body .eco-card:hover{border-color:#DAAF57!important}
-</style>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style id="pbos-final-overrides">
-html, body { background:#1E2328 !important; color:#F5F7FA !important; }
-body { font-family:'DM Sans',sans-serif !important; font-weight:300 !important; }
-body, body main, body header, body footer, body .hero, body .container, body .wrap,
-body .section, body .section-inner, body .cases-section, body .hero-container,
-body .hero-content, body .hero-footer, body .corporate-banner { background-color:#1E2328 !important; background-image:none !important; }
-body .hero-bg, body .orb, body [class*="orb"], body [class*="glow"], body [class*="ambient"], body [class*="halo"] { display:none !important; background:none !important; background-image:none !important; box-shadow:none !important; filter:none !important; opacity:0 !important; }
-body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; background-image:none !important; box-shadow:none !important; content:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:#DAAF57 !important; background-image:none !important; }
-body h1, body h2, body h3, body h4, body h5, body h6,
-body .hero-title, body .hero-main-text, body .hero-subtitle, body .section-title,
-body .section-heading, body .banner-title, body .eco-title, body .doc-title,
-body .pillar-card h3, body .artifact-card h3, body .case-card h3,
-body .hero-highlight-value, body .metric-display, body .number {
-  font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#F5F7FA !important;
-}
-body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.035em !important; line-height:1.08 !important; }
-body h2, body .section-title, body .section-heading { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
-body h3, body .eco-title, body .case-card h3, body .doc-title { font-weight:400 !important; line-height:1.22 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; }
-body .hero-desc, body .hero-sub-text, body .lead, body .banner-desc,
-body .card p, body .pillar-card p, body .artifact-card p, body .case-card p,
-body .competency-desc, body .eco-text, body .step p, body .note, body .metric p,
-body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#C4CDD3 !important; font-weight:300 !important; line-height:1.75 !important; }
-body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text,
-body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label,
-body .artifact-action, body .competency-title, body .eco-role, body .doc-number,
-body .metric-label, body .tag, body .scroll-hint, body .footer-role {
-  font-family:'Orbitron',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; letter-spacing:.14em !important;
-}
-body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card,
-body .metric, body .meta, body .hero-highlight-card, body .flow, body .note,
-body .doc-card, body .case-card, body .stat-box { background:#26505A !important; border-color:rgba(218,175,87,.22) !important; box-shadow:none !important; }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover,
-body .competency-card:hover, body .eco-card:hover { background:#26505A !important; border-color:#DAAF57 !important; }
-body .back, body .back-btn { background:rgba(30,35,40,.96) !important; color:#DAAF57 !important; border-color:rgba(218,175,87,.22) !important; }
-body .back:hover, body .back-btn:hover { background:#DAAF57 !important; color:#1E2328 !important; }
-body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; border-color:#DAAF57 !important; }
-body .metric-display, body .number { color:#DAAF57 !important; font-weight:300 !important; }
-body footer, body .pbos-footer { background:#1E2328 !important; border-top-color:rgba(218,175,87,.22) !important; color:#C4CDD3 !important; }
-body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; font-weight:400 !important; }
-body .pbos-footer-copy { color:#C4CDD3 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#DAAF57 !important; }
-body .btn-case-mock { color:#DAAF57 !important; border-color:#DAAF57 !important; }
-body .btn-case-mock:hover { background:#DAAF57 !important; color:#1E2328 !important; }
-body .stat-box { color:#DAAF57 !important; }
-@media (max-width:760px) {
-  body .container, body .wrap, body .cases-section, body .hero-content, body .hero-footer,
-  body .nav, body footer, body .section, body header { padding-left:20px !important; padding-right:20px !important; }
-  body .hero-title, body h1 { font-size:clamp(36px,10vw,52px) !important; }
-  body .hero-main-text { font-size:clamp(28px,8vw,40px) !important; }
-  body .section-title, body h2 { font-size:clamp(28px,8vw,40px) !important; }
-}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case 04 · SHV Energy: onboarding e prevenção na jornada de GLP | Cleyton Hespanhol</title>
+<meta name="description" content="Acompanhamento dos primeiros abastecimentos de GLP com monitoramento preventivo, validação no Salesforce e transição para o abastecimento automático.">
+<meta name="author" content="Cleyton S. Hespanhol">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0A0D12">
+<link rel="canonical" href="https://c2shespanhol-ops.github.io/meuportifolio/case_study_04_shv_final.html">
+<link rel="alternate" hreflang="pt-BR" href="https://c2shespanhol-ops.github.io/meuportifolio/case_study_04_shv_final.html">
+<link rel="alternate" hreflang="en" href="https://c2shespanhol-ops.github.io/meuportifolio/en/cases/case-04-shv-energy.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Case 04 · SHV Energy: onboarding e prevenção na jornada de GLP">
+<meta property="og:description" content="Prática operacional de onboarding e prevenção de ruptura. Sem KPI quantitativo de produto.">
+<meta property="og:url" content="https://c2shespanhol-ops.github.io/meuportifolio/case_study_04_shv_final.html">
+<meta property="og:image" content="https://c2shespanhol-ops.github.io/meuportifolio/assets/og-cleyton.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=20261112-v2">
 <script src="portfolio-config.js" defer></script>
 <script src="portfolio-analytics.js" defer></script>
-
-<style id="case-topic-format-normalization">
-body .section h2,body .section-inner h2{color:#F5F7FA!important;font-family:'DM Sans',sans-serif!important;font-size:clamp(28px,3.4vw,38px)!important;font-weight:400!important;line-height:1.2!important;letter-spacing:-.025em!important;margin:0 0 24px!important}
-body .section h3,body .section-inner h3,body .card h3,body .step h3,body .eco-card h3,body .competency-card h3,body .doc-card h3{color:#F5F7FA!important;font-family:'DM Sans',sans-serif!important;font-size:clamp(17px,2vw,21px)!important;font-weight:500!important;line-height:1.35!important;letter-spacing:0!important;margin:0 0 8px!important}
-body .section p,body .section-inner p,body .card p,body .step p,body .eco-card p,body .competency-card p,body .doc-card p,body .note{color:#C4CDD3!important;font-family:'DM Sans',sans-serif!important;font-size:14px!important;font-weight:300!important;line-height:1.75!important}
-body .section ul,body .section ol,body .section-inner ul,body .section-inner ol{margin:12px 0 18px!important;padding-left:24px!important}
-body .section li,body .section-inner li{color:#C4CDD3!important;font-family:'DM Sans',sans-serif!important;font-size:14px!important;line-height:1.75!important;margin:0 0 8px!important}
-body .section li::marker,body .section-inner li::marker{color:#DAAF57!important}
-body .step>span,body .section-label,body .doc-number,body .doc-action,body .label,body .tag{color:#DAAF57!important;font-family:'Orbitron',sans-serif!important;font-size:9px!important;font-weight:500!important;line-height:1.6!important;letter-spacing:.12em!important;text-transform:uppercase!important}
-body .card,body .step,body .eco-card,body .competency-card,body .doc-card{min-width:0;overflow-wrap:anywhere}
-@media(max-width:760px){body .section h2,body .section-inner h2{font-size:clamp(26px,7.5vw,34px)!important}body .section h3,body .section-inner h3,body .card h3,body .step h3,body .doc-card h3{font-size:18px!important}}
-</style>
-
-<link rel="stylesheet" href="portfolio-theme.css?v=20261112-pbos">
-<link rel="stylesheet" href="portfolio-reference-refresh.css?v=20261112">
+<script src="portfolio-language.js" defer></script>
+<script src="site.js" defer></script>
 </head>
-<body class="portfolio-case-refresh">
-<div class="portfolio-language-switcher" aria-label="Idioma"><a href="#" data-lang="pt" class="active">PT</a><a href="#" data-lang="en">EN</a></div>
-<div class="top"></div>
-<a class="back" href="index.html">← VOLTAR</a>
-<main class="wrap">
-<section class="hero">
-<div class="eyebrow">Caso 05 · SHV Energy</div>
-<h1>Onboarding e acompanhamento para abastecimento de GLP</h1>
-<p>Uma experiência operacional centrada nos primeiros abastecimentos do cliente, combinando orientação, monitoramento preventivo, acionamento logístico, validação no Salesforce e formação do histórico necessário para a transição ao abastecimento automático.</p>
-</section>
-<section class="meta">
-<div><div class="label">Contexto</div><div class="value">Operação de grande escala</div></div>
-<div><div class="label">Sistema</div><div class="value">Salesforce</div></div>
-<div><div class="label">Margem</div><div class="value">35% de segurança</div></div>
-<div><div class="label">Janela emergencial</div><div class="value">Até 48 horas úteis</div></div>
-</section>
-<section class="section"><div class="note"><strong>Impacto operacional:</strong> o acompanhamento preventivo permitia identificar a aproximação do limite de segurança de 35%, antecipar o acionamento logístico e usar o histórico dos cinco primeiros abastecimentos para apoiar a transição ao abastecimento automático. Este case documenta práticas operacionais, não um KPI quantitativo de produto.</div></section>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+</svg>
+<a class="skip" href="#main">Pular para o conteúdo</a>
 
-<section class="section">
-<h2>O problema operacional</h2>
-<div class="note"><strong>O risco não começava quando o cliente ficava sem gás.</strong> O acompanhamento semanal existia para identificar antecipadamente a aproximação da margem de segurança, porque um abastecimento emergencial poderia levar até 48 horas úteis e dependia da disponibilidade operacional.</div>
-</section>
-<section class="section">
-<h2>Jornada reconstruída</h2>
-<div class="timeline">
-<div class="step"><h3>01 · Onboarding</h3><p>Apresentação da empresa, orientação sobre o funcionamento do serviço e explicação sobre consumo e margem de segurança. Também era aplicada uma pesquisa de satisfação com três perguntas sobre a experiência e a qualidade percebida no processo de atendimento, instalação e abastecimento.</p><div class="tags"><span class="tag">ONBOARDING</span><span class="tag">ATENDIMENTO</span><span class="tag">PESQUISA</span></div></div>
-<div class="step"><h3>02 · Monitoramento semanal</h3><p>Nos primeiros abastecimentos, o cliente era contatado semanalmente para informar o nível do tanque. A referência de 35% funcionava como margem preventiva para evitar a ruptura do abastecimento.</p><div class="tags"><span class="tag">MONITORAMENTO</span><span class="tag">PREVENÇÃO</span><span class="tag">RISCO</span></div></div>
-<div class="step"><h3>03 · Ação emergencial</h3><p>Quando necessário, era solicitada à logística uma recarga emergencial. O cliente também era orientado a acionar a Central de Atendimento caso atingisse a margem de segurança antes do próximo contato.</p><div class="tags"><span class="tag">LOGÍSTICA</span><span class="tag">SLA</span><span class="tag">CONTINGÊNCIA</span></div></div>
-<div class="step"><h3>04 · Validação e feedback loop</h3><p>O protocolo no Salesforce permitia acompanhar se a recarga havia sido registrada. No contato semanal seguinte, a informação também era confirmada diretamente com o cliente, permitindo confrontar o registro sistêmico com o que efetivamente ocorreu na experiência.</p><div class="tags"><span class="tag">SALESFORCE</span><span class="tag">VALIDAÇÃO</span><span class="tag">FEEDBACK LOOP</span></div></div>
-<div class="step"><h3>05 · Histórico e padrão de consumo</h3><p>Os cinco primeiros abastecimentos formavam o histórico necessário para calcular a média de consumo e apoiar o estabelecimento dos intervalos entre recargas.</p><div class="tags"><span class="tag">DADOS</span><span class="tag">HISTÓRICO</span><span class="tag">DECISÃO OPERACIONAL</span></div></div>
-<div class="step"><h3>06 · Handoff e transição</h3><p>Depois dessa etapa, o cliente passava para o abastecimento automático. O acompanhamento individual era encerrado e eventuais necessidades futuras eram direcionadas à Central de Atendimento.</p><div class="tags"><span class="tag">HANDOFF</span><span class="tag">LIFECYCLE</span><span class="tag">ESCALA</span></div></div>
-</div>
-</section>
-<section class="section">
-<h2>A lógica do processo</h2>
-<div class="flow">
-<div class="flow-row"><div><strong>Dados dos primeiros abastecimentos</strong><span>Histórico real de consumo</span></div><div>→</div><div><strong>Média de consumo</strong><span>Base para estimar o padrão</span></div></div>
-<div class="flow-row"><div><strong>Intervalo de abastecimento</strong><span>Previsibilidade operacional</span></div><div>→</div><div><strong>Abastecimento automático</strong><span>Transição para o fluxo regular</span></div></div>
-</div>
-</section>
-<section class="section">
-<h2>Evidências profissionais</h2>
-<div class="evidence">
-<div class="card positive"><h3>Customer Onboarding</h3><p>Orientação inicial, educação do cliente e acompanhamento dos primeiros abastecimentos.</p></div>
-<div class="card positive"><h3>Customer Journey</h3><p>Leitura da jornada desde o onboarding até a transição para o abastecimento automático.</p></div>
-<div class="card positive"><h3>Proactive Monitoring</h3><p>Monitoramento preventivo de sinais de risco antes da ruptura do abastecimento.</p></div>
-<div class="card positive"><h3>Customer Validation</h3><p>Confirmação direta com o cliente para validar se o evento registrado no sistema realmente ocorreu.</p></div>
-<div class="card positive"><h3>Operational Data</h3><p>Uso do histórico dos primeiros abastecimentos para apoiar a definição do padrão de consumo.</p></div>
-<div class="card positive"><h3>Cross-functional Coordination</h3><p>Interação com cliente, Central de Atendimento, logística e Salesforce para conduzir a jornada.</p></div>
-<div class="card positive"><h3>Handoff</h3><p>Identificação do momento em que o acompanhamento assistido terminava e o fluxo automático assumia o cliente.</p></div>
-<div class="card limitation"><h3>Limitações do processo</h3><p>Alguns clientes chegaram a ficar sem gás por ignorarem orientações ou pela indisponibilidade de equipe na data desejada.</p></div>
-</div>
-</section>
-<section class="section">
-<h2>Escopo e transferência para Produto</h2>
-<div class="note">A experiência demonstra <strong>Customer Onboarding, Customer Journey, monitoramento preventivo, gestão de risco operacional, validação com cliente, CRM/Salesforce, uso de dados operacionais, UAT/OAT e coordenação entre áreas</strong>. São competências transferíveis para Product Owner e UX, mas o trabalho permanece descrito dentro do escopo real de Operações e Process Improvement.</div>
-</section>
-<section class="section">
-<h2>Competências transferíveis para Produto</h2>
-<div class="evidence">
-<div class="card positive"><h3>Customer Journey e lifecycle thinking</h3><p>Leitura da jornada completa, do onboarding assistido à transição para o abastecimento automático.</p></div>
-<div class="card positive"><h3>Risk-based decision making</h3><p>Uso de sinais operacionais e da margem preventiva para antecipar risco de ruptura e orientar a ação adequada.</p></div>
-<div class="card positive"><h3>Closed feedback loop</h3><p>Confronto entre o registro no Salesforce e a confirmação posterior do cliente, fechando o ciclo de validação.</p></div>
-<div class="card positive"><h3>Data-informed decisions</h3><p>Uso do histórico dos cinco primeiros abastecimentos para calcular a média de consumo e apoiar os intervalos futuros.</p></div>
-</div>
-<div class="note" style="margin-top:16px">Essas competências são transferíveis para Product Owner e UX, mas não equivalem a ownership formal de Product Strategy, Product Backlog ou Product Analytics.</div>
-</section>
-<section class="section"><h2>Artefatos complementares</h2><div class="note">Modelos de referência reconstruídos a partir da experiência descrita, sem representar documentos corporativos originais ou processos formalmente aprovados.</div><div class="artifact-links"><a href="case04_documentacao.html">Abrir documentação complementar ↗</a></div></section>
+<header class="site-header">
+  <div class="shell case-bar">
+    <a class="back-link" href="index.html"><svg aria-hidden="true" width="18" height="18"><use href="#i-left"/></svg>Portfólio</a>
+    <span class="lang" role="group" aria-label="Idioma">
+      <a data-lang="pt" href="case_study_04_shv_final.html" lang="pt-BR" hreflang="pt-BR" aria-current="page">PT</a>
+      <a data-lang="en" href="en/cases/case-04-shv-energy.html" lang="en" hreflang="en" aria-current="false">EN</a>
+    </span>
+  </div>
+</header>
+
+<main id="main" class="case-wrap">
+
+  <section class="case-hero" aria-labelledby="titulo">
+    <span class="eyebrow">Case 04 · SHV Energy</span>
+    <h1 id="titulo">Onboarding e prevenção de ruptura no <em>abastecimento de GLP</em></h1>
+    <p class="lead">Uma experiência operacional centrada nos primeiros abastecimentos do cliente: orientação, monitoramento preventivo, acionamento logístico, validação no Salesforce e formação do histórico para a transição ao abastecimento automático.</p>
+    <p class="reading-time">Leitura de cerca de 2 min</p>
+    <dl class="summary">
+      <div class="wide"><dt>Lógica do processo</dt><dd class="result-line">Cinco primeiros abastecimentos geram o histórico que sustenta o abastecimento automático</dd></div>
+      <div><dt>Contexto e período</dt><dd>SHV Energy · operação de grande escala · janeiro de 2018 a junho de 2023</dd></div>
+      <div><dt>Sistema</dt><dd>Salesforce</dd></div>
+      <div><dt>Margem preventiva</dt><dd>35% de segurança no tanque</dd></div>
+      <div><dt>Janela emergencial</dt><dd>Até 48 horas úteis</dd></div>
+    </dl>
+    <p class="role-box"><b>Meu papel:</b> conduzi o onboarding, o contato semanal com o cliente, o acionamento da logística em caso de risco, a confirmação no Salesforce e o encerramento do acompanhamento individual. <b>Limite da evidência:</b> este case documenta práticas operacionais, não um KPI quantitativo de produto. O trabalho permanece dentro do escopo real de Operações e Melhoria de Processos. As competências são transferíveis para Produto, mas não equivalem a ownership formal de Product Strategy, Product Backlog ou Product Analytics.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="s0">
+    <span class="eyebrow">01 · O problema operacional</span>
+    <h2 id="s0">O risco não começava quando o gás acabava</h2>
+    <div class="pair">
+      <div><h3>Margem de segurança</h3><p>O acompanhamento semanal servia para identificar antecipadamente a aproximação do limite de 35%.</p></div>
+      <div><h3>Recarga emergencial</h3><p>Um abastecimento emergencial podia levar até 48 horas úteis e dependia da disponibilidade operacional.</p></div>
+    </div>
+
+  <section class="case-section" aria-labelledby="s1">
+    <span class="eyebrow">02 · Jornada reconstruída</span>
+    <h2 id="s1">Seis etapas, do onboarding à transição</h2>
+    <ol class="steps">
+      <li><div><b>Onboarding</b><span>Apresentação da empresa, do serviço, do consumo e da margem de segurança. Pesquisa de satisfação com três perguntas sobre atendimento, instalação e abastecimento.</span></div></li>
+      <li><div><b>Monitoramento semanal</b><span>Nos primeiros abastecimentos, contato semanal para informar o nível do tanque. A referência de 35% funcionava como margem preventiva.</span></div></li>
+      <li><div><b>Ação emergencial</b><span>Quando necessário, recarga emergencial solicitada à logística. O cliente também era orientado a acionar a Central de Atendimento se atingisse a margem antes do próximo contato.</span></div></li>
+      <li><div><b>Validação e feedback</b><span>O protocolo no Salesforce mostrava se a recarga havia sido registrada. No contato seguinte, eu confirmava com o cliente e confrontava o registro com o que de fato ocorreu.</span></div></li>
+      <li><div><b>Histórico e padrão de consumo</b><span>Os cinco primeiros abastecimentos formavam o histórico para calcular a média de consumo e apoiar os intervalos entre recargas.</span></div></li>
+      <li><div><b>Handoff</b><span>Depois, o cliente passava ao abastecimento automático. O acompanhamento individual terminava e novas necessidades iam para a Central de Atendimento.</span></div></li>
+    </ol>
+
+  <section class="case-section" aria-labelledby="s2">
+    <span class="eyebrow">03 · O que isso demonstra</span>
+    <h2 id="s2">Competências transferíveis para Produto</h2>
+    <div class="pair">
+      <div><h3>Jornada completa</h3><p>Leitura do ciclo, do onboarding assistido à transição para o fluxo automático.</p></div>
+      <div><h3>Decisão baseada em risco</h3><p>Uso de sinais operacionais e da margem preventiva para antecipar a ruptura.</p></div>
+      <div><h3>Ciclo de feedback fechado</h3><p>Confronto entre o registro no Salesforce e a confirmação do cliente.</p></div>
+      <div><h3>Decisão com dados</h3><p>Uso do histórico dos cinco primeiros abastecimentos para calcular a média de consumo.</p></div>
+    </div>
+    <p class="limit"><b>Limitação do processo:</b> alguns clientes chegaram a ficar sem gás, por ignorarem as orientações ou por indisponibilidade de equipe na data desejada.</p>
+
+  <section class="case-section" aria-labelledby="s3">
+    <span class="eyebrow">04 · Artefatos complementares</span>
+    <h2 id="s3">Materiais de apoio</h2>
+    <details class="docs"><summary>Ver 1 documentos de apoio</summary>
+    <ul class="doc-links">
+      <li><a href="case04_documentacao.html">Documentação complementar</a></li>
+    </ul>
+    </details>
+    <p class="limit">Modelos de referência reconstruídos a partir da experiência descrita. Não representam documentos corporativos originais nem processos formalmente aprovados.</p>
+
+  <p class="case-count">Você está no case 5 de 6.</p>
+
+  <div class="next-case">
+    <a class="btn primary" href="case_study_05_pav_receita_federal_final.html">Próximo case: PAV Maricá</a>
+    <a class="btn" href="index.html#cases">Voltar aos cases</a>
+  </div>
 </main>
-<footer class="pbos-footer">
-  <div class="pbos-footer-signature">Cleyton Hespanhol | Product Owner | UX</div>
-  <div class="pbos-footer-copy">© 2026 Cleyton S. Hespanhol. Todos os direitos reservados.</div>
-  <a class="pbos-footer-link" href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener">linkedin.com/in/cleyton-hespanhol</a>
+
+<footer class="site-footer">
+  <div><strong>Cleyton S. Hespanhol</strong> · Product Owner | UX</div>
+  <div>© 2026 Cleyton S. Hespanhol · <a href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
 </footer>
-<link rel="stylesheet" href="/meuportifolio/pbos-career-theme.css?v=20261112-career-os">
+<button class="to-top" type="button" aria-label="Voltar ao topo"><svg aria-hidden="true"><use href="#i-up"/></svg></button>
 </body>
 </html>

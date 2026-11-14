@@ -1,354 +1,175 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Caso 04 · Habitat Consultórios Inteligentes | CX, Produto, Scrum, SaaS, Discovery e UX</title>
-<style>
-:root{--bg:#1E2328;--bg2:#26505A;--gold:#DAAF57;--gold-lt:#DAAF57;--white:#F5F7FA;--gray:#C4CDD3;--border:rgba(218,175,87,.22)}*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;line-height:1.7;font-weight:300}a{color:var(--gold);text-decoration:none}.top{height:2px;background:var(--bg);}.back{position:fixed;top:22px;left:22px;z-index:10;background:rgba(30,35,40,.92);border:1px solid var(--border);padding:9px 14px;border-radius:4px;font:600 10px Orbitron,sans-serif;letter-spacing:.08em}.container{max-width:920px;margin:auto;padding:110px 24px 70px}.eyebrow{font:600 10px Orbitron,sans-serif;color:var(--gold);letter-spacing:.18em;margin-bottom:15px}.hero{padding-bottom:42px;border-bottom:1px solid var(--border)}h1{font-size:clamp(36px,6vw,58px);line-height:1.12;margin-bottom:18px}.lead{font-size:17px;color:var(--gray);max-width:800px}.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;background:var(--bg2);border:1px solid var(--border);padding:22px;margin:30px 0 65px;border-radius:5px}.meta small{display:block;color:var(--gold);font:600 9px Orbitron,sans-serif;letter-spacing:.12em;margin-bottom:4px}.meta strong{font-size:13px;font-weight:500}.section{margin-bottom:62px}.section h2{font-size:25px;margin-bottom:22px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}.card{background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:23px}.card h3{font-size:18px;margin-bottom:9px}.card p{font-size:13px;color:var(--gray)}.flow{border-left:1px solid var(--border);padding-left:22px}.step{margin-bottom:30px;position:relative}.step:before{content:'';position:absolute;left:-28px;top:8px;width:9px;height:9px;border:2px solid var(--gold);border-radius:50%;background:var(--bg)}.step span{font:600 9px Orbitron,sans-serif;color:var(--gold);letter-spacing:.14em}.step h3{font-size:19px;margin:4px 0 7px}.step p{font-size:13px;color:var(--gray)}.highlight{border-left:3px solid var(--gold);background:var(--bg2);padding:25px;margin-top:20px;font-size:14px}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}.metric{background:var(--bg2);border:1px solid var(--border);padding:22px;border-radius:5px}.number{font-size:38px;color:var(--gold-lt);font-weight:600;line-height:1}.metric h3{font-size:12px;margin:9px 0 5px;text-transform:uppercase;letter-spacing:.06em}.metric p{font-size:12px;color:var(--gray)}.links{display:flex;flex-wrap:wrap;gap:10px}.links a{border:1px solid var(--border);padding:9px 13px;font-size:11px;border-radius:4px}.note{font-size:12px;color:#C4CDD3;margin-top:14px}footer{text-align:center;border-top:1px solid var(--border);padding:28px;color:#C4CDD3;font-size:11px}
-</style>
-<script src="portfolio-language.js?v=20260919" defer></script>
-<style id="pbos-unified-visual-standard">
-/* PBOS unified visual standard */
-html,body{background:#1E2328!important;color:#F5F7FA!important}
-body{font-family:'DM Sans',sans-serif!important;font-weight:300!important}
-body,body main,body header,body footer,body .hero,body .container,body .wrap,body .section,body .section-inner,body .cases-section,body .hero-container,body .hero-content,body .hero-footer,body .corporate-banner{background-color:#1E2328!important;background-image:none!important}
-body .hero-bg,body .orb,body [class*="orb"],body [class*="glow"],body [class*="ambient"],body [class*="halo"]{display:none!important;background:none!important;background-image:none!important;box-shadow:none!important;filter:none!important;opacity:0!important}
-body .hero:before,body .hero:after,body main:before,body main:after{background:none!important;background-image:none!important;box-shadow:none!important;content:none!important}
-body .gold-accent-top,body .top{height:2px!important;background:#DAAF57!important;background-image:none!important}
-body h1,body h2,body h3,body h4,body h5,body h6,body .hero-title,body .hero-main-text,body .hero-subtitle,body .section-title,body .section-heading,body .banner-title,body .eco-title,body .doc-title,body .pillar-card h3,body .artifact-card h3,body .case-card h3,body .hero-highlight-value,body .metric-display,body .number{font-family:'DM Sans',sans-serif!important;font-style:normal!important;color:#F5F7FA!important}
-body .hero-title em,body .section-title em,body .section-heading em,body .hero-main-text em,body .banner-desc em{font-family:'DM Sans',sans-serif!important;font-style:normal!important;color:#DAAF57!important}
-body p,body li,body td,body th,body input,body button,body textarea,body select,body .lead,body .hero-desc,body .hero-sub-text,body .hero-main-text,body .card p,body .pillar-card p,body .artifact-card p,body .case-card p,body .competency-desc,body .eco-text,body .step p,body .note,body .metric p,body .footer-copy,body .footer-right{font-family:'DM Sans',sans-serif!important;color:#C4CDD3!important;font-weight:300!important;line-height:1.75!important}
-body .eyebrow,body .hero-eyebrow,body .hero-tags,body .case-label-text,body .case-meta,body .section-label,body .nav-role,body .nav-tag,body .label,body .artifact-action,body .competency-title,body .eco-role,body .doc-number,body .metric-label,body .tag,body .scroll-hint,body .footer-role{font-family:'Orbitron',sans-serif!important;font-style:normal!important;color:#DAAF57!important;letter-spacing:.14em!important}
-body .card,body .pillar-card,body .artifact-card,body .competency-card,body .eco-card,body .metric,body .meta,body .hero-highlight-card,body .flow,body .note,body .doc-card,body .case-card,body .stat-box{background:#26505A!important;border-color:rgba(218,175,87,.30)!important;box-shadow:none!important}
-body .card:hover,body .artifact-card:hover,body .case-card:hover,body .doc-card:hover,body .competency-card:hover,body .eco-card:hover{background:#26505A!important;border-color:#DAAF57!important}
-body .back,body .back-btn{background:rgba(30,35,40,.96)!important;color:#DAAF57!important;border-color:rgba(218,175,87,.30)!important}
-body .back:hover,body .back-btn:hover{background:#DAAF57!important;color:#1E2328!important}
-body .nav-name,body .logo-text{font-family:'DM Sans',sans-serif!important;color:#F5F7FA!important}
-body .h-mark,body .logo-h{font-family:'DM Sans',sans-serif!important;color:#F5F7FA!important;border-color:#DAAF57!important}
-body .metric-display,body .number{color:#DAAF57!important;font-weight:300!important}
-body footer,body .pbos-footer{background:#1E2328!important;border-top-color:rgba(218,175,87,.30)!important;color:#C4CDD3!important}
-body .pbos-footer-signature{font-family:'DM Sans',sans-serif!important;color:#F5F7FA!important;font-weight:400!important}
-body .pbos-footer-copy{color:#C4CDD3!important}
-body .pbos-footer-link,body .footer-linkedin{color:#DAAF57!important}
-@media(max-width:760px){body .container,body .wrap,body .cases-section,body .hero-content,body .hero-footer,body .nav,body footer,body .section,body header{padding-left:20px!important;padding-right:20px!important}}
-
-
-/* Language control */
-.portfolio-language-switcher{
-  position:fixed;top:18px;right:18px;z-index:1100;display:flex;gap:2px;
-  padding:3px;border:1px solid rgba(218,175,87,.30);border-radius:6px;
-  background:rgba(30,35,40,.94);backdrop-filter:blur(8px);box-shadow:0 6px 20px rgba(0,0,0,.18)
-}
-.portfolio-language-switcher a{
-  min-width:34px;padding:7px 8px;text-align:center;text-decoration:none;
-  font:600 9px/1 'Orbitron',sans-serif;letter-spacing:.08em;color:#C4CDD3!important;
-  border-radius:4px;transition:.2s ease
-}
-.portfolio-language-switcher a:hover,.portfolio-language-switcher a.active{background:#DAAF57;color:#1E2328!important}
-@media(max-width:760px){.portfolio-language-switcher{top:12px;right:12px}.portfolio-language-switcher a{min-width:31px;padding:7px 6px}}
-</style>
-<style id="pbos-v2-case-standard">
-:root{
-  --bg:#1E2328;--bg2:#26505A;--bg3:#26505A;
-  --gold:#DAAF57;--gold-lt:#DAAF57;
-  --teal:#DAAF57;--teal-br:#DAAF57;--cyan:#DAAF57;
-  --white:#F5F7FA;--gray1:#C4CDD3;--gray2:#C4CDD3;
-  --border:rgba(218,175,87,.22);
-}
-html,body{background:#1E2328!important;color:#F5F7FA!important}
-body{font-family:'DM Sans',sans-serif!important;font-size:16px!important;font-weight:300!important;line-height:1.75!important}
-body h1,body h2,body h3,body h4{font-family:'DM Sans',sans-serif!important;color:#F5F7FA!important;font-style:normal!important}
-body p,body li{font-family:'DM Sans',sans-serif!important;color:#C4CDD3!important;font-weight:300!important;line-height:1.78!important}
-body em{font-style:normal!important;color:#DAAF57!important}
-body .container,body .wrap{
-  max-width:1040px!important;margin:0 auto!important;
-  padding:128px 32px 96px!important;
-}
-body .hero{
-  padding:0 0 58px!important;
-  margin-bottom:64px!important;
-  border-bottom:1px solid rgba(218,175,87,.30)!important;
-}
-body .hero-eyebrow,body .eyebrow,body .section-label,body .section-title,
-body .case-label-text,body .case-meta,body .doc-number,body .artifact-action,
-body .competency-title,body .eco-role,body .hero-highlight-label,
-body .label,body .tag{
-  font-family:'Orbitron',sans-serif!important;
-  color:#DAAF57!important;
-  letter-spacing:.15em!important;
-  text-transform:uppercase;
-}
-body .hero-title{
-  font-size:clamp(42px,6vw,72px)!important;
-  font-weight:300!important;line-height:1.05!important;letter-spacing:-.045em!important;
-  margin-bottom:22px!important;
-}
-body .hero-subtitle{
-  color:#DAAF57!important;font-size:clamp(20px,3vw,30px)!important;
-  font-weight:400!important;line-height:1.3!important;margin-bottom:24px!important;
-}
-body .hero-desc,body .lead{font-size:16px!important;max-width:820px!important}
-body .section{margin-bottom:88px!important;padding:0!important}
-body .section-header{margin-bottom:30px!important;padding-bottom:15px!important;border-bottom:1px solid rgba(218,175,87,.30)!important}
-body .section-title{font-size:10px!important;font-weight:500!important}
-body .section-heading,body .section-title + h2{
-  font-size:clamp(30px,4vw,48px)!important;font-weight:300!important;
-  line-height:1.1!important;letter-spacing:-.035em!important;margin-top:8px!important;
-}
-body .pillars-grid,body .artifacts-grid,body .competencies-grid,body .eco-grid,
-body .grid,body .metrics{gap:12px!important}
-body .pillar-card,body .artifact-card,body .competency-card,body .eco-card,
-body .card,body .metric,body .meta,body .flow,body .highlight,body .note,
-body .doc-card,body .hero-highlight-card{
-  background:#26505A!important;border:1px solid rgba(218,175,87,.30)!important;
-  border-radius:12px!important;box-shadow:none!important;
-}
-body .pillar-card,body .artifact-card,body .competency-card,body .eco-card,
-body .card,body .metric,body .meta,body .flow,body .highlight,body .note,body .doc-card{padding:26px!important}
-body .pillar-card h3,body .artifact-card h3,body .eco-title,body .doc-title{
-  color:#F5F7FA!important;font-weight:500!important
-}
-body .pillar-card p,body .artifact-card p,body .competency-desc,body .eco-text,
-body .step p,body .metric p,body .note{font-size:14px!important}
-body .artifact-card:hover,body .card:hover,body .doc-card:hover,body .pillar-card:hover,
-body .competency-card:hover,body .eco-card:hover{
-  background:#26505A!important;border-color:#DAAF57!important;transform:translateY(-2px)
-}
-body .back,body .back-btn{
-  background:rgba(30,35,40,.96)!important;color:#DAAF57!important;
-  border:1px solid rgba(218,175,87,.30)!important;border-radius:8px!important;
-  padding:11px 15px!important;
-}
-body .back:hover,body .back-btn:hover{background:#DAAF57!important;color:#1E2328!important}
-body .metric .number,body .number{color:#DAAF57!important;font-weight:300!important}
-body .hero-highlight-card{border-left:3px solid #DAAF57!important;padding:24px 26px!important}
-body .hero-highlight-value{color:#F5F7FA!important;font-weight:500!important}
-body .meta-row{background:#26505A!important;border:1px solid rgba(218,175,87,.30)!important;border-radius:12px!important;padding:24px!important}
-body .meta-pill strong{color:#DAAF57!important}
-body .step span{color:#DAAF57!important;font-family:'Orbitron',sans-serif!important}
-body .highlight{border-left:3px solid #DAAF57!important}
-body .links a{border:1px solid rgba(218,175,87,.30)!important;border-radius:8px!important;padding:10px 14px!important}
-body .links a:hover{background:#DAAF57!important;color:#1E2328!important}
-body .tags{gap:7px!important}
-body .tag{border:1px solid rgba(218,175,87,.30)!important;border-radius:6px!important;padding:7px 8px!important}
-body .positive{border-color:rgba(218,175,87,.40)!important}
-body .limitation{border-left-color:#DAAF57!important}
-body footer,body .pbos-footer{
-  background:#1E2328!important;border-top:1px solid rgba(218,175,87,.30)!important;
-  padding:42px 24px!important;text-align:center!important;
-}
-body .pbos-footer-signature{font-family:'DM Sans',sans-serif!important;color:#F5F7FA!important;font-weight:500!important}
-body .pbos-footer-copy{color:#C4CDD3!important}
-body .pbos-footer-link{color:#DAAF57!important}
-@media(max-width:760px){
-  body .container,body .wrap{padding:104px 20px 72px!important}
-  body .hero{padding-bottom:44px!important;margin-bottom:52px!important}
-  body .hero-title{font-size:clamp(38px,11vw,54px)!important}
-  body .section{margin-bottom:64px!important}
-  body .section-heading,body .section-title + h2{font-size:clamp(28px,8vw,40px)!important}
-  body .pillar-card,body .artifact-card,body .competency-card,body .eco-card,
-  body .card,body .metric,body .meta,body .flow,body .highlight,body .note,body .doc-card{padding:22px!important}
-  body .back,body .back-btn{top:18px!important;left:18px!important}
-}
-</style>
-<style id="portfolio-reference-palette">
-:root{--portfolio-green:#DAAF57}
-body a{color:#DAAF57!important}
-body em{color:#DAAF57!important}
-body .hero-subtitle,body .hero-highlight-label{color:#DAAF57!important}
-body .links a:hover,body .back:hover,body .back-btn:hover{background:#DAAF57!important;color:#1E2328!important}
-body .artifact-card:hover,body .card:hover,body .doc-card:hover,body .pillar-card:hover,body .competency-card:hover,body .eco-card:hover{border-color:#DAAF57!important}
-</style>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style id="pbos-final-overrides">
-html, body { background:#1E2328 !important; color:#F5F7FA !important; }
-body { font-family:'DM Sans',sans-serif !important; font-weight:300 !important; }
-body, body main, body header, body footer, body .hero, body .container, body .wrap,
-body .section, body .section-inner, body .cases-section, body .hero-container,
-body .hero-content, body .hero-footer, body .corporate-banner { background-color:#1E2328 !important; background-image:none !important; }
-body .hero-bg, body .orb, body [class*="orb"], body [class*="glow"], body [class*="ambient"], body [class*="halo"] { display:none !important; background:none !important; background-image:none !important; box-shadow:none !important; filter:none !important; opacity:0 !important; }
-body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; background-image:none !important; box-shadow:none !important; content:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:#DAAF57 !important; background-image:none !important; }
-body h1, body h2, body h3, body h4, body h5, body h6,
-body .hero-title, body .hero-main-text, body .hero-subtitle, body .section-title,
-body .section-heading, body .banner-title, body .eco-title, body .doc-title,
-body .pillar-card h3, body .artifact-card h3, body .case-card h3,
-body .hero-highlight-value, body .metric-display, body .number {
-  font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#F5F7FA !important;
-}
-body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.035em !important; line-height:1.08 !important; }
-body h2, body .section-title, body .section-heading { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
-body h3, body .eco-title, body .case-card h3, body .doc-title { font-weight:400 !important; line-height:1.22 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; }
-body .hero-desc, body .hero-sub-text, body .lead, body .banner-desc,
-body .card p, body .pillar-card p, body .artifact-card p, body .case-card p,
-body .competency-desc, body .eco-text, body .step p, body .note, body .metric p,
-body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#C4CDD3 !important; font-weight:300 !important; line-height:1.75 !important; }
-body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text,
-body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label,
-body .artifact-action, body .competency-title, body .eco-role, body .doc-number,
-body .metric-label, body .tag, body .scroll-hint, body .footer-role {
-  font-family:'Orbitron',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; letter-spacing:.14em !important;
-}
-body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card,
-body .metric, body .meta, body .hero-highlight-card, body .flow, body .note,
-body .doc-card, body .case-card, body .stat-box { background:#26505A !important; border-color:rgba(218,175,87,.22) !important; box-shadow:none !important; }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover,
-body .competency-card:hover, body .eco-card:hover { background:#26505A !important; border-color:#DAAF57 !important; }
-body .back, body .back-btn { background:rgba(30,35,40,.96) !important; color:#DAAF57 !important; border-color:rgba(218,175,87,.22) !important; }
-body .back:hover, body .back-btn:hover { background:#DAAF57 !important; color:#1E2328 !important; }
-body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; border-color:#DAAF57 !important; }
-body .metric-display, body .number { color:#DAAF57 !important; font-weight:300 !important; }
-body footer, body .pbos-footer { background:#1E2328 !important; border-top-color:rgba(218,175,87,.22) !important; color:#C4CDD3 !important; }
-body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; font-weight:400 !important; }
-body .pbos-footer-copy { color:#C4CDD3 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#DAAF57 !important; }
-body .btn-case-mock { color:#DAAF57 !important; border-color:#DAAF57 !important; }
-body .btn-case-mock:hover { background:#DAAF57 !important; color:#1E2328 !important; }
-body .stat-box { color:#DAAF57 !important; }
-@media (max-width:760px) {
-  body .container, body .wrap, body .cases-section, body .hero-content, body .hero-footer,
-  body .nav, body footer, body .section, body header { padding-left:20px !important; padding-right:20px !important; }
-  body .hero-title, body h1 { font-size:clamp(36px,10vw,52px) !important; }
-  body .hero-main-text { font-size:clamp(28px,8vw,40px) !important; }
-  body .section-title, body h2 { font-size:clamp(28px,8vw,40px) !important; }
-}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case 03 · Habitat: do suporte individual ao autoatendimento | Cleyton Hespanhol</title>
+<meta name="description" content="Como um suporte por WhatsApp, sem tickets nem base de conhecimento, virou conteúdo por persona para usuários, chatbot e treinamento em um SaaS B2B.">
+<meta name="author" content="Cleyton S. Hespanhol">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0A0D12">
+<link rel="canonical" href="https://c2shespanhol-ops.github.io/meuportifolio/case_study_03_habitat_final.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Case 03 · Habitat: do suporte individual ao autoatendimento">
+<meta property="og:description" content="27% menos demandas recorrentes e 31% menor tempo de resolução (valores relatados), com papel e limites da evidência.">
+<meta property="og:url" content="https://c2shespanhol-ops.github.io/meuportifolio/case_study_03_habitat_final.html">
+<meta property="og:image" content="https://c2shespanhol-ops.github.io/meuportifolio/assets/og-cleyton.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=20261112-v2">
 <script src="portfolio-config.js" defer></script>
 <script src="portfolio-analytics.js" defer></script>
-
-<style id="topic-format-normalization">
-/* Consistent formatting for all case topics and supporting details */
-body .section h2,
-body .section h2.section-heading,
-body .section-inner h2 {
-  color:#F5F7FA!important;
-  font-family:'DM Sans',sans-serif!important;
-  font-size:clamp(28px,3.4vw,38px)!important;
-  font-weight:400!important;
-  line-height:1.2!important;
-  letter-spacing:-.025em!important;
-  margin:0 0 24px!important;
-}
-body .section h3,
-body .section-inner h3,
-body .card h3,
-body .step h3,
-body .eco-card h3,
-body .competency-card h3,
-body .doc-card h3 {
-  color:#F5F7FA!important;
-  font-family:'DM Sans',sans-serif!important;
-  font-size:clamp(17px,2vw,21px)!important;
-  font-weight:500!important;
-  line-height:1.35!important;
-  letter-spacing:0!important;
-  margin:0 0 8px!important;
-}
-body .section p,
-body .section-inner p,
-body .card p,
-body .step p,
-body .eco-card p,
-body .competency-card p,
-body .doc-card p,
-body .note {
-  color:#C4CDD3!important;
-  font-family:'DM Sans',sans-serif!important;
-  font-size:14px!important;
-  font-weight:300!important;
-  line-height:1.75!important;
-}
-body .section ul,
-body .section ol,
-body .section-inner ul,
-body .section-inner ol {
-  margin:12px 0 18px!important;
-  padding-left:24px!important;
-}
-body .section li,
-body .section-inner li {
-  color:#C4CDD3!important;
-  font-family:'DM Sans',sans-serif!important;
-  font-size:14px!important;
-  font-weight:300!important;
-  line-height:1.75!important;
-  margin:0 0 8px!important;
-}
-body .section li::marker,
-body .section-inner li::marker {color:#DAAF57!important}
-body .section .step>span,
-body .section .label,
-body .section .section-label,
-body .section .tag,
-body .section .metric-label {
-  color:#DAAF57!important;
-  font-family:'Orbitron',sans-serif!important;
-  font-size:9px!important;
-  font-weight:500!important;
-  line-height:1.6!important;
-  letter-spacing:.12em!important;
-  text-transform:uppercase!important;
-}
-body .section .card,
-body .section .step,
-body .section .eco-card,
-body .section .competency-card,
-body .section .doc-card {
-  min-width:0;
-  overflow-wrap:anywhere;
-}
-@media(max-width:760px){
-  body .section h2,
-  body .section h2.section-heading,
-  body .section-inner h2 {font-size:clamp(26px,7.5vw,34px)!important}
-  body .section h3,
-  body .section-inner h3,
-  body .section .card h3,
-  body .section .step h3 {font-size:18px!important}
-  body .section p,
-  body .section-inner p,
-  body .section li,
-  body .section-inner li {font-size:14px!important}
-}
-</style>
-
-
-<style id="case-topic-format-normalization">
-body .section h2,body .section-inner h2{color:#F5F7FA!important;font-family:'DM Sans',sans-serif!important;font-size:clamp(28px,3.4vw,38px)!important;font-weight:400!important;line-height:1.2!important;letter-spacing:-.025em!important;margin:0 0 24px!important}
-body .section h3,body .section-inner h3,body .card h3,body .step h3,body .eco-card h3,body .competency-card h3,body .doc-card h3{color:#F5F7FA!important;font-family:'DM Sans',sans-serif!important;font-size:clamp(17px,2vw,21px)!important;font-weight:500!important;line-height:1.35!important;letter-spacing:0!important;margin:0 0 8px!important}
-body .section p,body .section-inner p,body .card p,body .step p,body .eco-card p,body .competency-card p,body .doc-card p,body .note{color:#C4CDD3!important;font-family:'DM Sans',sans-serif!important;font-size:14px!important;font-weight:300!important;line-height:1.75!important}
-body .section ul,body .section ol,body .section-inner ul,body .section-inner ol{margin:12px 0 18px!important;padding-left:24px!important}
-body .section li,body .section-inner li{color:#C4CDD3!important;font-family:'DM Sans',sans-serif!important;font-size:14px!important;line-height:1.75!important;margin:0 0 8px!important}
-body .section li::marker,body .section-inner li::marker{color:#DAAF57!important}
-body .step>span,body .section-label,body .doc-number,body .doc-action,body .label,body .tag{color:#DAAF57!important;font-family:'Orbitron',sans-serif!important;font-size:9px!important;font-weight:500!important;line-height:1.6!important;letter-spacing:.12em!important;text-transform:uppercase!important}
-body .card,body .step,body .eco-card,body .competency-card,body .doc-card{min-width:0;overflow-wrap:anywhere}
-@media(max-width:760px){body .section h2,body .section-inner h2{font-size:clamp(26px,7.5vw,34px)!important}body .section h3,body .section-inner h3,body .card h3,body .step h3,body .doc-card h3{font-size:18px!important}}
-</style>
-
-<link rel="stylesheet" href="portfolio-theme.css?v=20261112-pbos">
-<link rel="stylesheet" href="portfolio-reference-refresh.css?v=20261112">
+<script src="portfolio-language.js" defer></script>
+<script src="site.js" defer></script>
 </head>
-<body class="portfolio-case-refresh">
-<div class="portfolio-language-switcher" aria-label="Idioma"><a href="#" data-lang="pt" class="active">PT</a><a href="#" data-lang="en">EN</a></div><div class="top"></div><a class="back" href="index.html">← VOLTAR</a><main class="container">
-<section class="hero"><div class="eyebrow">CASO 04 · HABITAT CONSULTÓRIOS INTELIGENTES</div><h1>Da resposta individual ao autoatendimento.</h1><p class="lead"><strong>Cargo:</strong> Analista de Produtos Digitais | Customer Experience. Atuação em diferentes frentes do ecossistema de produto, conectando Produto, Operações, Tecnologia e Experiência do Cliente. Minha contribuição envolvia Discovery, organização e detalhamento de demandas, acompanhamento das entregas, facilitação de práticas ágeis, testes e validação de funcionalidades, gestão de leads e criação de materiais para usuários, chatbot e treinamento.</p></section>
-<div class="section" style="margin-top:48px"><div class="highlight"><strong>Minha atuação:</strong> conduzi atividades de Discovery, organização e detalhamento do backlog, planejamento e acompanhamento das entregas, facilitação de eventos Scrum, identificação e encaminhamento de impedimentos, testes e validação funcional, CX, gestão de leads e produção de materiais. <strong>Governança:</strong> a decisão final sobre a direção do produto e a prioridade das novas funcionalidades cabia ao proprietário da empresa.</div></div><div class="meta"><div><small>Empresa</small><strong>Habitat Consultórios Inteligentes</strong></div><div><small>Atuação</small><strong>CX · Produto · Scrum · SaaS · Discovery · UX · Operação · Comercial</strong></div><div><small>Ferramentas</small><strong>WhatsApp Business · ClickUp · Pipedrive</strong></div><div><small>Resultado</small><strong>27% menos demandas recorrentes</strong></div></div>
-<section class="section"><h2>Resultados relatados</h2><div class="metrics"><div class="metric"><div class="number">+100</div><h3>Materiais criados</h3><p>Artigos e conteúdos estruturados para apoiar usuários, chatbot e treinamentos.</p></div><div class="metric"><div class="number">-27%</div><h3>Demandas recorrentes</h3><p>Redução observada após a estruturação do conhecimento e do autoatendimento.</p></div><div class="metric"><div class="number">-31%</div><h3>Tempo médio de resolução</h3><p>Redução relatada no tempo médio de resolução das demandas.</p></div><div class="metric"><div class="number">↑</div><h3>Autonomia</h3><p>Parte das dúvidas passou a ser resolvida sem depender diretamente do suporte.</p></div></div><p class="note">Os indicadores devem ser apresentados como resultados da experiência, sem atribuir causalidade absoluta quando a evidência disponível não permitir.</p></section>
-<section class="section"><h2>O problema</h2><div class="grid"><div class="card"><h3>Suporte sem estrutura</h3><p>O atendimento acontecia pelo WhatsApp. Não havia sistema de tickets nem uma base de conhecimento estruturada.</p></div><div class="card"><h3>Conhecimento difícil de usar</h3><p>Existiam explicações genéricas sobre o sistema, mas elas pressupunham que o usuário já conhecesse a ferramenta.</p></div><div class="card"><h3>Dependência do suporte</h3><p>Dúvidas recorrentes consumiam tempo da operação e poderiam ser resolvidas pelo próprio usuário com uma orientação adequada.</p></div><div class="card"><h3>Expectativa desalinhada</h3><p>Usuários enviavam mensagens fora do horário comercial sem saber quando receberiam retorno.</p></div></div></section>
-<section class="section"><h2>Ecossistema e personas</h2><p class="lead">A Habitat não tratava todos os usuários como se tivessem a mesma necessidade. O ecossistema possuía diferentes perfis e contextos de utilização.</p><div class="grid" style="margin-top:20px"><div class="card"><h3>Médicos</h3><p>Utilizavam o site da Habitat em sua jornada para encontrar e utilizar espaços de atendimento. Não utilizavam o SaaS.</p></div><div class="card"><h3>Donos de salas</h3><p>Também utilizavam o site da Habitat, com uma jornada diferente da dos médicos. O SaaS não era destinado a esse perfil.</p></div><div class="card"><h3>Donos de clínicas</h3><p>Quando o cliente possuía múltiplas salas, a necessidade era diferente. Para esse perfil, a Habitat disponibilizava o produto SaaS para permitir o controle da operação.</p></div><div class="card"><h3>Lógica de negócio</h3><p>A oferta do SaaS era direcionada ao perfil em que a necessidade e o retorno comercial justificavam o produto. Não era uma solução comercialmente disponibilizada de forma indistinta para todos os usuários.</p></div></div><div class="highlight"><strong>Essa distinção orientava a produção do conhecimento:</strong> cada material era pensado para a persona e para a jornada correspondente. O conteúdo não era genérico porque o uso do produto também não era.</div></section>
-<section class="section"><h2>O que eu fiz</h2><div class="flow"><div class="step"><span>01 · DISCOVERY</span><h3>Observei a realidade do usuário</h3><p>Usei conversas de suporte, dúvidas recorrentes, comportamento dos usuários e casos reais para identificar problemas de uso, necessidades e pontos de atrito na jornada.</p></div><div class="step"><span>02 · PRIORIZAÇÃO</span><h3>Defini a ordem de trabalho conforme o valor para o usuário</h3><p>Existia uma lista predefinida de temas, mas eu tinha autonomia para alterar sua ordem considerando a necessidade do cliente, recorrência, impacto e dificuldade observada no atendimento. A prioridade definia quais problemas deveriam ser transformados primeiro em conhecimento.</p></div><div class="step"><span>03 · REQUISITOS E DECOMPOSIÇÃO</span><h3>Transformei necessidades em etapas executáveis</h3><p>Quando uma necessidade envolvia uma jornada maior, eu quebrava o trabalho em várias camadas e etapas menores. Isso aconteceu, por exemplo, no material de cadastro no site da Habitat e também na documentação relacionada ao SaaS.</p></div><div class="step"><span>04 · UX E CONSTRUÇÃO</span><h3>Estruturei o conteúdo a partir da jornada da persona</h3><p>Transformei explicações genéricas em materiais pensados para a persona e para a forma como ela utilizava o produto. O objetivo era permitir que alguém sem conhecimento prévio conseguisse executar a jornada com clareza. Cada orientação tinha passo a passo e, quando aplicável, vídeo demonstrativo.</p></div><div class="step"><span>05 · VALIDAÇÃO</span><h3>Validei se a solução funcionava na prática</h3><p>A produção dos materiais seguia uma estrutura que transformava a necessidade do usuário em etapas concretas e verificáveis. Além da validação do proprietário, eu observava a utilização, as dúvidas que permaneciam e a recorrência das solicitações para identificar pontos que precisavam ser corrigidos ou complementados.</p></div><div class="step"><span>06 · ESCALA</span><h3>Transformei conhecimento em autoatendimento</h3><p>Os vídeos eram enviados diretamente aos usuários. O conteúdo escrito alimentava o chatbot e também era utilizado nos treinamentos.</p></div></div><div class="highlight"><strong>Uma mesma solução passou a servir para três necessidades:</strong> ajudar o usuário, apoiar o chatbot e capacitar pessoas internamente.</div></section>
-<section class="section"><h2>Produto e Scrum na prática</h2><p class="lead">Na Habitat, minha atuação abrangia diferentes frentes do ecossistema de produto. Além de CX, contribuía com atividades de Produto e facilitação Scrum, conectando clientes, produto e desenvolvimento. Também conduzi testes e validação funcional, acompanhei leads e negociações e produzi os materiais de orientação, conhecimento e treinamento. As reuniões do time aconteciam semanalmente, às sextas-feiras.</p><div class="grid" style="margin-top:20px"><div class="card"><h3>Product Backlog</h3><p>Eu trabalhava com a lista de demandas e funcionalidades e ajudava a estruturar o trabalho. A decisão final sobre a prioridade das novas funcionalidades cabia ao proprietário da empresa.</p></div><div class="card"><h3>Backlog Refinement</h3><p>Ajudava a equipe a entender, detalhar e esclarecer o trabalho antes do desenvolvimento, reduzindo ambiguidades sobre a necessidade do cliente.</p></div><div class="card"><h3>Sprint Planning</h3><p>Participava da definição do trabalho, ajudando o time a compreender a necessidade do cliente e o que precisava ser desenvolvido.</p></div><div class="card"><h3>Daily Scrum</h3><p>Participava das reuniões e, quando conduzia a conversa, organizava o acompanhamento, identificava bloqueios e ajudava a encaminhar impedimentos.</p></div><div class="card"><h3>Sprint Review</h3><p>Participava da revisão das funcionalidades desenvolvidas, verificando se a entrega atendia à necessidade que havia originado o trabalho.</p></div><div class="card"><h3>Sprint Retrospective</h3><p>Participava da identificação de problemas no processo e da definição de melhorias para o ciclo seguinte.</p></div></div><div class="highlight"><strong>O ponto central da minha atuação:</strong> eu levava a necessidade real do cliente para a conversa com desenvolvimento e tinha autonomia para dizer quando uma funcionalidade não atendia ao problema. Nesses casos, a entrega retornava para ajuste.</div><div class="highlight"><strong>Também havia influência sobre decisões de produto:</strong> em algumas situações, a percepção inicial do proprietário sobre a necessidade do usuário era diferente do que eu observava diretamente com os clientes. Eu levava essas evidências para a discussão e, em alguns casos, consegui mudar a percepção sobre o que deveria ser considerado.</div><p class="note">Minha atuação como Analista de Produtos Digitais | Customer Experience abrangia diferentes frentes, incluindo atividades de Produto, facilitação de práticas Scrum, testes, CX, gestão de leads e produção de materiais. A decisão final sobre a direção do produto e as prioridades permanecia com o proprietário da empresa.</p></section>
-<section class="section"><h2>Da percepção à evidência</h2><p class="lead">Uma parte importante da minha atuação era transformar a percepção sobre o que o cliente precisava em uma discussão baseada em evidências.</p><div class="flow"><div class="step"><span>01 · CUSTOMER INSIGHTS</span><h3>Eu partia do comportamento real</h3><p>Conversas com clientes, casos reais, dúvidas recorrentes, dificuldades e comportamento observado ajudavam a entender o problema antes de defender uma solução.</p></div><div class="step"><span>02 · EVIDENCE-BASED DECISION MAKING</span><h3>Eu levava evidências para a decisão</h3><p>Quando minha percepção sobre a necessidade do cliente era diferente da percepção inicial do proprietário, eu levava exemplos concretos dos usuários e, quando disponíveis, relacionava esses casos aos números acompanhados pelo negócio.</p></div><div class="step"><span>03 · VALUE-BASED PRIORITIZATION</span><h3>Eu questionava o que realmente merecia atenção</h3><p>Recorrência, impacto, necessidade do usuário, dificuldade e potencial de autonomia ajudavam a diferenciar problemas mais relevantes de demandas que apenas pareciam importantes.</p></div><div class="step"><span>04 · STAKEHOLDER INFLUENCE</span><h3>Influenciava sem precisar ser o decisor final</h3><p>Meu papel não era substituir o proprietário na decisão. Era colocar a evidência do cliente na conversa para que a decisão considerasse o problema real observado na ponta.</p></div></div><div class="highlight"><strong>Uma lente importante:</strong> esse raciocínio se aproxima do princípio por trás de abordagens como o Método Kano, que procura entender como diferentes necessidades afetam o valor percebido pelo usuário. Porém, eu não utilizava formalmente o Método Kano na Habitat e, por isso, não o apresento como uma metodologia que eu tenha aplicado naquele período.</div><p class="note">O que a experiência demonstra é uma prática real de Customer Insights, Problem Discovery, priorização orientada por valor e influência baseada em evidências.</p></section>
-<section class="section"><h2>Experiência do cliente e operação</h2><div class="grid"><div class="card"><h3>WhatsApp Business</h3><p>Configurei mensagem de ausência para informar o horário de atendimento e alinhar a expectativa sobre o retorno.</p></div><div class="card"><h3>Validação com o usuário</h3><p>Após a atuação de TI ou Desenvolvimento, eu retornava ao usuário e pedia um teste. A solução só era considerada concluída depois da validação.</p></div><div class="card"><h3>Melhoria contínua</h3><p>Quando um conteúdo não resolvia completamente a dúvida, a necessidade de correção ou complementação voltava para a operação.</p></div></div></section>
-<section class="section"><h2>Da experiência à conversão</h2><p class="lead">Minha atuação também alcançava a jornada comercial. Eu tratava diretamente os leads identificados a partir do interesse demonstrado pelos usuários.</p><div class="grid" style="margin-top:20px"><div class="card"><h3>Comportamento</h3><p>Utilizávamos o ClickUp para observar pontos de interação e comportamento no site.</p></div><div class="card"><h3>Lead</h3><p>Usuários que demonstravam interesse e solicitavam informações eram tratados por mim como leads no Pipedrive.</p></div><div class="card"><h3>Acompanhamento</h3><p>Eu fazia primeiro contato, entendia a necessidade, apresentava o produto, esclarecia dúvidas, realizava follow-up e acompanhava a negociação.</p></div><div class="card"><h3>Priorização</h3><p>O primeiro contato seguia a ordem de entrada. Depois, a prioridade mudava conforme urgência, interesse e estágio da negociação.</p></div></div><div class="highlight">Quando o proprietário questionava gargalos de conversão, eu levava casos reais dos clientes e relacionava a percepção da operação aos números de conversão que ele acompanhava.</div></section>
-<section class="section"><h2>Da necessidade à entrega</h2><div class="flow"><div class="step"><span>01 · ENTENDER O USUÁRIO</span><h3>Três perfis, necessidades diferentes</h3><p>A plataforma atendia médicos, donos de sala e donos de clínica. O trabalho partiu das dúvidas e fricções observadas em cada perfil, evitando tratar o produto como uma experiência única.</p></div><div class="step"><span>02 · ESTRUTURAR A NECESSIDADE</span><h3>User Story reconstruída</h3><p><strong>Como médico, quero entender as características, regras e condições de uso de cada produto, para identificar qual é adequado ao meu momento profissional e conseguir contratar e utilizar o produto para reservar uma sala.</strong></p></div><div class="step"><span>03 · CRITÉRIOS DE ACEITAÇÃO</span><h3>O que precisava estar claro</h3><p>Nome do produto, finalidade, momento da carreira, valor, salas compatíveis, regras de uso, prazo de cancelamento, como utilizar, contratar, consultar saldo remanescente e utilizar o produto para reservar uma sala.</p></div><div class="step"><span>04 · VALIDAR E APRENDER</span><h3>UAT/OAT e experimentação</h3><p>Participei da validação com negócio e tecnologia e dos testes A/B, acompanhando comportamento do usuário e conclusão da ação esperada para apoiar decisões de continuidade, mudança ou descarte.</p></div></div><div class="highlight"><strong>Limite de evidência:</strong> este case demonstra experiência concreta com User Stories, critérios de aceitação, refinamento/priorização, UAT/OAT e experimentação. Não transforma essa experiência em alegação de ownership formal de Product Backlog ou Product Strategy.</div></section><section class="section"><h2>O que esta experiência demonstra</h2><div class="grid"><div class="card"><h3>Customer Experience</h3><p>Entender o problema a partir da realidade do usuário antes de definir a resposta.</p></div><div class="card"><h3>Product Discovery</h3><p>Investigar problemas de uso, necessidades, comportamento e pontos de atrito para orientar o trabalho.</p></div><div class="card"><h3>Product Owner Responsibilities</h3><p>Experiência prática na interface entre cliente, produto e desenvolvimento, com backlog, refinement, planning, review, validação e influência sobre decisões.</p></div><div class="card"><h3>Scrum Master Responsibilities</h3><p>Facilitação do Daily Scrum, acompanhamento do progresso, identificação e encaminhamento de impedimentos, participação em Sprint Planning, Sprint Review e Sprint Retrospective.</p></div><div class="card"><h3>Customer Insights</h3><p>Uso de casos reais, comportamento e recorrência para compreender o que realmente importa para o cliente.</p></div><div class="card"><h3>Evidence-Based Decision Making</h3><p>Levar evidências do usuário para discussões de produto em vez de depender apenas de percepção.</p></div><div class="card"><h3>Personas & User Focus</h3><p>Adaptar o conhecimento à persona, à jornada e à forma como cada público utiliza o produto.</p></div><div class="card"><h3>SaaS</h3><p>Experiência com documentação, jornadas e necessidades relacionadas a um produto SaaS direcionado a um segmento específico de clientes.</p></div><div class="card"><h3>UX & User Journey</h3><p>Estruturar experiências considerando contexto, jornada, clareza de uso e validação na prática.</p></div><div class="card"><h3>Requirements & Decomposition</h3><p>Transformar necessidades maiores em etapas concretas, executáveis e verificáveis.</p></div><div class="card"><h3>Knowledge Base</h3><p>Transformar conhecimento disperso em conteúdo reutilizável.</p></div><div class="card"><h3>Prioritization</h3><p>Alterar a ordem das iniciativas conforme valor para o usuário, impacto, recorrência e necessidade, respeitando a decisão final do proprietário da empresa.</p></div><div class="card"><h3>Stakeholder Influence</h3><p>Influenciar decisões apresentando evidências do cliente, mesmo sem ser o decisor final.</p></div><div class="card"><h3>Product Thinking</h3><p>Considerar diferentes públicos, necessidades, jornadas e lógica de negócio ao estruturar uma experiência.</p></div><div class="card"><h3>Lead Management</h3><p>Acompanhar o usuário também no momento em que ele demonstra intenção de compra.</p></div></div></section>
-<section class="section"><h2>Resultados relatados em perspectiva.</h2><div class="pbos-data-chart" role="img" aria-label="Reduções relatadas: 27 por cento menos demandas recorrentes e 31 por cento menor tempo médio de resolução."><div class="pbos-chart-row"><span class="pbos-chart-label">Demandas recorrentes</span><div class="pbos-chart-track"><span style="width:27%"></span></div><strong class="pbos-chart-value">27%</strong></div><div class="pbos-chart-row"><span class="pbos-chart-label">Tempo médio de resolução</span><div class="pbos-chart-track"><span style="width:31%"></span></div><strong class="pbos-chart-value">31%</strong></div><p class="pbos-chart-note">Os dois valores representam reduções relatadas. Como a evidência não contém bases absolutas, o gráfico apresenta apenas os percentuais.</p></div></section></main><footer class="pbos-footer">
-  <div class="pbos-footer-signature">Cleyton Hespanhol | Product Owner | UX</div>
-  <div class="pbos-footer-copy">© 2026 Cleyton S. Hespanhol. Todos os direitos reservados.</div>
-  <a class="pbos-footer-link" href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener">linkedin.com/in/cleyton-hespanhol</a>
-</footer><link rel="stylesheet" href="/meuportifolio/pbos-career-theme.css?v=20261112-career-os">
-</body></html>
-<section class="section"><h2>Artefatos relacionados</h2><div class="links"><a href="Central_Conhecimento.html">Central de Conhecimento</a><a href="modelo_onboarding.html">Modelo de Onboarding</a><a href="fluxo_operacional.html">Fluxo Operacional</a><a href="mapa_jornada_usuario.html">Mapa da Jornada</a><a href="fluxo_discovery.html">Fluxo de Discovery</a><a href="protocolo_habitat.html">Protocolo Operacional</a><a href="artefato_protocolo_habitat.html">Especificação do Protocolo</a><a href="protocolo_gestao_incidentes.html">Gestão de Incidentes</a><a href="relatorio_leadtime.html">Modelo de Métricas</a><a href="case03_matriz_evidencias.html">Matriz de Evidências</a></div></section>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+</svg>
+<a class="skip" href="#main">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="shell case-bar">
+    <a class="back-link" href="index.html"><svg aria-hidden="true" width="18" height="18"><use href="#i-left"/></svg>Portfólio</a>
+    <span class="lang" role="group" aria-label="Idioma">
+      <a data-lang="pt" href="case_study_03_habitat_final.html" lang="pt-BR" hreflang="pt-BR" aria-current="page">PT</a>
+      <a data-lang="en" href="en/cases/case-03-habitat-saas.html" lang="en" hreflang="en" aria-current="false">EN</a>
+    </span>
+  </div>
+</header>
+
+<main id="main" class="case-wrap">
+
+  <section class="case-hero" aria-labelledby="titulo">
+    <span class="eyebrow">Case 03 · Habitat Consultórios Inteligentes</span>
+    <h1 id="titulo">Da resposta individual ao <em>autoatendimento</em></h1>
+    <p class="lead">Como um suporte feito por WhatsApp, sem tickets nem base de conhecimento, virou conteúdo por persona que atende usuários, alimenta o chatbot e apoia o treinamento.</p>
+    <p class="reading-time">Leitura de cerca de 5 min</p>
+
+    <dl class="summary">
+      <div class="wide"><dt>Resultado relatado</dt><dd class="result-line">27% menos demandas recorrentes e 31% menor tempo médio de resolução</dd></div>
+      <div><dt>Entrega</dt><dd>Mais de 100 materiais criados</dd></div>
+      <div><dt>Cargo</dt><dd>Analista de Produtos Digitais | Customer Experience</dd></div>
+      <div><dt>Empresa e período</dt><dd>Habitat Consultórios Inteligentes (SaaS B2B), outubro de 2023 a janeiro de 2025</dd></div>
+      <div><dt>Ferramentas</dt><dd>WhatsApp Business, ClickUp e Pipedrive</dd></div>
+    </dl>
+
+    <p class="role-box"><b>Meu papel:</b> Discovery, organização e detalhamento do backlog, acompanhamento das entregas, facilitação de eventos Scrum, testes e validação funcional, gestão de leads e produção dos materiais. <b>Limite da evidência:</b> a decisão final sobre a direção do produto e a prioridade das funcionalidades era do dono da empresa. O case não alega ownership formal de Product Backlog ou Product Strategy.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="t-resultados">
+    <span class="eyebrow">Resultados</span>
+    <h2 id="t-resultados">O que mudou, com o limite da evidência</h2>
+    <div class="compare" role="img" aria-label="Reduções relatadas: 27 por cento menos demandas recorrentes e 31 por cento menor tempo médio de resolução.">
+      <div class="bar-row"><span class="lab">Demandas recorrentes</span><div class="track"><span style="width:27%"></span></div><strong class="val">-27%</strong></div>
+      <div class="bar-row"><span class="lab">Tempo médio de resolução</span><div class="track"><span style="width:31%"></span></div><strong class="val">-31%</strong></div>
+      <p class="note"><b>Base de comparação:</b> os dois valores são reduções relatadas, sem bases absolutas disponíveis. Por isso o gráfico mostra apenas os percentuais e o case não atribui causalidade única ao resultado. Também houve mais autonomia: parte das dúvidas passou a ser resolvida sem depender diretamente do suporte.</p>
+    </div>
+  </section>
+
+  <section class="case-section" aria-labelledby="t-problema">
+    <span class="eyebrow">01 · O problema</span>
+    <h2 id="t-problema">Suporte sem estrutura</h2>
+    <div class="pair">
+      <div><h3>Sem tickets nem base de conhecimento</h3><p>O atendimento acontecia pelo WhatsApp, sem sistema de tickets e sem conhecimento estruturado.</p></div>
+      <div><h3>Conteúdo que pressupunha conhecimento</h3><p>As explicações genéricas existentes assumiam que o usuário já conhecia a ferramenta.</p></div>
+      <div><h3>Dependência do suporte</h3><p>Dúvidas recorrentes consumiam tempo da operação e poderiam ser resolvidas pelo próprio usuário.</p></div>
+      <div><h3>Expectativa desalinhada</h3><p>Mensagens fora do horário comercial chegavam sem aviso de quando haveria retorno.</p></div>
+    </div>
+  </section>
+
+  <section class="case-section" aria-labelledby="t-personas">
+    <span class="eyebrow">02 · Personas</span>
+    <h2 id="t-personas">Três perfis, três necessidades</h2>
+    <div class="pair">
+      <div><h3>Médicos</h3><p>Usavam o site para encontrar e utilizar espaços de atendimento. Não usavam o SaaS.</p></div>
+      <div><h3>Donos de salas</h3><p>Também usavam o site, com jornada diferente da dos médicos. O SaaS não era destinado a eles.</p></div>
+      <div><h3>Donos de clínicas</h3><p>Com várias salas, precisavam controlar a operação. Para esse perfil a Habitat oferecia o SaaS.</p></div>
+      <div><h3>Lógica de negócio</h3><p>O SaaS era oferecido onde a necessidade e o retorno comercial justificavam o produto, não de forma indistinta.</p></div>
+    </div>
+    <p style="margin-top:16px">Essa distinção orientava a produção do conhecimento: cada material era pensado para a persona e para a jornada correspondente.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="t-fiz">
+    <span class="eyebrow">03 · O que eu fiz</span>
+    <h2 id="t-fiz">Do problema observado ao autoatendimento</h2>
+    <ol class="steps">
+      <li><div><b>Discovery</b><span>Usei conversas de suporte, dúvidas recorrentes e casos reais para identificar problemas de uso e pontos de atrito.</span></div></li>
+      <li><div><b>Priorização</b><span>Havia uma lista predefinida de temas, mas eu tinha autonomia para mudar a ordem conforme necessidade do cliente, recorrência, impacto e dificuldade observada.</span></div></li>
+      <li><div><b>Requisitos e decomposição</b><span>Jornadas maiores eram quebradas em camadas e etapas menores, como no material de cadastro no site e na documentação do SaaS.</span></div></li>
+      <li><div><b>UX e construção</b><span>Cada material partia da jornada da persona e permitia que alguém sem conhecimento prévio executasse a tarefa, com passo a passo e, quando aplicável, vídeo.</span></div></li>
+      <li><div><b>Validação</b><span>Além da validação do proprietário, eu observava o uso, as dúvidas que permaneciam e a recorrência das solicitações para corrigir ou complementar.</span></div></li>
+      <li><div><b>Escala</b><span>Os vídeos eram enviados direto aos usuários. O conteúdo escrito alimentava o chatbot e os treinamentos. Uma solução, três usos.</span></div></li>
+    </ol>
+  </section>
+
+  <section class="case-section" aria-labelledby="t-produto">
+    <span class="eyebrow">04 · Produto e evidência</span>
+    <h2 id="t-produto">Levar o cliente real para a decisão</h2>
+    <p>Eu participava de refinamento, planning, daily, review e retrospectiva, e conduzia o acompanhamento da daily quando era minha vez de facilitar. O ponto central era levar a necessidade real do cliente para a conversa com o desenvolvimento e devolver para ajuste a entrega que não resolvia o problema.</p>
+    <div class="pair" style="margin-top:16px">
+      <div><h3>Evidência no lugar da percepção</h3><p>Quando minha leitura do cliente diferia da do proprietário, eu levava exemplos concretos e, quando disponíveis, relacionava aos números que o negócio acompanhava. Em alguns casos mudei a percepção sobre o que considerar.</p></div>
+      <div><h3>Influência sem ser o decisor</h3><p>Meu papel não era substituir o proprietário. Era colocar a evidência do cliente na conversa para que a decisão considerasse o problema observado na ponta.</p></div>
+    </div>
+  </section>
+
+  <section class="case-section" aria-labelledby="t-entrega">
+    <span class="eyebrow">05 · Da necessidade à entrega</span>
+    <h2 id="t-entrega">User story, critérios de aceitação e testes</h2>
+    <ol class="steps">
+      <li><div><b>User story reconstruída</b><span>Como médico, quero entender as características, regras e condições de uso de cada produto, para identificar qual é adequado ao meu momento profissional e conseguir contratar e utilizar o produto para reservar uma sala.</span></div></li>
+      <li><div><b>Critérios de aceitação</b><span>Nome do produto, finalidade, momento da carreira, valor, salas compatíveis, regras de uso, prazo de cancelamento, como contratar, como consultar o saldo e como usar o produto para reservar uma sala.</span></div></li>
+      <li><div><b>UAT, OAT e testes A/B</b><span>Participei da validação com negócio e tecnologia e dos testes A/B, acompanhando o comportamento do usuário e a conclusão da ação esperada para apoiar decisões de continuar, mudar ou descartar.</span></div></li>
+    </ol>
+  </section>
+
+  <section class="case-section" aria-labelledby="t-operacao">
+    <span class="eyebrow">06 · Operação e conversão</span>
+    <h2 id="t-operacao">Experiência do cliente e jornada comercial</h2>
+    <div class="pair">
+      <div><h3>Expectativa de retorno</h3><p>Configurei mensagem de ausência no WhatsApp Business com o horário de atendimento.</p></div>
+      <div><h3>Melhoria contínua</h3><p>Quando um conteúdo não resolvia a dúvida, a correção voltava para a operação. Após ajustes de TI ou Desenvolvimento, eu pedia ao usuário que testasse antes de concluir.</p></div>
+      <div><h3>Leads</h3><p>Usuários que demonstravam interesse eram tratados por mim como leads no Pipedrive, do primeiro contato ao follow-up e à negociação. A ordem inicial era a de entrada e depois mudava por urgência, interesse e estágio.</p></div>
+      <div><h3>Gargalos de conversão</h3><p>Quando o proprietário questionava gargalos, eu levava casos reais e relacionava a percepção da operação aos números de conversão que ele acompanhava.</p></div>
+    </div>
+  </section>
+
+  <section class="case-section" aria-labelledby="t-docs">
+    <span class="eyebrow">07 · Artefatos relacionados</span>
+    <h2 id="t-docs">Materiais produzidos</h2>
+    <details class="docs"><summary>Ver 10 documentos de apoio</summary>
+    <ul class="doc-links">
+      <li><a href="Central_Conhecimento.html">Central de Conhecimento</a></li>
+      <li><a href="modelo_onboarding.html">Modelo de onboarding</a></li>
+      <li><a href="fluxo_operacional.html">Fluxo operacional</a></li>
+      <li><a href="mapa_jornada_usuario.html">Mapa da jornada</a></li>
+      <li><a href="fluxo_discovery.html">Fluxo de Discovery</a></li>
+      <li><a href="protocolo_habitat.html">Protocolo operacional</a></li>
+      <li><a href="artefato_protocolo_habitat.html">Especificação do protocolo</a></li>
+      <li><a href="protocolo_gestao_incidentes.html">Gestão de incidentes</a></li>
+      <li><a href="relatorio_leadtime.html">Modelo de métricas</a></li>
+      <li><a href="case03_matriz_evidencias.html">Matriz de evidências</a></li>
+    </ul>
+    </details>
+  </section>
+
+  <p class="case-count">Você está no case 4 de 6.</p>
+
+  <div class="next-case">
+    <a class="btn primary" href="case_study_05_pav_receita_federal_final.html">Próximo case: PAV Maricá</a>
+    <a class="btn" href="index.html#cases">Voltar aos cases</a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div><strong>Cleyton S. Hespanhol</strong> · Product Owner | UX</div>
+  <div>© 2026 Cleyton S. Hespanhol · <a href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+</footer>
+<button class="to-top" type="button" aria-label="Voltar ao topo"><svg aria-hidden="true"><use href="#i-up"/></svg></button>
+</body>
+</html>

@@ -1,259 +1,125 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Caso 03 · PAV Receita Federal | Service Discovery e Service Design</title>
-<style>
-:root{--bg:#1E2328;--bg2:#26505A;--bg3:#26505A;--gold:#DAAF57;--gold-lt:#DAAF57;--white:#F5F7FA;--gray:#C4CDD3;--border:rgba(218,175,87,.22)}*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;line-height:1.7;font-weight:300}a{color:var(--gold);text-decoration:none}.top{height:2px;background:var(--bg);}.back{position:fixed;top:22px;left:22px;z-index:10;background:rgba(30,35,40,.92);border:1px solid var(--border);padding:9px 14px;border-radius:4px;font:600 10px Orbitron,sans-serif;letter-spacing:.08em}.container{max-width:920px;margin:auto;padding:110px 24px 70px}.eyebrow{font:600 10px Orbitron,sans-serif;color:var(--gold);letter-spacing:.18em;margin-bottom:15px}.hero{padding-bottom:42px;border-bottom:1px solid var(--border)}h1{font-size:clamp(36px,6vw,58px);line-height:1.12;margin-bottom:18px}.lead{font-size:17px;color:var(--gray);max-width:800px}.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;background:var(--bg2);border:1px solid var(--border);padding:22px;margin:30px 0 65px;border-radius:5px}.meta small{display:block;color:var(--gold);font:600 9px Orbitron,sans-serif;letter-spacing:.12em;margin-bottom:4px}.meta strong{font-size:13px;font-weight:500}.section{margin-bottom:62px}.section h2{font-size:25px;margin-bottom:22px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}.card{background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:23px}.card h3{font-size:18px;margin-bottom:9px}.card p{font-size:13px;color:var(--gray)}.flow{border-left:1px solid var(--border);padding-left:22px}.step{margin-bottom:30px;position:relative}.step:before{content:'';position:absolute;left:-28px;top:8px;width:9px;height:9px;border:2px solid var(--gold);border-radius:50%;background:var(--bg)}.step span{font:600 9px Orbitron,sans-serif;color:var(--gold);letter-spacing:.14em}.step h3{font-size:19px;margin:4px 0 7px}.step p{font-size:13px;color:var(--gray)}.highlight{border-left:3px solid var(--gold);background:var(--bg2);padding:25px;margin-top:20px;font-size:14px}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}.metric{background:var(--bg2);border:1px solid var(--border);padding:22px;border-radius:5px}.number{font-size:38px;color:var(--gold-lt);font-weight:600;line-height:1}.metric h3{font-size:12px;margin:9px 0 5px;text-transform:uppercase;letter-spacing:.06em}.metric p{font-size:12px;color:var(--gray)}.links{display:flex;flex-wrap:wrap;gap:10px}.links a{border:1px solid var(--border);padding:9px 13px;font-size:11px;border-radius:4px}.note{font-size:12px;color:#C4CDD3;margin-top:14px}footer{text-align:center;border-top:1px solid var(--border);padding:28px;color:#C4CDD3;font-size:11px}
-</style>
-<script src="portfolio-language.js?v=20260919" defer></script>
-<style id="pbos-unified-visual-standard">
-/* PBOS unified visual standard */
-html,body{background:#1E2328!important;color:#F5F7FA!important}
-body{font-family:'DM Sans',sans-serif!important;font-weight:300!important}
-body,body main,body header,body footer,body .hero,body .container,body .wrap,body .section,body .section-inner,body .cases-section,body .hero-container,body .hero-content,body .hero-footer,body .corporate-banner{background-color:#1E2328!important;background-image:none!important}
-body .hero-bg,body .orb,body [class*="orb"],body [class*="glow"],body [class*="ambient"],body [class*="halo"]{display:none!important;background:none!important;background-image:none!important;box-shadow:none!important;filter:none!important;opacity:0!important}
-body .hero:before,body .hero:after,body main:before,body main:after{background:none!important;background-image:none!important;box-shadow:none!important;content:none!important}
-body .gold-accent-top,body .top{height:2px!important;background:#DAAF57!important;background-image:none!important}
-body h1,body h2,body h3,body h4,body h5,body h6,body .hero-title,body .hero-main-text,body .hero-subtitle,body .section-title,body .section-heading,body .banner-title,body .eco-title,body .doc-title,body .pillar-card h3,body .artifact-card h3,body .case-card h3,body .hero-highlight-value,body .metric-display,body .number{font-family:'DM Sans',sans-serif!important;font-style:normal!important;color:#F5F7FA!important}
-body .hero-title em,body .section-title em,body .section-heading em,body .hero-main-text em,body .banner-desc em{font-family:'DM Sans',sans-serif!important;font-style:normal!important;color:#DAAF57!important}
-body p,body li,body td,body th,body input,body button,body textarea,body select,body .lead,body .hero-desc,body .hero-sub-text,body .hero-main-text,body .card p,body .pillar-card p,body .artifact-card p,body .case-card p,body .competency-desc,body .eco-text,body .step p,body .note,body .metric p,body .footer-copy,body .footer-right{font-family:'DM Sans',sans-serif!important;color:#C4CDD3!important;font-weight:300!important;line-height:1.75!important}
-body .eyebrow,body .hero-eyebrow,body .hero-tags,body .case-label-text,body .case-meta,body .section-label,body .nav-role,body .nav-tag,body .label,body .artifact-action,body .competency-title,body .eco-role,body .doc-number,body .metric-label,body .tag,body .scroll-hint,body .footer-role{font-family:'Orbitron',sans-serif!important;font-style:normal!important;color:#DAAF57!important;letter-spacing:.14em!important}
-body .card,body .pillar-card,body .artifact-card,body .competency-card,body .eco-card,body .metric,body .meta,body .hero-highlight-card,body .flow,body .note,body .doc-card,body .case-card,body .stat-box{background:#26505A!important;border-color:rgba(218,175,87,.30)!important;box-shadow:none!important}
-body .card:hover,body .artifact-card:hover,body .case-card:hover,body .doc-card:hover,body .competency-card:hover,body .eco-card:hover{background:#26505A!important;border-color:#DAAF57!important}
-body .back,body .back-btn{background:rgba(30,35,40,.96)!important;color:#DAAF57!important;border-color:rgba(218,175,87,.30)!important}
-body .back:hover,body .back-btn:hover{background:#DAAF57!important;color:#1E2328!important}
-body .nav-name,body .logo-text{font-family:'DM Sans',sans-serif!important;color:#F5F7FA!important}
-body .h-mark,body .logo-h{font-family:'DM Sans',sans-serif!important;color:#F5F7FA!important;border-color:#DAAF57!important}
-body .metric-display,body .number{color:#DAAF57!important;font-weight:300!important}
-body footer,body .pbos-footer{background:#1E2328!important;border-top-color:rgba(218,175,87,.30)!important;color:#C4CDD3!important}
-body .pbos-footer-signature{font-family:'DM Sans',sans-serif!important;color:#F5F7FA!important;font-weight:400!important}
-body .pbos-footer-copy{color:#C4CDD3!important}
-body .pbos-footer-link,body .footer-linkedin{color:#DAAF57!important}
-@media(max-width:760px){body .container,body .wrap,body .cases-section,body .hero-content,body .hero-footer,body .nav,body footer,body .section,body header{padding-left:20px!important;padding-right:20px!important}}
-
-
-/* Language control */
-.portfolio-language-switcher{
-  position:fixed;top:18px;right:18px;z-index:1100;display:flex;gap:2px;
-  padding:3px;border:1px solid rgba(218,175,87,.30);border-radius:6px;
-  background:rgba(30,35,40,.94);backdrop-filter:blur(8px);box-shadow:0 6px 20px rgba(0,0,0,.18)
-}
-.portfolio-language-switcher a{
-  min-width:34px;padding:7px 8px;text-align:center;text-decoration:none;
-  font:600 9px/1 'Orbitron',sans-serif;letter-spacing:.08em;color:#C4CDD3!important;
-  border-radius:4px;transition:.2s ease
-}
-.portfolio-language-switcher a:hover,.portfolio-language-switcher a.active{background:#DAAF57;color:#1E2328!important}
-@media(max-width:760px){.portfolio-language-switcher{top:12px;right:12px}.portfolio-language-switcher a{min-width:31px;padding:7px 6px}}
-</style>
-<style id="pbos-v2-case-standard">
-:root{
-  --bg:#1E2328;--bg2:#26505A;--bg3:#26505A;
-  --gold:#DAAF57;--gold-lt:#DAAF57;
-  --teal:#DAAF57;--teal-br:#DAAF57;--cyan:#DAAF57;
-  --white:#F5F7FA;--gray1:#C4CDD3;--gray2:#C4CDD3;
-  --border:rgba(218,175,87,.22);
-}
-html,body{background:#1E2328!important;color:#F5F7FA!important}
-body{font-family:'DM Sans',sans-serif!important;font-size:16px!important;font-weight:300!important;line-height:1.75!important}
-body h1,body h2,body h3,body h4{font-family:'DM Sans',sans-serif!important;color:#F5F7FA!important;font-style:normal!important}
-body p,body li{font-family:'DM Sans',sans-serif!important;color:#C4CDD3!important;font-weight:300!important;line-height:1.78!important}
-body em{font-style:normal!important;color:#DAAF57!important}
-body .container,body .wrap{
-  max-width:1040px!important;margin:0 auto!important;
-  padding:128px 32px 96px!important;
-}
-body .hero{
-  padding:0 0 58px!important;
-  margin-bottom:64px!important;
-  border-bottom:1px solid rgba(218,175,87,.30)!important;
-}
-body .hero-eyebrow,body .eyebrow,body .section-label,body .section-title,
-body .case-label-text,body .case-meta,body .doc-number,body .artifact-action,
-body .competency-title,body .eco-role,body .hero-highlight-label,
-body .label,body .tag{
-  font-family:'Orbitron',sans-serif!important;
-  color:#DAAF57!important;
-  letter-spacing:.15em!important;
-  text-transform:uppercase;
-}
-body .hero-title{
-  font-size:clamp(42px,6vw,72px)!important;
-  font-weight:300!important;line-height:1.05!important;letter-spacing:-.045em!important;
-  margin-bottom:22px!important;
-}
-body .hero-subtitle{
-  color:#DAAF57!important;font-size:clamp(20px,3vw,30px)!important;
-  font-weight:400!important;line-height:1.3!important;margin-bottom:24px!important;
-}
-body .hero-desc,body .lead{font-size:16px!important;max-width:820px!important}
-body .section{margin-bottom:88px!important;padding:0!important}
-body .section-header{margin-bottom:30px!important;padding-bottom:15px!important;border-bottom:1px solid rgba(218,175,87,.30)!important}
-body .section-title{font-size:10px!important;font-weight:500!important}
-body .section-heading,body .section-title + h2{
-  font-size:clamp(30px,4vw,48px)!important;font-weight:300!important;
-  line-height:1.1!important;letter-spacing:-.035em!important;margin-top:8px!important;
-}
-body .pillars-grid,body .artifacts-grid,body .competencies-grid,body .eco-grid,
-body .grid,body .metrics{gap:12px!important}
-body .pillar-card,body .artifact-card,body .competency-card,body .eco-card,
-body .card,body .metric,body .meta,body .flow,body .highlight,body .note,
-body .doc-card,body .hero-highlight-card{
-  background:#26505A!important;border:1px solid rgba(218,175,87,.30)!important;
-  border-radius:12px!important;box-shadow:none!important;
-}
-body .pillar-card,body .artifact-card,body .competency-card,body .eco-card,
-body .card,body .metric,body .meta,body .flow,body .highlight,body .note,body .doc-card{padding:26px!important}
-body .pillar-card h3,body .artifact-card h3,body .eco-title,body .doc-title{
-  color:#F5F7FA!important;font-weight:500!important
-}
-body .pillar-card p,body .artifact-card p,body .competency-desc,body .eco-text,
-body .step p,body .metric p,body .note{font-size:14px!important}
-body .artifact-card:hover,body .card:hover,body .doc-card:hover,body .pillar-card:hover,
-body .competency-card:hover,body .eco-card:hover{
-  background:#26505A!important;border-color:#DAAF57!important;transform:translateY(-2px)
-}
-body .back,body .back-btn{
-  background:rgba(30,35,40,.96)!important;color:#DAAF57!important;
-  border:1px solid rgba(218,175,87,.30)!important;border-radius:8px!important;
-  padding:11px 15px!important;
-}
-body .back:hover,body .back-btn:hover{background:#DAAF57!important;color:#1E2328!important}
-body .metric .number,body .number{color:#DAAF57!important;font-weight:300!important}
-body .hero-highlight-card{border-left:3px solid #DAAF57!important;padding:24px 26px!important}
-body .hero-highlight-value{color:#F5F7FA!important;font-weight:500!important}
-body .meta-row{background:#26505A!important;border:1px solid rgba(218,175,87,.30)!important;border-radius:12px!important;padding:24px!important}
-body .meta-pill strong{color:#DAAF57!important}
-body .step span{color:#DAAF57!important;font-family:'Orbitron',sans-serif!important}
-body .highlight{border-left:3px solid #DAAF57!important}
-body .links a{border:1px solid rgba(218,175,87,.30)!important;border-radius:8px!important;padding:10px 14px!important}
-body .links a:hover{background:#DAAF57!important;color:#1E2328!important}
-body .tags{gap:7px!important}
-body .tag{border:1px solid rgba(218,175,87,.30)!important;border-radius:6px!important;padding:7px 8px!important}
-body .positive{border-color:rgba(218,175,87,.40)!important}
-body .limitation{border-left-color:#DAAF57!important}
-body footer,body .pbos-footer{
-  background:#1E2328!important;border-top:1px solid rgba(218,175,87,.30)!important;
-  padding:42px 24px!important;text-align:center!important;
-}
-body .pbos-footer-signature{font-family:'DM Sans',sans-serif!important;color:#F5F7FA!important;font-weight:500!important}
-body .pbos-footer-copy{color:#C4CDD3!important}
-body .pbos-footer-link{color:#DAAF57!important}
-@media(max-width:760px){
-  body .container,body .wrap{padding:104px 20px 72px!important}
-  body .hero{padding-bottom:44px!important;margin-bottom:52px!important}
-  body .hero-title{font-size:clamp(38px,11vw,54px)!important}
-  body .section{margin-bottom:64px!important}
-  body .section-heading,body .section-title + h2{font-size:clamp(28px,8vw,40px)!important}
-  body .pillar-card,body .artifact-card,body .competency-card,body .eco-card,
-  body .card,body .metric,body .meta,body .flow,body .highlight,body .note,body .doc-card{padding:22px!important}
-  body .back,body .back-btn{top:18px!important;left:18px!important}
-}
-</style>
-<style id="portfolio-reference-palette">
-:root{--portfolio-green:#DAAF57}
-body a{color:#DAAF57!important}
-body em{color:#DAAF57!important}
-body .hero-subtitle,body .hero-highlight-label{color:#DAAF57!important}
-body .links a:hover,body .back:hover,body .back-btn:hover{background:#DAAF57!important;color:#1E2328!important}
-body .artifact-card:hover,body .card:hover,body .doc-card:hover,body .pillar-card:hover,body .competency-card:hover,body .eco-card:hover{border-color:#DAAF57!important}
-</style>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style id="pbos-final-overrides">
-html, body { background:#1E2328 !important; color:#F5F7FA !important; }
-body { font-family:'DM Sans',sans-serif !important; font-weight:300 !important; }
-body, body main, body header, body footer, body .hero, body .container, body .wrap,
-body .section, body .section-inner, body .cases-section, body .hero-container,
-body .hero-content, body .hero-footer, body .corporate-banner { background-color:#1E2328 !important; background-image:none !important; }
-body .hero-bg, body .orb, body [class*="orb"], body [class*="glow"], body [class*="ambient"], body [class*="halo"] { display:none !important; background:none !important; background-image:none !important; box-shadow:none !important; filter:none !important; opacity:0 !important; }
-body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; background-image:none !important; box-shadow:none !important; content:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:#DAAF57 !important; background-image:none !important; }
-body h1, body h2, body h3, body h4, body h5, body h6,
-body .hero-title, body .hero-main-text, body .hero-subtitle, body .section-title,
-body .section-heading, body .banner-title, body .eco-title, body .doc-title,
-body .pillar-card h3, body .artifact-card h3, body .case-card h3,
-body .hero-highlight-value, body .metric-display, body .number {
-  font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#F5F7FA !important;
-}
-body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.035em !important; line-height:1.08 !important; }
-body h2, body .section-title, body .section-heading { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
-body h3, body .eco-title, body .case-card h3, body .doc-title { font-weight:400 !important; line-height:1.22 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; }
-body .hero-desc, body .hero-sub-text, body .lead, body .banner-desc,
-body .card p, body .pillar-card p, body .artifact-card p, body .case-card p,
-body .competency-desc, body .eco-text, body .step p, body .note, body .metric p,
-body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#C4CDD3 !important; font-weight:300 !important; line-height:1.75 !important; }
-body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text,
-body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label,
-body .artifact-action, body .competency-title, body .eco-role, body .doc-number,
-body .metric-label, body .tag, body .scroll-hint, body .footer-role {
-  font-family:'Orbitron',sans-serif !important; font-style:normal !important; color:#DAAF57 !important; letter-spacing:.14em !important;
-}
-body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card,
-body .metric, body .meta, body .hero-highlight-card, body .flow, body .note,
-body .doc-card, body .case-card, body .stat-box { background:#26505A !important; border-color:rgba(218,175,87,.22) !important; box-shadow:none !important; }
-body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover,
-body .competency-card:hover, body .eco-card:hover { background:#26505A !important; border-color:#DAAF57 !important; }
-body .back, body .back-btn { background:rgba(30,35,40,.96) !important; color:#DAAF57 !important; border-color:rgba(218,175,87,.22) !important; }
-body .back:hover, body .back-btn:hover { background:#DAAF57 !important; color:#1E2328 !important; }
-body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; border-color:#DAAF57 !important; }
-body .metric-display, body .number { color:#DAAF57 !important; font-weight:300 !important; }
-body footer, body .pbos-footer { background:#1E2328 !important; border-top-color:rgba(218,175,87,.22) !important; color:#C4CDD3 !important; }
-body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#F5F7FA !important; font-weight:400 !important; }
-body .pbos-footer-copy { color:#C4CDD3 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#DAAF57 !important; }
-body .btn-case-mock { color:#DAAF57 !important; border-color:#DAAF57 !important; }
-body .btn-case-mock:hover { background:#DAAF57 !important; color:#1E2328 !important; }
-body .stat-box { color:#DAAF57 !important; }
-@media (max-width:760px) {
-  body .container, body .wrap, body .cases-section, body .hero-content, body .hero-footer,
-  body .nav, body footer, body .section, body header { padding-left:20px !important; padding-right:20px !important; }
-  body .hero-title, body h1 { font-size:clamp(36px,10vw,52px) !important; }
-  body .hero-main-text { font-size:clamp(28px,8vw,40px) !important; }
-  body .section-title, body h2 { font-size:clamp(28px,8vw,40px) !important; }
-}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case 05 · PAV Receita Federal em Maricá | Cleyton Hespanhol</title>
+<meta name="description" content="Participação na Discovery, nos requisitos e na implantação de três Pontos de Atendimento Virtual da Receita Federal em Maricá.">
+<meta name="author" content="Cleyton S. Hespanhol">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0A0D12">
+<link rel="canonical" href="https://c2shespanhol-ops.github.io/meuportifolio/case_study_05_pav_receita_federal_final.html">
+<link rel="alternate" hreflang="pt-BR" href="https://c2shespanhol-ops.github.io/meuportifolio/case_study_05_pav_receita_federal_final.html">
+<link rel="alternate" hreflang="en" href="https://c2shespanhol-ops.github.io/meuportifolio/en/cases/case-05-pav-receita-federal.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Case 05 · PAV Receita Federal em Maricá">
+<meta property="og:description" content="Três PAVs implantados em Maricá. Papel local, dentro de um modelo que já existia na Receita Federal.">
+<meta property="og:url" content="https://c2shespanhol-ops.github.io/meuportifolio/case_study_05_pav_receita_federal_final.html">
+<meta property="og:image" content="https://c2shespanhol-ops.github.io/meuportifolio/assets/og-cleyton.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=20261112-v2">
 <script src="portfolio-config.js" defer></script>
 <script src="portfolio-analytics.js" defer></script>
-
-<style id="case-topic-format-normalization">
-body .section h2,body .section-inner h2{color:#F5F7FA!important;font-family:'DM Sans',sans-serif!important;font-size:clamp(28px,3.4vw,38px)!important;font-weight:400!important;line-height:1.2!important;letter-spacing:-.025em!important;margin:0 0 24px!important}
-body .section h3,body .section-inner h3,body .card h3,body .step h3,body .eco-card h3,body .competency-card h3,body .doc-card h3{color:#F5F7FA!important;font-family:'DM Sans',sans-serif!important;font-size:clamp(17px,2vw,21px)!important;font-weight:500!important;line-height:1.35!important;letter-spacing:0!important;margin:0 0 8px!important}
-body .section p,body .section-inner p,body .card p,body .step p,body .eco-card p,body .competency-card p,body .doc-card p,body .note{color:#C4CDD3!important;font-family:'DM Sans',sans-serif!important;font-size:14px!important;font-weight:300!important;line-height:1.75!important}
-body .section ul,body .section ol,body .section-inner ul,body .section-inner ol{margin:12px 0 18px!important;padding-left:24px!important}
-body .section li,body .section-inner li{color:#C4CDD3!important;font-family:'DM Sans',sans-serif!important;font-size:14px!important;line-height:1.75!important;margin:0 0 8px!important}
-body .section li::marker,body .section-inner li::marker{color:#DAAF57!important}
-body .step>span,body .section-label,body .doc-number,body .doc-action,body .label,body .tag{color:#DAAF57!important;font-family:'Orbitron',sans-serif!important;font-size:9px!important;font-weight:500!important;line-height:1.6!important;letter-spacing:.12em!important;text-transform:uppercase!important}
-body .card,body .step,body .eco-card,body .competency-card,body .doc-card{min-width:0;overflow-wrap:anywhere}
-@media(max-width:760px){body .section h2,body .section-inner h2{font-size:clamp(26px,7.5vw,34px)!important}body .section h3,body .section-inner h3,body .card h3,body .step h3,body .doc-card h3{font-size:18px!important}}
-</style>
-
-<link rel="stylesheet" href="portfolio-theme.css?v=20261112-pbos">
-<link rel="stylesheet" href="portfolio-reference-refresh.css?v=20261112">
+<script src="portfolio-language.js" defer></script>
+<script src="site.js" defer></script>
 </head>
-<body class="portfolio-case-refresh">
-<div class="portfolio-language-switcher" aria-label="Idioma"><a href="#" data-lang="pt" class="active">PT</a><a href="#" data-lang="en">EN</a></div><div class="top"></div><a class="back" href="index.html">← VOLTAR</a><main class="container">
-<section class="hero"><div class="eyebrow">CASO 03 · PAV RECEITA FEDERAL · MARICÁ</div><h1>Levar o serviço até o cidadão, sem criar um novo caminho do zero.</h1><p class="lead">Participação na Discovery, estruturação de requisitos, alinhamento com a Receita Federal e implementação dos Pontos de Atendimento Virtual em três regiões de Maricá.</p></section>
-<div class="meta"><div><small>Contexto</small><strong>Prefeitura de Maricá · SEGET</strong></div><div><small>Atuação</small><strong>Discovery · Service Design · Requirements · Stakeholders</strong></div><div><small>Stakeholders</small><strong>Cidadãos · Prefeitura · Receita Federal</strong></div><div><small>Escala</small><strong>Implementação em 3 unidades</strong></div></div>
-<section class="section"><h2>Resultados e evidências</h2><div class="metrics"><div class="metric"><div class="number">3</div><h3>Unidades implantadas</h3><p>Centro, Itaipuaçu e São José.</p></div><div class="metric"><div class="number">1</div><h3>Benchmark presencial</h3><p>Uma unidade de PAV existente foi visitada para orientar a implementação local.</p></div><div class="metric"><div class="number">✓</div><h3>Validação externa</h3><p>Reconhecimento qualitativo positivo relatado por auditor da Receita Federal.</p></div><div class="metric"><div class="number">✓</div><h3>Acompanhamento pós-implantação</h3><p>Participei do suporte posterior e do encaminhamento de necessidades operacionais.</p></div></div><p class="note">Não apresento números de atendimentos, satisfação ou redução de deslocamentos porque esses dados não estavam sob minha gestão e não estão disponíveis nos materiais utilizados para este case.</p></section>
-<section class="section"><div class="highlight"><strong>Meu papel:</strong> participei de Discovery, mapeamento da jornada, definição de requisitos, alinhamento com a Receita Federal, benchmark, implementação e validação. <strong>Limite:</strong> o modelo PAV e sua estrutura de serviços já existiam na Receita Federal; minha contribuição foi local, não a criação independente do serviço.</div></section><section class="section"><h2>O problema</h2><div class="grid"><div class="card"><h3>Acesso distante</h3><p>Para resolver determinadas pendências, o cidadão de Maricá precisava recorrer a unidades da Receita Federal fora do município, tornando o atendimento presencial mais difícil e custoso.</p></div><div class="card"><h3>Uma oportunidade local</h3><p>A demanda da Prefeitura abriu a possibilidade de aproximar parte desses serviços da população por meio do modelo de Ponto de Atendimento Virtual da Receita Federal.</p></div><div class="card"><h3>Não era criar um serviço do zero</h3><p>A Receita Federal já possuía um modelo de PAV utilizado em outros municípios e uma estrutura de serviços. O desafio era entender o problema local e viabilizar a implantação dentro desse modelo.</p></div><div class="card"><h3>Dependência entre organizações</h3><p>A solução exigia alinhamento entre Prefeitura e Receita Federal, além de requisitos físicos, tecnológicos, operacionais e de atendimento.</p></div></div></section>
-<section class="section"><h2>Discovery</h2><div class="flow"><div class="step"><span>01 · ENTENDER O PROBLEMA</span><h3>Participei das conversas com cidadãos</h3><p>Contribuí para entender a necessidade de aproximar o atendimento e quais dificuldades existiam para quem precisava acessar serviços da Receita Federal.</p></div><div class="step"><span>02 · MAPEAR A JORNADA</span><h3>Participei do mapeamento da jornada</h3><p>A jornada foi analisada para compreender como o cidadão chegava à necessidade, quais etapas estavam envolvidas e em que ponto um atendimento local poderia facilitar o acesso.</p></div><div class="step"><span>03 · ALINHAR</span><h3>Interagi diretamente com a Receita Federal</h3><p>Participei das conversas com a Receita Federal para compreender o modelo existente, suas condições de implantação e como a operação poderia ser realizada em Maricá.</p></div><div class="step"><span>04 · DEFINIR REQUISITOS</span><h3>Participei da definição dos requisitos</h3><p>Contribuí para transformar as necessidades identificadas em requisitos para a implantação, considerando estrutura física, equipamentos, acesso aos sistemas, treinamento e operação.</p></div></div><div class="highlight"><strong>Limite importante:</strong> eu não defini nem priorizei a Carta de Serviços e não defini sozinho a solução. O modelo e a estrutura de serviços já eram estabelecidos pela Receita Federal.</div></section>
-<section class="section"><h2>Do benchmark à implementação</h2><div class="grid"><div class="card"><h3>Um ponto de referência</h3><p>Visitei uma unidade de PAV já existente para observar, na prática, equipamentos, layout, organização do espaço, tipos de serviço, execução do atendimento, suporte, acesso aos sistemas e treinamento.</p></div><div class="card"><h3>Adaptação local</h3><p>O aprendizado da visita foi utilizado como referência para a implementação em Maricá, respeitando o modelo da Receita Federal e as condições locais.</p></div><div class="card"><h3>Três unidades</h3><p>A implantação foi realizada nas unidades dos Serviços Integrados Municipais do Centro, Itaipuaçu e São José.</p></div><div class="card"><h3>Acompanhamento</h3><p>Participei do acompanhamento da entrega, da validação com usuários e do suporte posterior quando surgiam necessidades operacionais.</p></div></div></section>
-<section class="section"><h2>Como o serviço funciona</h2><div class="grid"><div class="card"><h3>Atendimento presencial</h3><p>O PAV é uma unidade parceira, não uma agência da Receita Federal. O atendimento é realizado presencialmente por equipe do ente parceiro.</p></div><div class="card"><h3>Triagem e orientação</h3><p>A equipe avalia a solicitação, orienta o cidadão e verifica a possibilidade de utilização dos canais digitais.</p></div><div class="card"><h3>Encaminhamento digital</h3><p>Quando necessário, documentos e solicitações são encaminhados digitalmente para as equipes da Receita Federal responsáveis pela análise.</p></div><div class="card"><h3>Suporte</h3><p>O modelo prevê canais de apoio, reuniões periódicas e visitas técnicas para sustentar a operação.</p></div></div><p class="note">A documentação oficial da Receita Federal descreve o PAV como um canal de atendimento presencial operado por ente parceiro, com orientação, triagem e encaminhamento digital de demandas.</p></section>
-<section class="section"><h2>Do problema à validação</h2><div class="flow"><div class="step"><span>01 · DISCOVERY</span><h3>Problema e jornada do cidadão</h3><p>Participei de conversas com cidadãos, análise de dados de Discovery e mapeamento da jornada para compreender a necessidade de aproximar o atendimento.</p></div><div class="step"><span>02 · BENCHMARK</span><h3>Aprender com uma implantação existente</h3><p>Uma unidade de PAV já existente foi visitada para observar estrutura, equipamentos, layout, execução do serviço, suporte, sistemas e treinamento.</p></div><div class="step"><span>03 · IMPLEMENTAÇÃO</span><h3>Traduzir a necessidade em requisitos</h3><p>Participei das reuniões, interação com a Receita Federal, definição de requisitos, acompanhamento da implementação em três unidades e validação com usuários.</p></div><div class="step"><span>04 · OPERAÇÃO</span><h3>Acompanhar depois da entrega</h3><p>Também participei do suporte posterior, conectando requisitos, operação, validação e necessidades que surgiram após a implantação.</p></div></div><div class="highlight"><strong>Limite de ownership:</strong> a solução PAV e seu modelo de serviços já existiam na Receita Federal. Minha contribuição foi participar da Discovery, requisitos, alinhamento, benchmark, implementação e validação local, e não criar ou definir sozinho o produto/serviço.</div></section><section class="section"><h2>Quatro práticas transferíveis para Produto</h2><div class="grid">
-<div class="card"><h3>Problem / Service Discovery</h3><p>Participação em conversas com cidadãos e mapeamento da jornada antes da implantação.</p></div>
-<div class="card"><h3>Benchmarking e adaptação</h3><p>Observação de um PAV existente e uso da referência para orientar a implantação local.</p></div>
-<div class="card"><h3>Requirements e Operational Readiness</h3><p>Participação na definição de requisitos físicos, tecnológicos e operacionais e na verificação de prontidão.</p></div>
-<div class="card"><h3>User Validation e Stakeholders</h3><p>Participação na validação após a implantação e na articulação entre Prefeitura, Receita Federal e cidadãos.</p></div>
-</div><p class="note">São competências transferíveis, não evidência de ownership formal de Product Strategy, Product Backlog, Product Roadmap ou Product Analytics.</p></section><section class="section"><h2>O que esta experiência demonstra</h2><div class="grid"><div class="card"><h3>Service Discovery</h3><p>Investigar o problema real antes de partir para a execução.</p></div><div class="card"><h3>Service Design</h3><p>Observar a jornada do cidadão e os pontos de contato necessários para entregar o serviço.</p></div><div class="card"><h3>Requirements Gathering</h3><p>Participar da tradução das necessidades em requisitos de implantação e operação.</p></div><div class="card"><h3>Stakeholder Management</h3><p>Atuar na interface entre Prefeitura, Receita Federal e usuários.</p></div><div class="card"><h3>Coordenação de implantação e operação</h3><p>Conectar requisitos, operação, implementação, validação e suporte posterior.</p></div><div class="card"><h3>Benchmarking</h3><p>Visitar uma implementação existente e utilizar o aprendizado como referência para uma nova implantação.</p></div></div><div class="highlight"><strong>Minha contribuição não foi criar o PAV.</strong> Foi participar do processo que levou uma solução já existente da Receita Federal a ser entendida, adaptada e implementada em três unidades de Maricá.</div></section>
-<section class="section"><h2>Fontes e artefatos</h2><div class="links"><a href="case05_documentacao.html">Documentação complementar · 4 artefatos de referência</a><a href="https://www.marica.rj.gov.br/noticia/marica-tera-pontos-de-atendimento-virtual-pavs-da-receita-federal-a-partir-de-julho/" target="_blank">Evidência pública · anúncio da implantação</a><a href="https://www.gov.br/receitafederal/pt-br/canais_atendimento/fale-conosco/presencial/rj/marica/pav" target="_blank">Evidência institucional · PAV Maricá</a><a href="https://www.gov.br/receitafederal/pt-br/canais_atendimento/fale-conosco/presencial" target="_blank">Documentação oficial · modelo de atendimento PAV</a><span class="note">Artefato interno de apoio: material de treinamento do PAV utilizado na reconstrução deste case.</span></div></section>
-</main><footer class="pbos-footer">
-  <div class="pbos-footer-signature">Cleyton Hespanhol | Product Owner | UX</div>
-  <div class="pbos-footer-copy">© 2026 Cleyton S. Hespanhol. Todos os direitos reservados.</div>
-  <a class="pbos-footer-link" href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener">linkedin.com/in/cleyton-hespanhol</a>
-</footer><link rel="stylesheet" href="/meuportifolio/pbos-career-theme.css?v=20261112-career-os">
-</body></html>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+</svg>
+<a class="skip" href="#main">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="shell case-bar">
+    <a class="back-link" href="index.html"><svg aria-hidden="true" width="18" height="18"><use href="#i-left"/></svg>Portfólio</a>
+    <span class="lang" role="group" aria-label="Idioma">
+      <a data-lang="pt" href="case_study_05_pav_receita_federal_final.html" lang="pt-BR" hreflang="pt-BR" aria-current="page">PT</a>
+      <a data-lang="en" href="en/cases/case-05-pav-receita-federal.html" lang="en" hreflang="en" aria-current="false">EN</a>
+    </span>
+  </div>
+</header>
+
+<main id="main" class="case-wrap">
+
+  <section class="case-hero" aria-labelledby="titulo">
+    <span class="eyebrow">Case 05 · PAV Receita Federal · Maricá</span>
+    <h1 id="titulo">Levar o serviço ao cidadão, <em>sem criar um novo caminho do zero</em></h1>
+    <p class="lead">Participação na Discovery, na estruturação de requisitos, no alinhamento com a Receita Federal e na implantação dos Pontos de Atendimento Virtual em três regiões de Maricá.</p>
+    <p class="reading-time">Leitura de cerca de 3 min</p>
+    <dl class="summary">
+      <div class="wide"><dt>Resultado verificável</dt><dd class="result-line">3 unidades implantadas: Centro, Itaipuaçu e São José</dd></div>
+      <div><dt>Contexto e período</dt><dd>Prefeitura de Maricá · SEGET · janeiro de 2025 a maio de 2026</dd></div>
+      <div><dt>Atuação</dt><dd>Discovery, service design, requisitos e stakeholders</dd></div>
+      <div><dt>Benchmark</dt><dd>1 unidade de PAV existente visitada</dd></div>
+      <div><dt>Validação externa</dt><dd>Reconhecimento qualitativo positivo, relatado por auditor da Receita Federal</dd></div>
+    </dl>
+    <p class="role-box"><b>Meu papel:</b> participei da Discovery, do mapeamento da jornada, da definição de requisitos, do alinhamento com a Receita Federal, do benchmark, da implantação e da validação local. <b>Limite da evidência:</b> o modelo PAV e sua estrutura de serviços já existiam na Receita Federal. Minha contribuição foi local, não a criação independente do serviço. Não defini nem priorizei a Carta de Serviços. Não apresento números de atendimentos, satisfação ou deslocamentos evitados, porque esses dados não estavam sob minha gestão.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="s0">
+    <span class="eyebrow">01 · O problema</span>
+    <h2 id="s0">O atendimento estava longe do cidadão</h2>
+    <div class="pair">
+      <div><h3>Acesso distante</h3><p>Para resolver certas pendências, o cidadão de Maricá precisava ir a unidades da Receita Federal fora do município.</p></div>
+      <div><h3>Oportunidade local</h3><p>A demanda da Prefeitura abriu a possibilidade de aproximar parte desses serviços pelo modelo de PAV.</p></div>
+      <div><h3>Não era criar do zero</h3><p>A Receita Federal já tinha o modelo em outros municípios. O desafio era entender o problema local e viabilizar a implantação.</p></div>
+      <div><h3>Dependência entre organizações</h3><p>A solução exigia alinhamento entre Prefeitura e Receita Federal e requisitos físicos, tecnológicos, operacionais e de atendimento.</p></div>
+    </div>
+
+  <section class="case-section" aria-labelledby="s1">
+    <span class="eyebrow">02 · Do problema à implantação</span>
+    <h2 id="s1">Como o trabalho foi conduzido</h2>
+    <ol class="steps">
+      <li><div><b>Entender o problema</b><span>Participei das conversas com cidadãos para entender a necessidade de aproximar o atendimento.</span></div></li>
+      <li><div><b>Mapear a jornada</b><span>Participei da análise de como o cidadão chegava à necessidade e onde um atendimento local facilitaria o acesso.</span></div></li>
+      <li><div><b>Alinhar com a Receita Federal</b><span>Participei das conversas para entender o modelo existente, as condições de implantação e a operação em Maricá.</span></div></li>
+      <li><div><b>Definir requisitos</b><span>Contribuí para transformar as necessidades em requisitos de estrutura física, equipamentos, acesso aos sistemas, treinamento e operação.</span></div></li>
+      <li><div><b>Fazer benchmark</b><span>Visitei um PAV existente para observar equipamentos, layout, serviços, atendimento, suporte, sistemas e treinamento.</span></div></li>
+      <li><div><b>Implantar e acompanhar</b><span>A implantação ocorreu nos Serviços Integrados Municipais do Centro, de Itaipuaçu e de São José. Acompanhei a entrega, a validação com usuários e o suporte posterior.</span></div></li>
+    </ol>
+
+  <section class="case-section" aria-labelledby="s2">
+    <span class="eyebrow">03 · Como o serviço funciona</span>
+    <h2 id="s2">Atendimento presencial por entidade parceira</h2>
+    <p>Segundo a documentação oficial da Receita Federal, o PAV é um canal presencial operado por ente parceiro, com orientação, triagem e encaminhamento digital de demandas.</p>
+    <div class="pair" style="margin-top:16px">
+      <div><h3>Atendimento presencial</h3><p>O PAV é uma unidade parceira, não uma agência da Receita Federal.</p></div>
+      <div><h3>Triagem e orientação</h3><p>A equipe avalia a solicitação, orienta o cidadão e verifica se há canal digital possível.</p></div>
+      <div><h3>Encaminhamento digital</h3><p>Documentos e solicitações seguem digitalmente para as equipes da Receita Federal que fazem a análise.</p></div>
+      <div><h3>Suporte</h3><p>O modelo prevê canais de apoio, reuniões periódicas e visitas técnicas.</p></div>
+    </div>
+
+  <section class="case-section" aria-labelledby="s3">
+    <span class="eyebrow">04 · Fontes e artefatos</span>
+    <h2 id="s3">Evidências e documentação</h2>
+    <details class="docs"><summary>Ver 4 documentos de apoio</summary>
+    <ul class="doc-links">
+      <li><a href="case05_documentacao.html">Documentação complementar (4 artefatos de referência)</a></li>
+      <li><a href="https://www.marica.rj.gov.br/noticia/marica-tera-pontos-de-atendimento-virtual-pavs-da-receita-federal-a-partir-de-julho/" target="_blank" rel="noopener noreferrer">Evidência pública: anúncio da implantação</a></li>
+      <li><a href="https://www.gov.br/receitafederal/pt-br/canais_atendimento/fale-conosco/presencial/rj/marica/pav" target="_blank" rel="noopener noreferrer">Evidência institucional: PAV Maricá</a></li>
+      <li><a href="https://www.gov.br/receitafederal/pt-br/canais_atendimento/fale-conosco/presencial" target="_blank" rel="noopener noreferrer">Documentação oficial: modelo de atendimento PAV</a></li>
+    </ul>
+    </details>
+    <p class="limit">O material de treinamento do PAV foi usado como apoio na reconstrução deste case. É um artefato interno e não é publicado aqui.</p>
+
+  <p class="case-count">Você está no case 2 de 6.</p>
+
+  <div class="next-case">
+    <a class="btn primary" href="case_study_06_peixe_urbano_final.html">Próximo case: Peixe Urbano</a>
+    <a class="btn" href="index.html#cases">Voltar aos cases</a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div><strong>Cleyton S. Hespanhol</strong> · Product Owner | UX</div>
+  <div>© 2026 Cleyton S. Hespanhol · <a href="https://www.linkedin.com/in/cleyton-hespanhol" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+</footer>
+<button class="to-top" type="button" aria-label="Voltar ao topo"><svg aria-hidden="true"><use href="#i-up"/></svg></button>
+</body>
+</html>
