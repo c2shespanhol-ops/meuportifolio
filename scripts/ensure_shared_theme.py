@@ -17,16 +17,45 @@ def normalize_theme_color(match):
   return re.sub(r'\bcontent\s*=\s*(["\']).*?\1','content="#1E2328"',tag,count=1,flags=re.I)
  return tag[:-1]+' content="#1E2328">'
 
+legacy_palette = (
+ ("#0A0D12", "#1E2328"),
+ ("#AEB5BD", "#C4CDD3"),
+ ("#DEB758", "#DAAF57"),
+ ("#F7F8FA", "#F5F7FA"),
+ ("#9EA5AD", "#C4CDD3"),
+ ("#74A9D5", "#26505A"),
+ ("#0C1319", "#26505A"),
+ ("#0F1D28", "#26505A"),
+ ("#101317", "#1E2328"),
+ ("rgba(10,13,18", "rgba(30,35,40"),
+ ("rgba(222,183,88", "rgba(218,175,87"),
+ ("rgba(247,248,250", "rgba(245,247,250"),
+ ("rgba(116,169,213", "rgba(38,80,90"),
+)
+
+def normalize_palette(source):
+ for old, new in legacy_palette:
+  source = source.replace(old, new)
+ return source
+
+# Normalize stylesheet and SVG source files in the generated site.
+for asset in root.rglob("*"):
+ if asset.is_file() and asset.suffix.lower() in {".css", ".svg"}:
+  original = asset.read_text(encoding="utf-8")
+  normalized = normalize_palette(original)
+  if normalized != original:
+   asset.write_text(normalized, encoding="utf-8")
+
 count=0
 for page in root.rglob("*.html"):
- source=page.read_text(encoding="utf-8")
+ source=normalize_palette(page.read_text(encoding="utf-8"))
  if theme_meta.search(source):
   source=theme_meta.sub(normalize_theme_color,source,count=1)
  else:
   source=re.sub(r"</head>",'<meta name="theme-color" content="#1E2328">\n</head>',source,count=1,flags=re.I)
 
  relative=os.path.relpath(theme,page.parent).replace(os.sep,"/")
- href=relative+"?v=20261114-parity"
+ href=relative+"?v=20261114-palette"
  source=theme_link_pattern.sub("",source)
 
  styles=[]
