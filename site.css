@@ -43,7 +43,7 @@ p{margin:0}
 .muted{color:var(--muted)}
 
 /* Cabeçalho */
-.site-header{position:sticky;top:0;z-index:50;background:rgba(10,13,18,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(30,35,40,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px;padding-block:8px}
 .brand{display:flex;align-items:center;gap:12px;min-height:44px;color:var(--text)}
 .brand:hover{text-decoration:none}
@@ -145,7 +145,7 @@ details.more[open] summary::after{content:"\2212"}
 details.more .rows{padding:0 14px 8px}
 
 /* Contato */
-.contact-box{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center;padding:clamp(24px,4vw,44px);border-radius:var(--radius);border:1px solid var(--line-gold);background:linear-gradient(145deg,rgba(222,183,88,.07),rgba(222,183,88,.02))}
+.contact-box{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center;padding:clamp(24px,4vw,44px);border-radius:var(--radius);border:1px solid var(--line-gold);background:linear-gradient(145deg,rgba(218,175,87,.07),rgba(218,175,87,.02))}
 .contact-box h2{font-size:clamp(24px,3vw,32px)}
 .contact-box p{margin-top:10px;color:var(--muted);max-width:40em}
 .contact-actions{display:flex;flex-wrap:wrap;gap:12px}
