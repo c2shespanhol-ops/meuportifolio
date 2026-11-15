@@ -38,11 +38,11 @@ def normalize_palette(source):
  )
  for old, new in replacements:
   source = re.sub(re.escape(old), new, source, flags=re.I)
- source = re.sub(r"rgba\\(\\s*232\\s*,\\s*184\\s*,\\s*63", "rgba(222,183,88", source, flags=re.I)
- source = re.sub(r"rgba\\(\\s*218\\s*,\\s*175\\s*,\\s*87", "rgba(222,183,88", source, flags=re.I)
- source = re.sub(r"rgba\\(\\s*245\\s*,\\s*247\\s*,\\s*250", "rgba(247,248,250", source, flags=re.I)
- source = re.sub(r"rgba\\(\\s*174\\s*,\\s*183\\s*,\\s*192", "rgba(174,181,189", source, flags=re.I)
- source = re.sub(r"(--blue\\s*:\\s*)#DEB758", r"\\1#7FB2DC", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*232\s*,\s*184\s*,\s*63", "rgba(222,183,88", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*218\s*,\s*175\s*,\s*87", "rgba(222,183,88", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*245\s*,\s*247\s*,\s*250", "rgba(247,248,250", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*174\s*,\s*183\s*,\s*192", "rgba(174,181,189", source, flags=re.I)
+ source = re.sub(r"(--blue\s*:\s*)#DEB758", r"\1#7FB2DC", source, flags=re.I)
  return source
 
 
