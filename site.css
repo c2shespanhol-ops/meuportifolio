@@ -349,8 +349,12 @@ a.skip,a.skip:hover,a.active,a.active:hover,a[aria-current="page"],a[aria-curren
 
 
 /* Assinatura centralizada do cabeçalho */
-.site-header .nav{justify-content:center}
+.site-header .nav{position:relative;justify-content:flex-end}
 .site-header .brand{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
   display:flex;
   flex-direction:column;
   align-items:center;
