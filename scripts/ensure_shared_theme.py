@@ -18,12 +18,37 @@ def normalize_theme_color(match):
  return tag[:-1]+' content="#0A0D12">'
 
 def normalize_palette(source):
+ replacements = (
+  ("#"+"1E2328", "#0A0D12"),
+  ("#"+"26505A", "#0F151C"),
+  ("#"+"DAAF57", "#DEB758"),
+  ("#"+"F5F7FA", "#F7F8FA"),
+  ("#"+"C4CDD3", "#AEB5BD"),
+  ("#"+"080d12", "#0A0D12"),
+  ("#"+"111820", "#0F151C"),
+  ("#"+"151e27", "#0F151C"),
+  ("#"+"f4f5f7", "#F7F8FA"),
+  ("#"+"aeb7c0", "#AEB5BD"),
+  ("#"+"4bbbc6", "#7FB2DC"),
+  ("#"+"e8b83f", "#DEB758"),
+  ("#"+"101419", "#14100A"),
+  ("#"+"72d0d8", "#7FB2DC"),
+  ("#"+"89949e", "#AEB5BD"),
+  ("#"+"59636B", "#AEB5BD"),
+ )
+ for old, new in replacements:
+  source = re.sub(re.escape(old), new, source, flags=re.I)
+ source = re.sub(r"rgba\\(\\s*232\\s*,\\s*184\\s*,\\s*63", "rgba(222,183,88", source, flags=re.I)
+ source = re.sub(r"rgba\\(\\s*218\\s*,\\s*175\\s*,\\s*87", "rgba(222,183,88", source, flags=re.I)
+ source = re.sub(r"rgba\\(\\s*245\\s*,\\s*247\\s*,\\s*250", "rgba(247,248,250", source, flags=re.I)
+ source = re.sub(r"rgba\\(\\s*174\\s*,\\s*183\\s*,\\s*192", "rgba(174,181,189", source, flags=re.I)
+ source = re.sub(r"(--blue\\s*:\\s*)#DEB758", r"\\1#7FB2DC", source, flags=re.I)
  return source
 
 
 # Normalize stylesheet and SVG source files in the generated site.
 for asset in root.rglob("*"):
- if asset.is_file() and asset.suffix.lower() in {".css", ".svg"}:
+ if asset.is_file() and asset.suffix.lower() in {".css", ".svg", ".js", ".mjs"}:
   original = asset.read_text(encoding="utf-8")
   normalized = normalize_palette(original)
   if normalized != original:
