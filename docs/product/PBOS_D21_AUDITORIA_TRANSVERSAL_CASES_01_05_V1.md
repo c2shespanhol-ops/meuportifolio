@@ -178,13 +178,13 @@ Foi implementado um sistema visual compartilhado para home e Cases 01–05 por m
 
 ### Paleta
 
-- Fundo principal: `#1E2328`
+- Fundo principal: `#080d12`
 - Superfície: `#242B31`
 - Superfície secundária: `#2B343B`
-- Dourado: `#DAAF57`
+- Dourado: `#e8b83f`
 - Dourado claro: `#E6C47A`
-- Teal: `#26505A`
-- Texto principal: `#F5F7FA`
+- Teal: `#111820`
+- Texto principal: `#f4f5f7`
 - Texto secundário: `#A9B0B7`
 
 ### Tipografia
