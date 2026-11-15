@@ -67,18 +67,18 @@ def build_pdf(source_path, output_path, language):
     base = getSampleStyleSheet()
     styles = {
         "h1": ParagraphStyle("resume_h1", parent=base["Heading1"], fontName="Helvetica-Bold",
-            fontSize=17, leading=20, spaceAfter=3, textColor=colors.HexColor("#1E2328")),
+            fontSize=17, leading=20, spaceAfter=3, textColor=colors.HexColor("#080d12")),
         "h2": ParagraphStyle("resume_h2", parent=base["Heading2"], fontName="Helvetica-Bold",
-            fontSize=10, leading=12, spaceBefore=7, spaceAfter=3, textColor=colors.HexColor("#26505A")),
+            fontSize=10, leading=12, spaceBefore=7, spaceAfter=3, textColor=colors.HexColor("#111820")),
         "h3": ParagraphStyle("resume_h3", parent=base["Heading3"], fontName="Helvetica-Bold",
-            fontSize=9, leading=10.5, spaceBefore=4, spaceAfter=1, textColor=colors.HexColor("#1E2328")),
+            fontSize=9, leading=10.5, spaceBefore=4, spaceAfter=1, textColor=colors.HexColor("#080d12")),
         "p": ParagraphStyle("resume_p", parent=base["BodyText"], fontName="Helvetica",
-            fontSize=8.4, leading=10.2, spaceAfter=2.2, textColor=colors.HexColor("#1E2328")),
+            fontSize=8.4, leading=10.2, spaceAfter=2.2, textColor=colors.HexColor("#080d12")),
         "meta": ParagraphStyle("resume_meta", parent=base["BodyText"], fontName="Helvetica",
-            fontSize=7.7, leading=9, spaceAfter=2, textColor=colors.HexColor("#26505A")),
+            fontSize=7.7, leading=9, spaceAfter=2, textColor=colors.HexColor("#111820")),
         "li": ParagraphStyle("resume_li", parent=base["BodyText"], fontName="Helvetica",
             fontSize=8.2, leading=9.8, leftIndent=9, firstLineIndent=-6, spaceAfter=1.5,
-            textColor=colors.HexColor("#1E2328")),
+            textColor=colors.HexColor("#080d12")),
     }
 
     story = []
@@ -93,7 +93,7 @@ def build_pdf(source_path, output_path, language):
         elif tag == "li":
             story.append(Paragraph("&#8226; " + safe, styles["li"]))
         else:
-            is_meta = "|" in text and any(token in text for token in ("RJ", "Brazil", "Niterói"))
+            is_meta = "|" in text and any(token in text for token in ("RJ", "Brazil", "Maricá"))
             story.append(Paragraph(safe, styles["meta"] if is_meta else styles["p"]))
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
