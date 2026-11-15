@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
 /* SINGLE SOURCE OF TRUTH: HS MIND Lovable reference palette */
 :root{
-  --pbos-bg:#1E2328;
-  --pbos-surface:#26505A;
-  --pbos-surface-2:#26505A;
-  --pbos-gold:#DAAF57;
-  --pbos-gold-soft:#DAAF57;
-  --pbos-teal:#DAAF57;
-  --pbos-text:#F5F7FA;
-  --pbos-muted:#C4CDD3;
-  --pbos-muted-2:#C4CDD3;
-  --pbos-border:rgba(218,175,87,.22);
-  --pbos-border-soft:rgba(218,175,87,.22);
+  --pbos-bg:#080d12;
+  --pbos-surface:#111820;
+  --pbos-surface-2:#111820;
+  --pbos-gold:#e8b83f;
+  --pbos-gold-soft:#e8b83f;
+  --pbos-teal:#e8b83f;
+  --pbos-text:#f4f5f7;
+  --pbos-muted:#aeb7c0;
+  --pbos-muted-2:#aeb7c0;
+  --pbos-border:rgba(232,184,63,.22);
+  --pbos-border-soft:rgba(232,184,63,.22);
   --bg:var(--pbos-bg);--bg2:var(--pbos-surface);--bg3:var(--pbos-surface-2);
   --gold:var(--pbos-gold);--gold-lt:var(--pbos-gold-soft);
   --teal:var(--pbos-teal);--teal-br:var(--pbos-teal);--cyan:var(--pbos-teal);
@@ -19,12 +19,12 @@
   --gray1:var(--pbos-muted);--gray2:var(--pbos-muted-2);--border:var(--pbos-border);
   --background:var(--pbos-bg);--foreground:var(--pbos-text);
   --card:var(--pbos-surface);--card-foreground:var(--pbos-text);
-  --popover:#1E2328;--popover-foreground:var(--pbos-text);
+  --popover:#080d12;--popover-foreground:var(--pbos-text);
   --primary:var(--pbos-gold);--primary-foreground:var(--pbos-bg);
   --secondary:var(--pbos-surface-2);--secondary-foreground:var(--pbos-text);
-  --muted:#26505A;--muted-foreground:var(--pbos-muted);
+  --muted:#111820;--muted-foreground:var(--pbos-muted);
   --accent:var(--pbos-teal);--accent-foreground:var(--pbos-bg);
-  --input:#26505A;--ring:rgba(218,175,87,.6);
+  --input:#111820;--ring:rgba(232,184,63,.6);
 }
 html,body{background:var(--pbos-bg)!important;color:var(--pbos-text)!important}
 body{color:var(--pbos-text)!important}
@@ -63,11 +63,11 @@ footer{border-top:1px solid var(--pbos-border);padding:34px 20px;text-align:cent
 @media(max-width:760px){.case-shell{padding:95px 20px 60px}.case-meta,.role-grid,.evidence-grid,.grid{grid-template-columns:1fr}.step{grid-template-columns:1fr;gap:8px}h1{font-size:clamp(36px,11vw,54px)}}
 
 /* Final HS MIND palette override */
-:root{--pbos-bg:#1E2328;--pbos-surface:#26505A;--pbos-surface-2:#26505A;--pbos-gold:#DAAF57;--pbos-gold-soft:#DAAF57;--pbos-teal:#DAAF57;--pbos-text:#F5F7FA;--pbos-muted:#C4CDD3;--pbos-muted-2:#C4CDD3;--pbos-border:rgba(218,175,87,.22);--bg:var(--pbos-bg);--bg2:var(--pbos-surface);--bg3:var(--pbos-surface-2);--gold:var(--pbos-gold);--gold-lt:var(--pbos-gold-soft);--teal:var(--pbos-teal);--teal-br:var(--pbos-teal);--cyan:var(--pbos-teal);--white:var(--pbos-text);--gray1:var(--pbos-muted);--gray2:var(--pbos-muted-2);--border:var(--pbos-border)}
-html,body{background:#1E2328!important;color:#F5F7FA!important;overflow-wrap:normal!important;word-break:normal!important}
-body .card,body .panel,body .step,body .metric,body .doc-card,body .artifact-card,body .competency-card,body .eco-card,body .case-card,body .stat-box,body .meta,body .flow,body .note,body .comparison-box{background:#26505A!important;color:#F5F7FA!important;border-color:rgba(218,175,87,.22)!important}
-body p,body li,body td,body th{color:#C4CDD3!important}
-body a,body .artifact-action,body .section-label,body .case-label,body .doc-number{color:#DAAF57!important}
+:root{--pbos-bg:#080d12;--pbos-surface:#111820;--pbos-surface-2:#111820;--pbos-gold:#e8b83f;--pbos-gold-soft:#e8b83f;--pbos-teal:#e8b83f;--pbos-text:#f4f5f7;--pbos-muted:#aeb7c0;--pbos-muted-2:#aeb7c0;--pbos-border:rgba(232,184,63,.22);--bg:var(--pbos-bg);--bg2:var(--pbos-surface);--bg3:var(--pbos-surface-2);--gold:var(--pbos-gold);--gold-lt:var(--pbos-gold-soft);--teal:var(--pbos-teal);--teal-br:var(--pbos-teal);--cyan:var(--pbos-teal);--white:var(--pbos-text);--gray1:var(--pbos-muted);--gray2:var(--pbos-muted-2);--border:var(--pbos-border)}
+html,body{background:#080d12!important;color:#f4f5f7!important;overflow-wrap:normal!important;word-break:normal!important}
+body .card,body .panel,body .step,body .metric,body .doc-card,body .artifact-card,body .competency-card,body .eco-card,body .case-card,body .stat-box,body .meta,body .flow,body .note,body .comparison-box{background:#111820!important;color:#f4f5f7!important;border-color:rgba(232,184,63,.22)!important}
+body p,body li,body td,body th{color:#aeb7c0!important}
+body a,body .artifact-action,body .section-label,body .case-label,body .doc-number{color:#e8b83f!important}
 body .artifact-card h3,body .artifact-card p{overflow-wrap:break-word!important;word-break:normal!important}
 @media(max-width:700px){body .artifact-card{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:12px!important}body .artifact-card>*{width:100%;min-width:0;max-width:100%}body .artifact-action{white-space:normal!important}}
 
