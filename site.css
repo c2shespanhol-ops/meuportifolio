@@ -345,4 +345,4 @@ button,.btn,.button,.cta,.primary-button,.btn-primary,.button-primary{background
 hr,.divider,.separator{border-color:rgba(232,184,63,.42)!important}input,textarea,select{background:var(--hm-surface)!important;color:var(--hm-text)!important;border-color:var(--border)!important}::placeholder{color:#89949e!important}:focus-visible{outline-color:var(--hm-gold)!important}
 
 /* Contraste AA: texto escuro em superfícies douradas */
-a.skip,a.skip:hover,a.active,a.active:hover,a.action-card.primary,a.action-card.primary:hover,a.action-card.primary *,a.btn.primary,a.btn.primary:hover,a.sticky-cta,a.sticky-cta:hover,.chip[aria-pressed="true"]{color:#101419 !important}
+a.skip,a.skip:hover,a.active,a.active:hover,a[aria-current="page"],a[aria-current="page"]:hover,a.action-card.primary,a.action-card.primary:hover,a.action-card.primary *,a.btn.primary,a.btn.primary:hover,a.sticky-cta,a.sticky-cta:hover,.chip[aria-pressed="true"]{color:#101419 !important}
