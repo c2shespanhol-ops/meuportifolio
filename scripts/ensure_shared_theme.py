@@ -47,7 +47,7 @@ def normalize_palette(source):
  source = re.sub(r"rgba?\(\s*8\s*,\s*13\s*,\s*18", "rgba(10,13,18", source, flags=re.I)
  source = re.sub(r"rgba?\(\s*17\s*,\s*24\s*,\s*32", "rgba(15,21,28", source, flags=re.I)
  source = re.sub(r"rgba?\(\s*21\s*,\s*30\s*,\s*39", "rgba(15,21,28", source, flags=re.I)
- source = re.sub(r"(--blue\s*:\s*)#DEB758", r"\1#7FB2DC", source, flags=re.I)
+ source = re.sub(r"(--blue\s*:\s*)#(?:DEB758|A88F5B)", r"\1#7FB2DC", source, flags=re.I)
  return source
 
 
