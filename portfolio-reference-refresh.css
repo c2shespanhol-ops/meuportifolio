@@ -8,10 +8,10 @@
 .portfolio-home .hero-quote{max-width:300px;margin:0;color:var(--pbos-muted);font-size:12px;font-style:normal;text-align:center}
 .portfolio-home .hero-actions{gap:10px;margin-top:24px}
 .portfolio-home .hero-actions .btn{min-height:44px;padding:11px 15px;border-radius:8px;font-size:9px;letter-spacing:.055em}
-.portfolio-home .hero-actions .btn.primary{box-shadow:0 7px 18px rgba(218,175,87,.13)}
+.portfolio-home .hero-actions .btn.primary{box-shadow:0 7px 18px rgba(232,184,63,.13)}
 .portfolio-home .quick-paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:4px 0 0}
 .portfolio-home .quick-path{display:flex;flex-direction:column;justify-content:space-between;min-height:142px;padding:22px 24px;border:1px solid var(--pbos-border);border-radius:var(--ref-radius);background:linear-gradient(145deg,rgba(38,80,90,.82),rgba(38,80,90,.42));color:var(--pbos-text);transition:border-color .18s ease,transform .18s ease,background .18s ease}
-.portfolio-home .quick-path:hover,.portfolio-home .quick-path:focus-visible{border-color:var(--pbos-gold);background:#26505A;transform:translateY(-2px)}
+.portfolio-home .quick-path:hover,.portfolio-home .quick-path:focus-visible{border-color:var(--pbos-gold);background:#111820;transform:translateY(-2px)}
 .portfolio-home .quick-path strong{display:block;font-size:18px;font-weight:500;line-height:1.25}
 .portfolio-home .quick-path span{display:block;margin-top:8px;color:var(--pbos-muted);font-size:13px;line-height:1.55}
 .portfolio-home .quick-path em{margin-top:16px;color:var(--pbos-gold);font:500 9px/1.4 'Orbitron',sans-serif;font-style:normal;letter-spacing:.08em;text-transform:uppercase}
