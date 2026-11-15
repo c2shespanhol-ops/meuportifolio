@@ -14,23 +14,23 @@ theme_meta=re.compile(r'<meta\b(?=[^>]*\bname=["\']theme-color["\'])[^>]*>',re.I
 def normalize_theme_color(match):
  tag=match.group(0)
  if re.search(r'\bcontent\s*=',tag,re.I):
-  return re.sub(r'\bcontent\s*=\s*(["\']).*?\1','content="#1E2328"',tag,count=1,flags=re.I)
+  return re.sub(r'\bcontent\s*=\s*(["\']).*?\1','content="#080d12"',tag,count=1,flags=re.I)
  return tag[:-1]+' content="#1E2328">'
 
 legacy_palette = (
- ("#0A0D12", "#1E2328"),
- ("#AEB5BD", "#C4CDD3"),
- ("#DEB758", "#DAAF57"),
- ("#F7F8FA", "#F5F7FA"),
- ("#9EA5AD", "#C4CDD3"),
- ("#74A9D5", "#26505A"),
- ("#0C1319", "#26505A"),
- ("#0F1D28", "#26505A"),
- ("#101317", "#1E2328"),
- ("rgba(10,13,18", "rgba(30,35,40"),
- ("rgba(222,183,88", "rgba(218,175,87"),
- ("rgba(247,248,250", "rgba(245,247,250"),
- ("rgba(116,169,213", "rgba(38,80,90"),
+ ("#0A0D12", "#080d12"),
+ ("#AEB5BD", "#aeb7c0"),
+ ("#DEB758", "#e8b83f"),
+ ("#F7F8FA", "#f4f5f7"),
+ ("#9EA5AD", "#aeb7c0"),
+ ("#74A9D5", "#4bbbc6"),
+ ("#0C1319", "#111820"),
+ ("#0F1D28", "#151e27"),
+ ("#101317", "#080d12"),
+ ("rgba(10,13,18", "rgba(8,13,18"),
+ ("rgba(222,183,88", "rgba(232,184,63"),
+ ("rgba(247,248,250", "rgba(244,245,247"),
+ ("rgba(116,169,213", "rgba(75,187,198"),
 )
 
 def normalize_palette(source):
