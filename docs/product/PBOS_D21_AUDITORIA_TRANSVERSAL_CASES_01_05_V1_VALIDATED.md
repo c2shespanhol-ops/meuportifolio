@@ -25,13 +25,13 @@ O usuário aprovou a realização dos ajustes necessários após a auditoria tra
 
 Foi implementado sistema visual compartilhado para home e Cases 01–05:
 
-- `#1E2328` fundo principal;
+- `#080d12` fundo principal;
 - `#242B31` superfície;
 - `#2B343B` superfície secundária;
-- `#DAAF57` dourado;
+- `#e8b83f` dourado;
 - `#E6C47A` dourado claro;
-- `#26505A` teal;
-- `#F5F7FA` texto principal;
+- `#111820` teal;
+- `#f4f5f7` texto principal;
 - `#A9B0B7` texto secundário;
 - DM Sans, Cormorant Garamond e Orbitron;
 - assinatura oficial “Cleyton Hespanhol | Product Owner | UX”;
