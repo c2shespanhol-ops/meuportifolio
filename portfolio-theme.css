@@ -343,6 +343,17 @@ hr,.divider,.separator{border-color:rgba(222,183,88,.42)!important}input,textare
   white-space:normal!important;
   overflow:visible!important;
 }
+.site-header .brand{
+  position:relative!important;
+  top:auto!important;
+  right:auto!important;
+  bottom:auto!important;
+  left:auto!important;
+  transform:none!important;
+  grid-column:1!important;
+  grid-row:1!important;
+}
+
 .site-header .brand-text{
   display:flex!important;
   flex-direction:column!important;
