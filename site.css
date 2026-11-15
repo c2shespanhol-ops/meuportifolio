@@ -346,3 +346,43 @@ hr,.divider,.separator{border-color:rgba(222,183,88,.42)!important}input,textare
 
 /* Contraste AA: texto escuro em superfícies douradas */
 a.skip,a.skip:hover,a.active,a.active:hover,a[aria-current="page"],a[aria-current="page"]:hover,a.action-card.primary,a.action-card.primary:hover,a.action-card.primary *,a.btn.primary,a.btn.primary:hover,a.sticky-cta,a.sticky-cta:hover,.chip[aria-pressed="true"]{color:#14100A !important}
+
+
+/* Assinatura centralizada do cabeçalho */
+.site-header .nav{justify-content:center}
+.site-header .brand{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  text-align:center;
+  padding-block:8px;
+}
+.site-header .brand-mark{display:none}
+.site-header .brand-text{align-items:center;text-align:center}
+.site-header .brand-name{
+  color:#F7F8FA!important;
+  font-family:var(--font-head);
+  font-size:clamp(18px,2.2vw,22px);
+  line-height:1.2;
+  font-weight:800;
+  letter-spacing:0;
+  text-transform:none;
+}
+.site-header .brand-role{
+  color:#F7F8FA!important;
+  font-family:var(--font-body);
+  font-size:clamp(12px,1.4vw,14px);
+  font-weight:500;
+  line-height:1.3;
+}
+.site-header .brand-text::after{
+  content:"";
+  display:block;
+  width:64px;
+  height:2px;
+  margin-top:7px;
+  background:#DEB758;
+  border-radius:2px;
+}
