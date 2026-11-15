@@ -426,6 +426,17 @@ a.skip,a.skip:hover,a.active,a.active:hover,a[aria-current="page"],a[aria-curren
   white-space:normal!important;
   overflow:visible!important;
 }
+.site-header .brand{
+  position:relative!important;
+  top:auto!important;
+  right:auto!important;
+  bottom:auto!important;
+  left:auto!important;
+  transform:none!important;
+  grid-column:1!important;
+  grid-row:1!important;
+}
+
 .site-header .brand-text{
   display:flex!important;
   flex-direction:column!important;
