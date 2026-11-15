@@ -18,6 +18,14 @@ def normalize_theme_color(match):
  return tag[:-1]+' content="#1E2328">'
 
 legacy_palette = (
+ ("#1E2328", "#080d12"),
+ ("#26505A", "#111820"),
+ ("#DAAF57", "#e8b83f"),
+ ("#F5F7FA", "#f4f5f7"),
+ ("#C4CDD3", "#aeb7c0"),
+ ("rgba(218,175,87", "rgba(232,184,63"),
+ ("rgba(196,205,211", "rgba(174,183,192"),
+
  ("#0A0D12", "#080d12"),
  ("#AEB5BD", "#aeb7c0"),
  ("#DEB758", "#e8b83f"),
