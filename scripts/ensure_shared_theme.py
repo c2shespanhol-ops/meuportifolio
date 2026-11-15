@@ -14,8 +14,8 @@ theme_meta=re.compile(r'<meta\b(?=[^>]*\bname=["\']theme-color["\'])[^>]*>',re.I
 def normalize_theme_color(match):
  tag=match.group(0)
  if re.search(r'\bcontent\s*=',tag,re.I):
-  return re.sub(r'\bcontent\s*=\s*(["\']).*?\1','content="#080d12"',tag,count=1,flags=re.I)
- return tag[:-1]+' content="#080d12">'
+  return re.sub(r'\bcontent\s*=\s*(["\']).*?\1','content="#0A0D12"',tag,count=1,flags=re.I)
+ return tag[:-1]+' content="#0A0D12">'
 
 def normalize_palette(source):
  return source
@@ -35,7 +35,7 @@ for page in root.rglob("*.html"):
  if theme_meta.search(source):
   source=theme_meta.sub(normalize_theme_color,source,count=1)
  else:
-  source=re.sub(r"</head>",'<meta name="theme-color" content="#080d12">\n</head>',source,count=1,flags=re.I)
+  source=re.sub(r"</head>",'<meta name="theme-color" content="#0A0D12">\n</head>',source,count=1,flags=re.I)
 
  relative=os.path.relpath(theme,page.parent).replace(os.sep,"/")
  href=relative+"?v=20261114-palette"
