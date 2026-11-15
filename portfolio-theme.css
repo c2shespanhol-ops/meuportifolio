@@ -22,9 +22,9 @@
   --border:var(--pbos-border);--background:var(--pbos-bg);--foreground:var(--pbos-text);
   --card:var(--pbos-surface);--card-foreground:var(--pbos-text);
   --popover:var(--pbos-bg);--popover-foreground:var(--pbos-text);
-  --primary:var(--pbos-gold);--primary-foreground:var(--pbos-bg);
+  --primary:var(--pbos-gold);--primary-foreground:#14100A;
   --secondary:var(--pbos-surface-2);--secondary-foreground:var(--pbos-text);
-  --muted-foreground:var(--pbos-muted);--accent:var(--pbos-gold);--accent-foreground:var(--pbos-bg);
+  --muted-foreground:var(--pbos-muted);--accent:var(--pbos-gold);--accent-foreground:#14100A;
   --input:var(--pbos-surface-2);--ring:rgba(222,183,88,.6);
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -225,9 +225,9 @@ a,button{min-height:24px}
   --border:var(--pbos-border);--background:var(--pbos-bg);--foreground:var(--pbos-text);
   --card:var(--pbos-surface);--card-foreground:var(--pbos-text);
   --popover:var(--pbos-surface-2);--popover-foreground:var(--pbos-text);
-  --primary:var(--pbos-gold);--primary-foreground:var(--pbos-bg);
+  --primary:var(--pbos-gold);--primary-foreground:#14100A;
   --secondary:var(--pbos-surface-2);--secondary-foreground:var(--pbos-text);
-  --muted-foreground:var(--pbos-muted-2);--accent:var(--pbos-gold);--accent-foreground:var(--pbos-bg);
+  --muted-foreground:var(--pbos-muted-2);--accent:var(--pbos-gold);--accent-foreground:#14100A;
   --input:var(--pbos-surface-2);--ring:rgba(222,183,88,.65);
 }
 html,body{background:var(--pbos-bg)!important;color:var(--pbos-text)!important}
