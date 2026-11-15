@@ -46,8 +46,8 @@ jobs:
         shell: bash
         run: |
           legacy_pattern='#''1E2328|#''26505A|#''DAAF57|rgba''\(218,175,87'
-          if grep -RniE "$legacy_pattern" _site; then
-            echo "::error::Legacy palette tokens remain in the generated site."
+          if grep -RniE "$legacy_pattern" . --exclude-dir=.git --exclude-dir=.github --include='*.css' --include='*.html' --include='*.py' --include='*.md' --include='*.svg'; then
+            echo "::error::Legacy palette tokens remain in the repository."
             exit 1
           fi
 
