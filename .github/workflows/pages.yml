@@ -55,11 +55,11 @@ jobs:
           checks = {
               "_site/cv/Cleyton-Hespanhol-Product-Owner-PT.pdf": [
                   "Cleyton S. Hespanhol", "SHV Energy", "71%", "Supergasbras",
-                  "Peixe Urbano", "Nextel", "Contax", "Niterói"
+                  "Peixe Urbano", "Nextel", "Contax", "Maricá"
               ],
               "_site/cv/Cleyton-Hespanhol-Product-Owner-EN.pdf": [
                   "Cleyton S. Hespanhol", "SHV Energy", "71%", "Supergasbras",
-                  "Urban Fish", "Nextel", "Contax", "Niterói"
+                  "Urban Fish", "Nextel", "Contax", "Maricá"
               ],
           }
           for path, required in checks.items():
