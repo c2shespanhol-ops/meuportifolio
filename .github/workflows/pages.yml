@@ -45,7 +45,8 @@ jobs:
       - name: Validate approved palette and reject legacy colors
         shell: bash
         run: |
-          if grep -RniE '#1E2328|#26505A|#DAAF57|rgba\(218,175,87' _site; then
+          legacy_pattern='#''1E2328|#''26505A|#''DAAF57|rgba''\(218,175,87'
+          if grep -RniE "$legacy_pattern" _site; then
             echo "::error::Legacy palette tokens remain in the generated site."
             exit 1
           fi
