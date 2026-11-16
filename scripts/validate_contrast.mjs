@@ -25,10 +25,12 @@ async function walk(directory) {
   return nested.flat();
 }
 
-async function runContrastRule(page) {
+async function runContrastRule(page, rootSelector = null) {
   await page.addScriptTag({ content: axeSource });
-  return page.evaluate(async () => {
-    const result = await window.axe.run(document, {
+  return page.evaluate(async (selector) => {
+    const root = selector ? document.querySelector(selector) : document;
+    if (!root) throw new Error(`Contrast audit root not found: ${selector}`);
+    const result = await window.axe.run(root, {
       runOnly: { type: "rule", values: ["color-contrast"] }
     });
     return {
@@ -67,7 +69,19 @@ async function runContrastRule(page) {
           }))
         }))
     };
-  });
+  }, rootSelector);
+}
+
+async function dismissConsentBanner(page) {
+  const banner = page.locator(".privacy-consent");
+  if (!(await banner.count())) return false;
+  const reject = banner.locator(".privacy-consent-reject");
+  if (await reject.isVisible()) {
+    await reject.click();
+    await banner.waitFor({ state: "detached", timeout: 5000 });
+    return true;
+  }
+  return false;
 }
 
 function parseRgb(value) {
@@ -241,6 +255,8 @@ const browser = await chromium.launch({ headless: true });
 const failures = [];
 const results = [];
 const incompleteNodeDetails = [];
+const consentContrastChecks = [];
+const consentAuditCoverage = new Set();
 let checked = 0;
 let incompleteCount = 0;
 let skipFocusChecks = 0;
@@ -261,6 +277,38 @@ try {
         if (!response || !response.ok()) {
           failures.push({ route, viewport: viewport.width, error: "page_load_failed" });
           continue;
+        }
+
+        const language = route.startsWith("/en/") ? "en" : "pt";
+        const consentKey = `${language}-${viewport.width}`;
+        const consentBanner = page.locator(".privacy-consent");
+        if (await consentBanner.count()) {
+          if (!consentAuditCoverage.has(consentKey)) {
+            const bannerAudit = await runContrastRule(page, ".privacy-consent");
+            const bannerViolations = bannerAudit.violations.reduce(
+              (sum, item) => sum + item.nodes.length, 0
+            );
+            const bannerIncomplete = bannerAudit.incomplete.reduce(
+              (sum, item) => sum + item.nodes.length, 0
+            );
+            consentContrastChecks.push({
+              language,
+              viewport: viewport.width,
+              violations: bannerViolations,
+              incomplete: bannerIncomplete
+            });
+            if (bannerViolations || bannerIncomplete) {
+              failures.push({
+                route,
+                viewport: viewport.width,
+                state: "privacy-consent:color-contrast",
+                violations: bannerAudit.violations,
+                incomplete: bannerAudit.incomplete
+              });
+            }
+            consentAuditCoverage.add(consentKey);
+          }
+          await dismissConsentBanner(page);
         }
 
         const audit = await runContrastRule(page);
@@ -337,6 +385,7 @@ try {
       skip_links: skipFocusChecks,
       buttons: buttonFocusChecks
     },
+    consent_banner_checks: consentContrastChecks,
     screenshot_scope: "Every route/viewport with axe color-contrast incomplete nodes",
     self_test: selfTest,
     failures,
