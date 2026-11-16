@@ -53,6 +53,7 @@ ROOT_RE = re.compile(r"(:root\s*\{)(.*?)(\})", re.I | re.S)
 STYLE_BLOCK_RE = re.compile(r"(<style\b[^>]*>)(.*?)(</style\s*>)", re.I | re.S)
 STYLE_ATTR_RE = re.compile(r'(\bstyle\s*=\s*)(["\'])(.*?)\2', re.I | re.S)
 RGBA_RE = re.compile(r"rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(?:,\s*([0-9.]+)\s*)?\)", re.I)
+PROTECTED_HTML = {"case_study_04_shv_final.html"}
 
 def replace_colors(source):
     for literal, token in HEX_TO_TOKEN.items():
@@ -128,6 +129,8 @@ def main():
             changed += 1
 
     for path in ROOT.rglob("*.html"):
+        if path.relative_to(ROOT).as_posix() in PROTECTED_HTML:
+            continue
         original = path.read_text(encoding="utf-8")
         normalized = normalize_html(original)
         if normalized != original:

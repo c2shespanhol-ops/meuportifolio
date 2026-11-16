@@ -433,15 +433,32 @@ jobs:
           name: portfolio-cv-pdfs
           path: /tmp/portfolio-cv-pdfs
 
+      - name: Download legacy color audit report
+        uses: actions/download-artifact@v4
+        with:
+          name: legacy-color-audit
+          path: /tmp/legacy-color-audit
+
+      - name: Normalize source HTML and CSS to canonical palette tokens
+        run: |
+          python scripts/normalize_palette_tokens.py .
+          python scripts/validate_design_tokens.py .
+          if git diff --name-only | grep -Fxq 'case_study_04_shv_final.html'; then
+            echo "::error::Protected Case 04 file must remain unchanged."
+            exit 1
+          fi
+
       - name: Commit regenerated CV PDFs
         shell: bash
         run: |
           set -euo pipefail
           cp /tmp/portfolio-cv-pdfs/Cleyton-Hespanhol-Product-Owner-PT.pdf cv/
           cp /tmp/portfolio-cv-pdfs/Cleyton-Hespanhol-Product-Owner-EN.pdf cv/
+          mkdir -p evidencias
+          cp /tmp/legacy-color-audit/legacy-color-audit.md evidencias/cores-legadas-auditoria.md
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add cv/Cleyton-Hespanhol-Product-Owner-PT.pdf cv/Cleyton-Hespanhol-Product-Owner-EN.pdf
+          git add -A -- '*.html' '*.css' 'cv/*.pdf' 'evidencias/cores-legadas-auditoria.md'
           if git diff --cached --quiet; then
             echo "Generated CV PDFs already match the committed versions."
           else

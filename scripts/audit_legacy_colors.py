@@ -26,7 +26,7 @@ ALIAS_RGB = {
 }
 ALL_HEX = PRIMARY_HEX + ALIAS_HEX
 ALL_RGB = {**PRIMARY_RGB, **ALIAS_RGB}
-hex_re = re.compile(r"#(?P<value>" + "|".join(ALL_HEX) + r")\b", re.I)
+hex_re = re.compile(r"#?(?P<value>" + "|".join(ALL_HEX) + r")\b", re.I)
 rgb_re = re.compile(
     r"\b(?P<fn>rgba?)\(\s*(?P<rgb>"
     + "|".join(re.escape(value).replace(",", r"\s*,\s*") for value in ALL_RGB)
