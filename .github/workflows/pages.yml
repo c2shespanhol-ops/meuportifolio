@@ -97,12 +97,22 @@ jobs:
 
       - name: Install responsive test browser
         run: |
-          npm install --no-save playwright cspell @cspell/dict-pt-br@2.4.4
+          npm install --no-save playwright axe-core cspell @cspell/dict-pt-br@2.4.4
           npx cspell --no-progress --config cspell.json "_site/**/*.html"
           npx playwright install --with-deps chromium
           python -m http.server 8765 --directory _site >/tmp/portfolio-http.log 2>&1 &
           sleep 2
           node scripts/validate_responsive.mjs
+          node scripts/validate_contrast.mjs
+
+      - name: Upload contrast audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-contrast-audit
+          path: artifacts/contrast-audit/
+          if-no-files-found: warn
+          retention-days: 14
 
       - name: Validate public artifact
         shell: bash

@@ -1,0 +1,180 @@
+import assert from "node:assert/strict";
+import { chromium } from "playwright";
+import * as axeModule from "axe-core";
+import { readdir, mkdir, writeFile } from "node:fs/promises";
+import path from "node:path";
+
+const ROOT = path.resolve("_site");
+const OUTPUT = path.resolve("artifacts/contrast-audit");
+const BASE_URL = "http://127.0.0.1:8765";
+const VIEWPORTS = [
+  { width: 390, height: 844 },
+  { width: 1280, height: 900 }
+];
+const axeSource = axeModule.default?.source ?? axeModule.source;
+
+if (!axeSource) throw new Error("Could not load axe-core source.");
+
+async function walk(directory) {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const nested = await Promise.all(entries.map(async (entry) => {
+    const full = path.join(directory, entry.name);
+    if (entry.isDirectory()) return walk(full);
+    return entry.isFile() && entry.name.toLowerCase().endsWith(".html") ? [full] : [];
+  }));
+  return nested.flat();
+}
+
+async function runContrastRule(page) {
+  await page.addScriptTag({ content: axeSource });
+  return page.evaluate(async () => {
+    const result = await window.axe.run(document, {
+      runOnly: { type: "rule", values: ["color-contrast"] }
+    });
+    return {
+      violations: result.violations.map((violation) => ({
+        id: violation.id,
+        impact: violation.impact,
+        help: violation.help,
+        nodes: violation.nodes.map((node) => ({
+          target: node.target,
+          summary: node.failureSummary
+        }))
+      })),
+      incomplete: result.incomplete
+        .filter((item) => item.id === "color-contrast")
+        .map((item) => ({ id: item.id, nodes: item.nodes.length }))
+    };
+  });
+}
+
+async function verifyRegressionDetection(browser) {
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  await page.setContent(
+    '<main><p style="font-size:16px;color:#777;background:#888">Contrast regression probe</p></main>'
+  );
+  const broken = await runContrastRule(page);
+  assert.ok(
+    broken.violations.length > 0,
+    "The validator self-test must detect deliberately insufficient contrast."
+  );
+
+  await page.locator("p").evaluate((element) => {
+    element.style.color = "#000";
+    element.style.backgroundColor = "#fff";
+  });
+  const restored = await page.evaluate(async () => {
+    const result = await window.axe.run(document, {
+      runOnly: { type: "rule", values: ["color-contrast"] }
+    });
+    return result.violations;
+  });
+  assert.equal(
+    restored.length,
+    0,
+    "The validator self-test must pass after the contrast regression is reverted."
+  );
+  await page.close();
+  return { regression_detected: true, after_revert: "pass" };
+}
+
+await mkdir(OUTPUT, { recursive: true });
+const pages = (await walk(ROOT))
+  .map((file) => "/" + path.relative(ROOT, file).split(path.sep).join("/"))
+  .sort();
+
+if (!pages.length) throw new Error("No generated HTML pages found in _site.");
+
+const browser = await chromium.launch({ headless: true });
+const failures = [];
+const results = [];
+let checked = 0;
+let incompleteCount = 0;
+
+try {
+  const selfTest = await verifyRegressionDetection(browser);
+
+  for (const route of pages) {
+    for (const viewport of VIEWPORTS) {
+      const page = await browser.newPage({ viewport });
+      try {
+        const response = await page.goto(BASE_URL + route, {
+          waitUntil: "domcontentloaded",
+          timeout: 20000
+        });
+        if (!response || !response.ok()) {
+          failures.push({ route, viewport: viewport.width, error: "page_load_failed" });
+          continue;
+        }
+
+        const audit = await runContrastRule(page);
+        checked += 1;
+        incompleteCount += audit.incomplete.reduce((sum, item) => sum + item.nodes, 0);
+
+        if (audit.violations.length) {
+          failures.push({
+            route,
+            viewport: viewport.width,
+            violations: audit.violations
+          });
+        }
+
+        results.push({
+          route,
+          viewport: viewport.width,
+          violations: audit.violations.reduce((sum, item) => sum + item.nodes.length, 0),
+          incomplete: audit.incomplete.reduce((sum, item) => sum + item.nodes, 0)
+        });
+
+        const screenshotRoutes = new Set(["/index.html", "/en/index.html"]);
+        if (screenshotRoutes.has(route)) {
+          const language = route.startsWith("/en/") ? "en" : "pt";
+          await page.screenshot({
+            path: path.join(OUTPUT, language + "-" + viewport.width + ".png"),
+            fullPage: true
+          });
+        }
+      } catch (error) {
+        failures.push({ route, viewport: viewport.width, error: error.message });
+      } finally {
+        await page.close();
+      }
+    }
+  }
+
+  const report = {
+    generated_at: new Date().toISOString(),
+    standard: "WCAG 2.1 AA color-contrast",
+    thresholds: { normal_text: "4.5:1", large_text: "3:1" },
+    viewport_widths: VIEWPORTS.map((item) => item.width),
+    pages: pages.length,
+    page_viewport_checks: checked,
+    incomplete_nodes: incompleteCount,
+    self_test: selfTest,
+    failures,
+    results
+  };
+
+  await writeFile(
+    path.join(OUTPUT, "report.json"),
+    JSON.stringify(report, null, 2) + "\n",
+    "utf8"
+  );
+
+  console.log(JSON.stringify({
+    pages: pages.length,
+    viewport_widths: VIEWPORTS.map((item) => item.width),
+    checks: checked,
+    failures: failures.length,
+    incomplete_nodes: incompleteCount,
+    self_test: selfTest,
+    evidence: OUTPUT
+  }, null, 2));
+
+  if (failures.length) {
+    console.error("WCAG color contrast audit failed. See artifacts/contrast-audit/report.json.");
+    process.exitCode = 1;
+  }
+} finally {
+  await browser.close();
+}
