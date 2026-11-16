@@ -93,6 +93,15 @@ jobs:
           if-no-files-found: warn
           retention-days: 14
 
+      - name: Upload privacy consent evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-privacy-consent-audit
+          path: artifacts/privacy-consent/
+          if-no-files-found: warn
+          retention-days: 14
+
       - name: Validate public artifact
         shell: bash
         run: |

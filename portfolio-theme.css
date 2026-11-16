@@ -727,3 +727,18 @@ html body .cv-download * {
 .privacy-footer-link a{color:var(--pbos-blue)}
 @media(max-width:700px){.privacy-consent{left:10px;right:10px;bottom:10px;display:block;padding:14px}.privacy-consent-actions{display:grid;grid-template-columns:1fr 1fr;margin-top:12px}.privacy-consent-link{grid-column:1/-1}.privacy-consent-actions button,.privacy-consent-link{width:100%;min-height:44px}}
 @media(prefers-reduced-motion:reduce){.privacy-consent *{scroll-behavior:auto}}
+
+
+/* Privacy consent footer links and non-obstructive floating controls. */
+.privacy-footer-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;padding:8px 0}
+.privacy-footer-links a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:6px 10px;color:var(--pbos-blue);text-underline-offset:3px}
+.privacy-footer-links .privacy-preferences-link{background:transparent;border:0;font:inherit;cursor:pointer}
+.privacy-consent-actions button{min-width:110px}
+.privacy-consent-accept,.privacy-consent-reject{background:var(--pbos-gold);color:var(--pbos-ink);text-decoration:none}
+.privacy-consent-visible .to-top{bottom:calc(var(--privacy-consent-height, 180px) + 16px)}
+.privacy-consent-visible .sticky-cta{bottom:calc(var(--privacy-consent-height, 180px) + 80px)}
+@media(max-width:700px){
+  .privacy-consent{bottom:calc(10px + env(safe-area-inset-bottom))}
+  .privacy-footer-links{gap:8px}
+  .privacy-consent-actions button{min-width:0;width:100%}
+}

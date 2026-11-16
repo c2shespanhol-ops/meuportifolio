@@ -96,10 +96,20 @@ for page in root.rglob("*.html"):
  language_match=re.search(r"<html\b[^>]*\blang=['\"]([^'\"]+)",source,re.I)
  english=bool(language_match and language_match.group(1).lower().startswith("en"))
  policy_href=os.path.relpath(root/("en/privacy.html" if english else "privacidade.html"),page.parent).replace(os.sep,"/")
- policy_label="Privacy policy" if english else "Política de privacidade"
- if not re.search(r"href=['\"][^'\"]*privacy(?:.html)?['\"]",source,re.I):
-  privacy_link=f'<div class="privacy-footer-link"><a href="{policy_href}">{policy_label}</a></div>'
-  source=re.sub(r"(</footer>)",lambda match: privacy_link+"\n"+match.group(1),source,count=1,flags=re.I)
+ policy_label="Privacy" if english else "Privacidade"
+ preferences_label="Privacy preferences" if english else "Preferências de privacidade"
+ if "privacy-footer-links" not in source:
+  privacy_links=(f'<div class="privacy-footer-links">'
+   f'<a href="{policy_href}">{policy_label}</a>'
+   f'<a class="privacy-preferences-link" href="#privacy-preferences">{preferences_label}</a>'
+   f'</div>')
+  if re.search(r"</footer>",source,re.I):
+   source=re.sub(r"</footer>",lambda match: privacy_links+"\\n</footer>",source,count=1,flags=re.I)
+  elif re.search(r"</body>",source,re.I):
+   generated_footer=f'<footer class="site-footer privacy-generated-footer">{privacy_links}</footer>'
+   source=re.sub(r"</body>",lambda match: generated_footer+"\\n"+match.group(0),source,count=1,flags=re.I)
+  else:
+   source += f'<footer class="site-footer privacy-generated-footer">{privacy_links}</footer>'
  consent_src=os.path.relpath(root/"privacy-consent.js",page.parent).replace(os.sep,"/")
  consent_tag=f'<script src="{consent_src}" defer></script>'
  if "privacy-consent.js" not in source:
