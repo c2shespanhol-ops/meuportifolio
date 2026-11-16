@@ -2,8 +2,6 @@
 @import url("portfolio-theme.css?v=20261114-palette");
 
 
-/* HS MIND approved palette */
-:root{--hm-bg:#080d12;--hm-surface:#111820;--hm-surface-2:#151e27;--hm-text:#f4f5f7;--hm-muted:#aeb7c0;--hm-cyan:#4bbbc6;--hm-gold:#A88F5B;--bg:var(--hm-bg);--bg2:var(--hm-surface);--bg3:var(--hm-surface-2);--background:var(--hm-bg);--foreground:var(--hm-text);--surface:var(--hm-surface);--surface-2:var(--hm-surface-2);--card:var(--hm-surface);--text:var(--hm-text);--white:var(--hm-text);--muted:var(--hm-muted);--text-muted:var(--hm-muted);--cyan:var(--hm-cyan);--teal:var(--hm-cyan);--blue:var(--hm-cyan);--gold:var(--hm-gold);--primary:var(--hm-gold);--border:rgba(174,183,192,.18);--line:rgba(174,183,192,.18)}
 html,body{background:var(--hm-bg)!important;color:var(--hm-text)!important}body{background-color:var(--hm-bg)!important;color:var(--hm-text)!important}
 header,nav,footer,.topbar,.navbar,.site-header,.site-footer{background-color:#080d12!important;color:var(--hm-text)!important}
 h1,h2,h3,h4,h5,h6,strong,b,legend{color:var(--hm-text)!important}p,li,td,th,small,label,.muted,.lead,.description,.meta,.subtitle,.secondary-text{color:var(--hm-muted)!important}
