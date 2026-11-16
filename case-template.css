@@ -2,6 +2,7 @@
 
 @layer portfolio-base {
 /* Uses the canonical palette and transparency tokens from portfolio-theme.css. */
+:root{--line:var(--pbos-line)}
 html,body{background:var(--pbos-bg);color:var(--pbos-text)}
 body{color:var(--pbos-text)}
 p,li,td,th,.muted,.lead,.description{color:var(--pbos-muted)}
