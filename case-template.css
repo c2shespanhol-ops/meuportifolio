@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
+
 @layer portfolio-base {
-400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
 /* SINGLE SOURCE OF TRUTH: HS MIND Lovable reference palette */
 :root{
 --pbos-bg:#0A0D12;--pbos-surface:#0F151C;--pbos-surface-2:#0F151C;--pbos-gold:#A88F5B;--pbos-gold-soft:#A88F5B;--pbos-teal:#7FB2DC;
