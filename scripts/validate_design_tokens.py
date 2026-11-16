@@ -6,8 +6,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 CSS_FILES = (
-    "artifact.css", "case-template.css", "meuportifolio/pbos-career-theme.css",
-    "pbos-career-theme.css", "portfolio-reference-refresh.css",
+    "artifact.css", "case-template.css", "pbos-career-theme.css", "portfolio-reference-refresh.css",
     "portfolio-theme-v2.css", "portfolio-theme.css", "site.css",
 )
 CANONICAL_THEME = "portfolio-theme.css"
@@ -45,6 +44,9 @@ def normalize(value):
 def main():
     failures = []
     scanned = 0
+    residual_directory = ROOT / "meuportifolio"
+    if residual_directory.exists():
+        failures.append("Residual directory must be removed: meuportifolio/")
     for relative in CSS_FILES:
         path = ROOT / relative
         if not path.is_file():
@@ -95,7 +97,6 @@ def main():
         ("site.css", "--pbos-border-light"),
         ("case-template.css", "--pbos-line"),
         ("pbos-career-theme.css", "--pbos-line"),
-        ("meuportifolio/pbos-career-theme.css", "--pbos-line"),
     ):
         source = COMMENT_RE.sub("", (ROOT / relative).read_text(encoding="utf-8"))
         declaration = re.compile(r"--line\s*:\s*var\(\s*" + re.escape(expected_line) + r"\s*\)", re.I)
