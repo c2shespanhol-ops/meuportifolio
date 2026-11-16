@@ -11,6 +11,10 @@ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
 from reportlab.platypus import Paragraph, SimpleDocTemplate
 
+# PDF text colors follow the approved HS MIND ink palette.
+PDF_TEXT_COLOR = colors.HexColor("#101419")
+PDF_SECTION_COLOR = colors.HexColor("#101419")
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TARGET_TAGS = {"h1", "h2", "h3", "p", "li"}
 
@@ -68,18 +72,18 @@ def build_pdf(source_path, output_path, language):
     base = getSampleStyleSheet()
     styles = {
         "h1": ParagraphStyle("resume_h1", parent=base["Heading1"], fontName="Helvetica-Bold",
-            fontSize=19, leading=23, spaceAfter=5, keepWithNext=True, textColor=colors.HexColor("#0A0D12")),
+            fontSize=19, leading=23, spaceAfter=5, keepWithNext=True, textColor=PDF_TEXT_COLOR),
         "h2": ParagraphStyle("resume_h2", parent=base["Heading2"], fontName="Helvetica-Bold",
-            fontSize=11, leading=14, spaceBefore=9, spaceAfter=4, keepWithNext=True, textColor=colors.HexColor("#0F151C")),
+            fontSize=11, leading=14, spaceBefore=9, spaceAfter=4, keepWithNext=True, textColor=PDF_SECTION_COLOR),
         "h3": ParagraphStyle("resume_h3", parent=base["Heading3"], fontName="Helvetica-Bold",
-            fontSize=9.6, leading=12, spaceBefore=5, spaceAfter=2, keepWithNext=True, textColor=colors.HexColor("#0A0D12")),
+            fontSize=9.6, leading=12, spaceBefore=5, spaceAfter=2, keepWithNext=True, textColor=PDF_TEXT_COLOR),
         "p": ParagraphStyle("resume_p", parent=base["BodyText"], fontName="Helvetica",
-            fontSize=9.1, leading=12, spaceAfter=3, allowWidows=0, allowOrphans=0, splitLongWords=0, textColor=colors.HexColor("#0A0D12")),
+            fontSize=9.1, leading=12, spaceAfter=3, allowWidows=0, allowOrphans=0, splitLongWords=0, textColor=PDF_TEXT_COLOR),
         "meta": ParagraphStyle("resume_meta", parent=base["BodyText"], fontName="Helvetica",
-            fontSize=8.2, leading=10, spaceAfter=2.5, allowWidows=0, allowOrphans=0, splitLongWords=0, textColor=colors.HexColor("#0F151C")),
+            fontSize=8.2, leading=10, spaceAfter=2.5, allowWidows=0, allowOrphans=0, splitLongWords=0, textColor=PDF_SECTION_COLOR),
         "li": ParagraphStyle("resume_li", parent=base["BodyText"], fontName="Helvetica",
             fontSize=8.9, leading=11.5, leftIndent=11, firstLineIndent=-7, spaceAfter=2.5, allowWidows=0, allowOrphans=0, splitLongWords=0,
-            textColor=colors.HexColor("#0A0D12")),
+            textColor=PDF_TEXT_COLOR),
     }
 
     story = []

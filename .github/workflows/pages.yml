@@ -69,7 +69,9 @@ jobs:
             --exclude '_site'
 
       - name: Apply shared design system to all HTML pages
-        run: python scripts/ensure_shared_theme.py _site
+        run: |
+          python scripts/ensure_shared_theme.py _site
+          python scripts/normalize_palette_tokens.py _site
 
       - name: Build and validate readable CV PDFs
         run: |
@@ -116,21 +118,7 @@ jobs:
           path: _site/cv/*.pdf
           retention-days: 14
       - name: Validate approved palette and reject legacy colors
-        shell: bash
-        run: |
-          legacy_pattern='1E2328|26505A|DAAF57|080d12|111820|151e27|f4f5f7|aeb7c0|4bbbc6|e8b83f|101419|218,175,87|232,184,63|DEB758|222,183,88'
-          if grep -RniE "$legacy_pattern" _site; then
-            echo "::error::Legacy palette tokens remain in the generated public site."
-            exit 1
-          fi
-          grep -qi '#0A0D12' _site/portfolio-theme.css
-          grep -qi '#0F151C' _site/portfolio-theme.css
-          grep -qi '#F7F8FA' _site/portfolio-theme.css
-          grep -qi '#AEB5BD' _site/portfolio-theme.css
-          grep -qi '#A88F5B' _site/portfolio-theme.css
-          grep -qi '#7FB2DC' _site/portfolio-theme.css
-          grep -qi '#14100A' _site/portfolio-theme.css
-
+        run: python scripts/validate_design_tokens.py _site
       - name: Validate HTML structure and internal links
         run: python scripts/validate_html.py _site
 

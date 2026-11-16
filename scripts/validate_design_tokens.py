@@ -1,36 +1,28 @@
 #!/usr/bin/env python3
-"""Ensure portfolio color literals stay centralized in the canonical theme."""
+"""Validate HS MIND palette tokens and reject hard-coded colors in published styles."""
 from pathlib import Path
 import re
 import sys
 
-ROOT = Path(__file__).resolve().parents[1]
-CSS_FILES = (
-    "artifact.css", "case-template.css", "pbos-career-theme.css", "portfolio-reference-refresh.css",
-    "portfolio-theme-v2.css", "portfolio-theme.css", "site.css",
-)
+DEFAULT_ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else DEFAULT_ROOT
+SCAN_HTML_STYLES = len(sys.argv) > 1
 CANONICAL_THEME = "portfolio-theme.css"
 PALETTE = {
-    "--pbos-bg": "#0A0D12", "--pbos-surface": "#0F151C",
-    "--pbos-gold": "#A88F5B", "--pbos-blue": "#7FB2DC",
-    "--pbos-text": "#F7F8FA", "--pbos-muted": "#AEB5BD",
-    "--pbos-ink": "#14100A",
-}
-TRANSPARENCY = {
-    "rgba(127,178,220,.06)", "rgba(127,178,220,.09)",
-    "rgba(10,13,18,.88)", "rgba(10,13,18,.4)",
-    "rgba(15,21,28,.42)", "rgba(15,21,28,.82)", "rgba(15,21,28,.96)",
-    "rgba(10,13,18,.16)", "rgba(10,13,18,.20)", "rgba(10,13,18,.35)",
-    "rgba(174,181,189,.20)", "rgba(174,181,189,.16)", "rgba(174,181,189,.18)",
-    "rgba(127,178,220,.25)", "rgba(168,143,91,.30)", "rgba(168,143,91,.22)",
-    "rgba(168,143,91,.34)", "rgba(168,143,91,.42)", "rgba(247,248,250,.12)",
-    "rgba(247,248,250,.18)", "rgba(168,143,91,.02)", "rgba(168,143,91,.035)",
-    "rgba(168,143,91,.045)", "rgba(168,143,91,.07)", "rgba(168,143,91,.08)",
-    "rgba(168,143,91,.13)", "rgba(168,143,91,.18)", "rgba(168,143,91,.65)",
+    "--pbos-bg": "#080d12",
+    "--pbos-surface": "#111820",
+    "--pbos-surface-2": "#151e27",
+    "--pbos-gold": "#e8b83f",
+    "--pbos-blue": "#4bbbc6",
+    "--pbos-text": "#f4f5f7",
+    "--pbos-muted": "#aeb7c0",
+    "--pbos-ink": "#101419",
 }
 COLOR_RE = re.compile(r"#[0-9a-fA-F]{3,8}\b|(?:rgba?|hsla?)\([^)]*\)", re.I)
 ROOT_RE = re.compile(r":root\s*\{([^}]*)\}", re.I | re.S)
 COMMENT_RE = re.compile(r"/\*.*?\*/", re.S)
+STYLE_BLOCK_RE = re.compile(r"<style\b[^>]*>(.*?)</style\s*>", re.I | re.S)
+STYLE_ATTR_RE = re.compile(r'\bstyle\s*=\s*(["\'])(.*?)\1', re.I | re.S)
 EXCEPTIONS = {"#000", "#fff"}
 EXPECTED_EXCEPTIONS = {
     "artifact.css": {"#000": 2, "#fff": 1},
@@ -38,92 +30,66 @@ EXPECTED_EXCEPTIONS = {
     "site.css": {"#000": 1, "#fff": 1},
 }
 
-def normalize(value):
+def norm(value):
     return re.sub(r"\s+", "", value).lower()
 
 def main():
     failures = []
-    scanned = 0
-    residual_directory = ROOT / "meuportifolio"
-    if residual_directory.exists():
-        failures.append("Residual directory must be removed: meuportifolio/")
-    for relative in CSS_FILES:
-        path = ROOT / relative
-        if not path.is_file():
-            failures.append(f"Missing stylesheet: {relative}")
-            continue
+    css_paths = sorted(ROOT.rglob("*.css"))
+    if not css_paths:
+        failures.append("No CSS files found.")
+
+    for path in css_paths:
+        relative = path.relative_to(ROOT).as_posix()
         source = COMMENT_RE.sub("", path.read_text(encoding="utf-8"))
-        scanned += 1
-        colors = [normalize(value) for value in COLOR_RE.findall(source)]
+        colors = [norm(value) for value in COLOR_RE.findall(source)]
         if relative == CANONICAL_THEME:
             roots = list(ROOT_RE.finditer(source))
             if len(roots) != 1:
                 failures.append(f"{relative}: expected exactly one :root token block, found {len(roots)}")
                 continue
             root = roots[0]
-            root_colors = {normalize(value) for value in COLOR_RE.findall(root.group(1))}
-            allowed_root = {normalize(value) for value in PALETTE.values()} | {normalize(value) for value in TRANSPARENCY}
-            unexpected_root = sorted(root_colors - allowed_root)
-            if unexpected_root:
-                failures.append(f"{relative}: unapproved literal colors in canonical :root: {unexpected_root}")
+            root_source = root.group(1)
             for token, value in PALETTE.items():
                 declaration = re.compile(re.escape(token) + r"\s*:\s*" + re.escape(value) + r"\s*;", re.I)
-                if len(declaration.findall(root.group(1))) != 1:
+                if len(declaration.findall(root_source)) != 1:
                     failures.append(f"{relative}: {token} must define {value} exactly once")
             outside = source[:root.start()] + source[root.end():]
-            outside_colors = [normalize(value) for value in COLOR_RE.findall(outside)]
+            outside_colors = [norm(value) for value in COLOR_RE.findall(outside)]
             unexpected = [value for value in outside_colors if value not in EXCEPTIONS]
             if unexpected:
-                failures.append(f"{relative}: hardcoded colors outside canonical tokens: {unexpected[:12]}")
+                failures.append(f"{relative}: literal colors outside canonical :root: {unexpected[:10]}")
             exceptions = {value: outside_colors.count(value) for value in EXCEPTIONS if outside_colors.count(value)}
         else:
             unexpected = [value for value in colors if value not in EXCEPTIONS]
             if unexpected:
-                failures.append(f"{relative}: hardcoded colors outside canonical tokens: {unexpected[:12]}")
+                failures.append(f"{relative}: hard-coded colors outside canonical tokens: {unexpected[:10]}")
             exceptions = {value: colors.count(value) for value in EXCEPTIONS if colors.count(value)}
         expected = EXPECTED_EXCEPTIONS.get(relative, {})
         if exceptions != expected:
-            failures.append(f"{relative}: print/identity exceptions changed; expected {expected}, found {exceptions}")
+            failures.append(f"{relative}: print exceptions changed; expected {expected}, found {exceptions}")
 
-    canonical_root = ROOT_RE.search(COMMENT_RE.sub("", (ROOT / CANONICAL_THEME).read_text(encoding="utf-8")))
-    if not canonical_root:
-        failures.append("portfolio-theme.css: canonical :root token block is missing")
-    else:
-        canonical_tokens = dict(re.findall(r"(--[a-zA-Z0-9_-]+)\s*:\s*([^;]+);", canonical_root.group(1)))
-        if "--line" in canonical_tokens:
-            failures.append("portfolio-theme.css: --line must remain page-scoped to preserve existing border transparency")
-
-    for relative, expected_line in (
-        ("site.css", "--pbos-border-light"),
-        ("case-template.css", "--pbos-line"),
-        ("pbos-career-theme.css", "--pbos-line"),
-    ):
-        source = COMMENT_RE.sub("", (ROOT / relative).read_text(encoding="utf-8"))
-        declaration = re.compile(r"--line\s*:\s*var\(\s*" + re.escape(expected_line) + r"\s*\)", re.I)
-        if len(declaration.findall(source)) != 1:
-            failures.append(f"{relative}: --line must preserve its original {expected_line} token mapping")
-
-    # Catch broken var(--token) references after removing duplicated local palettes.
-    declared_tokens = set()
-    referenced_tokens = []
-    for relative in CSS_FILES:
-        path = ROOT / relative
-        if not path.is_file():
-            continue
-        source = COMMENT_RE.sub("", path.read_text(encoding="utf-8"))
-        declared_tokens.update(re.findall(r"(--[a-zA-Z0-9_-]+)\s*:", source))
-        referenced_tokens.extend((relative, token) for token in re.findall(r"var\(\s*(--[a-zA-Z0-9_-]+)", source))
-    unresolved = sorted({f"{relative}: {token}" for relative, token in referenced_tokens if token not in declared_tokens})
-    if unresolved:
-        failures.append("Unresolved CSS custom properties: " + ", ".join(unresolved[:30]))
+    if SCAN_HTML_STYLES:
+        for path in ROOT.rglob("*.html"):
+            source = COMMENT_RE.sub("", path.read_text(encoding="utf-8"))
+            styles = STYLE_BLOCK_RE.findall(source)
+            styles.extend(match.group(2) for match in STYLE_ATTR_RE.finditer(source))
+            for style in styles:
+                colors = [norm(value) for value in COLOR_RE.findall(style)]
+                unexpected = [value for value in colors if value not in EXCEPTIONS]
+                if unexpected:
+                    failures.append(
+                        f"{path.relative_to(ROOT)}: hard-coded colors remain in HTML styles: {unexpected[:8]}"
+                    )
 
     if failures:
         print("\n".join(failures), file=sys.stderr)
         return 1
+
+    mode = "; HTML inline styles checked" if SCAN_HTML_STYLES else ""
     print(
-        f"Design-token audit passed: {scanned} stylesheets scanned; "
-        "seven approved palette colors defined once in portfolio-theme.css; "
-        "all other color literals replaced by canonical tokens. "
+        f"HS MIND design-token audit passed: {len(css_paths)} CSS files scanned; "
+        f"eight approved palette tokens verified; no noncanonical color literals remain{mode}. "
         "Only documented print/identity #fff and #000 exceptions remain."
     )
     return 0

@@ -14,42 +14,42 @@ theme_meta=re.compile(r'<meta\b(?=[^>]*\bname=["\']theme-color["\'])[^>]*>',re.I
 def normalize_theme_color(match):
  tag=match.group(0)
  if re.search(r'\bcontent\s*=',tag,re.I):
-  return re.sub(r'\bcontent\s*=\s*(["\']).*?\1','content="#0A0D12"',tag,count=1,flags=re.I)
- return tag[:-1]+' content="#0A0D12">'
+  return re.sub(r'\bcontent\s*=\s*(["\']).*?\1','content="#080d12"',tag,count=1,flags=re.I)
+ return tag[:-1]+' content="#080d12">'
 
 def normalize_palette(source):
+ # Historical literals map forward to the approved HS MIND palette.
  replacements = (
-  ("#"+"1E2328", "#0A0D12"),
-  ("#"+"26505A", "#0F151C"),
-  ("#"+"DAAF57", "#A88F5B"),
-  ("#"+"DEB758", "#A88F5B"),
-  ("#"+"F5F7FA", "#F7F8FA"),
-  ("#"+"C4CDD3", "#AEB5BD"),
-  ("#"+"080d12", "#0A0D12"),
-  ("#"+"111820", "#0F151C"),
-  ("#"+"151e27", "#0F151C"),
-  ("#"+"f4f5f7", "#F7F8FA"),
-  ("#"+"aeb7c0", "#AEB5BD"),
-  ("#"+"4bbbc6", "#7FB2DC"),
-  ("#"+"e8b83f", "#A88F5B"),
-  ("#"+"101419", "#14100A"),
-  ("#"+"72d0d8", "#7FB2DC"),
-  ("#"+"89949e", "#AEB5BD"),
-  ("#"+"59636B", "#AEB5BD"),
+  ("#"+"1E2328", "#080d12"), ("#"+"26505A", "#111820"),
+  ("#"+"DAAF57", "#e8b83f"), ("#"+"DEB758", "#e8b83f"),
+  ("#"+"F5F7FA", "#f4f5f7"), ("#"+"F7F8FA", "#f4f5f7"),
+  ("#"+"C4CDD3", "#aeb7c0"), ("#"+"AEB5BD", "#aeb7c0"),
+  ("#"+"7FB2DC", "#4bbbc6"), ("#"+"A88F5B", "#e8b83f"),
+  ("#"+"14100A", "#101419"), ("#"+"0A0D12", "#080d12"),
+  ("#"+"0F151C", "#111820"), ("#"+"72d0d8", "#4bbbc6"),
+  ("#"+"89949e", "#aeb7c0"), ("#"+"59636B", "#aeb7c0"),
  )
  for old, new in replacements:
   source = re.sub(re.escape(old), new, source, flags=re.I)
- source = re.sub(r"rgba\(\s*232\s*,\s*184\s*,\s*63", "rgba(168,143,91", source, flags=re.I)
- source = re.sub(r"rgba\(\s*222\s*,\s*183\s*,\s*88", "rgba(168,143,91", source, flags=re.I)
- source = re.sub(r"rgba\(\s*218\s*,\s*175\s*,\s*87", "rgba(168,143,91", source, flags=re.I)
- source = re.sub(r"rgba\(\s*245\s*,\s*247\s*,\s*250", "rgba(247,248,250", source, flags=re.I)
- source = re.sub(r"rgba\(\s*174\s*,\s*183\s*,\s*192", "rgba(174,181,189", source, flags=re.I)
- source = re.sub(r"rgba?\(\s*8\s*,\s*13\s*,\s*18", "rgba(10,13,18", source, flags=re.I)
- source = re.sub(r"rgba?\(\s*17\s*,\s*24\s*,\s*32", "rgba(15,21,28", source, flags=re.I)
- source = re.sub(r"rgba?\(\s*21\s*,\s*30\s*,\s*39", "rgba(15,21,28", source, flags=re.I)
- source = re.sub(r"(--blue\s*:\s*)#(?:DEB758|A88F5B)", r"\1#7FB2DC", source, flags=re.I)
+ source = re.sub(r"rgba?\(\s*30\s*,\s*35\s*,\s*40", "rgba(8,13,18", source, flags=re.I)
+ source = re.sub(r"rgba?\(\s*38\s*,\s*80\s*,\s*90", "rgba(17,24,32", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*218\s*,\s*175\s*,\s*87", "rgba(232,184,63", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*222\s*,\s*183\s*,\s*88", "rgba(232,184,63", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*168\s*,\s*143\s*,\s*91", "rgba(232,184,63", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*245\s*,\s*247\s*,\s*250", "rgba(244,245,247", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*247\s*,\s*248\s*,\s*250", "rgba(244,245,247", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*174\s*,\s*181\s*,\s*189", "rgba(174,183,192", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*196\s*,\s*205\s*,\s*211", "rgba(174,183,192", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*127\s*,\s*178\s*,\s*220", "rgba(75,187,198", source, flags=re.I)
+ source = re.sub(r"rgba?\(\s*10\s*,\s*13\s*,\s*18", "rgba(8,13,18", source, flags=re.I)
+ source = re.sub(r"rgba?\(\s*15\s*,\s*21\s*,\s*28", "rgba(17,24,32", source, flags=re.I)
+ source = re.sub(r"rgba?\(\s*21\s*,\s*30\s*,\s*39", "rgba(21,30,39", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*11\s*,\s*12\s*,\s*14", "rgba(8,13,18", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*240\s*,\s*246\s*,\s*252", "rgba(244,245,247", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*255\s*,\s*255\s*,\s*255", "rgba(244,245,247", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*0\s*,\s*0\s*,\s*0", "rgba(16,20,25", source, flags=re.I)
+ source = re.sub(r"(--blue\s*:\s*)#(?:DEB758|A88F5B)", r"\1#4bbbc6", source, flags=re.I)
  return source
-
 
 # Normalize stylesheet and SVG source files in the generated site.
 for asset in root.rglob("*"):
