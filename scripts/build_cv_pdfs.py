@@ -100,8 +100,25 @@ def build_pdf(source_path, output_path, language):
     doc.build(story)
 
 output_dir = os.path.join(ROOT, "_site", "cv")
-build_pdf(os.path.join(ROOT, "cv", "cv-pt.html"),
-          os.path.join(output_dir, "Cleyton-Hespanhol-Product-Owner-PT.pdf"), "pt")
-build_pdf(os.path.join(ROOT, "cv", "cv-en.html"),
-          os.path.join(output_dir, "Cleyton-Hespanhol-Product-Owner-EN.pdf"), "en")
-print("Portuguese and English CV PDFs generated from the current HTML sources.")
+os.makedirs(output_dir, exist_ok=True)
+
+def build_atomically(source_path, filename, language):
+    final_path = os.path.join(output_dir, filename)
+    fd, temporary_path = tempfile.mkstemp(prefix=".cv-build-", suffix=".pdf", dir=output_dir)
+    os.close(fd)
+    try:
+        build_pdf(source_path, temporary_path, language)
+        with open(temporary_path, "rb") as generated:
+            signature = generated.read(5)
+        if signature != b"%PDF-" or os.path.getsize(temporary_path) < 1024:
+            raise RuntimeError(f"Generated PDF is incomplete or invalid: {filename}")
+        os.replace(temporary_path, final_path)
+    finally:
+        if os.path.exists(temporary_path):
+            os.remove(temporary_path)
+
+build_atomically(os.path.join(ROOT, "cv", "cv-pt.html"),
+                 "Cleyton-Hespanhol-Product-Owner-PT.pdf", "pt")
+build_atomically(os.path.join(ROOT, "cv", "cv-en.html"),
+                 "Cleyton-Hespanhol-Product-Owner-EN.pdf", "en")
+print("Portuguese and English CV PDFs generated atomically from the current HTML sources.")
