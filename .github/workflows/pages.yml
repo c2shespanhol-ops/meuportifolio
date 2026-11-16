@@ -42,6 +42,12 @@ jobs:
 
       - name: Apply shared design system to all HTML pages
         run: python scripts/ensure_shared_theme.py _site
+
+      - name: Build and validate readable CV PDFs
+        run: |
+          python -m pip install --disable-pip-version-check reportlab pypdf
+          python scripts/build_cv_pdfs.py
+          python scripts/validate_cv_pdfs.py _site/cv
       - name: Validate approved palette and reject legacy colors
         shell: bash
         run: |
