@@ -189,8 +189,8 @@ async function verifyRegressionDetection(browser) {
   );
 
   await page.locator("a.skip").evaluate((element) => {
-    element.style.color = "#14100A";
-    element.style.backgroundColor = "#A88F5B";
+    element.style.color = "rgb(16, 20, 25)";
+    element.style.backgroundColor = "rgb(168, 143, 91)";
     element.style.top = "12px";
   });
   const restored = await auditFocusStates(page, "/self-test", { width: 390 });
@@ -199,10 +199,16 @@ async function verifyRegressionDetection(browser) {
     0,
     "The validator self-test must pass after the skip-link contrast regression is reverted."
   );
+  const restoredRatio = contrastRatio("rgb(16, 20, 25)", "rgb(168, 143, 91)");
+  assert.ok(
+    restoredRatio !== null && restoredRatio >= 4.5,
+    `The corrected skip-link colors must meet WCAG AA; received ${restoredRatio}.`
+  );
   await page.close();
   return {
     skip_regression_detected: true,
-    after_revert: "pass"
+    after_revert: "pass",
+    restored_contrast_ratio: Number(restoredRatio.toFixed(2))
   };
 }
 
@@ -298,6 +304,23 @@ try {
         await page.close();
       }
     }
+  }
+
+  const expectedSkipPages = 14;
+  if (skipPages.length !== expectedSkipPages) {
+    failures.push({
+      state: "skip:page-coverage",
+      expected: expectedSkipPages,
+      actual: skipPages.length
+    });
+  }
+  const expectedSkipFocusChecks = skipPages.length * VIEWPORTS.length;
+  if (skipFocusChecks !== expectedSkipFocusChecks) {
+    failures.push({
+      state: "skip:focus-coverage",
+      expected: expectedSkipFocusChecks,
+      actual: skipFocusChecks
+    });
   }
 
   const report = {

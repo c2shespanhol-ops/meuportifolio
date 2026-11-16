@@ -553,3 +553,12 @@ a.skip,a.skip:hover,a.active,a.active:hover,a[aria-current="page"],a[aria-curren
 @media(max-width:360px){.action-card{padding:9px 8px;font-size:13px;gap:6px}.action-card svg{width:18px;height:18px}}
 
 }
+
+/* WCAG 2.1 AA: keep the keyboard-only skip link readable outside the base cascade layer. */
+html body a.skip,
+html body a.skip:hover,
+html body a.skip:focus,
+html body a.skip:focus-visible {
+  color: #101419;
+  background-color: var(--gold);
+}
