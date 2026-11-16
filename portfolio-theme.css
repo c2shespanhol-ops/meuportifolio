@@ -67,6 +67,31 @@
   --secondary: var(--pbos-surface-2); --secondary-foreground: var(--pbos-text);
   --muted-foreground: var(--pbos-muted); --accent: var(--pbos-gold); --accent-foreground: var(--pbos-ink);
   --input: var(--pbos-surface-2); --ring: var(--pbos-gold-ring);
+
+  /* Alpha tokens generated from inline page styles. */
+  --pbos-gold-alpha-030: rgba(232,184,63,0.03);
+  --pbos-gold-alpha-040: rgba(232,184,63,0.04);
+  --pbos-gold-alpha-080: rgba(232,184,63,0.08);
+  --pbos-gold-alpha-120: rgba(232,184,63,0.12);
+  --pbos-gold-alpha-160: rgba(232,184,63,0.16);
+  --pbos-gold-alpha-200: rgba(232,184,63,0.2);
+  --pbos-gold-alpha-220: rgba(232,184,63,0.22);
+  --pbos-gold-alpha-250: rgba(232,184,63,0.25);
+  --pbos-gold-alpha-280: rgba(232,184,63,0.28);
+  --pbos-gold-alpha-300: rgba(232,184,63,0.3);
+  --pbos-gold-alpha-350: rgba(232,184,63,0.35);
+  --pbos-gold-alpha-450: rgba(232,184,63,0.45);
+  --pbos-gold-alpha-500: rgba(232,184,63,0.5);
+  --pbos-header-overlay-alpha-900: rgba(8,13,18,0.9);
+  --pbos-header-overlay-alpha-960: rgba(8,13,18,0.96);
+  --pbos-header-overlay-alpha-970: rgba(8,13,18,0.97);
+  --pbos-ink-alpha-300: rgba(16,20,25,0.3);
+  --pbos-muted-alpha-140: rgba(174,183,192,0.14);
+  --pbos-muted-alpha-200: rgba(174,183,192,0.2);
+  --pbos-muted-alpha-220: rgba(174,183,192,0.22);
+  --pbos-text-alpha-040: rgba(244,245,247,0.04);
+  --pbos-text-alpha-800: rgba(244,245,247,0.8);
+  --pbos-text-alpha-850: rgba(244,245,247,0.85);
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--pbos-bg);scroll-padding-top:88px}

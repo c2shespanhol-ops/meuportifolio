@@ -7,41 +7,41 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background-color: #080d12;
-      color: #f4f5f7;
+      background-color: var(--pbos-bg);
+      color: var(--pbos-text);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.6;
     }
-    a { color: #e8b83f; text-decoration: none; }
+    a { color: var(--pbos-gold); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .btn {
       display: inline-block;
       padding: 10px 18px;
-      border: 1px solid #e8b83f;
-      color: #e8b83f;
+      border: 1px solid var(--pbos-gold);
+      color: var(--pbos-gold);
       border-radius: 4px;
       font-size: 0.9rem;
       transition: background 0.2s, color 0.2s;
     }
-    .btn:hover { background-color: #e8b83f; color: #080d12; text-decoration: none; }
+    .btn:hover { background-color: var(--pbos-gold); color: var(--pbos-bg); text-decoration: none; }
     .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-    header { padding: 20px 40px; border-bottom: 1px solid #111820; }
-    hr { border: 0; border-top: 1px solid #111820; margin: 40px 0; }
+    header { padding: 20px 40px; border-bottom: 1px solid var(--pbos-surface); }
+    hr { border: 0; border-top: 1px solid var(--pbos-surface); margin: 40px 0; }
     .grid-meta {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 15px;
-      background: #080d12;
+      background: var(--pbos-bg);
       padding: 20px;
       border-radius: 8px;
-      border: 1px solid #111820;
+      border: 1px solid var(--pbos-surface);
       margin-top: 20px;
     }
     .card-proximo {
-      border: 1px solid #111820;
+      border: 1px solid var(--pbos-surface);
       padding: 20px;
       border-radius: 8px;
-      background: #080d12;
+      background: var(--pbos-bg);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -50,52 +50,52 @@
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style id="pbos-final-overrides">
-html, body { background:#080d12 !important; color:#f4f5f7 !important; }
+html, body { background:var(--pbos-bg) !important; color:var(--pbos-text) !important; }
 body { font-family:'DM Sans',sans-serif !important; font-weight:300 !important; }
 body, body main, body header, body footer, body .hero, body .container, body .wrap,
 body .section, body .section-inner, body .cases-section, body .hero-container,
-body .hero-content, body .hero-footer, body .corporate-banner { background-color:#080d12 !important; background-image:none !important; }
+body .hero-content, body .hero-footer, body .corporate-banner { background-color:var(--pbos-bg) !important; background-image:none !important; }
 body .hero-bg, body .orb, body [class*="orb"], body [class*="glow"], body [class*="ambient"], body [class*="halo"] { display:none !important; background:none !important; background-image:none !important; box-shadow:none !important; filter:none !important; opacity:0 !important; }
 body .hero::before, body .hero::after, body main::before, body main::after { background:none !important; background-image:none !important; box-shadow:none !important; content:none !important; }
-body .gold-accent-top, body .top { height:2px !important; background:#e8b83f !important; background-image:none !important; }
+body .gold-accent-top, body .top { height:2px !important; background:var(--pbos-gold) !important; background-image:none !important; }
 body h1, body h2, body h3, body h4, body h5, body h6,
 body .hero-title, body .hero-main-text, body .hero-subtitle, body .section-title,
 body .section-heading, body .banner-title, body .eco-title, body .doc-title,
 body .pillar-card h3, body .artifact-card h3, body .case-card h3,
 body .hero-highlight-value, body .metric-display, body .number {
-  font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#f4f5f7 !important;
+  font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:var(--pbos-text) !important;
 }
 body h1, body .hero-title { font-weight:300 !important; letter-spacing:-.035em !important; line-height:1.08 !important; }
 body h2, body .section-title, body .section-heading { font-weight:300 !important; letter-spacing:-.025em !important; line-height:1.12 !important; }
 body h3, body .eco-title, body .case-card h3, body .doc-title { font-weight:400 !important; line-height:1.22 !important; }
-body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:#e8b83f !important; }
+body .hero-title em, body .section-title em, body .section-heading em, body .hero-main-text em, body .banner-desc em { font-family:'DM Sans',sans-serif !important; font-style:normal !important; color:var(--pbos-gold) !important; }
 body .hero-desc, body .hero-sub-text, body .lead, body .banner-desc,
 body .card p, body .pillar-card p, body .artifact-card p, body .case-card p,
 body .competency-desc, body .eco-text, body .step p, body .note, body .metric p,
-body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:#aeb7c0 !important; font-weight:300 !important; line-height:1.75 !important; }
+body .footer-copy, body .footer-right { font-family:'DM Sans',sans-serif !important; color:var(--pbos-muted) !important; font-weight:300 !important; line-height:1.75 !important; }
 body .eyebrow, body .hero-eyebrow, body .hero-tags, body .case-label-text,
 body .case-meta, body .section-label, body .nav-role, body .nav-tag, body .label,
 body .artifact-action, body .competency-title, body .eco-role, body .doc-number,
 body .metric-label, body .tag, body .scroll-hint, body .footer-role {
-  font-family:'Orbitron',sans-serif !important; font-style:normal !important; color:#e8b83f !important; letter-spacing:.14em !important;
+  font-family:'Orbitron',sans-serif !important; font-style:normal !important; color:var(--pbos-gold) !important; letter-spacing:.14em !important;
 }
 body .card, body .pillar-card, body .artifact-card, body .competency-card, body .eco-card,
 body .metric, body .meta, body .hero-highlight-card, body .flow, body .note,
-body .doc-card, body .case-card, body .stat-box { background:#111820 !important; border-color:rgba(232,184,63,.22) !important; box-shadow:none !important; }
+body .doc-card, body .case-card, body .stat-box { background:var(--pbos-surface) !important; border-color:var(--pbos-gold-alpha-220) !important; box-shadow:none !important; }
 body .card:hover, body .artifact-card:hover, body .case-card:hover, body .doc-card:hover,
-body .competency-card:hover, body .eco-card:hover { background:#111820 !important; border-color:#e8b83f !important; }
-body .back, body .back-btn { background:rgba(30,35,40,.96) !important; color:#e8b83f !important; border-color:rgba(232,184,63,.22) !important; }
-body .back:hover, body .back-btn:hover { background:#e8b83f !important; color:#080d12 !important; }
-body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:#f4f5f7 !important; }
-body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:#f4f5f7 !important; border-color:#e8b83f !important; }
-body .metric-display, body .number { color:#e8b83f !important; font-weight:300 !important; }
-body footer, body .pbos-footer { background:#080d12 !important; border-top-color:rgba(232,184,63,.22) !important; color:#aeb7c0 !important; }
-body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:#f4f5f7 !important; font-weight:400 !important; }
-body .pbos-footer-copy { color:#aeb7c0 !important; }
-body .pbos-footer-link, body .footer-linkedin { color:#e8b83f !important; }
-body .btn-case-mock { color:#e8b83f !important; border-color:#e8b83f !important; }
-body .btn-case-mock:hover { background:#e8b83f !important; color:#080d12 !important; }
-body .stat-box { color:#e8b83f !important; }
+body .competency-card:hover, body .eco-card:hover { background:var(--pbos-surface) !important; border-color:var(--pbos-gold) !important; }
+body .back, body .back-btn { background:var(--pbos-header-overlay-alpha-960) !important; color:var(--pbos-gold) !important; border-color:var(--pbos-gold-alpha-220) !important; }
+body .back:hover, body .back-btn:hover { background:var(--pbos-gold) !important; color:var(--pbos-bg) !important; }
+body .nav-name, body .logo-text { font-family:'DM Sans',sans-serif !important; color:var(--pbos-text) !important; }
+body .h-mark, body .logo-h { font-family:'DM Sans',sans-serif !important; color:var(--pbos-text) !important; border-color:var(--pbos-gold) !important; }
+body .metric-display, body .number { color:var(--pbos-gold) !important; font-weight:300 !important; }
+body footer, body .pbos-footer { background:var(--pbos-bg) !important; border-top-color:var(--pbos-gold-alpha-220) !important; color:var(--pbos-muted) !important; }
+body .pbos-footer-signature { font-family:'DM Sans',sans-serif !important; color:var(--pbos-text) !important; font-weight:400 !important; }
+body .pbos-footer-copy { color:var(--pbos-muted) !important; }
+body .pbos-footer-link, body .footer-linkedin { color:var(--pbos-gold) !important; }
+body .btn-case-mock { color:var(--pbos-gold) !important; border-color:var(--pbos-gold) !important; }
+body .btn-case-mock:hover { background:var(--pbos-gold) !important; color:var(--pbos-bg) !important; }
+body .stat-box { color:var(--pbos-gold) !important; }
 @media (max-width:760px) {
   body .container, body .wrap, body .cases-section, body .hero-content, body .hero-footer,
   body .nav, body footer, body .section, body header { padding-left:20px !important; padding-right:20px !important; }
@@ -107,7 +107,7 @@ body .stat-box { color:#e8b83f !important; }
 <link rel="stylesheet" href="portfolio-theme.css?v=20261020-unified">
 <link rel="stylesheet" href="portfolio-theme.css?v=20261020-reference-fix">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="artifact.css?v=20261113"></head>
-<body><div style="border-left:4px solid #e8b83f;background:#111820;padding:16px;margin:18px 0;color:#f4f5f7"><strong>Natureza do documento:</strong> modelo de acompanhamento proposto, não relatório histórico de métricas da Habitat. Não há evidência validada para os percentuais de lead time, previsibilidade ou WIP anteriormente exibidos. Eles foram removidos. Os resultados comprovados da experiência estão descritos no case principal: 27% menos demandas recorrentes e 31% de redução no tempo médio de resolução.</div>
+<body><div style="border-left:4px solid var(--pbos-gold);background:var(--pbos-surface);padding:16px;margin:18px 0;color:var(--pbos-text)"><strong>Natureza do documento:</strong> modelo de acompanhamento proposto, não relatório histórico de métricas da Habitat. Não há evidência validada para os percentuais de lead time, previsibilidade ou WIP anteriormente exibidos. Eles foram removidos. Os resultados comprovados da experiência estão descritos no case principal: 27% menos demandas recorrentes e 31% de redução no tempo médio de resolução.</div>
 
   <header>
     <a href="case_study_03_habitat_final.html" class="btn">&larr; Voltar para o Case Study</a>
@@ -117,18 +117,18 @@ body .stat-box { color:#e8b83f !important; }
     
     <!-- CABEÇALHO CORPORATIVO -->
     <section>
-      <span style="color: #e8b83f; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional · HBT-REP-008</span>
-      <h1 style="font-size: 2.4rem; color: #f4f5f7; margin-top: 10px; margin-bottom: 15px;">Relatório de Lead Time</h1>
-      <p style="font-size: 1.15rem; color: #aeb7c0; max-width: 800px; line-height: 1.6;">
+      <span style="color: var(--pbos-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Documento Operacional · HBT-REP-008</span>
+      <h1 style="font-size: 2.4rem; color: var(--pbos-text); margin-top: 10px; margin-bottom: 15px;">Relatório de Lead Time</h1>
+      <p style="font-size: 1.15rem; color: var(--pbos-muted); max-width: 800px; line-height: 1.6;">
         Análise consolidada de vazão, tempo de ciclo e eficiência na entrega de demandas operacionais e de produto na Habitat.
       </p>
 
       <div class="grid-meta">
-        <div><strong style="color: #e8b83f;">Código:</strong> <span style="color: #f4f5f7;">HBT-REP-008</span></div>
-        <div><strong style="color: #e8b83f;">Versão:</strong> <span style="color: #f4f5f7;">2.0</span></div>
-        <div><strong style="color: #e8b83f;">Status:</strong> <span style="color: #e8b83f;">Documento de referência</span></div>
-        <div><strong style="color: #e8b83f;">Responsável:</strong> <span style="color: #f4f5f7;">CX · Produto · Operação</span></div>
-        <div><strong style="color: #e8b83f;">Documento reconstruído:</strong> <span style="color: #f4f5f7;">Novembro/2026</span></div>
+        <div><strong style="color: var(--pbos-gold);">Código:</strong> <span style="color: var(--pbos-text);">HBT-REP-008</span></div>
+        <div><strong style="color: var(--pbos-gold);">Versão:</strong> <span style="color: var(--pbos-text);">2.0</span></div>
+        <div><strong style="color: var(--pbos-gold);">Status:</strong> <span style="color: var(--pbos-gold);">Documento de referência</span></div>
+        <div><strong style="color: var(--pbos-gold);">Responsável:</strong> <span style="color: var(--pbos-text);">CX · Produto · Operação</span></div>
+        <div><strong style="color: var(--pbos-gold);">Documento reconstruído:</strong> <span style="color: var(--pbos-text);">Novembro/2026</span></div>
       </div>
     </section>
 
@@ -136,8 +136,8 @@ body .stat-box { color:#e8b83f !important; }
 
     <!-- OBJETIVO -->
     <section>
-      <h2 style="color: #f4f5f7; margin-bottom: 10px;">Objetivo</h2>
-      <p style="color: #aeb7c0; font-size: 1.05rem;">
+      <h2 style="color: var(--pbos-text); margin-bottom: 10px;">Objetivo</h2>
+      <p style="color: var(--pbos-muted); font-size: 1.05rem;">
         Medir e otimizar o tempo total decorrido entre a solicitação inicial de uma demanda e a sua efetiva entrega ao usuário final, com o objetivo de permitir análise de previsibilidade e vazão, caso existam dados.
       </p>
     </section>
@@ -146,8 +146,8 @@ body .stat-box { color:#e8b83f !important; }
 
     <!-- CONTEXTO -->
     <section>
-      <h2 style="color: #f4f5f7; margin-bottom: 10px;">Contexto</h2>
-      <p style="color: #aeb7c0; font-size: 1.05rem;">
+      <h2 style="color: var(--pbos-text); margin-bottom: 10px;">Contexto</h2>
+      <p style="color: var(--pbos-muted); font-size: 1.05rem;">
         Implementado para diagnosticar gargalos temporais no fluxo de trabalho e embasar decisões de capacidade com métricas de fluxo Kanban.
       </p>
     </section>
@@ -156,19 +156,19 @@ body .stat-box { color:#e8b83f !important; }
 
     <!-- ESCOPO -->
     <section>
-      <h2 style="color: #f4f5f7; margin-bottom: 15px;">Escopo</h2>
+      <h2 style="color: var(--pbos-text); margin-bottom: 15px;">Escopo</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-        <div style="background: #080d12; padding: 20px; border-radius: 8px; border: 1px solid #111820;">
-          <h3 style="color: #e8b83f; margin-bottom: 10px;">O que cobre</h3>
-          <ul style="color: #aeb7c0; padding-left: 20px; line-height: 1.6;">
+        <div style="background: var(--pbos-bg); padding: 20px; border-radius: 8px; border: 1px solid var(--pbos-surface);">
+          <h3 style="color: var(--pbos-gold); margin-bottom: 10px;">O que cobre</h3>
+          <ul style="color: var(--pbos-muted); padding-left: 20px; line-height: 1.6;">
             <li>Métricas de Lead Time e Cycle Time por esteira</li>
             <li>Identificação de filas e pontos de estrangulamento</li>
             <li>Análise de capacidade de entrega por ciclo (Sprint/Kanban)</li>
           </ul>
         </div>
-        <div style="background: #080d12; padding: 20px; border-radius: 8px; border: 1px solid #111820;">
-          <h3 style="color: #e8b83f; margin-bottom: 10px;">O que não cobre</h3>
-          <ul style="color: #aeb7c0; padding-left: 20px; line-height: 1.6;">
+        <div style="background: var(--pbos-bg); padding: 20px; border-radius: 8px; border: 1px solid var(--pbos-surface);">
+          <h3 style="color: var(--pbos-gold); margin-bottom: 10px;">O que não cobre</h3>
+          <ul style="color: var(--pbos-muted); padding-left: 20px; line-height: 1.6;">
             <li>Avaliação de desempenho individual de colaboradores</li>
             <li>Projeções orçamentárias financeiras de longo prazo</li>
             <li>Métricas de tráfego de marketing externo</li>
@@ -181,31 +181,31 @@ body .stat-box { color:#e8b83f !important; }
 
     <!-- INDICADORES MONITORADOS -->
     <section>
-      <h2 style="color: #f4f5f7; margin-bottom: 15px;">Modelo de métricas para acompanhamento</h2>
+      <h2 style="color: var(--pbos-text); margin-bottom: 15px;">Modelo de métricas para acompanhamento</h2>
       <div style="overflow-x: auto;">
-        <table style="width: 100%; border-collapse: collapse; text-align: left; background: #080d12; border: 1px solid #111820;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; background: var(--pbos-bg); border: 1px solid var(--pbos-surface);">
           <thead>
-            <tr style="border-bottom: 2px solid #e8b83f; background: #080d12;">
-              <th style="padding: 12px; color: #f4f5f7;">Métrica</th>
-              <th style="padding: 12px; color: #f4f5f7;">Meta Estabelecida</th>
-              <th style="padding: 12px; color: #f4f5f7;">Resultado Consolidado</th>
+            <tr style="border-bottom: 2px solid var(--pbos-gold); background: var(--pbos-bg);">
+              <th style="padding: 12px; color: var(--pbos-text);">Métrica</th>
+              <th style="padding: 12px; color: var(--pbos-text);">Meta Estabelecida</th>
+              <th style="padding: 12px; color: var(--pbos-text);">Resultado Consolidado</th>
             </tr>
           </thead>
-          <tbody style="color: #aeb7c0;">
-            <tr style="border-bottom: 1px solid #111820;">
-              <td style="padding: 12px; font-weight: bold; color: #e8b83f;">Lead Time Médio de Demandas</td>
+          <tbody style="color: var(--pbos-muted);">
+            <tr style="border-bottom: 1px solid var(--pbos-surface);">
+              <td style="padding: 12px; font-weight: bold; color: var(--pbos-gold);">Lead Time Médio de Demandas</td>
               <td style="padding: 12px;">Reduzir o tempo de ponta a ponta</td>
-              <td style="padding: 12px; color: #e8b83f;">Sem série histórica</td>
+              <td style="padding: 12px; color: var(--pbos-gold);">Sem série histórica</td>
             </tr>
-            <tr style="border-bottom: 1px solid #111820;">
-              <td style="padding: 12px; font-weight: bold; color: #e8b83f;">Previsibilidade de Entrega</td>
+            <tr style="border-bottom: 1px solid var(--pbos-surface);">
+              <td style="padding: 12px; font-weight: bold; color: var(--pbos-gold);">Previsibilidade de Entrega</td>
               <td style="padding: 12px;">Aumentar a acurácia dos prazos prometidos</td>
-              <td style="padding: 12px; color: #e8b83f;">Sem série histórica</td>
+              <td style="padding: 12px; color: var(--pbos-gold);">Sem série histórica</td>
             </tr>
             <tr>
-              <td style="padding: 12px; font-weight: bold; color: #e8b83f;">Redução de Desperdício (WIP)</td>
+              <td style="padding: 12px; font-weight: bold; color: var(--pbos-gold);">Redução de Desperdício (WIP)</td>
               <td style="padding: 12px;">Eliminar acúmulo de tarefas paradas</td>
-              <td style="padding: 12px; color: #e8b83f;">Sem série histórica</td>
+              <td style="padding: 12px; color: var(--pbos-gold);">Sem série histórica</td>
             </tr>
           </tbody>
         </table>
@@ -216,9 +216,9 @@ body .stat-box { color:#e8b83f !important; }
 
     <!-- IMPACTO NO PROJETO -->
     <section>
-      <div style="background: #080d12; padding: 25px; border-radius: 8px; border-left: 4px solid #e8b83f; border: 1px solid #111820;">
-        <h3 style="color: #f4f5f7; margin-bottom: 12px;">Aplicação potencial, sem resultado histórico atribuído</h3>
-        <ul style="list-style: none; padding: 0; margin: 0; color: #aeb7c0; line-height: 1.8;">
+      <div style="background: var(--pbos-bg); padding: 25px; border-radius: 8px; border-left: 4px solid var(--pbos-gold); border: 1px solid var(--pbos-surface);">
+        <h3 style="color: var(--pbos-text); margin-bottom: 12px;">Aplicação potencial, sem resultado histórico atribuído</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; color: var(--pbos-muted); line-height: 1.8;">
           <li>• Potencial: acompanhar fluxo se houver dados consistentes</li>
           <li>• Potencial: apoiar análise de fluxo quando houver histórico confiável</li>
           <li>• Potencial: identificar pontos de espera no fluxo</li>
@@ -231,8 +231,8 @@ body .stat-box { color:#e8b83f !important; }
 
     <!-- RASTREABILIDADE / ARTEFATOS RELACIONADOS -->
     <section>
-      <h2 style="color: #f4f5f7; margin-bottom: 15px;">Artefatos Relacionados</h2>
-      <p style="color: #aeb7c0; margin-bottom: 20px;">
+      <h2 style="color: var(--pbos-text); margin-bottom: 15px;">Artefatos Relacionados</h2>
+      <p style="color: var(--pbos-muted); margin-bottom: 20px;">
         Este relatório conecta-se de forma direta com todos os demais instrumentos operacionais da Habitat:
       </p>
       <div style="display: flex; flex-wrap: wrap; gap: 10px;">
@@ -250,19 +250,19 @@ body .stat-box { color:#e8b83f !important; }
 
     <!-- PRÓXIMOS ARTEFATOS (RODAPÉ) -->
     <section>
-      <h2 style="color: #f4f5f7; margin-bottom: 15px;">Como acompanhar o fluxo</h2>
+      <h2 style="color: var(--pbos-text); margin-bottom: 15px;">Como acompanhar o fluxo</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px;">
         <div class="card-proximo">
           <div>
-            <h3 style="color: #f4f5f7; font-size: 1.1rem; margin-bottom: 8px;">Case Study Principal</h3>
-            <p style="color: #aeb7c0; font-size: 0.9rem; margin-bottom: 15px;">Retorne à página central para revisar a visão geral do projeto.</p>
+            <h3 style="color: var(--pbos-text); font-size: 1.1rem; margin-bottom: 8px;">Case Study Principal</h3>
+            <p style="color: var(--pbos-muted); font-size: 0.9rem; margin-bottom: 15px;">Retorne à página central para revisar a visão geral do projeto.</p>
           </div>
           <div><a href="case_study_03_habitat_final.html" class="btn" style="font-size: 0.85rem; padding: 8px 14px;">Voltar ao Case Study &rarr;</a></div>
         </div>
         <div class="card-proximo">
           <div>
-            <h3 style="color: #f4f5f7; font-size: 1.1rem; margin-bottom: 8px;">Protocolo Operacional</h3>
-            <p style="color: #aeb7c0; font-size: 0.9rem; margin-bottom: 15px;">Revisite as diretrizes fundamentais da governança.</p>
+            <h3 style="color: var(--pbos-text); font-size: 1.1rem; margin-bottom: 8px;">Protocolo Operacional</h3>
+            <p style="color: var(--pbos-muted); font-size: 0.9rem; margin-bottom: 15px;">Revisite as diretrizes fundamentais da governança.</p>
           </div>
           <div><a href="protocolo_habitat.html" class="btn" style="font-size: 0.85rem; padding: 8px 14px;">Acessar documento &rarr;</a></div>
         </div>
