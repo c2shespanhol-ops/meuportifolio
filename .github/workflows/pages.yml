@@ -81,6 +81,7 @@ jobs:
           python -m http.server 8765 --directory _site >/tmp/portfolio-http.log 2>&1 &
           sleep 2
           node scripts/validate_responsive.mjs
+          node scripts/validate_analytics_consent.mjs
           node scripts/validate_contrast.mjs
 
       - name: Upload contrast audit evidence

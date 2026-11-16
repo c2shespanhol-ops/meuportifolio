@@ -92,6 +92,18 @@ for page in root.rglob("*.html"):
  if 'name="viewport"' not in source.lower():
   source=re.sub(r"<head([^>]*)>",r'<head\1>\n<meta name="viewport" content="width=device-width, initial-scale=1">',source,count=1,flags=re.I)
 
+ # Add the policy link and consent controller to every published page.
+ language_match=re.search(r"<html\b[^>]*\blang=['\"]([^'\"]+)",source,re.I)
+ english=bool(language_match and language_match.group(1).lower().startswith("en"))
+ policy_href=os.path.relpath(root/("en/privacy.html" if english else "privacidade.html"),page.parent).replace(os.sep,"/")
+ policy_label="Privacy policy" if english else "Política de privacidade"
+ if not re.search(r"href=['\"][^'\"]*privacy(?:.html)?['\"]",source,re.I):
+  privacy_link=f'<div class="privacy-footer-link"><a href="{policy_href}">{policy_label}</a></div>'
+  source=re.sub(r"(</footer>)",lambda match: privacy_link+"\n"+match.group(1),source,count=1,flags=re.I)
+ consent_src=os.path.relpath(root/"privacy-consent.js",page.parent).replace(os.sep,"/")
+ consent_tag=f'<script src="{consent_src}" defer></script>'
+ if "privacy-consent.js" not in source:
+  source=re.sub(r"</body>",lambda match: consent_tag+"\n"+match.group(0),source,count=1,flags=re.I)
  page.write_text(source,encoding="utf-8")
  count+=1
 

@@ -710,3 +710,20 @@ html body .cv-download * {
 
 /* Contrast correction for blue flow nodes: dark ink on approved blue surface. */
 .flow > .node { color: var(--pbos-ink); }
+
+
+/* Privacy consent controls. Colors use the approved portfolio palette. */
+.privacy-consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:100000;display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1100px;margin-inline:auto;padding:18px 20px;border:1px solid var(--pbos-gold);border-radius:14px;background:var(--pbos-surface);color:var(--pbos-text);box-shadow:0 12px 36px var(--pbos-shadow-40)}
+.privacy-consent-copy{min-width:0;flex:1}
+.privacy-consent h2{margin:0 0 6px;color:var(--pbos-text);font:700 16px/1.35 Inter,system-ui,sans-serif;letter-spacing:0}
+.privacy-consent p{margin:0;color:var(--pbos-text);font:400 14px/1.5 Inter,system-ui,sans-serif}
+.privacy-consent-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.privacy-consent-actions button,.privacy-consent-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border:1px solid var(--pbos-gold);border-radius:8px;font:600 14px/1.2 Inter,system-ui,sans-serif;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.privacy-consent-link{background:transparent;color:var(--pbos-text)}
+.privacy-consent-reject{background:var(--pbos-surface);color:var(--pbos-text)}
+.privacy-consent-accept{background:var(--pbos-gold);color:var(--pbos-ink);text-decoration:none}
+.privacy-consent-actions button:focus-visible,.privacy-consent-link:focus-visible{outline:3px solid var(--pbos-blue);outline-offset:3px}
+.privacy-footer-link{padding:6px 0;text-align:center;font-size:13px}
+.privacy-footer-link a{color:var(--pbos-blue)}
+@media(max-width:700px){.privacy-consent{left:10px;right:10px;bottom:10px;display:block;padding:14px}.privacy-consent-actions{display:grid;grid-template-columns:1fr 1fr;margin-top:12px}.privacy-consent-link{grid-column:1/-1}.privacy-consent-actions button,.privacy-consent-link{width:100%;min-height:44px}}
+@media(prefers-reduced-motion:reduce){.privacy-consent *{scroll-behavior:auto}}
