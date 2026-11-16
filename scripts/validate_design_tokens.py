@@ -12,11 +12,11 @@ PALETTE = {
     "--pbos-bg": "#080d12",
     "--pbos-surface": "#111820",
     "--pbos-surface-2": "#151e27",
-    "--pbos-gold": "#e8b83f",
+    "--pbos-gold": "#A88F5B",
     "--pbos-blue": "#4bbbc6",
     "--pbos-text": "#f4f5f7",
     "--pbos-muted": "#aeb7c0",
-    "--pbos-ink": "#101419",
+    "--pbos-ink": "#14100A",
 }
 COLOR_RE = re.compile(r"#[0-9a-fA-F]{3,8}\b|(?:rgba?|hsla?)\([^)]*\)", re.I)
 ROOT_RE = re.compile(r":root\s*\{([^}]*)\}", re.I | re.S)
