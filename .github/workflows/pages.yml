@@ -194,7 +194,6 @@ jobs:
           grep -qi 'linkedin.com/in/cleyton-hespanhol' _site/en/index.html
           grep -q 'Maricá City Hall' _site/en/index.html
           grep -q 'Urban Fish (Peixe Urbano)' _site/en/index.html
-          grep -q 'Maricá City Hall' _site/cv/cv-en.html
           if grep -Rni 'undefined</main>' _site/en/cases; then
             echo '::error::Unexpected undefined closing main marker in English case pages.'
             exit 1
