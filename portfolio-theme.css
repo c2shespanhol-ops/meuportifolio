@@ -470,3 +470,57 @@ hr,.divider,.separator{border-color:rgba(168,143,91,.42)!important}input,textare
   .site-header .brand-mark{flex-basis:42px!important;width:42px!important;height:42px!important}
   .site-header .brand-name{font-size:20px!important}
 }
+
+
+/* Floating WhatsApp shortcut: icon-only, consistent gold palette, scrolls to contact options. */
+.sticky-cta{
+  position:fixed!important;
+  right:24px!important;
+  bottom:88px!important;
+  z-index:55!important;
+  display:flex!important;
+  width:50px!important;
+  height:50px!important;
+  min-height:50px!important;
+  padding:0!important;
+  align-items:center!important;
+  justify-content:center!important;
+  border:1px solid #A88F5B!important;
+  border-radius:50%!important;
+  background:#A88F5B!important;
+  color:#14100A!important;
+  box-shadow:0 8px 24px rgba(0,0,0,.4)!important;
+  text-decoration:none!important;
+  transition:opacity .2s ease,transform .2s ease,visibility .2s ease!important;
+}
+.sticky-cta svg{width:25px!important;height:25px!important;display:block!important;fill:currentColor!important;stroke:none!important}
+.sticky-cta:hover,.sticky-cta:focus-visible{background:#A88F5B!important;color:#14100A!important;transform:translateY(-2px)!important}
+.sticky-cta::after{
+  content:"Quer conversar? Passe na seção de contato e me chame pelo WhatsApp.";
+  position:absolute;
+  right:62px;
+  top:50%;
+  width:max-content;
+  max-width:min(290px,calc(100vw - 110px));
+  padding:11px 14px;
+  border:1px solid #A88F5B;
+  border-radius:10px;
+  background:#0F151C;
+  color:#F7F8FA;
+  font:500 13px/1.45 var(--font-body);
+  white-space:normal;
+  box-shadow:0 8px 24px rgba(0,0,0,.35);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:translate(6px,-50%);
+  transition:opacity .18s ease,transform .18s ease,visibility .18s ease;
+}
+.sticky-cta:hover::after,.sticky-cta:focus-visible::after{opacity:1;visibility:visible;transform:translate(0,-50%)}
+.sticky-cta.hide{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+@media(max-width:700px){
+  .sticky-cta{right:84px!important;bottom:16px!important;width:46px!important;height:46px!important;min-height:46px!important}
+  .sticky-cta svg{width:23px!important;height:23px!important}
+  .sticky-cta::after{display:none!important}
+}
+@media(prefers-reduced-motion:reduce){.sticky-cta{transition:none!important}.sticky-cta::after{transition:none!important}}
