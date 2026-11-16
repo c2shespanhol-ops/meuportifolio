@@ -154,8 +154,14 @@ for (const entry of pages) {
           }
         }
         await page.mouse.move(10, 10);
-        await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-        await page.waitForTimeout(100);
+        await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" }));
+        await page.waitForFunction(() => {
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          return Math.abs(window.scrollY - Math.max(0, maxScroll)) <= 2;
+        }, null, { timeout: 5000 });
+        await page.evaluate(() => new Promise(resolve =>
+          requestAnimationFrame(() => requestAnimationFrame(resolve))
+        ));
         const stickyAfterScroll = await page.locator(".sticky-cta").evaluate(el => {
           const rect = el.getBoundingClientRect();
           const style = getComputedStyle(el);
