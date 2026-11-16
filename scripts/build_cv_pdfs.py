@@ -83,6 +83,7 @@ def build_pdf(source_path, output_path, language):
     }
 
     story = []
+    phone_added = False
     for tag, text in extract_sections(source):
         safe = html.escape(text)
         if tag == "h1":
@@ -95,9 +96,10 @@ def build_pdf(source_path, output_path, language):
             story.append(Paragraph("&#8226; " + safe, styles["li"]))
         else:
             is_meta = "|" in text and any(token in text for token in ("RJ", "Brazil", "Maricá"))
-            if is_meta:
+            if is_meta and not phone_added:
                 phone_label = "Phone" if language == "en" else "Telefone"
                 safe = html.escape(text + f" | {phone_label}: +55 (21) 98631-4378")
+                phone_added = True
             story.append(Paragraph(safe, styles["meta"] if is_meta else styles["p"]))
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)

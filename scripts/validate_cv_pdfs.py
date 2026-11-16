@@ -37,6 +37,9 @@ def validate(path: Path, required: list[str]) -> None:
     content = " ".join(" ".join(page.extract_text() or "" for page in reader.pages).split())
     if len(content.strip()) < 500:
         raise AssertionError(f"{path}: extracted text is too short; PDF may be image-only or incomplete")
+    phone_count = content.casefold().count("+55 (21) 98631-4378".casefold())
+    if phone_count != 1:
+        raise AssertionError(f"{path}: expected the phone number exactly once, found {phone_count}")
     missing = [term for term in required if term.casefold() not in content.casefold()]
     if missing:
         raise AssertionError(f"{path}: missing required content: {missing}")
