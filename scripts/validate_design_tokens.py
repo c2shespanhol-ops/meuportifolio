@@ -87,12 +87,13 @@ def main():
     if not canonical_root:
         failures.append("portfolio-theme.css: canonical :root token block is missing")
     else:
-        canonical_tokens = dict(re.findall(r"(--[a-zA-Z0-9_-]+)\\s*:\\s*([^;]+);", canonical_root.group(1)))
-        if canonical_tokens.get("--line", "").strip() != "var(--pbos-line)":
-            failures.append("portfolio-theme.css: --line must resolve to the canonical --pbos-line token")
+        canonical_tokens = dict(re.findall(r"(--[a-zA-Z0-9_-]+)\s*:\s*([^;]+);", canonical_root.group(1)))
+        if "--line" in canonical_tokens:
+            failures.append("portfolio-theme.css: --line must remain page-scoped to preserve existing border transparency")
 
     for relative, expected_line in (
         ("site.css", "--pbos-border-light"),
+        ("case-template.css", "--pbos-line"),
         ("pbos-career-theme.css", "--pbos-line"),
         ("meuportifolio/pbos-career-theme.css", "--pbos-line"),
     ):
