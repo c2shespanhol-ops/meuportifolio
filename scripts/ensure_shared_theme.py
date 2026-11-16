@@ -20,34 +20,38 @@ def normalize_theme_color(match):
 def normalize_palette(source):
  # Historical literals map forward to the approved HS MIND palette.
  replacements = (
-  ("#"+"1E2328", "#080d12"), ("#"+"26505A", "#111820"),
-  ("#"+"DAAF57", "#e8b83f"), ("#"+"DEB758", "#e8b83f"),
-  ("#"+"F5F7FA", "#f4f5f7"), ("#"+"F7F8FA", "#f4f5f7"),
-  ("#"+"C4CDD3", "#aeb7c0"), ("#"+"AEB5BD", "#aeb7c0"),
-  ("#"+"7FB2DC", "#4bbbc6"), ("#"+"A88F5B", "#e8b83f"),
-  ("#"+"14100A", "#101419"), ("#"+"0A0D12", "#080d12"),
-  ("#"+"0F151C", "#111820"), ("#"+"72d0d8", "#4bbbc6"),
-  ("#"+"89949e", "#aeb7c0"), ("#"+"59636B", "#aeb7c0"),
+  ("#"+"1E2328", "#0A0D12"), ("#"+"26505A", "#0F151C"),
+  ("#"+"DAAF57", "#A88F5B"), ("#"+"DEB758", "#A88F5B"),
+  ("#"+"F5F7FA", "#F7F8FA"), ("#"+"F7F8FA", "#F7F8FA"),
+  ("#"+"C4CDD3", "#AEB5BD"), ("#"+"AEB5BD", "#AEB5BD"),
+  ("#"+"7FB2DC", "#7FB2DC"), ("#"+"A88F5B", "#A88F5B"),
+  ("#"+"14100A", "#14100A"), ("#"+"0A0D12", "#0A0D12"),
+  ("#"+"0F151C", "#0F151C"), ("#"+"72d0d8", "#7FB2DC"),
+  ("#"+"89949e", "#AEB5BD"), ("#"+"59636B", "#AEB5BD"),
+  ("#"+"e8b83f", "#A88F5B"), ("#"+"4bbbc6", "#7FB2DC"),
+  ("#"+"080d12", "#0A0D12"), ("#"+"111820", "#0F151C"),
+  ("#"+"151e27", "#0F151C"), ("#"+"f4f5f7", "#F7F8FA"),
+  ("#"+"aeb7c0", "#AEB5BD"), ("#"+"101419", "#14100A"),
  )
  for old, new in replacements:
   source = re.sub(re.escape(old), new, source, flags=re.I)
- source = re.sub(r"rgba?\(\s*30\s*,\s*35\s*,\s*40", "rgba(8,13,18", source, flags=re.I)
- source = re.sub(r"rgba?\(\s*38\s*,\s*80\s*,\s*90", "rgba(17,24,32", source, flags=re.I)
- source = re.sub(r"rgba\(\s*218\s*,\s*175\s*,\s*87", "rgba(232,184,63", source, flags=re.I)
- source = re.sub(r"rgba\(\s*222\s*,\s*183\s*,\s*88", "rgba(232,184,63", source, flags=re.I)
- source = re.sub(r"rgba\(\s*168\s*,\s*143\s*,\s*91", "rgba(232,184,63", source, flags=re.I)
- source = re.sub(r"rgba\(\s*245\s*,\s*247\s*,\s*250", "rgba(244,245,247", source, flags=re.I)
- source = re.sub(r"rgba\(\s*247\s*,\s*248\s*,\s*250", "rgba(244,245,247", source, flags=re.I)
- source = re.sub(r"rgba\(\s*174\s*,\s*181\s*,\s*189", "rgba(174,183,192", source, flags=re.I)
- source = re.sub(r"rgba\(\s*196\s*,\s*205\s*,\s*211", "rgba(174,183,192", source, flags=re.I)
- source = re.sub(r"rgba\(\s*127\s*,\s*178\s*,\s*220", "rgba(75,187,198", source, flags=re.I)
- source = re.sub(r"rgba?\(\s*10\s*,\s*13\s*,\s*18", "rgba(8,13,18", source, flags=re.I)
- source = re.sub(r"rgba?\(\s*15\s*,\s*21\s*,\s*28", "rgba(17,24,32", source, flags=re.I)
+ source = re.sub(r"rgba?\(\s*30\s*,\s*35\s*,\s*40", "rgba(10,13,18", source, flags=re.I)
+ source = re.sub(r"rgba?\(\s*38\s*,\s*80\s*,\s*90", "rgba(15,21,28", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*218\s*,\s*175\s*,\s*87", "rgba(168,143,91", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*222\s*,\s*183\s*,\s*88", "rgba(168,143,91", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*168\s*,\s*143\s*,\s*91", "rgba(168,143,91", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*245\s*,\s*247\s*,\s*250", "rgba(247,248,250", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*247\s*,\s*248\s*,\s*250", "rgba(247,248,250", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*174\s*,\s*181\s*,\s*189", "rgba(174,181,189", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*196\s*,\s*205\s*,\s*211", "rgba(174,181,189", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*127\s*,\s*178\s*,\s*220", "rgba(127,178,220", source, flags=re.I)
+ source = re.sub(r"rgba?\(\s*10\s*,\s*13\s*,\s*18", "rgba(10,13,18", source, flags=re.I)
+ source = re.sub(r"rgba?\(\s*15\s*,\s*21\s*,\s*28", "rgba(15,21,28", source, flags=re.I)
  source = re.sub(r"rgba?\(\s*21\s*,\s*30\s*,\s*39", "rgba(21,30,39", source, flags=re.I)
- source = re.sub(r"rgba\(\s*11\s*,\s*12\s*,\s*14", "rgba(8,13,18", source, flags=re.I)
- source = re.sub(r"rgba\(\s*240\s*,\s*246\s*,\s*252", "rgba(244,245,247", source, flags=re.I)
- source = re.sub(r"rgba\(\s*255\s*,\s*255\s*,\s*255", "rgba(244,245,247", source, flags=re.I)
- source = re.sub(r"rgba\(\s*0\s*,\s*0\s*,\s*0", "rgba(16,20,25", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*11\s*,\s*12\s*,\s*14", "rgba(10,13,18", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*240\s*,\s*246\s*,\s*252", "rgba(247,248,250", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*255\s*,\s*255\s*,\s*255", "rgba(247,248,250", source, flags=re.I)
+ source = re.sub(r"rgba\(\s*0\s*,\s*0\s*,\s*0", "rgba(20,16,10", source, flags=re.I)
  source = re.sub(r"(--blue\s*:\s*)#(?:DEB758|A88F5B)", r"\1#4bbbc6", source, flags=re.I)
  return source
 
