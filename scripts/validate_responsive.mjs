@@ -88,7 +88,7 @@ for (const route of pages) {
         });
         if (contactAudit.error || contactAudit.display === "none" ||
             contactAudit.position !== "fixed" ||
-            contactAudit.width > 34 || contactAudit.height > 34 || contactAudit.width < 30 || contactAudit.height < 30 ||
+            contactAudit.width > 22 || contactAudit.height > 22 || contactAudit.width < 18 || contactAudit.height < 18 ||
             !contactAudit.radius.includes("50%") || contactAudit.text !== "" ||
             !contactAudit.targetExists || !contactAudit.emailExists ||
             contactAudit.contactWhatsAppExists ||
