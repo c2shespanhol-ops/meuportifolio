@@ -682,3 +682,23 @@ html body .primary-button,
 html body .primary-button * {
   color: #14100A !important;
 }
+
+
+/* WCAG AA final foreground precedence for gold interactive controls.
+   Specificity intentionally exceeds the generic blue-link rule above. */
+html body a.active,
+html body a.primary,
+html body a.cv-download,
+html body a[aria-current="page"],
+html body a.action-card.primary,
+html body a.action-card.primary *,
+html body a.active *,
+html body a.primary *,
+html body .active,
+html body .active *,
+html body .primary,
+html body .primary *,
+html body .cv-download,
+html body .cv-download * {
+  color: #14100A !important;
+}
