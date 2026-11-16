@@ -121,6 +121,7 @@ async function resolveMetaRefresh(route) {
 const browser = await chromium.launch({ headless: true });
 const failures = [];
 const results = [];
+const incompleteNodeDetails = [];
 let checked = 0;
 let incompleteCount = 0;
 
@@ -143,7 +144,11 @@ try {
 
         const audit = await runContrastRule(page);
         checked += 1;
-        incompleteCount += audit.incomplete.reduce((sum, item) => sum + item.nodes, 0);
+        const routeIncompleteNodes = audit.incomplete.flatMap((item) =>
+          item.nodes.map((node) => ({ route, viewport: viewport.width, ...node }))
+        );
+        incompleteNodeDetails.push(...routeIncompleteNodes);
+        incompleteCount += routeIncompleteNodes.length;
 
         if (audit.violations.length) {
           failures.push({
@@ -157,7 +162,7 @@ try {
           route,
           viewport: viewport.width,
           violations: audit.violations.reduce((sum, item) => sum + item.nodes.length, 0),
-          incomplete: audit.incomplete.reduce((sum, item) => sum + item.nodes, 0)
+          incomplete: routeIncompleteNodes.length
         });
 
         const screenshotRoutes = new Set(["/index.html", "/en/index.html"]);
@@ -184,6 +189,7 @@ try {
     pages: pages.length,
     page_viewport_checks: checked,
     incomplete_nodes: incompleteCount,
+    incomplete_node_details: incompleteNodeDetails,
     self_test: selfTest,
     failures,
     results
