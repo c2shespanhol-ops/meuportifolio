@@ -63,6 +63,51 @@ for (const route of pages) {
         if ((!image || !image.complete || image.naturalWidth === 0) && !fallback) {
           failures.push(route + " @ " + viewport.width + "px: profile image did not load and no fallback exists");
         }
+        const contactAudit = await page.evaluate(() => {
+          const sticky = document.querySelector(".sticky-cta");
+          const target = document.getElementById("contato") || document.getElementById("contact");
+          const whatsapp = target && target.querySelector('a[href^="https://wa.me/"]');
+          if (!sticky) return { error: "floating contact shortcut is missing" };
+          const rect = sticky.getBoundingClientRect();
+          const style = getComputedStyle(sticky);
+          return {
+            display: style.display,
+            width: Math.round(rect.width),
+            height: Math.round(rect.height),
+            radius: style.borderRadius,
+            href: sticky.getAttribute("href"),
+            text: sticky.textContent.trim(),
+            targetExists: !!target,
+            whatsappExists: !!whatsapp,
+            whatsappHref: whatsapp ? whatsapp.href : "",
+            tooltip: getComputedStyle(sticky, "::after").content
+          };
+        });
+        if (contactAudit.error || contactAudit.display === "none" ||
+            contactAudit.width > 52 || contactAudit.height > 52 ||
+            !contactAudit.radius.includes("50%") || contactAudit.text !== "" ||
+            !contactAudit.targetExists || !contactAudit.whatsappExists ||
+            !contactAudit.href || !contactAudit.href.startsWith("#") ||
+            /NOME|NAME/i.test(contactAudit.whatsappHref)) {
+          failures.push(route + " @ " + viewport.width + "px: floating contact shortcut regression " + JSON.stringify(contactAudit));
+        }
+        if (viewport.width >= 960) {
+          await page.locator(".sticky-cta").hover();
+          const tooltipVisible = await page.locator(".sticky-cta").evaluate(el =>
+            getComputedStyle(el, "::after").opacity === "1" &&
+            getComputedStyle(el, "::after").visibility === "visible"
+          );
+          if (!tooltipVisible || !contactAudit.tooltip.includes("Quer conversar") && route === "/index.html") {
+            failures.push(route + " @ " + viewport.width + "px: desktop WhatsApp invitation tooltip did not appear");
+          }
+        }
+        if (viewport.width === 390) {
+          await page.locator(".sticky-cta").click();
+          const hash = await page.evaluate(() => location.hash);
+          if (hash !== contactAudit.href) {
+            failures.push(route + " @ " + viewport.width + "px: floating shortcut did not navigate to contact section");
+          }
+        }
       }
     } catch (error) {
       failures.push(route + " @ " + viewport.width + "px: " + error.message);
