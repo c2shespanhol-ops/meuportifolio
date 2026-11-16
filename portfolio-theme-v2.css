@@ -1,13 +1,2 @@
 /* Compatibility entry point. The shared design system is the single source of truth. */
 @import url("portfolio-theme.css?v=20261114-palette");
-
-
-html,body{background:var(--hm-bg)!important;color:var(--hm-text)!important}body{background-color:var(--hm-bg)!important;color:var(--hm-text)!important}
-header,nav,footer,.topbar,.navbar,.site-header,.site-footer{background-color:#080d12!important;color:var(--hm-text)!important}
-h1,h2,h3,h4,h5,h6,strong,b,legend{color:var(--hm-text)!important}p,li,td,th,small,label,.muted,.lead,.description,.meta,.subtitle,.secondary-text{color:var(--hm-muted)!important}
-a{color:var(--hm-cyan)!important}a:hover{color:#72d0d8!important}
-.card,.case-card,.artifact-card,.panel,.metric-card,.document-card,.nav-card,.feature-card,.surface,.surface-card,.content-card,.stat-card,.step-card,.deliverable-card{background-color:var(--hm-surface)!important;color:var(--hm-text)!important;border-color:var(--border)!important}
-button,.btn,.button,.cta,.primary-button,.btn-primary,.button-primary{background-color:var(--hm-gold)!important;color:#101419!important;border-color:var(--hm-gold)!important}
-.btn-secondary,.button-secondary,.secondary-button{background:var(--hm-surface-2)!important;color:var(--hm-text)!important;border-color:var(--border)!important}
-.eyebrow,.kicker,.section-kicker,.gold,.text-gold,.accent-gold,.tag-gold{color:var(--hm-gold)!important}.cyan,.text-cyan,.accent-cyan,.teal{color:var(--hm-cyan)!important}
-hr,.divider,.separator{border-color:rgba(168,143,91,.42)!important}input,textarea,select{background:var(--hm-surface)!important;color:var(--hm-text)!important;border-color:var(--border)!important}::placeholder{color:#89949e!important}:focus-visible{outline-color:var(--hm-gold)!important}
