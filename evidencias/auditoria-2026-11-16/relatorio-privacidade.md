@@ -1,7 +1,7 @@
 # Relatório de privacidade e consentimento
 
 - Data da execução: 16/11/2026
-- Artefato: `portfolio-privacy-consent-audit`
+- Artefato original: `portfolio-privacy-consent-audit`
 - Artifact ID: `14271202381`
 
 ## Evidências do registro de rede
@@ -17,13 +17,13 @@ O arquivo `network-log.txt` do artefato original registrou:
 
 ## Capturas de tela
 
-O artefato original inclui:
+O pacote original preservado contém:
 - `consent-390.png`
 - `consent-1280.png`
 
-## Limitação
+## Arquivos brutos preservados
 
-Este registro documenta o conteúdo do log de rede e a existência das capturas no artefato original. Os PNGs originais e o arquivo bruto `network-log.txt` continuam disponíveis no artefato do GitHub Actions, com expiração informada para 30/11/2026.
+O log `network-log.txt` e as capturas originais foram preservados em [portfolio-privacy-consent-audit.zip](arquivos-originais/portfolio-privacy-consent-audit.zip). Os checksums SHA-256 estão em [SHA256SUMS.txt](arquivos-originais/SHA256SUMS.txt).
 
 ## Referência
 [Execução da auditoria no GitHub Actions](https://github.com/c2shespanhol-ops/meuportifolio/actions/runs/43955284991)
