@@ -526,39 +526,39 @@ html[lang="en"] .sticky-cta::after{content:"Want to talk? Click here to message 
 @media(prefers-reduced-motion:reduce){.sticky-cta{transition:none!important}.sticky-cta::after{transition:none!important}}
 
 
-/* WhatsApp visibility and touch-target correction · 2026-11-15 */
+/* WhatsApp shortcut matches the 52px return-to-top control. */
 .sticky-cta{
   position:fixed!important;
-  right:24px!important;
-  bottom:28px!important;
+  right:16px!important;
+  bottom:80px!important;
   z-index:99999!important;
   display:flex!important;
   align-items:center!important;
   justify-content:center!important;
-  width:44px!important;
-  height:44px!important;
-  min-width:44px!important;
-  min-height:44px!important;
+  width:52px!important;
+  height:52px!important;
+  min-width:52px!important;
+  min-height:52px!important;
   padding:0!important;
   margin:0!important;
   overflow:visible!important;
-  background:transparent!important;
+  background:#A88F5B!important;
   border:0!important;
-  border-radius:0!important;
-  color:#A88F5B!important;
+  border-radius:50%!important;
+  color:#0A0D12!important;
   opacity:1!important;
   visibility:visible!important;
   line-height:0!important;
-  box-shadow:none!important;
+  box-shadow:0 8px 24px rgba(0,0,0,.4)!important;
   text-decoration:none!important;
   pointer-events:auto!important;
 }
 .sticky-cta svg{
   display:block!important;
-  width:26px!important;
-  height:26px!important;
-  min-width:26px!important;
-  min-height:26px!important;
+  width:24px!important;
+  height:24px!important;
+  min-width:24px!important;
+  min-height:24px!important;
   max-width:none!important;
   max-height:none!important;
   fill:currentColor!important;
@@ -567,24 +567,21 @@ html[lang="en"] .sticky-cta::after{content:"Want to talk? Click here to message 
   visibility:visible!important;
 }
 .sticky-cta:hover,.sticky-cta:focus-visible{
-  background:transparent!important;
+  background:#A88F5B!important;
   color:#F7F8FA!important;
   opacity:1!important;
   transform:none!important;
 }
-.sticky-cta::after{right:54px}
+.sticky-cta::after{right:62px}
 @media(max-width:700px){
   .sticky-cta{
-    right:20px!important;
-    bottom:calc(20px + env(safe-area-inset-bottom))!important;
-    width:44px!important;
-    height:44px!important;
-    min-width:44px!important;
-    min-height:44px!important;
+    right:16px!important;
+    bottom:calc(80px + env(safe-area-inset-bottom))!important;
+    width:52px!important;
+    height:52px!important;
+    min-width:52px!important;
+    min-height:52px!important;
   }
-  .sticky-cta svg{
-    width:26px!important;
-    height:26px!important;
-  }
+  .sticky-cta svg{width:24px!important;height:24px!important}
   .sticky-cta::after{display:none!important}
 }
