@@ -51,6 +51,16 @@ for page in pages:
             if re.search(r"word-break\s*:\s*break-all|hyphens\s*:\s*auto", declarations, re.I):
                 errors.append(f"{page.relative_to(root)}: forced word fragmentation in {selector.strip()[:90]}")
 
+# Scan linked CSS assets as well as inline styles for rules that split ordinary prose.
+for stylesheet in root.rglob("*.css"):
+    css = stylesheet.read_text(encoding="utf-8")
+    for block in re.finditer(r"([^{}]+)\{([^{}]+)\}", css):
+        selector, declarations = block.group(1), block.group(2)
+        if re.search(r"overflow-wrap\s*:\s*anywhere", declarations, re.I) and not re.search(r"(^|,)\s*(pre|code)(\s|,|$)", selector, re.I):
+            errors.append(f"{stylesheet.relative_to(root)}: arbitrary word breaking in {selector.strip()[:90]}")
+        if re.search(r"word-break\s*:\s*break-all|hyphens\s*:\s*auto", declarations, re.I):
+            errors.append(f"{stylesheet.relative_to(root)}: forced word fragmentation in {selector.strip()[:90]}")
+
 if errors:
     print("\n".join(errors))
     raise SystemExit(1)
