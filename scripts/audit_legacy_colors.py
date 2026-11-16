@@ -104,7 +104,7 @@ def main():
         f"- Ocorrências adicionais de aliases legados: **{len(alias_records)}**",
         f"- Regras de detecção no workflow: **{len(workflow_records)}**",
         f"- Arquivos com ocorrências das 10 cores solicitadas: **{len(counts)}**",
-        "- A estimativa inicial de 181 não foi reproduzida: o inventário exato encontrou 175 ocorrências das dez cores; aliases adicionais são listados separadamente.",
+        f"- A estimativa inicial de 181 foi ajustada pelo inventário reproduzível: {len(primary_records)} ocorrências das dez cores; aliases adicionais são listados separadamente.",
         "- O build publicado foi validado com zero cores literais fora dos tokens centrais em CSS e estilos HTML.", "",
         "## Classificação das 10 cores solicitadas", "",
         "| Classificação | Ocorrências |", "|---|---:|",
