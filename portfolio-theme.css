@@ -114,7 +114,7 @@ body{min-width:0}
 main,header,footer,section,article,aside,nav,figure,div,form{min-width:0}
 img,svg,video,canvas,iframe{max-width:100%;height:auto}
 figure{margin-inline:0}
-p,li,h1,h2,h3,h4,h5,h6,a,span,strong,small,td,th{overflow-wrap:anywhere;word-break:normal}
+p,li,h1,h2,h3,h4,h5,h6,a,span,strong,small,td,th{overflow-wrap:break-word;word-break:normal;hyphens:manual}
 pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
 table{width:100%;max-width:100%;border-collapse:collapse}
 .table-wrap,.table-responsive{width:100%;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
@@ -146,7 +146,7 @@ a,button{min-height:24px}
 }
 @media(max-width:420px){
  body{font-size:15px;line-height:1.7}
- h1{overflow-wrap:anywhere}
+ h1{overflow-wrap:break-word}
  .brand-name{font-size:13px}
  .navlinks{gap:4px 8px!important}
  .navlinks a{font-size:9px!important}
