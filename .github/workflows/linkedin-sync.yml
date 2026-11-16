@@ -14,36 +14,53 @@ on:
         type: boolean
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Run LinkedIn diff
         id: diff
         shell: bash
-        env:
-          APPLY: ${{ inputs.apply && 'true' || 'false' }}
         run: |
-          set -o pipefail
+          set -euo pipefail
           node career-os/linkedin-sync.mjs | tee linkedin-sync-report.json
 
       - name: Upload diff report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: linkedin-sync-report
           path: linkedin-sync-report.json
 
-      - name: Commit approved snapshot
-        if: ${{ inputs.apply == true }}
+  apply:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.apply == true }}
+    needs: sync
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Apply snapshot after explicit approval
         shell: bash
+        env:
+          APPLY: "true"
         run: |
+          set -euo pipefail
+          node career-os/linkedin-sync.mjs
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add career-os/linkedin-profile.json career-os/inbox/linkedin-profile.json
-          git commit -m "chore: apply reviewed LinkedIn profile snapshot" || echo "No snapshot changes to commit."
-          git push
+          if git diff --cached --quiet; then
+            echo "No snapshot changes to commit."
+          else
+            git commit -m "chore: apply reviewed LinkedIn profile snapshot"
+            git push
+          fi
