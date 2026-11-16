@@ -93,6 +93,7 @@ for (const route of pages) {
         }
         if (viewport.width >= 960) {
           await page.locator(".sticky-cta").hover();
+          await page.waitForTimeout(250);
           const tooltipVisible = await page.locator(".sticky-cta").evaluate(el =>
             getComputedStyle(el, "::after").opacity === "1" &&
             getComputedStyle(el, "::after").visibility === "visible"
