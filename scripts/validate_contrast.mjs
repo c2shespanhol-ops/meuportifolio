@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { chromium } from "playwright";
 import * as axeModule from "axe-core";
-import { readdir, mkdir, writeFile } from "node:fs/promises";
+import { readdir, mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const ROOT = path.resolve("_site");
@@ -85,6 +85,17 @@ const pages = (await walk(ROOT))
 
 if (!pages.length) throw new Error("No generated HTML pages found in _site.");
 
+async function resolveMetaRefresh(route) {
+  const file = path.join(ROOT, route.replace(/^\//, ""));
+  const html = await readFile(file, "utf8");
+  const match = html.match(/<meta\b[^>]*http-equiv=["']?refresh["']?[^>]*content=["'][^"']*url\s*=\s*([^;"']+)/i)
+    || html.match(/<meta\b[^>]*content=["'][^"']*url\s*=\s*([^;"']+)["'][^>]*http-equiv=["']?refresh["']?/i);
+  if (!match) return route;
+  const target = match[1].trim();
+  if (/^(https?:)?\/\//i.test(target)) return new URL(target, BASE_URL).pathname;
+  return path.posix.resolve(path.posix.dirname(route), target);
+}
+
 const browser = await chromium.launch({ headless: true });
 const failures = [];
 const results = [];
@@ -98,9 +109,10 @@ try {
     for (const viewport of VIEWPORTS) {
       const page = await browser.newPage({ viewport });
       try {
-        const response = await page.goto(BASE_URL + route, {
-          waitUntil: "domcontentloaded",
-          timeout: 20000
+        const auditRoute = await resolveMetaRefresh(route);
+        const response = await page.goto(BASE_URL + auditRoute, {
+          waitUntil: "networkidle",
+          timeout: 30000
         });
         if (!response || !response.ok()) {
           failures.push({ route, viewport: viewport.width, error: "page_load_failed" });
