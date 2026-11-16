@@ -1,5 +1,5 @@
 import { chromium } from "playwright";
-import { readdir } from "node:fs/promises";
+import { access, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 
 const root = path.resolve("_site");
@@ -12,17 +12,51 @@ async function walk(dir) {
   }));
   return nested.flat();
 }
-const pages = (await walk(root)).map(file => "/" + path.relative(root, file).split(path.sep).join("/")).sort();
+const files = (await walk(root)).sort();
+const failures = [];
+const pages = [];
+let redirects = 0;
+for (const file of files) {
+  const route = "/" + path.relative(root, file).split(path.sep).join("/");
+  let targetFile = file;
+  let testRoute = route;
+  for (let hop = 0; hop < 5; hop++) {
+    const html = await readFile(targetFile, "utf8");
+    const refreshTag = html.match(/<meta\\b[^>]*http-equiv=["']refresh["'][^>]*>/i);
+    if (!refreshTag) break;
+    const content = refreshTag[0].match(/\\bcontent=["']([^"']+)["']/i)?.[1] || "";
+    const targetMatch = content.match(/url\\s*=\\s*(.+)$/i);
+    if (!targetMatch) break;
+    const target = targetMatch[1].trim().replace(/^["']|["']$/g, "").split(/[?#]/)[0];
+    if (/^https?:\\/\\//i.test(target)) {
+      failures.push(route + ": external meta-refresh target is not valid for local responsive testing");
+      break;
+    }
+    targetFile = target.startsWith("/")
+      ? path.resolve(root, "." + target)
+      : path.resolve(path.dirname(targetFile), target);
+    try {
+      await access(targetFile);
+    } catch {
+      failures.push(route + ": meta-refresh target does not exist: " + target);
+      break;
+    }
+    testRoute = "/" + path.relative(root, targetFile).split(path.sep).join("/");
+    redirects++;
+  }
+  pages.push({ route, testRoute });
+}
 const sizes = [{width:390,height:844},{width:768,height:1024},{width:1440,height:900}];
 const browser = await chromium.launch({headless:true});
-const failures = [];
 let checked = 0;
 
-for (const route of pages) {
+for (const entry of pages) {
+  const { route, testRoute } = entry;
+  const page = await browser.newPage();
   for (const viewport of sizes) {
-    const page = await browser.newPage({ viewport });
+    await page.setViewportSize(viewport);
     try {
-      await page.goto("http://127.0.0.1:8765" + route, {waitUntil:"load",timeout:20000});
+      await page.goto("http://127.0.0.1:8765" + testRoute, {waitUntil:"domcontentloaded",timeout:15000});
       await page.waitForFunction(() => Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
         .filter(link => link.href.startsWith(location.origin))
         .every(link => link.sheet !== null), {timeout:5000});
@@ -136,10 +170,11 @@ for (const route of pages) {
     }
     await page.close();
   }
+  await page.close();
 }
 await browser.close();
 if (failures.length) {
   console.error(failures.join("\n"));
   process.exit(1);
 }
-console.log("Responsive regression passed: " + pages.length + " HTML pages x " + sizes.length + " viewports (" + checked + " renders).");
+console.log("Responsive regression passed: " + pages.length + " HTML routes x " + sizes.length + " viewports (" + checked + " renders); " + redirects + " meta-refresh aliases resolved to their destination pages.");
