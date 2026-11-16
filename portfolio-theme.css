@@ -608,3 +608,39 @@ body table th,body table td {
 body table th {
   color:#A88F5B!important;
 }
+
+/* WCAG AA follow-up: enforce readable foregrounds on ordinary navigation
+   links and dark-surface document controls, including legacy inline styles. */
+html body a:not(.action-card):not(.result):not(.btn):not(.button):not(.cta):not(.primary-button):not(.artifact-action) {
+  color:#7FB2DC!important;
+}
+html body a.back,
+html body a.back-btn,
+html body a.lang,
+html body a.case-back,
+html body a.case-lang,
+html body a.pbos-footer-link,
+html body a.print-doc,
+html body a.original,
+html body a.case01-hub-link,
+html body a[aria-label="Portuguese version"],
+html body a#ptBtn,
+html body a#enBtn,
+html body .artifact-toolbar>a {
+  color:#7FB2DC!important;
+}
+html body .table-wrap table,
+html body table,
+html body table thead,
+html body table tbody,
+html body table tr,
+html body table th,
+html body table td {
+  background-color:#0F151C!important;
+}
+html body table th {
+  color:#A88F5B!important;
+}
+html body table td {
+  color:#AEB5BD!important;
+}
