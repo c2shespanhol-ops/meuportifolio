@@ -28,6 +28,24 @@ jobs:
       - name: Validate centralized design tokens
         run: python scripts/validate_design_tokens.py
 
+      - name: Verify removal of the residual nested theme directory
+        shell: bash
+        run: |
+          set -euo pipefail
+          test ! -d meuportifolio
+          legacy_reference="meuportifolio""/""pbos-career-theme.css"
+          matches="$(grep -RIlF \
+            --include='*.html' --include='*.css' \
+            --include='*.py' --include='*.mjs' --include='*.js' \
+            --include='*.yml' --include='*.yaml' \
+            --exclude-dir=.git "$legacy_reference" . || true)"
+          if [[ -n "$matches" ]]; then
+            printf '%s\\n' "$matches"
+            echo "::error::References to the removed nested theme directory remain."
+            exit 1
+          fi
+          echo "Residual directory scan passed: directory absent and 0 references across HTML, CSS, scripts and workflows."
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
