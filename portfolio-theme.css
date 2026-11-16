@@ -742,3 +742,4 @@ html body .cv-download * {
   .privacy-footer-links{gap:8px}
   .privacy-consent-actions button{min-width:0;width:100%}
 }
+body{--privacy-consent-height:180px}
