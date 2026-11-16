@@ -8,7 +8,7 @@ from pypdf import PdfReader
 ROOT = Path(sys.argv[1] if len(sys.argv) > 1 else "_site/cv")
 CHECKS = {
     "Cleyton-Hespanhol-Product-Owner-PT.pdf": [
-        "Cleyton S. Hespanhol", "SHV Energy", "71%", "Supergasbras",
+        "Cleyton S. Hespanhol", "+55 (21) 98631-4378", "SHV Energy", "71%", "Supergasbras",
         "Peixe Urbano", "Nextel", "Contax", "Maricá",
     ],
     "Cleyton-Hespanhol-Product-Owner-EN.pdf": [
@@ -16,7 +16,7 @@ CHECKS = {
         "Urban Fish", "Nextel", "Contax", "Maricá",
     ],
 }
-FORBIDDEN = ("98631-4378", "Jan 2018 – Jun 2024", "jan/2018 – jun/2024")
+FORBIDDEN = ("Jan 2018 – Jun 2024", "jan/2018 – jun/2024")
 
 def validate(path: Path, required: list[str]) -> None:
     if not path.is_file():
