@@ -165,11 +165,11 @@ try {
           incomplete: routeIncompleteNodes.length
         });
 
-        const screenshotRoutes = new Set(["/index.html", "/en/index.html"]);
-        if (screenshotRoutes.has(route)) {
-          const language = route.startsWith("/en/") ? "en" : "pt";
+        if (routeIncompleteNodes.length) {
+          const screenshotName = route.replace(/^\\//, "").replace(/[^a-zA-Z0-9_-]+/g, "_")
+            + "-" + viewport.width + ".png";
           await page.screenshot({
-            path: path.join(OUTPUT, language + "-" + viewport.width + ".png"),
+            path: path.join(OUTPUT, screenshotName),
             fullPage: true
           });
         }
@@ -190,6 +190,7 @@ try {
     page_viewport_checks: checked,
     incomplete_nodes: incompleteCount,
     incomplete_node_details: incompleteNodeDetails,
+    screenshot_scope: "Every route/viewport with axe color-contrast incomplete nodes",
     self_test: selfTest,
     failures,
     results
