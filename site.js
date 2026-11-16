@@ -26,13 +26,7 @@
     onScroll();
   }
 
-  /* O CTA fixo some quando a seção de contato já está visível. */
-  var target = document.getElementById("contato") || document.getElementById("contact");
-  if (sticky && target && "IntersectionObserver" in window) {
-    new IntersectionObserver(function (entries) {
-      sticky.classList.toggle("hide", entries[0].isIntersecting);
-    }, { threshold: 0.15 }).observe(target);
-  }
+  /* O atalho do WhatsApp permanece fixo durante toda a rolagem. */
 })();
 
 /* Carrossel de cases com filtro por empresa. Sem JS, a faixa continua rolável com snap. */
