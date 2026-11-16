@@ -178,10 +178,10 @@ async function verifyRegressionDetection(browser) {
     <a class="skip" href="#main">Pular para o conteúdo</a>
     <main id="main"><button type="button">Ação</button></main>
   `);
-  await page.keyboard.press("Tab");
-  const broken = await runContrastRule(page);
-  const skipRegressionDetected = broken.violations.some((violation) =>
-    violation.nodes.some((node) => node.target.some((target) => target.includes(".skip")))
+
+  const broken = await auditFocusStates(page, "/self-test", { width: 390 });
+  const skipRegressionDetected = broken.failures.some((failure) =>
+    failure.state === "skip:focus-visible" && failure.ratio !== null && failure.ratio < 4.5
   );
   assert.ok(
     skipRegressionDetected,
@@ -193,14 +193,9 @@ async function verifyRegressionDetection(browser) {
     element.style.backgroundColor = "#A88F5B";
     element.style.top = "12px";
   });
-  const restored = await page.evaluate(async () => {
-    const result = await window.axe.run(document, {
-      runOnly: { type: "rule", values: ["color-contrast"] }
-    });
-    return result.violations;
-  });
+  const restored = await auditFocusStates(page, "/self-test", { width: 390 });
   assert.equal(
-    restored.length,
+    restored.failures.length,
     0,
     "The validator self-test must pass after the skip-link contrast regression is reverted."
   );
