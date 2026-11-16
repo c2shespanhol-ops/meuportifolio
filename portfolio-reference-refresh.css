@@ -1,3 +1,5 @@
+
+@layer portfolio-base {
 /* Reference-inspired visual refinement. Preserves the approved PBOS palette and all case content. */
 :root{--ref-radius:14px}
 .portfolio-home .hero{padding-top:clamp(58px,7vw,92px);padding-bottom:clamp(54px,6vw,78px);gap:clamp(34px,5vw,68px)}
@@ -42,7 +44,7 @@
  .portfolio-home .impact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
  .portfolio-home .impact-grid .card{min-height:195px}
  .portfolio-home .case{min-height:unset}
- .portfolio-case-refresh .container,.portfolio-case-refresh .wrap{padding-left:20px!important;padding-right:20px!important}
+ .portfolio-case-refresh .container,.portfolio-case-refresh .wrap{padding-left:20px;padding-right:20px}
 }
 @media(max-width:420px){.portfolio-home .impact-grid{grid-template-columns:1fr}.portfolio-home .impact-grid .card{min-height:unset}}
 @media(prefers-reduced-motion:reduce){.portfolio-home .quick-path,.portfolio-home .impact-grid .card,.portfolio-home .case{transition:none}}
@@ -79,3 +81,5 @@
 .portfolio-home .contact-actions .contact-action-email .contact-action-icon{width:29px;height:29px;flex-basis:29px;stroke-width:1.9}
 .portfolio-home .contact-actions .contact-action-whatsapp .contact-action-icon{width:32px;height:32px;flex-basis:32px}
 @media(max-width:620px){.portfolio-home .contact-actions .contact-action{width:52px;min-width:52px;min-height:52px}}
+
+}
