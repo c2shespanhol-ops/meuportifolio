@@ -23,7 +23,7 @@
   --sec:clamp(56px,8vw,104px);
   --font-body:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   --font-head:Montserrat,Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-}
+--hm-bg:#0A0D12--hm-surface:#0F151C--hm-surface-2:#0F151C--hm-text:#F7F8FA--hm-muted:#AEB5BD--hm-cyan:#7FB2DC--hm-gold:#A88F5B--bg2:var(--hm-surface)--bg3:var(--hm-surface-2)--background:var(--hm-bg)--foreground:var(--hm-text)--card:var(--hm-surface)--white:var(--hm-text)--text-muted:var(--hm-muted)--cyan:var(--hm-cyan)--teal:var(--hm-cyan)--primary:var(--hm-gold)--border:rgba(174,181,189,.18)}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:88px}
 body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
@@ -334,8 +334,6 @@ html[lang^="en"] .case.visited .company-chip::after{content:" · viewed"}
 .case-section th,.case-section td{overflow-wrap:break-word}
 
 
-/* HS MIND approved palette */
-:root{--hm-bg:#0A0D12;--hm-surface:#0F151C;--hm-surface-2:#0F151C;--hm-text:#F7F8FA;--hm-muted:#AEB5BD;--hm-cyan:#7FB2DC;--hm-gold:#A88F5B;--bg:var(--hm-bg);--bg2:var(--hm-surface);--bg3:var(--hm-surface-2);--background:var(--hm-bg);--foreground:var(--hm-text);--surface:var(--hm-surface);--surface-2:var(--hm-surface-2);--card:var(--hm-surface);--text:var(--hm-text);--white:var(--hm-text);--muted:var(--hm-muted);--text-muted:var(--hm-muted);--cyan:var(--hm-cyan);--teal:var(--hm-cyan);--blue:var(--hm-cyan);--gold:var(--hm-gold);--primary:var(--hm-gold);--border:rgba(174,181,189,.18);--line:rgba(174,181,189,.18)}
 html,body{background:var(--hm-bg)!important;color:var(--hm-text)!important}body{background-color:var(--hm-bg)!important;color:var(--hm-text)!important}
 header,nav,footer,.topbar,.navbar,.site-header,.site-footer{background-color:#0A0D12!important;color:var(--hm-text)!important}
 h1,h2,h3,h4,h5,h6,strong,b,legend{color:var(--hm-text)!important}p,li,td,th,small,label,.muted,.lead,.description,.meta,.subtitle,.secondary-text{color:var(--hm-muted)!important}
@@ -556,7 +554,6 @@ a.skip,a.skip:hover,a.active,a.active:hover,a[aria-current="page"],a[aria-curren
 
 
 /* 2026-11 portfolio refinements: muted antique gold, compact action links and clean contact block. */
-:root{--gold:#A88F5B;--hm-gold:#A88F5B;--line-gold:rgba(168,143,91,.34)}
 .actions{grid-template-columns:repeat(2,minmax(0,1fr));max-width:820px;margin-inline:auto;gap:14px}
 .action-card{min-height:76px;padding:14px 16px;border-radius:16px;font-size:16px;gap:10px}
 .contact-box>div:first-child>p:first-child{margin-top:0}
