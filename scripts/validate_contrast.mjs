@@ -71,7 +71,7 @@ async function runContrastRule(page) {
 }
 
 function parseRgb(value) {
-  const match = value.match(/rgba?\\(([^)]+)\\)/i);
+  const match = value.match(/rgba?\(([^)]+)\)/i);
   if (!match) return null;
   const parts = match[1].split(",").map((part) => Number.parseFloat(part.trim()));
   if (parts.length < 3 || parts.slice(0,3).some((part) => !Number.isFinite(part))) return null;
@@ -103,7 +103,7 @@ async function readFocusedStyle(locator) {
       let current = node;
       while (current) {
         const value = getComputedStyle(current).backgroundColor;
-        const match = value.match(/rgba?\\(([^)]+)\\)/i);
+        const match = value.match(/rgba?\(([^)]+)\)/i);
         if (match) {
           const parts = match[1].split(",").map((part) => Number.parseFloat(part.trim()));
           const alpha = parts.length > 3 ? parts[3] : 1;
@@ -220,8 +220,8 @@ if (!pages.length) throw new Error("No generated HTML pages found in _site.");
 
 const skipPages = [];
 for (const route of pages) {
-  const html = await readFile(path.join(ROOT, route.replace(/^\\//, "")), "utf8");
-  if (/<a\\b[^>]*class=["'][^"']*\\bskip\\b/i.test(html)) skipPages.push(route);
+  const html = await readFile(path.join(ROOT, route.replace(/^\//, "")), "utf8");
+  if (/<a\b[^>]*class=["'][^"']*\bskip\b/i.test(html)) skipPages.push(route);
 }
 
 
