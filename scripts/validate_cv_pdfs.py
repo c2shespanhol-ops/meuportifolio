@@ -49,8 +49,8 @@ def validate_html_phone_exposure() -> None:
     site_root = ROOT.parent
     for html_path in site_root.rglob("*.html"):
         source = html_path.read_text(encoding="utf-8")
-        source = re.sub(r'href="https://wa\\.me/[^"]*"', "", source, flags=re.I)
-        source = re.sub(r"href='https://wa\\.me/[^']*'", "", source, flags=re.I)
+        source = re.sub(r'href="https://wa[.]me/[^"]*"', "", source, flags=re.I)
+        source = re.sub(r"href='https://wa[.]me/[^']*'", "", source, flags=re.I)
         if "98631" in source or "5521986314378" in source:
             raise AssertionError(f"{html_path}: phone number must not appear in visible HTML or non-WhatsApp attributes")
     print("PASS HTML privacy: phone number appears only inside the floating WhatsApp wa.me link.")
