@@ -1,31 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
 /* SINGLE SOURCE OF TRUTH: HS MIND Lovable reference palette */
 :root{
-  --pbos-bg:#0A0D12;
-  --pbos-surface:#0F151C;
-  --pbos-surface-2:#0F151C;
-  --pbos-gold:#A88F5B;
-  --pbos-gold-soft:#A88F5B;
-  --pbos-teal:#7FB2DC;
-  --pbos-text:#F7F8FA;
-  --pbos-muted:#AEB5BD;
-  --pbos-muted-2:#AEB5BD;
-  --pbos-border:rgba(174,181,189,.20);
-  --pbos-border-soft:rgba(174,181,189,.16);
-  --bg:var(--pbos-bg);--bg2:var(--pbos-surface);--bg3:var(--pbos-surface-2);
-  --gold:var(--pbos-gold);--gold-lt:var(--pbos-gold-soft);
-  --teal:var(--pbos-teal);--teal-br:var(--pbos-teal);--cyan:var(--pbos-teal);
-  --text:var(--pbos-text);--text-muted:var(--pbos-muted);--white:var(--pbos-text);
-  --gray1:var(--pbos-muted);--gray2:var(--pbos-muted-2);--border:var(--pbos-border);
-  --background:var(--pbos-bg);--foreground:var(--pbos-text);
-  --card:var(--pbos-surface);--card-foreground:var(--pbos-text);
-  --popover:#0A0D12;--popover-foreground:var(--pbos-text);
-  --primary:var(--pbos-gold);--primary-foreground:var(--pbos-bg);
-  --secondary:var(--pbos-surface-2);--secondary-foreground:var(--pbos-text);
-  --muted:#0F151C;--muted-foreground:var(--pbos-muted);
-  --accent:var(--pbos-teal);--accent-foreground:var(--pbos-bg);
-  --input:#0F151C;--ring:rgba(168,143,91,.6);
---hm-bg:#0A0D12;--hm-surface:#0F151C;--hm-surface-2:#0F151C;--hm-text:#F7F8FA;--hm-muted:#AEB5BD;--hm-cyan:#7FB2DC;--hm-gold:#A88F5B;--surface:var(--hm-surface);--surface-2:var(--hm-surface-2);--blue:var(--hm-cyan);--line:rgba(174,181,189,.18);}
+--pbos-bg:#0A0D12;--pbos-surface:#0F151C;--pbos-surface-2:#0F151C;--pbos-gold:#A88F5B;--pbos-gold-soft:#A88F5B;--pbos-teal:#7FB2DC;
+--pbos-text:#F7F8FA;--pbos-muted:#AEB5BD;--pbos-muted-2:#AEB5BD;--pbos-border:rgba(174,181,189,.20);--pbos-border-soft:rgba(174,181,189,.16);
+--bg:var(--pbos-bg);--bg2:var(--pbos-surface);--bg3:var(--pbos-surface-2);--gold:var(--pbos-gold);--gold-lt:var(--pbos-gold-soft);
+--teal:var(--pbos-teal);--teal-br:var(--pbos-teal);--cyan:var(--pbos-teal);--text:var(--pbos-text);--text-muted:var(--pbos-muted);
+--white:var(--pbos-text);--gray1:var(--pbos-muted);--gray2:var(--pbos-muted-2);--border:var(--pbos-border);
+--background:var(--pbos-bg);--foreground:var(--pbos-text);--card:var(--pbos-surface);--card-foreground:var(--pbos-text);
+--popover:#0A0D12;--popover-foreground:var(--pbos-text);--primary:var(--pbos-gold);--primary-foreground:#0A0D12;
+--secondary:var(--pbos-surface-2);--secondary-foreground:var(--pbos-text);--muted:#0F151C;--muted-foreground:var(--pbos-muted);
+--accent:var(--pbos-teal);--accent-foreground:#0A0D12;--input:#0F151C;--ring:rgba(168,143,91,.6);
+--hm-bg:#0A0D12;--hm-surface:#0F151C;--hm-surface-2:#0F151C;--hm-text:#F7F8FA;--hm-muted:#AEB5BD;--hm-cyan:#7FB2DC;--hm-gold:#A88F5B;
+}
 html,body{background:var(--pbos-bg)!important;color:var(--pbos-text)!important}
 body{color:var(--pbos-text)!important}
 p,li,td,th,.muted,.lead,.description{color:var(--pbos-muted)!important}
