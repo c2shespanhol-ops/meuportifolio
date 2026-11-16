@@ -84,17 +84,36 @@ def main():
             failures.append(f"{relative}: print/identity exceptions changed; expected {expected}, found {exceptions}")
 
     canonical_root = ROOT_RE.search(COMMENT_RE.sub("", (ROOT / CANONICAL_THEME).read_text(encoding="utf-8")))
-    if canonical_root and re.search(r"--line\s*:", canonical_root.group(1), re.I):
-        failures.append("portfolio-theme.css: --line must remain page-scoped to preserve existing border transparency")
+    if not canonical_root:
+        failures.append("portfolio-theme.css: canonical :root token block is missing")
+    else:
+        canonical_tokens = dict(re.findall(r"(--[a-zA-Z0-9_-]+)\\s*:\\s*([^;]+);", canonical_root.group(1)))
+        if canonical_tokens.get("--line", "").strip() != "var(--pbos-line)":
+            failures.append("portfolio-theme.css: --line must resolve to the canonical --pbos-line token")
+
     for relative, expected_line in (
         ("site.css", "--pbos-border-light"),
         ("pbos-career-theme.css", "--pbos-line"),
         ("meuportifolio/pbos-career-theme.css", "--pbos-line"),
     ):
         source = COMMENT_RE.sub("", (ROOT / relative).read_text(encoding="utf-8"))
-        declaration = re.compile(r"--line\s*:\s*var\(\s*" + re.escape(expected_line) + r"\s*\)", re.I)
+        declaration = re.compile(r"--line\\s*:\\s*var\\(\\s*" + re.escape(expected_line) + r"\\s*\\)", re.I)
         if len(declaration.findall(source)) != 1:
             failures.append(f"{relative}: --line must preserve its original {expected_line} token mapping")
+
+    # Catch broken var(--token) references after removing duplicated local palettes.
+    declared_tokens = set()
+    referenced_tokens = []
+    for relative in CSS_FILES:
+        path = ROOT / relative
+        if not path.is_file():
+            continue
+        source = COMMENT_RE.sub("", path.read_text(encoding="utf-8"))
+        declared_tokens.update(re.findall(r"(--[a-zA-Z0-9_-]+)\\s*:", source))
+        referenced_tokens.extend((relative, token) for token in re.findall(r"var\\(\\s*(--[a-zA-Z0-9_-]+)", source))
+    unresolved = sorted({f"{relative}: {token}" for relative, token in referenced_tokens if token not in declared_tokens})
+    if unresolved:
+        failures.append("Unresolved CSS custom properties: " + ", ".join(unresolved[:30]))
 
     if failures:
         print("\n".join(failures), file=sys.stderr)
