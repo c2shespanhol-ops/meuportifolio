@@ -589,8 +589,8 @@ html[lang="en"] .sticky-cta::after{content:"Want to talk? Click here to message 
 /* WCAG AA contrast remediation · 2026-11
    Keep navigation and footer links readable on dark surfaces.
    Normalize tables that used the accent blue as a full-cell background. */
-body a:not(.btn):not(.button):not(.cta):not(.primary-button),
-body a:not(.btn):not(.button):not(.cta):not(.primary-button):visited,
+body a:not(.btn):not(.button):not(.cta):not(.primary-button):not(.active):not(.primary):not(.cv-download):not([aria-current="page"]),
+body a:not(.btn):not(.button):not(.cta):not(.primary-button):not(.active):not(.primary):not(.cv-download):not([aria-current="page"]):visited,
 body .pbos-footer-link,
 body .back,body .back-btn,body .lang,body .case-back,body .case-lang,
 body #ptBtn,body #enBtn,body .print-doc,body .original,
@@ -611,7 +611,7 @@ body table th {
 
 /* WCAG AA follow-up: enforce readable foregrounds on ordinary navigation
    links and dark-surface document controls, including legacy inline styles. */
-html body a:not(.action-card):not(.result):not(.btn):not(.button):not(.cta):not(.primary-button):not(.artifact-action) {
+html body a:not(.action-card):not(.result):not(.btn):not(.button):not(.cta):not(.primary-button):not(.artifact-action):not(.active):not(.primary):not(.cv-download):not([aria-current="page"]) {
   color:#7FB2DC!important;
 }
 html body a.back,
