@@ -65,7 +65,7 @@ async function runContrastRule(page) {
               data: check.data
             }))
           }))
-        })))
+        }))
     };
   });
 }
