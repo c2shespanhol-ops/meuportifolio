@@ -3,6 +3,7 @@
 
 @layer portfolio-base {
 /* Palette and transparency tokens are centralized in portfolio-theme.css. */
+:root{--line:var(--pbos-line)}
 html,body{background:var(--pbos-bg);color:var(--pbos-text)}
 body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:400;line-height:1.6;background:radial-gradient(circle at 72% 0%,var(--pbos-blue-wash),transparent 30rem),radial-gradient(circle at 30% 20%,var(--pbos-gold-wash-045),transparent 24rem),var(--pbos-bg)}
 h1,h2,h3,h4,h5,h6{font-family:Montserrat,Inter,system-ui,sans-serif;color:var(--pbos-text);font-weight:600}

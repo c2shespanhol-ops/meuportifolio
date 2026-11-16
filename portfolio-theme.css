@@ -58,7 +58,7 @@
   --teal: var(--pbos-blue); --teal-br: var(--pbos-blue); --cyan: var(--pbos-blue); --blue: var(--pbos-blue);
   --text: var(--pbos-text); --white: var(--pbos-text);
   --muted: var(--pbos-muted); --text-muted: var(--pbos-muted); --gray1: var(--pbos-muted); --gray2: var(--pbos-muted);
-  --border: var(--pbos-line); --line: var(--pbos-line); --line-gold: var(--pbos-line-gold-medium); --gold-ink: var(--pbos-ink);
+  --border: var(--pbos-line); --line-gold: var(--pbos-line-gold-medium); --gold-ink: var(--pbos-ink);
   --background: var(--pbos-bg); --foreground: var(--pbos-text);
   --card: var(--pbos-surface); --card-foreground: var(--pbos-text);
   --popover: var(--pbos-surface); --popover-foreground: var(--pbos-text);
