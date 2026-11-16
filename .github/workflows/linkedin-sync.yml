@@ -30,7 +30,21 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          node career-os/linkedin-sync.mjs | tee linkedin-sync-report.json
+          if [[ -f career-os/inbox/linkedin-profile.json ]]; then
+            echo "snapshot_available=true" >> "$GITHUB_OUTPUT"
+            node career-os/linkedin-sync.mjs | tee linkedin-sync-report.json
+          else
+            echo "snapshot_available=false" >> "$GITHUB_OUTPUT"
+            cat > linkedin-sync-report.json <<'REPORT'
+          {
+            "status": "no_pending_snapshot",
+            "changeCount": 0,
+            "changes": [],
+            "message": "Nenhum snapshot pendente em career-os/inbox/linkedin-profile.json. Nenhum dado foi alterado."
+          }
+          REPORT
+            echo "::notice::No pending LinkedIn snapshot. Dry-run completed without changing profile data."
+          fi
 
       - name: Upload diff report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
