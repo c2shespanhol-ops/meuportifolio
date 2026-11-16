@@ -48,13 +48,22 @@ html body .back,html body .back-btn,html body .case01-hub-link,html body .btn,ht
 html body .lang a,html body .links a,html body .pbos-footer-link,html body .card-proximo{
   display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 18px;
   border:1px solid rgba(247,248,250,.12) !important;border-radius:12px !important;
-  background:#0A0D12 !important;color:#F7F8FA !important;font-size:14px !important;
+  background:#0A0D12 !important;color:var(--cyan) !important;font-size:14px !important;
   font-weight:600 !important;letter-spacing:0 !important;text-transform:none !important;
+}
+html body .back:hover,html body .back-btn:hover,html body .case01-hub-link:hover,
+html body .lang a:hover,html body .links a:hover,html body .pbos-footer-link:hover,
+html body .card-proximo:hover{
+  color:var(--cyan) !important;text-decoration:underline;text-underline-offset:3px;
 }
 html body .back:hover,html body .back-btn:hover,html body .btn:hover,html body .cta:hover,html body .card-proximo:hover{
   border-color:rgba(168,143,91,.34) !important;text-decoration:none;
 }
-html body .btn.primary,html body .cta.primary,html body .btn-primary{background:#A88F5B !important;color:#14100A !important;border-color:#A88F5B !important}
+html body .btn.primary,html body .cta.primary,html body .btn-primary,
+html body .active,html body .skip,html body .primary,html body .cv-download,
+html body .chip[aria-pressed="true"],html body [aria-current="page"].active{
+  background:#A88F5B !important;color:#14100A !important;border-color:#A88F5B !important;
+}
 html body .back{position:static !important;margin:16px 0}
 /* superfícies: cartões, painéis, avisos, nós de diagrama */
 html body .card,html body .card-item,html body .panel,html body .notice,html body .doc-card,
