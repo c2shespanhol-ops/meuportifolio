@@ -66,30 +66,35 @@ for (const route of pages) {
         const contactAudit = await page.evaluate(() => {
           const sticky = document.querySelector(".sticky-cta");
           const target = document.getElementById("contato") || document.getElementById("contact");
-          const whatsapp = target && target.querySelector('a[href^="https://wa.me/"]');
-          if (!sticky) return { error: "floating contact shortcut is missing" };
+          const email = target && target.querySelector('a[href^="mailto:"]');
+          const contactWhatsApp = target && target.querySelector('a[href^="https://wa.me/"]');
+          if (!sticky) return { error: "floating WhatsApp shortcut is missing" };
           const rect = sticky.getBoundingClientRect();
           const style = getComputedStyle(sticky);
           return {
             display: style.display,
+            position: style.position,
             width: Math.round(rect.width),
             height: Math.round(rect.height),
+            top: rect.top,
             radius: style.borderRadius,
             href: sticky.getAttribute("href"),
             text: sticky.textContent.trim(),
             targetExists: !!target,
-            whatsappExists: !!whatsapp,
-            whatsappHref: whatsapp ? whatsapp.href : "",
+            emailExists: !!email,
+            contactWhatsAppExists: !!contactWhatsApp,
             tooltip: getComputedStyle(sticky, "::after").content
           };
         });
         if (contactAudit.error || contactAudit.display === "none" ||
+            contactAudit.position !== "fixed" ||
             contactAudit.width > 52 || contactAudit.height > 52 ||
             !contactAudit.radius.includes("50%") || contactAudit.text !== "" ||
-            !contactAudit.targetExists || !contactAudit.whatsappExists ||
-            !contactAudit.href || !contactAudit.href.startsWith("#") ||
-            /NOME|NAME/i.test(contactAudit.whatsappHref)) {
-          failures.push(route + " @ " + viewport.width + "px: floating contact shortcut regression " + JSON.stringify(contactAudit));
+            !contactAudit.targetExists || !contactAudit.emailExists ||
+            contactAudit.contactWhatsAppExists ||
+            !contactAudit.href || !contactAudit.href.startsWith("https://wa.me/") ||
+            /NOME|NAME/i.test(contactAudit.href)) {
+          failures.push(route + " @ " + viewport.width + "px: floating WhatsApp shortcut regression " + JSON.stringify(contactAudit));
         }
         if (viewport.width >= 960) {
           await page.locator(".sticky-cta").hover();
@@ -102,12 +107,17 @@ for (const route of pages) {
             failures.push(route + " @ " + viewport.width + "px: desktop WhatsApp invitation tooltip did not appear");
           }
         }
-        if (viewport.width === 390) {
-          await page.locator(".sticky-cta").click();
-          const hash = await page.evaluate(() => location.hash);
-          if (hash !== contactAudit.href) {
-            failures.push(route + " @ " + viewport.width + "px: floating shortcut did not navigate to contact section");
-          }
+        await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+        await page.waitForTimeout(100);
+        const stickyAfterScroll = await page.locator(".sticky-cta").evaluate(el => {
+          const rect = el.getBoundingClientRect();
+          const style = getComputedStyle(el);
+          return { position: style.position, top: rect.top, display: style.display, visibility: style.visibility };
+        });
+        if (stickyAfterScroll.position !== "fixed" || stickyAfterScroll.display === "none" ||
+            stickyAfterScroll.visibility === "hidden" ||
+            Math.abs(stickyAfterScroll.top - contactAudit.top) > 1) {
+          failures.push(route + " @ " + viewport.width + "px: floating WhatsApp shortcut did not remain fixed through the end of the page " + JSON.stringify(stickyAfterScroll));
         }
       }
     } catch (error) {
