@@ -19,11 +19,10 @@ const failures = [];
 let checked = 0;
 
 for (const route of pages) {
-  const page = await browser.newPage();
   for (const viewport of sizes) {
-    await page.setViewportSize(viewport);
+    const page = await browser.newPage({ viewport });
     try {
-      await page.goto("http://127.0.0.1:8765" + route, {waitUntil:"domcontentloaded",timeout:15000});
+      await page.goto("http://127.0.0.1:8765" + route, {waitUntil:"load",timeout:20000});
       await page.waitForFunction(() => Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
         .filter(link => link.href.startsWith(location.origin))
         .every(link => link.sheet !== null), {timeout:5000});
@@ -135,8 +134,8 @@ for (const route of pages) {
     } catch (error) {
       failures.push(route + " @ " + viewport.width + "px: " + error.message);
     }
+    await page.close();
   }
-  await page.close();
 }
 await browser.close();
 if (failures.length) {
