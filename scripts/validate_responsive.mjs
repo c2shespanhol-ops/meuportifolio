@@ -24,6 +24,12 @@ for (const route of pages) {
     await page.setViewportSize(viewport);
     try {
       await page.goto("http://127.0.0.1:8765" + route, {waitUntil:"domcontentloaded",timeout:15000});
+      await page.waitForFunction(() => Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
+        .filter(link => link.href.startsWith(location.origin))
+        .every(link => link.sheet !== null), {timeout:5000});
+      await page.evaluate(() => new Promise(resolve =>
+        requestAnimationFrame(() => requestAnimationFrame(resolve))
+      ));
       const result = await page.evaluate(() => {
         const root = document.documentElement;
         const body = document.body;
@@ -42,6 +48,7 @@ for (const route of pages) {
             wrapperWidth: wrapper ? Math.round(wrapper.getBoundingClientRect().width) : null,
             wrapperScrollWidth: wrapper ? wrapper.scrollWidth : null,
             wrapperClientWidth: wrapper ? wrapper.clientWidth : null,
+            overflowX: wrapper ? getComputedStyle(wrapper).overflowX : null,
             minWidth: getComputedStyle(metrics).minWidth
           };
         }
@@ -53,7 +60,7 @@ for (const route of pages) {
       }
       if (result.brokenTable && viewport.width < 680) {
         const t = result.brokenTable;
-        if (t.wrapperWidth === null || t.wrapperWidth > viewport.width + 1 || t.wrapperScrollWidth <= t.wrapperClientWidth || t.tableWidth < 679) {
+        if (t.wrapperWidth === null || t.wrapperWidth > viewport.width + 1 || t.wrapperScrollWidth <= t.wrapperClientWidth || !["auto","scroll"].includes(t.overflowX) || t.tableWidth < 679) {
           failures.push(route + " @ " + viewport.width + "px: metrics table is not safely scrollable/readable " + JSON.stringify(result));
         }
       }
