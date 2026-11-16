@@ -213,6 +213,7 @@ jobs:
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
+          name: portfolio-pages-${{ github.run_attempt }}
           path: _site
 
   deploy:
@@ -226,6 +227,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: portfolio-pages-${{ github.run_attempt }}
 
       - name: Smoke test published site
         shell: bash
