@@ -46,6 +46,11 @@ jobs:
           fi
           echo "Residual directory scan passed: directory absent and 0 references across HTML, CSS, scripts and workflows."
 
+      - name: Audit legacy palette before migration
+        env:
+          PALETTE_AUDIT_BASE_SHA: ${{ github.event.before }}
+        run: python scripts/audit_legacy_colors.py
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
@@ -140,6 +145,15 @@ jobs:
           node scripts/validate_responsive.mjs
           node scripts/validate_analytics_consent.mjs
           node scripts/validate_contrast.mjs
+
+      - name: Upload legacy color audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: legacy-color-audit
+          path: artifacts/legacy-color-audit.md
+          if-no-files-found: error
+          retention-days: 30
 
       - name: Upload responsive before-and-after evidence
         if: always()
