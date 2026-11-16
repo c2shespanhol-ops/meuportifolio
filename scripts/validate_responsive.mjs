@@ -22,13 +22,13 @@ for (const file of files) {
   let testRoute = route;
   for (let hop = 0; hop < 5; hop++) {
     const html = await readFile(targetFile, "utf8");
-    const refreshTag = html.match(/<meta\\b[^>]*http-equiv=["']refresh["'][^>]*>/i);
+    const refreshTag = html.match(/<meta\b[^>]*http-equiv=["']refresh["'][^>]*>/i);
     if (!refreshTag) break;
-    const content = refreshTag[0].match(/\\bcontent=["']([^"']+)["']/i)?.[1] || "";
-    const targetMatch = content.match(/url\\s*=\\s*(.+)$/i);
+    const content = refreshTag[0].match(/\bcontent=["']([^"']+)["']/i)?.[1] || "";
+    const targetMatch = content.match(/url\s*=\s*(.+)$/i);
     if (!targetMatch) break;
     const target = targetMatch[1].trim().replace(/^["']|["']$/g, "").split(/[?#]/)[0];
-    if (/^https?:\\/\\//i.test(target)) {
+    if (target.startsWith("http://") || target.startsWith("https://")) {
       failures.push(route + ": external meta-refresh target is not valid for local responsive testing");
       break;
     }
