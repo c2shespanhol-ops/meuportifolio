@@ -74,8 +74,14 @@ jobs:
           grep -E "Product Owner \\| UX|Maricá|\\+55 \\(21\\) 98631-4378" <<< "$pt_text"
           printf '%s\n' "EN PDF proof:"
           grep -E "Product Owner \\| UX|Maricá|\\+55 \\(21\\) 98631-4378" <<< "$en_text"
-          pdfinfo _site/cv/Cleyton-Hespanhol-Product-Owner-PT.pdf | grep '^Pages:'
-          pdfinfo _site/cv/Cleyton-Hespanhol-Product-Owner-EN.pdf | grep '^Pages:'
+          pt_info="$(pdfinfo _site/cv/Cleyton-Hespanhol-Product-Owner-PT.pdf)"
+          en_info="$(pdfinfo _site/cv/Cleyton-Hespanhol-Product-Owner-EN.pdf)"
+          if grep -Eiq '98631|5521986314378' <<< "$pt_info$en_info"; then
+            echo "::error::Phone number must not appear in PDF metadata."
+            exit 1
+          fi
+          printf '%s\n' "$pt_info" | grep '^Pages:'
+          printf '%s\n' "$en_info" | grep '^Pages:'
 
       - name: Upload generated CV PDFs for versioning
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'

@@ -34,6 +34,12 @@ def validate(path: Path, required: list[str]) -> None:
     if not 1 <= len(reader.pages) <= 2:
         raise AssertionError(f"{path}: expected 1-2 pages, got {len(reader.pages)}")
 
+    metadata = reader.metadata or {}
+    metadata_text = " ".join(str(value) for value in metadata.values() if value is not None)
+    if re.search(r"(?:\\+?55[\\s().-]*)?21[\\s().-]*98631[\\s().-]*4378|5521986314378|98631", metadata_text):
+        raise AssertionError(f"{path}: phone number must not appear in PDF metadata")
+    print(f"PASS {path.name}: PDF metadata contains no phone number")
+
     content = " ".join(" ".join(page.extract_text() or "" for page in reader.pages).split())
     if len(content.strip()) < 500:
         raise AssertionError(f"{path}: extracted text is too short; PDF may be image-only or incomplete")
@@ -50,13 +56,54 @@ def validate(path: Path, required: list[str]) -> None:
 
 def validate_html_phone_exposure() -> None:
     site_root = ROOT.parent
+    expected_noindex = {
+        (site_root / "cv" / "cv-pt.html").resolve(),
+        (site_root / "cv" / "cv-en.html").resolve(),
+    }
+    pdf_link_count = 0
+    noindex_pages = set()
+
     for html_path in site_root.rglob("*.html"):
         source = html_path.read_text(encoding="utf-8")
-        source = re.sub(r'href="https://wa[.]me/[^"]*"', "", source, flags=re.I)
-        source = re.sub(r"href='https://wa[.]me/[^']*'", "", source, flags=re.I)
-        if "98631" in source or "5521986314378" in source:
+        source_without_whatsapp = re.sub(r"""href=["']https://wa[.]me/[^"']*["']""", "", source, flags=re.I)
+        if "98631" in source_without_whatsapp or "5521986314378" in source_without_whatsapp:
             raise AssertionError(f"{html_path}: phone number must not appear in visible HTML or non-WhatsApp attributes")
-    print("PASS HTML privacy: phone number appears only inside the floating WhatsApp wa.me link.")
+
+        for match in re.finditer(r"""<a\b[^>]*\bhref\s*=\s*(["'])([^"']+\.pdf(?:[?#][^"']*)?)\1[^>]*>""", source, flags=re.I):
+            pdf_link_count += 1
+            tag = match.group(0)
+            rel_match = re.search(r""" \brel\s*=\s*(["'])(.*?)\1""".strip(), tag, flags=re.I)
+            rel_tokens = set(rel_match.group(2).lower().split()) if rel_match else set()
+            if not {"nofollow", "noopener"}.issubset(rel_tokens):
+                raise AssertionError(f'{html_path}: PDF link must include rel="nofollow noopener"')
+
+        robots_tags = re.findall(r"""<meta\b(?=[^>]*\bname=["']robots["'])(?=[^>]*\bcontent=["'][^"']*noindex[^"']*["'])[^>]*>""", source, flags=re.I)
+        if robots_tags:
+            noindex_pages.add(html_path.resolve())
+        if html_path.resolve() in expected_noindex:
+            if len(robots_tags) != 1 or not re.search(r"""content=["']noindex\s*,\s*nofollow["']""", robots_tags[0], flags=re.I):
+                raise AssertionError(f"{html_path}: expected exactly one robots noindex,nofollow directive")
+        elif robots_tags:
+            raise AssertionError(f"{html_path}: noindex is only permitted on the two CV HTML pages")
+
+    if noindex_pages != expected_noindex:
+        raise AssertionError("noindex directives must exist only on cv/cv-pt.html and cv/cv-en.html")
+    if pdf_link_count != 4:
+        raise AssertionError(f"Expected 4 PDF links across the site, found {pdf_link_count}")
+
+    sitemap_path = site_root / "sitemap.xml"
+    sitemap = sitemap_path.read_text(encoding="utf-8")
+    if re.search(r"\.pdf(?:[?#<]|$)", sitemap, flags=re.I):
+        raise AssertionError("PDF URLs must not appear in sitemap.xml")
+    sitemap_count = len(re.findall(r"<url>\s*<loc>", sitemap, flags=re.I))
+
+    robots_path = site_root / "robots.txt"
+    robots = robots_path.read_text(encoding="utf-8")
+    if "Disallow: /meuportifolio/cv/*.pdf" not in robots:
+        raise AssertionError("robots.txt must disallow the portfolio PDF path")
+
+    print(f"PASS HTML privacy: {pdf_link_count} PDF links use nofollow noopener; noindex,nofollow appears on exactly 2 CV HTML pages; sitemap has {sitemap_count} URLs and 0 PDF URLs; robots.txt disallows CV PDFs.")
+    print("PASS phone exposure: phone number remains in the PDFs and the existing wa.me link only.")
 
 for filename, required_terms in CHECKS.items():
     validate(ROOT / filename, required_terms)

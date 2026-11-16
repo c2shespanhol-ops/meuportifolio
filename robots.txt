@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /meuportifolio/cv/*.pdf
 Sitemap: https://c2shespanhol-ops.github.io/meuportifolio/sitemap.xml
