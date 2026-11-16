@@ -33,7 +33,7 @@ def validate(path: Path, required: list[str]) -> None:
     if not 1 <= len(reader.pages) <= 2:
         raise AssertionError(f"{path}: expected 1-2 pages, got {len(reader.pages)}")
 
-    content = "\\n".join(page.extract_text() or "" for page in reader.pages)
+    content = " ".join(" ".join(page.extract_text() or "" for page in reader.pages).split())
     if len(content.strip()) < 500:
         raise AssertionError(f"{path}: extracted text is too short; PDF may be image-only or incomplete")
     missing = [term for term in required if term.casefold() not in content.casefold()]
