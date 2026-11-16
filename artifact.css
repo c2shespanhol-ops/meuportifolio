@@ -111,3 +111,13 @@ button,.btn,.button,.cta,.primary-button,.btn-primary,.button-primary{background
 .btn-secondary,.button-secondary,.secondary-button{background:var(--hm-surface-2)!important;color:var(--hm-text)!important;border-color:var(--border)!important}
 .eyebrow,.kicker,.section-kicker,.gold,.text-gold,.accent-gold,.tag-gold{color:var(--hm-gold)!important}.cyan,.text-cyan,.accent-cyan,.teal{color:var(--hm-cyan)!important}
 hr,.divider,.separator{border-color:rgba(168,143,91,.42)!important}input,textarea,select{background:var(--hm-surface)!important;color:var(--hm-text)!important;border-color:var(--border)!important}::placeholder{color:#AEB5BD!important}:focus-visible{outline-color:var(--hm-gold)!important}
+
+
+/* Responsive metrics tables: preserve readable columns on narrow screens. */
+html body .metrics-table-wrap{display:block!important;width:100%!important;max-width:100%!important;overflow-x:auto!important;overflow-y:hidden!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior-x:contain!important;}
+html body table.metrics-table{display:table!important;width:100%!important;min-width:680px!important;max-width:none!important;table-layout:fixed!important;border-collapse:collapse!important;overflow:visible!important;}
+html body table.metrics-table th,html body table.metrics-table td{overflow-wrap:normal!important;word-break:normal!important;hyphens:none!important;white-space:normal!important;vertical-align:top!important;}
+html body table.metrics-table th:nth-child(1),html body table.metrics-table td:nth-child(1){width:34%!important;}
+html body table.metrics-table th:nth-child(2),html body table.metrics-table td:nth-child(2){width:44%!important;}
+html body table.metrics-table th:nth-child(3),html body table.metrics-table td:nth-child(3){width:22%!important;}
+html body .metrics-table-wrap:focus-visible{outline:3px solid #A88F5B!important;outline-offset:3px!important;}
