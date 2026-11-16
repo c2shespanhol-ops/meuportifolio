@@ -6,7 +6,7 @@
   mesma paleta, mesmas fontes, texto mínimo de 12px, corpo de 16px e alvos de toque de 44px.
 */
 html body{
-  background:#0A0D12;color:#F7F8FA;
+  background:var(--pbos-bg);color:var(--pbos-text);
   font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   font-weight:400;font-size:16px;line-height:1.7;
   -webkit-font-smoothing:antialiased;
@@ -15,18 +15,18 @@ html body *{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sa
 html body h1,html body h2,html body h3,html body h4,html body .title,html body .hero-title,
 html body .section-title,html body .section-heading,html body .card-heading{
   font-family:Montserrat,Inter,system-ui,sans-serif;font-weight:600;
-  letter-spacing:-.02em;line-height:1.15;color:#F7F8FA;
+  letter-spacing:-.02em;line-height:1.15;color:var(--pbos-text);
 }
 html body h1,html body .title,html body .hero-title{font-size:clamp(30px,5.2vw,52px)}
 html body h2,html body .section-title{font-size:clamp(24px,3.6vw,34px)}
 html body h3{font-size:clamp(18px,2.4vw,22px)}
-html body em{color:#A88F5B;font-style:normal}
+html body em{color:var(--pbos-gold);font-style:normal}
 html body p,html body li,html body td,html body th,html body dd,html body dt,
 html body .lead,html body .hero-desc,html body .section-text,html body .card-desc{
   font-size:16px;line-height:1.7;font-weight:400;
 }
-html body .lead,html body .hero-desc{color:#AEB5BD;max-width:70ch}
-html body p,html body li{color:#AEB5BD}
+html body .lead,html body .hero-desc{color:var(--pbos-muted);max-width:70ch}
+html body p,html body li{color:var(--pbos-muted)}
 /* rótulos pequenos: nunca abaixo de 12px */
 html body .label,html body .eyebrow,html body .hero-eyebrow,html body .section-label,html body .tag,
 html body .card-tag,html body .num,html body .metric-label,html body .meta-pill,html body .nav-tag,
@@ -37,20 +37,20 @@ html body .process-flow li::before,html body .table td::before,html body th,html
 html body .case01-evidence-note strong,html body .case01-expanded .eyebrow,
 html body .case01-expanded .step b,html body .case01-expanded .sample b,html body .flow-num{
   font-size:12px;letter-spacing:.08em;font-weight:600;
-  text-transform:uppercase;color:#A88F5B;
+  text-transform:uppercase;color:var(--pbos-gold);
 }
 html body .small,html body .hint,html body .node small,html body .original,html body footer,
-html body .footer-copy,html body .footer-nav{text-transform:none;letter-spacing:0;font-weight:400;color:#AEB5BD}
+html body .footer-copy,html body .footer-nav{text-transform:none;letter-spacing:0;font-weight:400;color:var(--pbos-muted)}
 /* links */
-html body a{color:#7FB2DC;text-decoration:none}
+html body a{color:var(--pbos-blue);text-decoration:none}
 html body a:hover{text-decoration:underline;text-underline-offset:3px}
-html body :focus-visible{outline:3px solid #A88F5B;outline-offset:3px;border-radius:6px}
+html body :focus-visible{outline:3px solid var(--pbos-gold);outline-offset:3px;border-radius:6px}
 /* botoes e navegação com alvo de 44px */
 html body .back,html body .back-btn,html body .case01-hub-link,html body .btn,html body .cta,
 html body .lang a,html body .links a,html body .pbos-footer-link,html body .card-proximo{
   display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 18px;
-  border:1px solid rgba(247,248,250,.12);border-radius:12px;
-  background:#0A0D12;color:var(--cyan);font-size:14px;
+  border:1px solid var(--pbos-border-light);border-radius:12px;
+  background:var(--pbos-bg);color:var(--cyan);font-size:14px;
   font-weight:600;letter-spacing:0;text-transform:none;
 }
 html body .back:hover,html body .back-btn:hover,html body .case01-hub-link:hover,
@@ -59,12 +59,12 @@ html body .card-proximo:hover{
   color:var(--cyan);text-decoration:underline;text-underline-offset:3px;
 }
 html body .back:hover,html body .back-btn:hover,html body .btn:hover,html body .cta:hover,html body .card-proximo:hover{
-  border-color:rgba(168,143,91,.34);text-decoration:none;
+  border-color:var(--pbos-line-gold-medium);text-decoration:none;
 }
 html body .btn.primary,html body .cta.primary,html body .btn-primary,
 html body .active,html body .skip,html body .primary,html body .cv-download,
 html body .chip[aria-pressed="true"],html body [aria-current="page"].active{
-  background:#A88F5B;color:#14100A;border-color:#A88F5B;
+  background:var(--pbos-gold);color:var(--pbos-ink);border-color:var(--pbos-gold);
 }
 html body .back{position:static;margin:16px 0}
 /* superfícies: cartões, painéis, avisos, nós de diagrama */
@@ -72,17 +72,17 @@ html body .card,html body .card-item,html body .panel,html body .notice,html bod
 html body .content-box,html body .node,html body .step,html body .flow-step,html body .decision,
 html body .artifact-detail,html body .artifact-section,html body .quote,html body .sample,
 html body .metric,html body .stat,html body table{
-  background:#0A0D12;border:1px solid rgba(247,248,250,.12);
-  border-radius:16px;color:#AEB5BD;box-shadow:none;
+  background:var(--pbos-bg);border:1px solid var(--pbos-border-light);
+  border-radius:16px;color:var(--pbos-muted);box-shadow:none;
 }
-html body .notice{border-left:3px solid #A88F5B}
-html body .gold-accent-top,html body .top{height:3px;background:#A88F5B;border:0}
+html body .notice{border-left:3px solid var(--pbos-gold)}
+html body .gold-accent-top,html body .top{height:3px;background:var(--pbos-gold);border:0}
 html body table{border-collapse:separate;border-spacing:0;overflow:hidden;display:block;overflow-x:auto;max-width:100%}
-html body th,html body td{border-color:rgba(247,248,250,.12);padding:12px 14px;text-align:left}
-html body th{background:#0F151C}
-html body .section,html body section{border-color:rgba(247,248,250,.12)}
-html body .arrow,html body .line{color:#A88F5B;border-color:rgba(168,143,91,.34)}
-html body footer,html body .pbos-footer{background:transparent;border-top:1px solid rgba(247,248,250,.12);color:#AEB5BD}
+html body th,html body td{border-color:var(--pbos-border-light);padding:12px 14px;text-align:left}
+html body th{background:var(--pbos-surface)}
+html body .section,html body section{border-color:var(--pbos-border-light)}
+html body .arrow,html body .line{color:var(--pbos-gold);border-color:var(--pbos-line-gold-medium)}
+html body footer,html body .pbos-footer{background:transparent;border-top:1px solid var(--pbos-border-light);color:var(--pbos-muted)}
 html body .pbos-footer a,html body footer a{background:transparent;border:0;min-height:44px;display:inline-flex;align-items:center}
 /* mobile */
 html body img,html body svg,html body video{max-width:100%;height:auto}
@@ -98,11 +98,11 @@ html body b,html body strong,html body span{font-size:max(12px,1em)}
 html body table th,html body .table th,html body .exec-table th{font-size:12px;text-transform:uppercase}
 html body a.lang,html body a.original,html body a.primary,html body a.print-doc,html body .lang a{
   display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:10px 14px;
-  font-size:14px;border:1px solid rgba(247,248,250,.12);border-radius:12px;background:#0A0D12;
+  font-size:14px;border:1px solid var(--pbos-border-light);border-radius:12px;background:var(--pbos-bg);
   color:var(--cyan);text-transform:none;letter-spacing:0;font-weight:600;
 }
-html body a.primary{background:#A88F5B;color:#14100A}
-html body figcaption{font-size:12px;color:#AEB5BD}
+html body a.primary{background:var(--pbos-gold);color:var(--pbos-ink)}
+html body figcaption{font-size:12px;color:var(--pbos-muted)}
 html body svg text{font-size:max(12px,1em)}
 html body nav a,html body .toc a,html body .artifact-nav a{display:inline-flex;align-items:center;min-height:44px;padding:8px 12px}
 html body a{font-size:max(12px,1em)}
@@ -120,6 +120,6 @@ html body table.metrics-table th,html body table.metrics-table td{overflow-wrap:
 html body table.metrics-table th:nth-child(1),html body table.metrics-table td:nth-child(1){width:34%;}
 html body table.metrics-table th:nth-child(2),html body table.metrics-table td:nth-child(2){width:44%;}
 html body table.metrics-table th:nth-child(3),html body table.metrics-table td:nth-child(3){width:22%;}
-html body .metrics-table-wrap:focus-visible{outline:3px solid #A88F5B;outline-offset:3px;}
+html body .metrics-table-wrap:focus-visible{outline:3px solid var(--pbos-gold);outline-offset:3px;}
 
 }
