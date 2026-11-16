@@ -472,29 +472,29 @@ hr,.divider,.separator{border-color:rgba(168,143,91,.42)!important}input,textare
 }
 
 
-/* Floating WhatsApp shortcut: icon-only, consistent gold palette, scrolls to contact options. */
+/* Compact floating WhatsApp shortcut. Fixed to the viewport through the full page scroll. */
 .sticky-cta{
   position:fixed!important;
   right:24px!important;
   bottom:88px!important;
   z-index:55!important;
   display:flex!important;
-  width:50px!important;
-  height:50px!important;
-  min-height:50px!important;
+  width:32px!important;
+  height:32px!important;
+  min-height:32px!important;
   padding:0!important;
   align-items:center!important;
   justify-content:center!important;
-  border:1px solid #A88F5B!important;
+  border:0!important;
   border-radius:50%!important;
-  background:#A88F5B!important;
-  color:#14100A!important;
-  box-shadow:0 8px 24px rgba(0,0,0,.4)!important;
+  background:transparent!important;
+  color:#A88F5B!important;
+  box-shadow:none!important;
   text-decoration:none!important;
-  transition:opacity .2s ease,transform .2s ease,visibility .2s ease!important;
+  transition:color .2s ease,opacity .2s ease!important;
 }
 .sticky-cta svg{width:25px!important;height:25px!important;display:block!important;fill:currentColor!important;stroke:none!important}
-.sticky-cta:hover,.sticky-cta:focus-visible{background:#A88F5B!important;color:#14100A!important;transform:translateY(-2px)!important}
+.sticky-cta:hover,.sticky-cta:focus-visible{background:transparent!important;color:#F7F8FA!important;transform:none!important}
 .sticky-cta::after{
   content:"Quer conversar? Clique aqui e me chame pelo WhatsApp.";
   position:absolute;
@@ -519,8 +519,8 @@ hr,.divider,.separator{border-color:rgba(168,143,91,.42)!important}input,textare
 .sticky-cta:hover::after,.sticky-cta:focus-visible::after{opacity:1;visibility:visible;transform:translate(0,-50%)}
 html[lang="en"] .sticky-cta::after{content:"Want to talk? Click here to message me on WhatsApp."}
 @media(max-width:700px){
-  .sticky-cta{right:84px!important;bottom:16px!important;width:46px!important;height:46px!important;min-height:46px!important}
-  .sticky-cta svg{width:23px!important;height:23px!important}
+  .sticky-cta{right:84px!important;bottom:16px!important;width:32px!important;height:32px!important;min-height:32px!important}
+  .sticky-cta svg{width:25px!important;height:25px!important}
   .sticky-cta::after{display:none!important}
 }
 @media(prefers-reduced-motion:reduce){.sticky-cta{transition:none!important}.sticky-cta::after{transition:none!important}}
