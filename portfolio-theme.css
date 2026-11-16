@@ -3,13 +3,13 @@
 /* Canonical portfolio design system. Keep these tokens consistent across PT/EN pages and case studies. */
 :root {
   /* HS MIND approved palette. Keep visual colors centralized here. */
-  --pbos-bg: #080d12;
-  --pbos-surface: #111820;
-  --pbos-surface-2: #151e27;
+  --pbos-bg: #0A0D12;
+  --pbos-surface: #0F151C;
+  --pbos-surface-2: var(--pbos-surface);
   --pbos-gold: #A88F5B;
-  --pbos-blue: #4bbbc6;
-  --pbos-text: #f4f5f7;
-  --pbos-muted: #aeb7c0;
+  --pbos-blue: #7FB2DC;
+  --pbos-text: #F7F8FA;
+  --pbos-muted: #AEB5BD;
   --pbos-ink: #14100A;
   /* Semantic aliases */
   --pbos-gold-soft: var(--pbos-gold);
@@ -23,27 +23,27 @@
   --hm-cyan: var(--pbos-blue);
   --hm-gold: var(--pbos-gold);
   /* Shared transparency tokens */
-  --pbos-blue-soft: rgba(75,187,198,.06);
-  --pbos-blue-wash: rgba(75,187,198,.09);
-  --pbos-header-overlay: rgba(8,13,18,.88);
-  --pbos-header-overlay-soft: rgba(8,13,18,.4);
-  --pbos-surface-overlay-42: rgba(17,24,32,.42);
-  --pbos-surface-overlay-82: rgba(17,24,32,.82);
-  --pbos-surface-overlay-96: rgba(17,24,32,.96);
-  --pbos-shadow-16: rgba(8,13,18,.16);
-  --pbos-shadow-20: rgba(8,13,18,.20);
-  --pbos-shadow-35: rgba(8,13,18,.35);
-  --pbos-shadow-40: rgba(8,13,18,.4);
-  --pbos-border: rgba(174,183,192,.20);
-  --pbos-border-soft: rgba(174,183,192,.16);
-  --pbos-line: rgba(174,183,192,.18);
-  --pbos-line-blue: rgba(75,187,198,.25);
+  --pbos-blue-soft: rgba(127,178,220,.06);
+  --pbos-blue-wash: rgba(127,178,220,.09);
+  --pbos-header-overlay: rgba(10,13,18,.88);
+  --pbos-header-overlay-soft: rgba(10,13,18,.4);
+  --pbos-surface-overlay-42: rgba(15,21,28,.42);
+  --pbos-surface-overlay-82: rgba(15,21,28,.82);
+  --pbos-surface-overlay-96: rgba(15,21,28,.96);
+  --pbos-shadow-16: rgba(10,13,18,.16);
+  --pbos-shadow-20: rgba(10,13,18,.20);
+  --pbos-shadow-35: rgba(10,13,18,.35);
+  --pbos-shadow-40: rgba(10,13,18,.4);
+  --pbos-border: rgba(174,181,189,.20);
+  --pbos-border-soft: rgba(174,181,189,.16);
+  --pbos-line: rgba(174,181,189,.18);
+  --pbos-line-blue: rgba(127,178,220,.25);
   --pbos-line-gold: rgba(168,143,91,.30);
   --pbos-line-gold-soft: rgba(168,143,91,.22);
   --pbos-line-gold-medium: rgba(168,143,91,.34);
   --pbos-line-gold-strong: rgba(168,143,91,.42);
-  --pbos-border-light: rgba(244,245,247,.12);
-  --pbos-text-outline: rgba(244,245,247,.18);
+  --pbos-border-light: rgba(247,248,250,.12);
+  --pbos-text-outline: rgba(247,248,250,.18);
   --pbos-gold-wash-02: rgba(168,143,91,.02);
   --pbos-gold-wash-035: rgba(168,143,91,.035);
   --pbos-gold-wash-045: rgba(168,143,91,.045);
@@ -92,6 +92,7 @@
   --pbos-text-alpha-040: rgba(244,245,247,0.04);
   --pbos-text-alpha-800: rgba(244,245,247,0.8);
   --pbos-text-alpha-850: rgba(244,245,247,0.85);
+  --line: var(--pbos-line);
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--pbos-bg);scroll-padding-top:88px}
