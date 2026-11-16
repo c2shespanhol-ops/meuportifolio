@@ -117,6 +117,15 @@ jobs:
           node scripts/validate_analytics_consent.mjs
           node scripts/validate_contrast.mjs
 
+      - name: Upload responsive before-and-after evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-responsive-audit
+          path: artifacts/responsive-audit/
+          if-no-files-found: warn
+          retention-days: 30
+
       - name: Upload contrast audit evidence
         if: always()
         uses: actions/upload-artifact@v4

@@ -1,5 +1,5 @@
 import { chromium } from "playwright";
-import { access, readFile, readdir } from "node:fs/promises";
+import { access, mkdir, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 
 const root = path.resolve("_site");
@@ -46,9 +46,31 @@ for (const file of files) {
   }
   pages.push({ route, testRoute });
 }
-const sizes = [{width:390,height:844},{width:768,height:1024},{width:1440,height:900}];
+const sizes = [{width:360,height:800},{width:390,height:844},{width:768,height:1024},{width:1024,height:900},{width:1440,height:900}];
 const browser = await chromium.launch({headless:true});
 let checked = 0;
+const evidenceDir = path.resolve("artifacts/responsive-audit");
+const beforeDir = path.join(evidenceDir, "before");
+const afterDir = path.join(evidenceDir, "after");
+await mkdir(beforeDir, { recursive: true });
+await mkdir(afterDir, { recursive: true });
+
+/* Captura o estado publicado antes da mudança, antes de executar o deploy. */
+for (const [locale, url] of [
+  ["pt", "https://c2shespanhol-ops.github.io/meuportifolio/"],
+  ["en", "https://c2shespanhol-ops.github.io/meuportifolio/en/"]
+]) {
+  const baselinePage = await browser.newPage();
+  for (const viewport of sizes) {
+    await baselinePage.setViewportSize(viewport);
+    await baselinePage.goto(url, { waitUntil: "domcontentloaded", timeout: 20000 });
+    await baselinePage.locator(".actions .action-card").first().waitFor({ state: "visible", timeout: 10000 });
+    await baselinePage.locator(".actions").screenshot({
+      path: path.join(beforeDir, locale + "-" + viewport.width + "px.png")
+    });
+  }
+  await baselinePage.close();
+}
 
 for (const entry of pages) {
   const { route, testRoute } = entry;
@@ -98,6 +120,47 @@ for (const entry of pages) {
         }
       }
       if (route === "/index.html" || route === "/en/index.html") {
+        const actionAudit = await page.locator(".actions .action-card").evaluateAll(elements => {
+          const parent = document.querySelector(".actions");
+          return {
+            parentDisplay: getComputedStyle(parent).display,
+            parentDirection: getComputedStyle(parent).flexDirection,
+            parentWidth: Math.round(parent.getBoundingClientRect().width),
+            buttons: elements.map(element => {
+              const rect = element.getBoundingClientRect();
+              const style = getComputedStyle(element);
+              const icon = element.querySelector("svg")?.getBoundingClientRect();
+              return {
+                width: Math.round(rect.width),
+                height: Math.round(rect.height),
+                top: Math.round(rect.top),
+                left: Math.round(rect.left),
+                fontSize: parseFloat(style.fontSize),
+                iconWidth: Math.round(icon?.width || 0),
+                iconHeight: Math.round(icon?.height || 0)
+              };
+            })
+          };
+        });
+        if (actionAudit.buttons.length !== 2 ||
+            actionAudit.buttons.some(button => button.height < 44 || button.height > 56 ||
+              button.width > actionAudit.parentWidth + 1 || button.fontSize < 15 || button.fontSize > 16 ||
+              button.iconWidth !== 20 || button.iconHeight !== 20)) {
+          failures.push(route + " @ " + viewport.width + "px: primary action sizing failed " + JSON.stringify(actionAudit));
+        }
+        if (viewport.width <= 700) {
+          if (actionAudit.parentDirection !== "column" ||
+              actionAudit.buttons[1].top < actionAudit.buttons[0].top + actionAudit.buttons[0].height) {
+            failures.push(route + " @ " + viewport.width + "px: primary actions must stack vertically " + JSON.stringify(actionAudit));
+          }
+        } else if (actionAudit.parentDirection !== "row" ||
+                   Math.abs(actionAudit.buttons[0].top - actionAudit.buttons[1].top) > 1 ||
+                   actionAudit.buttons[1].left < actionAudit.buttons[0].left + actionAudit.buttons[0].width) {
+          failures.push(route + " @ " + viewport.width + "px: primary actions must remain side by side " + JSON.stringify(actionAudit));
+        }
+        await page.locator(".actions").screenshot({
+          path: path.join(afterDir, (route === "/index.html" ? "pt" : "en") + "-" + viewport.width + "px.png")
+        });
         const image = await page.locator(".about-photo img").first().evaluate(el => ({complete:el.complete,naturalWidth:el.naturalWidth})).catch(() => null);
         const fallback = await page.locator(".about-photo .photo-fallback-mark").count();
         if ((!image || !image.complete || image.naturalWidth === 0) && !fallback) {
@@ -184,4 +247,4 @@ if (failures.length) {
   console.error(failures.join("\n"));
   process.exit(1);
 }
-console.log("Responsive regression passed: " + pages.length + " HTML routes x " + sizes.length + " viewports (" + checked + " renders); " + redirects + " meta-refresh aliases resolved to their destination pages.");
+console.log("Responsive regression passed: " + pages.length + " HTML routes x " + sizes.length + " viewports (" + checked + " renders); primary actions verified in PT/EN at 360, 390, 768, 1024 and 1440px; before/after screenshots saved; " + redirects + " meta-refresh aliases resolved to their destination pages.");
