@@ -707,3 +707,6 @@ html body .cv-download,
 html body .cv-download * {
   color: #14100A;
 }
+
+/* Contrast correction for blue flow nodes: dark ink on approved blue surface. */
+.flow > .node { color: var(--pbos-ink); }
