@@ -1,7 +1,78 @@
 import { chromium } from "playwright";
-const targets=["/","/en/","/cv/cv-pt.html","/cv/cv-en.html","/case_study_01_persona_final.html","/case_study_02_leadtime_final.html","/case_study_03_habitat_final.html","/case03_matriz_evidencias.html","/case_study_04_shv_final.html","/case_study_05_pav_receita_federal_final.html","/case_study_06_peixe_urbano_final.html","/en/cases/case-01-virtual-assistant.html","/en/cases/case-02-lead-time-governance.html","/en/cases/case-02-supporting-documents.html","/en/cases/case-02-operational-discovery-report.html","/en/cases/case-02-as-is-to-be-mapping.html","/en/cases/case-02-service-workflow-design.html","/en/cases/case-02-governance-prioritization-framework.html","/en/cases/case-02-decision-escalation-playbook.html","/en/cases/case-02-stakeholder-alignment.html","/en/cases/case-02-success-metrics.html","/en/cases/case-02-lessons-learned.html","/en/cases/case-03-habitat-saas.html","/en/cases/case-03-habitat-operational-protocol.html","/en/cases/case-03-habitat-master-protocol.html","/en/cases/case-03-habitat-lead-time-report.html","/en/cases/case-03-habitat-discovery-flow.html","/en/cases/case-03-habitat-operational-workflow.html","/en/cases/case-03-habitat-user-journey-map.html","/en/cases/case-03-habitat-onboarding-model.html","/en/cases/case-03-habitat-incident-management.html","/en/cases/case-03-habitat-evidence-matrix.html","/en/cases/case-04-shv-energy.html","/en/cases/case-05-pav-receita-federal.html","/en/cases/case-06-peixe-urbano.html","/Central_Conhecimento.html","/case04_documentacao.html","/case05_documentacao.html","/case_study_06_peixe_urbano_artifacts.html","/en/Central_Knowledge.html","/en/cases/case-01-virtual-assistant-artifacts.html","/en/cases/case-01-virtual-assistant-brief.html","/en/cases/case-01-virtual-assistant-flows.html","/en/cases/case-01-product-vision.html","/en/cases/case-01-proto-personas.html","/en/cases/case-01-user-journey.html","/en/cases/case-01-conversational-architecture.html","/en/cases/case-01-master-prompt.html","/en/cases/case-01-tone-of-voice.html","/en/cases/case-01-conceptual-prototype.html","/en/cases/case-01-functional-requirements.html","/en/cases/case-06-peixe-urbano-artifacts.html","/en/cases/case-04-shv-documentation.html","/en/cases/case-05-pav-documentation.html","/en/cases/case-05-citizen-journey.html","/en/cases/case-05-user-validation.html","/en/cases/case-05-readiness-checklist.html","/en/cases/case-05-stakeholder-map.html"];
+import { readdir } from "node:fs/promises";
+import path from "node:path";
 
-targets.push("/case01_documento_visao.html","/case01_personas.html","/case01_jornada_usuario.html","/case01_arquitetura_conversacional.html","/case01_prompt_mestre.html","/case01_guia_tom_voz.html","/case01_prototipo_conceitual.html","/case01_requisitos_funcionais.html","/case01_briefing_reconstruido.html","/case01_fluxogramas.html","/case01_documentacao_complementar.html","/case02_product_discovery_report.html","/case02_as_is_to_be_mapping.html","/case02_service_workflow_design.html","/case02_governance_prioritization_framework.html","/case02_decision_playbook.html","/case02_stakeholder_alignment.html","/case02_product_success_metrics.html","/case02_lessons_learned.html","/modelo_onboarding.html","/fluxo_operacional.html","/mapa_jornada_usuario.html","/fluxo_discovery.html","/protocolo_habitat.html","/artefato_protocolo_habitat.html","/protocolo_gestao_incidentes.html","/relatorio_leadtime.html","/case05_checklist_prontidao.html","/case05_jornada_cidadao.html","/case05_mapa_stakeholders.html","/case05_plano_validacao_usuario.html");
-targets.push("/case01_metricas_impacto.html","/en/cases/case-01-measurement-framework.html","/case03_protocolo_mestre.html","/en/cases/case-03-habitat-documentation-history.html","/protocolo_maria.html");
-const sizes=[{width:390,height:844},{width:768,height:1024},{width:1440,height:900}],browser=await chromium.launch({headless:true}),fail=[];
-for(const path of targets){const page=await browser.newPage();for(const v of sizes){await page.setViewportSize(v);try{await page.goto("http://127.0.0.1:8765"+path,{waitUntil:"domcontentloaded",timeout:15000});const m=await page.evaluate(()=>{const o={w:innerWidth,c:document.documentElement.clientWidth,s:document.documentElement.scrollWidth,b:document.body.scrollWidth,heroImage:(document.querySelector(".hero-photo img, .about-photo img")?{complete:document.querySelector(".hero-photo img, .about-photo img").complete,naturalWidth:document.querySelector(".hero-photo img, .about-photo img").naturalWidth}:null),heroFallback:!!document.querySelector(".hero-photo .photo-fallback-mark, .about-photo .photo-fallback-mark")};if(o.s>o.c+1||o.b>o.c+1)o.offenders=[...document.querySelectorAll("body *")].map(el=>{const r=el.getBoundingClientRect(),cs=getComputedStyle(el);return{tag:el.tagName,cls:typeof el.className==="string"?el.className:"",id:el.id,left:Math.round(r.left),right:Math.round(r.right),width:Math.round(r.width),scroll:el.scrollWidth,client:el.clientWidth,display:cs.display,overflowX:cs.overflowX}}).filter(x=>x.right>innerWidth+1||x.left<-1||x.scroll>x.client+2).slice(0,15);return o});if(m.s>m.c+1||m.b>m.c+1)fail.push(path+" @ "+v.width+"px "+JSON.stringify(m));if((path==="/"||path==="/en/")&&((!m.heroImage||!m.heroImage.complete||m.heroImage.naturalWidth===0)&&!m.heroFallback))fail.push(path+" @ "+v.width+"px hero image did not load "+JSON.stringify(m.heroImage));}catch(e){fail.push(path+" @ "+v.width+"px "+e.message)}}await page.close()}await browser.close();if(fail.length){console.error(fail.join("\n"));process.exit(1)}console.log("Responsive regression passed: "+targets.length+" pages x "+sizes.length+" viewports.");
+const root = path.resolve("_site");
+async function walk(dir) {
+  const entries = await readdir(dir, { withFileTypes: true });
+  const nested = await Promise.all(entries.map(async entry => {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) return walk(full);
+    return entry.isFile() && entry.name.toLowerCase().endsWith(".html") ? [full] : [];
+  }));
+  return nested.flat();
+}
+const pages = (await walk(root)).map(file => "/" + path.relative(root, file).split(path.sep).join("/")).sort();
+const sizes = [{width:390,height:844},{width:768,height:1024},{width:1440,height:900}];
+const browser = await chromium.launch({headless:true});
+const failures = [];
+let checked = 0;
+
+for (const route of pages) {
+  const page = await browser.newPage();
+  for (const viewport of sizes) {
+    await page.setViewportSize(viewport);
+    try {
+      await page.goto("http://127.0.0.1:8765" + route, {waitUntil:"domcontentloaded",timeout:15000});
+      const result = await page.evaluate(() => {
+        const root = document.documentElement;
+        const body = document.body;
+        const data = {
+          viewport: innerWidth,
+          documentWidth: root.clientWidth,
+          documentScrollWidth: root.scrollWidth,
+          bodyScrollWidth: body.scrollWidth,
+          brokenTable: null
+        };
+        const metrics = document.querySelector(".metrics-table");
+        if (metrics) {
+          const wrapper = metrics.closest(".metrics-table-wrap");
+          data.brokenTable = {
+            tableWidth: Math.round(metrics.getBoundingClientRect().width),
+            wrapperWidth: wrapper ? Math.round(wrapper.getBoundingClientRect().width) : null,
+            wrapperScrollWidth: wrapper ? wrapper.scrollWidth : null,
+            wrapperClientWidth: wrapper ? wrapper.clientWidth : null,
+            minWidth: getComputedStyle(metrics).minWidth
+          };
+        }
+        return data;
+      });
+      checked++;
+      if (result.documentScrollWidth > result.documentWidth + 1 || result.bodyScrollWidth > result.documentWidth + 1) {
+        failures.push(route + " @ " + viewport.width + "px: horizontal page overflow " + JSON.stringify(result));
+      }
+      if (result.brokenTable && viewport.width < 680) {
+        const t = result.brokenTable;
+        if (t.wrapperWidth === null || t.wrapperWidth > viewport.width + 1 || t.wrapperScrollWidth <= t.wrapperClientWidth || t.tableWidth < 679) {
+          failures.push(route + " @ " + viewport.width + "px: metrics table is not safely scrollable/readable " + JSON.stringify(result));
+        }
+      }
+      if (route === "/index.html" || route === "/en/index.html") {
+        const image = await page.locator(".about-photo img").first().evaluate(el => ({complete:el.complete,naturalWidth:el.naturalWidth})).catch(() => null);
+        const fallback = await page.locator(".about-photo .photo-fallback-mark").count();
+        if ((!image || !image.complete || image.naturalWidth === 0) && !fallback) {
+          failures.push(route + " @ " + viewport.width + "px: profile image did not load and no fallback exists");
+        }
+      }
+    } catch (error) {
+      failures.push(route + " @ " + viewport.width + "px: " + error.message);
+    }
+  }
+  await page.close();
+}
+await browser.close();
+if (failures.length) {
+  console.error(failures.join("\n"));
+  process.exit(1);
+}
+console.log("Responsive regression passed: " + pages.length + " HTML pages x " + sizes.length + " viewports (" + checked + " renders).");
