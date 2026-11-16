@@ -19,4 +19,6 @@ Os dois artefatos originais foram baixados da execução do GitHub Actions, empa
 - [Commit auditado](https://github.com/c2shespanhol-ops/meuportifolio/commit/e43e147fdaf6feb402545a9ebd715c3b0fcac1e8)
 
 ## Status documental
-Os testes automatizados foram concluídos com sucesso. Este registro não representa aprovação humana formal. A validação humana permanece pendente.
+- Testes automatizados: concluídos com sucesso.
+- Aprovação humana: confirmada pelo responsável pelo portfólio. A aprovação já havia ocorrido antes desta atualização; a data original não foi informada e, por isso, não é presumida neste registro.
+- Arquivos originais: preservados permanentemente nos pacotes ZIP desta pasta.
