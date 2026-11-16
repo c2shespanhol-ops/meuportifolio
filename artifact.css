@@ -115,7 +115,7 @@ html body .section-inner,html body .hero,html body .artifact-section-wrap{backgr
 
 /* Responsive metrics tables: preserve readable columns on narrow screens. */
 html body .metrics-table-wrap{display:block;width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;}
-html body table.metrics-table{display:table;width:100%;min-width:680px;max-width:none;table-layout:fixed;border-collapse:collapse;overflow:visible;}
+html body table.metrics-table{display:table;width:100%;min-width:680px;max-width:none;table-layout:fixed;border-collapse:collapse;overflow:hidden;}
 html body table.metrics-table th,html body table.metrics-table td{overflow-wrap:normal;word-break:normal;hyphens:none;white-space:normal;vertical-align:top;}
 html body table.metrics-table th:nth-child(1),html body table.metrics-table td:nth-child(1){width:34%;}
 html body table.metrics-table th:nth-child(2),html body table.metrics-table td:nth-child(2){width:44%;}
