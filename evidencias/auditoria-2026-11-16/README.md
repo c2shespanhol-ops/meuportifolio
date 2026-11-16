@@ -2,20 +2,21 @@
 
 Esta pasta registra os resultados da auditoria automatizada executada no commit `e43e147fdaf6feb402545a9ebd715c3b0fcac1e8`.
 
-## Arquivos desta pasta
+## Relatórios
 - `relatorio-wcag.md`: resultados e limites da auditoria de contraste WCAG 2.1 AA.
 - `relatorio-privacidade.md`: evidências do teste de consentimento e requisições de Analytics.
 
-## Execuções originais
-- [Execução principal do GitHub Actions](https://github.com/c2shespanhol-ops/meuportifolio/actions/runs/43955284991)
-- [Publicação posterior dos PDFs](https://github.com/c2shespanhol-ops/meuportifolio/actions/runs/43956279621)
-- [Commit que executou a auditoria](https://github.com/c2shespanhol-ops/meuportifolio/commit/e43e147fdaf6feb402545a9ebd715c3b0fcac1e8)
+## Arquivos originais preservados
+Os dois artefatos originais foram baixados da execução do GitHub Actions, empacotados e versionados nesta pasta:
+- [Pacote original da auditoria de contraste](arquivos-originais/portfolio-contrast-audit.zip), com o relatório bruto e as capturas das páginas.
+- [Pacote original da auditoria de privacidade](arquivos-originais/portfolio-privacy-consent-audit.zip), com o log de rede e as capturas do banner.
+- [Checksums SHA-256](arquivos-originais/SHA256SUMS.txt), para verificação de integridade dos pacotes.
 
-## Artefatos originais do GitHub Actions
-- Contraste: artifact ID `14272147187`, `portfolio-contrast-audit`.
-- Privacidade/consentimento: artifact ID `14271202381`, `portfolio-privacy-consent-audit`.
-
-Os artefatos originais contêm capturas de tela. Na data do registro, o GitHub informa expiração em 30/11/2026. As capturas originais ainda permanecem nos artefatos da execução, não foram copiadas individualmente para esta pasta.
+## Execuções
+- [Execução principal da auditoria](https://github.com/c2shespanhol-ops/meuportifolio/actions/runs/43955284991)
+- [Deploy dos relatórios](https://github.com/c2shespanhol-ops/meuportifolio/actions/runs/43963088801)
+- [Execução de arquivamento dos arquivos originais](https://github.com/c2shespanhol-ops/meuportifolio/actions/runs/43965011151)
+- [Commit auditado](https://github.com/c2shespanhol-ops/meuportifolio/commit/e43e147fdaf6feb402545a9ebd715c3b0fcac1e8)
 
 ## Status documental
-A execução automatizada foi aprovada pelos testes. Este registro não representa aprovação humana formal. A validação humana permanece pendente.
+Os testes automatizados foram concluídos com sucesso. Este registro não representa aprovação humana formal. A validação humana permanece pendente.
