@@ -186,6 +186,7 @@ async function verifyRegressionDetection(browser) {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
   await page.setContent(`
     <style>
+      /* Test-only regression fixture: intentionally low contrast to verify detection. */
       a.skip{position:absolute;top:-80px;left:12px;padding:12px 16px;color:#777;background:#888}
       a.skip:focus-visible{top:12px}
     </style>
@@ -202,6 +203,7 @@ async function verifyRegressionDetection(browser) {
     "The contrast validator must detect a deliberately bad focused skip-link color."
   );
 
+  // Test-only restoration fixture. These legacy RGB values are never used by published page styles.
   await page.locator("a.skip").evaluate((element) => {
     element.style.color = "rgb(247, 248, 250)";
     element.style.backgroundColor = "rgb(15, 21, 28)";

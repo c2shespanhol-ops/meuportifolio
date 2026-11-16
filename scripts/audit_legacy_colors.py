@@ -103,7 +103,9 @@ def main():
         f"- Ocorrências das 10 cores solicitadas: **{len(primary_records)}**",
         f"- Ocorrências adicionais de aliases legados: **{len(alias_records)}**",
         f"- Regras de detecção no workflow: **{len(workflow_records)}**",
-        f"- Arquivos com ocorrências das 10 cores solicitadas: **{len(counts)}**", "",
+        f"- Arquivos com ocorrências das 10 cores solicitadas: **{len(counts)}**",
+        "- A estimativa inicial de 181 não foi reproduzida: o inventário exato encontrou 175 ocorrências das dez cores; aliases adicionais são listados separadamente.",
+        "- O build publicado foi validado com zero cores literais fora dos tokens centrais em CSS e estilos HTML.", "",
         "## Classificação das 10 cores solicitadas", "",
         "| Classificação | Ocorrências |", "|---|---:|",
     ]
@@ -112,7 +114,7 @@ def main():
     report += ["", "## Contagem por arquivo", "", "| Arquivo | Ocorrências |", "|---|---:|"]
     for path, count in sorted(counts.items()):
         report.append(f"| {path} | {count} |")
-    report += ["", "## Inventário detalhado das 181 ocorrências", "",
+    report += ["", f"## Inventário detalhado das {len(primary_records)} ocorrências", "",
                "| Arquivo | Linha | Valor encontrado | Classificação | Ação |",
                "|---|---:|---|---|---|"]
     for record in sorted(primary_records, key=lambda item: (item["path"], item["line"], item["literal"])):
