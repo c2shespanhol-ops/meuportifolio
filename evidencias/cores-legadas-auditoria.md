@@ -5,7 +5,7 @@
 - Ocorrências adicionais de aliases legados: **34**
 - Regras de detecção no workflow: **11**
 - Arquivos com ocorrências das 10 cores solicitadas: **46**
-- A estimativa inicial de 181 não foi reproduzida: o inventário exato encontrou 175 ocorrências das dez cores; aliases adicionais são listados separadamente.
+- A estimativa inicial de 181 foi ajustada pelo inventário reproduzível: 179 ocorrências das dez cores; aliases adicionais são listados separadamente.
 - O build publicado foi validado com zero cores literais fora dos tokens centrais em CSS e estilos HTML.
 
 ## Classificação das 10 cores solicitadas
