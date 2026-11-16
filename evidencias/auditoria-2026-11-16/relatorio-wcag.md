@@ -21,9 +21,9 @@ O relatório também registrou:
 - Teste de regressão: a regressão foi detectada no teste controlado, a reversão passou e a razão de contraste restaurada foi 17.27.
 - Aviso de consentimento: quatro cenários, português e inglês em 390 px e 1280 px, todos com zero violações e zero itens inconclusivos.
 
-## Limitação
+## Arquivos brutos preservados
 
-Este documento é o registro consolidado dos indicadores do `report.json` gerado pela execução. O arquivo bruto e as capturas de tela originais continuam disponíveis no artefato `portfolio-contrast-audit` da execução indicada no README, com expiração informada para 30/11/2026.
+O arquivo `report.json` e as capturas de tela originais foram preservados em [portfolio-contrast-audit.zip](arquivos-originais/portfolio-contrast-audit.zip). Os checksums SHA-256 estão em [SHA256SUMS.txt](arquivos-originais/SHA256SUMS.txt).
 
 ## Referências
 - [Execução da auditoria no GitHub Actions](https://github.com/c2shespanhol-ops/meuportifolio/actions/runs/43955284991)
