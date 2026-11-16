@@ -166,7 +166,7 @@ try {
         });
 
         if (routeIncompleteNodes.length) {
-          const screenshotName = route.replace(/^\\//, "").replace(/[^a-zA-Z0-9_-]+/g, "_")
+          const screenshotName = route.replace(/^\//, "").replace(/[^a-zA-Z0-9_-]+/g, "_")
             + "-" + viewport.width + ".png";
           await page.screenshot({
             path: path.join(OUTPUT, screenshotName),
