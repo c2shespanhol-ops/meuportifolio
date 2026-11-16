@@ -743,3 +743,17 @@ html body .cv-download * {
   .privacy-consent-actions button{min-width:0;width:100%}
 }
 body{--privacy-consent-height:180px}
+
+
+/* WCAG AA contrast for keyboard-only skip links. */
+html body a.skip,
+html body a.skip:hover,
+html body a.skip:focus,
+html body a.skip:focus-visible{
+  color:var(--pbos-ink);
+  background-color:var(--pbos-gold);
+}
+html body a.skip:focus-visible{
+  outline:3px solid var(--pbos-gold);
+  outline-offset:3px;
+}

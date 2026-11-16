@@ -70,20 +70,128 @@ async function runContrastRule(page) {
   });
 }
 
+function parseRgb(value) {
+  const match = value.match(/rgba?\\(([^)]+)\\)/i);
+  if (!match) return null;
+  const parts = match[1].split(",").map((part) => Number.parseFloat(part.trim()));
+  if (parts.length < 3 || parts.slice(0,3).some((part) => !Number.isFinite(part))) return null;
+  return parts.slice(0,3);
+}
+
+function relativeLuminance(rgb) {
+  const channels = rgb.map((value) => {
+    const normalized = value / 255;
+    return normalized <= 0.04045
+      ? normalized / 12.92
+      : Math.pow((normalized + 0.055) / 1.055, 2.4);
+  });
+  return 0.2126 * channels[0] + 0.7152 * channels[1] + 0.0722 * channels[2];
+}
+
+function contrastRatio(foreground, background) {
+  const fg = parseRgb(foreground);
+  const bg = parseRgb(background);
+  if (!fg || !bg) return null;
+  const first = relativeLuminance(fg);
+  const second = relativeLuminance(bg);
+  return (Math.max(first, second) + 0.05) / (Math.min(first, second) + 0.05);
+}
+
+async function readFocusedStyle(locator) {
+  return locator.evaluate((element) => {
+    function opaqueBackground(node) {
+      let current = node;
+      while (current) {
+        const value = getComputedStyle(current).backgroundColor;
+        const match = value.match(/rgba?\\(([^)]+)\\)/i);
+        if (match) {
+          const parts = match[1].split(",").map((part) => Number.parseFloat(part.trim()));
+          const alpha = parts.length > 3 ? parts[3] : 1;
+          if (alpha >= 0.98) return value;
+        }
+        current = current.parentElement;
+      }
+      return getComputedStyle(document.body).backgroundColor;
+    }
+    const style = getComputedStyle(element);
+    return {
+      focusVisible: element.matches(":focus-visible"),
+      foreground: style.color,
+      background: opaqueBackground(element),
+      text: (element.innerText || element.getAttribute("aria-label") || "").trim().slice(0, 100),
+      selector: element.matches("a.skip") ? "a.skip" : "button"
+    };
+  });
+}
+
+async function auditFocusStates(page, route, viewport) {
+  const failures = [];
+  let skipChecks = 0;
+  let buttonChecks = 0;
+  await page.keyboard.press("Tab");
+
+  const skip = page.locator("a.skip").first();
+  if (await skip.count()) {
+    await skip.focus();
+    const state = await readFocusedStyle(skip);
+    skipChecks += 1;
+    const ratio = contrastRatio(state.foreground, state.background);
+    if (!state.focusVisible || ratio === null || ratio < 4.5) {
+      failures.push({
+        route,
+        viewport: viewport.width,
+        state: "skip:focus-visible",
+        ratio,
+        details: state
+      });
+    }
+  }
+
+  const buttons = page.locator("button:visible:not([disabled])");
+  const count = await buttons.count();
+  for (let index = 0; index < count; index += 1) {
+    const button = buttons.nth(index);
+    await button.focus();
+    const state = await readFocusedStyle(button);
+    buttonChecks += 1;
+    const ratio = contrastRatio(state.foreground, state.background);
+    if (!state.focusVisible || ratio === null || ratio < 4.5) {
+      failures.push({
+        route,
+        viewport: viewport.width,
+        state: "button:focus-visible",
+        ratio,
+        details: state
+      });
+    }
+  }
+  return { failures, skipChecks, buttonChecks };
+}
+
 async function verifyRegressionDetection(browser) {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
-  await page.setContent(
-    '<main><p style="font-size:16px;color:#777;background:#888">Contrast regression probe</p></main>'
-  );
+  await page.setContent(`
+    <style>
+      a.skip{position:absolute;top:-80px;left:12px;padding:12px 16px;color:#777;background:#888}
+      a.skip:focus-visible{top:12px}
+    </style>
+    <a class="skip" href="#main">Pular para o conteúdo</a>
+    <main id="main"><button type="button">Ação</button></main>
+  `);
+  await page.keyboard.press("Tab");
   const broken = await runContrastRule(page);
+  const skipRegressionDetected = broken.violations.some((violation) =>
+    violation.nodes.some((node) => node.target.some((target) => target.includes(".skip")))
+  );
   assert.ok(
-    broken.violations.length > 0,
-    "The validator self-test must detect deliberately insufficient contrast."
+    skipRegressionDetected,
+    "The contrast validator must detect a deliberately bad focused skip-link color."
   );
 
-  await page.locator("p").evaluate((element) => {
-    element.style.color = "#000";
-    element.style.backgroundColor = "#fff";
+  await page.locator("a.skip").evaluate((element) => {
+    element.style.color = "#14100A";
+    element.style.backgroundColor = "#A88F5B";
+    element.style.top = "12px";
   });
   const restored = await page.evaluate(async () => {
     const result = await window.axe.run(document, {
@@ -94,10 +202,13 @@ async function verifyRegressionDetection(browser) {
   assert.equal(
     restored.length,
     0,
-    "The validator self-test must pass after the contrast regression is reverted."
+    "The validator self-test must pass after the skip-link contrast regression is reverted."
   );
   await page.close();
-  return { regression_detected: true, after_revert: "pass" };
+  return {
+    skip_regression_detected: true,
+    after_revert: "pass"
+  };
 }
 
 await mkdir(OUTPUT, { recursive: true });
@@ -106,6 +217,13 @@ const pages = (await walk(ROOT))
   .sort();
 
 if (!pages.length) throw new Error("No generated HTML pages found in _site.");
+
+const skipPages = [];
+for (const route of pages) {
+  const html = await readFile(path.join(ROOT, route.replace(/^\\//, "")), "utf8");
+  if (/<a\\b[^>]*class=["'][^"']*\\bskip\\b/i.test(html)) skipPages.push(route);
+}
+
 
 async function resolveMetaRefresh(route) {
   const file = path.join(ROOT, route.replace(/^\//, ""));
@@ -124,6 +242,8 @@ const results = [];
 const incompleteNodeDetails = [];
 let checked = 0;
 let incompleteCount = 0;
+let skipFocusChecks = 0;
+let buttonFocusChecks = 0;
 
 try {
   const selfTest = await verifyRegressionDetection(browser);
@@ -143,6 +263,10 @@ try {
         }
 
         const audit = await runContrastRule(page);
+        const focusAudit = await auditFocusStates(page, route, viewport);
+        skipFocusChecks += focusAudit.skipChecks;
+        buttonFocusChecks += focusAudit.buttonChecks;
+        if (focusAudit.failures.length) failures.push(...focusAudit.failures);
         checked += 1;
         const routeIncompleteNodes = audit.incomplete.flatMap((item) =>
           item.nodes.map((node) => ({ route, viewport: viewport.width, ...node }))
@@ -190,6 +314,11 @@ try {
     page_viewport_checks: checked,
     incomplete_nodes: incompleteCount,
     incomplete_node_details: incompleteNodeDetails,
+    focus_state_checks: {
+      skip_pages: skipPages.length,
+      skip_links: skipFocusChecks,
+      buttons: buttonFocusChecks
+    },
     screenshot_scope: "Every route/viewport with axe color-contrast incomplete nodes",
     self_test: selfTest,
     failures,
@@ -208,6 +337,7 @@ try {
     checks: checked,
     failures: failures.length,
     incomplete_nodes: incompleteCount,
+    focus_state_checks: { skip_pages: skipPages.length, skip_links: skipFocusChecks, buttons: buttonFocusChecks },
     self_test: selfTest,
     evidence: OUTPUT
   }, null, 2));
