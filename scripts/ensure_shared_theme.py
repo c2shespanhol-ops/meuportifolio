@@ -68,7 +68,7 @@ for page in root.rglob("*.html"):
   source=re.sub(r"</head>",'<meta name="theme-color" content="#0A0D12">\n</head>',source,count=1,flags=re.I)
 
  relative=os.path.relpath(theme,page.parent).replace(os.sep,"/")
- href=relative+"?v=20261115-whatsapp-visible-icon-26px-v7"
+ href=relative+"?v=20261115-whatsapp-match-top-button-52px-v8"
  source=theme_link_pattern.sub("",source)
 
  styles=[]
