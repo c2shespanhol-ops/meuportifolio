@@ -50,7 +50,7 @@ jobs:
 
       - name: Audit legacy palette before migration
         env:
-          PALETTE_AUDIT_BASE_SHA: ${{ github.event.before }}
+          PALETTE_AUDIT_BASE_SHA: 49398ef3f6de208e6a73e332ccdcb84e2452f3d6
         run: python scripts/audit_legacy_colors.py
 
       - name: Configure Pages
