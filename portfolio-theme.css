@@ -644,3 +644,13 @@ html body table th {
 html body table td {
   color:#AEB5BD!important;
 }
+
+
+/* WCAG 2.1 AA: dark text on gold interactive surfaces. */
+html body a.active, html body a[aria-current="page"], html body a.primary,
+html body .primary, html body .active, html body .action-card.primary,
+html body .action-card.primary *, html body #ptBtn.active, html body #enBtn.active,
+html body .chip[aria-pressed="true"], html body .btn.primary,
+html body .button.primary, html body .cta.primary, html body .primary-button {
+  color: #14100A !important;
+}
