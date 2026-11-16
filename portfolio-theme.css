@@ -585,3 +585,26 @@ html[lang="en"] .sticky-cta::after{content:"Want to talk? Click here to message 
   .sticky-cta svg{width:24px!important;height:24px!important}
   .sticky-cta::after{display:none!important}
 }
+
+/* WCAG AA contrast remediation · 2026-11
+   Keep navigation and footer links readable on dark surfaces.
+   Normalize tables that used the accent blue as a full-cell background. */
+body a:not(.btn):not(.button):not(.cta):not(.primary-button),
+body a:not(.btn):not(.button):not(.cta):not(.primary-button):visited,
+body .pbos-footer-link,
+body .back,body .back-btn,body .lang,body .case-back,body .case-lang,
+body #ptBtn,body #enBtn,body .print-doc,body .original,
+body .case01-hub-link {
+  color:#7FB2DC!important;
+}
+body table {
+  background:#0F151C!important;
+  color:#AEB5BD!important;
+}
+body table th,body table td {
+  background:#0F151C!important;
+  color:#AEB5BD!important;
+}
+body table th {
+  color:#A88F5B!important;
+}
