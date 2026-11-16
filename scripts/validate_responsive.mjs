@@ -92,7 +92,7 @@ for (const route of pages) {
         });
         if (contactAudit.error || contactAudit.display === "none" ||
             contactAudit.position !== "fixed" ||
-            contactAudit.width !== 44 || contactAudit.height !== 44 || contactAudit.iconWidth !== 26 || contactAudit.iconHeight !== 26 || contactAudit.opacity !== "1" || contactAudit.visibility !== "visible" ||
+            contactAudit.width !== 52 || contactAudit.height !== 52 || contactAudit.iconWidth !== 24 || contactAudit.iconHeight !== 24 || contactAudit.opacity !== "1" || contactAudit.visibility !== "visible" ||
             !contactAudit.radius.includes("50%") || contactAudit.text !== "" ||
             !contactAudit.targetExists || !contactAudit.emailExists ||
             contactAudit.contactWhatsAppExists ||
