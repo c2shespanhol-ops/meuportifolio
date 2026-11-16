@@ -168,7 +168,6 @@ for (const entry of pages) {
     } catch (error) {
       failures.push(route + " @ " + viewport.width + "px: " + error.message);
     }
-    await page.close();
   }
   await page.close();
 }
