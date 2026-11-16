@@ -97,7 +97,7 @@ html body table th,html body .table th,html body .exec-table th{font-size:12px !
 html body a.lang,html body a.original,html body a.primary,html body a.print-doc,html body .lang a{
   display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:10px 14px;
   font-size:14px !important;border:1px solid rgba(247,248,250,.12);border-radius:12px;background:#0A0D12 !important;
-  color:#F7F8FA !important;text-transform:none !important;letter-spacing:0 !important;font-weight:600 !important;
+  color:var(--cyan) !important;text-transform:none !important;letter-spacing:0 !important;font-weight:600 !important;
 }
 html body a.primary{background:#A88F5B !important;color:#14100A !important}
 html body figcaption{font-size:12px !important;color:#AEB5BD !important}
