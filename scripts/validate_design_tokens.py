@@ -9,13 +9,13 @@ ROOT = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else DEFAULT_ROOT
 SCAN_HTML_STYLES = len(sys.argv) > 1
 CANONICAL_THEME = "portfolio-theme.css"
 PALETTE = {
-    "--pbos-bg": "#080d12",
-    "--pbos-surface": "#111820",
-    "--pbos-surface-2": "#151e27",
+    "--pbos-bg": "#0A0D12",
+    "--pbos-surface": "#0F151C",
+    "--pbos-surface-2": "var(--pbos-surface)",
     "--pbos-gold": "#A88F5B",
-    "--pbos-blue": "#4bbbc6",
-    "--pbos-text": "#f4f5f7",
-    "--pbos-muted": "#aeb7c0",
+    "--pbos-blue": "#7FB2DC",
+    "--pbos-text": "#F7F8FA",
+    "--pbos-muted": "#AEB5BD",
     "--pbos-ink": "#14100A",
 }
 COLOR_RE = re.compile(r"#[0-9a-fA-F]{3,8}\b|(?:rgba?|hsla?)\([^)]*\)", re.I)
