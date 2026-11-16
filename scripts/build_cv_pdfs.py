@@ -95,6 +95,9 @@ def build_pdf(source_path, output_path, language):
             story.append(Paragraph("&#8226; " + safe, styles["li"]))
         else:
             is_meta = "|" in text and any(token in text for token in ("RJ", "Brazil", "Maricá"))
+            if is_meta:
+                phone_label = "Phone" if language == "en" else "Telefone"
+                safe = html.escape(text + f" | {phone_label}: +55 (21) 98631-4378")
             story.append(Paragraph(safe, styles["meta"] if is_meta else styles["p"]))
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)

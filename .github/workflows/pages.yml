@@ -51,6 +51,39 @@ jobs:
           python -m pip install --disable-pip-version-check reportlab pypdf
           python scripts/build_cv_pdfs.py
           python scripts/validate_cv_pdfs.py _site/cv
+      - name: Verify CV PDF text with pdftotext
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v pdftotext >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y poppler-utils
+          fi
+          pt_text="$(pdftotext _site/cv/Cleyton-Hespanhol-Product-Owner-PT.pdf -)"
+          en_text="$(pdftotext _site/cv/Cleyton-Hespanhol-Product-Owner-EN.pdf -)"
+          for content in "$pt_text" "$en_text"; do
+            grep -Fq "Product Owner | UX" <<< "$content"
+            grep -Fq "Maricá" <<< "$content"
+            grep -Fq "+55 (21) 98631-4378" <<< "$content"
+            if grep -Eiq "Niterói|PRODUTO DIGITAL" <<< "$content"; then
+              echo "::error::Outdated city or brand title remains in a generated CV PDF."
+              exit 1
+            fi
+          done
+          printf '%s\n' "PT PDF proof:"
+          grep -E "Product Owner \\| UX|Maricá|\\+55 \\(21\\) 98631-4378" <<< "$pt_text"
+          printf '%s\n' "EN PDF proof:"
+          grep -E "Product Owner \\| UX|Maricá|\\+55 \\(21\\) 98631-4378" <<< "$en_text"
+          pdfinfo _site/cv/Cleyton-Hespanhol-Product-Owner-PT.pdf | grep '^Pages:'
+          pdfinfo _site/cv/Cleyton-Hespanhol-Product-Owner-EN.pdf | grep '^Pages:'
+
+      - name: Upload generated CV PDFs for versioning
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-cv-pdfs
+          path: _site/cv/*.pdf
+          retention-days: 14
       - name: Validate approved palette and reject legacy colors
         shell: bash
         run: |
@@ -345,3 +378,36 @@ jobs:
           done
           echo "Published site did not become reachable or failed smoke-test assertions."
           exit 1
+
+  version-cv-pdfs:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: deploy
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download generated CV PDFs
+        uses: actions/download-artifact@v4
+        with:
+          name: portfolio-cv-pdfs
+          path: /tmp/portfolio-cv-pdfs
+
+      - name: Commit regenerated CV PDFs
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp /tmp/portfolio-cv-pdfs/Cleyton-Hespanhol-Product-Owner-PT.pdf cv/
+          cp /tmp/portfolio-cv-pdfs/Cleyton-Hespanhol-Product-Owner-EN.pdf cv/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cv/Cleyton-Hespanhol-Product-Owner-PT.pdf cv/Cleyton-Hespanhol-Product-Owner-EN.pdf
+          if git diff --cached --quiet; then
+            echo "Generated CV PDFs already match the committed versions."
+          else
+            git commit -m "Update generated CV PDFs"
+            git push
+          fi
