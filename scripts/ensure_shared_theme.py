@@ -112,8 +112,12 @@ for page in root.rglob("*.html"):
    source += f'<footer class="site-footer privacy-generated-footer">{privacy_links}</footer>'
  consent_src=os.path.relpath(root/"privacy-consent.js",page.parent).replace(os.sep,"/")
  consent_tag=f'<script src="{consent_src}" defer></script>'
- if "privacy-consent.js" not in source:
-  source=re.sub(r"</body>",lambda match: consent_tag+"\n"+match.group(0),source,count=1,flags=re.I)
+ consent_pattern=re.compile(r'<script\\b[^>]*src=["\\'][^"\\']*privacy-consent\\.js(?:\\?[^"\\']*)?["\\'][^>]*>',re.I)
+ if not consent_pattern.search(source):
+  if re.search(r"</body\\s*>",source,re.I):
+   source=re.sub(r"</body\\s*>",lambda match: consent_tag+"\\n"+match.group(0),source,count=1,flags=re.I)
+  else:
+   source += "\\n"+consent_tag
  page.write_text(source,encoding="utf-8")
  count+=1
 

@@ -19,6 +19,10 @@ assert.ok(htmlFiles.length > 0, "The generated site must contain HTML pages.");
 const pages = htmlFiles.map(file => ({ file: path.relative(siteRoot, file).split(path.sep).join("/"), html: readFileSync(file, "utf8") }));
 const pagesWithConsent = pages.filter(page => /<script\b[^>]*src=["'][^"']*privacy-consent\.js(?:\?[^"']*)?["'][^>]*>/i.test(page.html));
 const pagesWithPrivacyLinks = pages.filter(page => /class=["'][^"']*privacy-footer-links[^"']*["']/i.test(page.html));
+if (pagesWithConsent.length !== htmlFiles.length) {
+  const missing = pages.filter(page => !/<script\\b[^>]*src=["'][^"']*privacy-consent\\.js(?:\\?[^"']*)?["'][^>]*>/i.test(page.html)).map(page => page.file);
+  console.error("Pages missing privacy-consent.js:", missing.join(", "));
+}
 assert.equal(pagesWithConsent.length, htmlFiles.length, "Every HTML page must load privacy-consent.js.");
 assert.equal(pagesWithPrivacyLinks.length, htmlFiles.length, "Every HTML page must contain privacy links in its footer.");
 for (const page of pages) {
