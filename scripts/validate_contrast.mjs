@@ -43,7 +43,29 @@ async function runContrastRule(page) {
       })),
       incomplete: result.incomplete
         .filter((item) => item.id === "color-contrast")
-        .map((item) => ({ id: item.id, nodes: item.nodes.length }))
+        .map((item) => ({
+          id: item.id,
+          nodes: item.nodes.map((node) => ({
+            target: node.target,
+            html: node.html?.slice(0, 600) ?? "",
+            summary: node.failureSummary ?? "",
+            any: (node.any ?? []).map((check) => ({
+              id: check.id,
+              message: check.message,
+              data: check.data
+            })),
+            all: (node.all ?? []).map((check) => ({
+              id: check.id,
+              message: check.message,
+              data: check.data
+            })),
+            none: (node.none ?? []).map((check) => ({
+              id: check.id,
+              message: check.message,
+              data: check.data
+            }))
+          }))
+        })))
     };
   });
 }
