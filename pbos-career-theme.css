@@ -1,7 +1,7 @@
 /* PBOS Career OS visual reference. Source: PBOS/career-os/design-system.md + styles.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
 @layer portfolio-base {
-500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
 :root{
 --pbos-bg:#0A0D12;--pbos-surface:#0F151C;--pbos-surface-2:#0F151C;--pbos-blue:#7FB2DC;
 --pbos-gold:#A88F5B;--pbos-text:#F7F8FA;--pbos-muted:#AEB5BD;
