@@ -6,24 +6,21 @@
   Regra de legibilidade: nenhum texto abaixo de 12px, corpo em 16px, alvos de toque de 44px ou mais.
 */
 :root{
-  --bg:#0A0D12;
-  --surface:#0F151C;
-  --surface-2:#0F151C;
-  --text:#F7F8FA;
-  --muted:#AEB5BD;
-  --blue:#7FB2DC;
-  --gold:#A88F5B;
-  --gold-ink:#14100A;
-  --line:rgba(247,248,250,.12);
-  --line-gold:rgba(168,143,91,.34);
-  --radius:20px;
-  --radius-sm:12px;
-  --max:1120px;
-  --pad:clamp(20px,5vw,48px);
-  --sec:clamp(56px,8vw,104px);
+  --bg:#0A0D12;--surface:#0F151C;--surface-2:#0F151C;
+  --text:#F7F8FA;--muted:#AEB5BD;--blue:#7FB2DC;--gold:#A88F5B;--gold-ink:#14100A;
+  --line:rgba(247,248,250,.12);--line-gold:rgba(168,143,91,.34);
+  --radius:20px;--radius-sm:12px;--max:1120px;
+  --pad:clamp(20px,5vw,48px);--sec:clamp(56px,8vw,104px);
   --font-body:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   --font-head:Montserrat,Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
---hm-bg:#0A0D12--hm-surface:#0F151C--hm-surface-2:#0F151C--hm-text:#F7F8FA--hm-muted:#AEB5BD--hm-cyan:#7FB2DC--hm-gold:#A88F5B--bg2:var(--hm-surface)--bg3:var(--hm-surface-2)--background:var(--hm-bg)--foreground:var(--hm-text)--card:var(--hm-surface)--white:var(--hm-text)--text-muted:var(--hm-muted)--cyan:var(--hm-cyan)--teal:var(--hm-cyan)--primary:var(--hm-gold)--border:rgba(174,181,189,.18)}
+  --hm-bg:#0A0D12;--hm-surface:#0F151C;--hm-surface-2:#0F151C;
+  --hm-text:#F7F8FA;--hm-muted:#AEB5BD;--hm-cyan:#7FB2DC;--hm-gold:#A88F5B;
+  --bg2:var(--hm-surface);--bg3:var(--hm-surface-2);
+  --background:var(--hm-bg);--foreground:var(--hm-text);
+  --card:var(--hm-surface);--white:var(--hm-text);--text-muted:var(--hm-muted);
+  --cyan:var(--hm-cyan);--teal:var(--hm-cyan);--primary:var(--hm-gold);
+  --border:rgba(174,181,189,.18);
+}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:88px}
 body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
