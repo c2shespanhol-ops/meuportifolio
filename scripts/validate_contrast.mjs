@@ -189,8 +189,8 @@ async function verifyRegressionDetection(browser) {
   );
 
   await page.locator("a.skip").evaluate((element) => {
-    element.style.color = "rgb(16, 20, 25)";
-    element.style.backgroundColor = "rgb(168, 143, 91)";
+    element.style.color = "rgb(247, 248, 250)";
+    element.style.backgroundColor = "rgb(15, 21, 28)";
     element.style.top = "12px";
   });
   const restored = await auditFocusStates(page, "/self-test", { width: 390 });
@@ -199,7 +199,7 @@ async function verifyRegressionDetection(browser) {
     0,
     "The validator self-test must pass after the skip-link contrast regression is reverted."
   );
-  const restoredRatio = contrastRatio("rgb(16, 20, 25)", "rgb(168, 143, 91)");
+  const restoredRatio = contrastRatio("rgb(247, 248, 250)", "rgb(15, 21, 28)");
   assert.ok(
     restoredRatio !== null && restoredRatio >= 4.5,
     `The corrected skip-link colors must meet WCAG AA; received ${restoredRatio}.`

@@ -750,8 +750,8 @@ html body a.skip,
 html body a.skip:hover,
 html body a.skip:focus,
 html body a.skip:focus-visible{
-  color:var(--pbos-ink);
-  background-color:var(--pbos-gold);
+  color:var(--pbos-text);
+  background-color:var(--pbos-surface-2);
 }
 html body a.skip:focus-visible{
   outline:3px solid var(--pbos-gold);

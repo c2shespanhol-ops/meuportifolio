@@ -559,6 +559,6 @@ html body a.skip,
 html body a.skip:hover,
 html body a.skip:focus,
 html body a.skip:focus-visible {
-  color: #101419;
-  background-color: var(--gold);
+  color: var(--pbos-text);
+  background-color: var(--pbos-surface-2);
 }
