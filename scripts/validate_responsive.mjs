@@ -76,6 +76,10 @@ for (const route of pages) {
             position: style.position,
             width: Math.round(rect.width),
             height: Math.round(rect.height),
+            iconWidth: Math.round(sticky.querySelector("svg")?.getBoundingClientRect().width || 0),
+            iconHeight: Math.round(sticky.querySelector("svg")?.getBoundingClientRect().height || 0),
+            opacity: style.opacity,
+            visibility: style.visibility,
             top: rect.top,
             radius: style.borderRadius,
             href: sticky.getAttribute("href"),
@@ -88,7 +92,7 @@ for (const route of pages) {
         });
         if (contactAudit.error || contactAudit.display === "none" ||
             contactAudit.position !== "fixed" ||
-            contactAudit.width > 22 || contactAudit.height > 22 || contactAudit.width < 18 || contactAudit.height < 18 ||
+            contactAudit.width !== 44 || contactAudit.height !== 44 || contactAudit.iconWidth !== 26 || contactAudit.iconHeight !== 26 || contactAudit.opacity !== "1" || contactAudit.visibility !== "visible" ||
             !contactAudit.radius.includes("50%") || contactAudit.text !== "" ||
             !contactAudit.targetExists || !contactAudit.emailExists ||
             contactAudit.contactWhatsAppExists ||
