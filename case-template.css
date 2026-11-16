@@ -6,12 +6,12 @@
   --pbos-surface-2:#0F151C;
   --pbos-gold:#A88F5B;
   --pbos-gold-soft:#A88F5B;
-  --pbos-teal:#A88F5B;
+  --pbos-teal:#7FB2DC;
   --pbos-text:#F7F8FA;
   --pbos-muted:#AEB5BD;
   --pbos-muted-2:#AEB5BD;
-  --pbos-border:rgba(168,143,91,.22);
-  --pbos-border-soft:rgba(168,143,91,.22);
+  --pbos-border:rgba(174,181,189,.20);
+  --pbos-border-soft:rgba(174,181,189,.16);
   --bg:var(--pbos-bg);--bg2:var(--pbos-surface);--bg3:var(--pbos-surface-2);
   --gold:var(--pbos-gold);--gold-lt:var(--pbos-gold-soft);
   --teal:var(--pbos-teal);--teal-br:var(--pbos-teal);--cyan:var(--pbos-teal);
@@ -25,7 +25,7 @@
   --muted:#0F151C;--muted-foreground:var(--pbos-muted);
   --accent:var(--pbos-teal);--accent-foreground:var(--pbos-bg);
   --input:#0F151C;--ring:rgba(168,143,91,.6);
-}
+--hm-bg:#0A0D12;--hm-surface:#0F151C;--hm-surface-2:#0F151C;--hm-text:#F7F8FA;--hm-muted:#AEB5BD;--hm-cyan:#7FB2DC;--hm-gold:#A88F5B;--surface:var(--hm-surface);--surface-2:var(--hm-surface-2);--blue:var(--hm-cyan);--line:rgba(174,181,189,.18);}
 html,body{background:var(--pbos-bg)!important;color:var(--pbos-text)!important}
 body{color:var(--pbos-text)!important}
 p,li,td,th,.muted,.lead,.description{color:var(--pbos-muted)!important}
@@ -62,8 +62,6 @@ h2{font-size:clamp(28px,4vw,44px);line-height:1.12;letter-spacing:-.03em;font-we
 footer{border-top:1px solid var(--pbos-border);padding:34px 20px;text-align:center;color:var(--pbos-muted)!important}
 @media(max-width:760px){.case-shell{padding:95px 20px 60px}.case-meta,.role-grid,.evidence-grid,.grid{grid-template-columns:1fr}.step{grid-template-columns:1fr;gap:8px}h1{font-size:clamp(36px,11vw,54px)}}
 
-/* Final HS MIND palette override */
-:root{--pbos-bg:#0A0D12;--pbos-surface:#0F151C;--pbos-surface-2:#0F151C;--pbos-gold:#A88F5B;--pbos-gold-soft:#A88F5B;--pbos-teal:#A88F5B;--pbos-text:#F7F8FA;--pbos-muted:#AEB5BD;--pbos-muted-2:#AEB5BD;--pbos-border:rgba(168,143,91,.22);--bg:var(--pbos-bg);--bg2:var(--pbos-surface);--bg3:var(--pbos-surface-2);--gold:var(--pbos-gold);--gold-lt:var(--pbos-gold-soft);--teal:var(--pbos-teal);--teal-br:var(--pbos-teal);--cyan:var(--pbos-teal);--white:var(--pbos-text);--gray1:var(--pbos-muted);--gray2:var(--pbos-muted-2);--border:var(--pbos-border)}
 html,body{background:#0A0D12!important;color:#F7F8FA!important;overflow-wrap:normal!important;word-break:normal!important}
 body .card,body .panel,body .step,body .metric,body .doc-card,body .artifact-card,body .competency-card,body .eco-card,body .case-card,body .stat-box,body .meta,body .flow,body .note,body .comparison-box{background:#0F151C!important;color:#F7F8FA!important;border-color:rgba(168,143,91,.22)!important}
 body p,body li,body td,body th{color:#AEB5BD!important}
@@ -72,8 +70,6 @@ body .artifact-card h3,body .artifact-card p{overflow-wrap:break-word!important;
 @media(max-width:700px){body .artifact-card{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:12px!important}body .artifact-card>*{width:100%;min-width:0;max-width:100%}body .artifact-action{white-space:normal!important}}
 
 
-/* HS MIND approved palette */
-:root{--hm-bg:#0A0D12;--hm-surface:#0F151C;--hm-surface-2:#0F151C;--hm-text:#F7F8FA;--hm-muted:#AEB5BD;--hm-cyan:#7FB2DC;--hm-gold:#A88F5B;--bg:var(--hm-bg);--bg2:var(--hm-surface);--bg3:var(--hm-surface-2);--background:var(--hm-bg);--foreground:var(--hm-text);--surface:var(--hm-surface);--surface-2:var(--hm-surface-2);--card:var(--hm-surface);--text:var(--hm-text);--white:var(--hm-text);--muted:var(--hm-muted);--text-muted:var(--hm-muted);--cyan:var(--hm-cyan);--teal:var(--hm-cyan);--blue:var(--hm-cyan);--gold:var(--hm-gold);--primary:var(--hm-gold);--border:rgba(174,181,189,.18);--line:rgba(174,181,189,.18)}
 html,body{background:var(--hm-bg)!important;color:var(--hm-text)!important}body{background-color:var(--hm-bg)!important;color:var(--hm-text)!important}
 header,nav,footer,.topbar,.navbar,.site-header,.site-footer{background-color:#0A0D12!important;color:var(--hm-text)!important}
 h1,h2,h3,h4,h5,h6,strong,b,legend{color:var(--hm-text)!important}p,li,td,th,small,label,.muted,.lead,.description,.meta,.subtitle,.secondary-text{color:var(--hm-muted)!important}
