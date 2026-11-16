@@ -111,17 +111,6 @@ html body main,html body header,html body section,html body .section,html body .
 html body .section-inner,html body .hero,html body .artifact-section-wrap{background:transparent}
 
 
-/* HS MIND approved palette */
-:root{--hm-bg:#0A0D12;--hm-surface:#0F151C;--hm-surface-2:#0F151C;--hm-text:#F7F8FA;--hm-muted:#AEB5BD;--hm-cyan:#7FB2DC;--hm-gold:#A88F5B;--bg:var(--hm-bg);--bg2:var(--hm-surface);--bg3:var(--hm-surface-2);--background:var(--hm-bg);--foreground:var(--hm-text);--surface:var(--hm-surface);--surface-2:var(--hm-surface-2);--card:var(--hm-surface);--text:var(--hm-text);--white:var(--hm-text);--muted:var(--hm-muted);--text-muted:var(--hm-muted);--cyan:var(--hm-cyan);--teal:var(--hm-cyan);--blue:var(--hm-cyan);--gold:var(--hm-gold);--primary:var(--hm-gold);--border:rgba(174,181,189,.18);--line:rgba(174,181,189,.18)}
-html,body{background:var(--hm-bg);color:var(--hm-text)}body{background-color:var(--hm-bg);color:var(--hm-text)}
-header,nav,footer,.topbar,.navbar,.site-header,.site-footer{background-color:#0A0D12;color:var(--hm-text)}
-h1,h2,h3,h4,h5,h6,strong,b,legend{color:var(--hm-text)}p,li,td,th,small,label,.muted,.lead,.description,.meta,.subtitle,.secondary-text{color:var(--hm-muted)}
-a{color:var(--hm-cyan)}a:hover{color:#7FB2DC}
-.card,.case-card,.artifact-card,.panel,.metric-card,.document-card,.nav-card,.feature-card,.surface,.surface-card,.content-card,.stat-card,.step-card,.deliverable-card{background-color:var(--hm-surface);color:var(--hm-text);border-color:var(--border)}
-button,.btn,.button,.cta,.primary-button,.btn-primary,.button-primary{background-color:var(--hm-gold);color:#14100A;border-color:var(--hm-gold)}
-.btn-secondary,.button-secondary,.secondary-button{background:var(--hm-surface-2);color:var(--hm-text);border-color:var(--border)}
-.eyebrow,.kicker,.section-kicker,.gold,.text-gold,.accent-gold,.tag-gold{color:var(--hm-gold)}.cyan,.text-cyan,.accent-cyan,.teal{color:var(--hm-cyan)}
-hr,.divider,.separator{border-color:rgba(168,143,91,.42)}input,textarea,select{background:var(--hm-surface);color:var(--hm-text);border-color:var(--border)}::placeholder{color:#AEB5BD}:focus-visible{outline-color:var(--hm-gold)}
 
 
 /* Responsive metrics tables: preserve readable columns on narrow screens. */
