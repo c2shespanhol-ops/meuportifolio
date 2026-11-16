@@ -88,7 +88,7 @@ for (const route of pages) {
         });
         if (contactAudit.error || contactAudit.display === "none" ||
             contactAudit.position !== "fixed" ||
-            contactAudit.width > 52 || contactAudit.height > 52 ||
+            contactAudit.width > 34 || contactAudit.height > 34 || contactAudit.width < 30 || contactAudit.height < 30 ||
             !contactAudit.radius.includes("50%") || contactAudit.text !== "" ||
             !contactAudit.targetExists || !contactAudit.emailExists ||
             contactAudit.contactWhatsAppExists ||
@@ -107,6 +107,7 @@ for (const route of pages) {
             failures.push(route + " @ " + viewport.width + "px: desktop WhatsApp invitation tooltip did not appear");
           }
         }
+        await page.mouse.move(10, 10);
         await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
         await page.waitForTimeout(100);
         const stickyAfterScroll = await page.locator(".sticky-cta").evaluate(el => {
