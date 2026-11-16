@@ -97,7 +97,7 @@ def main():
         ("meuportifolio/pbos-career-theme.css", "--pbos-line"),
     ):
         source = COMMENT_RE.sub("", (ROOT / relative).read_text(encoding="utf-8"))
-        declaration = re.compile(r"--line\\s*:\\s*var\\(\\s*" + re.escape(expected_line) + r"\\s*\\)", re.I)
+        declaration = re.compile(r"--line\s*:\s*var\(\s*" + re.escape(expected_line) + r"\s*\)", re.I)
         if len(declaration.findall(source)) != 1:
             failures.append(f"{relative}: --line must preserve its original {expected_line} token mapping")
 
@@ -109,8 +109,8 @@ def main():
         if not path.is_file():
             continue
         source = COMMENT_RE.sub("", path.read_text(encoding="utf-8"))
-        declared_tokens.update(re.findall(r"(--[a-zA-Z0-9_-]+)\\s*:", source))
-        referenced_tokens.extend((relative, token) for token in re.findall(r"var\\(\\s*(--[a-zA-Z0-9_-]+)", source))
+        declared_tokens.update(re.findall(r"(--[a-zA-Z0-9_-]+)\s*:", source))
+        referenced_tokens.extend((relative, token) for token in re.findall(r"var\(\s*(--[a-zA-Z0-9_-]+)", source))
     unresolved = sorted({f"{relative}: {token}" for relative, token in referenced_tokens if token not in declared_tokens})
     if unresolved:
         failures.append("Unresolved CSS custom properties: " + ", ".join(unresolved[:30]))
