@@ -2,6 +2,7 @@
 import html
 import os
 import re
+import tempfile
 from html.parser import HTMLParser
 
 from reportlab.lib import colors
