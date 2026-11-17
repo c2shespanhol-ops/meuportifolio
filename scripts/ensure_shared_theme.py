@@ -109,10 +109,10 @@ for page in root.rglob("*.html"):
    f'<a class="privacy-preferences-link" href="#privacy-preferences">{preferences_label}</a>'
    f'</div>')
   if re.search(r"</footer>",source,re.I):
-   source=re.sub(r"</footer>",lambda match: privacy_links+"\\n</footer>",source,count=1,flags=re.I)
+   source=re.sub(r"</footer>",lambda match: privacy_links+"\n</footer>",source,count=1,flags=re.I)
   elif re.search(r"</body>",source,re.I):
    generated_footer=f'<footer class="site-footer privacy-generated-footer">{privacy_links}</footer>'
-   source=re.sub(r"</body>",lambda match: generated_footer+"\\n"+match.group(0),source,count=1,flags=re.I)
+   source=re.sub(r"</body>",lambda match: generated_footer+"\n"+match.group(0),source,count=1,flags=re.I)
   else:
    source += f'<footer class="site-footer privacy-generated-footer">{privacy_links}</footer>'
  consent_src=os.path.relpath(root/"privacy-consent.js",page.parent).replace(os.sep,"/")
