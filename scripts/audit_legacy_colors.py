@@ -56,7 +56,7 @@ def classify(path, line):
     if stripped.startswith(("<!--", "/*", "*", "//", "#")):
         return "comentário", "Atualizar o comentário ou identificá-lo como histórico."
     if "theme-color" in line.lower():
-        return "metadado visual", "Atualizar para o fundo canônico #080d12."
+        return "metadado visual", "Atualizar para o fundo canônico #0A0D12."
     if path.endswith((".html", ".css", ".svg")):
         return "uso visível", "Substituir por token semântico ou equivalente RGBA da paleta aprovada."
     return "constante de detecção", "Documentar a referência e atualizar a regra para a paleta aprovada."

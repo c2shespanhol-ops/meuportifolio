@@ -14,8 +14,8 @@ theme_meta=re.compile(r'<meta\b(?=[^>]*\bname=["\']theme-color["\'])[^>]*>',re.I
 def normalize_theme_color(match):
  tag=match.group(0)
  if re.search(r'\bcontent\s*=',tag,re.I):
-  return re.sub(r'\bcontent\s*=\s*(["\']).*?\1','content="#080d12"',tag,count=1,flags=re.I)
- return tag[:-1]+' content="#080d12">'
+  return re.sub(r'\bcontent\s*=\s*(["\']).*?\1','content="#0A0D12"',tag,count=1,flags=re.I)
+ return tag[:-1]+' content="#0A0D12">'
 
 def normalize_palette(source):
  # Historical literals map forward to the approved HS MIND palette.
@@ -52,7 +52,7 @@ def normalize_palette(source):
  source = re.sub(r"rgba\(\s*240\s*,\s*246\s*,\s*252", "rgba(247,248,250", source, flags=re.I)
  source = re.sub(r"rgba\(\s*255\s*,\s*255\s*,\s*255", "rgba(247,248,250", source, flags=re.I)
  source = re.sub(r"rgba\(\s*0\s*,\s*0\s*,\s*0", "rgba(20,16,10", source, flags=re.I)
- source = re.sub(r"(--blue\s*:\s*)#(?:DEB758|A88F5B)", r"\1#4bbbc6", source, flags=re.I)
+ source = re.sub(r"(--blue\s*:\s*)#(?:DEB758|A88F5B)", r"\1#7FB2DC", source, flags=re.I)
  return source
 
 # Normalize stylesheet and SVG source files in the generated site.
