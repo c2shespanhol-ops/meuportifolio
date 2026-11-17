@@ -836,7 +836,7 @@ html body a.sticky-cta:not(.action-card):not(.result):not(.btn):not(.button):not
   bottom:calc(16px + env(safe-area-inset-bottom) + var(--privacy-consent-height, 0px) + var(--fab-size) + 24px);
 }
 
-/* Contact links use the same sizing and visual system as the main case/CV action cards. */
+/* Contact links: slightly more compact while preserving their existing positions. */
 .contact-actions{
   display:flex;
   flex-direction:row;
@@ -852,14 +852,14 @@ html body a.sticky-cta:not(.action-card):not(.result):not(.btn):not(.button):not
   justify-content:center;
   width:fit-content;
   max-width:100%;
-  min-height:var(--btn-h, 52px);
+  min-height:44px;
   height:auto;
-  padding:0 20px;
-  gap:10px;
-  font:600 16px/1.2 var(--font-body, 'DM Sans', sans-serif);
+  padding:0 16px;
+  gap:8px;
+  font:600 15px/1.2 var(--font-body, 'DM Sans', sans-serif);
   white-space:normal;
 }
-.contact-actions > .action-card svg{width:20px;height:20px}
+.contact-actions > .action-card svg{width:18px;height:18px}
 @media(max-width:700px){
   .contact-actions{
     width:100%;
@@ -871,16 +871,16 @@ html body a.sticky-cta:not(.action-card):not(.result):not(.btn):not(.button):not
   .contact-actions > .action-card{
     align-self:stretch;
     width:fit-content;
-    min-height:68px;
-    padding:10px 12px;
-    font-size:14px;
+    min-height:54px;
+    padding:8px 10px;
+    font-size:13px;
     line-height:1.25;
-    gap:8px;
+    gap:7px;
   }
-  .contact-actions > .action-card svg{width:20px;height:20px}
+  .contact-actions > .action-card svg{width:18px;height:18px}
 }
 @media(max-width:360px){
-  .contact-actions > .action-card{padding:9px 8px;font-size:13px;gap:6px}
+  .contact-actions > .action-card{padding:8px 8px;font-size:12px;gap:6px}
 }
 
 /* 2026-11-17: explicit Portuguese homepage action alignment. */
