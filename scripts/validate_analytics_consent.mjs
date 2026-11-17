@@ -114,11 +114,26 @@ try {
   networkLog.push("After preference rejection: 0 analytics requests; document remained loaded.");
   const afterReaccept = [];
   mobilePage.on("request", request => { if (analyticsPattern.test(request.url())) afterReaccept.push(request.url()); });
-  await mobilePage.getByRole("link", { name: "Preferências de privacidade" }).click();
-  await mobilePage.getByRole("button", { name: "Aceitar" }).click();
-  await mobilePage.waitForTimeout(1500);
-  assert.equal(await mobilePage.evaluate(() => localStorage.getItem("portfolio-analytics-consent")), "accepted");
-  assert.ok(afterReaccept.length > 0, "Accepting again through preferences must reactivate analytics.");
+  try {
+    await mobilePage.getByRole("link", { name: "Preferências de privacidade" }).click();
+    networkLog.push("Preference link reopened: " + (await mobilePage.locator(".privacy-consent").count()));
+    await mobilePage.getByRole("button", { name: "Aceitar" }).click();
+    networkLog.push("Accept button clicked again.");
+    await mobilePage.waitForTimeout(1500);
+    const reacceptState = await mobilePage.evaluate(() => ({
+      choice: localStorage.getItem("portfolio-analytics-consent"),
+      gaDisabled: window["ga-disable-" + window.PORTFOLIO_GA4_MEASUREMENT_ID],
+      loaderPresent: !!document.querySelector('script[src*="googletagmanager.com/gtag/js"]')
+    }));
+    networkLog.push("Reaccept state: " + JSON.stringify(reacceptState));
+    networkLog.push("Reaccept requests: " + JSON.stringify(afterReaccept));
+    assert.equal(reacceptState.choice, "accepted", "Preference change must persist accepted.");
+    assert.ok(afterReaccept.length > 0, "Accepting again through preferences must reactivate analytics.");
+  } catch (error) {
+    networkLog.push("Reaccept failure: " + error.message);
+    writeFileSync(path.join(evidenceDir, "network-log.txt"), networkLog.join("\n") + "\n", "utf8");
+    throw error;
+  }
   networkLog.push("After changing rejected to accepted: " + afterReaccept.map(url => new URL(url).hostname).join(", "));
 
 
