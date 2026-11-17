@@ -29,6 +29,14 @@ for (const page of pages) {
   const english = page.file.startsWith("en/") || /<html\b[^>]*\blang=["']en/i.test(page.html);
   assert.ok(page.html.includes(english ? "Privacy preferences" : "Preferências de privacidade"), `Missing language-specific preferences link: ${page.file}`);
   assert.ok(page.html.includes(english ? ">Privacy<" : ">Privacidade<"), `Missing language-specific privacy link: ${page.file}`);
+  const scriptMatch = page.html.match(/<script\\b[^>]*src=["']([^"']*privacy-consent\\.js(?:\\?[^"']*)?)["'][^>]*>/i);
+  assert.ok(scriptMatch, `Missing consent script: ${page.file}`);
+  const scriptPath = path.posix.normalize(path.posix.join(path.posix.dirname(page.file), scriptMatch[1].split("?")[0]));
+  assert.equal(scriptPath, "privacy-consent.js", `Consent script path is incorrect: ${page.file} -> ${scriptPath}`);
+  const privacyMatch = page.html.match(/<a\\b[^>]*href=["']([^"']+)["'][^>]*>\\s*(?:Privacy|Privacidade)\\s*<\\/a>/i);
+  assert.ok(privacyMatch, `Missing privacy policy destination: ${page.file}`);
+  const policyPath = path.posix.normalize(path.posix.join(path.posix.dirname(page.file), privacyMatch[1].split(/[?#]/)[0]));
+  assert.equal(policyPath, english ? "en/privacy.html" : "privacidade.html", `Privacy link path is incorrect: ${page.file} -> ${policyPath}`);
 }
 const ptPolicy = readFileSync(path.join(siteRoot, "privacidade.html"), "utf8");
 const enPolicy = readFileSync(path.join(siteRoot, "en/privacy.html"), "utf8");
@@ -51,6 +59,9 @@ try {
   assert.equal(await mobilePage.locator(".privacy-consent").count(), 1);
   assert.ok(await mobilePage.getByRole("button", { name: "Aceitar" }).isVisible());
   assert.ok(await mobilePage.getByRole("button", { name: "Rejeitar" }).isVisible());
+  await mobilePage.keyboard.press("Tab");
+  const focusVisible = await mobilePage.evaluate(() => { const el = document.activeElement; return !!el && getComputedStyle(el).outlineStyle !== "none" && parseFloat(getComputedStyle(el).outlineWidth) >= 2; });
+  assert.ok(focusVisible, "Consent controls must expose a visible keyboard focus.");
   const mobileButtonSizes = await mobilePage.locator(".privacy-consent-actions button").evaluateAll(buttons => buttons.map(button => ({ height: button.getBoundingClientRect().height, width: button.getBoundingClientRect().width })));
   assert.ok(mobileButtonSizes.every(size => size.height >= 44), "Consent buttons must have a 44px minimum target.");
   assert.equal(mobileButtonSizes[0].width, mobileButtonSizes[1].width, "Accept and reject buttons must have equal visual width.");
@@ -119,6 +130,7 @@ try {
   englishPage.on("request", request => { if (analyticsPattern.test(request.url())) englishRequests.push(request.url()); });
   await englishPage.goto("http://127.0.0.1:8765/en/", { waitUntil: "domcontentloaded" });
   await englishPage.waitForTimeout(800);
+  await englishPage.screenshot({ path: path.join(evidenceDir, "consent-en-390.png") });
   assert.ok(await englishPage.getByRole("button", { name: "Accept" }).isVisible());
   assert.ok(await englishPage.getByRole("button", { name: "Reject" }).isVisible());
   assert.equal(englishRequests.length, 0, "English pages must also block analytics before consent.");
