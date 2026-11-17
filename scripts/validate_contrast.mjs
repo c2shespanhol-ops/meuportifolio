@@ -254,6 +254,26 @@ async function resolveMetaRefresh(route) {
 }
 
 const browser = await chromium.launch({ headless: true });
+const themeReferencePage = await browser.newPage({ viewport: VIEWPORTS[0] });
+await themeReferencePage.goto(BASE_URL + "/en/cases/case-01-conceptual-prototype.html", {
+  waitUntil: "networkidle",
+  timeout: 30000
+});
+const referenceBodyBackground = await themeReferencePage.locator("body").evaluate(
+  (element) => getComputedStyle(element).backgroundColor
+);
+await themeReferencePage.close();
+const themePageRoutes = new Set([
+  "/en/cases/case-01-virtual-assistant-artifacts.html",
+  "/en/cases/case-01-virtual-assistant-brief.html",
+  "/en/cases/case-01-virtual-assistant-flows.html"
+]);
+const requiredThemeStylesheets = [
+  "portfolio-theme.css",
+  "artifact.css",
+  "pbos-career-theme.css"
+];
+const themePageChecks = [];
 const failures = [];
 const results = [];
 const incompleteNodeDetails = [];
@@ -279,6 +299,37 @@ try {
         if (!response || !response.ok()) {
           failures.push({ route, viewport: viewport.width, error: "page_load_failed" });
           continue;
+        }
+
+        if (themePageRoutes.has(route)) {
+          const themeAudit = await page.evaluate(() => ({
+            bodyBackground: getComputedStyle(document.body).backgroundColor,
+            bodyColor: getComputedStyle(document.body).color,
+            stylesheets: Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
+              .map((link) => new URL(link.href).pathname.split("/").pop())
+          }));
+          const loadedRequired = requiredThemeStylesheets.every((name) =>
+            themeAudit.stylesheets.includes(name)
+          );
+          const backgroundMatches = themeAudit.bodyBackground === referenceBodyBackground;
+          const backgroundIsOpaque = themeAudit.bodyBackground !== "rgba(0, 0, 0, 0)";
+          themePageChecks.push({
+            route,
+            body_background: themeAudit.bodyBackground,
+            reference_background: referenceBodyBackground,
+            body_color: themeAudit.bodyColor,
+            required_stylesheets: requiredThemeStylesheets,
+            loaded_stylesheets: themeAudit.stylesheets,
+            background_matches_reference: backgroundMatches,
+            stylesheets_complete: loadedRequired
+          });
+          if (!backgroundMatches || !backgroundIsOpaque || !loadedRequired) {
+            failures.push({
+              route,
+              state: "english-case-theme",
+              details: themePageChecks[themePageChecks.length - 1]
+            });
+          }
         }
 
         const language = route.startsWith("/en/") ? "en" : "pt";
@@ -388,6 +439,7 @@ try {
       buttons: buttonFocusChecks
     },
     consent_banner_checks: consentContrastChecks,
+    english_case_theme_checks: themePageChecks,
     screenshot_scope: "Every route/viewport with axe color-contrast incomplete nodes",
     self_test: selfTest,
     failures,
@@ -408,6 +460,7 @@ try {
     incomplete_nodes: incompleteCount,
     focus_state_checks: { skip_pages: skipPages.length, skip_links: skipFocusChecks, buttons: buttonFocusChecks },
     self_test: selfTest,
+    english_case_theme_checks: themePageChecks,
     evidence: OUTPUT
   }, null, 2));
 
