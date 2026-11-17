@@ -119,11 +119,15 @@ for page in root.rglob("*.html"):
  consent_tag=f'<script src="{consent_src}" data-privacy-href="{policy_href}" defer></script>'
  consent_pattern=re.compile(r'<script\b[^>]*privacy-consent\.js[^>]*></script>',re.I)
  source=consent_pattern.sub('',source)
- if True:
-  if re.search(r"</body\s*>",source,re.I):
-   source=re.sub(r"</body\s*>",lambda match: consent_tag+"\n"+match.group(0),source,count=1,flags=re.I)
-  else:
-   source += "\n"+consent_tag
+ if re.search(r"</body\s*>",source,re.I):
+  source=re.sub(r"</body\s*>",lambda match: consent_tag+"\n"+match.group(0),source,count=1,flags=re.I)
+ else:
+  # Legacy pages may end after </footer> without closing body/html tags.
+  source=source.rstrip()+"\n"+consent_tag
+  if not re.search(r"</body\s*>",source,re.I):
+   source += "\n</body>"
+  if not re.search(r"</html\s*>",source,re.I):
+   source += "\n</html>"
  page.write_text(source,encoding="utf-8")
  count+=1
 
