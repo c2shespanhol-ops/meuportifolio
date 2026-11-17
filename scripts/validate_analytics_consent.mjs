@@ -96,6 +96,8 @@ try {
   ]);
   await mobilePage.waitForTimeout(1200);
   assert.equal(await mobilePage.evaluate(() => localStorage.getItem("portfolio-analytics-consent")), "rejected", "The rejected choice must persist after reload.");
+  networkLog.push("Requests observed from rejection click through completed reload: " + JSON.stringify(afterPreferenceReject));
+  writeFileSync(path.join(evidenceDir, "network-log.txt"), networkLog.join("\\n") + "\\n", "utf8");
   assert.equal(afterPreferenceReject.length, 0, "No analytics request may occur from the rejection click through the completed reload.");
   networkLog.push("After preference rejection: 0 analytics requests from the click through the completed reload.");
 
