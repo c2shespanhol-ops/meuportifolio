@@ -125,13 +125,28 @@ jobs:
       - name: Validate copy spacing
         run: python scripts/validate_copy_quality.py _site
 
-      - name: Install responsive test browser
+      - name: Install responsive test dependencies
+        timeout-minutes: 8
         run: |
-          npm install --no-save playwright axe-core cspell @cspell/dict-pt-br@2.4.4
+          npm install --no-save --no-audit --no-fund playwright@1.56.1 axe-core cspell @cspell/dict-pt-br@2.4.4
+
+      - name: Install Chromium for responsive tests
+        timeout-minutes: 8
+        run: npx playwright install chromium
+
+      - name: Run accessibility, privacy and responsive audits
+        timeout-minutes: 15
+        run: |
           npx cspell --no-progress --config cspell.json "_site/**/*.html"
-          npx playwright install --with-deps chromium
           python -m http.server 8765 --directory _site >/tmp/portfolio-http.log 2>&1 &
-          sleep 2
+          echo $! >/tmp/portfolio-http.pid
+          for attempt in $(seq 1 20); do
+            if curl -fsS http://127.0.0.1:8765/ >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:8765/ >/dev/null
           node scripts/validate_contrast.mjs
           node scripts/validate_analytics_consent.mjs
           node scripts/validate_responsive.mjs
