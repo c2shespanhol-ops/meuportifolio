@@ -80,6 +80,29 @@ try {
   await mobilePage.screenshot({ path: path.join(evidenceDir, "consent-390.png") });
   networkLog.push("390px before consent: 0 analytics requests.");
 
+  // Regression coverage for the seven legacy Case 01 pages that previously had no </body>.
+  for (const route of ["case01_personas.html", "case01_jornada_usuario.html"]) {
+    const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
+    const page = await context.newPage();
+    const requests = [];
+    page.on("request", request => {
+      if (analyticsPattern.test(request.url())) requests.push(request.url());
+    });
+    await page.goto(`http://127.0.0.1:8765/${route}`, { waitUntil: "domcontentloaded" });
+    await page.waitForTimeout(1200);
+    assert.equal(await page.locator(".privacy-consent").count(), 1, `${route}: consent notice must be visible`);
+    assert.ok(await page.getByRole("button", { name: "Aceitar" }).isVisible(), `${route}: Accept must be visible`);
+    assert.ok(await page.getByRole("button", { name: "Rejeitar" }).isVisible(), `${route}: Reject must be visible`);
+    const sizes = await page.locator(".privacy-consent-actions button").evaluateAll(buttons =>
+      buttons.map(button => button.getBoundingClientRect().height)
+    );
+    assert.ok(sizes.length >= 2 && sizes.every(height => height >= 44), `${route}: consent controls must be at least 44px high`);
+    assert.equal(requests.length, 0, `${route}: no analytics requests before consent`);
+    await page.screenshot({ path: path.join(evidenceDir, route.replace(".html", "-390.png")) });
+    networkLog.push(`${route} at 390px: notice visible, Accept/Reject visible, button heights >=44px, 0 analytics requests before consent.`);
+    await context.close();
+  }
+
   const desktopContext = await browser.newContext({ viewport: { width: 1280, height: 900 } });
   const desktopPage = await desktopContext.newPage();
   const desktopRequests = [];
