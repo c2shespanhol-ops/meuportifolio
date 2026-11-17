@@ -32,11 +32,26 @@
     document.body.style.removeProperty("--privacy-consent-height");
     window.removeEventListener("resize", updateFloatingControls);
   }
+  function revokeAnalytics() {
+    var measurementId = window.PORTFOLIO_GA4_MEASUREMENT_ID;
+    if (measurementId) window["ga-disable-" + measurementId] = true;
+    if (typeof window.gtag === "function") {
+      window.gtag("consent", "update", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied"
+      });
+      window.gtag("set", "send_page_view", false);
+    }
+  }
+
   function choose(value) {
     var previous = readChoice();
     window.portfolioConsentChoice = value;
     try { window.localStorage.setItem(key, value); }
     catch (error) { /* Keep the choice active for this page when storage is unavailable. */ }
+    if (value === "rejected" && previous === "accepted") revokeAnalytics();
     hideBanner();
     if (value === "accepted" && typeof window.portfolioLoadAnalytics === "function") {
       window.portfolioLoadAnalytics();
