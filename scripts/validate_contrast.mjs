@@ -279,6 +279,11 @@ const results = [];
 const incompleteNodeDetails = [];
 const consentContrastChecks = [];
 const consentAuditCoverage = new Set();
+const ctaContrastChecks = [];
+const ctaEvidenceRoutes = new Set([
+  "/en/cases/case-01-virtual-assistant-artifacts.html",
+  "/case01_documentacao_complementar.html"
+]);
 let checked = 0;
 let incompleteCount = 0;
 let skipFocusChecks = 0;
@@ -364,6 +369,51 @@ try {
           await dismissConsentBanner(page);
         }
 
+        if (ctaEvidenceRoutes.has(route) && viewport.width === 1280) {
+          // Recreate the former gold-on-gold collision for a true before-state visual.
+          const beforeStyle = await page.addStyleTag({
+            content: ".doc-card span.cta{background:var(--pbos-gold);color:var(--pbos-gold)}"
+          });
+          await page.locator(".grid").screenshot({
+            path: path.join(OUTPUT, route.startsWith("/en/") ? "cta-before-en.png" : "cta-before-pt.png")
+          });
+          await beforeStyle.evaluate((element) => element.remove());
+          await page.locator(".grid").screenshot({
+            path: path.join(OUTPUT, route.startsWith("/en/") ? "cta-after-en.png" : "cta-after-pt.png")
+          });
+        }
+
+        const ctaStates = await page.locator(".doc-card .cta:visible").evaluateAll((elements) =>
+          elements.map((element) => ({
+            text: (element.innerText || "").trim().slice(0, 100),
+            foreground: getComputedStyle(element).color,
+            background: getComputedStyle(element).backgroundColor
+          }))
+        );
+        if (ctaEvidenceRoutes.has(route) && ctaStates.length === 0) {
+          failures.push({ route, viewport: viewport.width, state: "cta:missing-evidence-target" });
+        }
+        const ctaRatios = ctaStates.map((state) => ({
+          ...state,
+          ratio: contrastRatio(state.foreground, state.background)
+        }));
+        const ctaFailures = ctaRatios.filter((state) => state.ratio === null || state.ratio < 4.5);
+        ctaContrastChecks.push({
+          route,
+          viewport: viewport.width,
+          elements: ctaRatios.length,
+          minimum_ratio: ctaRatios.length ? Number(Math.min(...ctaRatios.map((state) => state.ratio ?? 0)).toFixed(2)) : null,
+          failures: ctaFailures
+        });
+        if (ctaFailures.length) {
+          failures.push({
+            route,
+            viewport: viewport.width,
+            state: "cta:color-contrast",
+            violations: ctaFailures
+          });
+        }
+
         const audit = await runContrastRule(page);
         const focusAudit = await auditFocusStates(page, route, viewport);
         skipFocusChecks += focusAudit.skipChecks;
@@ -439,6 +489,10 @@ try {
       buttons: buttonFocusChecks
     },
     consent_banner_checks: consentContrastChecks,
+    cta_contrast_checks: ctaContrastChecks,
+    cta_before_after_screenshots: [
+      "cta-before-en.png", "cta-after-en.png", "cta-before-pt.png", "cta-after-pt.png"
+    ],
     english_case_theme_checks: themePageChecks,
     screenshot_scope: "Every route/viewport with axe color-contrast incomplete nodes",
     self_test: selfTest,
@@ -459,6 +513,7 @@ try {
     failures: failures.length,
     incomplete_nodes: incompleteCount,
     focus_state_checks: { skip_pages: skipPages.length, skip_links: skipFocusChecks, buttons: buttonFocusChecks },
+    cta_contrast_checks: ctaContrastChecks,
     self_test: selfTest,
     english_case_theme_checks: themePageChecks,
     evidence: OUTPUT
