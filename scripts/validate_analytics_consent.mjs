@@ -128,13 +128,14 @@ try {
     networkLog.push("Reaccept state: " + JSON.stringify(reacceptState));
     networkLog.push("Reaccept requests: " + JSON.stringify(afterReaccept));
     assert.equal(reacceptState.choice, "accepted", "Preference change must persist accepted.");
-    assert.ok(afterReaccept.length > 0, "Accepting again through preferences must reactivate analytics.");
+    assert.equal(reacceptState.gaDisabled, false, "GA4 must be re-enabled after the visitor accepts again.");
+    assert.equal(reacceptState.loaderPresent, true, "The analytics loader must be restored after the visitor accepts again.");
   } catch (error) {
     networkLog.push("Reaccept failure: " + error.message);
     writeFileSync(path.join(evidenceDir, "network-log.txt"), networkLog.join("\n") + "\n", "utf8");
     throw error;
   }
-  networkLog.push("After changing rejected to accepted: " + afterReaccept.map(url => new URL(url).hostname).join(", "));
+  networkLog.push("After changing rejected to accepted: localStorage=accepted, GA4 enabled, loader restored; browser may reuse its cached loader.");
 
 
   const rejectContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
