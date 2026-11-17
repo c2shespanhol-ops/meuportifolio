@@ -86,16 +86,18 @@ try {
 
   await mobilePage.getByRole("link", { name: "Preferências de privacidade" }).click();
   assert.equal(await mobilePage.locator(".privacy-consent").count(), 1, "The footer preference link must reopen the consent panel.");
+  const afterPreferenceReject = [];
+  // Start observing before the click so requests during the old document's unload
+  // and the subsequent navigation are included in the rejection assertion.
+  mobilePage.on("request", request => { if (analyticsPattern.test(request.url())) afterPreferenceReject.push(request.url()); });
   await Promise.all([
     mobilePage.waitForNavigation({ waitUntil: "domcontentloaded" }),
     mobilePage.getByRole("button", { name: "Rejeitar" }).click()
   ]);
-  const afterPreferenceReject = [];
-  mobilePage.on("request", request => { if (analyticsPattern.test(request.url())) afterPreferenceReject.push(request.url()); });
   await mobilePage.waitForTimeout(1200);
   assert.equal(await mobilePage.evaluate(() => localStorage.getItem("portfolio-analytics-consent")), "rejected", "The rejected choice must persist after reload.");
-  assert.equal(afterPreferenceReject.length, 0, "The reloaded page must not make analytics requests after rejection.");
-  networkLog.push("After changing preferences to reject and reloading: 0 analytics requests on the reloaded document.");
+  assert.equal(afterPreferenceReject.length, 0, "No analytics request may occur from the rejection click through the completed reload.");
+  networkLog.push("After preference rejection: 0 analytics requests from the click through the completed reload.");
 
   const rejectContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const rejectPage = await rejectContext.newPage();
