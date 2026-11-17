@@ -1,4 +1,5 @@
-@import url('./portfolio-theme.css?v=20261117-buttons-centered');
+@layer portfolio-base, portfolio-theme;
+@import url('./portfolio-theme.css?v=20261117-css-layer-cleanup-v1');
 
 @layer portfolio-base {
 /*
@@ -554,6 +555,7 @@ a.skip,a.skip:hover,a.active,a.active:hover,a[aria-current="page"],a[aria-curren
 
 }
 
+
 /* WCAG 2.1 AA: keep the keyboard-only skip link readable outside the base cascade layer. */
 html body a.skip,
 html body a.skip:hover,
@@ -653,11 +655,11 @@ html body a.skip:focus-visible {
 
 /* 2026-11-17: definitive two-column centering for primary hero actions. */
 .actions{
-  display:grid !important;
-  grid-template-columns:repeat(2,minmax(0,260px)) !important;
-  justify-content:center !important;
-  justify-items:stretch !important;
-  align-items:stretch !important;
+  display:grid ;
+  grid-template-columns:repeat(2,minmax(0,260px)) ;
+  justify-content:center ;
+  justify-items:stretch ;
+  align-items:stretch ;
   width:100%;
   max-width:100%;
   margin-inline:auto;
@@ -673,7 +675,7 @@ html body a.skip:focus-visible {
 }
 @media(max-width:700px){
   .actions{
-    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) ;
     max-width:460px;
     gap:10px;
   }
@@ -687,34 +689,36 @@ html body a.skip:focus-visible {
 
 /* 2026-11-17: match contact button dimensions without changing the contact layout. */
 html body .contact-box .contact-actions > a.action-card{
-  flex:0 1 260px !important;
-  width:260px !important;
-  max-width:100% !important;
-  min-height:var(--btn-h) !important;
-  height:auto !important;
-  padding:0 20px !important;
-  gap:10px !important;
-  font:600 16px/1.2 var(--font-body) !important;
+  flex:0 1 260px ;
+  width:260px ;
+  max-width:100% ;
+  min-height:var(--btn-h) ;
+  height:auto ;
+  padding:0 20px ;
+  gap:10px ;
+  font:600 16px/1.2 var(--font-body) ;
 }
 html body .contact-box .contact-actions > a.action-card svg{
-  width:20px !important;
-  height:20px !important;
+  width:20px ;
+  height:20px ;
 }
 @media(max-width:700px){
   html body .contact-box .contact-actions{
-    display:flex !important;
-    flex-wrap:nowrap !important;
-    justify-content:center !important;
-    gap:10px !important;
+    display:flex ;
+    flex-wrap:nowrap ;
+    justify-content:center ;
+    gap:10px ;
   }
   html body .contact-box .contact-actions > a.action-card{
-    flex:1 1 0 !important;
-    width:auto !important;
-    min-width:0 !important;
-    max-width:220px !important;
-    min-height:68px !important;
-    padding:10px 10px !important;
-    font-size:14px !important;
-    gap:8px !important;
+    flex:1 1 0 ;
+    width:auto ;
+    min-width:0 ;
+    max-width:220px ;
+    min-height:64px;
+    height:64px;
+    padding:10px 10px ;
+    font-size:14px ;
+    gap:8px ;
   }
 }
+

@@ -1,3 +1,4 @@
+@layer portfolio-base, portfolio-theme;
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
 
 /* Canonical portfolio design system. Keep these tokens consistent across PT/EN pages and case studies. */
@@ -122,7 +123,7 @@ button,a,.btn,.back,.back-btn,.lang{touch-action:manipulation}
   .grid,.cards,.cases,.credentials,.pillars-grid,.meta,.case-meta,.role-grid,.evidence-grid,.grid-2,.grid-3{grid-template-columns:1fr}
   .case-shell,.container,.wrap{width:100%;padding-left:20px;padding-right:20px}
   .contact-box{flex-direction:column;align-items:stretch;padding:24px}
-  .contact-actions{min-width:0;width:100%}
+  @layer portfolio-theme { .contact-actions{min-width:0;width:100%} }
   .back,.back-btn,.lang,.case-back,.case-lang{top:10px;padding:9px 10px;font-size:9px}
   .back,.back-btn,.case-back{left:10px}
   .lang,.case-lang{right:10px}
@@ -198,8 +199,10 @@ a,button{min-height:24px}
  .navlinks a{display:inline-flex;align-items:center;min-height:40px;padding:6px 2px}
  .hero-photo{max-width:min(72vw,260px)}
  .contact-box{padding:22px}
- .contact-actions{width:100%;min-width:0}
- .contact-actions a{min-height:44px;display:flex;align-items:center;justify-content:center}
+ @layer portfolio-theme {
+  .contact-actions{width:100%;min-width:0}
+  .contact-actions a{min-height:44px;display:flex;align-items:center;justify-content:center}
+ }
  .artifact-card,.doc-card{min-width:0}
  .artifact-links{width:100%}
  .artifact-links a{min-height:40px}
@@ -836,6 +839,7 @@ html body a.sticky-cta:not(.action-card):not(.result):not(.btn):not(.button):not
   bottom:calc(16px + env(safe-area-inset-bottom) + var(--privacy-consent-height, 0px) + var(--fab-size) + 24px);
 }
 
+@layer portfolio-theme {
 /* Contact links: slightly more compact while preserving their existing positions. */
 .contact-actions{
   display:flex;
@@ -885,31 +889,33 @@ html body a.sticky-cta:not(.action-card):not(.result):not(.btn):not(.button):not
 
 /* 2026-11-17: explicit Portuguese homepage action alignment. */
 html[lang="pt-BR"] body main > .shell > nav.actions{
-  display:grid !important;
-  grid-template-columns:repeat(2,minmax(0,260px)) !important;
-  justify-content:center !important;
-  justify-items:stretch !important;
-  align-items:stretch !important;
-  width:100% !important;
-  max-width:100% !important;
-  margin:0 auto !important;
-  gap:16px !important;
+  display:grid ;
+  grid-template-columns:repeat(2,minmax(0,260px)) ;
+  justify-content:center ;
+  justify-items:stretch ;
+  align-items:stretch ;
+  width:100% ;
+  max-width:100% ;
+  margin:0 auto ;
+  gap:16px ;
 }
 html[lang="pt-BR"] body main > .shell > nav.actions > .action-card{
-  display:flex !important;
-  box-sizing:border-box !important;
-  width:100% !important;
-  min-width:0 !important;
-  max-width:none !important;
-  margin:0 !important;
+  display:flex ;
+  box-sizing:border-box ;
+  width:100% ;
+  min-width:0 ;
+  max-width:none ;
+  margin:0 ;
 }
 @media(max-width:700px){
   html[lang="pt-BR"] body main > .shell > nav.actions{
-    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-    max-width:460px !important;
-    gap:10px !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) ;
+    max-width:460px ;
+    gap:10px ;
   }
   html[lang="pt-BR"] body main > .shell > nav.actions > .action-card{
-    padding-inline:10px !important;
+    padding-inline:10px ;
   }
+}
+
 }

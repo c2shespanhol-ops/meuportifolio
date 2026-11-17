@@ -1,5 +1,5 @@
 import { chromium } from "playwright";
-import { access, mkdir, readFile, readdir } from "node:fs/promises";
+import { access, mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const root = path.resolve("_site");
@@ -16,6 +16,8 @@ const files = (await walk(root)).sort();
 const failures = [];
 const pages = [];
 const contactMeasurements = [];
+const primaryMeasurements = [];
+const baselineMeasurements = new Map();
 let redirects = 0;
 for (const file of files) {
   const route = "/" + path.relative(root, file).split(path.sep).join("/");
@@ -75,6 +77,26 @@ for (const [locale, url] of [
         path: path.join(beforeDir, locale + "-contact-" + viewport.width + "px.png")
       });
     }
+    const baselineGeometry = await baselinePage.evaluate(() => {
+      const measure = selector => Array.from(document.querySelectorAll(selector)).map(element => {
+        const rect = element.getBoundingClientRect();
+        const style = getComputedStyle(element);
+        const icon = element.querySelector("svg")?.getBoundingClientRect();
+        return {
+          width: Math.round(rect.width),
+          height: Math.round(rect.height),
+          top: Math.round(rect.top),
+          left: Math.round(rect.left),
+          fontSize: parseFloat(style.fontSize),
+          iconWidth: Math.round(icon?.width || 0),
+          iconHeight: Math.round(icon?.height || 0)
+        };
+      });
+      return {
+        contacts: measure(".contact-actions > a.action-card")
+      };
+    });
+    baselineMeasurements.set(locale + "-" + viewport.width, baselineGeometry);
   }
   await baselinePage.close();
 }
@@ -127,7 +149,9 @@ for (const entry of pages) {
         }
       }
 
-      const contactButtonsCount = await page.locator(".contact-actions a.btn").count();
+      const isHomeRoute = route === "/index.html" || route === "/en/index.html";
+      const contactButtonsCount = isHomeRoute ? await page.locator(".contact-actions > a.action-card").count() : 0;
+      if (isHomeRoute && contactButtonsCount !== 2) failures.push(route + " @ " + viewport.width + "px: expected exactly two contact action cards, found " + contactButtonsCount);
       if (contactButtonsCount) {
         const contactAudit = await page.locator(".contact-actions").first().evaluate(container => {
           const containerRect = container.getBoundingClientRect();
@@ -137,7 +161,7 @@ for (const entry of pages) {
             clientWidth: container.clientWidth,
             scrollWidth: container.scrollWidth,
             direction: containerStyle.flexDirection,
-            buttons: Array.from(container.querySelectorAll("a.btn")).map(element => {
+            buttons: Array.from(container.querySelectorAll("a.action-card")).map(element => {
               const rect = element.getBoundingClientRect();
               const style = getComputedStyle(element);
               return {
@@ -154,27 +178,27 @@ for (const entry of pages) {
           };
         });
         contactMeasurements.push({route, viewport: viewport.width, ...contactAudit});
-        const mobile = viewport.width <= 599;
-        const invalidHeight = contactAudit.buttons.some(button =>
-          button.height < (mobile ? 48 : 52) ||
-          button.height > (mobile ? 52 : 56) ||
-          button.scrollWidth > button.clientWidth + 1 ||
-          button.whiteSpace !== "nowrap"
+        const invalidHeight = contactAudit.buttons.length !== 2 || contactAudit.buttons.some(button =>
+          button.height < 44 ||
+          button.height > 64 ||
+          button.width <= 0 ||
+          button.scrollWidth > button.clientWidth + 1
         );
         if (contactAudit.scrollWidth > contactAudit.clientWidth + 1 || invalidHeight) {
           failures.push(route + " @ " + viewport.width + "px: contact button dimensions or clipping failed " + JSON.stringify(contactAudit));
         }
-        if (mobile) {
-          if (contactAudit.direction !== "column" ||
-              contactAudit.buttons.some(button => Math.abs(button.width - contactAudit.width) > 1) ||
-              contactAudit.buttons[1]?.top < contactAudit.buttons[0]?.top + contactAudit.buttons[0]?.height) {
-            failures.push(route + " @ " + viewport.width + "px: contact buttons must be full-width and stacked " + JSON.stringify(contactAudit));
+        if (contactAudit.direction !== "row" ||
+            Math.abs(contactAudit.buttons[0]?.top - contactAudit.buttons[1]?.top) > 1 ||
+            contactAudit.buttons[1]?.left < contactAudit.buttons[0]?.left + contactAudit.buttons[0]?.width) {
+          failures.push(route + " @ " + viewport.width + "px: contact buttons must remain side by side " + JSON.stringify(contactAudit));
+        }
+        if (isHomeRoute) {
+          const localeKey = route === "/index.html" ? "pt" : "en";
+          const before = baselineMeasurements.get(localeKey + "-" + viewport.width);
+          if (!before || before.contacts.length !== 2 ||
+              contactAudit.buttons.some((button, index) => Math.abs(button.width - before.contacts[index].width) > 1)) {
+            failures.push(route + " @ " + viewport.width + "px: contact button widths changed from the published baseline " + JSON.stringify({before:before?.contacts,after:contactAudit.buttons}));
           }
-        } else if (contactAudit.direction !== "row" ||
-                   contactAudit.buttons.some(button => button.width <= 0) ||
-                   contactAudit.buttons[1]?.top !== contactAudit.buttons[0]?.top ||
-                   contactAudit.buttons[1]?.left < contactAudit.buttons[0]?.left + contactAudit.buttons[0]?.width) {
-          failures.push(route + " @ " + viewport.width + "px: contact buttons must be auto-width and side by side " + JSON.stringify(contactAudit));
         }
       }
       if (route === "/index.html" || route === "/en/index.html") {
@@ -206,6 +230,7 @@ for (const entry of pages) {
               button.iconWidth !== 20 || button.iconHeight !== 20)) {
           failures.push(route + " @ " + viewport.width + "px: primary action sizing failed " + JSON.stringify(actionAudit));
         }
+        primaryMeasurements.push({route, viewport: viewport.width, ...actionAudit});
         if (viewport.width <= 700) {
           if (actionAudit.parentDisplay !== "grid" ||
               Math.abs(actionAudit.buttons[0].top - actionAudit.buttons[1].top) > 1 ||
@@ -332,6 +357,16 @@ for (const entry of pages) {
   await page.close();
 }
 await browser.close();
+if (contactMeasurements.length !== 10) {
+  failures.push("Expected 10 PT/EN contact measurements (two buttons at five viewport widths), found " + contactMeasurements.length);
+}
+await writeFile(path.join(evidenceDir, "measurements.json"), JSON.stringify({
+  viewportWidths: sizes.map(item => item.width),
+  baseline: Object.fromEntries(baselineMeasurements),
+  contactMeasurements,
+  primaryMeasurements,
+  failures
+}, null, 2));
 if (failures.length) {
   console.error(failures.join("\n"));
   process.exit(1);

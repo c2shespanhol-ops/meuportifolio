@@ -73,6 +73,18 @@ jobs:
           python scripts/ensure_shared_theme.py _site
           python scripts/normalize_palette_tokens.py _site
 
+      - name: Verify zero !important in all CSS files
+        shell: bash
+        run: |
+          set -euo pipefail
+          matches="$(grep -R -n --include='*.css' --exclude-dir=.git --exclude-dir=node_modules '!important' . || true)"
+          if [[ -n "$matches" ]]; then
+            printf '%s\n' "$matches"
+            echo "::error::Unexpected !important declarations remain in CSS files."
+            exit 1
+          fi
+          echo "PASS: 0 occurrences of !important across all CSS files."
+
       - name: Build and validate readable CV PDFs
         run: |
           python -m pip install --disable-pip-version-check reportlab pypdf
