@@ -1,5 +1,5 @@
 @layer portfolio-base, portfolio-theme;
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap');
 
 /* Canonical portfolio design system. Keep these tokens consistent across PT/EN pages and case studies. */
 :root {

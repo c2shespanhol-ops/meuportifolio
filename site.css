@@ -722,3 +722,12 @@ html body .contact-box .contact-actions > a.action-card svg{
   }
 }
 
+/* 2026-11-17: identity typography aligned with the supplied reference. */
+.site-header .brand-name{
+  font-family:'Montserrat',Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-weight:700;
+}
+.site-header .brand-role{
+  font-family:'Montserrat',Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-weight:300;
+}
