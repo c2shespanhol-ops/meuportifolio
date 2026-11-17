@@ -44,6 +44,14 @@
       });
       window.gtag("set", "send_page_view", false);
     }
+    // Remove the already-authorized GA loader without unloading the document.
+    // Reloading would flush pending beacon events (for example, enhanced-measurement scroll).
+    document.querySelectorAll('script[src*="googletagmanager.com/gtag/js"]').forEach(function (script) {
+      script.remove();
+    });
+    document.querySelectorAll('script[src*="counter.dev"]').forEach(function (script) {
+      script.remove();
+    });
   }
 
   function choose(value) {
@@ -55,8 +63,6 @@
     hideBanner();
     if (value === "accepted" && typeof window.portfolioLoadAnalytics === "function") {
       window.portfolioLoadAnalytics();
-    } else if (value === "rejected" && previous === "accepted") {
-      window.location.reload();
     }
   }
   function showBanner() {
