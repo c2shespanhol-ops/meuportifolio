@@ -894,3 +894,16 @@ html body a.sticky-cta:not(.action-card):not(.result):not(.btn):not(.button):not
     flex:0 0 auto;
   }
 }
+
+
+/* Keep the contact email on its own line so it cannot widen the CTA row. */
+.contact-actions{
+  flex-wrap:wrap;
+}
+.contact-actions > .mail-text{
+  flex:1 0 100%;
+  width:100%;
+  min-width:0;
+  max-width:100%;
+  margin:0;
+}
