@@ -877,3 +877,20 @@ html body a.sticky-cta:not(.action-card):not(.result):not(.btn):not(.button):not
     font-size:clamp(13px,3.7vw,15px);
   }
 }
+
+
+/* Contact CTA intrinsic sizing: prevent desktop flex shrink from clipping labels. */
+.contact-actions > .btn{
+  flex:0 0 auto;
+  width:max-content;
+  min-width:max-content;
+  max-width:100%;
+}
+@media(max-width:599px){
+  .contact-actions > .btn{
+    width:100%;
+    min-width:0;
+    max-width:100%;
+    flex:0 0 auto;
+  }
+}
