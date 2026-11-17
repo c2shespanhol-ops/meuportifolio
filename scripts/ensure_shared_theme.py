@@ -98,7 +98,8 @@ for page in root.rglob("*.html"):
 
  # Add the policy link and consent controller to every published page.
  language_match=re.search(r"<html\b[^>]*\blang=['\"]([^'\"]+)",source,re.I)
- english=bool(language_match and language_match.group(1).lower().startswith("en"))
+ relative_page=page.relative_to(root).as_posix()
+ english=relative_page.startswith("en/") or bool(language_match and language_match.group(1).lower().startswith("en"))
  policy_href=os.path.relpath(root/("en/privacy.html" if english else "privacidade.html"),page.parent).replace(os.sep,"/")
  policy_label="Privacy" if english else "Privacidade"
  preferences_label="Privacy preferences" if english else "Preferências de privacidade"
@@ -115,9 +116,10 @@ for page in root.rglob("*.html"):
   else:
    source += f'<footer class="site-footer privacy-generated-footer">{privacy_links}</footer>'
  consent_src=os.path.relpath(root/"privacy-consent.js",page.parent).replace(os.sep,"/")
- consent_tag=f'<script src="{consent_src}" defer></script>'
- consent_pattern=re.compile(r'<script\b[^>]*privacy-consent\.js',re.I)
- if not consent_pattern.search(source):
+ consent_tag=f'<script src="{consent_src}" data-privacy-href="{policy_href}" defer></script>'
+ consent_pattern=re.compile(r'<script\b[^>]*privacy-consent\.js[^>]*></script>',re.I)
+ source=consent_pattern.sub('',source)
+ if True:
   if re.search(r"</body\s*>",source,re.I):
    source=re.sub(r"</body\s*>",lambda match: consent_tag+"\n"+match.group(0),source,count=1,flags=re.I)
   else:
