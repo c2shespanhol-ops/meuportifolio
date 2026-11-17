@@ -181,6 +181,9 @@ for (const entry of pages) {
             position: style.position,
             width: Math.round(rect.width),
             height: Math.round(rect.height),
+            background: style.backgroundColor,
+            ariaLabel: sticky.getAttribute("aria-label"),
+            right: Math.round(innerWidth - rect.right),
             iconWidth: Math.round(sticky.querySelector("svg")?.getBoundingClientRect().width || 0),
             iconHeight: Math.round(sticky.querySelector("svg")?.getBoundingClientRect().height || 0),
             opacity: style.opacity,
@@ -197,7 +200,12 @@ for (const entry of pages) {
         });
         if (contactAudit.error || contactAudit.display === "none" ||
             contactAudit.position !== "fixed" ||
-            contactAudit.width !== 52 || contactAudit.height !== 52 || contactAudit.iconWidth !== 24 || contactAudit.iconHeight !== 24 || contactAudit.opacity !== "1" || contactAudit.visibility !== "visible" ||
+            contactAudit.width !== (viewport.width >= 600 ? 56 : 52) ||
+            contactAudit.height !== (viewport.width >= 600 ? 56 : 52) ||
+            contactAudit.iconWidth !== 24 || contactAudit.iconHeight !== 24 ||
+            contactAudit.background !== "rgb(37, 211, 102)" ||
+            contactAudit.ariaLabel !== (route === "/index.html" ? "Conversar no WhatsApp" : "Chat on WhatsApp") ||
+            contactAudit.right < 15 || contactAudit.opacity !== "1" || contactAudit.visibility !== "visible" ||
             !contactAudit.radius.includes("50%") || contactAudit.text !== "" ||
             !contactAudit.targetExists || !contactAudit.emailExists ||
             contactAudit.contactWhatsAppExists ||

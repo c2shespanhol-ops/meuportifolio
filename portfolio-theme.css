@@ -11,6 +11,10 @@
   --pbos-text: #F7F8FA;
   --pbos-muted: #AEB5BD;
   --pbos-ink: #14100A;
+  /* WhatsApp brand colors, isolated from the editorial palette. */
+  --whatsapp-green: #25D366;
+  --whatsapp-green-hover: #1EBE5A;
+  --whatsapp-icon: #fff;
   /* Semantic aliases */
   --pbos-gold-soft: var(--pbos-gold);
   --pbos-teal: var(--pbos-blue);
@@ -783,4 +787,46 @@ html body a.skip:focus-visible{
 html body a.skip:focus-visible{
   outline:3px solid var(--pbos-gold);
   outline-offset:3px;
+}
+
+
+/* Floating action buttons: shared dimensions, WhatsApp brand color and safe-area spacing. */
+html{--fab-size:52px}
+@media(min-width:600px){html{--fab-size:56px}}
+.to-top,.sticky-cta{
+  width:var(--fab-size);
+  height:var(--fab-size);
+  min-width:var(--fab-size);
+  min-height:var(--fab-size);
+  right:calc(16px + env(safe-area-inset-right));
+  left:auto;
+  border-radius:50%;
+  box-sizing:border-box;
+}
+.to-top{bottom:calc(16px + env(safe-area-inset-bottom))}
+.sticky-cta{
+  position:fixed;
+  display:grid;
+  place-items:center;
+  z-index:61;
+  bottom:calc(16px + env(safe-area-inset-bottom) + var(--fab-size) + 12px);
+  padding:0;
+  gap:0;
+  background:var(--whatsapp-green);
+  border:1px solid var(--whatsapp-green);
+  color:var(--whatsapp-icon);
+  box-shadow:0 8px 24px var(--pbos-shadow-40);
+}
+.sticky-cta:hover,.sticky-cta:focus-visible{
+  background:var(--whatsapp-green-hover);
+  border-color:var(--whatsapp-green-hover);
+  color:var(--whatsapp-icon);
+}
+.sticky-cta:focus-visible{outline:3px solid var(--pbos-gold);outline-offset:3px}
+.sticky-cta svg{width:24px;height:24px;fill:currentColor;stroke:none}
+.privacy-consent-visible .to-top{
+  bottom:calc(16px + env(safe-area-inset-bottom) + var(--privacy-consent-height, 0px) + 12px);
+}
+.privacy-consent-visible .sticky-cta{
+  bottom:calc(16px + env(safe-area-inset-bottom) + var(--privacy-consent-height, 0px) + var(--fab-size) + 24px);
 }
