@@ -15,6 +15,7 @@ async function walk(dir) {
 const files = (await walk(root)).sort();
 const failures = [];
 const pages = [];
+const contactMeasurements = [];
 let redirects = 0;
 for (const file of files) {
   const route = "/" + path.relative(root, file).split(path.sep).join("/");
@@ -68,6 +69,12 @@ for (const [locale, url] of [
     await baselinePage.locator(".actions").screenshot({
       path: path.join(beforeDir, locale + "-" + viewport.width + "px.png")
     });
+    const baselineContact = baselinePage.locator("#contato, #contact").first();
+    if (await baselineContact.count()) {
+      await baselineContact.screenshot({
+        path: path.join(beforeDir, locale + "-contact-" + viewport.width + "px.png")
+      });
+    }
   }
   await baselinePage.close();
 }
@@ -119,6 +126,57 @@ for (const entry of pages) {
           failures.push(route + " @ " + viewport.width + "px: metrics table is not safely scrollable/readable " + JSON.stringify(result));
         }
       }
+
+      const contactButtonsCount = await page.locator(".contact-actions a.btn").count();
+      if (contactButtonsCount) {
+        const contactAudit = await page.locator(".contact-actions").first().evaluate(container => {
+          const containerRect = container.getBoundingClientRect();
+          const containerStyle = getComputedStyle(container);
+          return {
+            width: Math.round(containerRect.width),
+            clientWidth: container.clientWidth,
+            scrollWidth: container.scrollWidth,
+            direction: containerStyle.flexDirection,
+            buttons: Array.from(container.querySelectorAll("a.btn")).map(element => {
+              const rect = element.getBoundingClientRect();
+              const style = getComputedStyle(element);
+              return {
+                text: element.textContent.trim(),
+                width: Math.round(rect.width),
+                height: Math.round(rect.height),
+                top: Math.round(rect.top),
+                left: Math.round(rect.left),
+                clientWidth: element.clientWidth,
+                scrollWidth: element.scrollWidth,
+                whiteSpace: style.whiteSpace
+              };
+            })
+          };
+        });
+        contactMeasurements.push({route, viewport: viewport.width, ...contactAudit});
+        const mobile = viewport.width <= 599;
+        const invalidHeight = contactAudit.buttons.some(button =>
+          button.height < (mobile ? 48 : 52) ||
+          button.height > (mobile ? 52 : 56) ||
+          button.scrollWidth > button.clientWidth + 1 ||
+          button.whiteSpace !== "nowrap"
+        );
+        if (contactAudit.scrollWidth > contactAudit.clientWidth + 1 || invalidHeight) {
+          failures.push(route + " @ " + viewport.width + "px: contact button dimensions or clipping failed " + JSON.stringify(contactAudit));
+        }
+        if (mobile) {
+          if (contactAudit.direction !== "column" ||
+              contactAudit.buttons.some(button => Math.abs(button.width - contactAudit.width) > 1) ||
+              contactAudit.buttons[1]?.top < contactAudit.buttons[0]?.top + contactAudit.buttons[0]?.height) {
+            failures.push(route + " @ " + viewport.width + "px: contact buttons must be full-width and stacked " + JSON.stringify(contactAudit));
+          }
+        } else if (contactAudit.direction !== "row" ||
+                   contactAudit.buttons.some(button => button.width <= 0) ||
+                   contactAudit.buttons[1]?.top !== contactAudit.buttons[0]?.top ||
+                   contactAudit.buttons[1]?.left < contactAudit.buttons[0]?.left + contactAudit.buttons[0]?.width) {
+          failures.push(route + " @ " + viewport.width + "px: contact buttons must be auto-width and side by side " + JSON.stringify(contactAudit));
+        }
+      }
       if (route === "/index.html" || route === "/en/index.html") {
         const actionAudit = await page.locator(".actions .action-card").evaluateAll(elements => {
           const parent = document.querySelector(".actions");
@@ -160,6 +218,9 @@ for (const entry of pages) {
         }
         await page.locator(".actions").screenshot({
           path: path.join(afterDir, (route === "/index.html" ? "pt" : "en") + "-" + viewport.width + "px.png")
+        });
+        await page.locator("#contato, #contact").first().screenshot({
+          path: path.join(afterDir, (route === "/index.html" ? "pt" : "en") + "-contact-" + viewport.width + "px.png")
         });
         const image = await page.locator(".about-photo img").first().evaluate(el => ({complete:el.complete,naturalWidth:el.naturalWidth})).catch(() => null);
         const fallback = await page.locator(".about-photo .photo-fallback-mark").count();
@@ -274,4 +335,5 @@ if (failures.length) {
   console.error(failures.join("\n"));
   process.exit(1);
 }
-console.log("Responsive regression passed: " + pages.length + " HTML routes x " + sizes.length + " viewports (" + checked + " renders); primary actions verified in PT/EN at 360, 390, 768, 1024 and 1440px; before/after screenshots saved; " + redirects + " meta-refresh aliases resolved to their destination pages.");
+console.log("Contact button measurements: " + JSON.stringify(contactMeasurements));
+console.log("Responsive regression passed: " + pages.length + " HTML routes x " + sizes.length + " viewports (" + checked + " renders); primary actions verified in PT/EN at 360, 390, 768, 1024 and 1440px; primary and contact before/after screenshots saved; " + redirects + " meta-refresh aliases resolved to their destination pages.");
