@@ -685,30 +685,16 @@ html body a.skip:focus-visible {
   }
 }
 
-/* 2026-11-17: contact buttons use the same proportions as the main case/CV buttons. */
-html body .contact-box .contact-actions{
-  display:grid !important;
-  grid-template-columns:repeat(2,minmax(0,260px)) !important;
-  justify-content:center !important;
-  justify-items:stretch !important;
-  align-items:stretch !important;
-  width:100%;
-  max-width:100%;
-  margin-inline:auto;
-  gap:16px;
-}
+/* 2026-11-17: match contact button dimensions without changing the contact layout. */
 html body .contact-box .contact-actions > a.action-card{
-  display:flex !important;
-  width:100% !important;
-  min-width:0 !important;
-  max-width:none !important;
-  min-height:76px !important;
+  flex:0 1 260px !important;
+  width:260px !important;
+  max-width:100% !important;
+  min-height:var(--btn-h) !important;
   height:auto !important;
-  margin:0 !important;
-  padding:14px 16px !important;
+  padding:0 20px !important;
   gap:10px !important;
-  font-size:16px !important;
-  line-height:1.2 !important;
+  font:600 16px/1.2 var(--font-body) !important;
 }
 html body .contact-box .contact-actions > a.action-card svg{
   width:20px !important;
@@ -716,13 +702,16 @@ html body .contact-box .contact-actions > a.action-card svg{
 }
 @media(max-width:700px){
   html body .contact-box .contact-actions{
-    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-    max-width:460px;
-    gap:10px;
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    justify-content:center !important;
+    gap:10px !important;
   }
   html body .contact-box .contact-actions > a.action-card{
-    width:100% !important;
-    max-width:none !important;
+    flex:1 1 0 !important;
+    width:auto !important;
+    min-width:0 !important;
+    max-width:220px !important;
     min-height:68px !important;
     padding:10px 10px !important;
     font-size:14px !important;
