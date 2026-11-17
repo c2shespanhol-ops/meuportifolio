@@ -823,6 +823,7 @@ html{--fab-size:52px}
   color:var(--whatsapp-icon);
 }
 .sticky-cta:focus-visible{outline:3px solid var(--pbos-gold);outline-offset:3px}
+html body a.sticky-cta,html body a.sticky-cta:hover,html body a.sticky-cta:focus-visible{color:var(--whatsapp-icon)}
 .sticky-cta svg{width:24px;height:24px;fill:currentColor;stroke:none}
 .privacy-consent-visible .to-top{
   bottom:calc(16px + env(safe-area-inset-bottom) + var(--privacy-consent-height, 0px) + 12px);

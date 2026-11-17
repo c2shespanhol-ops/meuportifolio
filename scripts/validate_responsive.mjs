@@ -233,15 +233,32 @@ for (const entry of pages) {
         await page.evaluate(() => new Promise(resolve =>
           requestAnimationFrame(() => requestAnimationFrame(resolve))
         ));
-        const stickyAfterScroll = await page.locator(".sticky-cta").evaluate(el => {
-          const rect = el.getBoundingClientRect();
-          const style = getComputedStyle(el);
-          return { position: style.position, top: rect.top, display: style.display, visibility: style.visibility };
+        const stickyAfterScroll = await page.evaluate(() => {
+          const sticky = document.querySelector(".sticky-cta");
+          const top = document.querySelector(".to-top");
+          const rect = sticky.getBoundingClientRect();
+          const topRect = top.getBoundingClientRect();
+          const style = getComputedStyle(sticky);
+          const topStyle = getComputedStyle(top);
+          return {
+            position: style.position, top: rect.top, display: style.display, visibility: style.visibility,
+            color: style.color, width: Math.round(rect.width), height: Math.round(rect.height),
+            topButtonWidth: Math.round(topRect.width), topButtonHeight: Math.round(topRect.height),
+            verticalGap: Math.round(topRect.top - rect.bottom),
+            topButtonDisplay: topStyle.display
+          };
         });
         if (stickyAfterScroll.position !== "fixed" || stickyAfterScroll.display === "none" ||
             stickyAfterScroll.visibility === "hidden" ||
-            Math.abs(stickyAfterScroll.top - contactAudit.top) > 1) {
-          failures.push(route + " @ " + viewport.width + "px: floating WhatsApp shortcut did not remain fixed through the end of the page " + JSON.stringify(stickyAfterScroll));
+            Math.abs(stickyAfterScroll.top - contactAudit.top) > 1 ||
+            stickyAfterScroll.color !== "rgb(255, 255, 255)" ||
+            stickyAfterScroll.width !== (viewport.width >= 600 ? 56 : 52) ||
+            stickyAfterScroll.height !== (viewport.width >= 600 ? 56 : 52) ||
+            stickyAfterScroll.topButtonWidth !== stickyAfterScroll.width ||
+            stickyAfterScroll.topButtonHeight !== stickyAfterScroll.height ||
+            stickyAfterScroll.verticalGap !== 12 ||
+            stickyAfterScroll.topButtonDisplay === "none") {
+          failures.push(route + " @ " + viewport.width + "px: floating WhatsApp/top buttons geometry or icon color regression " + JSON.stringify(stickyAfterScroll));
         }
       }
     } catch (error) {
