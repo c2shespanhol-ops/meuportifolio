@@ -272,9 +272,11 @@ body main,body header,body footer,body .wrap{background:var(--pbos-bg)!important
 </div>
 </div>
 </section>
-</main><footer>Cleyton S. Hespanhol · Product Owner | UX</footer><script>
+</main><footer>Cleyton S. Hespanhol · Product Owner | UX<div class="privacy-footer-links"><a href="privacidade.html">Privacidade</a><a class="privacy-preferences-link" href="#privacy-preferences">Preferências de privacidade</a></div>
+</footer><script>
 const root=document.body,pt=document.getElementById('ptBtn'),en=document.getElementById('enBtn');
 function setLang(v){root.classList.toggle('show-en',v==='en');pt.classList.toggle('active',v==='pt');en.classList.toggle('active',v==='en');document.documentElement.lang=v==='en'?'en':'pt-BR'}
 pt.addEventListener('click',e=>{e.preventDefault();setLang('pt')});en.addEventListener('click',e=>{e.preventDefault();setLang('en')});
 </script><link rel="stylesheet" href="pbos-career-theme.css?v=20261112-career-os">
+<script src="privacy-consent.js" data-privacy-href="privacidade.html" defer></script>
 </body></html>
