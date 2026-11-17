@@ -1,8 +1,8 @@
 (function () {
   "use strict";
   var key = "portfolio-analytics-consent";
-  var scriptUrl = document.currentScript && document.currentScript.src;
-  var rootUrl = scriptUrl ? new URL(".", scriptUrl) : new URL("./", window.location.href);
+  var consentScript = document.currentScript;
+  var policyHref = consentScript && consentScript.getAttribute("data-privacy-href");
   var english = (document.documentElement.lang || "pt-BR").toLowerCase().indexOf("en") === 0;
   var copy = english ? {
     title: "Your privacy matters",
@@ -59,7 +59,7 @@
     window.portfolioConsentChoice = value;
     try { window.localStorage.setItem(key, value); }
     catch (error) { /* Keep the choice active for this page when storage is unavailable. */ }
-    if (value === "rejected" && previous === "accepted") revokeAnalytics();
+    if (value === "rejected") revokeAnalytics();
     hideBanner();
     if (value === "accepted" && typeof window.portfolioLoadAnalytics === "function") {
       window.portfolioLoadAnalytics();
@@ -84,7 +84,7 @@
     actions.className = "privacy-consent-actions";
     var link = document.createElement("a");
     link.className = "privacy-consent-link";
-    link.href = new URL(english ? "en/privacy.html" : "privacidade.html", rootUrl).href;
+    link.href = new URL(policyHref || (english ? "../privacy.html" : "../privacidade.html"), window.location.href).href;
     link.textContent = copy.privacy;
     var reject = document.createElement("button");
     reject.type = "button";
