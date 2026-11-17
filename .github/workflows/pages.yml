@@ -147,9 +147,9 @@ jobs:
             sleep 1
           done
           curl -fsS http://127.0.0.1:8765/ >/dev/null
+          node scripts/validate_analytics_consent.mjs
           node scripts/validate_contrast.mjs
           node scripts/validate_responsive.mjs
-          node scripts/validate_analytics_consent.mjs
 
       - name: Upload legacy color audit evidence
         if: always()
