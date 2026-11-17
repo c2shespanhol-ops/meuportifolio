@@ -649,3 +649,38 @@ html body a.skip:focus-visible {
     max-width:180px;
   }
 }
+
+
+/* 2026-11-17: definitive two-column centering for primary hero actions. */
+.actions{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,260px)) !important;
+  justify-content:center !important;
+  justify-items:stretch !important;
+  align-items:stretch !important;
+  width:100%;
+  max-width:100%;
+  margin-inline:auto;
+  gap:16px;
+}
+.actions > .action-card{
+  display:flex;
+  width:100%;
+  min-width:0;
+  max-width:none;
+  margin:0;
+  align-self:stretch;
+}
+@media(max-width:700px){
+  .actions{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    max-width:460px;
+    gap:10px;
+  }
+  .actions > .action-card{
+    width:100%;
+    max-width:none;
+    min-width:0;
+    padding-inline:10px;
+  }
+}
