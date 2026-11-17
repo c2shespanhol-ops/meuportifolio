@@ -52,7 +52,7 @@
     document.querySelectorAll('script[src*="counter.dev"]').forEach(function (script) {
       script.remove();
     });
-    alreadyLoaded = false;
+    if (typeof window.portfolioRevokeAnalytics === "function") window.portfolioRevokeAnalytics();
   }
 
   function choose(value) {
