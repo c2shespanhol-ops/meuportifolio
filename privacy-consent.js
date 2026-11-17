@@ -52,6 +52,7 @@
     document.querySelectorAll('script[src*="counter.dev"]').forEach(function (script) {
       script.remove();
     });
+    alreadyLoaded = false;
   }
 
   function choose(value) {
