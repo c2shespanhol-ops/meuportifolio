@@ -183,6 +183,7 @@ for (const entry of pages) {
             height: Math.round(rect.height),
             background: style.backgroundColor,
             ariaLabel: sticky.getAttribute("aria-label"),
+            left: Math.round(rect.left),
             right: Math.round(innerWidth - rect.right),
             iconWidth: Math.round(sticky.querySelector("svg")?.getBoundingClientRect().width || 0),
             iconHeight: Math.round(sticky.querySelector("svg")?.getBoundingClientRect().height || 0),
@@ -205,7 +206,7 @@ for (const entry of pages) {
             contactAudit.iconWidth !== 24 || contactAudit.iconHeight !== 24 ||
             contactAudit.background !== "rgb(37, 211, 102)" ||
             contactAudit.ariaLabel !== (route === "/index.html" ? "Conversar no WhatsApp" : "Chat on WhatsApp") ||
-            contactAudit.right < 15 || contactAudit.opacity !== "1" || contactAudit.visibility !== "visible" ||
+            contactAudit.left < 15 || contactAudit.left > 20 || contactAudit.right < 15 || contactAudit.opacity !== "1" || contactAudit.visibility !== "visible" ||
             !contactAudit.radius.includes("50%") || contactAudit.text !== "" ||
             !contactAudit.targetExists || !contactAudit.emailExists ||
             contactAudit.contactWhatsAppExists ||
@@ -241,7 +242,7 @@ for (const entry of pages) {
           const style = getComputedStyle(sticky);
           const topStyle = getComputedStyle(top);
           return {
-            position: style.position, top: rect.top, display: style.display, visibility: style.visibility,
+            position: style.position, top: rect.top, left: Math.round(rect.left), display: style.display, visibility: style.visibility,
             color: style.color, width: Math.round(rect.width), height: Math.round(rect.height),
             topButtonWidth: Math.round(topRect.width), topButtonHeight: Math.round(topRect.height),
             verticalGap: Math.round(topRect.top - rect.bottom),
@@ -250,6 +251,7 @@ for (const entry of pages) {
         });
         if (stickyAfterScroll.position !== "fixed" || stickyAfterScroll.display === "none" ||
             stickyAfterScroll.visibility === "hidden" ||
+            stickyAfterScroll.left < 15 || stickyAfterScroll.left > 20 ||
             Math.abs(stickyAfterScroll.top - contactAudit.top) > 1 ||
             stickyAfterScroll.color !== "rgb(255, 255, 255)" ||
             stickyAfterScroll.width !== (viewport.width >= 600 ? 56 : 52) ||
