@@ -207,9 +207,10 @@ for (const entry of pages) {
           failures.push(route + " @ " + viewport.width + "px: primary action sizing failed " + JSON.stringify(actionAudit));
         }
         if (viewport.width <= 700) {
-          if (actionAudit.parentDirection !== "column" ||
-              actionAudit.buttons[1].top < actionAudit.buttons[0].top + actionAudit.buttons[0].height) {
-            failures.push(route + " @ " + viewport.width + "px: primary actions must stack vertically " + JSON.stringify(actionAudit));
+          if (actionAudit.parentDisplay !== "grid" ||
+              Math.abs(actionAudit.buttons[0].top - actionAudit.buttons[1].top) > 1 ||
+              actionAudit.buttons[1].left < actionAudit.buttons[0].left + actionAudit.buttons[0].width) {
+            failures.push(route + " @ " + viewport.width + "px: primary actions must remain in the approved two-column mobile grid " + JSON.stringify(actionAudit));
           }
         } else if (actionAudit.parentDirection !== "row" ||
                    Math.abs(actionAudit.buttons[0].top - actionAudit.buttons[1].top) > 1 ||
