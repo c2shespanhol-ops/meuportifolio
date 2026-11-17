@@ -60,6 +60,7 @@ try {
   assert.ok(await mobilePage.getByRole("button", { name: "Aceitar" }).isVisible());
   assert.ok(await mobilePage.getByRole("button", { name: "Rejeitar" }).isVisible());
   await mobilePage.locator(".privacy-consent button").first().focus();
+  await mobilePage.keyboard.press("Tab");
   const focusVisible = await mobilePage.evaluate(() => { const el = document.activeElement; return !!el && el.matches(".privacy-consent button") && getComputedStyle(el).outlineStyle !== "none" && parseFloat(getComputedStyle(el).outlineWidth) >= 2; });
   assert.ok(focusVisible, "Consent controls must expose a visible keyboard focus.");
   const mobileButtonSizes = await mobilePage.locator(".privacy-consent-actions button").evaluateAll(buttons => buttons.map(button => ({ height: button.getBoundingClientRect().height, width: button.getBoundingClientRect().width })));
@@ -108,7 +109,7 @@ try {
   assert.equal(await mobilePage.evaluate(() => localStorage.getItem("portfolio-analytics-consent")), "rejected", "The rejected choice must persist immediately.");
   assert.equal(await mobilePage.evaluate(() => window["ga-disable-" + window.PORTFOLIO_GA4_MEASUREMENT_ID]), true, "GA4 collection must be synchronously disabled after rejection.");
   networkLog.push("Requests observed after preference rejection without document reload: " + JSON.stringify(afterPreferenceReject));
-  writeFileSync(path.join(evidenceDir, "network-log.txt"), networkLog.join("\\n") + "\\n", "utf8");
+  writeFileSync(path.join(evidenceDir, "network-log.txt"), networkLog.join("\n") + "\n", "utf8");
   assert.equal(afterPreferenceReject.length, 0, "No analytics request may occur after rejecting consent.");
   networkLog.push("After preference rejection: 0 analytics requests; document remained loaded.");
   const afterReaccept = [];
