@@ -863,13 +863,13 @@ html body a.sticky-cta:not(.action-card):not(.result):not(.btn):not(.button):not
 @media(max-width:700px){
   .contact-actions{
     width:100%;
-    flex-direction:column;
+    flex-direction:row;
     flex-wrap:nowrap;
-    align-items:flex-start;
+    align-items:stretch;
     gap:10px;
   }
   .contact-actions > .action-card{
-    align-self:flex-start;
+    align-self:stretch;
     width:fit-content;
     min-height:68px;
     padding:10px 12px;
