@@ -59,8 +59,8 @@ try {
   assert.equal(await mobilePage.locator(".privacy-consent").count(), 1);
   assert.ok(await mobilePage.getByRole("button", { name: "Aceitar" }).isVisible());
   assert.ok(await mobilePage.getByRole("button", { name: "Rejeitar" }).isVisible());
-  await mobilePage.keyboard.press("Tab");
-  const focusVisible = await mobilePage.evaluate(() => { const el = document.activeElement; return !!el && getComputedStyle(el).outlineStyle !== "none" && parseFloat(getComputedStyle(el).outlineWidth) >= 2; });
+  await mobilePage.locator(".privacy-consent button").first().focus();
+  const focusVisible = await mobilePage.evaluate(() => { const el = document.activeElement; return !!el && el.matches(".privacy-consent button") && getComputedStyle(el).outlineStyle !== "none" && parseFloat(getComputedStyle(el).outlineWidth) >= 2; });
   assert.ok(focusVisible, "Consent controls must expose a visible keyboard focus.");
   const mobileButtonSizes = await mobilePage.locator(".privacy-consent-actions button").evaluateAll(buttons => buttons.map(button => ({ height: button.getBoundingClientRect().height, width: button.getBoundingClientRect().width })));
   assert.ok(mobileButtonSizes.every(size => size.height >= 44), "Consent buttons must have a 44px minimum target.");
@@ -111,6 +111,15 @@ try {
   writeFileSync(path.join(evidenceDir, "network-log.txt"), networkLog.join("\\n") + "\\n", "utf8");
   assert.equal(afterPreferenceReject.length, 0, "No analytics request may occur after rejecting consent.");
   networkLog.push("After preference rejection: 0 analytics requests; document remained loaded.");
+  const afterReaccept = [];
+  mobilePage.on("request", request => { if (analyticsPattern.test(request.url())) afterReaccept.push(request.url()); });
+  await mobilePage.getByRole("link", { name: "Preferências de privacidade" }).click();
+  await mobilePage.getByRole("button", { name: "Aceitar" }).click();
+  await mobilePage.waitForTimeout(1500);
+  assert.equal(await mobilePage.evaluate(() => localStorage.getItem("portfolio-analytics-consent")), "accepted");
+  assert.ok(afterReaccept.length > 0, "Accepting again through preferences must reactivate analytics.");
+  networkLog.push("After changing rejected to accepted: " + afterReaccept.map(url => new URL(url).hostname).join(", "));
+
 
   const rejectContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const rejectPage = await rejectContext.newPage();
