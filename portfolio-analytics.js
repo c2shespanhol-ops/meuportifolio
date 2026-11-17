@@ -12,6 +12,7 @@
     var provider = window.PORTFOLIO_ANALYTICS_PROVIDER;
     var ga4Id = window.PORTFOLIO_GA4_MEASUREMENT_ID;
     var counterId = window.PORTFOLIO_COUNTER_ID;
+    if (ga4Id) window["ga-disable-" + ga4Id] = false;
     if (provider === "ga4" && ga4Id) {
       var gaScript = document.createElement("script");
       gaScript.async = true;
@@ -33,5 +34,10 @@
     }
   }
   window.portfolioLoadAnalytics = loadAnalytics;
+  window.portfolioRevokeAnalytics = function () {
+    alreadyLoaded = false;
+    var ga4Id = window.PORTFOLIO_GA4_MEASUREMENT_ID;
+    if (ga4Id) window["ga-disable-" + ga4Id] = true;
+  };
   if (hasConsent()) loadAnalytics();
 })();
