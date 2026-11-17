@@ -20,7 +20,7 @@ const pages = htmlFiles.map(file => ({ file: path.relative(siteRoot, file).split
 const pagesWithConsent = pages.filter(page => /<script\b[^>]*src=["'][^"']*privacy-consent\.js(?:\?[^"']*)?["'][^>]*>/i.test(page.html));
 const pagesWithPrivacyLinks = pages.filter(page => /class=["'][^"']*privacy-footer-links[^"']*["']/i.test(page.html));
 if (pagesWithConsent.length !== htmlFiles.length) {
-  const missing = pages.filter(page => !/<script\\b[^>]*src=["'][^"']*privacy-consent\\.js(?:\\?[^"']*)?["'][^>]*>/i.test(page.html)).map(page => page.file);
+  const missing = pages.filter(page => !/<script\b[^>]*src=["'][^"']*privacy-consent\.js(?:\?[^"']*)?["'][^>]*>/i.test(page.html)).map(page => page.file);
   console.error("Pages missing privacy-consent.js:", missing.join(", "));
 }
 assert.equal(pagesWithConsent.length, htmlFiles.length, "Every HTML page must load privacy-consent.js.");
@@ -29,11 +29,11 @@ for (const page of pages) {
   const english = page.file.startsWith("en/") || /<html\b[^>]*\blang=["']en/i.test(page.html);
   assert.ok(page.html.includes(english ? "Privacy preferences" : "Preferências de privacidade"), `Missing language-specific preferences link: ${page.file}`);
   assert.ok(page.html.includes(english ? ">Privacy<" : ">Privacidade<"), `Missing language-specific privacy link: ${page.file}`);
-  const scriptMatch = page.html.match(/<script\\b[^>]*src=["']([^"']*privacy-consent\\.js(?:\\?[^"']*)?)["'][^>]*>/i);
+  const scriptMatch = page.html.match(/<script\b[^>]*src=["']([^"']*privacy-consent\.js(?:\?[^"']*)?)["'][^>]*>/i);
   assert.ok(scriptMatch, `Missing consent script: ${page.file}`);
   const scriptPath = path.posix.normalize(path.posix.join(path.posix.dirname(page.file), scriptMatch[1].split("?")[0]));
   assert.equal(scriptPath, "privacy-consent.js", `Consent script path is incorrect: ${page.file} -> ${scriptPath}`);
-  const privacyMatch = page.html.match(/<a\\b[^>]*href=["']([^"']+)["'][^>]*>\\s*(?:Privacy|Privacidade)\\s*<\\/a>/i);
+  const privacyMatch = page.html.match(/<a\b[^>]*href=["']([^"']+)["'][^>]*>\s*(?:Privacy|Privacidade)\s*<\/a>/i);
   assert.ok(privacyMatch, `Missing privacy policy destination: ${page.file}`);
   const policyPath = path.posix.normalize(path.posix.join(path.posix.dirname(page.file), privacyMatch[1].split(/[?#]/)[0]));
   assert.equal(policyPath, english ? "en/privacy.html" : "privacidade.html", `Privacy link path is incorrect: ${page.file} -> ${policyPath}`);
