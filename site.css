@@ -685,30 +685,47 @@ html body a.skip:focus-visible {
   }
 }
 
-/* 2026-11-17: compact contact buttons. High-specificity rules override
-   the global .action-card sizing without changing flex placement. */
+/* 2026-11-17: contact buttons use the same proportions as the main case/CV buttons. */
+html body .contact-box .contact-actions{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,260px)) !important;
+  justify-content:center !important;
+  justify-items:stretch !important;
+  align-items:stretch !important;
+  width:100%;
+  max-width:100%;
+  margin-inline:auto;
+  gap:16px;
+}
 html body .contact-box .contact-actions > a.action-card{
-  min-height:42px !important;
-  height:42px !important;
-  padding:8px 14px !important;
-  gap:8px !important;
-  font-size:14px !important;
+  display:flex !important;
+  width:100% !important;
+  min-width:0 !important;
+  max-width:none !important;
+  min-height:76px !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:14px 16px !important;
+  gap:10px !important;
+  font-size:16px !important;
   line-height:1.2 !important;
 }
 html body .contact-box .contact-actions > a.action-card svg{
-  width:18px !important;
-  height:18px !important;
+  width:20px !important;
+  height:20px !important;
 }
 @media(max-width:700px){
-  html body .contact-box .contact-actions > a.action-card{
-    min-height:42px !important;
-    height:42px !important;
-    padding:7px 12px !important;
-    font-size:13px !important;
-    gap:7px !important;
+  html body .contact-box .contact-actions{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    max-width:460px;
+    gap:10px;
   }
-  html body .contact-box .contact-actions > a.action-card svg{
-    width:17px !important;
-    height:17px !important;
+  html body .contact-box .contact-actions > a.action-card{
+    width:100% !important;
+    max-width:none !important;
+    min-height:68px !important;
+    padding:10px 10px !important;
+    font-size:14px !important;
+    gap:8px !important;
   }
 }
