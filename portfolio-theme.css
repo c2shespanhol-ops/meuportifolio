@@ -804,6 +804,7 @@ html{--fab-size:52px}
   box-sizing:border-box;
 }
 .to-top{bottom:calc(16px + env(safe-area-inset-bottom))}
+.sticky-cta{left:calc(16px + env(safe-area-inset-left));right:auto}
 .sticky-cta{
   position:fixed;
   display:grid;
