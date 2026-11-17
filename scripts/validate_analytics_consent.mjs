@@ -54,6 +54,17 @@ try {
   const mobileButtonSizes = await mobilePage.locator(".privacy-consent-actions button").evaluateAll(buttons => buttons.map(button => ({ height: button.getBoundingClientRect().height, width: button.getBoundingClientRect().width })));
   assert.ok(mobileButtonSizes.every(size => size.height >= 44), "Consent buttons must have a 44px minimum target.");
   assert.equal(mobileButtonSizes[0].width, mobileButtonSizes[1].width, "Accept and reject buttons must have equal visual width.");
+  const floatingOverlap = await mobilePage.evaluate(() => {
+    const banner = document.querySelector(".privacy-consent").getBoundingClientRect();
+    return [".sticky-cta", ".to-top"].map(selector => {
+      const control = document.querySelector(selector);
+      if (!control) return { selector, present: false, overlaps: false };
+      const rect = control.getBoundingClientRect();
+      return { selector, present: true, overlaps: !(rect.right <= banner.left || rect.left >= banner.right || rect.bottom <= banner.top || rect.top >= banner.bottom) };
+    });
+  });
+  assert.ok(floatingOverlap.every(item => !item.overlaps), "Floating WhatsApp and back-to-top controls must remain outside the consent banner.");
+  networkLog.push("Floating controls: no overlap with consent banner at 390px.");
   await mobilePage.screenshot({ path: path.join(evidenceDir, "consent-390.png") });
   networkLog.push("390px before consent: 0 analytics requests.");
 
@@ -75,15 +86,16 @@ try {
 
   await mobilePage.getByRole("link", { name: "Preferências de privacidade" }).click();
   assert.equal(await mobilePage.locator(".privacy-consent").count(), 1, "The footer preference link must reopen the consent panel.");
-  const afterPreferenceReject = [];
-  mobilePage.on("request", request => { if (analyticsPattern.test(request.url())) afterPreferenceReject.push(request.url()); });
   await Promise.all([
     mobilePage.waitForNavigation({ waitUntil: "domcontentloaded" }),
     mobilePage.getByRole("button", { name: "Rejeitar" }).click()
   ]);
+  const afterPreferenceReject = [];
+  mobilePage.on("request", request => { if (analyticsPattern.test(request.url())) afterPreferenceReject.push(request.url()); });
   await mobilePage.waitForTimeout(1200);
-  assert.equal(afterPreferenceReject.length, 0, "Rejecting previously accepted analytics must reload without analytics requests.");
-  networkLog.push("After changing preferences to reject and reloading: 0 analytics requests.");
+  assert.equal(await mobilePage.evaluate(() => localStorage.getItem("portfolio-analytics-consent")), "rejected", "The rejected choice must persist after reload.");
+  assert.equal(afterPreferenceReject.length, 0, "The reloaded page must not make analytics requests after rejection.");
+  networkLog.push("After changing preferences to reject and reloading: 0 analytics requests on the reloaded document.");
 
   const rejectContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const rejectPage = await rejectContext.newPage();
