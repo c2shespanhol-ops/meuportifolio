@@ -90,16 +90,16 @@ try {
   // Start observing before the click so requests during the old document's unload
   // and the subsequent navigation are included in the rejection assertion.
   mobilePage.on("request", request => { if (analyticsPattern.test(request.url())) afterPreferenceReject.push(request.url()); });
-  await Promise.all([
-    mobilePage.waitForNavigation({ waitUntil: "domcontentloaded" }),
-    mobilePage.getByRole("button", { name: "Rejeitar" }).click()
-  ]);
-  await mobilePage.waitForTimeout(1200);
-  assert.equal(await mobilePage.evaluate(() => localStorage.getItem("portfolio-analytics-consent")), "rejected", "The rejected choice must persist after reload.");
-  networkLog.push("Requests observed from rejection click through completed reload: " + JSON.stringify(afterPreferenceReject));
+  const urlBeforeReject = mobilePage.url();
+  await mobilePage.getByRole("button", { name: "Rejeitar" }).click();
+  await mobilePage.waitForTimeout(1500);
+  assert.equal(mobilePage.url(), urlBeforeReject, "Rejecting consent must not reload the document and flush pending analytics beacons.");
+  assert.equal(await mobilePage.evaluate(() => localStorage.getItem("portfolio-analytics-consent")), "rejected", "The rejected choice must persist immediately.");
+  assert.equal(await mobilePage.evaluate(() => window["ga-disable-" + window.PORTFOLIO_GA4_MEASUREMENT_ID]), true, "GA4 collection must be synchronously disabled after rejection.");
+  networkLog.push("Requests observed after preference rejection without document reload: " + JSON.stringify(afterPreferenceReject));
   writeFileSync(path.join(evidenceDir, "network-log.txt"), networkLog.join("\\n") + "\\n", "utf8");
-  assert.equal(afterPreferenceReject.length, 0, "No analytics request may occur from the rejection click through the completed reload.");
-  networkLog.push("After preference rejection: 0 analytics requests from the click through the completed reload.");
+  assert.equal(afterPreferenceReject.length, 0, "No analytics request may occur after rejecting consent.");
+  networkLog.push("After preference rejection: 0 analytics requests; document remained loaded.");
 
   const rejectContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const rejectPage = await rejectContext.newPage();
