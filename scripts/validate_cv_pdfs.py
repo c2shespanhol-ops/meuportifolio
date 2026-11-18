@@ -9,11 +9,11 @@ from pypdf import PdfReader
 ROOT = Path(sys.argv[1] if len(sys.argv) > 1 else "_site/cv")
 CHECKS = {
     "Cleyton-Hespanhol-Product-Owner-PT.pdf": [
-        "Cleyton S. Hespanhol", "Product Owner | UX", "+55 (21) 98631-4378", "SHV Energy", "71%", "Supergasbras",
+        "Cleyton S. Hespanhol", "Product Owner | UX", "+55 (21) 98631-4378", "SHV Energy", "71%", "Analista de Produtos Digitais | Product Operations", "Product Operations | Customer Experience", "Supergasbras",
         "Peixe Urbano", "Nextel", "Contax", "Maricá",
     ],
     "Cleyton-Hespanhol-Product-Owner-EN.pdf": [
-        "Cleyton S. Hespanhol", "Product Owner | UX", "+55 (21) 98631-4378", "SHV Energy", "71%", "Supergasbras",
+        "Cleyton S. Hespanhol", "Product Owner | UX", "+55 (21) 98631-4378", "SHV Energy", "71%", "Digital Product Analyst | Product Operations", "Product Operations | Customer Experience", "Supergasbras",
         "Urban Fish", "Nextel", "Contax", "Maricá",
     ],
 }
