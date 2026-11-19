@@ -457,7 +457,7 @@ try {
     }
   }
 
-  const expectedSkipPages = 18;
+  const expectedSkipPages = 22;
   if (skipPages.length !== expectedSkipPages) {
     failures.push({
       state: "skip:page-coverage",
