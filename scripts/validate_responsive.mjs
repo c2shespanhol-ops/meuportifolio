@@ -262,6 +262,10 @@ for (const entry of pages) {
         if ((!image || !image.complete || image.naturalWidth === 0) && !fallback) {
           failures.push(route + " @ " + viewport.width + "px: profile image did not load and no fallback exists");
         }
+        await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+        await page.evaluate(() => new Promise(resolve =>
+          requestAnimationFrame(() => requestAnimationFrame(resolve))
+        ));
         await page.waitForFunction(() => typeof window.portfolioOpenPrivacyPreferences === "function", null, { timeout: 5000 });
         await page.waitForTimeout(250);
         const contactAudit = await page.evaluate(() => {
