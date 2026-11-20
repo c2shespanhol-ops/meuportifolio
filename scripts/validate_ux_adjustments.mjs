@@ -142,7 +142,8 @@ for (const item of whatsappPages) {
     await page.evaluate(target => window.scrollTo({ top: target, behavior: "instant" }), scrollTarget.target);
     await page.waitForFunction(() => {
       const sticky = document.querySelector(".sticky-cta");
-      return getComputedStyle(sticky).visibility === "visible";
+      const style = getComputedStyle(sticky);
+      return style.visibility === "visible" && style.opacity === "1";
     }, null, { timeout: 10000 });
     const after = await page.locator(".sticky-cta").evaluate(el => {
       const style = getComputedStyle(el);
