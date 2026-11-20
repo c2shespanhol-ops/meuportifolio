@@ -108,6 +108,7 @@ for (const entry of pages) {
     await page.setViewportSize(viewport);
     try {
       await page.goto("http://127.0.0.1:8765" + testRoute, {waitUntil:"domcontentloaded",timeout:15000});
+      await page.waitForLoadState("load", { timeout: 15000 });
       await page.waitForFunction(() => Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
         .filter(link => link.href.startsWith(location.origin))
         .every(link => link.sheet !== null), {timeout:5000});
