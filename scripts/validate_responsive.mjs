@@ -114,6 +114,14 @@ for (const entry of pages) {
       await page.evaluate(() => new Promise(resolve =>
         requestAnimationFrame(() => requestAnimationFrame(resolve))
       ));
+      await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+      await page.evaluate(() => new Promise(resolve =>
+        requestAnimationFrame(() => requestAnimationFrame(resolve))
+      ));
+      const scrollPositionAtTop = await page.evaluate(() => window.scrollY);
+      if (scrollPositionAtTop > 2) {
+        failures.push(route + " @ " + viewport.width + "px: test setup did not reset the page to the top");
+      }
       const result = await page.evaluate(() => {
         const root = document.documentElement;
         const body = document.body;
