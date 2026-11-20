@@ -21,6 +21,7 @@ const browser = await chromium.launch({ headless: true });
 
 async function ready(page, url) {
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
+  await page.waitForLoadState("load", { timeout: 30000 });
   await page.locator(".site-header").waitFor({ state: "visible", timeout: 15000 });
   await page.evaluate(() => document.fonts?.ready ?? Promise.resolve());
   await page.evaluate(() => new Promise(resolve =>
@@ -165,6 +166,17 @@ for (const item of whatsappPages) {
     assert.equal(after.width, initial.fabSize, item.name + " " + width + "px: WhatsApp width must remain unchanged");
     assert.equal(after.height, initial.fabSize, item.name + " " + width + "px: WhatsApp height must remain unchanged");
     assert.equal(after.href, initial.href, item.name + " " + width + "px: WhatsApp link and message must remain unchanged");
+    if (item.route === "/index.html" && width === 390) {
+      const normalMotion = await page.locator(".sticky-cta").evaluate(el =>
+        getComputedStyle(el).transitionDuration.split(",").some(value => parseFloat(value) > 0)
+      );
+      assert.equal(normalMotion, true, "WhatsApp reveal must animate when reduced motion is not requested");
+      await page.emulateMedia({ reducedMotion: "reduce" });
+      const reducedMotion = await page.locator(".sticky-cta").evaluate(el =>
+        getComputedStyle(el).transitionDuration.split(",").every(value => parseFloat(value) === 0)
+      );
+      assert.equal(reducedMotion, true, "WhatsApp reveal must disable transitions for prefers-reduced-motion");
+    }
     report.whatsapp.push({ page: item.name, viewport: width, threshold: scrollTarget.threshold, maxScroll: scrollTarget.maxScroll, scrollY: scrollTarget.target, initial, after });
     await page.close();
   }
