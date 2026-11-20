@@ -15,7 +15,7 @@
       toTop.tabIndex = topVisible ? 0 : -1;
     }
     if (sticky) {
-      var documentHeight = document.documentElement.scrollHeight;
+      var documentHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
       var maxScroll = Math.max(0, documentHeight - window.innerHeight);
       var threshold = Math.min(documentHeight * 0.35, 600);
       var revealAt = maxScroll < threshold ? maxScroll : threshold;
