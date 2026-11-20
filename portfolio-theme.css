@@ -929,14 +929,12 @@ html[lang="pt-BR"] body main > .shell > nav.actions > .action-card{
   opacity:0;
   visibility:hidden;
   pointer-events:none;
-  transform:translateY(8px);
-  transition:opacity .2s ease,transform .2s ease,visibility .2s ease;
+  transition:opacity .2s ease,visibility .2s ease;
 }
 .sticky-cta.show{
   opacity:1;
   visibility:visible;
   pointer-events:auto;
-  transform:none;
 }
 .sticky-cta:hover,.sticky-cta:focus-visible{
   background:var(--whatsapp-green);
@@ -944,7 +942,7 @@ html[lang="pt-BR"] body main > .shell > nav.actions > .action-card{
   color:var(--whatsapp-icon);
 }
 @media(prefers-reduced-motion:reduce){
-  .sticky-cta{transition:none;transform:none}
+  .sticky-cta{transition:none}
 }
 
 /* UX adjustment B: compact mobile header with language control beside the brand. */
