@@ -923,9 +923,9 @@ html[lang="pt-BR"] body main > .shell > nav.actions > .action-card{
 
 /* UX adjustment A: reveal the existing WhatsApp control only after meaningful scroll. */
 .sticky-cta{
-  background:#25D366;
-  border-color:#25D366;
-  color:#fff;
+  background:var(--whatsapp-green);
+  border-color:var(--whatsapp-green);
+  color:var(--whatsapp-icon);
   opacity:0;
   visibility:hidden;
   pointer-events:none;
@@ -939,9 +939,9 @@ html[lang="pt-BR"] body main > .shell > nav.actions > .action-card{
   transform:none;
 }
 .sticky-cta:hover,.sticky-cta:focus-visible{
-  background:#25D366;
-  border-color:#25D366;
-  color:#fff;
+  background:var(--whatsapp-green);
+  border-color:var(--whatsapp-green);
+  color:var(--whatsapp-icon);
 }
 @media(prefers-reduced-motion:reduce){
   .sticky-cta{transition:none;transform:none}
