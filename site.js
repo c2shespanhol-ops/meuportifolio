@@ -9,12 +9,22 @@
   if (sticky) document.body.classList.add("has-sticky");
 
   function onScroll() {
-    if (!toTop) return;
-    var visible = window.scrollY > 700;
-    toTop.classList.toggle("show", visible);
-    toTop.tabIndex = visible ? 0 : -1;
+    if (toTop) {
+      var topVisible = window.scrollY > 700;
+      toTop.classList.toggle("show", topVisible);
+      toTop.tabIndex = topVisible ? 0 : -1;
+    }
+    if (sticky) {
+      var documentHeight = document.documentElement.scrollHeight;
+      var maxScroll = Math.max(0, documentHeight - window.innerHeight);
+      var threshold = Math.min(documentHeight * 0.35, 600);
+      var revealAt = maxScroll < threshold ? maxScroll : threshold;
+      var stickyVisible = maxScroll === 0 || window.scrollY >= revealAt;
+      sticky.classList.toggle("show", stickyVisible);
+      sticky.tabIndex = stickyVisible ? 0 : -1;
+      sticky.setAttribute("aria-hidden", stickyVisible ? "false" : "true");
+    }
   }
-
   if (toTop) {
     toTop.tabIndex = -1;
     toTop.addEventListener("click", function () {
@@ -22,11 +32,16 @@
       var skip = document.querySelector(".skip");
       if (skip) skip.focus({ preventScroll: true });
     });
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
   }
+  if (sticky) {
+    sticky.tabIndex = -1;
+    sticky.setAttribute("aria-hidden", "true");
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  onScroll();
 
-  /* O atalho do WhatsApp permanece fixo durante toda a rolagem. */
+  /* O atalho do WhatsApp aparece após o visitante avançar pela página. */
 })();
 
 /* Carrossel de cases com filtro por empresa. Sem JS, a faixa continua rolável com snap. */

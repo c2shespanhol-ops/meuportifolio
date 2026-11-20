@@ -276,6 +276,8 @@ for (const entry of pages) {
             iconHeight: Math.round(sticky.querySelector("svg")?.getBoundingClientRect().height || 0),
             opacity: style.opacity,
             visibility: style.visibility,
+            tabIndex: sticky.tabIndex,
+            ariaHidden: sticky.getAttribute("aria-hidden"),
             top: rect.top,
             radius: style.borderRadius,
             href: sticky.getAttribute("href"),
@@ -293,7 +295,7 @@ for (const entry of pages) {
             contactAudit.iconWidth !== 24 || contactAudit.iconHeight !== 24 ||
             contactAudit.background !== "rgb(37, 211, 102)" ||
             contactAudit.ariaLabel !== (route === "/index.html" ? "Conversar no WhatsApp" : "Chat on WhatsApp") ||
-            contactAudit.left < 15 || contactAudit.left > 20 || contactAudit.right < 15 || contactAudit.opacity !== "1" || contactAudit.visibility !== "visible" ||
+            contactAudit.left < 15 || contactAudit.left > 20 || contactAudit.right < 15 || contactAudit.opacity !== "0" || contactAudit.visibility !== "hidden" || contactAudit.tabIndex !== -1 || contactAudit.ariaHidden !== "true" ||
             !contactAudit.radius.includes("50%") || contactAudit.text !== "" ||
             !contactAudit.targetExists || !contactAudit.emailExists ||
             contactAudit.contactWhatsAppExists ||
@@ -301,22 +303,15 @@ for (const entry of pages) {
             /NOME|NAME/i.test(contactAudit.href)) {
           failures.push(route + " @ " + viewport.width + "px: floating WhatsApp shortcut regression " + JSON.stringify(contactAudit));
         }
-        if (viewport.width >= 960) {
-          await page.locator(".sticky-cta").hover();
-          await page.waitForTimeout(250);
-          const tooltipVisible = await page.locator(".sticky-cta").evaluate(el =>
-            getComputedStyle(el, "::after").opacity === "1" &&
-            getComputedStyle(el, "::after").visibility === "visible"
-          );
-          if (!tooltipVisible || !contactAudit.tooltip.includes("Quer conversar") && route === "/index.html") {
-            failures.push(route + " @ " + viewport.width + "px: desktop WhatsApp invitation tooltip did not appear");
-          }
-        }
         await page.mouse.move(10, 10);
         await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" }));
         await page.waitForFunction(() => {
           const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
           return Math.abs(window.scrollY - Math.max(0, maxScroll)) <= 2;
+        }, null, { timeout: 5000 });
+        await page.waitForFunction(() => {
+          const sticky = document.querySelector(".sticky-cta");
+          return sticky && getComputedStyle(sticky).visibility === "visible";
         }, null, { timeout: 5000 });
         await page.evaluate(() => new Promise(resolve =>
           requestAnimationFrame(() => requestAnimationFrame(resolve))
@@ -330,14 +325,17 @@ for (const entry of pages) {
           const topStyle = getComputedStyle(top);
           return {
             position: style.position, top: rect.top, left: Math.round(rect.left), display: style.display, visibility: style.visibility,
-            color: style.color, width: Math.round(rect.width), height: Math.round(rect.height),
+            color: style.color, opacity: style.opacity, tabIndex: sticky.tabIndex,
+            ariaHidden: sticky.getAttribute("aria-hidden"),
+            width: Math.round(rect.width), height: Math.round(rect.height),
             topButtonWidth: Math.round(topRect.width), topButtonHeight: Math.round(topRect.height),
             verticalGap: Math.round(topRect.top - rect.bottom),
             topButtonDisplay: topStyle.display
           };
         });
         if (stickyAfterScroll.position !== "fixed" || stickyAfterScroll.display === "none" ||
-            stickyAfterScroll.visibility === "hidden" ||
+            stickyAfterScroll.visibility !== "visible" || stickyAfterScroll.opacity !== "1" ||
+            stickyAfterScroll.tabIndex !== 0 || stickyAfterScroll.ariaHidden !== "false" ||
             stickyAfterScroll.left < 15 || stickyAfterScroll.left > 20 ||
             Math.abs(stickyAfterScroll.top - contactAudit.top) > 1 ||
             stickyAfterScroll.color !== "rgb(255, 255, 255)" ||
@@ -348,6 +346,17 @@ for (const entry of pages) {
             stickyAfterScroll.verticalGap !== 12 ||
             stickyAfterScroll.topButtonDisplay === "none") {
           failures.push(route + " @ " + viewport.width + "px: floating WhatsApp/top buttons geometry or icon color regression " + JSON.stringify(stickyAfterScroll));
+        }
+        if (viewport.width >= 960) {
+          await page.locator(".sticky-cta").hover();
+          await page.waitForTimeout(250);
+          const tooltipVisible = await page.locator(".sticky-cta").evaluate(el =>
+            getComputedStyle(el, "::after").opacity === "1" &&
+            getComputedStyle(el, "::after").visibility === "visible"
+          );
+          if (!tooltipVisible || !contactAudit.tooltip.includes("Quer conversar") && route === "/index.html") {
+            failures.push(route + " @ " + viewport.width + "px: desktop WhatsApp invitation tooltip did not appear");
+          }
         }
       }
     } catch (error) {
