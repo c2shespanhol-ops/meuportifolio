@@ -19,7 +19,9 @@
       var maxScroll = Math.max(0, documentHeight - window.innerHeight);
       var threshold = Math.min(documentHeight * 0.35, 600);
       var revealAt = maxScroll < threshold ? maxScroll : threshold;
-      var stickyVisible = maxScroll === 0 || window.scrollY >= revealAt;
+      var stickyVisible = maxScroll === 0
+        ? document.readyState === "complete"
+        : window.scrollY >= revealAt;
       sticky.classList.toggle("show", stickyVisible);
       sticky.tabIndex = stickyVisible ? 0 : -1;
       sticky.setAttribute("aria-hidden", stickyVisible ? "false" : "true");
@@ -39,6 +41,13 @@
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
+  if (sticky) {
+    window.addEventListener("load", onScroll, { once: true });
+    if ("ResizeObserver" in window) {
+      var layoutObserver = new ResizeObserver(onScroll);
+      layoutObserver.observe(document.documentElement);
+    }
+  }
   onScroll();
 
   /* O atalho do WhatsApp aparece após o visitante avançar pela página. */
