@@ -134,7 +134,7 @@ for (const item of whatsappPages) {
     assert.ok(initial.href.startsWith("https://wa.me/"), item.name + " " + width + "px: WhatsApp destination must remain wa.me");
 
     const scrollTarget = await page.evaluate(() => {
-      const documentHeight = document.documentElement.scrollHeight;
+      const documentHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
       const maxScroll = Math.max(0, documentHeight - innerHeight);
       const threshold = Math.min(documentHeight * 0.35, 600);
       return { maxScroll, threshold, target: maxScroll < threshold ? maxScroll : threshold };
