@@ -267,7 +267,12 @@ for (const entry of pages) {
           requestAnimationFrame(() => requestAnimationFrame(resolve))
         ));
         await page.waitForFunction(() => typeof window.portfolioOpenPrivacyPreferences === "function", null, { timeout: 5000 });
-        await page.waitForTimeout(250);
+        await page.waitForFunction(() => {
+          const sticky = document.querySelector(".sticky-cta");
+          const style = getComputedStyle(sticky);
+          return style.visibility === "hidden" && style.opacity === "0" && sticky.tabIndex === -1;
+        }, null, { timeout: 5000 });
+        await page.waitForTimeout(100);
         const contactAudit = await page.evaluate(() => {
           const sticky = document.querySelector(".sticky-cta");
           const target = document.getElementById("contato") || document.getElementById("contact");
@@ -329,7 +334,9 @@ for (const entry of pages) {
         }, null, { timeout: 5000 });
         await page.waitForFunction(() => {
           const sticky = document.querySelector(".sticky-cta");
-          return sticky && getComputedStyle(sticky).visibility === "visible";
+          if (!sticky) return false;
+          const style = getComputedStyle(sticky);
+          return style.visibility === "visible" && style.opacity === "1";
         }, null, { timeout: 5000 });
         await page.evaluate(() => new Promise(resolve =>
           requestAnimationFrame(() => requestAnimationFrame(resolve))
