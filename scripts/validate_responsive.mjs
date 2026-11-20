@@ -294,6 +294,11 @@ for (const entry of pages) {
             targetExists: !!target,
             emailExists: !!email,
             contactWhatsAppExists: !!contactWhatsApp,
+            scrollY: window.scrollY,
+            rootScrollHeight: document.documentElement.scrollHeight,
+            bodyScrollHeight: document.body.scrollHeight,
+            innerHeight: window.innerHeight,
+            stickyClass: sticky.className,
             tooltip: getComputedStyle(sticky, "::after").content
           };
         });
