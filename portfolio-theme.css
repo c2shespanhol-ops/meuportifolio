@@ -993,4 +993,33 @@ html[lang="pt-BR"] body main > .shell > nav.actions > .action-card{
   }
   .site-header .nav-links::-webkit-scrollbar{display:none}
   .site-header .nav-links a{flex:0 0 auto;min-height:44px;padding-inline:10px}
+  .site-header .nav{position:relative}
+  .site-header .case-bar{
+    display:flex;
+    flex-wrap:nowrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    min-height:44px;
+    padding-block:0;
+  }
+  .site-header .case-bar .back-link{
+    flex:1 1 auto;
+    min-width:0;
+    min-height:44px;
+    padding-inline:8px;
+    font-size:14px;
+  }
+  .site-header .case-bar .lang{
+    flex:0 0 auto;
+    min-height:44px;
+    margin:0;
+  }
+  .site-header .case-bar .lang a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:44px;
+    min-height:44px;
+  }
 }
