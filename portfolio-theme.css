@@ -608,7 +608,6 @@ html[lang="en"] .sticky-cta::after{content:"Want to talk? Click here to message 
 .sticky-cta:hover,.sticky-cta:focus-visible{
   background:var(--pbos-gold);
   color:var(--pbos-text);
-  opacity:1;
   transform:none;
 }
 .sticky-cta::after{right:62px}
