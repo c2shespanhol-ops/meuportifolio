@@ -139,7 +139,10 @@ for (const item of whatsappPages) {
       const threshold = Math.min(documentHeight * 0.35, 600);
       return { maxScroll, threshold, target: maxScroll < threshold ? maxScroll : threshold };
     });
-    await page.evaluate(target => window.scrollTo({ top: target, behavior: "instant" }), scrollTarget.target);
+    await page.evaluate(target => {
+      document.documentElement.style.scrollBehavior = "auto";
+      window.scrollTo(0, target);
+    }, scrollTarget.target);
     await page.waitForTimeout(300);
     const after = await page.locator(".sticky-cta").evaluate(el => {
       const style = getComputedStyle(el);
