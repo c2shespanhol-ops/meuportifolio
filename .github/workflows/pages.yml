@@ -27,6 +27,24 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Verify branch diff and absence of deletions
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin \
+            refs/heads/main:refs/remotes/origin/main \
+            refs/heads/feature/ajustes-3-ux:refs/remotes/origin/feature/ajustes-3-ux
+          git branch --no-track main origin/main
+          git branch --no-track feature/ajustes-3-ux origin/feature/ajustes-3-ux
+          echo "git diff --name-status main...feature/ajustes-3-ux"
+          git diff --name-status main...feature/ajustes-3-ux
+          echo "git diff --diff-filter=D --name-only main...feature/ajustes-3-ux"
+          deleted="$(git diff --diff-filter=D --name-only main...feature/ajustes-3-ux)"
+          printf '%s\n' "$deleted"
+          test -z "$deleted"
+          echo "PASS: no deleted files in feature/ajustes-3-ux."
+
       - name: Validate centralized design tokens
         run: python scripts/validate_design_tokens.py
 
@@ -162,6 +180,7 @@ jobs:
           node scripts/validate_analytics_consent.mjs
           node scripts/validate_contrast.mjs
           node scripts/validate_responsive.mjs
+          node scripts/validate_ux_adjustments.mjs
 
       - name: Upload legacy color audit evidence
         if: always()

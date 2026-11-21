@@ -14,6 +14,9 @@ async function walk(dir) {
 }
 const files = (await walk(root)).sort();
 const failures = [];
+const browserErrors = [];
+const browserConsoleErrors = [];
+const requestFailures = [];
 const pages = [];
 const contactMeasurements = [];
 const primaryMeasurements = [];
@@ -101,19 +104,46 @@ for (const [locale, url] of [
   await baselinePage.close();
 }
 
+async function waitForPageCondition(page, label, predicate) {
+  try {
+    await page.waitForFunction(predicate, null, { timeout: 5000 });
+  } catch (error) {
+    throw new Error(label + ": " + error.message);
+  }
+}
+
 for (const entry of pages) {
   const { route, testRoute } = entry;
   const page = await browser.newPage();
+  page.on("pageerror", error => browserErrors.push({ route, message: error.message }));
+  page.on("console", message => {
+    if (message.type() === "error") browserConsoleErrors.push({ route, message: message.text() });
+  });
+  page.on("requestfailed", request => requestFailures.push({ route, url: request.url(), error: request.failure()?.errorText || "unknown" }));
   for (const viewport of sizes) {
     await page.setViewportSize(viewport);
     try {
       await page.goto("http://127.0.0.1:8765" + testRoute, {waitUntil:"domcontentloaded",timeout:15000});
-      await page.waitForFunction(() => Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
-        .filter(link => link.href.startsWith(location.origin))
-        .every(link => link.sheet !== null), {timeout:5000});
+      await page.waitForLoadState("load", { timeout: 15000 });
+      await waitForPageCondition(page, "local stylesheet readiness", () =>
+        Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
+          .filter(link => link.href.startsWith(location.origin))
+          .every(link => link.sheet !== null)
+      );
       await page.evaluate(() => new Promise(resolve =>
         requestAnimationFrame(() => requestAnimationFrame(resolve))
       ));
+      await page.evaluate(() => {
+        document.documentElement.style.scrollBehavior = "auto";
+        window.scrollTo(0, 0);
+      });
+      await page.evaluate(() => new Promise(resolve =>
+        requestAnimationFrame(() => requestAnimationFrame(resolve))
+      ));
+      const scrollPositionAtTop = await page.evaluate(() => window.scrollY);
+      if (scrollPositionAtTop > 2) {
+        failures.push(route + " @ " + viewport.width + "px: test setup did not reset the page to the top");
+      }
       const result = await page.evaluate(() => {
         const root = document.documentElement;
         const body = document.body;
@@ -253,8 +283,40 @@ for (const entry of pages) {
         if ((!image || !image.complete || image.naturalWidth === 0) && !fallback) {
           failures.push(route + " @ " + viewport.width + "px: profile image did not load and no fallback exists");
         }
-        await page.waitForFunction(() => typeof window.portfolioOpenPrivacyPreferences === "function", null, { timeout: 5000 });
-        await page.waitForTimeout(250);
+        await page.evaluate(() => {
+        document.documentElement.style.scrollBehavior = "auto";
+        window.scrollTo(0, 0);
+      });
+        await page.evaluate(() => new Promise(resolve =>
+          requestAnimationFrame(() => requestAnimationFrame(resolve))
+        ));
+        try {
+          await waitForPageCondition(page, "privacy preferences API readiness", () =>
+            typeof window.portfolioOpenPrivacyPreferences === "function"
+          );
+        } catch (error) {
+          const diagnostic = await page.evaluate(() => ({
+            readyState: document.readyState,
+            consentFunction: typeof window.portfolioOpenPrivacyPreferences,
+            stickyPresent: !!document.querySelector(".sticky-cta"),
+            consentScript: Array.from(document.scripts).filter(script => script.src.includes("privacy-consent.js")).map(script => script.src),
+            consentScriptLoaded: performance.getEntriesByType("resource").some(entry => entry.name.includes("privacy-consent.js")),
+            localStylesheets: Array.from(document.querySelectorAll('link[rel="stylesheet"]')).filter(link => link.href.startsWith(location.origin)).map(link => ({ href: link.href, loaded: !!link.sheet }))
+          }));
+          throw new Error(error.message + " | diagnostic=" + JSON.stringify({ ...diagnostic, browserErrors, browserConsoleErrors, requestFailures }));
+        }
+        await waitForPageCondition(page, "WhatsApp initial visibility state", () => {
+          const sticky = document.querySelector(".sticky-cta");
+          if (!sticky) return false;
+          const style = getComputedStyle(sticky);
+          const maxScroll = Math.max(0,
+            Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - window.innerHeight
+          );
+          return maxScroll === 0
+            ? style.visibility === "visible" && style.opacity === "1" && sticky.tabIndex === 0
+            : style.visibility === "hidden" && style.opacity === "0" && sticky.tabIndex === -1;
+        });
+        await page.waitForTimeout(100);
         const contactAudit = await page.evaluate(() => {
           const sticky = document.querySelector(".sticky-cta");
           const target = document.getElementById("contato") || document.getElementById("contact");
@@ -276,6 +338,8 @@ for (const entry of pages) {
             iconHeight: Math.round(sticky.querySelector("svg")?.getBoundingClientRect().height || 0),
             opacity: style.opacity,
             visibility: style.visibility,
+            tabIndex: sticky.tabIndex,
+            ariaHidden: sticky.getAttribute("aria-hidden"),
             top: rect.top,
             radius: style.borderRadius,
             href: sticky.getAttribute("href"),
@@ -283,6 +347,12 @@ for (const entry of pages) {
             targetExists: !!target,
             emailExists: !!email,
             contactWhatsAppExists: !!contactWhatsApp,
+            scrollY: window.scrollY,
+            rootScrollHeight: document.documentElement.scrollHeight,
+            bodyScrollHeight: document.body.scrollHeight,
+            innerHeight: window.innerHeight,
+            maxScroll: Math.max(0, Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - window.innerHeight),
+            stickyClass: sticky.className,
             tooltip: getComputedStyle(sticky, "::after").content
           };
         });
@@ -293,7 +363,10 @@ for (const entry of pages) {
             contactAudit.iconWidth !== 24 || contactAudit.iconHeight !== 24 ||
             contactAudit.background !== "rgb(37, 211, 102)" ||
             contactAudit.ariaLabel !== (route === "/index.html" ? "Conversar no WhatsApp" : "Chat on WhatsApp") ||
-            contactAudit.left < 15 || contactAudit.left > 20 || contactAudit.right < 15 || contactAudit.opacity !== "1" || contactAudit.visibility !== "visible" ||
+            contactAudit.left < 15 || contactAudit.left > 20 || contactAudit.right < 15 ||
+            (contactAudit.maxScroll === 0
+              ? contactAudit.opacity !== "1" || contactAudit.visibility !== "visible" || contactAudit.tabIndex !== 0 || contactAudit.ariaHidden !== "false"
+              : contactAudit.opacity !== "0" || contactAudit.visibility !== "hidden" || contactAudit.tabIndex !== -1 || contactAudit.ariaHidden !== "true") ||
             !contactAudit.radius.includes("50%") || contactAudit.text !== "" ||
             !contactAudit.targetExists || !contactAudit.emailExists ||
             contactAudit.contactWhatsAppExists ||
@@ -301,23 +374,16 @@ for (const entry of pages) {
             /NOME|NAME/i.test(contactAudit.href)) {
           failures.push(route + " @ " + viewport.width + "px: floating WhatsApp shortcut regression " + JSON.stringify(contactAudit));
         }
-        if (viewport.width >= 960) {
-          await page.locator(".sticky-cta").hover();
-          await page.waitForTimeout(250);
-          const tooltipVisible = await page.locator(".sticky-cta").evaluate(el =>
-            getComputedStyle(el, "::after").opacity === "1" &&
-            getComputedStyle(el, "::after").visibility === "visible"
-          );
-          if (!tooltipVisible || !contactAudit.tooltip.includes("Quer conversar") && route === "/index.html") {
-            failures.push(route + " @ " + viewport.width + "px: desktop WhatsApp invitation tooltip did not appear");
-          }
-        }
         await page.mouse.move(10, 10);
-        await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" }));
-        await page.waitForFunction(() => {
-          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        await page.evaluate(() => {
+          document.documentElement.style.scrollBehavior = "auto";
+          window.scrollTo(0, Math.max(document.documentElement.scrollHeight, document.body.scrollHeight));
+        });
+        await waitForPageCondition(page, "scroll-to-bottom completion", () => {
+          const maxScroll = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - window.innerHeight;
           return Math.abs(window.scrollY - Math.max(0, maxScroll)) <= 2;
-        }, null, { timeout: 5000 });
+        });
+        await page.waitForTimeout(300);
         await page.evaluate(() => new Promise(resolve =>
           requestAnimationFrame(() => requestAnimationFrame(resolve))
         ));
@@ -330,14 +396,17 @@ for (const entry of pages) {
           const topStyle = getComputedStyle(top);
           return {
             position: style.position, top: rect.top, left: Math.round(rect.left), display: style.display, visibility: style.visibility,
-            color: style.color, width: Math.round(rect.width), height: Math.round(rect.height),
+            color: style.color, opacity: style.opacity, tabIndex: sticky.tabIndex,
+            ariaHidden: sticky.getAttribute("aria-hidden"),
+            width: Math.round(rect.width), height: Math.round(rect.height),
             topButtonWidth: Math.round(topRect.width), topButtonHeight: Math.round(topRect.height),
             verticalGap: Math.round(topRect.top - rect.bottom),
             topButtonDisplay: topStyle.display
           };
         });
         if (stickyAfterScroll.position !== "fixed" || stickyAfterScroll.display === "none" ||
-            stickyAfterScroll.visibility === "hidden" ||
+            stickyAfterScroll.visibility !== "visible" || stickyAfterScroll.opacity !== "1" ||
+            stickyAfterScroll.tabIndex !== 0 || stickyAfterScroll.ariaHidden !== "false" ||
             stickyAfterScroll.left < 15 || stickyAfterScroll.left > 20 ||
             Math.abs(stickyAfterScroll.top - contactAudit.top) > 1 ||
             stickyAfterScroll.color !== "rgb(255, 255, 255)" ||
@@ -349,9 +418,49 @@ for (const entry of pages) {
             stickyAfterScroll.topButtonDisplay === "none") {
           failures.push(route + " @ " + viewport.width + "px: floating WhatsApp/top buttons geometry or icon color regression " + JSON.stringify(stickyAfterScroll));
         }
+        if (viewport.width >= 960) {
+          await page.locator(".sticky-cta").hover();
+          await page.waitForTimeout(250);
+          const tooltipVisible = await page.locator(".sticky-cta").evaluate(el =>
+            getComputedStyle(el, "::after").opacity === "1" &&
+            getComputedStyle(el, "::after").visibility === "visible"
+          );
+          if (!tooltipVisible || !contactAudit.tooltip.includes("Quer conversar") && route === "/index.html") {
+            failures.push(route + " @ " + viewport.width + "px: desktop WhatsApp invitation tooltip did not appear");
+          }
+        }
       }
     } catch (error) {
-      failures.push(route + " @ " + viewport.width + "px: " + error.message);
+      const diagnostic = await page.evaluate(() => ({
+        readyState: document.readyState,
+        consentFunction: typeof window.portfolioOpenPrivacyPreferences,
+        stickyPresent: !!document.querySelector(".sticky-cta"),
+        scripts: Array.from(document.scripts).map(script => ({
+          src: script.src,
+          defer: script.defer,
+          async: script.async
+        })).filter(script => script.src.includes("site.js") || script.src.includes("privacy-consent.js")),
+        localStylesheets: Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
+          .filter(link => link.href.startsWith(location.origin))
+          .map(link => ({ href: link.href, loaded: !!link.sheet, media: link.media })),
+        stickyState: (() => {
+          const sticky = document.querySelector(".sticky-cta");
+          if (!sticky) return null;
+          const style = getComputedStyle(sticky);
+          return {
+            documentHeight: Math.max(document.documentElement.scrollHeight, document.body.scrollHeight),
+            maxScroll: Math.max(0, Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - innerHeight),
+            scrollY: window.scrollY,
+            visibility: style.visibility,
+            opacity: style.opacity,
+            tabIndex: sticky.tabIndex,
+            ariaHidden: sticky.getAttribute("aria-hidden"),
+            className: sticky.className
+          };
+        })()
+      })).catch(e => ({ diagnosticError: e.message }));
+      failures.push(route + " @ " + viewport.width + "px: " + error.message +
+        " | diagnostic=" + JSON.stringify({ ...diagnostic, browserErrors, browserConsoleErrors, requestFailures }));
     }
   }
   await page.close();

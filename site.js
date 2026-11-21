@@ -1,20 +1,15 @@
-/* Comportamentos mínimos: botão de voltar ao topo e CTA fixo de contato no celular. */
+/* Comportamentos mínimos: botão de voltar ao topo. */
 (function () {
   "use strict";
-
   var toTop = document.querySelector(".to-top");
-  var sticky = document.querySelector(".sticky-cta");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (sticky) document.body.classList.add("has-sticky");
 
   function onScroll() {
     if (!toTop) return;
-    var visible = window.scrollY > 700;
-    toTop.classList.toggle("show", visible);
-    toTop.tabIndex = visible ? 0 : -1;
+    var topVisible = window.scrollY > 700;
+    toTop.classList.toggle("show", topVisible);
+    toTop.tabIndex = topVisible ? 0 : -1;
   }
-
   if (toTop) {
     toTop.tabIndex = -1;
     toTop.addEventListener("click", function () {
@@ -22,11 +17,10 @@
       var skip = document.querySelector(".skip");
       if (skip) skip.focus({ preventScroll: true });
     });
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
   }
-
-  /* O atalho do WhatsApp permanece fixo durante toda a rolagem. */
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  onScroll();
 })();
 
 /* Carrossel de cases com filtro por empresa. Sem JS, a faixa continua rolável com snap. */

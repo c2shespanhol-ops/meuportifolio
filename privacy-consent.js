@@ -4,6 +4,49 @@
   var consentScript = document.currentScript;
   var policyHref = consentScript && consentScript.getAttribute("data-privacy-href");
   var english = (document.documentElement.lang || "pt-BR").toLowerCase().indexOf("en") === 0;
+  function ensureWhatsAppShortcut() {
+    var sticky = document.querySelector(".sticky-cta");
+    if (!sticky) {
+      sticky = document.createElement("a");
+      sticky.className = "sticky-cta";
+      sticky.href = english
+        ? "https://wa.me/5521986314378?text=Hello%2C%20Cleyton!%20I%27d%20like%20to%20talk%20about%20an%20opportunity.%20Can%20we%20talk%3F"
+        : "https://wa.me/5521986314378?text=Ol%C3%A1%2C%20Cleyton!%20Gostaria%20de%20conversar%20sobre%20uma%20oportunidade.%20Podemos%20falar%3F";
+      sticky.setAttribute("aria-label", english ? "Chat on WhatsApp" : "Conversar no WhatsApp");
+      sticky.title = english ? "Chat on WhatsApp" : "Conversar no WhatsApp";
+      sticky.target = "_blank";
+      sticky.rel = "noopener noreferrer";
+      sticky.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.6 6L0 24l6.3-1.7a11.8 11.8 0 0 0 5.8 1.5h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.5-8.5ZM12.1 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4a9.8 9.8 0 1 1 8.3 4.6Zm5.4-7.3c-.3-.2-1.7-.9-2-.9s-.5-.2-.7.2-.8.9-1 1.1-.4.2-.7.1a8 8 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.2-.6l.5-.6.2-.5-.1-.5-.9-2.1c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.4 1 2.8 1.1 3c.1.2 2 3.1 4.8 4.3.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4Z"/></svg>';
+      document.body.appendChild(sticky);
+    }
+    document.body.classList.add("has-sticky");
+    sticky.tabIndex = -1;
+    sticky.setAttribute("aria-hidden", "true");
+
+    function updateVisibility() {
+      var documentHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+      var maxScroll = Math.max(0, documentHeight - window.innerHeight);
+      var threshold = Math.floor(Math.min(documentHeight * 0.35, 600));
+      var revealAt = maxScroll < threshold ? maxScroll : threshold;
+      var visible = maxScroll === 0
+        ? document.readyState === "complete"
+        : window.scrollY >= revealAt;
+      sticky.classList.toggle("show", visible);
+      sticky.tabIndex = visible ? 0 : -1;
+      sticky.setAttribute("aria-hidden", visible ? "false" : "true");
+    }
+
+    window.addEventListener("scroll", updateVisibility, { passive: true });
+    window.addEventListener("resize", updateVisibility);
+    window.addEventListener("load", updateVisibility, { once: true });
+    if (typeof ResizeObserver === "function") {
+      var layoutObserver = new ResizeObserver(updateVisibility);
+      layoutObserver.observe(document.documentElement);
+    }
+    updateVisibility();
+  }
+  ensureWhatsAppShortcut();
+
   var copy = english ? {
     title: "Your privacy matters",
     body: "With your permission, this site uses Google Analytics to understand visits and improve its content. Counter.dev may be used as an alternative analytics provider. No analytics provider is loaded before you choose.",
