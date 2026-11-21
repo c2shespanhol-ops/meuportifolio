@@ -26,7 +26,7 @@
     function updateVisibility() {
       var documentHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
       var maxScroll = Math.max(0, documentHeight - window.innerHeight);
-      var threshold = Math.min(documentHeight * 0.35, 600);
+      var threshold = Math.floor(Math.min(documentHeight * 0.35, 600));
       var revealAt = maxScroll < threshold ? maxScroll : threshold;
       var visible = maxScroll === 0
         ? document.readyState === "complete"
