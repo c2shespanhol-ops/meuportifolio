@@ -104,6 +104,14 @@ for (const [locale, url] of [
   await baselinePage.close();
 }
 
+async function waitForPageCondition(page, label, predicate) {
+  try {
+    await page.waitForFunction(predicate, null, { timeout: 5000 });
+  } catch (error) {
+    throw new Error(label + ": " + error.message);
+  }
+}
+
 for (const entry of pages) {
   const { route, testRoute } = entry;
   const page = await browser.newPage();
@@ -117,9 +125,11 @@ for (const entry of pages) {
     try {
       await page.goto("http://127.0.0.1:8765" + testRoute, {waitUntil:"domcontentloaded",timeout:15000});
       await page.waitForLoadState("load", { timeout: 15000 });
-      await page.waitForFunction(() => Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
-        .filter(link => link.href.startsWith(location.origin))
-        .every(link => link.sheet !== null), {timeout:5000});
+      await waitForPageCondition(page, "local stylesheet readiness", () =>
+        Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
+          .filter(link => link.href.startsWith(location.origin))
+          .every(link => link.sheet !== null)
+      );
       await page.evaluate(() => new Promise(resolve =>
         requestAnimationFrame(() => requestAnimationFrame(resolve))
       ));
@@ -281,7 +291,9 @@ for (const entry of pages) {
           requestAnimationFrame(() => requestAnimationFrame(resolve))
         ));
         try {
-          await page.waitForFunction(() => typeof window.portfolioOpenPrivacyPreferences === "function", null, { timeout: 5000 });
+          await waitForPageCondition(page, "privacy preferences API readiness", () =>
+            typeof window.portfolioOpenPrivacyPreferences === "function"
+          );
         } catch (error) {
           const diagnostic = await page.evaluate(() => ({
             readyState: document.readyState,
@@ -357,10 +369,10 @@ for (const entry of pages) {
           document.documentElement.style.scrollBehavior = "auto";
           window.scrollTo(0, Math.max(document.documentElement.scrollHeight, document.body.scrollHeight));
         });
-        await page.waitForFunction(() => {
+        await waitForPageCondition(page, "scroll-to-bottom completion", () => {
           const maxScroll = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - window.innerHeight;
           return Math.abs(window.scrollY - Math.max(0, maxScroll)) <= 2;
-        }, null, { timeout: 5000 });
+        });
         await page.waitForTimeout(300);
         await page.evaluate(() => new Promise(resolve =>
           requestAnimationFrame(() => requestAnimationFrame(resolve))
