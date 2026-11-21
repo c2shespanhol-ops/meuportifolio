@@ -1010,6 +1010,11 @@ html[lang="pt-BR"] body main > .shell > nav.actions > .action-card{
     font-size:14px;
   }
   .site-header .case-bar .lang{
+    position:static;
+    top:auto;
+    right:auto;
+    transform:none;
+    padding:0;
     flex:0 0 auto;
     min-height:44px;
     margin:0;
