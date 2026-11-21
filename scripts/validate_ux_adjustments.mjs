@@ -140,11 +140,7 @@ for (const item of whatsappPages) {
       return { maxScroll, threshold, target: maxScroll < threshold ? maxScroll : threshold };
     });
     await page.evaluate(target => window.scrollTo({ top: target, behavior: "instant" }), scrollTarget.target);
-    await page.waitForFunction(() => {
-      const sticky = document.querySelector(".sticky-cta");
-      const style = getComputedStyle(sticky);
-      return style.visibility === "visible" && style.opacity === "1";
-    }, null, { timeout: 10000 });
+    await page.waitForTimeout(300);
     const after = await page.locator(".sticky-cta").evaluate(el => {
       const style = getComputedStyle(el);
       const rect = el.getBoundingClientRect();
