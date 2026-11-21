@@ -1,10 +1,11 @@
 import assert from "node:assert/strict";
 import { chromium } from "playwright";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const BASE = "https://c2shespanhol-ops.github.io/meuportifolio";
 const LOCAL = "http://127.0.0.1:8765";
+const ROOT = path.resolve("_site");
 const OUT = path.resolve("artifacts/responsive-audit/ux-adjustments");
 const BEFORE = path.join(OUT, "before");
 const AFTER = path.join(OUT, "after");
@@ -29,6 +30,35 @@ const report = {
   ],
   privacy: { headerAdjustment: false, reason: "As páginas de privacidade não possuem cabeçalho de marca nem seletor PT | EN no cabeçalho. Não foi criado um cabeçalho novo nem alterado o conteúdo." }
 };
+async function walkHtml(dir) {
+  const entries = await readdir(dir, { withFileTypes: true });
+  const nested = await Promise.all(entries.map(async entry => {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) return walkHtml(full);
+    return entry.isFile() && entry.name.toLowerCase().endsWith(".html") ? [full] : [];
+  }));
+  return nested.flat();
+}
+const allHtml = await walkHtml(ROOT);
+const scopedHtml = allHtml.filter(file => {
+  const route = path.relative(ROOT, file).split(path.sep).join("/");
+  return route === "index.html" || route === "en/index.html" ||
+    route === "privacidade.html" || route === "en/privacy.html" ||
+    /^projeto-[^/]+\\.html$/.test(route) || /^en\\/project-[^/]+\\.html$/.test(route) ||
+    /^case_study_[^/]+\\.html$/.test(route) || /^case\\d{2}_[^/]+\\.html$/.test(route) ||
+    /^en\\/cases\\/[^/]+\\.html$/.test(route);
+});
+for (const file of scopedHtml) {
+  const html = await readFile(file, "utf8");
+  const route = path.relative(ROOT, file).split(path.sep).join("/");
+  assert.match(html, /portfolio-theme\\.css/, route + ": shared theme stylesheet must be present");
+  assert.match(html, /privacy-consent\\.js/, route + ": shared bootstrap must load the WhatsApp behavior");
+}
+report.coverage = {
+  totalPages: scopedHtml.length,
+  routes: scopedHtml.map(file => path.relative(ROOT, file).split(path.sep).join("/"))
+};
+
 const browser = await chromium.launch({ headless: true });
 
 async function ready(page, url, expectSticky = false) {
