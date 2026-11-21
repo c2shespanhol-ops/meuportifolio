@@ -158,8 +158,6 @@ for (const item of headerCases) {
     assert.ok(Math.abs(headerAudit.langTop - headerAudit.backTop) <= 4, item.family + ": language selector must align with the back link");
     assert.ok(afterHeight <= 60, item.family + ": compact case header must be at most 60px high");
   }
-  const reduction = beforeHeight - afterHeight;
-  report.headers.push({ page: item.family, viewport: 390, beforeHeight, afterHeight, reduction, ...headerAudit });
   const reduction = beforeHeight === null ? null : beforeHeight - afterHeight;
   report.headers.push({
     page: item.family,
