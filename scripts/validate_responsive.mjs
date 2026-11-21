@@ -305,11 +305,17 @@ for (const entry of pages) {
           }));
           throw new Error(error.message + " | diagnostic=" + JSON.stringify({ ...diagnostic, browserErrors, browserConsoleErrors, requestFailures }));
         }
-        await page.waitForFunction(() => {
+        await waitForPageCondition(page, "WhatsApp initial visibility state", () => {
           const sticky = document.querySelector(".sticky-cta");
+          if (!sticky) return false;
           const style = getComputedStyle(sticky);
-          return style.visibility === "hidden" && style.opacity === "0" && sticky.tabIndex === -1;
-        }, null, { timeout: 5000 });
+          const maxScroll = Math.max(0,
+            Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - window.innerHeight
+          );
+          return maxScroll === 0
+            ? style.visibility === "visible" && style.opacity === "1" && sticky.tabIndex === 0
+            : style.visibility === "hidden" && style.opacity === "0" && sticky.tabIndex === -1;
+        });
         await page.waitForTimeout(100);
         const contactAudit = await page.evaluate(() => {
           const sticky = document.querySelector(".sticky-cta");
@@ -345,6 +351,7 @@ for (const entry of pages) {
             rootScrollHeight: document.documentElement.scrollHeight,
             bodyScrollHeight: document.body.scrollHeight,
             innerHeight: window.innerHeight,
+            maxScroll: Math.max(0, Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - window.innerHeight),
             stickyClass: sticky.className,
             tooltip: getComputedStyle(sticky, "::after").content
           };
@@ -356,7 +363,10 @@ for (const entry of pages) {
             contactAudit.iconWidth !== 24 || contactAudit.iconHeight !== 24 ||
             contactAudit.background !== "rgb(37, 211, 102)" ||
             contactAudit.ariaLabel !== (route === "/index.html" ? "Conversar no WhatsApp" : "Chat on WhatsApp") ||
-            contactAudit.left < 15 || contactAudit.left > 20 || contactAudit.right < 15 || contactAudit.opacity !== "0" || contactAudit.visibility !== "hidden" || contactAudit.tabIndex !== -1 || contactAudit.ariaHidden !== "true" ||
+            contactAudit.left < 15 || contactAudit.left > 20 || contactAudit.right < 15 ||
+            (contactAudit.maxScroll === 0
+              ? contactAudit.opacity !== "1" || contactAudit.visibility !== "visible" || contactAudit.tabIndex !== 0 || contactAudit.ariaHidden !== "false"
+              : contactAudit.opacity !== "0" || contactAudit.visibility !== "hidden" || contactAudit.tabIndex !== -1 || contactAudit.ariaHidden !== "true") ||
             !contactAudit.radius.includes("50%") || contactAudit.text !== "" ||
             !contactAudit.targetExists || !contactAudit.emailExists ||
             contactAudit.contactWhatsAppExists ||
