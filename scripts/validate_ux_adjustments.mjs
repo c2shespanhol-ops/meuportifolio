@@ -17,8 +17,8 @@ const headerCases = [
   { id: "home-en", family: "home EN", before: BASE + "/en/", after: LOCAL + "/en/index.html", kind: "brand" },
   { id: "case-pt", family: "case PT", before: BASE + "/case_study_02_leadtime_final.html", after: LOCAL + "/case_study_02_leadtime_final.html", kind: "case-bar" },
   { id: "case-en", family: "case EN", before: BASE + "/en/cases/case-02-lead-time-governance.html", after: LOCAL + "/en/cases/case-02-lead-time-governance.html", kind: "case-bar" },
-  { id: "project-pt", family: "project PT", before: BASE + "/projeto-assistente-virtual.html", after: LOCAL + "/projeto-assistente-virtual.html", kind: "case-bar" },
-  { id: "project-en", family: "project EN", before: BASE + "/en/project-virtual-assistant.html", after: LOCAL + "/en/project-virtual-assistant.html", kind: "case-bar" }
+  { id: "project-pt", family: "project PT", before: BASE + "/projeto-assistente-virtual.html", after: LOCAL + "/projeto-assistente-virtual.html", kind: "brand" },
+  { id: "project-en", family: "project EN", before: BASE + "/en/project-virtual-assistant.html", after: LOCAL + "/en/project-virtual-assistant.html", kind: "brand" }
 ];
 const report = {
   whatsapp: [],
