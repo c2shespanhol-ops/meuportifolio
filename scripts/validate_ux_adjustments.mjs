@@ -42,17 +42,18 @@ async function walkHtml(dir) {
 const allHtml = await walkHtml(ROOT);
 const scopedHtml = allHtml.filter(file => {
   const route = path.relative(ROOT, file).split(path.sep).join("/");
+  const isProject = (route.startsWith("projeto-") || route.startsWith("en/project-")) && route.endsWith(".html");
+  const isPortugueseCase = route.startsWith("case_study_") || /^case[0-9]{2}_/.test(route);
+  const isEnglishCase = route.startsWith("en/cases/") && route.endsWith(".html");
   return route === "index.html" || route === "en/index.html" ||
     route === "privacidade.html" || route === "en/privacy.html" ||
-    /^projeto-[^/]+\\.html$/.test(route) || /^en\\/project-[^/]+\\.html$/.test(route) ||
-    /^case_study_[^/]+\\.html$/.test(route) || /^case\\d{2}_[^/]+\\.html$/.test(route) ||
-    /^en\\/cases\\/[^/]+\\.html$/.test(route);
+    isProject || isPortugueseCase || isEnglishCase;
 });
 for (const file of scopedHtml) {
   const html = await readFile(file, "utf8");
   const route = path.relative(ROOT, file).split(path.sep).join("/");
-  assert.match(html, /portfolio-theme\\.css/, route + ": shared theme stylesheet must be present");
-  assert.match(html, /privacy-consent\\.js/, route + ": shared bootstrap must load the WhatsApp behavior");
+  assert.ok(html.includes("portfolio-theme.css"), route + ": shared theme stylesheet must be present");
+  assert.ok(html.includes("privacy-consent.js"), route + ": shared bootstrap must load the WhatsApp behavior");
 }
 report.coverage = {
   totalPages: scopedHtml.length,
