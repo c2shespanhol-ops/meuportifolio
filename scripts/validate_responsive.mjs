@@ -442,7 +442,22 @@ for (const entry of pages) {
         })).filter(script => script.src.includes("site.js") || script.src.includes("privacy-consent.js")),
         localStylesheets: Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
           .filter(link => link.href.startsWith(location.origin))
-          .map(link => ({ href: link.href, loaded: !!link.sheet, media: link.media }))
+          .map(link => ({ href: link.href, loaded: !!link.sheet, media: link.media })),
+        stickyState: (() => {
+          const sticky = document.querySelector(".sticky-cta");
+          if (!sticky) return null;
+          const style = getComputedStyle(sticky);
+          return {
+            documentHeight: Math.max(document.documentElement.scrollHeight, document.body.scrollHeight),
+            maxScroll: Math.max(0, Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - innerHeight),
+            scrollY: window.scrollY,
+            visibility: style.visibility,
+            opacity: style.opacity,
+            tabIndex: sticky.tabIndex,
+            ariaHidden: sticky.getAttribute("aria-hidden"),
+            className: sticky.className
+          };
+        })()
       })).catch(e => ({ diagnosticError: e.message }));
       failures.push(route + " @ " + viewport.width + "px: " + error.message +
         " | diagnostic=" + JSON.stringify({ ...diagnostic, browserErrors, browserConsoleErrors, requestFailures }));
