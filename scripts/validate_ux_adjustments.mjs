@@ -229,10 +229,36 @@ for (const item of whatsappPages) {
         document.documentElement.style.scrollBehavior = "auto";
         window.scrollTo(0, target);
       }, scrollTarget.target);
-      await page.waitForFunction(() => {
-        const el = document.querySelector(".sticky-cta");
-        return el && getComputedStyle(el).visibility === "visible" && getComputedStyle(el).opacity === "1";
-      }, null, { timeout: 5000 });
+      try {
+        await page.waitForFunction(() => {
+          const el = document.querySelector(".sticky-cta");
+          return el && getComputedStyle(el).visibility === "visible" && getComputedStyle(el).opacity === "1";
+        }, null, { timeout: 5000 });
+      } catch (error) {
+        const diagnostic = await page.evaluate(({ name, width, scrollTarget }) => {
+          const el = document.querySelector(".sticky-cta");
+          const style = el ? getComputedStyle(el) : null;
+          return {
+            page: name,
+            width,
+            scrollTarget,
+            scrollY: window.scrollY,
+            innerHeight: window.innerHeight,
+            stickyCta: el ? {
+              visibility: style.visibility,
+              opacity: style.opacity,
+              className: el.className,
+              tabIndex: el.tabIndex,
+              ariaHidden: el.getAttribute("aria-hidden"),
+              matchesHover: el.matches(":hover")
+            } : null
+          };
+        }, { name: item.name, width, scrollTarget });
+        throw new Error(
+          "Sticky CTA visibility wait failed: " + JSON.stringify(diagnostic) +
+          "; original error: " + (error?.message ?? String(error))
+        );
+      }
     }
     const after = await page.locator(".sticky-cta").evaluate(el => {
       const style = getComputedStyle(el);
