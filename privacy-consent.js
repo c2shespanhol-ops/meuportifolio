@@ -3,6 +3,12 @@
   var key = "portfolio-analytics-consent";
   var consentScript = document.currentScript;
   var policyHref = consentScript && consentScript.getAttribute("data-privacy-href");
+  if (!document.querySelector('script[src*="site.js"]') && consentScript && consentScript.src) {
+    var sharedSiteScript = document.createElement("script");
+    sharedSiteScript.src = new URL("site.js", consentScript.src).href;
+    sharedSiteScript.async = false;
+    document.head.appendChild(sharedSiteScript);
+  }
   var english = (document.documentElement.lang || "pt-BR").toLowerCase().indexOf("en") === 0;
   var copy = english ? {
     title: "Your privacy matters",
