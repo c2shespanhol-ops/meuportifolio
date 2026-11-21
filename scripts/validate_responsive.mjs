@@ -409,7 +409,21 @@ for (const entry of pages) {
         }
       }
     } catch (error) {
-      failures.push(route + " @ " + viewport.width + "px: " + error.message);
+      const diagnostic = await page.evaluate(() => ({
+        readyState: document.readyState,
+        consentFunction: typeof window.portfolioOpenPrivacyPreferences,
+        stickyPresent: !!document.querySelector(".sticky-cta"),
+        scripts: Array.from(document.scripts).map(script => ({
+          src: script.src,
+          defer: script.defer,
+          async: script.async
+        })).filter(script => script.src.includes("site.js") || script.src.includes("privacy-consent.js")),
+        localStylesheets: Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
+          .filter(link => link.href.startsWith(location.origin))
+          .map(link => ({ href: link.href, loaded: !!link.sheet, media: link.media }))
+      })).catch(e => ({ diagnosticError: e.message }));
+      failures.push(route + " @ " + viewport.width + "px: " + error.message +
+        " | diagnostic=" + JSON.stringify({ ...diagnostic, browserErrors, browserConsoleErrors, requestFailures }));
     }
   }
   await page.close();
