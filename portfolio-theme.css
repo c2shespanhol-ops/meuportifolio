@@ -973,6 +973,7 @@ html[lang="pt-BR"] body main > .shell > nav.actions > .action-card{
     z-index:2;
     margin:0;
     transform:none;
+    padding:0;
   }
   .site-header .lang a{min-width:44px;min-height:44px;padding-inline:8px}
   .site-header .nav-links{

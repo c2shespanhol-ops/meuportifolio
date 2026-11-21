@@ -174,6 +174,61 @@ for (const item of headerCases) {
   await afterWide.close();
 }
 
+
+const headerOverlapCases = headerCases.filter(item => item.kind === "brand");
+for (const item of headerOverlapCases) {
+  for (const width of [360, 390, 430]) {
+    const page = await browser.newPage({ viewport: { width, height: 844 } });
+    await ready(page, item.after, true);
+    const overlapAudit = await page.evaluate(() => {
+      const lang = document.querySelector(".site-header .lang");
+      const langRect = lang?.getBoundingClientRect();
+      const links = Array.from(document.querySelectorAll(".site-header .nav-links a"))
+        .filter(link => !link.closest(".lang"));
+      const overlaps = links.flatMap(link => {
+        const rect = link.getBoundingClientRect();
+        const overlapsLang = !!langRect &&
+          rect.right > langRect.left &&
+          rect.left < langRect.right &&
+          rect.bottom > langRect.top &&
+          rect.top < langRect.bottom;
+        return overlapsLang ? [{
+          text: link.textContent.trim(),
+          href: link.getAttribute("href"),
+          linkRect: {
+            top: rect.top, right: rect.right, bottom: rect.bottom, left: rect.left
+          },
+          langRect: {
+            top: langRect.top, right: langRect.right, bottom: langRect.bottom, left: langRect.left
+          }
+        }] : [];
+      });
+      return {
+        langFound: !!lang,
+        navLinkCount: links.length,
+        overlaps,
+        documentWidth: document.documentElement.clientWidth,
+        documentScrollWidth: document.documentElement.scrollWidth
+      };
+    });
+    assert.equal(overlapAudit.langFound, true, item.family + " " + width + "px: language switcher must exist");
+    assert.ok(overlapAudit.navLinkCount > 0, item.family + " " + width + "px: navigation links must exist");
+    assert.equal(
+      overlapAudit.overlaps.length,
+      0,
+      item.family + " " + width + "px: navigation links must not overlap the language switcher: " +
+        JSON.stringify(overlapAudit.overlaps)
+    );
+    assert.ok(
+      overlapAudit.documentScrollWidth <= overlapAudit.documentWidth,
+      item.family + " " + width + "px: page must not overflow horizontally"
+    );
+    report.headerOverlap ??= [];
+    report.headerOverlap.push({ page: item.family, viewport: width, ...overlapAudit });
+    await page.close();
+  }
+}
+
 const whatsappPages = [
   { route: "/index.html", name: "home PT" },
   { route: "/en/index.html", name: "home EN" },
