@@ -14,6 +14,9 @@ async function walk(dir) {
 }
 const files = (await walk(root)).sort();
 const failures = [];
+const browserErrors = [];
+const browserConsoleErrors = [];
+const requestFailures = [];
 const pages = [];
 const contactMeasurements = [];
 const primaryMeasurements = [];
@@ -104,6 +107,11 @@ for (const [locale, url] of [
 for (const entry of pages) {
   const { route, testRoute } = entry;
   const page = await browser.newPage();
+  page.on("pageerror", error => browserErrors.push({ route, message: error.message }));
+  page.on("console", message => {
+    if (message.type() === "error") browserConsoleErrors.push({ route, message: message.text() });
+  });
+  page.on("requestfailed", request => requestFailures.push({ route, url: request.url(), error: request.failure()?.errorText || "unknown" }));
   for (const viewport of sizes) {
     await page.setViewportSize(viewport);
     try {
@@ -272,7 +280,19 @@ for (const entry of pages) {
         await page.evaluate(() => new Promise(resolve =>
           requestAnimationFrame(() => requestAnimationFrame(resolve))
         ));
-        await page.waitForFunction(() => typeof window.portfolioOpenPrivacyPreferences === "function", null, { timeout: 5000 });
+        try {
+          await page.waitForFunction(() => typeof window.portfolioOpenPrivacyPreferences === "function", null, { timeout: 5000 });
+        } catch (error) {
+          const diagnostic = await page.evaluate(() => ({
+            readyState: document.readyState,
+            consentFunction: typeof window.portfolioOpenPrivacyPreferences,
+            stickyPresent: !!document.querySelector(".sticky-cta"),
+            consentScript: Array.from(document.scripts).filter(script => script.src.includes("privacy-consent.js")).map(script => script.src),
+            consentScriptLoaded: performance.getEntriesByType("resource").some(entry => entry.name.includes("privacy-consent.js")),
+            localStylesheets: Array.from(document.querySelectorAll('link[rel="stylesheet"]')).filter(link => link.href.startsWith(location.origin)).map(link => ({ href: link.href, loaded: !!link.sheet }))
+          }));
+          throw new Error(error.message + " | diagnostic=" + JSON.stringify({ ...diagnostic, browserErrors, browserConsoleErrors, requestFailures }));
+        }
         await page.waitForFunction(() => {
           const sticky = document.querySelector(".sticky-cta");
           const style = getComputedStyle(sticky);
