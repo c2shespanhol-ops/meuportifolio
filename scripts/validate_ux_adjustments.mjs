@@ -31,10 +31,12 @@ const report = {
 };
 const browser = await chromium.launch({ headless: true });
 
-async function ready(page, url) {
+async function ready(page, url, expectSticky = false) {
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
   await page.waitForLoadState("load", { timeout: 30000 });
-  await page.waitForFunction(() => !!document.querySelector(".sticky-cta"), null, { timeout: 15000 });
+  if (expectSticky) {
+    await page.waitForFunction(() => !!document.querySelector(".sticky-cta"), null, { timeout: 15000 });
+  }
   await page.evaluate(() => document.fonts?.ready ?? Promise.resolve());
   await page.evaluate(() => new Promise(resolve =>
     requestAnimationFrame(() => requestAnimationFrame(resolve))
@@ -63,7 +65,7 @@ for (const item of headerCases) {
   await beforePage.close();
 
   const afterPage = await browser.newPage({ viewport: { width: 390, height: 844 } });
-  await ready(afterPage, item.after);
+  await ready(afterPage, item.after, true);
   const afterHeight = await afterPage.locator(headerSelector).evaluate(el => Math.round(el.getBoundingClientRect().height));
   await captureHeader(afterPage, item.id, "after", item.id === "home-pt" || item.id === "project-pt");
 
@@ -134,7 +136,7 @@ for (const item of headerCases) {
   const beforeWideHeight = await beforeWide.locator(headerSelector).evaluate(el => Math.round(el.getBoundingClientRect().height));
   await beforeWide.close();
   const afterWide = await browser.newPage({ viewport: { width: 1280, height: 900 } });
-  await ready(afterWide, item.after);
+  await ready(afterWide, item.after, true);
   const afterWideHeight = await afterWide.locator(headerSelector).evaluate(el => Math.round(el.getBoundingClientRect().height));
   assert.ok(Math.abs(beforeWideHeight - afterWideHeight) <= 1, item.family + ": header at 1280px must remain unchanged");
   report.headers.push({ page: item.family, viewport: 1280, beforeHeight: beforeWideHeight, afterHeight: afterWideHeight, reduction: beforeWideHeight - afterWideHeight });
@@ -154,7 +156,7 @@ const whatsappPages = [
 for (const item of whatsappPages) {
   for (const width of [390, 1280]) {
     const page = await browser.newPage({ viewport: { width, height: width === 390 ? 844 : 900 } });
-    await ready(page, LOCAL + item.route);
+    await ready(page, LOCAL + item.route, true);
     const scrollTarget = await page.evaluate(() => {
       const documentHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
       const maxScroll = Math.max(0, documentHeight - innerHeight);
@@ -255,7 +257,7 @@ const projectPages = [
 ];
 for (const [route, id, heading, allLabel] of projectPages) {
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
-  await ready(page, LOCAL + "/" + route);
+  await ready(page, LOCAL + "/" + route, true);
   const audit = await page.evaluate(({ id, heading, allLabel }) => {
     const main = document.querySelector("main");
     const section = main.querySelector('[aria-labelledby="' + id + '"]');
