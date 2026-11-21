@@ -39,7 +39,7 @@
     window.addEventListener("scroll", updateVisibility, { passive: true });
     window.addEventListener("resize", updateVisibility);
     window.addEventListener("load", updateVisibility, { once: true });
-    if ("ResizeObserver" in window) {
+    if (typeof ResizeObserver === "function") {
       var layoutObserver = new ResizeObserver(updateVisibility);
       layoutObserver.observe(document.documentElement);
     }
