@@ -115,7 +115,10 @@ for (const entry of pages) {
       await page.evaluate(() => new Promise(resolve =>
         requestAnimationFrame(() => requestAnimationFrame(resolve))
       ));
-      await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+      await page.evaluate(() => {
+        document.documentElement.style.scrollBehavior = "auto";
+        window.scrollTo(0, 0);
+      });
       await page.evaluate(() => new Promise(resolve =>
         requestAnimationFrame(() => requestAnimationFrame(resolve))
       ));
@@ -262,7 +265,10 @@ for (const entry of pages) {
         if ((!image || !image.complete || image.naturalWidth === 0) && !fallback) {
           failures.push(route + " @ " + viewport.width + "px: profile image did not load and no fallback exists");
         }
-        await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+        await page.evaluate(() => {
+        document.documentElement.style.scrollBehavior = "auto";
+        window.scrollTo(0, 0);
+      });
         await page.evaluate(() => new Promise(resolve =>
           requestAnimationFrame(() => requestAnimationFrame(resolve))
         ));
@@ -327,9 +333,12 @@ for (const entry of pages) {
           failures.push(route + " @ " + viewport.width + "px: floating WhatsApp shortcut regression " + JSON.stringify(contactAudit));
         }
         await page.mouse.move(10, 10);
-        await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" }));
+        await page.evaluate(() => {
+          document.documentElement.style.scrollBehavior = "auto";
+          window.scrollTo(0, Math.max(document.documentElement.scrollHeight, document.body.scrollHeight));
+        });
         await page.waitForFunction(() => {
-          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          const maxScroll = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - window.innerHeight;
           return Math.abs(window.scrollY - Math.max(0, maxScroll)) <= 2;
         }, null, { timeout: 5000 });
         await page.waitForTimeout(300);
