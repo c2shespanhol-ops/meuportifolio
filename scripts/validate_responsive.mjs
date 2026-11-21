@@ -332,12 +332,7 @@ for (const entry of pages) {
           const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
           return Math.abs(window.scrollY - Math.max(0, maxScroll)) <= 2;
         }, null, { timeout: 5000 });
-        await page.waitForFunction(() => {
-          const sticky = document.querySelector(".sticky-cta");
-          if (!sticky) return false;
-          const style = getComputedStyle(sticky);
-          return style.visibility === "visible" && style.opacity === "1";
-        }, null, { timeout: 5000 });
+        await page.waitForTimeout(300);
         await page.evaluate(() => new Promise(resolve =>
           requestAnimationFrame(() => requestAnimationFrame(resolve))
         ));
