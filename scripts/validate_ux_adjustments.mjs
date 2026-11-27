@@ -297,11 +297,20 @@ for (const item of whatsappPages) {
     assert.equal(initial.height, initial.fabSize, item.name + " " + width + "px: WhatsApp height must remain --fab-size");
     assert.ok(initial.href.startsWith("https://wa.me/"), item.name + " " + width + "px: WhatsApp destination must remain wa.me");
 
+    const readingZone = scrollTarget.maxScroll - scrollTarget.target > 400;
     if (scrollTarget.maxScroll > 0) {
       await page.evaluate(target => {
         document.documentElement.style.scrollBehavior = "auto";
         window.scrollTo(0, target);
       }, scrollTarget.target);
+      if (readingZone) {
+        await page.waitForTimeout(500);
+        const whileReading = await page.locator(".sticky-cta").evaluate(el => getComputedStyle(el).visibility);
+        assert.equal(whileReading, "hidden", item.name + " " + width + "px: WhatsApp must stay hidden while the visitor scrolls down to read");
+        await page.evaluate(target => window.scrollTo(0, target + 200), scrollTarget.target);
+        await page.waitForTimeout(150);
+        await page.evaluate(target => window.scrollTo(0, target + 100), scrollTarget.target);
+      }
       try {
         await page.waitForFunction(() => {
           const el = document.querySelector(".sticky-cta");
@@ -332,6 +341,13 @@ for (const item of whatsappPages) {
           "; original error: " + (error?.message ?? String(error))
         );
       }
+    }
+    if (readingZone) {
+      await page.evaluate(maxScroll => window.scrollTo(0, maxScroll), scrollTarget.maxScroll);
+      await page.waitForFunction(() => {
+        const el = document.querySelector(".sticky-cta");
+        return el && getComputedStyle(el).visibility === "visible" && getComputedStyle(el).opacity === "1";
+      }, null, { timeout: 5000 });
     }
     const after = await page.locator(".sticky-cta").evaluate(el => {
       const style = getComputedStyle(el);

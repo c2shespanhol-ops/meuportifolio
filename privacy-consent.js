@@ -23,14 +23,24 @@
     sticky.tabIndex = -1;
     sticky.setAttribute("aria-hidden", "true");
 
+    var lastScrollY = window.scrollY;
+    var scrollingUp = false;
+
     function updateVisibility() {
       var documentHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
       var maxScroll = Math.max(0, documentHeight - window.innerHeight);
       var threshold = Math.floor(Math.min(documentHeight * 0.35, 600));
       var revealAt = maxScroll < threshold ? maxScroll : threshold;
+      var currentY = window.scrollY;
+      if (Math.abs(currentY - lastScrollY) >= 6) {
+        scrollingUp = currentY < lastScrollY;
+        lastScrollY = currentY;
+      }
+      var nearEnd = currentY >= maxScroll - 400;
+      var hasFocus = document.activeElement === sticky;
       var visible = maxScroll === 0
         ? document.readyState === "complete"
-        : window.scrollY >= revealAt;
+        : currentY >= revealAt && (scrollingUp || nearEnd || hasFocus);
       sticky.classList.toggle("show", visible);
       sticky.tabIndex = visible ? 0 : -1;
       sticky.setAttribute("aria-hidden", visible ? "false" : "true");
