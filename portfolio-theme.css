@@ -1028,3 +1028,4 @@ html[lang="pt-BR"] body main > .shell > nav.actions > .action-card{
     min-height:44px;
   }
 }
+.site-footer{padding-bottom:calc(var(--fab-size) * 2 + 48px + env(safe-area-inset-bottom))}
